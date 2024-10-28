@@ -29,7 +29,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfBlastWave;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Music;
@@ -134,7 +134,9 @@ public class YetAnotherPixelDungeon extends Game {
 	@Override
 	protected void onCreate( Bundle savedInstanceState ) {
 		super.onCreate( savedInstanceState );
-		
+
+		Ml.initialize();
+
 		updateImmersiveMode();
 		
 		DisplayMetrics metrics = new DisplayMetrics();
@@ -288,7 +290,7 @@ public class YetAnotherPixelDungeon extends Game {
 	public static boolean immersed() {
 		return Preferences.INSTANCE.getBoolean( Preferences.KEY_IMMERSIVE, false );
 	}
-	
+
 	// *****************************
 	
 	public static void scaleUp( boolean value ) {

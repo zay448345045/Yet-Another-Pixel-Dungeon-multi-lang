@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.consideredhamster.yetanotherpixeldungeon.Difficulties;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Game;
@@ -52,8 +53,8 @@ public class StartScene extends PixelScene {
 	private static final float BUTTON_HEIGHT	= 24;
 	private static final float GAP				= 2;
 	
-	private static final String TXT_LOAD	= "Load Game";
-	private static final String TXT_NEW		= "New Game";
+	private static final String TXT_LOAD	= Ml.g("welcome_message", "1");
+	private static final String TXT_NEW		= Ml.g("welcome_message", "2");
 	
 	private static final String TXT_ERASE		= "Erase current game";
 	private static final String TXT_DPTH_LVL	= "Depth: %d, level: %d";

@@ -3,7 +3,7 @@ android {
     compileSdkVersion 33
     buildToolsVersion '30.0.3'
     defaultConfig {
-        minSdkVersion 8
+        minSdkVersion 19
     }
 }
 

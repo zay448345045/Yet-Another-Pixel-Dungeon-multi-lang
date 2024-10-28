@@ -1,0 +1,5 @@
+{
+    "welcome_message": "Nihao, {0}!",
+    "score_message": "Your score is {0}.",
+    "exit_prompt": "Are you sure you want to exit?"
+}

@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class MageArmor extends BodyArmorCloth {
@@ -41,7 +42,7 @@ public class MageArmor extends BodyArmorCloth {
 
     @Override
     public String desc() {
-        return "Combination of intricate magicks and rare materials sewn into fabric of this robe allow it to increasing your attunement with mystical energies.";
+        return Ml.g("items.armours.body.magearmor.desc");
     }
 
 //    public MageArmor() {

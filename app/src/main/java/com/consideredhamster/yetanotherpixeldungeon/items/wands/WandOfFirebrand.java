@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Fire;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.FieryRune;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.Hazard;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -121,6 +122,6 @@ public class WandOfFirebrand extends WandCombat {
 
     @Override
     public String desc() {
-        return "Using this wand will release a single blast of flame. Using it on the ground, however, creates a temporary fiery rune, which will explode when triggered by another object. Repeated castings will enhance this rune, increasing its power, duration and area of effect.";
+        return Ml.g("items.wands.wandoffirebrand.desc");
     }
 }

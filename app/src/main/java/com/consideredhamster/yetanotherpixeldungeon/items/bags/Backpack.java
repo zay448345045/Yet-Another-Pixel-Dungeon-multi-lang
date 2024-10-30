@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.bags;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
@@ -54,7 +55,7 @@ public class Backpack extends Bag {
 
     @Override
     public String info() {
-        return "That's your backpack. Everything useful goes in here.";
+        return Ml.g("items.bags.backpack.info");
     }
 
     @Override

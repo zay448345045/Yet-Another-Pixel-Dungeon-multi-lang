@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.quest;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class RatSkull extends Item {
@@ -34,7 +35,7 @@ public class RatSkull extends Item {
 
     @Override
     public String info() {
-        return "It could be a nice hunting trophy, but it smells too bad to place it on a wall.";
+        return Ml.g("items.quest.ratskull.info");
     }
 
     @Override

@@ -21,11 +21,12 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs;
 
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ShopkeeperGhostSprite;
 
 public class ShopkeeperGhost extends Shopkeeper {
 
-    private static final String TXT_GREETINGS = "Welcome, wanderer.\nWould you be my guest?";
+    private static final String TXT_GREETINGS = Ml.g("actors.mobs.npcs.shopkeeperghost.txt_greetings");
 
     {
         name = "strange shopkeeper";
@@ -44,6 +45,6 @@ public class ShopkeeperGhost extends Shopkeeper {
 
     @Override
     public String description() {
-        return "This guy doesn't look threatening in any way. Yet, for some reason, mere presence of this mysterious fellow unnerves you. You wonder what business he can lead here?";
+        return Ml.g("actors.mobs.npcs.shopkeeperghost.description");
     }
 }

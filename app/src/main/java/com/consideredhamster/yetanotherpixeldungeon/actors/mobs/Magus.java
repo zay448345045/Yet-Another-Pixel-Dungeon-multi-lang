@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
@@ -52,7 +53,7 @@ public class Magus extends MobRanged {
     private static final int ENERGY = 6;
 
 
-    private static final String PREPARED = "prepared";
+    private static final String PREPARED = Ml.g("actors.mobs.magus.prepared");
 
     public Magus() {
 
@@ -291,7 +292,7 @@ public class Magus extends MobRanged {
 
     @Override
     public String description() {
-        return "Their eyes filled with spite and disdain, magi are technically the highest caste of the demonic society. Being quite frail, they prefer to blast their enemies with an assortment of elemental spells from afar while leaving the dirty work to their subordinates.";
+        return Ml.g("actors.mobs.magus.description");
     }
 
     @Override

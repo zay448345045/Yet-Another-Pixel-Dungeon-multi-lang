@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Warhammer extends MeleeWeaponHeavyTH {
@@ -50,6 +51,6 @@ public class Warhammer extends MeleeWeaponHeavyTH {
 
     @Override
     public String desc() {
-        return "Few creatures can withstand the crushing blow of this towering mass of lead and steel, but only the strongest of adventurers can use it effectively.";
+        return Ml.g("items.weapons.melee.warhammer.desc");
     }
 }

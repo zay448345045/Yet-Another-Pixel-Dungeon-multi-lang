@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.keys;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class SkeletonKey extends Key {
@@ -31,6 +32,6 @@ public class SkeletonKey extends Key {
 
     @Override
     public String info() {
-        return "This key looks serious: its head is shaped like a skull. Probably it can open some serious door.";
+        return Ml.g("items.keys.skeletonkey.info");
     }
 }

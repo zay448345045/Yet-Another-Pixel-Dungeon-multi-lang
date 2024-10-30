@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -36,17 +37,17 @@ public class Charmed extends Debuff {
 
     @Override
     public String toString() {
-        return "Charmed";
+        return Ml.g("actors.buffs.debuffs.charmed.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "charmed";
+        return Ml.g("actors.buffs.debuffs.charmed.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You are charmed!";
+        return Ml.g("actors.buffs.debuffs.charmed.playermessage");
     }
 
     @Override
@@ -66,7 +67,7 @@ public class Charmed extends Debuff {
 
     @Override
     public String description() {
-        return "Someone's trying to control your mind. You cannot bring yourself to attack your enemies with full strength. Still, weaker minds would be completely enslaved by now.";
+        return Ml.g("actors.buffs.debuffs.charmed.description");
     }
 
     @Override

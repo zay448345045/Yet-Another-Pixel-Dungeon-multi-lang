@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.watabou.utils.Random;
 
@@ -59,7 +60,7 @@ public class Javelins extends ThrowingWeaponHeavy {
 
     @Override
     public String desc() {
-        return "This length of metal is weighted to keep the spear at its tip foremost as it sails through the air. Good hit with this weapon can even knock its target back.";
+        return Ml.g("items.weapons.throwing.javelins.desc");
     }
 
 

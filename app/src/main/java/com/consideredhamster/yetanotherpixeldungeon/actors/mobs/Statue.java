@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.StatueSprite;
 import com.watabou.utils.Random;
 
@@ -125,6 +126,6 @@ public class Statue extends MobPrecise {
 
     @Override
     public String description() {
-        return "You would think that it's just another ugly statue of this dungeon, but its red glowing eyes give itself away. Usually passive, these stony juggernauts are almost unstoppable once provoked, being very resistant to both physical and magical damage. Besides being extremely reliable guardians, these automatons also may serve as a pretty cool garden decorations.";
+        return Ml.g("actors.mobs.statue.description");
     }
 }

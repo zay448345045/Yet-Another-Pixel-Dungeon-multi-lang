@@ -39,6 +39,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Quarterstaff;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
@@ -56,21 +57,21 @@ import java.util.Locale;
 
 public class WndHero extends WndTabbed {
 
-    private static final String TXT_STATS = "Stats";
-    private static final String TXT_BUFFS = "Buffs";
+    private static final String TXT_STATS = Ml.g("visuals.windows.wndhero.txt_stats");
+    private static final String TXT_BUFFS = Ml.g("visuals.windows.wndhero.txt_buffs");
 
-    private static final String TXT_EXP = "Experience";
-    private static final String TXT_STR = "Strength";
-    private static final String TXT_HEALTH = "Health";
-    private static final String TXT_SATIETY = "Satiety";
-    private static final String TXT_STEALTH = "Stealth";
-    private static final String TXT_ATTNMNT = "Attunement";
-    private static final String TXT_AWARNSS = "Perception";
-    private static final String TXT_OFFENSE = "Accuracy";
-    private static final String TXT_DEFENSE = "Dexterity";
-    private static final String TXT_MAGPOWR = "Magic power";
-    private static final String TXT_GOLD = "Gold Collected";
-    private static final String TXT_DEPTH = "Maximum Depth";
+    private static final String TXT_EXP = Ml.g("visuals.windows.wndhero.txt_exp");
+    private static final String TXT_STR = Ml.g("visuals.windows.wndhero.txt_str");
+    private static final String TXT_HEALTH = Ml.g("visuals.windows.wndhero.txt_health");
+    private static final String TXT_SATIETY = Ml.g("visuals.windows.wndhero.txt_satiety");
+    private static final String TXT_STEALTH = Ml.g("visuals.windows.wndhero.txt_stealth");
+    private static final String TXT_ATTNMNT = Ml.g("visuals.windows.wndhero.txt_attnmnt");
+    private static final String TXT_AWARNSS = Ml.g("visuals.windows.wndhero.txt_awarnss");
+    private static final String TXT_OFFENSE = Ml.g("visuals.windows.wndhero.txt_offense");
+    private static final String TXT_DEFENSE = Ml.g("visuals.windows.wndhero.txt_defense");
+    private static final String TXT_MAGPOWR = Ml.g("visuals.windows.wndhero.txt_magpowr");
+    private static final String TXT_GOLD = Ml.g("visuals.windows.wndhero.txt_gold");
+    private static final String TXT_DEPTH = Ml.g("visuals.windows.wndhero.txt_depth");
 
     private static final int WIDTH = 100;
     private static final int HEIGHT = 100;
@@ -127,7 +128,7 @@ public class WndHero extends WndTabbed {
 
     private class StatsTab extends Group {
 
-        private static final String TXT_TITLE = "Level %d %s";
+        private static final String TXT_TITLE = Ml.g("visuals.windows.wndhero.txt_title");
 //		private static final String TXT_CATALOGUS	= "Knowledge";
 //		private static final String TXT_JOURNAL		= "Journal";
 

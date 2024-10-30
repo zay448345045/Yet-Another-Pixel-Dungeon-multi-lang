@@ -21,18 +21,19 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndOptions;
 
 public abstract class InventoryScroll extends Scroll {
 
-    protected String inventoryTitle = "Select an item";
+    protected String inventoryTitle = Ml.g("items.scrolls.inventoryscroll.inventorytitle");
     protected WndBag.Mode mode = WndBag.Mode.ALL;
 
-    private static final String TXT_WARNING = "Do you really want to cancel this scroll usage? It will be consumed anyway.";
-    private static final String TXT_YES = "Yes, I know what I'm doing";
-    private static final String TXT_NO = "No, I changed my mind";
+    private static final String TXT_WARNING = Ml.g("items.scrolls.inventoryscroll.txt_warning");
+    private static final String TXT_YES = Ml.g("items.scrolls.inventoryscroll.txt_yes");
+    private static final String TXT_NO = Ml.g("items.scrolls.inventoryscroll.txt_no");
 
     @Override
     protected void doRead() {

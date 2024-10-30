@@ -23,13 +23,14 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffReactive;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
 
 public class Combo extends BuffReactive {
 
-    private static String TXT_COMBO = "combo %dx!";
+    private static String TXT_COMBO = Ml.g("actors.buffs.special.combo.txt_combo");
 
     public int count = 0;
 
@@ -40,12 +41,12 @@ public class Combo extends BuffReactive {
 
     @Override
     public String toString() {
-        return "Combo x" + count;
+        return Ml.g("actors.buffs.special.combo.tostring", count);
     }
 
     @Override
     public String description() {
-        return "Every consecutive attack increases your damage slightly. Performing any actions except attacking again will reset this counter, though.";
+        return Ml.g("actors.buffs.special.combo.description");
     }
 
     @Override
@@ -87,7 +88,7 @@ public class Combo extends BuffReactive {
 //		return true;
 //	}
 
-    private static final String COUNT = "count";
+    private static final String COUNT = Ml.g("actors.buffs.special.combo.count");
 
     @Override
     public void storeInBundle(Bundle bundle) {

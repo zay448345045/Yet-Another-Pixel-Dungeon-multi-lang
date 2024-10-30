@@ -22,27 +22,28 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public class Instability extends Weapon.Enchantment {
 
     @Override
     protected String name_p() {
-        return "Unstable %s";
+        return Ml.g("items.weapons.enchantments.instability.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "Chaotic %s";
+        return Ml.g("items.weapons.enchantments.instability.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "do random stuff to your enemies on hit";
+        return Ml.g("items.weapons.enchantments.instability.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "do random stuff to you on hit";
+        return Ml.g("items.weapons.enchantments.instability.desc_n");
     }
 
     @Override

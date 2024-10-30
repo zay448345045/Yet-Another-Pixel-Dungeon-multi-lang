@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Rankings;
 import com.consideredhamster.yetanotherpixeldungeon.Statistics;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Ankh;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.InterlevelScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
@@ -36,9 +37,9 @@ import com.watabou.noosa.Game;
 
 public class WndResurrect extends Window {
 
-    private static final String TXT_MESSAGE = "You died, but the ankh you were carrying can give you yet another chance to live. Will you accept it?";
-    private static final String TXT_YES = "Yes, I will fight!";
-    private static final String TXT_NO = "No, I give up";
+    private static final String TXT_MESSAGE = Ml.g("visuals.windows.wndresurrect.txt_message");
+    private static final String TXT_YES = Ml.g("visuals.windows.wndresurrect.txt_yes");
+    private static final String TXT_NO = Ml.g("visuals.windows.wndresurrect.txt_no");
 
     private static final int WIDTH = 120;
     private static final int BTN_HEIGHT = 20;

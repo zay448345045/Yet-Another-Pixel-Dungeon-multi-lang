@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 
@@ -37,6 +38,6 @@ public class ScaleArmor extends BodyArmorLight {
 
     @Override
     public String desc() {
-        return "This armor miraculously combines protection of heavy armors and mobility of light armors. Truly a work of a master.";
+        return Ml.g("items.armours.body.scalearmor.desc");
     }
 }

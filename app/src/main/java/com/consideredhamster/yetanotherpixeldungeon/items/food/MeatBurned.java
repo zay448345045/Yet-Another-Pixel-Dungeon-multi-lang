@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.food;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class MeatBurned extends Food {
@@ -35,7 +36,7 @@ public class MeatBurned extends Food {
 
     @Override
     public String desc() {
-        return "This piece of meat is covered in soot and grime. It is still edible, but it won't be as tasty or good for you as properly stewed meat.";
+        return Ml.g("items.food.meatburned.desc");
     }
 
     @Override

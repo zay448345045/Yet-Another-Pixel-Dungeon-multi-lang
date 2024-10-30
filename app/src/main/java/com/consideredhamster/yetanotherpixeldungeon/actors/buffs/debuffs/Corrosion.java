@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.CausticOoze;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Random;
@@ -37,17 +38,17 @@ public class Corrosion extends Debuff {
 
     @Override
     public String toString() {
-        return "Corrosion";
+        return Ml.g("actors.buffs.debuffs.corrosion.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "corrosion";
+        return Ml.g("actors.buffs.debuffs.corrosion.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "Caustic ooze is eating your flesh!";
+        return Ml.g("actors.buffs.debuffs.corrosion.playermessage");
     }
 
     @Override
@@ -67,7 +68,7 @@ public class Corrosion extends Debuff {
 
     @Override
     public String description() {
-        return "Caustic ooze corrodes your armor and skin. This is not only painful, but also slowly damages your armor and makes it less effective for the duration of the effect. Use water to remove it as soon as possible!";
+        return Ml.g("actors.buffs.debuffs.corrosion.description");
     }
 
     @Override

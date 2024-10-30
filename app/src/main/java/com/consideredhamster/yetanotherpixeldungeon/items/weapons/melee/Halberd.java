@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Halberd extends MeleeWeaponLightTH {
@@ -40,6 +41,6 @@ public class Halberd extends MeleeWeaponLightTH {
 
     @Override
     public String desc() {
-        return "Some day, someone had a brilliant idea about combining reach of the spear with brutality of an axe.";
+        return Ml.g("items.weapons.melee.halberd.desc");
     }
 }

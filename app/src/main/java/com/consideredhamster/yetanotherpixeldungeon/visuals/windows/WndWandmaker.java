@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.RedButton;
@@ -35,9 +36,9 @@ import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndWandmaker extends Window {
 
-    private static final String TXT_MESSAGE = "Oh, I see you have succeeded! I do hope it hasn't troubled you too much. As I promised, you can choose one of my high quality wands.";
+    private static final String TXT_MESSAGE = Ml.g("visuals.windows.wndwandmaker.txt_message");
 
-    private static final String TXT_FAREWELL = "Good luck in your quest, %s!";
+    private static final String TXT_FAREWELL = Ml.g("visuals.windows.wndwandmaker.txt_farewell");
 
     private static final int WIDTH = 120;
     private static final int BTN_HEIGHT = 20;

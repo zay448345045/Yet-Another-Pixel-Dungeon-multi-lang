@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -139,7 +140,7 @@ public class Wraith extends MobRanged {
 
     @Override
     public String description() {
-        return "A wraith is a vengeful spirit of a sinner, whose grave or tomb was disturbed. Being an ethereal entity it bypasses any armor with its attacks while being partially immune to conventional weapons itself.";
+        return Ml.g("actors.mobs.wraith.description");
     }
 
 

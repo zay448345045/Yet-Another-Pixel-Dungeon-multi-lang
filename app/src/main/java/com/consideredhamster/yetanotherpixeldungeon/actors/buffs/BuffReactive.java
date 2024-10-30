@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundle;
 
 import java.util.HashSet;
@@ -56,7 +57,7 @@ public abstract class BuffReactive extends Buff {
         return true;
     }
 
-    private static final String DURATION = "duration";
+    private static final String DURATION = Ml.g("actors.buffs.buffreactive.duration");
 
     @Override
     public void storeInBundle(Bundle bundle) {

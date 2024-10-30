@@ -21,23 +21,24 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class FireResistance extends ElementResistance {
 
     @Override
     public String toString() {
-        return "Fire Resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.fireresistance.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "fire resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.fireresistance.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You feel inner warmth.";
+        return Ml.g("actors.buffs.bonuses.resistances.fireresistance.playermessage");
     }
 
     @Override
@@ -52,6 +53,6 @@ public class FireResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You feel an odd warmth inside, as if something was burning deep within you. Your resistance to fire damage is increased.";
+        return Ml.g("actors.buffs.bonuses.resistances.fireresistance.description");
     }
 }

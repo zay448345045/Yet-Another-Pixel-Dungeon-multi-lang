@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Bullets;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponAmmo;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Handcannon extends RangedWeaponFlintlock {
@@ -47,6 +48,6 @@ public class Handcannon extends RangedWeaponFlintlock {
 
     @Override
     public String desc() {
-        return "While initially flintlock weapons were a human invention, dwarves quickly adapted and improved the concept. Handcannons are heavy and require lots of strength to use, but they are far more deadly than any other firearm.";
+        return Ml.g("items.weapons.ranged.handcannon.desc");
     }
 }

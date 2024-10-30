@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Blacksmith;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room.Type;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.watabou.noosa.Game;
@@ -218,15 +219,15 @@ public class CavesLevel extends RegularLevel {
     public static String tileNames(int tile) {
         switch (tile) {
             case Terrain.GRASS:
-                return "Fluorescent moss";
+                return Ml.g("levels.caveslevel.tilenames");
             case Terrain.HIGH_GRASS:
-                return "Fluorescent mushrooms";
+                return Ml.g("levels.caveslevel.tilenames_2");
             case Terrain.WATER:
-                return "Freezing cold water";
+                return Ml.g("levels.caveslevel.tilenames_3");
             case Terrain.STATUE:
-                return "Stalagmite";
+                return Ml.g("levels.caveslevel.tilenames_4");
             case Terrain.GRATE:
-                return "Rock pile";
+                return Ml.g("levels.caveslevel.tilenames_5");
             default:
                 return Level.tileNames(tile);
         }
@@ -236,30 +237,30 @@ public class CavesLevel extends RegularLevel {
     public static String tileDescs(int tile) {
         switch (tile) {
             case Terrain.ENTRANCE:
-                return "The ladder leads up to the upper depth.";
+                return Ml.g("levels.caveslevel.tiledescs");
             case Terrain.EXIT:
-                return "The ladder leads down to the lower depth.";
+                return Ml.g("levels.caveslevel.tiledescs_2");
             case Terrain.HIGH_GRASS:
-                return "Huge mushrooms block the view.";
+                return Ml.g("levels.caveslevel.tiledescs_3");
             case Terrain.WALL_DECO:
-                return "A vein of some ore is visible on the wall. Gold?";
+                return Ml.g("levels.caveslevel.tiledescs_4");
             case Terrain.WALL_DECO1:
-                return "This wall is adorned by several dwarven skulls.";
+                return Ml.g("levels.caveslevel.tiledescs_5");
             case Terrain.WALL_DECO2:
-                return "There is primitive tribal banner hanging here.";
+                return Ml.g("levels.caveslevel.tiledescs_6");
             case Terrain.WALL_DECO3:
-                return "You can just barely see a giant fossilized skull in this wall.";
+                return Ml.g("levels.caveslevel.tiledescs_7");
             case Terrain.WALL_DECO4:
             case Terrain.WALL_DECO5:
-                return "These mushrooms can grow even on the walls!";
+                return Ml.g("levels.caveslevel.tiledescs_8");
             case Terrain.BOOKSHELF:
-                return "Who would need a bookshelf in a cave? Better check it, anyway.";
+                return Ml.g("levels.caveslevel.tiledescs_9");
             case Terrain.SHELF_EMPTY:
-                return "Who would need a bookshelf in a cave?";
+                return Ml.g("levels.caveslevel.tiledescs_10");
             case Terrain.STATUE:
-                return "A stalagmite rises from the floor of a cave.";
+                return Ml.g("levels.caveslevel.tiledescs_11");
             case Terrain.GRATE:
-                return "A huge pile of boulders blocks your way.";
+                return Ml.g("levels.caveslevel.tiledescs_12");
             default:
                 return Level.tileDescs(tile);
         }

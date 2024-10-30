@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.bags;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.keys.Key;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
@@ -54,7 +55,7 @@ public class Keyring extends Bag {
 
     @Override
     public String info() {
-        return "This is a copper keyring, that lets you keep all your keys separately from the rest of your belongings.";
+        return Ml.g("items.bags.keyring.info");
     }
 
     @Override

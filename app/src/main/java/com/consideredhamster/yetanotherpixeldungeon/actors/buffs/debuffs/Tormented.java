@@ -21,12 +21,13 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Random;
 
 public class Tormented extends Debuff {
 
-    public final static String TXT_CANNOT_ATTACK = "You are in panic! You cannot attack!";
+    public final static String TXT_CANNOT_ATTACK = Ml.g("actors.buffs.debuffs.tormented.txt_cannot_attack");
 
     @Override
     public Element buffType() {
@@ -35,17 +36,17 @@ public class Tormented extends Debuff {
 
     @Override
     public String toString() {
-        return "Tormented";
+        return Ml.g("actors.buffs.debuffs.tormented.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "tormented";
+        return Ml.g("actors.buffs.debuffs.tormented.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "Your mind is seized with fear and pain!";
+        return Ml.g("actors.buffs.debuffs.tormented.playermessage");
     }
 
     @Override
@@ -65,7 +66,7 @@ public class Tormented extends Debuff {
 
     @Override
     public String description() {
-        return "Terrifying magic fills your mind with pain. Your ranged attacks become very unreliable, and attacking in melee is not even an option. RUN!";
+        return Ml.g("actors.buffs.debuffs.tormented.description");
     }
 
     @Override

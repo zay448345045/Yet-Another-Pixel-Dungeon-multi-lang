@@ -21,23 +21,24 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class MagicalResistance extends ElementResistance {
 
     @Override
     public String toString() {
-        return "Magical resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.magicalresistance.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "magical resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.magicalresistance.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "Your some kind of protective aura.";
+        return Ml.g("actors.buffs.bonuses.resistances.magicalresistance.playermessage");
     }
 
     @Override
@@ -57,6 +58,6 @@ public class MagicalResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You fell a kind of a faint protective aura around your body. Your resistance to magical damage such as magic missiles or disintegration is increased.";
+        return Ml.g("actors.buffs.bonuses.resistances.magicalresistance.description");
     }
 }

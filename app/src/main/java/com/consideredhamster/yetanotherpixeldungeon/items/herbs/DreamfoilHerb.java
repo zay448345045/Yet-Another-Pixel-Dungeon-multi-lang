@@ -31,6 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfConfusionGas;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfMindVision;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfRage;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
@@ -74,7 +75,7 @@ public class DreamfoilHerb extends Herb {
 
     @Override
     public String desc() {
-        return "Dreamfoil herbs are often intentionally cultivated because of their curious effects... Sometimes even illegally. Still, depending on how they are used, they can affect one's mind in a variety of ways.\n\nThese herbs can be used to brew potions of _Mind Vision_, _Confusion Gas_ and _Rage_. Consuming them will remove _mind debuffs_ and grant a short buff to your _mind_ resistance.";
+        return Ml.g("items.herbs.dreamfoilherb.desc");
     }
 
     public static class SweetMeat extends MeatStewed {
@@ -93,7 +94,7 @@ public class DreamfoilHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with a _Dreamfoil_ herb. It smells pretty sweet. Consuming it will remove _mind debuffs_ and grant a long buff to your _mind_ resistance.";
+            return Ml.g("items.herbs.dreamfoilherb.desc_2");
         }
 
         @Override

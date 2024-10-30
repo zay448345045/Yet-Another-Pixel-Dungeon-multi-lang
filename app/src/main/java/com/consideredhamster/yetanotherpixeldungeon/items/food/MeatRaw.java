@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.food;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class MeatRaw extends Food {
@@ -35,7 +36,7 @@ public class MeatRaw extends Food {
 
     @Override
     public String desc() {
-        return "This is a piece of raw, uncooked meat. Definitely an option if you are starving, but it is better be stewed otherwise.";
+        return Ml.g("items.food.meatraw.desc");
     }
 
     public int price() {

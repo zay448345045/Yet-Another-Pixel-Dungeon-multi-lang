@@ -26,13 +26,14 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Random;
 
 public class Frozen extends Debuff {
 
-    public final static String TXT_CANNOT_LIGHT = "Your lantern is too cold to be lit again. You'll have to wait a little.";
+    public final static String TXT_CANNOT_LIGHT = Ml.g("actors.buffs.debuffs.frozen.txt_cannot_light");
 
     @Override
     public Element buffType() {
@@ -41,17 +42,17 @@ public class Frozen extends Debuff {
 
     @Override
     public String toString() {
-        return "Frozen";
+        return Ml.g("actors.buffs.debuffs.frozen.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "frozen";
+        return Ml.g("actors.buffs.debuffs.frozen.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "Intense cold slows your movement!";
+        return Ml.g("actors.buffs.debuffs.frozen.playermessage");
     }
 
     @Override
@@ -71,7 +72,7 @@ public class Frozen extends Debuff {
 
     @Override
     public String description() {
-        return "Brrr, it is cold! All your actions are slowed, your lantern is not working, and on top of that you are less likely to hit and dodge. Oh, and being in water prolongs duration of this effect.";
+        return Ml.g("actors.buffs.debuffs.frozen.description");
     }
 
 

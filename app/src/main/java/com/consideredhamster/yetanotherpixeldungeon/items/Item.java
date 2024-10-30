@@ -42,6 +42,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.features.Door;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -62,26 +63,26 @@ import java.util.Comparator;
 
 public class Item implements Bundlable {
 
-    private static final String TXT_PACK_FULL = "Your pack is too full for the %s";
+    private static final String TXT_PACK_FULL = Ml.g("items.item.txt_pack_full");
 
-    private static final String TXT_DEGRADED = "Your %s has degraded.";
-    private static final String TXT_UNUSABLE = "Your %s has broken!";
-    private static final String TXT_GONNA_DEGRADE = "Your %s is going to degrade soon.";
-    private static final String TXT_GONNA_BREAK = "Your %s is going to break soon.";
+    private static final String TXT_DEGRADED = Ml.g("items.item.txt_degraded");
+    private static final String TXT_UNUSABLE = Ml.g("items.item.txt_unusable");
+    private static final String TXT_GONNA_DEGRADE = Ml.g("items.item.txt_gonna_degrade");
+    private static final String TXT_GONNA_BREAK = Ml.g("items.item.txt_gonna_break");
 
-    private static final String TXT_TARGET_CHARMED = "You can't bring yourself to throw anything at someone so... charming.";
+    private static final String TXT_TARGET_CHARMED = Ml.g("items.item.txt_target_charmed");
 
-    private static final String TXT_TO_STRING = "%s";
-    private static final String TXT_TO_STRING_X = "%s x%d";
-    private static final String TXT_TO_STRING_LVL = "%s %+d";
-    private static final String TXT_TO_STRING_LVL_X = "%s %+d x%d";
+    private static final String TXT_TO_STRING = Ml.g("items.item.txt_to_string");
+    private static final String TXT_TO_STRING_X = Ml.g("items.item.txt_to_string_x");
+    private static final String TXT_TO_STRING_LVL = Ml.g("items.item.txt_to_string_lvl");
+    private static final String TXT_TO_STRING_LVL_X = Ml.g("items.item.txt_to_string_lvl_x");
 
     public static final float TIME_TO_THROW = 1.0f;
     //    public static final float TIME_TO_PICK_UP	= 1.0f;
     public static final float TIME_TO_DROP = 0.5f;
 
-    public static final String AC_DROP = "DROP";
-    public static final String AC_THROW = "THROW";
+    public static final String AC_DROP = Ml.g("items.item.ac_drop");
+    public static final String AC_THROW = Ml.g("items.item.ac_throw");
 
     public static final int ITEM_UNKNOWN = 0;
     public static final int CURSED_KNOWN = 1;
@@ -90,7 +91,7 @@ public class Item implements Bundlable {
 
     public String shortName = null;
 
-    protected String name = "smth";
+    protected String name = Ml.g("items.item.name");
     protected int image = 0;
 
     public boolean stackable = false;
@@ -509,15 +510,15 @@ public class Item implements Bundlable {
     protected String stateToString(int state) {
         switch (state) {
             case 3:
-                return "perfect";
+                return Ml.g("items.item.statetostring");
             case 2:
-                return "good";
+                return Ml.g("items.item.statetostring_2");
             case 1:
-                return "bad";
+                return Ml.g("items.item.statetostring_3");
             case 0:
-                return "horrible";
+                return Ml.g("items.item.statetostring_4");
             default:
-                return "unknown";
+                return Ml.g("items.item.statetostring_5");
         }
     }
 
@@ -656,17 +657,17 @@ public class Item implements Bundlable {
     public String lootChapterAsString() {
         switch (lootChapter()) {
             case 1:
-                return "common";
+                return Ml.g("items.item.lootchapterasstring");
             case 2:
-                return "regular";
+                return Ml.g("items.item.lootchapterasstring_2");
             case 3:
-                return "infrequent";
+                return Ml.g("items.item.lootchapterasstring_3");
             case 4:
-                return "exceptional";
+                return Ml.g("items.item.lootchapterasstring_4");
             case 5:
-                return "mythical";
+                return Ml.g("items.item.lootchapterasstring_5");
             default:
-                return "unknown";
+                return Ml.g("items.item.lootchapterasstring_6");
         }
     }
 
@@ -731,11 +732,11 @@ public class Item implements Bundlable {
         }
     }
 
-    private static final String QUANTITY = "quantity";
-    private static final String BONUS = "level";
-    private static final String KNOWN = "identified";
-    private static final String DURABILITY = "durability";
-    private static final String STATE = "condition";
+    private static final String QUANTITY = Ml.g("items.item.quantity");
+    private static final String BONUS = Ml.g("items.item.bonus");
+    private static final String KNOWN = Ml.g("items.item.known");
+    private static final String DURABILITY = Ml.g("items.item.durability");
+    private static final String STATE = Ml.g("items.item.state");
 
     @Override
     public void storeInBundle(Bundle bundle) {
@@ -811,7 +812,7 @@ public class Item implements Bundlable {
 
         @Override
         public String prompt() {
-            return "Choose direction of throw";
+            return Ml.g("items.item.prompt");
         }
     };
 }

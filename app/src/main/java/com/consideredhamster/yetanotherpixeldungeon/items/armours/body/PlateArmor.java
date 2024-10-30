@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class PlateArmor extends BodyArmorHeavy {
@@ -67,7 +68,7 @@ public class PlateArmor extends BodyArmorHeavy {
 //		return
 //			"While this armor looks heavy, it allows a warrior to perform heroic leap towards " +
 //			"a targeted location, slamming down to stun all neighbouring enemies.";
-        return "Enormous plates of metal are joined together into a suit that provides unmatched protection to any adventurer strong enough to bear its staggering weight.";
+        return Ml.g("items.armours.body.platearmor.desc");
     }
 
 //	protected static CellSelector.Listener leaper = new  CellSelector.Listener() {

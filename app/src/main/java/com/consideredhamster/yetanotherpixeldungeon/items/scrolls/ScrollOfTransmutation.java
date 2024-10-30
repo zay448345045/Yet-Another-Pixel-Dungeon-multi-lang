@@ -40,6 +40,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Throw
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponLight;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponSpecial;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
@@ -48,9 +49,9 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
 
 public class ScrollOfTransmutation extends InventoryScroll {
 
-    private static final String TXT_ITEM_TRANSMUTED = "your %s is transmuted into %s!";
-    private static final String TXT_ITEM_RESISTS = "Your %s is cursed and resists being transmuted!";
-    private static final String TXT_ITEM_UNKNOWN = "%s cannot be transmuted!";
+    private static final String TXT_ITEM_TRANSMUTED = Ml.g("items.scrolls.scrolloftransmutation.txt_item_transmuted");
+    private static final String TXT_ITEM_RESISTS = Ml.g("items.scrolls.scrolloftransmutation.txt_item_resists");
+    private static final String TXT_ITEM_UNKNOWN = Ml.g("items.scrolls.scrolloftransmutation.txt_item_unknown");
 
     {
         name = "Scroll of Transmutation";
@@ -357,7 +358,7 @@ public class ScrollOfTransmutation extends InventoryScroll {
 
     @Override
     public String desc() {
-        return "This scroll is able to transmute an item into a different one, but of a similar value. It works on weapons, armors, wands and rings.";
+        return Ml.g("items.scrolls.scrolloftransmutation.desc");
     }
 
     @Override

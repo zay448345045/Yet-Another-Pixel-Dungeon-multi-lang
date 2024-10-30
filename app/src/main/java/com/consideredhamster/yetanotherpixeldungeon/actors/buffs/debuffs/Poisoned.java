@@ -21,13 +21,14 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Random;
 
 public class Poisoned extends Debuff {
 
-    public final static String TXT_CANNOT_EAT = "You can't stomach anything right now.";
+    public final static String TXT_CANNOT_EAT = Ml.g("actors.buffs.debuffs.poisoned.txt_cannot_eat");
 
     @Override
     public Element buffType() {
@@ -36,17 +37,17 @@ public class Poisoned extends Debuff {
 
     @Override
     public String toString() {
-        return "Poisoned";
+        return Ml.g("actors.buffs.debuffs.poisoned.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "poisoned";
+        return Ml.g("actors.buffs.debuffs.poisoned.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You are poisoned!";
+        return Ml.g("actors.buffs.debuffs.poisoned.playermessage");
     }
 
     @Override
@@ -66,7 +67,7 @@ public class Poisoned extends Debuff {
 
     @Override
     public String description() {
-        return "You are not feeling well... Seems like there is a poison in your veins. This will slowly damage you and make you weaker, decreasing your damage and attack speed.";
+        return Ml.g("actors.buffs.debuffs.poisoned.description");
     }
 
     @Override

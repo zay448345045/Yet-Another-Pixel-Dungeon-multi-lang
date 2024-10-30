@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 
 public class Heroic extends Weapon.Enchantment {
@@ -34,22 +35,22 @@ public class Heroic extends Weapon.Enchantment {
 
     @Override
     protected String name_p() {
-        return "Heroic %s";
+        return Ml.g("items.weapons.enchantments.heroic.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "Cowardly %s";
+        return Ml.g("items.weapons.enchantments.heroic.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "increase your damage when on low health";
+        return Ml.g("items.weapons.enchantments.heroic.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "decrease your damage when on low health";
+        return Ml.g("items.weapons.enchantments.heroic.desc_n");
     }
 
     @Override

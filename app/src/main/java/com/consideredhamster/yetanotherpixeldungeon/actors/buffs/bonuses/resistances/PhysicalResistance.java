@@ -21,23 +21,24 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class PhysicalResistance extends ElementResistance {
 
     @Override
     public String toString() {
-        return "Physical resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.physicalresistance.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "physical resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.physicalresistance.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "Your skin feel tougher.";
+        return Ml.g("actors.buffs.bonuses.resistances.physicalresistance.playermessage");
     }
 
     @Override
@@ -57,6 +58,6 @@ public class PhysicalResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "Somehow your entire skin becomes much tougher without affecting your mobility. Your resistance to physical damage is partially increased.";
+        return Ml.g("actors.buffs.bonuses.resistances.physicalresistance.description");
     }
 }

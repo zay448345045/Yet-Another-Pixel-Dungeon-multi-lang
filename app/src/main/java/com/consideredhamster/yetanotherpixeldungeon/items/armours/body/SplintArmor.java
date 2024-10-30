@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 
@@ -37,6 +38,6 @@ public class SplintArmor extends BodyArmorHeavy {
 
     @Override
     public String desc() {
-        return "The metal stripes sewn together to create a flexible, yet effective armor.";
+        return Ml.g("items.armours.body.splintarmor.desc");
     }
 }

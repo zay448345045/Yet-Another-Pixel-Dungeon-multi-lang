@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.levels;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Wandmaker;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
@@ -163,7 +164,7 @@ public class SewerLevel extends RegularLevel {
     public static String tileNames(int tile) {
         switch (tile) {
             case Terrain.WATER:
-                return "Murky water";
+                return Ml.g("levels.sewerlevel.tilenames");
             default:
                 return Level.tileNames(tile);
         }
@@ -173,20 +174,20 @@ public class SewerLevel extends RegularLevel {
     public static String tileDescs(int tile) {
         switch (tile) {
             case Terrain.EMPTY_DECO:
-                return "Wet yellowish moss covers the floor.";
+                return Ml.g("levels.sewerlevel.tiledescs");
             case Terrain.WALL_DECO:
             case Terrain.WALL_DECO1:
-                return "There is a drain built into this wall. It is too small for you to go through.";
+                return Ml.g("levels.sewerlevel.tiledescs_2");
             case Terrain.WALL_DECO2:
-                return "There is a ventilation vent here. Nice to feel some fresh air from time to time.";
+                return Ml.g("levels.sewerlevel.tiledescs_3");
             case Terrain.WALL_DECO3:
             case Terrain.WALL_DECO4:
             case Terrain.WALL_DECO5:
-                return "Wet greenish moss covers the wall.";
+                return Ml.g("levels.sewerlevel.tiledescs_4");
             case Terrain.BOOKSHELF:
-                return "The bookshelf is packed with some mouldy books. Maybe there would be something useful in here?";
+                return Ml.g("levels.sewerlevel.tiledescs_5");
             case Terrain.SHELF_EMPTY:
-                return "The bookshelf is packed with some mouldy books.";
+                return Ml.g("levels.sewerlevel.tiledescs_6");
             default:
                 return Level.tileDescs(tile);
         }

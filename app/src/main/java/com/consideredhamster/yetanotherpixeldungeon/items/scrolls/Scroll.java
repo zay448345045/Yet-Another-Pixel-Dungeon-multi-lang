@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.ItemStatusHandler;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
@@ -41,9 +42,9 @@ import java.util.HashSet;
 
 public abstract class Scroll extends Item {
 
-    private static final String TXT_IDENTIFIED = "You now know that rune \"%s\" signifies a %s!";
+    private static final String TXT_IDENTIFIED = Ml.g("items.scrolls.scroll.txt_identified");
 
-    public static final String AC_READ = "READ";
+    public static final String AC_READ = Ml.g("items.scrolls.scroll.ac_read");
 
     protected static final float TIME_TO_READ = 1f;
 
@@ -187,12 +188,12 @@ public abstract class Scroll extends Item {
 
     @Override
     public String name() {
-        return isTypeKnown() ? name : "scroll \"" + rune + "\"";
+        return Ml.g("items.scrolls.scroll.name", (isTypeKnown() ? name : "scroll \"" + rune + "\""));
     }
 
     @Override
     public String info() {
-        return isTypeKnown() ? desc() : "This parchment is covered with indecipherable writing, and bears a title " + "of rune " + rune + ". Who knows what it will do when read aloud?";
+        return Ml.g("items.scrolls.scroll.info", (isTypeKnown() ? desc() : "This parchment is covered with indecipherable writing, and bears a title " + "of rune " + rune + ". Who knows what it will do when read aloud?"));
     }
 
     public static HashSet<Class<? extends Scroll>> getKnown() {

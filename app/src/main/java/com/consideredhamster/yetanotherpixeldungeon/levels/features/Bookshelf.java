@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.audio.Sample;
@@ -33,10 +34,10 @@ import com.watabou.utils.Random;
 
 public class Bookshelf {
 
-    private static final String TXT_FOUND_SCROLL = "You found a %s!";
-    private static final String TXT_IDENTIFY_SCROLL = "You found some notes about scrolls.";
-    private static final String TXT_FOUND_NOTHING = "You found nothing interesting.";
-    private static final String TXT_FOUND_READING = "You found %s";
+    private static final String TXT_FOUND_SCROLL = Ml.g("levels.features.bookshelf.txt_found_scroll");
+    private static final String TXT_IDENTIFY_SCROLL = Ml.g("levels.features.bookshelf.txt_identify_scroll");
+    private static final String TXT_FOUND_NOTHING = Ml.g("levels.features.bookshelf.txt_found_nothing");
+    private static final String TXT_FOUND_READING = Ml.g("levels.features.bookshelf.txt_found_reading");
 
     private static final String[] BOOKS = {
 

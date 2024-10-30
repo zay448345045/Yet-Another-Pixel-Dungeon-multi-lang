@@ -38,6 +38,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -52,28 +53,28 @@ import java.util.ArrayList;
 
 public class Waterskin extends Item {
 
-    public static final String AC_DRINK = "DRINK";
-    public static final String AC_POUR = "POUR";
+    public static final String AC_DRINK = Ml.g("items.misc.waterskin.ac_drink");
+    public static final String AC_POUR = Ml.g("items.misc.waterskin.ac_pour");
 
     private static final float TIME_TO_DRINK = 1f;
 
-    private static final String TXT_VALUE = "%+dHP";
-    private static final String TXT_STATUS = "%d/%d";
+    private static final String TXT_VALUE = Ml.g("items.misc.waterskin.txt_value");
+    private static final String TXT_STATUS = Ml.g("items.misc.waterskin.txt_status");
 
-    private static final String TXT_FULL = "Your waterskins are full!";
-    private static final String TXT_EMPTY = "Your waterskins are empty!";
+    private static final String TXT_FULL = Ml.g("items.misc.waterskin.txt_full");
+    private static final String TXT_EMPTY = Ml.g("items.misc.waterskin.txt_empty");
 
-    private static final String TXT_POUR_SELF = "You pour water from one of your waterskins on yourself.";
-    private static final String TXT_POUR_TILE = "You pour water from one of your waterskins on nearby tile.";
+    private static final String TXT_POUR_SELF = Ml.g("items.misc.waterskin.txt_pour_self");
+    private static final String TXT_POUR_TILE = Ml.g("items.misc.waterskin.txt_pour_tile");
 
-    private static final String TXT_HEALTH_FULL = "Your health is already full.";
+    private static final String TXT_HEALTH_FULL = Ml.g("items.misc.waterskin.txt_health_full");
 
-    private static final String TXT_HEALTH_HALF = "Your health is not that low yet!";
+    private static final String TXT_HEALTH_HALF = Ml.g("items.misc.waterskin.txt_health_half");
 
-    private static final String TXT_R_U_SURE = "Drinking from a waterskin only restores part of your missing health, so it is recommended to use it only when you are significantly injured. Are you sure you want to drink it now?";
+    private static final String TXT_R_U_SURE = Ml.g("items.misc.waterskin.txt_r_u_sure");
 
-    private static final String TXT_YES = "Yes, I know what I'm doing";
-    private static final String TXT_NO = "No, I changed my mind";
+    private static final String TXT_YES = Ml.g("items.misc.waterskin.txt_yes");
+    private static final String TXT_NO = Ml.g("items.misc.waterskin.txt_no");
 
     {
         name = "waterskins";
@@ -86,8 +87,8 @@ public class Waterskin extends Item {
     private int value = 1;
     private int limit = 1;
 
-    private static final String VALUE = "value";
-    private static final String LIMIT = "limit";
+    private static final String VALUE = Ml.g("items.misc.waterskin.value");
+    private static final String LIMIT = Ml.g("items.misc.waterskin.limit");
 
     @Override
     public String quickAction() {
@@ -277,12 +278,12 @@ public class Waterskin extends Item {
 
     @Override
     public String info() {
-        return "These are a receptacles made for storing water. Quaffing from one recovers part of the lost health. They can be refilled in wells. Any additional waterskins obtained will increase the amount of water you can carry with you.";
+        return Ml.g("items.misc.waterskin.info");
     }
 
     @Override
     public String toString() {
-        return super.toString() + " (" + status() + ")";
+        return Ml.g("items.misc.waterskin.tostring", UNKNOWN_EXPRESSION, status());
     }
 
 
@@ -369,7 +370,7 @@ public class Waterskin extends Item {
 
         @Override
         public String prompt() {
-            return "Select nearby tile to splash";
+            return Ml.g("items.misc.waterskin.prompt");
         }
     };
 }

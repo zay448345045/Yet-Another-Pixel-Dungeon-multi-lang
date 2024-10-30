@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Knives;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ThiefSprite;
 import com.watabou.utils.Callback;
@@ -94,6 +95,6 @@ public class Thief extends MobPrecise {
     @Override
     public String description() {
 
-        return "The Sewers always been hiding place for all sorts of cutthroats and outlaws. Usually armed with different manners of daggers and knives, these ruffians prefer to rely on dirty tactics instead of skill and strength.";
+        return Ml.g("actors.mobs.thief.description");
     }
 }

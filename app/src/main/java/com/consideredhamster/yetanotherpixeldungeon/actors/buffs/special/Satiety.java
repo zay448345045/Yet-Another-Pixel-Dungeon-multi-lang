@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfSatiety;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfVitality;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
@@ -44,24 +45,24 @@ public class Satiety extends Buff {
     public static final float STARVING_HALF = MAXIMUM * -0.25f;
     public static final float STARVING_FULL = MAXIMUM * -0.50f;
 
-    private static final String TXT_NOT_SATIATED = "You are not satiated anymore.";
-    private static final String TXT_NOT_HUNGRY = "You are not hungry anymore.";
-    private static final String TXT_NOT_STARVING = "You are not starving anymore.";
+    private static final String TXT_NOT_SATIATED = Ml.g("actors.buffs.special.satiety.txt_not_satiated");
+    private static final String TXT_NOT_HUNGRY = Ml.g("actors.buffs.special.satiety.txt_not_hungry");
+    private static final String TXT_NOT_STARVING = Ml.g("actors.buffs.special.satiety.txt_not_starving");
 
-    private static final String TXT_SATIATED = "You are stuffed!";
-    private static final String TXT_HUNGRY = "You are hungry.";
-    private static final String TXT_STARVING = "You are starving!";
-    private static final String TXT_STARVING_HALF = "Starving gets worse!";
-    private static final String TXT_STARVING_FULL = "Starving becomes unbearable!";
+    private static final String TXT_SATIATED = Ml.g("actors.buffs.special.satiety.txt_satiated");
+    private static final String TXT_HUNGRY = Ml.g("actors.buffs.special.satiety.txt_hungry");
+    private static final String TXT_STARVING = Ml.g("actors.buffs.special.satiety.txt_starving");
+    private static final String TXT_STARVING_HALF = Ml.g("actors.buffs.special.satiety.txt_starving_half");
+    private static final String TXT_STARVING_FULL = Ml.g("actors.buffs.special.satiety.txt_starving_full");
 
-    private static final String TXT_AWAKE_HUNGRY = "You were awoken by a rumbling in your stomach.";
-    private static final String TXT_AWAKE_STARVING = "You were awoken by a pain in your stomach.";
+    private static final String TXT_AWAKE_HUNGRY = Ml.g("actors.buffs.special.satiety.txt_awake_hungry");
+    private static final String TXT_AWAKE_STARVING = Ml.g("actors.buffs.special.satiety.txt_awake_starving");
 
     private float remaining = MAXIMUM;
     private float surplus = 0.0f;
 
-    private static final String LEVEL = "remaining";
-    private static final String SURPLUS = "surplus";
+    private static final String LEVEL = Ml.g("actors.buffs.special.satiety.level");
+    private static final String SURPLUS = Ml.g("actors.buffs.special.satiety.surplus");
 
     @Override
     public void storeInBundle(Bundle bundle) {
@@ -266,15 +267,15 @@ public class Satiety extends Buff {
     @Override
     public String toString() {
         if (remaining <= STARVING_FULL) {
-            return "Starving (unbearable)";
+            return Ml.g("actors.buffs.special.satiety.tostring");
         } else if (remaining <= STARVING_HALF) {
-            return "Starving (harsh)";
+            return Ml.g("actors.buffs.special.satiety.tostring_2");
         } else if (remaining <= STARVING) {
-            return "Starving (mild)";
+            return Ml.g("actors.buffs.special.satiety.tostring_3");
         } else if (remaining <= PARTIAL) {
-            return "Hungry";
+            return Ml.g("actors.buffs.special.satiety.tostring_4");
         } else if (remaining > DEFAULT) {
-            return "Satiated";
+            return Ml.g("actors.buffs.special.satiety.tostring_5");
         } else {
             return "";
         }
@@ -283,15 +284,15 @@ public class Satiety extends Buff {
     @Override
     public String description() {
         if (remaining <= STARVING_FULL) {
-            return "You desperately crave for food! Your health is drained even faster, and it will eventually kill you if you don't eat something. Even herbs will do.";
+            return Ml.g("actors.buffs.special.satiety.description");
         } else if (remaining <= STARVING_HALF) {
-            return "Starvation got worse! You slowly lose your health and if you will not find any food soon, starvation will become unbearable.";
+            return Ml.g("actors.buffs.special.satiety.description_2");
         } else if (remaining <= STARVING) {
-            return "You are starving! Your health regeneration is stopped completely and soon it will start to become painful if you will not find something to eat.";
+            return Ml.g("actors.buffs.special.satiety.description_3");
         } else if (remaining <= PARTIAL) {
-            return "You are hungry, which decreases your health regeneration rate by half. Better stop to have some quick snack if you have any.";
+            return Ml.g("actors.buffs.special.satiety.description_4");
         } else if (remaining > DEFAULT) {
-            return "Your stomach is full! This makes you feel good, and increases your health regeneration rate by half.";
+            return Ml.g("actors.buffs.special.satiety.description_5");
         } else {
             return "";
         }

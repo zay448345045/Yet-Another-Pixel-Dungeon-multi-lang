@@ -30,6 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
@@ -53,12 +54,12 @@ public class WndCatalogus extends WndTabbed {
 
     private static final int ITEM_HEIGHT = 18;
 
-    private static final String TXT_TITLE = "Journal";
-    private static final String TXT_NOTES = "Notes";
-    private static final String TXT_PHARM = "Potions";
-    private static final String TXT_RUNES = "Scrolls";
-    private static final String TXT_WANDS = "Wands";
-    private static final String TXT_RINGS = "Rings";
+    private static final String TXT_TITLE = Ml.g("visuals.windows.wndcatalogus.txt_title");
+    private static final String TXT_NOTES = Ml.g("visuals.windows.wndcatalogus.txt_notes");
+    private static final String TXT_PHARM = Ml.g("visuals.windows.wndcatalogus.txt_pharm");
+    private static final String TXT_RUNES = Ml.g("visuals.windows.wndcatalogus.txt_runes");
+    private static final String TXT_WANDS = Ml.g("visuals.windows.wndcatalogus.txt_wands");
+    private static final String TXT_RINGS = Ml.g("visuals.windows.wndcatalogus.txt_rings");
 
     private BitmapText txtTitle;
     private ScrollPane list;

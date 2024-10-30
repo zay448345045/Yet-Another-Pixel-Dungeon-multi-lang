@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Invisibility;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public class PotionOfInvisibility extends Potion {
 
@@ -41,7 +42,7 @@ public class PotionOfInvisibility extends Potion {
 
     @Override
     public String desc() {
-        return "Drinking this potion will render you temporarily invisible. While invisible, enemies will be unable to see you, but they can try to find you nevertheless. Attacking an enemy, as well as using a wand or a scroll before enemy's eyes, will dispel the effect.";
+        return Ml.g("items.potions.potionofinvisibility.desc");
     }
 
     @Override

@@ -21,6 +21,8 @@
 
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 public abstract class BodyArmorCloth extends BodyArmor {
 
     public BodyArmorCloth(int tier) {
@@ -40,7 +42,7 @@ public abstract class BodyArmorCloth extends BodyArmor {
     @Override
     public String descType() {
 //        return "This is a _tier-" + appearance + " light armor_. It offers less protection, but hinders your dexterity and stealth to much lesser extent.";
-        return "cloth";
+        return Ml.g("items.armours.body.bodyarmorcloth.desctype");
     }
 
 }

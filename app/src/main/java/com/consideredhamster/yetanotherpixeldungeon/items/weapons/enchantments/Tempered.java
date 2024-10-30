@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 
 public class Tempered extends Weapon.Enchantment {
@@ -33,22 +34,22 @@ public class Tempered extends Weapon.Enchantment {
 
     @Override
     protected String name_p() {
-        return "Tempered %s";
+        return Ml.g("items.weapons.enchantments.tempered.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "Crude %s";
+        return Ml.g("items.weapons.enchantments.tempered.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "last longer without breaking and deal a bit more damage";
+        return Ml.g("items.weapons.enchantments.tempered.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "break even faster than usual and deal a bit less damage";
+        return Ml.g("items.weapons.enchantments.tempered.desc_n");
     }
 
     @Override

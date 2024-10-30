@@ -31,6 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.ItemSlot;
@@ -45,19 +46,19 @@ public class WndTradeItem extends Window {
     private static final int WIDTH = 120;
     private static final int BTN_HEIGHT = 16;
 
-    private static final String TXT_SALE = "FOR SALE: %s - %dg";
-    private static final String TXT_BUY = "Buy for %dg";
-    private static final String TXT_SELL = "Sell for %dg";
-    private static final String TXT_SELL_1 = "Sell 1 for %dg";
-    private static final String TXT_SELL_ALL = "Sell all for %dg";
-    private static final String TXT_CANCEL = "Never mind";
+    private static final String TXT_SALE = Ml.g("visuals.windows.wndtradeitem.txt_sale");
+    private static final String TXT_BUY = Ml.g("visuals.windows.wndtradeitem.txt_buy");
+    private static final String TXT_SELL = Ml.g("visuals.windows.wndtradeitem.txt_sell");
+    private static final String TXT_SELL_1 = Ml.g("visuals.windows.wndtradeitem.txt_sell_1");
+    private static final String TXT_SELL_ALL = Ml.g("visuals.windows.wndtradeitem.txt_sell_all");
+    private static final String TXT_CANCEL = Ml.g("visuals.windows.wndtradeitem.txt_cancel");
 
-    private static final String TXT_BOUGHT = "You've bought %s for %dg";
-    private static final String TXT_SOLD = "You've sold your %s for %dg";
+    private static final String TXT_BOUGHT = Ml.g("visuals.windows.wndtradeitem.txt_bought");
+    private static final String TXT_SOLD = Ml.g("visuals.windows.wndtradeitem.txt_sold");
 
-    private static final String TXT_STEAL = "Steal (%d%% chance)";
-    private static final String TXT_STOLEN = "You successfully steal %s!";
-    private static final String TXT_CAUGHT = "You fail to steal %s.";
+    private static final String TXT_STEAL = Ml.g("visuals.windows.wndtradeitem.txt_steal");
+    private static final String TXT_STOLEN = Ml.g("visuals.windows.wndtradeitem.txt_stolen");
+    private static final String TXT_CAUGHT = Ml.g("visuals.windows.wndtradeitem.txt_caught");
 
     private WndBag owner;
 

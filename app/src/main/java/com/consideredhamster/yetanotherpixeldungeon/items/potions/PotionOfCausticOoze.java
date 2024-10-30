@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Corrosion;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.CausticOoze;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.watabou.utils.Random;
@@ -67,7 +68,7 @@ public class PotionOfCausticOoze extends Potion {
 
     @Override
     public String desc() {
-        return "Uncorking or shattering this pressurized glass will cause its contents to explode into a deadly vapours, which will cover everything around in a highly caustic ooze.";
+        return Ml.g("items.potions.potionofcausticooze.desc");
     }
 
     @Override

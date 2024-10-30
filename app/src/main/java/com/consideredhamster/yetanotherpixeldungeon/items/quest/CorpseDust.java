@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.quest;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class CorpseDust extends Item {
@@ -37,6 +38,6 @@ public class CorpseDust extends Item {
 
     @Override
     public String info() {
-        return "The ball of corpse dust doesn't differ outwardly from a regular dust ball. However, you know somehow that it's better to get rid of it as soon as possible.";
+        return Ml.g("items.quest.corpsedust.info");
     }
 }

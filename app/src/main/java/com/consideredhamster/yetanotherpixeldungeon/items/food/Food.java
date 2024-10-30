@@ -31,6 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.SungrassHerb;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
@@ -41,14 +42,14 @@ import java.util.ArrayList;
 
 public abstract class Food extends Item {
 
-    private static final String TXT_NOT_THAT_HUNGRY = "Don't waste your food!";
+    private static final String TXT_NOT_THAT_HUNGRY = Ml.g("items.food.food.txt_not_that_hungry");
 
-    private static final String TXT_R_U_SURE = "Your satiety cannot be greater than 100% anyway, so probably it would be a better idea to spend some more time before eating this piece of food. Are you sure you want to eat it now?";
+    private static final String TXT_R_U_SURE = Ml.g("items.food.food.txt_r_u_sure");
 
-    private static final String TXT_YES = "Yes, I know what I'm doing";
-    private static final String TXT_NO = "No, I changed my mind";
+    private static final String TXT_YES = Ml.g("items.food.food.txt_yes");
+    private static final String TXT_NO = Ml.g("items.food.food.txt_no");
 
-    public static final String AC_EAT = "EAT";
+    public static final String AC_EAT = Ml.g("items.food.food.ac_eat");
 
     public float time;
     public float energy;
@@ -140,7 +141,7 @@ public abstract class Food extends Item {
 
     @Override
     public String info() {
-        return desc() + "\n\nEating this piece of food will take _" + (int) time + "_ turns and restore _" + (int) (energy / 10) + "%_ of your satiety.";
+        return Ml.g("items.food.food.info", desc(), time, energy / 10);
     }
 
 }

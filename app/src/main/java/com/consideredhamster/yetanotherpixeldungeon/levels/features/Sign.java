@@ -22,12 +22,13 @@ package com.consideredhamster.yetanotherpixeldungeon.levels.features;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.DeadEndLevel;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndMessage;
 
 public class Sign {
 
-    private static final String TXT_DEAD_END = "What are you doing here?!";
+    private static final String TXT_DEAD_END = Ml.g("levels.features.sign.txt_dead_end");
 
     private static final String[] TIPS = {
 
@@ -79,7 +80,7 @@ public class Sign {
 //                "\n\ni think i shall remove you from the board"
     };
 
-    private static final String TXT_NOMESSAGE = "Whatever was written here is incomprehensible.";
+    private static final String TXT_NOMESSAGE = Ml.g("levels.features.sign.txt_nomessage");
 
     //	public static void read( int pos ) {
     public static void read() {

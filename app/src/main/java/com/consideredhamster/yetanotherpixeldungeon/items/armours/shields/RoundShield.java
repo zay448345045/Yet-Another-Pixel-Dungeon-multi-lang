@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.shields;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 
@@ -36,6 +37,6 @@ public class RoundShield extends Shield {
 
     @Override
     public String desc() {
-        return "Simple yet very sturdily made shield.";
+        return Ml.g("items.armours.shields.roundshield.desc");
     }
 }

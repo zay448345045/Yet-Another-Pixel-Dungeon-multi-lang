@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Greatsword extends MeleeWeaponHeavyTH {
@@ -40,6 +41,6 @@ public class Greatsword extends MeleeWeaponHeavyTH {
 
     @Override
     public String desc() {
-        return "This towering blade inflicts heavy damage by investing its heft into every cut.";
+        return Ml.g("items.weapons.melee.greatsword.desc");
     }
 }

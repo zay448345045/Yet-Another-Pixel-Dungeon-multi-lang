@@ -22,29 +22,30 @@ package com.consideredhamster.yetanotherpixeldungeon;
 
 import android.content.SharedPreferences;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.noosa.Game;
 
 enum Preferences {
 
     INSTANCE;
 
-    public static final String KEY_LANDSCAPE = "landscape";
-    public static final String KEY_IMMERSIVE = "immersive";
-    public static final String KEY_GOOGLE_PLAY = "google_play";
-    public static final String KEY_SCALE_UP = "scaleup";
-    public static final String KEY_MUSIC = "music";
-    public static final String KEY_BUTTONS = "buttons";
-    public static final String KEY_SOUND_FX = "soundfx";
-    public static final String KEY_ZOOM = "zoom";
-    public static final String KEY_LAST_CLASS = "last_class";
-    public static final String KEY_CHALLENGES = "challenges";
-    public static final String KEY_DIFFICULTY = "difficulty";
-    public static final String KEY_DONATED = "donated";
-    public static final String KEY_INTRO = "intro";
-    public static final String KEY_BRIGHTNESS = "brightness";
-    public static final String KEY_SEARCH_BTN = "search_button";
-    public static final String KEY_LOADING_TIPS = "tips_delay";
-    public static final String KEY_LAST_VERSION = "last_version";
+    public static final String KEY_LANDSCAPE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_landscape");
+    public static final String KEY_IMMERSIVE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_immersive");
+    public static final String KEY_GOOGLE_PLAY = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_google_play");
+    public static final String KEY_SCALE_UP = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_scale_up");
+    public static final String KEY_MUSIC = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_music");
+    public static final String KEY_BUTTONS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_buttons");
+    public static final String KEY_SOUND_FX = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_sound_fx");
+    public static final String KEY_ZOOM = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_zoom");
+    public static final String KEY_LAST_CLASS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_last_class");
+    public static final String KEY_CHALLENGES = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_challenges");
+    public static final String KEY_DIFFICULTY = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_difficulty");
+    public static final String KEY_DONATED = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_donated");
+    public static final String KEY_INTRO = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_intro");
+    public static final String KEY_BRIGHTNESS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_brightness");
+    public static final String KEY_SEARCH_BTN = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_search_btn");
+    public static final String KEY_LOADING_TIPS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_loading_tips");
+    public static final String KEY_LAST_VERSION = Ml.g("com.consideredhamster.yetanotherpixeldungeon.unknownclass.key_last_version");
 
     private SharedPreferences prefs;
 

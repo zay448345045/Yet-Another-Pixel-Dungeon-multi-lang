@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Corrosion;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.CausticOoze;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ScorpionSprite;
 import com.watabou.utils.Random;
 
@@ -83,7 +84,7 @@ public class CaveScorpion extends MobHealthy {
 
     @Override
     public String description() {
-        return "These huge arachnid-like creatures pose a significant threat to any adventurer due to a ability to inject acid with their tails.";
+        return Ml.g("actors.mobs.cavescorpion.description");
     }
 
 }

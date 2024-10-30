@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -39,11 +40,11 @@ import java.util.ArrayList;
 
 public class Pickaxe extends Item {
 
-    public static final String AC_MINE = "MINE";
+    public static final String AC_MINE = Ml.g("items.quest.pickaxe.ac_mine");
 
     public static final float TIME_TO_MINE = 2;
 
-    private static final String TXT_NO_VEIN = "There is no dark gold vein near you to mine";
+    private static final String TXT_NO_VEIN = Ml.g("items.quest.pickaxe.txt_no_vein");
 
 //	private static final Glowing BLOODY = new Glowing( 0x550000 );
 
@@ -164,6 +165,6 @@ public class Pickaxe extends Item {
 
     @Override
     public String info() {
-        return "This is a large and sturdy tool for breaking rocks.";
+        return Ml.g("items.quest.pickaxe.info");
     }
 }

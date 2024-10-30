@@ -24,6 +24,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.items.EquipableItem;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Tempered;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class MeleeWeaponLightTH extends MeleeWeapon {
 
@@ -35,7 +36,7 @@ public abstract class MeleeWeaponLightTH extends MeleeWeapon {
     @Override
     public String descType() {
 //        return "This is a _tier-" + appearance + " light two-handed weapon_. It can be used with shields, wands and throwing weapons, " + //                "but its strength requirement will increase if paired with another melee weapon.";
-        return "light two-handed";
+        return Ml.g("items.weapons.melee.meleeweaponlightth.desctype");
     }
 
     @Override

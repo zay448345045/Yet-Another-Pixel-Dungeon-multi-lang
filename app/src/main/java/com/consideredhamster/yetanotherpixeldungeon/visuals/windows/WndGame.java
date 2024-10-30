@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Difficulties;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.InterlevelScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
@@ -38,19 +39,19 @@ import java.io.IOException;
 
 public class WndGame extends Window {
 
-    private static final String TXT_SETTINGS = "Settings";
-    private static final String TXT_JOURNAL = "Journal";
-    private static final String TXT_CHALLENGES = "Challenges";
-    private static final String TXT_RANKINGS = "Rankings";
-    private static final String TXT_TUTORIAL = "Tutorial";
-    private static final String TXT_START = "Start New Game";
-    private static final String TXT_MENU = "Main Menu";
-    private static final String TXT_EXIT = "Exit Game";
-    private static final String TXT_RETURN = "Return to Game";
+    private static final String TXT_SETTINGS = Ml.g("visuals.windows.wndgame.txt_settings");
+    private static final String TXT_JOURNAL = Ml.g("visuals.windows.wndgame.txt_journal");
+    private static final String TXT_CHALLENGES = Ml.g("visuals.windows.wndgame.txt_challenges");
+    private static final String TXT_RANKINGS = Ml.g("visuals.windows.wndgame.txt_rankings");
+    private static final String TXT_TUTORIAL = Ml.g("visuals.windows.wndgame.txt_tutorial");
+    private static final String TXT_START = Ml.g("visuals.windows.wndgame.txt_start");
+    private static final String TXT_MENU = Ml.g("visuals.windows.wndgame.txt_menu");
+    private static final String TXT_EXIT = Ml.g("visuals.windows.wndgame.txt_exit");
+    private static final String TXT_RETURN = Ml.g("visuals.windows.wndgame.txt_return");
 
 
-    private static final String TXT_VERSION = "Version: %s";
-    private static final String TXT_DIFFICULTY = "Difficulty: %s";
+    private static final String TXT_VERSION = Ml.g("visuals.windows.wndgame.txt_version");
+    private static final String TXT_DIFFICULTY = Ml.g("visuals.windows.wndgame.txt_difficulty");
 
     private static final int WIDTH = 120;
     private static final int BTN_HEIGHT = 20;

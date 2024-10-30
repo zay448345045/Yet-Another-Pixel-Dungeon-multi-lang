@@ -20,6 +20,8 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfKnowledge extends Ring {
@@ -37,7 +39,7 @@ public class RingOfKnowledge extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = "??";
+        String mainEffect = Ml.g("items.rings.ringofknowledge.maineffect");
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
@@ -68,7 +70,8 @@ public class RingOfKnowledge extends Ring {
     public class Knowledge extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel that your mind starts working better, your memory improves." : "You start feeling stupid. It is like something prevents you from thinking clearly.";
+            return Ml.g("items.rings.ringofknowledge.desc", (bonus >= 0 ? You feel that your mind starts working better, your memory improves. :
+            You start feeling stupid.It is like something prevents you from thinking clearly.));
         }
     }
 }

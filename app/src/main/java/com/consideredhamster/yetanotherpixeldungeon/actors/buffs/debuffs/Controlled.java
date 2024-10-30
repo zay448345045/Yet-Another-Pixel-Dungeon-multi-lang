@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -36,17 +37,17 @@ public class Controlled extends Debuff {
 
     @Override
     public String toString() {
-        return "Controlled";
+        return Ml.g("actors.buffs.debuffs.controlled.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "controlled";
+        return Ml.g("actors.buffs.debuffs.controlled.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You are controlled!";
+        return Ml.g("actors.buffs.debuffs.controlled.playermessage");
     }
 
     @Override
@@ -66,7 +67,7 @@ public class Controlled extends Debuff {
 
     @Override
     public String description() {
-        return "You are not supposed to be able to see description of this debuff, but if you somehow do, then it is just the same as Charmed, but for magical creatures.";
+        return Ml.g("actors.buffs.debuffs.controlled.description");
     }
 
     @Override

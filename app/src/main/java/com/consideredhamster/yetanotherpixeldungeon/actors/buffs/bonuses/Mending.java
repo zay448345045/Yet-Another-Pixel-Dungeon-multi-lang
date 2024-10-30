@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Cripple
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Poisoned;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Random;
@@ -35,12 +36,12 @@ public class Mending extends Bonus {
 
     @Override
     public String toString() {
-        return "Mending";
+        return Ml.g("actors.buffs.bonuses.mending.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "mending";
+        return Ml.g("actors.buffs.bonuses.mending.statusmessage");
     }
 
     @Override
@@ -60,7 +61,7 @@ public class Mending extends Bonus {
 
     @Override
     public String description() {
-        return "Warm, tingly sensation flows under your skin, and you can feel your wounds closing at an accelerated rate.";
+        return Ml.g("actors.buffs.bonuses.mending.description");
     }
 
     @Override

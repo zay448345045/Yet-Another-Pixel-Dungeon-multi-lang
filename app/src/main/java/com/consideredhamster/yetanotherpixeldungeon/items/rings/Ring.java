@@ -31,6 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.ItemStatusHandler;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndOptions;
@@ -45,13 +46,13 @@ public abstract class Ring extends EquipableItem {
 
     private static final float TIME_TO_EQUIP = 1f;
 
-    private static final String TXT_IDENTIFIED = "You now know that %s gem signifies a %s!";
+    private static final String TXT_IDENTIFIED = Ml.g("items.rings.ring.txt_identified");
 
-    private static final String TXT_IDENTIFY_NORMAL = "you are now familiar enough with your %s to identify it. It is %s +%d.";
-    private static final String TXT_IDENTIFY_CURSED = "you are now familiar enough with your %s to identify it. It is %s -%d.";
+    private static final String TXT_IDENTIFY_NORMAL = Ml.g("items.rings.ring.txt_identify_normal");
+    private static final String TXT_IDENTIFY_CURSED = Ml.g("items.rings.ring.txt_identify_cursed");
 
-    private static final String TXT_UNEQUIP_TITLE = "Unequip one ring";
-    private static final String TXT_UNEQUIP_MESSAGE = "You can only wear two rings at a time. Unequip one of your equipped rings.";
+    private static final String TXT_UNEQUIP_TITLE = Ml.g("items.rings.ring.txt_unequip_title");
+    private static final String TXT_UNEQUIP_MESSAGE = Ml.g("items.rings.ring.txt_unequip_message");
 
     protected Buff buff;
 
@@ -292,24 +293,24 @@ public abstract class Ring extends EquipableItem {
 
     @Override
     public String name() {
-        return isTypeKnown() ? super.name() : gem + " ring";
+        return Ml.g("items.rings.ring.name", (isTypeKnown() ? UNKNOWN_EXPRESSION : gem + " ring"));
     }
 
     @Override
     public String desc() {
         if (isIdentified() && bonus >= 0) {
-            return "This ring is _identified_. Effects from the rings of the same type stack additively.";
+            return Ml.g("items.rings.ring.desc");
         } else if (isCursedKnown() && bonus < 0) {
-            return "This ring is _cursed_. Its effects are reversed and it cannot be removed voluntarily.";
+            return Ml.g("items.rings.ring.desc_2");
         } else {
-            return "This ring is _not identified_. You are not sure about its exact effects.";
+            return Ml.g("items.rings.ring.desc_3");
         }
     }
 
     @Override
     public String info() {
 
-        final String p = "\n\n";
+        final String p = Ml.g("items.rings.ring.p");
 
         StringBuilder info = new StringBuilder(isTypeKnown() ? desc() :
                 "This metal band is adorned with a large " + gem + " gem " +
@@ -386,7 +387,7 @@ public abstract class Ring extends EquipableItem {
         return level >= 0 ? 0.2f + 0.1f * level : 0.1f * level - 0.1f;
     }
 
-    private static final String UNFAMILIRIARITY = "unfamiliarity";
+    private static final String UNFAMILIRIARITY = Ml.g("items.rings.ring.unfamiliriarity");
 
     @Override
     public void storeInBundle(Bundle bundle) {
@@ -405,7 +406,7 @@ public abstract class Ring extends EquipableItem {
     public class RingBuff extends Buff {
 
         protected String desc() {
-            return "You don't feel anything special on equipping this ring.";
+            return Ml.g("items.rings.ring.desc_4");
         }
 
         public float effect() {

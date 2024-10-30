@@ -21,11 +21,12 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs;
 
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.AmbitiousImpSprite;
 
 public class ShopkeeperDemon extends Shopkeeper {
 
-    private static final String TXT_GREETINGS = "Hello, friend!";
+    private static final String TXT_GREETINGS = Ml.g("actors.mobs.npcs.shopkeeperdemon.txt_greetings");
 
     {
         name = "ambitious imp";
@@ -39,6 +40,6 @@ public class ShopkeeperDemon extends Shopkeeper {
 
     @Override
     public String description() {
-        return "Imps are lesser demons. They are notable for neither their strength nor their magic talent. But they are quite smart and sociable, and many of imps prefer to live and do business among non-demons.";
+        return Ml.g("actors.mobs.npcs.shopkeeperdemon.description");
     }
 }

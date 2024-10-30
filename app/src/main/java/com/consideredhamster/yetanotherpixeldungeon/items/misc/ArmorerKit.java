@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfDurability;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -40,23 +41,23 @@ import java.util.ArrayList;
 
 public class ArmorerKit extends Item {
 
-    private static final String TXT_SELECT_ARMOUR = "Select an item to repair";
-    private static final String TXT_REPAIR_ARMOUR = "Your %s looks much better now!";
-    private static final String TXT_CHARGE_KEEPED = "Your ring helped you with repair!";
-    private static final String TXT_CHARGE_WASTED = "Your ring prevented proper repair.";
+    private static final String TXT_SELECT_ARMOUR = Ml.g("items.misc.armorerkit.txt_select_armour");
+    private static final String TXT_REPAIR_ARMOUR = Ml.g("items.misc.armorerkit.txt_repair_armour");
+    private static final String TXT_CHARGE_KEEPED = Ml.g("items.misc.armorerkit.txt_charge_keeped");
+    private static final String TXT_CHARGE_WASTED = Ml.g("items.misc.armorerkit.txt_charge_wasted");
 
     private static final float TIME_TO_APPLY = 3f;
 
-    private static final String AC_APPLY = "APPLY";
+    private static final String AC_APPLY = Ml.g("items.misc.armorerkit.ac_apply");
 
-    private static final String TXT_STATUS = "%d/%d";
+    private static final String TXT_STATUS = Ml.g("items.misc.armorerkit.txt_status");
 
     {
         name = "armorer's kit";
         image = ItemSpriteSheet.ARMORER_KIT;
     }
 
-    private static final String VALUE = "value";
+    private static final String VALUE = Ml.g("items.misc.armorerkit.value");
 
     private int value = 3;
     private final int limit = 3;
@@ -140,7 +141,9 @@ public class ArmorerKit extends Item {
 
     @Override
     public String info() {
-        return "Using this kit of small tools and materials anybody can repair any armors (except cloth armors) or shields in a quite short amount of time.\nNo skills in tailoring, leatherworking or blacksmithing are required, but it has enough materials for only " + (value > 2 ? "three usages" : value < 2 ? "one usage" : "two usages") + ".";
+        return Ml.g("items.misc.armorerkit.info", (value > 2 ? three usages :{
+            0
+        }));
     }
 
     @Override
@@ -150,7 +153,7 @@ public class ArmorerKit extends Item {
 
     @Override
     public String toString() {
-        return super.toString() + " (" + status() + ")";
+        return Ml.g("items.misc.armorerkit.tostring", UNKNOWN_EXPRESSION, status());
     }
 
     private final WndBag.Listener itemSelector = new WndBag.Listener() {

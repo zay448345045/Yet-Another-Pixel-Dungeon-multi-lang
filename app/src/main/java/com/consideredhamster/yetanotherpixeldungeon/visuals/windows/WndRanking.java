@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Belongings;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.HeroSprite;
@@ -50,11 +51,11 @@ import java.util.Locale;
 
 public class WndRanking extends WndTabbed {
 
-    private static final String TXT_ERROR = "Unable to load additional information";
+    private static final String TXT_ERROR = Ml.g("visuals.windows.wndranking.txt_error");
 
-    private static final String TXT_STATS = "Stats";
-    private static final String TXT_ITEMS = "Items";
-    private static final String TXT_BADGES = "Badges";
+    private static final String TXT_STATS = Ml.g("visuals.windows.wndranking.txt_stats");
+    private static final String TXT_ITEMS = Ml.g("visuals.windows.wndranking.txt_items");
+    private static final String TXT_BADGES = Ml.g("visuals.windows.wndranking.txt_badges");
 
     private static final int WIDTH = 112;
     private static final int HEIGHT = 134;
@@ -165,26 +166,26 @@ public class WndRanking extends WndTabbed {
 
         private static final int GAP = 4;
 
-        private static final String TXT_TITLE = "Level %d %s";
+        private static final String TXT_TITLE = Ml.g("visuals.windows.wndranking.txt_title");
 
-        private static final String TXT_CHALLENGES = "Challenges";
+        private static final String TXT_CHALLENGES = Ml.g("visuals.windows.wndranking.txt_challenges");
 
-        private static final String TXT_HEALTH = "Health Amount";
-        private static final String TXT_STR = "Strength Achieved";
+        private static final String TXT_HEALTH = Ml.g("visuals.windows.wndranking.txt_health");
+        private static final String TXT_STR = Ml.g("visuals.windows.wndranking.txt_str");
 
-        private static final String TXT_SCORE = "Score Points";
-        private static final String TXT_DURATION = "Game Duration";
-        private static final String TXT_DIFF = "Difficulty";
+        private static final String TXT_SCORE = Ml.g("visuals.windows.wndranking.txt_score");
+        private static final String TXT_DURATION = Ml.g("visuals.windows.wndranking.txt_duration");
+        private static final String TXT_DIFF = Ml.g("visuals.windows.wndranking.txt_diff");
 
-        private static final String TXT_VERSION = "Mod Version";
+        private static final String TXT_VERSION = Ml.g("visuals.windows.wndranking.txt_version");
 
-        private static final String TXT_DEPTH = "Maximum Depth";
-        private static final String TXT_ENEMIES = "Mobs Killed";
-        private static final String TXT_GOLD = "Gold Found";
+        private static final String TXT_DEPTH = Ml.g("visuals.windows.wndranking.txt_depth");
+        private static final String TXT_ENEMIES = Ml.g("visuals.windows.wndranking.txt_enemies");
+        private static final String TXT_GOLD = Ml.g("visuals.windows.wndranking.txt_gold");
 
-        private static final String TXT_FOOD = "Food Eaten";
-        private static final String TXT_ALCHEMY = "Potions Cooked";
-        private static final String TXT_ANKHS = "Ankhs Used";
+        private static final String TXT_FOOD = Ml.g("visuals.windows.wndranking.txt_food");
+        private static final String TXT_ALCHEMY = Ml.g("visuals.windows.wndranking.txt_alchemy");
+        private static final String TXT_ANKHS = Ml.g("visuals.windows.wndranking.txt_ankhs");
 
         public StatsTab() {
             super();

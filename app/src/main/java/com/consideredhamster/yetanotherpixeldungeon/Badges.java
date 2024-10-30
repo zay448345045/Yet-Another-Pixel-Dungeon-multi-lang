@@ -30,6 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.watabou.noosa.Game;
 import com.watabou.utils.Bundle;
@@ -177,8 +178,8 @@ public class Badges {
         loadGlobal();
     }
 
-    private static final String BADGES_FILE = "badges.dat";
-    private static final String BADGES = "badges";
+    private static final String BADGES_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.badges.badges_file");
+    private static final String BADGES = Ml.g("com.consideredhamster.yetanotherpixeldungeon.badges.badges");
 
     private static HashSet<Badge> restore(Bundle bundle) {
         HashSet<Badge> badges = new HashSet<Badge>();

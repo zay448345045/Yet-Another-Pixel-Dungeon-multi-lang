@@ -40,6 +40,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs.Tenacit
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfKnowledge;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfMysticism;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
@@ -49,9 +50,9 @@ public abstract class Armour extends EquipableItem {
 
     private static final int HITS_TO_KNOW = 15;
 
-    private static final String TXT_EQUIP_CURSED = "your %s constricts around you painfully";
+    private static final String TXT_EQUIP_CURSED = Ml.g("items.armours.armour.txt_equip_cursed");
 
-    private static final String TXT_IDENTIFY = "you are now familiar enough with your %s to identify it. It is %s.";
+    private static final String TXT_IDENTIFY = Ml.g("items.armours.armour.txt_identify");
 
     public int tier;
     public int appearance;
@@ -66,8 +67,8 @@ public abstract class Armour extends EquipableItem {
 
     }
 
-    private static final String UNFAMILIRIARITY = "unfamiliarity";
-    private static final String GLYPH = "glyph";
+    private static final String UNFAMILIRIARITY = Ml.g("items.armours.armour.unfamiliriarity");
+    private static final String GLYPH = Ml.g("items.armours.armour.glyph");
 
     @Override
     public void storeInBundle(Bundle bundle) {

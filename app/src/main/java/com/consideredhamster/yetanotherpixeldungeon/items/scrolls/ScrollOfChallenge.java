@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mimic;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -37,7 +38,7 @@ import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfChallenge extends Scroll {
 
-    private static final String TXT_MESSAGE = "The scroll emits a challenging roar that echoes throughout the dungeon!";
+    private static final String TXT_MESSAGE = Ml.g("items.scrolls.scrollofchallenge.txt_message");
 
     {
         name = "Scroll of Challenge";
@@ -95,7 +96,7 @@ public class ScrollOfChallenge extends Scroll {
 
     @Override
     public String desc() {
-        return "When read aloud, this scroll will bless you with an unholy wrath, significantly increasing strength of your blows for a limited time. However, it will also aggravate all creatures on the level and reveal your position to them.";
+        return Ml.g("items.scrolls.scrollofchallenge.desc");
     }
 
     @Override

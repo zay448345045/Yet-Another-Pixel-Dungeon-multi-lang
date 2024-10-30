@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
@@ -71,7 +72,7 @@ public class PotionOfStrength extends Potion {
 
     @Override
     public String desc() {
-        return "This powerful liquid will course through your muscles, permanently increasing your physical and magical powers, as well as fully restoring your health.";
+        return Ml.g("items.potions.potionofstrength.desc");
     }
 
     @Override

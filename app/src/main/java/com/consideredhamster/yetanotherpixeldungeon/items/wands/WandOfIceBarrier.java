@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.NPC;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -120,7 +121,7 @@ public class WandOfIceBarrier extends WandUtility {
 
     @Override
     public String desc() {
-        return "A single zap from this rime-covered wand will attempt to create a short wall of ice on the targeted spot. If the targeted tiles are occupied by someone,  it will instead chill them to the bones. Effect of this wand is stronger when used on water tiles.";
+        return Ml.g("items.wands.wandoficebarrier.desc");
     }
 
 //    private static class SecondaryListener implements CellSelector.Listener {
@@ -298,7 +299,7 @@ public class WandOfIceBarrier extends WandUtility {
 
         @Override
         public String description() {
-            return "This ice block was created by your wand of Ice Barrier. It slowly melts, and can also be broken if damaged enough. You also can dispel the block by interacting with it while holding your wand.";
+            return Ml.g("items.wands.wandoficebarrier.description");
         }
     }
 }

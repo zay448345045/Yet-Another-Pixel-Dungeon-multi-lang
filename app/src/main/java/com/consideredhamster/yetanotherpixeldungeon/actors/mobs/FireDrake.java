@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Fire;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
@@ -129,7 +130,7 @@ public class FireDrake extends MobPrecise {
 
     @Override
     public String description() {
-        return "Drakes of different kinds had roamed the deeper bowels of this world long before dwarves domesticated them. Fire drakes are the most common variety, able to fly and belch fire to protect their bearded masters.";
+        return Ml.g("actors.mobs.firedrake.description");
     }
 
 }

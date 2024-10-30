@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.bags;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
@@ -75,7 +76,7 @@ public class WandHolster extends Bag {
 
     @Override
     public String info() {
-        return "This slim holder is made of leather of some exotic animal. It allows to compactly carry up to " + size + " wands.";
+        return Ml.g("items.bags.wandholster.info", size);
     }
 
     @Override

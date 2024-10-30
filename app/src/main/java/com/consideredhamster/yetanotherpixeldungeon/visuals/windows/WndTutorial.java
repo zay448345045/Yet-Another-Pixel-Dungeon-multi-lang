@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.visuals.windows;
 
 import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.ScrollPane;
@@ -44,7 +45,7 @@ public class WndTutorial extends WndTabbed {
     private static SmartTexture icons;
     private static TextureFilm film;
 
-    private static final String TXT_TITLE = "Tutorial";
+    private static final String TXT_TITLE = Ml.g("visuals.windows.wndtutorial.txt_title");
 
     private static final String[] TXT_LABELS = {
             "I", "II", "III", "IV", "V",

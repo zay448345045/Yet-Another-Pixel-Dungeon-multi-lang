@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety
 import com.consideredhamster.yetanotherpixeldungeon.items.food.Food;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 import java.util.ArrayList;
 
@@ -43,7 +44,7 @@ public abstract class Herb extends Food {
 
     @Override
     public String info() {
-        return desc() + "\n\nEating this herb will take only _" + (int) time + "_ turn and restore _" + (int) (energy / 10) + "%_ of your satiety.";
+        return Ml.g("items.herbs.herb.info", desc(), time, energy / 10);
     }
 }
 

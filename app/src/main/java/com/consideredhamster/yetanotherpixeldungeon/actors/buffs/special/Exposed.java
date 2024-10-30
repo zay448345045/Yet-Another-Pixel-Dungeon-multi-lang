@@ -21,17 +21,18 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffReactive;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundle;
 
 public class Exposed extends BuffReactive {
 
     public int object = 0;
 
-    private static final String OBJECT = "object";
+    private static final String OBJECT = Ml.g("actors.buffs.special.exposed.object");
 
     @Override
     public String statusMessage() {
-        return "exposed";
+        return Ml.g("actors.buffs.special.exposed.statusmessage");
     }
 
     @Override

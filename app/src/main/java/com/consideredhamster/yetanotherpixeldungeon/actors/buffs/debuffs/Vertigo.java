@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -35,17 +36,17 @@ public class Vertigo extends Debuff {
 
     @Override
     public String toString() {
-        return "Vertigo";
+        return Ml.g("actors.buffs.debuffs.vertigo.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "vertigo";
+        return Ml.g("actors.buffs.debuffs.vertigo.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "Everything is spinning around you!";
+        return Ml.g("actors.buffs.debuffs.vertigo.playermessage");
     }
 
     @Override
@@ -65,7 +66,7 @@ public class Vertigo extends Debuff {
 
     @Override
     public String description() {
-        return "Everything is spinning around you! Your movement can be erratic at times, you cannot concentrate, and your dexterity and perception are decreased.";
+        return Ml.g("actors.buffs.debuffs.vertigo.description");
     }
 
     @Override

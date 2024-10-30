@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfDisintegra
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -187,6 +188,6 @@ public class EvilEye extends MobRanged {
 
     @Override
     public String description() {
-        return "One of this creature's other names is \"orb of hatred\", because when it sees an enemy, it uses its deathgaze recklessly, often ignoring its allies and wounding them.";
+        return Ml.g("actors.mobs.evileye.description");
     }
 }

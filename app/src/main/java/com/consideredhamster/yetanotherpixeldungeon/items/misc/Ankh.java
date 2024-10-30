@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.items.bags.Bag;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
@@ -44,7 +45,7 @@ public class Ankh extends Item {
         image = ItemSpriteSheet.ANKH;
     }
 
-    private static final String TXT_RESURRECT = "You are resurrected by the powers of Ankh!";
+    private static final String TXT_RESURRECT = Ml.g("items.misc.ankh.txt_resurrect");
 
     @Override
     public ArrayList<String> actions(Hero hero) {
@@ -58,7 +59,7 @@ public class Ankh extends Item {
 
     @Override
     public String info() {
-        return "The ancient symbol of immortality grants an ability to return to life after death. ";
+        return Ml.g("items.misc.ankh.info");
     }
 
 

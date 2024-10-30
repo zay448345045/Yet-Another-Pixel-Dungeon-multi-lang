@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 
@@ -37,6 +38,6 @@ public class StuddedArmor extends BodyArmorLight {
 
     @Override
     public String desc() {
-        return "Armor made from tanned monster hide, reinforced with metal rivets. Not as light as cloth armor but provides better protection.";
+        return Ml.g("items.armours.body.studdedarmor.desc");
     }
 }

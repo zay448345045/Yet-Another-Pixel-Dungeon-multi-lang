@@ -22,12 +22,13 @@ package com.consideredhamster.yetanotherpixeldungeon.levels.features;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
 
 public class AlchemyPot {
 
-    private static final String TXT_SELECT_HERB = "Select a herb to throw";
+    private static final String TXT_SELECT_HERB = Ml.g("levels.features.alchemypot.txt_select_herb");
 
     private static Hero hero;
     private static int pos;

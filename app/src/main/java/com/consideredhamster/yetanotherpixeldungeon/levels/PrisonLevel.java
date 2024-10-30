@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room.Type;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Halo;
@@ -170,7 +171,7 @@ public class PrisonLevel extends RegularLevel {
     public static String tileNames(int tile) {
         switch (tile) {
             case Terrain.WATER:
-                return "Dark cold water.";
+                return Ml.g("levels.prisonlevel.tilenames");
             default:
                 return Level.tileNames(tile);
         }
@@ -180,21 +181,21 @@ public class PrisonLevel extends RegularLevel {
     public static String tileDescs(int tile) {
         switch (tile) {
             case Terrain.EMPTY_DECO:
-                return "There are old blood stains on the floor.";
+                return Ml.g("levels.prisonlevel.tiledescs");
             case Terrain.WALL_DECO:
-                return "A torch hangs on the wall, burning dimly. Who even keeps these alight?";
+                return Ml.g("levels.prisonlevel.tiledescs_2");
             case Terrain.WALL_DECO1:
-                return "There is an old iron grate built into this wall. You can't see what is there in the darkness.";
+                return Ml.g("levels.prisonlevel.tiledescs_3");
             case Terrain.WALL_DECO2:
-                return "Seems like someone's remains are stored here. Why?";
+                return Ml.g("levels.prisonlevel.tiledescs_4");
             case Terrain.WALL_DECO3:
             case Terrain.WALL_DECO4:
             case Terrain.WALL_DECO5:
-                return "There is a dried up bloodstain here. Creepy.";
+                return Ml.g("levels.prisonlevel.tiledescs_5");
             case Terrain.BOOKSHELF:
-                return "This is probably a vestige of a prison library. Maybe there would be something useful in here?";
+                return Ml.g("levels.prisonlevel.tiledescs_6");
             case Terrain.SHELF_EMPTY:
-                return "This is probably a vestige of a prison library.";
+                return Ml.g("levels.prisonlevel.tiledescs_7");
             default:
                 return Level.tileDescs(tile);
         }

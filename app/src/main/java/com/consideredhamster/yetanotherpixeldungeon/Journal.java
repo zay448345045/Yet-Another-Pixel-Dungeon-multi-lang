@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 
@@ -53,8 +54,8 @@ public class Journal {
 
     public static class Record implements Comparable<Record>, Bundlable {
 
-        private static final String FEATURE = "feature";
-        private static final String DEPTH = "depth";
+        private static final String FEATURE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.journal.feature");
+        private static final String DEPTH = Ml.g("com.consideredhamster.yetanotherpixeldungeon.journal.depth");
 
         public Feature feature;
         public int depth;
@@ -91,7 +92,7 @@ public class Journal {
         records = new ArrayList<Journal.Record>();
     }
 
-    private static final String JOURNAL = "journal";
+    private static final String JOURNAL = Ml.g("com.consideredhamster.yetanotherpixeldungeon.journal.journal");
 
     public static void storeInBundle(Bundle bundle) {
         bundle.put(JOURNAL, records);

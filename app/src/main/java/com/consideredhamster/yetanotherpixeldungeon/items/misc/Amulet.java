@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Statistics;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.AmuletScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.watabou.noosa.Game;
@@ -34,7 +35,7 @@ import java.util.ArrayList;
 
 public class Amulet extends Item {
 
-    private static final String AC_END = "INVOKE";
+    private static final String AC_END = Ml.g("items.misc.amulet.ac_end");
 
     {
         name = "Amulet of Yendor";
@@ -91,6 +92,6 @@ public class Amulet extends Item {
 
     @Override
     public String info() {
-        return "The Amulet of Yendor is the most powerful known artifact, once held by a wizard of Yendor. It is said that the amulet is able to fulfil any wish of its owner, but only once.";
+        return Ml.g("items.misc.amulet.info");
     }
 }

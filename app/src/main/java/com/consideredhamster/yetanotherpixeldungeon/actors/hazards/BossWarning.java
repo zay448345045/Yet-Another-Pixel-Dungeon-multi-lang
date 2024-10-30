@@ -1,6 +1,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.hazards;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.HazardSprite;
@@ -45,7 +46,7 @@ public class BossWarning extends Hazard {
 
     @Override
     public String desc() {
-        return "DM-300 has targeted this tile for its next attack.";
+        return Ml.g("actors.hazards.bosswarning.desc");
     }
 
     ;

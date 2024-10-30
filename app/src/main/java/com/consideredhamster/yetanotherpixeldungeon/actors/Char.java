@@ -49,6 +49,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfVitality;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.levels.features.Door;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
@@ -66,15 +67,15 @@ public abstract class Char extends Actor {
 
     //	protected static final String TXT_HIT		= "%s hit %s";
 //	protected static final String TXT_KILL		= "You %s...";
-    protected static final String TXT_DEFEAT = "%s is defeated!";
+    protected static final String TXT_DEFEAT = Ml.g("actors.char.txt_defeat");
 
-    protected static final String TXT_DODGED = "dodged";
-    protected static final String TXT_MISSED = "missed";
+    protected static final String TXT_DODGED = Ml.g("actors.char.txt_dodged");
+    protected static final String TXT_MISSED = Ml.g("actors.char.txt_missed");
 
-    protected static final String TXT_GUARD = "guard";
-    protected static final String TXT_AMBUSH = "sneak attack!";
-    protected static final String TXT_COUNTER = "counter attack!";
-    protected static final String TXT_EXPOSED = "exposed!";
+    protected static final String TXT_GUARD = Ml.g("actors.char.txt_guard");
+    protected static final String TXT_AMBUSH = Ml.g("actors.char.txt_ambush");
+    protected static final String TXT_COUNTER = Ml.g("actors.char.txt_counter");
+    protected static final String TXT_EXPOSED = Ml.g("actors.char.txt_exposed");
 
 //	private static final String TXT_YOU_MISSED	= "%s %s your attack";
 //	private static final String TXT_SMB_MISSED	= "%s %s %s's attack";
@@ -85,8 +86,8 @@ public abstract class Char extends Actor {
 
     public CharSprite sprite;
 
-    public String name = "mob";
-    public String info = "nothing";
+    public String name = Ml.g("actors.char.name");
+    public String info = Ml.g("actors.char.info");
 
     public int HT;
     public int HP;
@@ -119,10 +120,10 @@ public abstract class Char extends Actor {
 
     ;
 
-    private static final String POS = "pos";
-    private static final String TAG_HP = "HP";
-    private static final String TAG_HT = "HT";
-    private static final String BUFFS = "buffs";
+    private static final String POS = Ml.g("actors.char.pos");
+    private static final String TAG_HP = Ml.g("actors.char.tag_hp");
+    private static final String TAG_HT = Ml.g("actors.char.tag_ht");
+    private static final String BUFFS = Ml.g("actors.char.buffs");
 
     @Override
     public int actingPriority() {

@@ -22,6 +22,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class BodyArmorLight extends BodyArmor {
 
@@ -46,7 +47,7 @@ public abstract class BodyArmorLight extends BodyArmor {
 
     @Override
     public String descType() {
-        return "light";
+        return Ml.g("items.armours.body.bodyarmorlight.desctype");
     }
 
 }

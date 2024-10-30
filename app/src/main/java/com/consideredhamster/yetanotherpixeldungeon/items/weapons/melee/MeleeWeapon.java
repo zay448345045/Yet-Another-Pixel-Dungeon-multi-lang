@@ -31,6 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Ethereal;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Tempered;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class MeleeWeapon extends Weapon {
 
@@ -42,11 +43,11 @@ public abstract class MeleeWeapon extends Weapon {
 
     }
 
-    private static final String TXT_NOTEQUIPPED = "You have to equip this weapon first!";
-    private static final String TXT_CANNOTGUARD = "You can guard only with shields and melee weapons!";
-    private static final String TXT_GUARD = "guard";
+    private static final String TXT_NOTEQUIPPED = Ml.g("items.weapons.melee.meleeweapon.txt_notequipped");
+    private static final String TXT_CANNOTGUARD = Ml.g("items.weapons.melee.meleeweapon.txt_cannotguard");
+    private static final String TXT_GUARD = Ml.g("items.weapons.melee.meleeweapon.txt_guard");
 
-    private static final String AC_GUARD = "GUARD";
+    private static final String AC_GUARD = Ml.g("items.weapons.melee.meleeweapon.ac_guard");
 
     @Override
     public String equipAction() {

@@ -33,6 +33,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.SewerBossLevel;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.levels.features.Door;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
@@ -267,11 +268,11 @@ public class Goo extends MobEvasive {
 
     @Override
     public String description() {
-        return "Little is known about The Goo. It's quite possible that it is not even a creature, but rather a conglomerate of substances from the sewers that gained some kind of rudimentary, but very evil sentience.";
+        return Ml.g("actors.mobs.goo.description");
     }
 
-    private static final String PHASE = "phase";
-    private static final String BREAKS = "breaks";
+    private static final String PHASE = Ml.g("actors.mobs.goo.phase");
+    private static final String BREAKS = Ml.g("actors.mobs.goo.breaks");
 
     @Override
     public void storeInBundle(Bundle bundle) {

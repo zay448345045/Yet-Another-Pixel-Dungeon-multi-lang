@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Arrows;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponAmmo;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Bow extends RangedWeaponMissile {
@@ -47,6 +48,6 @@ public class Bow extends RangedWeaponMissile {
 
     @Override
     public String desc() {
-        return "In the hands of a skilled archer, this weapon can be extremely effective.";
+        return Ml.g("items.weapons.ranged.bow.desc");
     }
 }

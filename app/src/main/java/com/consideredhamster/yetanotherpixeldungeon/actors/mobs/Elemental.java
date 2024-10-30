@@ -32,6 +32,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
@@ -41,8 +42,8 @@ import com.watabou.utils.Callback;
 
 public class Elemental extends MobPrecise {
 
-    private static String TXT_ENSNARED = "Elemental burns its snares!";
-    private static String TXT_FROZEN = "Freezing hurts elemental!";
+    private static String TXT_ENSNARED = Ml.g("actors.mobs.elemental.txt_ensnared");
+    private static String TXT_FROZEN = Ml.g("actors.mobs.elemental.txt_frozen");
 
     public Elemental() {
 
@@ -197,7 +198,7 @@ public class Elemental extends MobPrecise {
 
     @Override
     public String description() {
-        return "Wandering fire elementals are a byproduct of summoning greater entities. They are too chaotic in their nature to be controlled by even the most powerful demonologist.";
+        return Ml.g("actors.mobs.elemental.description");
     }
 
 }

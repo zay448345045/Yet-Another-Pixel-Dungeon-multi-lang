@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Arrows extends ThrowingWeaponAmmo {
@@ -46,6 +47,6 @@ public class Arrows extends ThrowingWeaponAmmo {
 
     @Override
     public String desc() {
-        return "A wooden shaft with metal tip and basic fletching. Flies fast, strikes true.";
+        return Ml.g("items.weapons.throwing.arrows.desc");
     }
 }

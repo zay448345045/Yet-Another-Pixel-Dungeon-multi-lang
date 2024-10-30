@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffPassive;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -47,12 +48,12 @@ public class Light extends BuffPassive {
 
     @Override
     public String toString() {
-        return "Light";
+        return Ml.g("actors.buffs.special.light.tostring");
     }
 
     @Override
     public String description() {
-        return "Your lantern shines brightly, increasing your field of view and your chance to find traps, but making it easier to notice you as well.";
+        return Ml.g("actors.buffs.special.light.description");
     }
 
     @Override

@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.EquipableItem;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.Shield;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Tempered;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class MeleeWeaponHeavyTH extends MeleeWeapon {
 
@@ -38,7 +39,7 @@ public abstract class MeleeWeaponHeavyTH extends MeleeWeapon {
     @Override
     public String descType() {
 //        return "This is a _tier-" + appearance + " heavy two-handed weapon_. It can be used with wands and throwing weapons, " + //                "but its strength requirement will increase if paired with shield or another melee weapon.";
-        return "heavy two-handed";
+        return Ml.g("items.weapons.melee.meleeweaponheavyth.desctype");
     }
 
     @Override

@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
@@ -86,7 +87,7 @@ public class ScrollOfIdentify extends InventoryScroll {
 
     @Override
     public String desc() {
-        return "Incantation etched on this scroll can bestow its reader with ability to perceive the very nature of things, revealing their purposes and qualities. However, duration of this spell is really short, so it is possible to assess only a single item with its help.";
+        return Ml.g("items.scrolls.scrollofidentify.desc");
     }
 
     public static boolean identify(Item... items) {

@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.TagAttack;
 
@@ -31,17 +32,18 @@ public class MindVision extends Bonus {
 
     @Override
     public String toString() {
-        return "Mind vision";
+        return Ml.g("actors.buffs.bonuses.mindvision.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "mind vision";
+        return Ml.g("actors.buffs.bonuses.mindvision.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return Dungeon.level.mobs.size() > 0 ? "You can somehow feel the presence of other creatures' minds!" : "You can somehow tell that you are alone on this level at the moment.";
+        return Ml.g("actors.buffs.bonuses.mindvision.playermessage", (size() > 0 ? You can somehow feel the presence of other creatures
+        ' minds! : You can somehow tell that you are alone on this level at the moment.));
     }
 
     @Override
@@ -57,7 +59,7 @@ public class MindVision extends Bonus {
 
     @Override
     public String description() {
-        return "Woah, dude... Your mind feels completely open and connected to the minds of other creatures on the current floor. This makes it possible for you to see their positions, and increases your awareness.";
+        return Ml.g("actors.buffs.bonuses.mindvision.description");
     }
 
     @Override

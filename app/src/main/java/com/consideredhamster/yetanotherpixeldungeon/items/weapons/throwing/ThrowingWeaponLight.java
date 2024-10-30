@@ -20,6 +20,8 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 public abstract class ThrowingWeaponLight extends ThrowingWeapon {
 
     public ThrowingWeaponLight(int tier) {
@@ -28,7 +30,7 @@ public abstract class ThrowingWeaponLight extends ThrowingWeapon {
 
     @Override
     public String descType() {
-        return "light throwing";
+        return Ml.g("items.weapons.throwing.throwingweaponlight.desctype");
     }
 
     @Override

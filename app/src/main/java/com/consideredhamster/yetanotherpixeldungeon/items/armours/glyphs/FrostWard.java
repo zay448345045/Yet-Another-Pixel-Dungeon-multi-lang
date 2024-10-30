@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
@@ -43,22 +44,22 @@ public class FrostWard extends Armour.Glyph {
 
     @Override
     protected String name_p() {
-        return "%s of frost ward";
+        return Ml.g("items.armours.glyphs.frostward.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "%s of glaciers";
+        return Ml.g("items.armours.glyphs.frostward.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "freezes your enemies on hit and make you resistant to frost";
+        return Ml.g("items.armours.glyphs.frostward.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "freeze you on hit";
+        return Ml.g("items.armours.glyphs.frostward.desc_n");
     }
 
     @Override

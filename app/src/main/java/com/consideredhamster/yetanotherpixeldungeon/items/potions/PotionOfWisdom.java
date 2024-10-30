@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfKnowledge;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Random;
 
 public class PotionOfWisdom extends Potion {
@@ -50,7 +51,7 @@ public class PotionOfWisdom extends Potion {
 
     @Override
     public String desc() {
-        return "The stored experiences of multitudes of lifetimes reduced to liquid form, this draught will instantly raise your experience level.";
+        return Ml.g("items.potions.potionofwisdom.desc");
     }
 
     @Override

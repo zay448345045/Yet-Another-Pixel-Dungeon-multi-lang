@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Glaive extends MeleeWeaponLightTH {
@@ -40,6 +41,6 @@ public class Glaive extends MeleeWeaponLightTH {
 
     @Override
     public String desc() {
-        return "A polearm consisting of a sword blade on the end of a pole. Deadly and graceful.";
+        return Ml.g("items.weapons.melee.glaive.desc");
     }
 }

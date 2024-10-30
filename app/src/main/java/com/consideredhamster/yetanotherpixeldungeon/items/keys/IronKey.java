@@ -23,11 +23,12 @@ package com.consideredhamster.yetanotherpixeldungeon.items.keys;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.items.bags.Bag;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class IronKey extends Key {
 
-    private static final String TXT_FROM_DEPTH = "iron key from depth %d";
+    private static final String TXT_FROM_DEPTH = Ml.g("items.keys.ironkey.txt_from_depth");
 
     public static int curDepthQuantity = 0;
 
@@ -60,6 +61,6 @@ public class IronKey extends Key {
 
     @Override
     public String info() {
-        return "The notches on this ancient iron key are well worn; its leather lanyard is battered by age. What door might it open?";
+        return Ml.g("items.keys.ironkey.info");
     }
 }

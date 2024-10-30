@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 
 public class Durability extends Armour.Glyph {
@@ -33,22 +34,22 @@ public class Durability extends Armour.Glyph {
 
     @Override
     protected String name_p() {
-        return "%s of durability";
+        return Ml.g("items.armours.glyphs.durability.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "%s of fragility";
+        return Ml.g("items.armours.glyphs.durability.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "last longer without breaking and offer a bit more protection";
+        return Ml.g("items.armours.glyphs.durability.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "break even faster than usual and offer a bit less protection";
+        return Ml.g("items.armours.glyphs.durability.desc_n");
     }
 
     @Override

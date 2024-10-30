@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 
@@ -37,6 +38,6 @@ public class MailArmor extends BodyArmorLight {
 
     @Override
     public String desc() {
-        return "Interlocking metal links make for a tough but flexible suit of armor.";
+        return Ml.g("items.armours.body.mailarmor.desc");
     }
 }

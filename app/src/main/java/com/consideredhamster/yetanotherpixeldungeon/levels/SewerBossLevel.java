@@ -35,6 +35,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.AlarmTrap;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.Scene;
@@ -328,7 +329,7 @@ public class SewerBossLevel extends Level {
         return progress == BOSS_APPEARED ? Assets.TRACK_BOSS_LOOP : super.currentTrack();
     }
 
-    private static final String PROGRESS = "progress";
+    private static final String PROGRESS = Ml.g("levels.sewerbosslevel.progress");
 
     @Override
     public void storeInBundle(Bundle bundle) {

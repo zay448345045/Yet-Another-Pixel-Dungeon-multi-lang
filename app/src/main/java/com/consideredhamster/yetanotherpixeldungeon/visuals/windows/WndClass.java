@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Badges;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroClass;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroSubClass;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.BitmapTextMultiline;
@@ -31,8 +32,8 @@ import com.watabou.noosa.Group;
 
 public class WndClass extends WndTabbed {
 
-    private static final String TXT_MASTERY = "Mastery";
-    private static final String TXT_DETAILS = "Details";
+    private static final String TXT_MASTERY = Ml.g("visuals.windows.wndclass.txt_mastery");
+    private static final String TXT_DETAILS = Ml.g("visuals.windows.wndclass.txt_details");
 
     private static final int WIDTH = 124;
 

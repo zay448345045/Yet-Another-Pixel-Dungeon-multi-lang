@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Shurikens extends ThrowingWeaponLight {
@@ -45,6 +46,6 @@ public class Shurikens extends ThrowingWeaponLight {
 
     @Override
     public String desc() {
-        return "Star-shaped pieces of metal with razor-sharp blades do significant damage when they hit unaware targets.";
+        return Ml.g("items.weapons.throwing.shurikens.desc");
     }
 }

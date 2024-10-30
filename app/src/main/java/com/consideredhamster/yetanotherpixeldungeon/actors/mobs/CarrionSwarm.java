@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.SwarmSprite;
 
 public class CarrionSwarm extends MobEvasive {
@@ -66,7 +67,7 @@ public class CarrionSwarm extends MobEvasive {
 
     @Override
     public String description() {
-        return "The deadly swarm of flies buzzes angrily. These unclean foes have uncanny sense of smell when it comes to anything edible.";
+        return Ml.g("actors.mobs.carrionswarm.description");
     }
 
     @Override

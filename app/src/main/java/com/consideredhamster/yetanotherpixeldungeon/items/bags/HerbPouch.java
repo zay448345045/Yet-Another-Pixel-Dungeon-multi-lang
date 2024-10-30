@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatBurned;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.Herb;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
@@ -58,7 +59,7 @@ public class HerbPouch extends Bag {
 
     @Override
     public String info() {
-        return "This small velvet pouch allows you to store any number of herbs in it. Very convenient.";
+        return Ml.g("items.bags.herbpouch.info");
     }
 
     @Override

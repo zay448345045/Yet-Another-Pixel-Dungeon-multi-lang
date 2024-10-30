@@ -36,6 +36,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.misc.Dewdrop;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -53,14 +54,14 @@ import java.util.LinkedList;
 
 public class Heap implements Bundlable {
 
-    private static final String TXT_MIMIC = "This is a mimic!";
-    private static final String TXT_BURNED = "Fire burns %s lying on the floor!";
+    private static final String TXT_MIMIC = Ml.g("items.heap.txt_mimic");
+    private static final String TXT_BURNED = Ml.g("items.heap.txt_burned");
 
-    private static final String TXT_BLOWNUP = "%s is destroyed!";
-    private static final String TXT_DAMAGED = "%s is damaged!";
-    private static final String TXT_SHATTER = "%s is shattered!";
+    private static final String TXT_BLOWNUP = Ml.g("items.heap.txt_blownup");
+    private static final String TXT_DAMAGED = Ml.g("items.heap.txt_damaged");
+    private static final String TXT_SHATTER = Ml.g("items.heap.txt_shatter");
 
-    private static final String TXT_KNOWN_BY_BREWING = "You now know that this is %s!";
+    private static final String TXT_KNOWN_BY_BREWING = Ml.g("items.heap.txt_known_by_brewing");
 
     private static final int HERBS_TO_POTION = 3;
 
@@ -576,10 +577,10 @@ public class Heap implements Bundlable {
         return this;
     }
 
-    private static final String HP = "hp";
-    private static final String POS = "pos";
-    private static final String TYPE = "type";
-    private static final String ITEMS = "items";
+    private static final String HP = Ml.g("items.heap.hp");
+    private static final String POS = Ml.g("items.heap.pos");
+    private static final String TYPE = Ml.g("items.heap.type");
+    private static final String ITEMS = Ml.g("items.heap.items");
 
     @SuppressWarnings("unchecked")
     @Override

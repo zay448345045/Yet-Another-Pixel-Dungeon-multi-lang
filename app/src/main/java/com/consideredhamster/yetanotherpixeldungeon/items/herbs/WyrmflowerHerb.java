@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfStrength;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfWisdom;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.UnstablePotion;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
@@ -68,7 +69,7 @@ public class WyrmflowerHerb extends Herb {
 
     @Override
     public String desc() {
-        return "A very rare herb, it is often sought by alchemists for its powerful alchemical properties. Being a key ingredient for the most potent of potions, such valuable find cannot be underappreciated.\n\nThese herbs are used to brew potions of _Wisdom_ and _Strength_ when combined with other herbs, but cannot be brewed with another such herb. Consuming them will increase your maximum health by _2_ points.";
+        return Ml.g("items.herbs.wyrmflowerherb.desc");
     }
 
     public static class PotentMeat extends MeatStewed {
@@ -87,7 +88,7 @@ public class WyrmflowerHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with a _Wyrmflower_ herb. It smells pretty potent. Consuming it will increase your maximum health by _4_ points.";
+            return Ml.g("items.herbs.wyrmflowerherb.desc_2");
         }
 
         @Override

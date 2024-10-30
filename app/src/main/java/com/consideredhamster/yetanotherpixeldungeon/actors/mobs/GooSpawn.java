@@ -31,6 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
 import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.GooSprite;
@@ -222,10 +223,10 @@ public class GooSpawn extends MobEvasive {
 
     @Override
     public String description() {
-        return "Little is known about The Goo. It's quite possible that it is not even a creature, but rather a conglomerate of substances from the sewers that gained some kind of rudimentary, but very evil sentience.";
+        return Ml.g("actors.mobs.goospawn.description");
     }
 
-    private static final String PHASE = "phase";
+    private static final String PHASE = Ml.g("actors.mobs.goospawn.phase");
 
     @Override
     public void storeInBundle(Bundle bundle) {

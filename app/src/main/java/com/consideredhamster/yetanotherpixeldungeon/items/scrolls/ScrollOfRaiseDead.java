@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Controlled;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Wraith;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.watabou.noosa.audio.Sample;
@@ -60,7 +61,7 @@ public class ScrollOfRaiseDead extends Scroll {
 
     @Override
     public String desc() {
-        return "Malicious magics hidden within this scroll allow its reader to commune with unspeakable, giving him or her an ability to summon a lost soul from the underworld. Be careful, as it will eventually turn on its master!\n\nDuration of controlling effect depends on magic skill of the reader.";
+        return Ml.g("items.scrolls.scrollofraisedead.desc");
     }
 
     @Override

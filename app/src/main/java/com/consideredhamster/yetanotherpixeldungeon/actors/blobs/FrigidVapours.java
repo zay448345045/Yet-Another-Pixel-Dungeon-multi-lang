@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SnowParticle;
 
@@ -86,7 +87,7 @@ public class FrigidVapours extends Blob {
 
     @Override
     public String tileDesc() {
-        return "A cloud of freezing vapours is swirling here.";
+        return Ml.g("actors.blobs.frigidvapours.tiledesc");
     }
 
 //

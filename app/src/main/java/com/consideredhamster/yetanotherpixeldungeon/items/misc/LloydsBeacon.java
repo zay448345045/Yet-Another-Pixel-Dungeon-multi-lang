@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfPhaseW
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.InterlevelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
@@ -39,20 +40,20 @@ import java.util.ArrayList;
 
 public class LloydsBeacon extends Item {
 
-    private static final String TXT_PREVENTING = "Strong magic aura of this place prevents you from using the lloyd's beacon!";
+    private static final String TXT_PREVENTING = Ml.g("items.misc.lloydsbeacon.txt_preventing");
 
-    private static final String TXT_CREATURES = "Psychic aura of neighbouring creatures doesn't allow you to use the lloyd's beacon at this moment.";
+    private static final String TXT_CREATURES = Ml.g("items.misc.lloydsbeacon.txt_creatures");
 
-    private static final String TXT_RETURN = "The lloyd's beacon is successfully set at your current location, now you can return here anytime.";
+    private static final String TXT_RETURN = Ml.g("items.misc.lloydsbeacon.txt_return");
 
-    private static final String TXT_INFO = "Lloyd's beacon is an intricate magic device, that allows you to return to a place you have already been.";
+    private static final String TXT_INFO = Ml.g("items.misc.lloydsbeacon.txt_info");
 
-    private static final String TXT_SET = "\n\nThis beacon was set somewhere on the level %d of Pixel Dungeon.";
+    private static final String TXT_SET = Ml.g("items.misc.lloydsbeacon.txt_set");
 
     public static final float TIME_TO_USE = 1;
 
-    public static final String AC_SET = "SET";
-    public static final String AC_RETURN = "RETURN";
+    public static final String AC_SET = Ml.g("items.misc.lloydsbeacon.ac_set");
+    public static final String AC_RETURN = Ml.g("items.misc.lloydsbeacon.ac_return");
 
     private int returnDepth = -1;
     private int returnPos;
@@ -64,8 +65,8 @@ public class LloydsBeacon extends Item {
         unique = true;
     }
 
-    private static final String DEPTH = "depth";
-    private static final String POS = "pos";
+    private static final String DEPTH = Ml.g("items.misc.lloydsbeacon.depth");
+    private static final String POS = Ml.g("items.misc.lloydsbeacon.pos");
 
     @Override
     public void storeInBundle(Bundle bundle) {

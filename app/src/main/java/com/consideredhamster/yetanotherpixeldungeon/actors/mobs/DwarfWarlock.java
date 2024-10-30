@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
@@ -42,7 +43,7 @@ public class DwarfWarlock extends MobRanged {
 
     private boolean charged = false;
 
-    private static final String CHARGED = "charged";
+    private static final String CHARGED = Ml.g("actors.mobs.dwarfwarlock.charged");
 
     public DwarfWarlock() {
 
@@ -148,7 +149,7 @@ public class DwarfWarlock extends MobRanged {
 
     @Override
     public String description() {
-        return "When dwarves' interests have shifted from engineering to arcane arts, warlocks have come to power in the city. They started with elemental magic, but soon switched to demonology and necromancy.";
+        return Ml.g("actors.mobs.dwarfwarlock.description");
     }
 
     @Override

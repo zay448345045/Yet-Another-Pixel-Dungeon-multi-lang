@@ -31,6 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Cripple
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.PiranhaSprite;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
@@ -161,7 +162,7 @@ public class Piranha extends MobEvasive {
 
     @Override
     public String description() {
-        return "These carnivorous fish are sometimes born in these underground pools. Other times, they are bred specifically to protect flooded treasure vaults. Regardless of origin, they all share the same ferocity and thirst for blood.";
+        return Ml.g("actors.mobs.piranha.description");
     }
 
 }

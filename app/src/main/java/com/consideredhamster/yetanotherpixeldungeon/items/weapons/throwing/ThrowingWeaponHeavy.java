@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class ThrowingWeaponHeavy extends ThrowingWeapon {
 
@@ -30,7 +31,7 @@ public abstract class ThrowingWeaponHeavy extends ThrowingWeapon {
 
     @Override
     public String descType() {
-        return "heavy throwing";
+        return Ml.g("items.weapons.throwing.throwingweaponheavy.desctype");
     }
 
     @Override

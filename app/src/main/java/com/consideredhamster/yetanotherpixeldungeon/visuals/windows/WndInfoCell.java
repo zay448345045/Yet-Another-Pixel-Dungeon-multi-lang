@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.Hazard;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Window;
@@ -39,7 +40,7 @@ public class WndInfoCell extends Window {
     private static final int WIDTH_P = 120;
     private static final int WIDTH_L = 240;
 
-    private static final String TXT_NOTHING = "There is nothing here.";
+    private static final String TXT_NOTHING = Ml.g("visuals.windows.wndinfocell.txt_nothing");
 
     public WndInfoCell(int cell) {
 

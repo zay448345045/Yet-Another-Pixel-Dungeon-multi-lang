@@ -56,6 +56,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.features.Door;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.Trap;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.ShadowCaster;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -174,16 +175,16 @@ public abstract class Level implements Bundlable {
     protected static boolean pitRoomNeeded = false;
     protected static boolean weakFloorCreated = false;
 
-    private static final String MAP = "map";
-    private static final String VISITED = "visited";
-    private static final String MAPPED = "mapped";
-    private static final String MOBS_SPAWNED = "mobs_killed";
-    private static final String ENTRANCE = "entrance";
-    private static final String EXIT = "exit";
-    private static final String HEAPS = "heaps";
-    private static final String HAZARDS = "hazards";
-    private static final String MOBS = "mobs";
-    private static final String BLOBS = "blobs";
+    private static final String MAP = Ml.g("levels.level.map");
+    private static final String VISITED = Ml.g("levels.level.visited");
+    private static final String MAPPED = Ml.g("levels.level.mapped");
+    private static final String MOBS_SPAWNED = Ml.g("levels.level.mobs_spawned");
+    private static final String ENTRANCE = Ml.g("levels.level.entrance");
+    private static final String EXIT = Ml.g("levels.level.exit");
+    private static final String HEAPS = Ml.g("levels.level.heaps");
+    private static final String HAZARDS = Ml.g("levels.level.hazards");
+    private static final String MOBS = Ml.g("levels.level.mobs");
+    private static final String BLOBS = Ml.g("levels.level.blobs");
 
     public void create() {
 
@@ -1111,7 +1112,7 @@ public abstract class Level implements Bundlable {
 
         switch (tile) {
             case Terrain.CHASM:
-                return "Chasm";
+                return Ml.g("levels.level.tilenames");
             case Terrain.EMPTY:
             case Terrain.EMPTY_SP:
             case Terrain.EMPTY_DECO:
@@ -1121,11 +1122,11 @@ public abstract class Level implements Bundlable {
             case Terrain.SECRET_POISON_TRAP:
             case Terrain.SECRET_ALARM_TRAP:
             case Terrain.SECRET_LIGHTNING_TRAP:
-                return "Floor";
+                return Ml.g("levels.level.tilenames_2");
             case Terrain.GRASS:
-                return "Grass";
+                return Ml.g("levels.level.tilenames_3");
             case Terrain.WATER:
-                return "Water";
+                return Ml.g("levels.level.tilenames_4");
             case Terrain.WALL:
             case Terrain.WALL_DECO:
             case Terrain.WALL_DECO1:
@@ -1134,66 +1135,66 @@ public abstract class Level implements Bundlable {
             case Terrain.WALL_DECO4:
             case Terrain.WALL_DECO5:
             case Terrain.DOOR_ILLUSORY:
-                return "Wall";
+                return Ml.g("levels.level.tilenames_5");
             case Terrain.DOOR_CLOSED:
-                return "Closed door";
+                return Ml.g("levels.level.tilenames_6");
             case Terrain.OPEN_DOOR:
-                return "Open door";
+                return Ml.g("levels.level.tilenames_7");
             case Terrain.ENTRANCE:
-                return "Depth entrance";
+                return Ml.g("levels.level.tilenames_8");
             case Terrain.EXIT:
-                return "Depth exit";
+                return Ml.g("levels.level.tilenames_9");
             case Terrain.EMBERS:
-                return "Embers";
+                return Ml.g("levels.level.tilenames_10");
             case Terrain.LOCKED_DOOR:
-                return "Locked door";
+                return Ml.g("levels.level.tilenames_11");
             case Terrain.PEDESTAL:
-                return "Pedestal";
+                return Ml.g("levels.level.tilenames_12");
             case Terrain.BARRICADE:
-                return "Barricade";
+                return Ml.g("levels.level.tilenames_13");
             case Terrain.HIGH_GRASS:
-                return "High grass";
+                return Ml.g("levels.level.tilenames_14");
             case Terrain.LOCKED_EXIT:
-                return "Locked depth exit";
+                return Ml.g("levels.level.tilenames_15");
             case Terrain.UNLOCKED_EXIT:
-                return "Unlocked depth exit";
+                return Ml.g("levels.level.tilenames_16");
             case Terrain.GRATE:
-                return "Iron grate";
+                return Ml.g("levels.level.tilenames_17");
             case Terrain.WALL_SIGN:
             case Terrain.SIGN:
-                return "Sign";
+                return Ml.g("levels.level.tilenames_18");
             case Terrain.WELL:
-                return "Well";
+                return Ml.g("levels.level.tilenames_19");
             case Terrain.EMPTY_WELL:
-                return "Empty well";
+                return Ml.g("levels.level.tilenames_20");
             case Terrain.STATUE:
             case Terrain.STATUE_SP:
-                return "Statue";
+                return Ml.g("levels.level.tilenames_21");
             case Terrain.TOXIC_TRAP:
-                return "Toxic gas trap";
+                return Ml.g("levels.level.tilenames_22");
             case Terrain.FIRE_TRAP:
-                return "Fire trap";
+                return Ml.g("levels.level.tilenames_23");
             case Terrain.BOULDER_TRAP:
-                return "Boulder trap";
+                return Ml.g("levels.level.tilenames_24");
             case Terrain.POISON_TRAP:
-                return "Confusion gas trap";
+                return Ml.g("levels.level.tilenames_25");
             case Terrain.ALARM_TRAP:
-                return "Alarm trap";
+                return Ml.g("levels.level.tilenames_26");
             case Terrain.LIGHTNING_TRAP:
-                return "Lightning trap";
+                return Ml.g("levels.level.tilenames_27");
             case Terrain.BLADE_TRAP:
-                return "Blade trap";
+                return Ml.g("levels.level.tilenames_28");
             case Terrain.SUMMONING_TRAP:
-                return "Summoning trap";
+                return Ml.g("levels.level.tilenames_29");
             case Terrain.INACTIVE_TRAP:
-                return "Triggered trap";
+                return Ml.g("levels.level.tilenames_30");
             case Terrain.BOOKSHELF:
             case Terrain.SHELF_EMPTY:
-                return "Bookshelf";
+                return Ml.g("levels.level.tilenames_31");
             case Terrain.ALCHEMY:
-                return "Alchemy pot";
+                return Ml.g("levels.level.tilenames_32");
             default:
-                return "???";
+                return Ml.g("levels.level.tilenames_33");
         }
     }
 
@@ -1208,32 +1209,32 @@ public abstract class Level implements Bundlable {
             case Terrain.WALL_DECO4:
             case Terrain.WALL_DECO5:
             case Terrain.DOOR_ILLUSORY:
-                return "Just a wall, nothing special. Mind that fighting in close spaces restricts ability to dodge.";
+                return Ml.g("levels.level.tiledescs");
             case Terrain.CHASM:
-                return "You can't see the bottom. Fighting near chasms limits movement, restricting ability to dodge (unless you are flying).";
+                return Ml.g("levels.level.tiledescs_2");
             case Terrain.WATER:
-                return "Step in the water to extinguish fire. However, don't forget that walking in the water is noisy and may attract unwanted attention!";
+                return Ml.g("levels.level.tiledescs_3");
             case Terrain.ENTRANCE:
-                return "Stairs lead up to the upper depth.";
+                return Ml.g("levels.level.tiledescs_4");
             case Terrain.EXIT:
             case Terrain.UNLOCKED_EXIT:
-                return "Stairs lead down to the lower depth.";
+                return Ml.g("levels.level.tiledescs_5");
             case Terrain.EMBERS:
-                return "Embers cover the floor.";
+                return Ml.g("levels.level.tiledescs_6");
             case Terrain.HIGH_GRASS:
-                return "Dense vegetation blocks the view and hushes your steps, making it easier to move undetected through it.";
+                return Ml.g("levels.level.tiledescs_7");
             case Terrain.LOCKED_DOOR:
-                return "This door is locked, you need a matching key to unlock it.";
+                return Ml.g("levels.level.tiledescs_8");
             case Terrain.LOCKED_EXIT:
-                return "Heavy bars block the stairs leading down.";
+                return Ml.g("levels.level.tiledescs_9");
             case Terrain.GRATE:
-                return "Heavy bars block your way.";
+                return Ml.g("levels.level.tiledescs_10");
             case Terrain.BARRICADE:
-                return "The wooden barricade is firmly set but has dried over the years. Might it burn?";
+                return Ml.g("levels.level.tiledescs_11");
             case Terrain.SIGN:
-                return "Somebody placed a sign here..";
+                return Ml.g("levels.level.tiledescs_12");
             case Terrain.WALL_SIGN:
-                return "There is something written on this wall.";
+                return Ml.g("levels.level.tiledescs_13");
             case Terrain.TOXIC_TRAP:
             case Terrain.FIRE_TRAP:
             case Terrain.BOULDER_TRAP:
@@ -1242,16 +1243,16 @@ public abstract class Level implements Bundlable {
             case Terrain.LIGHTNING_TRAP:
             case Terrain.BLADE_TRAP:
             case Terrain.SUMMONING_TRAP:
-                return "Stepping onto a hidden pressure plate will activate the trap.";
+                return Ml.g("levels.level.tiledescs_14");
             case Terrain.INACTIVE_TRAP:
-                return "The trap has been triggered before and it's not dangerous anymore.";
+                return Ml.g("levels.level.tiledescs_15");
             case Terrain.STATUE:
             case Terrain.STATUE_SP:
-                return "Someone wanted to adorn this place, but failed, obviously.";
+                return Ml.g("levels.level.tiledescs_16");
             case Terrain.ALCHEMY:
-                return "Drop some herbs here to cook a potion.";
+                return Ml.g("levels.level.tiledescs_17");
             case Terrain.EMPTY_WELL:
-                return "The well has run dry.";
+                return Ml.g("levels.level.tiledescs_18");
             default:
                 if (tile >= Terrain.WATER_TILES) {
                     return tileDescs(Terrain.WATER);

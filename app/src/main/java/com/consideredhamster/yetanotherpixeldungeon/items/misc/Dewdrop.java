@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.misc;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
@@ -32,7 +33,7 @@ public class Dewdrop extends Item {
 
     public static final int NUTRIETY = 6;
 
-    private static final String TXT_VALUE = "%+dHP";
+    private static final String TXT_VALUE = Ml.g("items.misc.dewdrop.txt_value");
 
     {
         name = "dewdrop";
@@ -79,6 +80,6 @@ public class Dewdrop extends Item {
 
     @Override
     public String info() {
-        return "A crystal clear dewdrop.";
+        return Ml.g("items.misc.dewdrop.info");
     }
 }

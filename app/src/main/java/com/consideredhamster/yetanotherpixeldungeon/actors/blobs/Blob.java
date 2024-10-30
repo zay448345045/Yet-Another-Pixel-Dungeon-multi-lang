@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.BArray;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
@@ -38,7 +39,7 @@ public class Blob extends Actor {
     public static final int LENGTH = Level.LENGTH;
 
     public int volume = 0;
-    public String name = "unspecified blob";
+    public String name = Ml.g("actors.blobs.blob.name");
 
     public boolean[] bln;
     public int[] cur;
@@ -55,8 +56,8 @@ public class Blob extends Actor {
         volume = 0;
     }
 
-    private static final String CUR = "cur";
-    private static final String START = "start";
+    private static final String CUR = Ml.g("actors.blobs.blob.cur");
+    private static final String START = Ml.g("actors.blobs.blob.start");
 
     @Override
     public void storeInBundle(Bundle bundle) {

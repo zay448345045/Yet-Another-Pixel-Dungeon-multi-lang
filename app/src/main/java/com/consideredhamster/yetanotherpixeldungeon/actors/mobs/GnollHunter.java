@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Bulle
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Javelins;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Quarrels;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.GnollSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
 import com.watabou.utils.Callback;
@@ -108,7 +109,7 @@ public class GnollHunter extends MobRanged {
     @Override
     public String description() {
 
-        return "Gnolls are hyena-like humanoids. Curiously, they are very rarely observed so close to a human settlements, preferring to dwell somewhere in wilderness.";
+        return Ml.g("actors.mobs.gnollhunter.description");
     }
 
 }

@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Blinded;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 
@@ -68,6 +69,6 @@ public class Darkness extends Blob {
 
     @Override
     public String tileDesc() {
-        return "A cloud of impenetrable darkness is swirling here, obstructing your vision.";
+        return Ml.g("actors.blobs.darkness.tiledesc");
     }
 }

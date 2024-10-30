@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.food;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class RationMedium extends Food {
@@ -35,7 +36,7 @@ public class RationMedium extends Food {
 
     @Override
     public String desc() {
-        return "Nothing fancy here: dried meat, some biscuits - things like that.";
+        return Ml.g("items.food.rationmedium.desc");
     }
 
     @Override

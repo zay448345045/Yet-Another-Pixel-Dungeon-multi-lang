@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Ensnared;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -30,17 +31,17 @@ public class Levitation extends Bonus {
 
     @Override
     public String toString() {
-        return "Levitating";
+        return Ml.g("actors.buffs.bonuses.levitation.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "levitating";
+        return Ml.g("actors.buffs.bonuses.levitation.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You start floating in the air!";
+        return Ml.g("actors.buffs.bonuses.levitation.playermessage");
     }
 
     @Override
@@ -60,7 +61,7 @@ public class Levitation extends Bonus {
 
     @Override
     public String description() {
-        return "The whole body feels like it is lighter than air! While levitating, traps and terrain effects do not affect you, and your movement speed and dexterity are increased.";
+        return Ml.g("actors.buffs.bonuses.levitation.description");
     }
 
     @Override

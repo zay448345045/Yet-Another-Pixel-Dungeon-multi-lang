@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class ThrowingWeaponAmmo extends ThrowingWeapon {
 
@@ -31,7 +32,7 @@ public abstract class ThrowingWeaponAmmo extends ThrowingWeapon {
 
     @Override
     public String descType() {
-        return "ammo";
+        return Ml.g("items.weapons.throwing.throwingweaponammo.desctype");
     }
 
     @Override
@@ -69,7 +70,7 @@ public abstract class ThrowingWeaponAmmo extends ThrowingWeapon {
     @Override
     public String info() {
 
-        final String p = "\n\n";
+        final String p = Ml.g("items.weapons.throwing.throwingweaponammo.p");
 
         StringBuilder info = new StringBuilder(desc());
 

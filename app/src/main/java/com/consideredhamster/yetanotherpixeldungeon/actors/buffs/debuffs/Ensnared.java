@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -34,17 +35,17 @@ public class Ensnared extends Debuff {
 
     @Override
     public String toString() {
-        return "Ensnared";
+        return Ml.g("actors.buffs.debuffs.ensnared.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "ensnared";
+        return Ml.g("actors.buffs.debuffs.ensnared.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You are ensnared! Struggle to escape!";
+        return Ml.g("actors.buffs.debuffs.ensnared.playermessage");
     }
 
     @Override
@@ -64,7 +65,7 @@ public class Ensnared extends Debuff {
 
     @Override
     public String description() {
-        return "You are ensnared and cannot move. Evading attacks is more difficult, and you are more likely to be noticed. You can try to break out, but this can attract unwanted attention.";
+        return Ml.g("actors.buffs.debuffs.ensnared.description");
     }
 
     @Override

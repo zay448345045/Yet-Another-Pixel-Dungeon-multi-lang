@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs.Durability;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class BodyArmorHeavy extends BodyArmor {
 
@@ -49,6 +50,6 @@ public abstract class BodyArmorHeavy extends BodyArmor {
 
     @Override
     public String descType() {
-        return "heavy";
+        return Ml.g("items.armours.body.bodyarmorheavy.desctype");
     }
 }

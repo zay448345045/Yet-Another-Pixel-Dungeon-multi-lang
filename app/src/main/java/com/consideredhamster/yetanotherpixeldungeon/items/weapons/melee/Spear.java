@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Spear extends MeleeWeaponLightTH {
@@ -40,6 +41,6 @@ public class Spear extends MeleeWeaponLightTH {
 
     @Override
     public String desc() {
-        return "A slender wooden rod tipped with sharpened iron.";
+        return Ml.g("items.weapons.melee.spear.desc");
     }
 }

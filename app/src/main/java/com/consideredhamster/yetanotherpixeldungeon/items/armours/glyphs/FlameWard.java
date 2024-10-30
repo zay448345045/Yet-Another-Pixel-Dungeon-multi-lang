@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
@@ -41,22 +42,22 @@ public class FlameWard extends Armour.Glyph {
 
     @Override
     protected String name_p() {
-        return "%s of flame ward";
+        return Ml.g("items.armours.glyphs.flameward.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "%s of combustion";
+        return Ml.g("items.armours.glyphs.flameward.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "burn your enemies on hit and decrease damage from fire";
+        return Ml.g("items.armours.glyphs.flameward.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "burn you on hit";
+        return Ml.g("items.armours.glyphs.flameward.desc_n");
     }
 
     @Override

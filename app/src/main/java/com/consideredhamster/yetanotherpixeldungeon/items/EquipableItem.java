@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Ethereal;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
@@ -42,34 +43,34 @@ import java.util.ArrayList;
 
 public abstract class EquipableItem extends Item {
 
-    protected static final String TXT_EQUIP = "You equip your %s.";
-    protected static final String TXT_UNEQUIP = "You unequip your %s.";
-    protected static final String TXT_ISEQUIPPED = "%s is already equipped";
+    protected static final String TXT_EQUIP = Ml.g("items.equipableitem.txt_equip");
+    protected static final String TXT_UNEQUIP = Ml.g("items.equipableitem.txt_unequip");
+    protected static final String TXT_ISEQUIPPED = Ml.g("items.equipableitem.txt_isequipped");
 
-    private static final String TXT_UNEQUIP_CURSED = "your %s is cursed, and you cannot remove it.";
-    private static final String TXT_DETECT_CURSED = "this %s was cursed, but you managed to unequip it before it was too late.";
+    private static final String TXT_UNEQUIP_CURSED = Ml.g("items.equipableitem.txt_unequip_cursed");
+    private static final String TXT_DETECT_CURSED = Ml.g("items.equipableitem.txt_detect_cursed");
 
-    protected static final String TXT_EQUIP_CURSED_HAND = "your grip involuntarily tightens around your %s";
-    protected static final String TXT_EQUIP_CURSED_BODY = "your %s constricts around you painfully";
-    protected static final String TXT_EQUIP_CURSED_RING = "your %s suddenly tightens around your finger";
+    protected static final String TXT_EQUIP_CURSED_HAND = Ml.g("items.equipableitem.txt_equip_cursed_hand");
+    protected static final String TXT_EQUIP_CURSED_BODY = Ml.g("items.equipableitem.txt_equip_cursed_body");
+    protected static final String TXT_EQUIP_CURSED_RING = Ml.g("items.equipableitem.txt_equip_cursed_ring");
 
-    public static final String AC_EQUIP = "EQUIP";
-    public static final String AC_UNEQUIP = "UNEQUIP";
+    public static final String AC_EQUIP = Ml.g("items.equipableitem.ac_equip");
+    public static final String AC_UNEQUIP = Ml.g("items.equipableitem.ac_unequip");
 
-    private static final String TXT_ITEM_IS_CURSED = "This item is cursed!";
+    private static final String TXT_ITEM_IS_CURSED = Ml.g("items.equipableitem.txt_item_is_cursed");
 
-    private static final String TXT_R_U_SURE = "You are aware that this item is cursed. Once equipped, it would be impossible to remove until the curse is removed. Are you really sure you want to equip it?";
+    private static final String TXT_R_U_SURE = Ml.g("items.equipableitem.txt_r_u_sure");
 
-    private static final String TXT_ITEM_IS_HEAVY = "This item is heavy!";
+    private static final String TXT_ITEM_IS_HEAVY = Ml.g("items.equipableitem.txt_item_is_heavy");
 
-    private static final String TXT_R_U_SURE_HEAVY = "This item seems to be heavier than your current Strength. Once equipped, it may severely decrease your combat proficiency. Are you really sure you want to equip it?";
+    private static final String TXT_R_U_SURE_HEAVY = Ml.g("items.equipableitem.txt_r_u_sure_heavy");
 
-    protected static final String TXT_ITEM_IS_INCOMPATIBLE = "This item is incompatible!";
+    protected static final String TXT_ITEM_IS_INCOMPATIBLE = Ml.g("items.equipableitem.txt_item_is_incompatible");
 
-    protected static final String TXT_R_U_SURE_INCOMPATIBLE = "You are aware that this item is not compatible with your current gear, and will require additional strength to be properly wielded. Once equipped, it may decrease your combat proficiency. Are you really sure you want to equip it?";
+    protected static final String TXT_R_U_SURE_INCOMPATIBLE = Ml.g("items.equipableitem.txt_r_u_sure_incompatible");
 
-    protected static final String TXT_YES = "Yes, I know what I'm doing";
-    protected static final String TXT_NO = "No, I changed my mind";
+    protected static final String TXT_YES = Ml.g("items.equipableitem.txt_yes");
+    protected static final String TXT_NO = Ml.g("items.equipableitem.txt_no");
 
     @Override
     public ArrayList<String> actions(Hero hero) {

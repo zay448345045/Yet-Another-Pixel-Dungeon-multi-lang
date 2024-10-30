@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -46,8 +47,8 @@ public class RingOfVitality extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = "??";
-        String sideEffect = "??";
+        String mainEffect = Ml.g("items.rings.ringofvitality.maineffect");
+        String sideEffect = Ml.g("items.rings.ringofvitality.sideeffect");
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
@@ -81,7 +82,8 @@ public class RingOfVitality extends Ring {
     public class Vitality extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "Warm feeling rushes down your veins, soothing the pain in your wounds." : "Feeling of discomfort fills your body, making you feel sick.";
+            return Ml.g("items.rings.ringofvitality.desc", (bonus >= 0 ? Warm feeling rushes down your veins, soothing the pain in your wounds. :
+            Feeling of discomfort fills your body, making you feel sick.));
         }
     }
 }

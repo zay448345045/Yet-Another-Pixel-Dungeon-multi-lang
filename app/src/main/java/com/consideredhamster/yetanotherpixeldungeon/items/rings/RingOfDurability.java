@@ -20,6 +20,8 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfDurability extends Ring {
@@ -37,8 +39,8 @@ public class RingOfDurability extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = "??";
-        String sideEffect = "??";
+        String mainEffect = Ml.g("items.rings.ringofdurability.maineffect");
+        String sideEffect = Ml.g("items.rings.ringofdurability.sideeffect");
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
@@ -70,7 +72,8 @@ public class RingOfDurability extends Ring {
     public class Durability extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel how some kind of protective aura surrounds your equipment." : "You feel how some kind of disruptive aura surrounds your equipment.";
+            return Ml.g("items.rings.ringofdurability.desc", (bonus >= 0 ? You feel how some kind of protective aura surrounds your equipment. :
+            You feel how some kind of disruptive aura surrounds your equipment.));
         }
     }
 }

@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.food;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class RationLarge extends Food {
@@ -35,7 +36,7 @@ public class RationLarge extends Food {
 
     @Override
     public String desc() {
-        return "This is an authentic dwarven pasty with traditional filling of beer and sand. Food like these can last for years without spoiling.";
+        return Ml.g("items.food.rationlarge.desc");
     }
 
     @Override

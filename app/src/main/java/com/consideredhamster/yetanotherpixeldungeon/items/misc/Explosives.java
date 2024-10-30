@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
@@ -38,20 +39,20 @@ import java.util.ArrayList;
 
 public abstract class Explosives extends Item {
 
-    private static final String AC_COMBINE = "COMBINE";
-    private static final String AC_SALVAGE = "SALVAGE";
+    private static final String AC_COMBINE = Ml.g("items.misc.explosives.ac_combine");
+    private static final String AC_SALVAGE = Ml.g("items.misc.explosives.ac_salvage");
 
     private static final float TIME_TO_COMBINE = 3.0f;
     private static final float TIME_TO_SALVAGE = 3.0f;
 
-    private static final String TXT_MORE_POWDER_NEEDED = "You don't have enough gunpowder to combine.";
-    private static final String TXT_MORE_BOMBS_NEEDED = "You don't have enough bombs to combine.";
+    private static final String TXT_MORE_POWDER_NEEDED = Ml.g("items.misc.explosives.txt_more_powder_needed");
+    private static final String TXT_MORE_BOMBS_NEEDED = Ml.g("items.misc.explosives.txt_more_bombs_needed");
 
-    private static final String TXT_STICK_MADE = "You made a bomb stick.";
-    private static final String TXT_BUNDLE_MADE = "You made a bomb bundle.";
+    private static final String TXT_STICK_MADE = Ml.g("items.misc.explosives.txt_stick_made");
+    private static final String TXT_BUNDLE_MADE = Ml.g("items.misc.explosives.txt_bundle_made");
 
-    private static final String TXT_POWDER_SALVAGED = "You salvaged %s portions of gunpowder.";
-    private static final String TXT_BOMBS_SALVAGED = "You salvaged %s bomb sticks.";
+    private static final String TXT_POWDER_SALVAGED = Ml.g("items.misc.explosives.txt_powder_salvaged");
+    private static final String TXT_BOMBS_SALVAGED = Ml.g("items.misc.explosives.txt_bombs_salvaged");
 
     protected Explosives combineResult(Hero hero) {
         return null;
@@ -275,7 +276,7 @@ public abstract class Explosives extends Item {
 
         @Override
         public String info() {
-            return "This is a container of black powder. Gunpowder can be used to reload flintlock weapons or to make some makeshift explosives.\n\nYou need " + BombStick.powderMax + " portions of gunpowder to create a bomb.";
+            return Ml.g("items.misc.explosives.info", powderMax);
         }
 
         @Override
@@ -308,7 +309,7 @@ public abstract class Explosives extends Item {
 
         @Override
         public String info() {
-            return "This is a makeshift pipe bomb, filled with black powder. Conveniently, its fuse is lit automatically when the bomb is thrown.\n\nYou can get " + powderMin + "-" + powderMax + " portions of gunpowder by salvaging this. You can get a bomb bundle by combining " + BombBundle.sticksMax + " " + name + "s.";
+            return Ml.g("items.misc.explosives.info_2", powderMin, powderMax, sticksMax, " ", name);
         }
 
         @Override
@@ -417,7 +418,7 @@ public abstract class Explosives extends Item {
 
         @Override
         public String info() {
-            return "This is a huge bomb made of several other bombs. It is a very powerful explosive.\n\nYou can get " + sticksMin + "-" + sticksMax + " bomb sticks by salvaging this.";
+            return Ml.g("items.misc.explosives.info_3", sticksMin, sticksMax);
         }
 
         @Override

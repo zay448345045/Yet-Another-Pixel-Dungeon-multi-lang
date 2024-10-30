@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Bullets;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponAmmo;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Arquebuse extends RangedWeaponFlintlock {
@@ -47,6 +48,6 @@ public class Arquebuse extends RangedWeaponFlintlock {
 
     @Override
     public String desc() {
-        return "Once standard-issue weapon in some armies, these firearms are quite rare now. They were feared for their ability to pierce through any armor with their shots.";
+        return Ml.g("items.weapons.ranged.arquebuse.desc");
     }
 }

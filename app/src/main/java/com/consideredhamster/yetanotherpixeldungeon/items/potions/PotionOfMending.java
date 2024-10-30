@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Mending;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfVitality;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.watabou.utils.Random;
 
@@ -52,7 +53,7 @@ public class PotionOfMending extends Potion {
 
     @Override
     public String desc() {
-        return "When imbibed, this elixir will vastly improve imbiber's natural regeneration and cure any physical ailments as well.";
+        return Ml.g("items.potions.potionofmending.desc");
     }
 
     @Override

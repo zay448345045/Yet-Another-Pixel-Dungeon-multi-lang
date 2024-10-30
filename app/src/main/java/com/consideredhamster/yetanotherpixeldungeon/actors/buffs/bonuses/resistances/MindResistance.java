@@ -21,23 +21,24 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class MindResistance extends ElementResistance {
 
     @Override
     public String toString() {
-        return "Mind Resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.mindresistance.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "mind resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.mindresistance.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You feel totally awake.";
+        return Ml.g("actors.buffs.bonuses.resistances.mindresistance.playermessage");
     }
 
     @Override
@@ -52,6 +53,6 @@ public class MindResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You feel totally awake, nothing can interrupt your thought processes. Your resistance to negative conditions affecting your mind is increased.";
+        return Ml.g("actors.buffs.bonuses.resistances.mindresistance.description");
     }
 }

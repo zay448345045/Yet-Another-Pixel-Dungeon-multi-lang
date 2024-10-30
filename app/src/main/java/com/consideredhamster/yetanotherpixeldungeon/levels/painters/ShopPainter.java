@@ -104,6 +104,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.PrisonLevel;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
 import com.consideredhamster.yetanotherpixeldungeon.levels.SewerLevel;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Point;
@@ -125,9 +126,9 @@ public class ShopPainter extends Painter {
     private final static Item[] defaultAmmo1 = {new Arrows(), new Arrows(), new Quarrels(), new Quarrels()};
     private final static Item[] defaultAmmo2 = {new Bullets(), new Bullets(), new Explosives.Gunpowder(), new Explosives.Gunpowder()};
 
-    private static final String KITS = "shops_kits";
-    private static final String AMMO1 = "shops_ammo1";
-    private static final String AMMO2 = "shops_ammo2";
+    private static final String KITS = Ml.g("levels.painters.shoppainter.kits");
+    private static final String AMMO1 = Ml.g("levels.painters.shoppainter.ammo1");
+    private static final String AMMO2 = Ml.g("levels.painters.shoppainter.ammo2");
 
     public static void initAssortment() {
 

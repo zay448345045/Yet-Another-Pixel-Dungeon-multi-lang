@@ -34,6 +34,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -47,30 +48,30 @@ import java.util.ArrayList;
 
 public class OilLantern extends Item {
 
-    public static final String AC_LIGHT = "LIGHT";
-    public static final String AC_SNUFF = "SNUFF";
-    public static final String AC_REFILL = "REFILL";
-    public static final String AC_BURN = "BURN";
+    public static final String AC_LIGHT = Ml.g("items.misc.oillantern.ac_light");
+    public static final String AC_SNUFF = Ml.g("items.misc.oillantern.ac_snuff");
+    public static final String AC_REFILL = Ml.g("items.misc.oillantern.ac_refill");
+    public static final String AC_BURN = Ml.g("items.misc.oillantern.ac_burn");
 
     private static final float TIME_TO_USE = 1f;
     private static final int MAX_CHARGE = 100;
 
-    private static final String TXT_STATUS = "%d%%";
+    private static final String TXT_STATUS = Ml.g("items.misc.oillantern.txt_status");
 
-    private static final String TXT_CANT_BURN = "You need a spare oil flask for this!";
-    private static final String TXT_NO_FLASKS = "You don't have oil to refill the lamp!";
+    private static final String TXT_CANT_BURN = Ml.g("items.misc.oillantern.txt_cant_burn");
+    private static final String TXT_NO_FLASKS = Ml.g("items.misc.oillantern.txt_no_flasks");
 
-    private static final String TXT_DEACTIVATE = "Your lantern flickers faintly and goes out!";
+    private static final String TXT_DEACTIVATE = Ml.g("items.misc.oillantern.txt_deactivate");
 
-    private static final String TXT_REFILL = "You refill the lantern.";
+    private static final String TXT_REFILL = Ml.g("items.misc.oillantern.txt_refill");
 
-    private static final String TXT_LIGHT = "You light the lantern.";
+    private static final String TXT_LIGHT = Ml.g("items.misc.oillantern.txt_light");
 
-    private static final String TXT_SNUFF = "You snuff out the lantern.";
+    private static final String TXT_SNUFF = Ml.g("items.misc.oillantern.txt_snuff");
 
-    private static final String TXT_BURN_SELF = "You pour the oil from an oil flask on yourself and ignite it. Just... Why?";
-    private static final String TXT_BURN_TILE = "You pour the oil from an oil flask on a nearby tile and ignite it.";
-    private static final String TXT_BURN_FAIL = "You try to ignite a nearby tile, but it doesn't catch fire.";
+    private static final String TXT_BURN_SELF = Ml.g("items.misc.oillantern.txt_burn_self");
+    private static final String TXT_BURN_TILE = Ml.g("items.misc.oillantern.txt_burn_tile");
+    private static final String TXT_BURN_FAIL = Ml.g("items.misc.oillantern.txt_burn_fail");
 
     {
         name = "oil lantern";
@@ -90,9 +91,9 @@ public class OilLantern extends Item {
     private int charge;
     private int flasks;
 
-    private static final String ACTIVE = "active";
-    private static final String FLASKS = "flasks";
-    private static final String CHARGE = "charge";
+    private static final String ACTIVE = Ml.g("items.misc.oillantern.active");
+    private static final String FLASKS = Ml.g("items.misc.oillantern.flasks");
+    private static final String CHARGE = Ml.g("items.misc.oillantern.charge");
 
     public void updateSprite() {
         image = isActivated() ? ItemSpriteSheet.LANTERN_LIT : ItemSpriteSheet.LANTERN;
@@ -304,7 +305,9 @@ public class OilLantern extends Item {
 
     @Override
     public String info() {
-        return "This lamp from a hardened glass is an indispensable item in the dungeon, which is notorious for its poor ambient lighting. Even in the darkest of dungeons, this simple device can illuminate your way, provided that you've got oil flasks to keep it alight.\n\n" + (isActivated() ? "This small lantern shines vigorously, brighting your day. " : "This small lantern is snuffed out, waiting for its moment to shine. ") + "You have " + (charge / 10.0) + " oz of oil left and " + flasks + " spare flask" + (flasks != 1 ? "s" : "") + " remaining.";
+        return Ml.g("items.misc.oillantern.info", (isActivated() ? This small lantern shines vigorously, brighting your day.  :
+        This small lantern is snuffed out, waiting for its moment to shine. ),
+        charge / 10.0, flasks, (flasks != 1 ? "s" : ""));
     }
 
     public static class OilFlask extends Item {
@@ -343,7 +346,7 @@ public class OilLantern extends Item {
 
         @Override
         public String info() {
-            return "This container holds 10 oz of lantern oil. You can use it to refill your lantern or pour on something to burn it.";
+            return Ml.g("items.misc.oillantern.info_2");
         }
     }
 
@@ -389,7 +392,7 @@ public class OilLantern extends Item {
 
         @Override
         public String prompt() {
-            return "Select nearby tile to burn";
+            return Ml.g("items.misc.oillantern.prompt");
         }
     };
 }

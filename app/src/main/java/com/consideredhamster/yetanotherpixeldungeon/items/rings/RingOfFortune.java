@@ -20,6 +20,8 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfFortune extends Ring {
@@ -37,7 +39,7 @@ public class RingOfFortune extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = "??";
+        String mainEffect = Ml.g("items.rings.ringoffortune.maineffect");
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
@@ -69,7 +71,9 @@ public class RingOfFortune extends Ring {
     public class Fortune extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You don't feel anything special on equipping this ring. Is that good?" : "You don't feel anything special on equipping this ring. Is that bad?";
+            return Ml.g("items.rings.ringoffortune.desc", (bonus >= 0 ? You don
+            't feel anything special on equipping this ring. Is that good? : You don' t feel
+            anything special on equipping this ring.Is that bad ?));
         }
     }
 }

@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.shields;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 
@@ -36,6 +37,6 @@ public class KiteShield extends Shield {
 
     @Override
     public String desc() {
-        return "This shield gives you a moderate amount of protection in exchange for occupied hand.";
+        return Ml.g("items.armours.shields.kiteshield.desc");
     }
 }

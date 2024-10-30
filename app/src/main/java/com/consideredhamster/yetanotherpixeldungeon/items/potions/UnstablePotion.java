@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 
@@ -71,7 +72,7 @@ public class UnstablePotion extends Potion {
 
     @Override
     public String desc() {
-        return "This flask contains odd layered liquid and is obviously unstable. Its effects will be completely unpredictable whether drunk or thrown.";
+        return Ml.g("items.potions.unstablepotion.desc");
     }
 
     @Override

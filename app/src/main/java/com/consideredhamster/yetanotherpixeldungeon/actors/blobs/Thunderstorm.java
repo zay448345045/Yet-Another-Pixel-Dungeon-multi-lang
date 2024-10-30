@@ -33,6 +33,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
@@ -322,6 +323,6 @@ public class Thunderstorm extends Blob {
 
     @Override
     public String tileDesc() {
-        return "Storm clouds fly under the ceiling here, raining down water and, occasionally, lightning.";
+        return Ml.g("actors.blobs.thunderstorm.tiledesc");
     }
 }

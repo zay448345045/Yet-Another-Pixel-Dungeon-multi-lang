@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Ensnared;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.SpiderWeb;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.watabou.utils.Random;
@@ -68,7 +69,7 @@ public class PotionOfWebbing extends Potion {
 
     @Override
     public String desc() {
-        return "Upon exposure to open air, this wondrous concoction will splash its surroundings with sticky filaments of thick web. Anyone caught in this web will be ensnared for a short period of time.";
+        return Ml.g("items.potions.potionofwebbing.desc");
     }
 
     @Override

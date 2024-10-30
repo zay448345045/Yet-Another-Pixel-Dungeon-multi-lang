@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 
@@ -50,6 +51,6 @@ public class ConfusionGas extends Blob {
 
     @Override
     public String tileDesc() {
-        return "A cloud of confusion gas is swirling here.";
+        return Ml.g("actors.blobs.confusiongas.tiledesc");
     }
 }

@@ -21,11 +21,12 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs;
 
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ShopkeeperTrollSprite;
 
 public class ShopkeeperTroll extends Shopkeeper {
 
-    private static final String TXT_GREETINGS = "A human down here?\nInteresting.";
+    private static final String TXT_GREETINGS = Ml.g("actors.mobs.npcs.shopkeepertroll.txt_greetings");
 
     {
         name = "troll shopkeeper";
@@ -39,6 +40,6 @@ public class ShopkeeperTroll extends Shopkeeper {
 
     @Override
     public String description() {
-        return "This troll looks like all trolls look: he is tall and lean, and his skin resembles stone in both color and texture. You haven't seen many trolls owning a shop, though.";
+        return Ml.g("actors.mobs.npcs.shopkeepertroll.description");
     }
 }

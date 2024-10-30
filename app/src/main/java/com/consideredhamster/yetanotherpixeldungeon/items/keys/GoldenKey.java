@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.keys;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class GoldenKey extends Key {
@@ -31,6 +32,6 @@ public class GoldenKey extends Key {
 
     @Override
     public String info() {
-        return "The notches on this golden key are tiny and intricate. Maybe it can open some chest lock?";
+        return Ml.g("items.keys.goldenkey.info");
     }
 }

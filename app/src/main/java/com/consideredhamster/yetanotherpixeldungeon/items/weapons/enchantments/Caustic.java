@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfAcidSpray;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
@@ -42,22 +43,22 @@ public class Caustic extends Weapon.Enchantment {
 
     @Override
     protected String name_p() {
-        return "Caustic %s";
+        return Ml.g("items.weapons.enchantments.caustic.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "Acidic %s";
+        return Ml.g("items.weapons.enchantments.caustic.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "cover your enemies in caustic ooze on hit";
+        return Ml.g("items.weapons.enchantments.caustic.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "cover you in caustic ooze on hit";
+        return Ml.g("items.weapons.enchantments.caustic.desc_n");
     }
 
     @Override

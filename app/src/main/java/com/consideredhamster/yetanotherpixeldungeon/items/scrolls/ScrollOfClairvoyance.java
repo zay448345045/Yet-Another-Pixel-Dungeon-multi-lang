@@ -23,13 +23,14 @@ package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 
 public class ScrollOfClairvoyance extends Scroll {
 
-    private static final String TXT_LAYOUT = "The layout of current floor is revealed to you!";
+    private static final String TXT_LAYOUT = Ml.g("items.scrolls.scrollofclairvoyance.txt_layout");
 
     {
         name = "Scroll of Clairvoyance";
@@ -86,7 +87,7 @@ public class ScrollOfClairvoyance extends Scroll {
 
     @Override
     public String desc() {
-        return "Once this scroll is read, an image of crystal clarity will be etched into your memory, alerting you to the precise layout of the floor and revealing all of the treasures it keeps. The locations of traps and creatures will remain unknown.";
+        return Ml.g("items.scrolls.scrollofclairvoyance.desc");
     }
 
     @Override

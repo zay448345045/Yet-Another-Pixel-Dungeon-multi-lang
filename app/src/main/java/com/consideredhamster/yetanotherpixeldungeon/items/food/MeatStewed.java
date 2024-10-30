@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.food;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
@@ -39,7 +40,7 @@ public class MeatStewed extends Food {
 
     @Override
     public String desc() {
-        return "This meat was stewed in a pot. It smells pretty good, compared to these bland rations. Even though it has _no special effects_ when consumed, it is still better than just raw meat.";
+        return Ml.g("items.food.meatstewed.desc");
 
     }
 

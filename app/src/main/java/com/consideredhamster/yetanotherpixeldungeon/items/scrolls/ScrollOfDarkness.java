@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Darkness;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -31,7 +32,7 @@ import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfDarkness extends Scroll {
 
-    private static final String TXT_MESSAGE = "You are suddenly engulfed by a clouds of impenetrable shadow.";
+    private static final String TXT_MESSAGE = Ml.g("items.scrolls.scrollofdarkness.txt_message");
 
     {
         name = "Scroll of Darkness";
@@ -56,7 +57,7 @@ public class ScrollOfDarkness extends Scroll {
 
     @Override
     public String desc() {
-        return "Unnatural darkness from the deepest abysses is summoned by the call of this otherwise unremarkable sheet of paper. This darkness is so thick that it nothing can see through it without magical means.\n\nDuration of this effect depends on magic skill of the reader.";
+        return Ml.g("items.scrolls.scrollofdarkness.desc");
     }
 
     @Override

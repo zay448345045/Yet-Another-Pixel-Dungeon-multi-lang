@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfDurability
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -40,23 +41,23 @@ import java.util.ArrayList;
 
 public class Whetstone extends Item {
 
-    private static final String TXT_SELECT_WEAPON = "Select a melee weapon to repair";
-    private static final String TXT_REPAIR_WEAPON = "Your %s looks much better now!";
-    private static final String TXT_CHARGE_KEEPED = "Your ring helped you with repair!";
-    private static final String TXT_CHARGE_WASTED = "Your ring prevented proper repair.";
+    private static final String TXT_SELECT_WEAPON = Ml.g("items.misc.whetstone.txt_select_weapon");
+    private static final String TXT_REPAIR_WEAPON = Ml.g("items.misc.whetstone.txt_repair_weapon");
+    private static final String TXT_CHARGE_KEEPED = Ml.g("items.misc.whetstone.txt_charge_keeped");
+    private static final String TXT_CHARGE_WASTED = Ml.g("items.misc.whetstone.txt_charge_wasted");
 
     private static final float TIME_TO_APPLY = 2f;
 
-    private static final String AC_APPLY = "APPLY";
+    private static final String AC_APPLY = Ml.g("items.misc.whetstone.ac_apply");
 
-    private static final String TXT_STATUS = "%d/%d";
+    private static final String TXT_STATUS = Ml.g("items.misc.whetstone.txt_status");
 
     {
         name = "whetstone";
         image = ItemSpriteSheet.WHETSTONE;
     }
 
-    private static final String VALUE = "value";
+    private static final String VALUE = Ml.g("items.misc.whetstone.value");
 
     private int value = 3;
     private final int limit = 3;
@@ -140,7 +141,9 @@ public class Whetstone extends Item {
 
     @Override
     public String info() {
-        return "Using a whetstone, you can repair your melee weapons, bringing them back to their former glory.\nThis whetstone can be used " + (value > 2 ? "three times" : value < 2 ? "only one time" : "two times") + " more.";
+        return Ml.g("items.misc.whetstone.info", (value > 2 ? three times :{
+            0
+        }));
     }
 
     @Override
@@ -150,7 +153,7 @@ public class Whetstone extends Item {
 
     @Override
     public String toString() {
-        return super.toString() + " (" + status() + ")";
+        return Ml.g("items.misc.whetstone.tostring", UNKNOWN_EXPRESSION, status());
     }
 
     private final WndBag.Listener itemSelector = new WndBag.Listener() {

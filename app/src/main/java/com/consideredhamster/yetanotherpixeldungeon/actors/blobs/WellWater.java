@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.misc.Waterskin;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
@@ -36,11 +37,11 @@ import com.watabou.utils.Bundle;
 
 public class WellWater extends Blob {
 
-    private static final String TXT_PROCCED = "You refill your waterskins in the well.";
+    private static final String TXT_PROCCED = Ml.g("actors.blobs.wellwater.txt_procced");
 
-    private static final String TXT_VIAL_IS_FULL = "Your waterskins are already filled.";
+    private static final String TXT_VIAL_IS_FULL = Ml.g("actors.blobs.wellwater.txt_vial_is_full");
 
-    private static final String TXT_NO_MORE_WATER = "The well is empty now.";
+    private static final String TXT_NO_MORE_WATER = Ml.g("actors.blobs.wellwater.txt_no_more_water");
 
     protected int pos;
 
@@ -133,6 +134,6 @@ public class WellWater extends Blob {
 
     @Override
     public String tileDesc() {
-        return "The water in this well looks clean and fresh. Looks like you can refill your water supplies here.";
+        return Ml.g("actors.blobs.wellwater.tiledesc");
     }
 }

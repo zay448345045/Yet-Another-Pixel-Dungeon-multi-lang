@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroSubClass;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -37,11 +38,11 @@ import java.util.ArrayList;
 
 public class TomeOfMastery extends Item {
 
-    private static final String TXT_BLINDED = "You can't read while blinded";
+    private static final String TXT_BLINDED = Ml.g("items.misc.tomeofmastery.txt_blinded");
 
     public static final float TIME_TO_READ = 10;
 
-    public static final String AC_READ = "READ";
+    public static final String AC_READ = Ml.g("items.misc.tomeofmastery.ac_read");
 
     {
         stackable = false;
@@ -101,7 +102,7 @@ public class TomeOfMastery extends Item {
 
     @Override
     public String info() {
-        return "This worn leather book is not that thick, but you feel somehow, that you can gather a lot from it. Remember though that reading this tome may require some time.";
+        return Ml.g("items.misc.tomeofmastery.info");
     }
 
     public void choose(HeroSubClass way) {

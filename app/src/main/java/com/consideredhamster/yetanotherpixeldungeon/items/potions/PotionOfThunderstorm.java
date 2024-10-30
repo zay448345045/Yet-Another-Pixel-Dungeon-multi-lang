@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 
 public class PotionOfThunderstorm extends Potion {
@@ -58,7 +59,7 @@ public class PotionOfThunderstorm extends Potion {
 
     @Override
     public String desc() {
-        return "Upon exposure to open air, the liquid in this flask will start a localized rainfall, complete with storm clouds and lightning. While the main use of this potion is to water crops, nothing stops you from using it to fry your enemies with occasional thunderbolts. Be careful to not get hit yourself!";
+        return Ml.g("items.potions.potionofthunderstorm.desc");
     }
 
     @Override

@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfIceBarrier;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 
 public class Freezing extends Weapon.Enchantment {
@@ -42,22 +43,22 @@ public class Freezing extends Weapon.Enchantment {
 
     @Override
     protected String name_p() {
-        return "Freezing %s";
+        return Ml.g("items.weapons.enchantments.freezing.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "Chilling %s";
+        return Ml.g("items.weapons.enchantments.freezing.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "freeze your enemies on hit";
+        return Ml.g("items.weapons.enchantments.freezing.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "freeze you on hit";
+        return Ml.g("items.weapons.enchantments.freezing.desc_n");
     }
 
     @Override

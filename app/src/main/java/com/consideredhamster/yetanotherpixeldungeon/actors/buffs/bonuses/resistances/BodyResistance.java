@@ -21,23 +21,24 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class BodyResistance extends ElementResistance {
 
     @Override
     public String toString() {
-        return "Body resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.bodyresistance.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "body resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.bodyresistance.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You feel unnaturally healthy.";
+        return Ml.g("actors.buffs.bonuses.resistances.bodyresistance.playermessage");
     }
 
     @Override
@@ -52,6 +53,6 @@ public class BodyResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You feel unnaturally healthy as if your body started to work in overtime. Your resistance to negative conditions affecting your body is increased.";
+        return Ml.g("actors.buffs.bonuses.resistances.bodyresistance.description");
     }
 }

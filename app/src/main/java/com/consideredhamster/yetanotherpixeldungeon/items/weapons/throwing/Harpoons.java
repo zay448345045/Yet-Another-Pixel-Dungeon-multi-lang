@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.watabou.utils.Callback;
 
@@ -95,6 +96,6 @@ public class Harpoons extends ThrowingWeaponHeavy {
 
     @Override
     public String desc() {
-        return "Most of the harpoon's weight is due to the chain which is attached to it. Those rare throwing weapons that can be used to pull your some targets towards you. If target is too heavy to be pulled, harpoon will drop on the ground instead.";
+        return Ml.g("items.weapons.throwing.harpoons.desc");
     }
 }

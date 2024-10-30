@@ -20,11 +20,12 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.windows;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
 public class WndError extends WndTitledMessage {
 
-    private static final String TXT_TITLE = "ERROR";
+    private static final String TXT_TITLE = Ml.g("visuals.windows.wnderror.txt_title");
 
     public WndError(String message) {
         super(Icons.WARNING.get(), TXT_TITLE, message);

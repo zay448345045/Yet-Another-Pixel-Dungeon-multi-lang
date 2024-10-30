@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.DrainLife;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.DrainWill;
@@ -120,6 +121,6 @@ public class WandOfLifeDrain extends WandUtility {
 
     @Override
     public String desc() {
-        return "This wand will allow you to steal life energy from living creatures to restore your own health. Using it against non-living creatures will just harm them, but it is especially effective against targets which are sleeping or otherwise unaware of danger.";
+        return Ml.g("items.wands.wandoflifedrain.desc");
     }
 }

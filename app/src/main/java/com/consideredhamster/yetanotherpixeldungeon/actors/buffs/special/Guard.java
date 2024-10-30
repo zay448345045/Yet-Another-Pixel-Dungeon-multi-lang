@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffReactive;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
@@ -33,10 +34,10 @@ import com.watabou.noosa.audio.Sample;
 public class Guard extends BuffReactive {
 
     //    private static String TXT_PARRIED = "parried";
-    private static String TXT_BLOCKED = "blocked";
+    private static String TXT_BLOCKED = Ml.g("actors.buffs.special.guard.txt_blocked");
 
     //    private static String TXT_PARRY_BROKEN = "parry failed!";
-    private static String TXT_BLOCK_BROKEN = "block failed!";
+    private static String TXT_BLOCK_BROKEN = Ml.g("actors.buffs.special.guard.txt_block_broken");
 
     @Override
     public int icon() {
@@ -45,7 +46,7 @@ public class Guard extends BuffReactive {
 
     @Override
     public String toString() {
-        return "Guard";
+        return Ml.g("actors.buffs.special.guard.tostring");
     }
 
 //    @Override
@@ -62,7 +63,7 @@ public class Guard extends BuffReactive {
 
     @Override
     public String description() {
-        return "You are standing in a defensive position, trying to block physical attacks. Every successful block will possibly expose your attacker to a powerful counterattack.";
+        return Ml.g("actors.buffs.special.guard.description");
     }
 
     public void reset(boolean withShield) {

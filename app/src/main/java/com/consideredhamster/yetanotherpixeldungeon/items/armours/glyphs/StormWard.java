@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.watabou.utils.Random;
@@ -51,22 +52,22 @@ public class StormWard extends Armour.Glyph {
 
     @Override
     protected String name_p() {
-        return "%s of storm ward";
+        return Ml.g("items.armours.glyphs.stormward.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "%s of potential";
+        return Ml.g("items.armours.glyphs.stormward.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "shock your enemies on hit and give you lightning resistance";
+        return Ml.g("items.armours.glyphs.stormward.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "shock you on hit";
+        return Ml.g("items.armours.glyphs.stormward.desc_n");
     }
 
     @Override

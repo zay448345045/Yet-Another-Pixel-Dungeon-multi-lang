@@ -47,6 +47,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.MeleeWea
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.RangedWeapon;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeapon;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -70,9 +71,9 @@ import java.util.Iterator;
 public class WndBag extends WndTabbed {
 
 
-    private static final String TXT_SELECT_TITLE = "Select quickslot";
-    private static final String TXT_SELECT_CANCEL = "Nevermind";
-    private static final String TXT_SELECT_MESSAGE = "Which quickslot do you want to set for this item?";
+    private static final String TXT_SELECT_TITLE = Ml.g("visuals.windows.wndbag.txt_select_title");
+    private static final String TXT_SELECT_CANCEL = Ml.g("visuals.windows.wndbag.txt_select_cancel");
+    private static final String TXT_SELECT_MESSAGE = Ml.g("visuals.windows.wndbag.txt_select_message");
 
     public static enum Mode {
         ALL,

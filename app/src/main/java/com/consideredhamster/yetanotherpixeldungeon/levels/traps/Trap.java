@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndOptions;
@@ -34,13 +35,13 @@ import com.watabou.noosa.audio.Sample;
 
 public abstract class Trap {
 
-    private static final String TXT_HIDDEN_PLATE_CLICKS = "A hidden pressure plate clicks!";
-    private static final String TXT_TRAPPED = "This tile is trapped!";
+    private static final String TXT_HIDDEN_PLATE_CLICKS = Ml.g("levels.traps.trap.txt_hidden_plate_clicks");
+    private static final String TXT_TRAPPED = Ml.g("levels.traps.trap.txt_trapped");
 
-    private static final String TXT_R_U_SURE = "You are aware of a trap on this tile. Once you step on it, the trap would be activated, which would most likely be quite a painful experience. Are you REALLY sure you want to step here?";
+    private static final String TXT_R_U_SURE = Ml.g("levels.traps.trap.txt_r_u_sure");
 
-    private static final String TXT_YES = "Yes, I know what I'm doing";
-    private static final String TXT_NO = "No, I changed my mind";
+    private static final String TXT_YES = Ml.g("levels.traps.trap.txt_yes");
+    private static final String TXT_NO = Ml.g("levels.traps.trap.txt_no");
 
     public static boolean stepConfirmed = false;
 

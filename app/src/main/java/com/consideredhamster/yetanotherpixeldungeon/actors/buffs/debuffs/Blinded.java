@@ -20,25 +20,26 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class Blinded extends Debuff {
 
-    public final static String TXT_CANNOT_READ = "Reading? You can barely see your hands.";
+    public final static String TXT_CANNOT_READ = Ml.g("actors.buffs.debuffs.blinded.txt_cannot_read");
 
     @Override
     public String toString() {
-        return "Blinded";
+        return Ml.g("actors.buffs.debuffs.blinded.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "blinded";
+        return Ml.g("actors.buffs.debuffs.blinded.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You cannot see anything!";
+        return Ml.g("actors.buffs.debuffs.blinded.playermessage");
     }
 
     @Override
@@ -58,6 +59,6 @@ public class Blinded extends Debuff {
 
     @Override
     public String description() {
-        return "Your eyes are unable to perceive anything further than a length of your hand. Your attack and perception is decreased, and you are unable to read scrolls.";
+        return Ml.g("actors.buffs.debuffs.blinded.description");
     }
 }

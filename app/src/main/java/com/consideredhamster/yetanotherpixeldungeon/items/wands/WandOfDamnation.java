@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Doomed;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -88,7 +89,7 @@ public class WandOfDamnation extends WandUtility {
 
     @Override
     public String desc() {
-        return "This wand is crafted from bones and obsidian, its shape reminding you of a sickle. A creation of the dark arts, it can infuse its victims with unholy miasma, dooming them to an inevitable death after a certain amount of time.";
+        return Ml.g("items.wands.wandofdamnation.desc");
     }
 
 

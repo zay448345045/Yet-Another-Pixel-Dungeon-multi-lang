@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Random;
 
@@ -35,12 +36,12 @@ public class Banished extends Debuff {
 
     @Override
     public String toString() {
-        return "Banished";
+        return Ml.g("actors.buffs.debuffs.banished.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "banished";
+        return Ml.g("actors.buffs.debuffs.banished.statusmessage");
     }
 
 //    @Override
@@ -64,7 +65,7 @@ public class Banished extends Debuff {
 
     @Override
     public String description() {
-        return "You are not supposed to be able to see description of this debuff, but if you somehow do, then it is just the same as Tormented, but for magical creatures.";
+        return Ml.g("actors.buffs.debuffs.banished.description");
     }
 
     @Override

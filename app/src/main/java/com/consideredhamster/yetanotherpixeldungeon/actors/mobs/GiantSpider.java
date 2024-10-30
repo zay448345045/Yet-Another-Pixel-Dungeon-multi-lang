@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Torment
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.SpiderWeb;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.SpiderSprite;
 import com.watabou.utils.Random;
 
@@ -106,7 +107,7 @@ public class GiantSpider extends MobHealthy {
 
     @Override
     public String description() {
-        return "These overgrown subterranean spiders try to avoid direct combat, preferring to poison their target and then run away. Their abdomens store large amounts of web, which is usually used to wrap up their prey after it succumbs to their venom.";
+        return Ml.g("actors.mobs.giantspider.description");
     }
 
     private class Fleeing extends Mob.Fleeing {

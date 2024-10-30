@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Levitation;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public class PotionOfLevitation extends Potion {
 
@@ -41,7 +42,7 @@ public class PotionOfLevitation extends Potion {
 
     @Override
     public String desc() {
-        return "Drinking this curious liquid will cause you to hover in the air, moving faster and stealthier. This state also allows drifting over traps or chasms and seeing over the high grass. Flames and gases fill the air, however, and cannot be bypassed while airborne.";
+        return Ml.g("items.potions.potionoflevitation.desc");
     }
 
     @Override

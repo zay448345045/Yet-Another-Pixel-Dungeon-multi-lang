@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CrabSprite;
 
 public class SewerCrab extends MobHealthy {
@@ -76,6 +77,6 @@ public class SewerCrab extends MobHealthy {
 //			"They are extremely fast and their thick exoskeleton can withstand " +
 //			"heavy blows.";
 
-        return "These huge crabs are at the top of the food chain in the sewers. Despite the thickness of their carapaces, they can move very fast if they want to.";
+        return Ml.g("actors.mobs.sewercrab.description");
     }
 }

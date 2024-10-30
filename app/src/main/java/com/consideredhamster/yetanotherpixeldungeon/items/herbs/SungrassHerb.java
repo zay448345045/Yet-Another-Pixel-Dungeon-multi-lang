@@ -31,6 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfBlessing;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfMending;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfShield;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
@@ -75,7 +76,7 @@ public class SungrassHerb extends Herb {
 
     @Override
     public String desc() {
-        return "Wild animals often eat Sungrass herbs to purge their body of toxins. Sprouts of this herb are pretty common in places where sunlight is scarse, but still present.\n\nThese herbs are used to brew potions of _Mending_, _Blessing_ and _Shield_. Consuming them will remove _body debuffs_ and grant a short buff to your _body_ resistance.";
+        return Ml.g("items.herbs.sungrassherb.desc");
     }
 
     public static class SavoryMeat extends MeatStewed {
@@ -94,7 +95,7 @@ public class SungrassHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with a _Sungrass_ herb. It smells pretty tasty. Consuming it will remove _body debuffs_ and grant a long buff to your _body_ resistance.";
+            return Ml.g("items.herbs.sungrassherb.desc_2");
         }
 
         @Override

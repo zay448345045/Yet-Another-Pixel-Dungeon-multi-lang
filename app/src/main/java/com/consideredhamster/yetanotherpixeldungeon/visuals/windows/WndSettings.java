@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.visuals.windows;
 
 import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.CheckBox;
@@ -32,27 +33,27 @@ import com.watabou.noosa.audio.Sample;
 
 public class WndSettings extends Window {
 
-    private static final String TXT_ZOOM_IN = "+";
-    private static final String TXT_ZOOM_OUT = "-";
-    private static final String TXT_ZOOM_DEFAULT = "Default Zoom";
+    private static final String TXT_ZOOM_IN = Ml.g("visuals.windows.wndsettings.txt_zoom_in");
+    private static final String TXT_ZOOM_OUT = Ml.g("visuals.windows.wndsettings.txt_zoom_out");
+    private static final String TXT_ZOOM_DEFAULT = Ml.g("visuals.windows.wndsettings.txt_zoom_default");
 
-    private static final String TXT_SCALE_UP = "Scale up UI";
-    private static final String TXT_IMMERSIVE = "Immersive mode";
+    private static final String TXT_SCALE_UP = Ml.g("visuals.windows.wndsettings.txt_scale_up");
+    private static final String TXT_IMMERSIVE = Ml.g("visuals.windows.wndsettings.txt_immersive");
 
-    private static final String TXT_MUSIC = "Music";
+    private static final String TXT_MUSIC = Ml.g("visuals.windows.wndsettings.txt_music");
 
-    private static final String TXT_SOUND = "Sound FX";
+    private static final String TXT_SOUND = Ml.g("visuals.windows.wndsettings.txt_sound");
 
-    private static final String TXT_BUTTONS = "Waterskins/lantern: %s";
+    private static final String TXT_BUTTONS = Ml.g("visuals.windows.wndsettings.txt_buttons");
 
     private static final String[] TXT_BUTTONS_VAR = {
             "Right",
             "Left",
     };
 
-    private static final String TXT_BRIGHTNESS = "Brightness";
+    private static final String TXT_BRIGHTNESS = Ml.g("visuals.windows.wndsettings.txt_brightness");
 
-    private static final String TXT_LOADING_TIPS = "Loading tips: %s";
+    private static final String TXT_LOADING_TIPS = Ml.g("visuals.windows.wndsettings.txt_loading_tips");
 
     private static final String[] TXT_TIPS_DELAY = {
             "Disabled",
@@ -61,15 +62,15 @@ public class WndSettings extends Window {
             "Until tapped",
     };
 
-    private static final String TXT_SEARCH_BTN = "Search btn: %s";
+    private static final String TXT_SEARCH_BTN = Ml.g("visuals.windows.wndsettings.txt_search_btn");
 
     private static final String[] TXT_SEARCH_VAR = {
             "Default behv.",
             "Reversed behv.",
     };
 
-    private static final String TXT_SWITCH_PORT = "Switch to portrait";
-    private static final String TXT_SWITCH_LAND = "Switch to landscape";
+    private static final String TXT_SWITCH_PORT = Ml.g("visuals.windows.wndsettings.txt_switch_port");
+    private static final String TXT_SWITCH_LAND = Ml.g("visuals.windows.wndsettings.txt_switch_land");
 
     private static final int WIDTH = 112;
     private static final int BTN_HEIGHT = 20;

@@ -35,6 +35,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfLevita
 import com.consideredhamster.yetanotherpixeldungeon.levels.RegularLevel;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.InterlevelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -50,14 +51,14 @@ public class Chasm {
     // FIXME
     private static Chasm CHASM = new Chasm();
 
-    private static final String TXT_CHASM = "Chasm";
-    private static final String TXT_YES = "Yes, I know what I'm doing";
-    private static final String TXT_NO = "No, I changed my mind";
-    private static final String TXT_POTION = "Use potion of Levitation";
-    private static final String TXT_JUMP = "Do you really want to jump into the chasm? You can probably die.";
+    private static final String TXT_CHASM = Ml.g("levels.features.chasm.txt_chasm");
+    private static final String TXT_YES = Ml.g("levels.features.chasm.txt_yes");
+    private static final String TXT_NO = Ml.g("levels.features.chasm.txt_no");
+    private static final String TXT_POTION = Ml.g("levels.features.chasm.txt_potion");
+    private static final String TXT_JUMP = Ml.g("levels.features.chasm.txt_jump");
 
-    private static final String TXT_LANDS_SAFELY = "You safely land on the floor!";
-    private static final String TXT_SHATTER_PACK = "Your %s has not survived the fall!";
+    private static final String TXT_LANDS_SAFELY = Ml.g("levels.features.chasm.txt_lands_safely");
+    private static final String TXT_SHATTER_PACK = Ml.g("levels.features.chasm.txt_shatter_pack");
 
     public static boolean jumpConfirmed = false;
     public static boolean useLevitation = false;

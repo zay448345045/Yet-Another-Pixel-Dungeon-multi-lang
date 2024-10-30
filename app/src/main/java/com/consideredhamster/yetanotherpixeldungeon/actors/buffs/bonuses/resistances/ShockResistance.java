@@ -21,23 +21,24 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class ShockResistance extends ElementResistance {
 
     @Override
     public String toString() {
-        return "Shock Resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.shockresistance.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "shock resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.shockresistance.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You feel your hair stand on their own.";
+        return Ml.g("actors.buffs.bonuses.resistances.shockresistance.playermessage");
     }
 
     @Override
@@ -52,6 +53,6 @@ public class ShockResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "Air around you seems to be filled with static electricity, making your hair stand on their own. Your resistance to electrical damage is increased.";
+        return Ml.g("actors.buffs.bonuses.resistances.shockresistance.description");
     }
 }

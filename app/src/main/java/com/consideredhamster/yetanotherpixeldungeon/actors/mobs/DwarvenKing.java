@@ -38,6 +38,7 @@
   import com.consideredhamster.yetanotherpixeldungeon.levels.CityBossLevel;
   import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
   import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+  import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
   import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
   import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
   import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
@@ -69,18 +70,18 @@
       //    private final static int LINE_MOVEASIDE = 6;
       private final static int LINE_NEARDEATH = 7;
 
-      private final static String TXT_ENRAGED = "Dwarven King is enraged!";
-      private final static String TXT_STOPPED = "Dwarven King stopped the ritual.";
-      private final static String TXT_CALMDWN = "Dwarven King is not enraged anymore.";
-      private final static String TXT_SUMMONS = "Dwarven King casts some powerful spell!";
-      private final static String TXT_CHANNEL = "Dwarven King starts some kind of ritual!";
+      private final static String TXT_ENRAGED = Ml.g("actors.mobs.dwarvenking.txt_enraged");
+      private final static String TXT_STOPPED = Ml.g("actors.mobs.dwarvenking.txt_stopped");
+      private final static String TXT_CALMDWN = Ml.g("actors.mobs.dwarvenking.txt_calmdwn");
+      private final static String TXT_SUMMONS = Ml.g("actors.mobs.dwarvenking.txt_summons");
+      private final static String TXT_CHANNEL = Ml.g("actors.mobs.dwarvenking.txt_channel");
 
       private static final float SPAWN_DELAY = 1f;
       private static final float BASE_ENRAGE = 5f;
 
       //    private static final String PHASE	= "phase";
-      private static final String BREAKS = "breaks";
-      private static final String CONSUMED = "consumed";
+      private static final String BREAKS = Ml.g("actors.mobs.dwarvenking.breaks");
+      private static final String CONSUMED = Ml.g("actors.mobs.dwarvenking.consumed");
 
       private static String[][] LINES = {
 
@@ -447,7 +448,7 @@
 
       @Override
       public String description() {
-          return "The last king of dwarves was known for a deep understanding of the processes of life and death. He had persuaded the members of his court to participate in a ritual that should have granted them eternal youth. In the end, he was the only one who got it, with an army of undead as a bonus.";
+          return Ml.g("actors.mobs.dwarvenking.description");
       }
 
       public void sacrificeMinion(Mob mob) {
@@ -595,7 +596,7 @@
 
           @Override
           public String tileDesc() {
-              return "Bones on the bottom of this well are moving. Creepy.";
+              return Ml.g("actors.mobs.dwarvenking.tiledesc");
           }
       }
   }

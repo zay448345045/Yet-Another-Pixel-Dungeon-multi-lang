@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
@@ -33,11 +34,11 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
 
 public class ScrollOfEnchantment extends InventoryScroll {
 
-    private static final String TXT_ITEM_ENCHANT = "the scroll turned your %s into %s!";
-    private static final String TXT_ITEM_UPGRADE = "the scroll upgraded your %s because it is already enchanted!";
-    private static final String TXT_ITEM_RESISTS = "the scroll weakened the curse on your %s!";
-    private static final String TXT_ITEM_UNCURSE = "the scroll removed the curse from your %s!";
-    private static final String TXT_ITEM_UNKNOWN = "the scroll is useless for the %s!";
+    private static final String TXT_ITEM_ENCHANT = Ml.g("items.scrolls.scrollofenchantment.txt_item_enchant");
+    private static final String TXT_ITEM_UPGRADE = Ml.g("items.scrolls.scrollofenchantment.txt_item_upgrade");
+    private static final String TXT_ITEM_RESISTS = Ml.g("items.scrolls.scrollofenchantment.txt_item_resists");
+    private static final String TXT_ITEM_UNCURSE = Ml.g("items.scrolls.scrollofenchantment.txt_item_uncurse");
+    private static final String TXT_ITEM_UNKNOWN = Ml.g("items.scrolls.scrollofenchantment.txt_item_unknown");
 
     {
         name = "Scroll of Enchantment";
@@ -190,7 +191,7 @@ public class ScrollOfEnchantment extends InventoryScroll {
 
     @Override
     public String desc() {
-        return "This scroll is able to imbue unenchanted weapon or armor with random enchantment, or even upgrade already enchanted item. Wands and rings count as enchanted items by default. If used on a cursed item, it will try to dispel the curse and will even turn its enchantment into benevolent one in case of success. Using it on something which can't be improved any further may have... unpredictable results.";
+        return Ml.g("items.scrolls.scrollofenchantment.desc");
     }
 
     @Override

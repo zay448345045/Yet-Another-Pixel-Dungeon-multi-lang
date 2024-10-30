@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.LeafParticle;
@@ -144,7 +145,7 @@ public class Overgrowth extends Blob {
 
     @Override
     public String tileDesc() {
-        return "A little tornado of leaves and roots is swirling on the ground here.Be careful walking here, as it can root you!";
+        return Ml.g("actors.blobs.overgrowth.tiledesc");
     }
 
     @Override

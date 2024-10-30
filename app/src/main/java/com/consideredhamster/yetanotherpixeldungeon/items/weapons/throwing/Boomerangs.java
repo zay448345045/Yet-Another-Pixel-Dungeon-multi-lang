@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Boomerangs extends ThrowingWeaponSpecial {
@@ -66,6 +67,6 @@ public class Boomerangs extends ThrowingWeaponSpecial {
 
     @Override
     public String desc() {
-        return "Thrown to the enemy these flat curved wooden missiles will return to the hands of its thrower when missed. Their blunt edges do not deal significant damage, but precise throw of a boomerang can stun the target.";
+        return Ml.g("items.weapons.throwing.boomerangs.desc");
     }
 }

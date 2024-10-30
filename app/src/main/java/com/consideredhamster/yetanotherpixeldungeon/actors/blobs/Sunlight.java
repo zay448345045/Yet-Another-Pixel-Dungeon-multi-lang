@@ -30,6 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShaftParticle;
@@ -126,6 +127,6 @@ public class Sunlight extends Blob {
 
     @Override
     public String tileDesc() {
-        return "Shafts of light pierce the gloom of the underground, restoring life of everything they touch.";
+        return Ml.g("actors.blobs.sunlight.tiledesc");
     }
 }

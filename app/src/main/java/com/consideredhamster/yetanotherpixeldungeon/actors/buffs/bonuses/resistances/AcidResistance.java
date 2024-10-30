@@ -21,23 +21,24 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class AcidResistance extends ElementResistance {
 
     @Override
     public String toString() {
-        return "Acid Resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.acidresistance.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "acid resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.acidresistance.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You feel your skin becoming oily.";
+        return Ml.g("actors.buffs.bonuses.resistances.acidresistance.playermessage");
     }
 
     @Override
@@ -52,6 +53,6 @@ public class AcidResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "Your skin became somewhat oily, and it feels like it should help against caustic blights of all kind. Your resistance to acid damage is increased.";
+        return Ml.g("actors.buffs.bonuses.resistances.acidresistance.description");
     }
 }

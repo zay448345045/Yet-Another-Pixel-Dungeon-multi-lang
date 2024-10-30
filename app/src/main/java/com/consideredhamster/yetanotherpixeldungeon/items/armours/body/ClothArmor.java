@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 
@@ -39,6 +40,6 @@ public class ClothArmor extends BodyArmorCloth {
 
     @Override
     public String desc() {
-        return "This lightweight armor offers more protection from cold than from enemy blows. Still, better than nothing.";
+        return Ml.g("items.armours.body.clotharmor.desc");
     }
 }

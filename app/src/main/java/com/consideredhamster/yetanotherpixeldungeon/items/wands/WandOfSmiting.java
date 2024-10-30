@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Blinded;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
@@ -113,6 +114,6 @@ public class WandOfSmiting extends WandCombat {
 
     @Override
     public String desc() {
-        return "This gilded piece of wood allows its user to channel and release bursts of hallowed energy, harming and sometimes even blinding any wrongdoer caught in its area of effect. Its effects are even stronger against undead or magical foes.";
+        return Ml.g("items.wands.wandofsmiting.desc");
     }
 }

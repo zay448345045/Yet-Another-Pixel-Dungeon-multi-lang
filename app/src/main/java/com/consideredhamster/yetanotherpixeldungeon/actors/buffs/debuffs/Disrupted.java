@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class Disrupted extends Debuff {
@@ -32,12 +33,12 @@ public class Disrupted extends Debuff {
 
     @Override
     public String toString() {
-        return "Disrupted";
+        return Ml.g("actors.buffs.debuffs.disrupted.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "disrupted";
+        return Ml.g("actors.buffs.debuffs.disrupted.statusmessage");
     }
 
 //    @Override
@@ -60,6 +61,6 @@ public class Disrupted extends Debuff {
 
     @Override
     public String description() {
-        return "You are not supposed to be able to see description of this debuff, but if you somehow do, then it is just the same as Confused, but for magical creatures.";
+        return Ml.g("actors.buffs.debuffs.disrupted.description");
     }
 }

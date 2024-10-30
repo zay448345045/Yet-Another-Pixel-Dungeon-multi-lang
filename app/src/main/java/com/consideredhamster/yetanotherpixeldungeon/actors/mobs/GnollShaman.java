@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
@@ -38,7 +39,7 @@ public class GnollShaman extends MobRanged {
 
     private boolean charged = false;
 
-    private static final String CHARGED = "charged";
+    private static final String CHARGED = Ml.g("actors.mobs.gnollshaman.charged");
 
     public GnollShaman() {
 
@@ -146,7 +147,7 @@ public class GnollShaman extends MobRanged {
 
     @Override
     public String description() {
-        return "The most intelligent gnolls can master shamanistic magic. Gnoll shamans prefer battle spells to compensate for lack of might, not hesitating to use them on those who question their status in a tribe.";
+        return Ml.g("actors.mobs.gnollshaman.description");
     }
 
     @Override

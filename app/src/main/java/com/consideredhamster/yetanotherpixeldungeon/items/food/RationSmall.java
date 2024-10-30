@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.food;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class RationSmall extends Food {
@@ -35,7 +36,7 @@ public class RationSmall extends Food {
 
     @Override
     public String desc() {
-        return "It looks exactly like a standard ration of food but smaller.";
+        return Ml.g("items.food.rationsmall.desc");
     }
 
     @Override

@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Bee;
 import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Splash;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 
 public class Honeypot extends Item {
 
-    public static final String AC_SHATTER = "SHATTER";
+    public static final String AC_SHATTER = Ml.g("items.misc.honeypot.ac_shatter");
 
     {
         name = "honeypot";
@@ -136,6 +137,6 @@ public class Honeypot extends Item {
 
     @Override
     public String info() {
-        return "There is not much honey in this small honeypot, but there is a golden bee there and it doesn't want to leave it.";
+        return Ml.g("items.misc.honeypot.info");
     }
 }

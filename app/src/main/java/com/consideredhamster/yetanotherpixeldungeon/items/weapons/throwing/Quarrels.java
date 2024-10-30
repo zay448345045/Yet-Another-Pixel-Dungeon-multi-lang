@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Quarrels extends ThrowingWeaponAmmo {
@@ -46,6 +47,6 @@ public class Quarrels extends ThrowingWeaponAmmo {
 
     @Override
     public String desc() {
-        return "This kind of ammunition is designed to be used with arbalests.";
+        return Ml.g("items.weapons.throwing.quarrels.desc");
     }
 }

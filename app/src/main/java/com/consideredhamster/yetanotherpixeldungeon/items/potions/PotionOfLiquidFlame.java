@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Fire;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.watabou.utils.Random;
 
@@ -53,7 +54,7 @@ public class PotionOfLiquidFlame extends Potion {
 
     @Override
     public String desc() {
-        return "This flask contains an unstable compound which will burst violently into flame upon exposure to open air.";
+        return Ml.g("items.potions.potionofliquidflame.desc");
     }
 
     @Override

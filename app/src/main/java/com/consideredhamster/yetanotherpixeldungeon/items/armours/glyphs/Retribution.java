@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
@@ -42,22 +43,22 @@ public class Retribution extends Armour.Glyph {
 
     @Override
     protected String name_p() {
-        return "%s of retribution";
+        return Ml.g("items.armours.glyphs.retribution.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "%s of mercy";
+        return Ml.g("items.armours.glyphs.retribution.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "reflect melee damage back to attacker and increase your physical resilience";
+        return Ml.g("items.armours.glyphs.retribution.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "heal your attacker on hit";
+        return Ml.g("items.armours.glyphs.retribution.desc_n");
     }
 
     @Override

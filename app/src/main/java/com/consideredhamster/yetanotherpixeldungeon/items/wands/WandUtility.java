@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.MageArmor
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfMysticism;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfWillpower;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Quarterstaff;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Random;
 
 import java.util.Locale;
@@ -117,7 +118,7 @@ public abstract class WandUtility extends Wand {
 
         Hero hero = Dungeon.hero;
 
-        final String p = "\n\n";
+        final String p = Ml.g("items.wands.wandutility.p");
         StringBuilder info = new StringBuilder();
 
         // if we are not sure what stats we currently have due to some of the relevant equipment

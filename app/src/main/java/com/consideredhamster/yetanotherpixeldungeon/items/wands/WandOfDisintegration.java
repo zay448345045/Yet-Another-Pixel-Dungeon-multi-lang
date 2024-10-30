@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -217,6 +218,6 @@ public class WandOfDisintegration extends WandCombat {
 
     @Override
     public String desc() {
-        return "This wand emits a beam of destructive energy, which pierces all creatures in its way and bounce from solid obstacles, allowing its user to shoot them around the corners.";
+        return Ml.g("items.wands.wandofdisintegration.desc");
     }
 }

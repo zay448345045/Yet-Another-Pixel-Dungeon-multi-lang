@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.BeeSprite;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
@@ -47,7 +48,7 @@ public class Bee extends NPC {
 
     private int level;
 
-    private static final String LEVEL = "level";
+    private static final String LEVEL = Ml.g("actors.mobs.npcs.bee.level");
 
     @Override
     public void storeInBundle(Bundle bundle) {
@@ -118,7 +119,7 @@ public class Bee extends NPC {
 
     @Override
     public String description() {
-        return "Despite their small size, golden bees tend to protect their master fiercely. They don't live long though.";
+        return Ml.g("actors.mobs.npcs.bee.description");
     }
 
     @Override

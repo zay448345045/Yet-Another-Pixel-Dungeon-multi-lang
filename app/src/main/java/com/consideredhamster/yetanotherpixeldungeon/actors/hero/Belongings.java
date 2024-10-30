@@ -30,6 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.keys.IronKey;
 import com.consideredhamster.yetanotherpixeldungeon.items.keys.Key;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
@@ -56,12 +57,12 @@ public class Belongings implements Iterable<Item> {
         backpack.owner = owner;
     }
 
-    private static final String BACKPACK = "backpack";
-    private static final String WEAP1 = "weap1";
-    private static final String WEAP2 = "weap2";
-    private static final String ARMOR = "armor";
-    private static final String RING1 = "ring1";
-    private static final String RING2 = "ring2";
+    private static final String BACKPACK = Ml.g("actors.hero.belongings.backpack");
+    private static final String WEAP1 = Ml.g("actors.hero.belongings.weap1");
+    private static final String WEAP2 = Ml.g("actors.hero.belongings.weap2");
+    private static final String ARMOR = Ml.g("actors.hero.belongings.armor");
+    private static final String RING1 = Ml.g("actors.hero.belongings.ring1");
+    private static final String RING2 = Ml.g("actors.hero.belongings.ring2");
 
     public void storeInBundle(Bundle bundle) {
 

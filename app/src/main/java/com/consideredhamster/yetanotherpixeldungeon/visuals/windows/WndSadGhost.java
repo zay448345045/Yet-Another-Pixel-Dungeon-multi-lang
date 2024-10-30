@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.quest.DriedRose;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.RedButton;
@@ -35,10 +36,10 @@ import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndSadGhost extends Window {
 
-    private static final String TXT_ROSE = "Yes! Yes!!! This is it! Please give it to me! And you can take one of these items, maybe they will be useful to you in your journey...";
-    private static final String TXT_RAT = "Yes! The ugly creature is slain and I can finally rest... Please take one of these items, maybe they will be useful to you in your journey...";
-    private static final String TXT_WEAPON = "Ghost's weapon";
-    private static final String TXT_ARMOR = "Ghost's armor";
+    private static final String TXT_ROSE = Ml.g("visuals.windows.wndsadghost.txt_rose");
+    private static final String TXT_RAT = Ml.g("visuals.windows.wndsadghost.txt_rat");
+    private static final String TXT_WEAPON = Ml.g("visuals.windows.wndsadghost.txt_weapon");
+    private static final String TXT_ARMOR = Ml.g("visuals.windows.wndsadghost.txt_armor");
 
     private static final int WIDTH = 120;
     private static final int BTN_HEIGHT = 20;

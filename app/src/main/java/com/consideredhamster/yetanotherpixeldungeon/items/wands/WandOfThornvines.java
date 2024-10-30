@@ -32,6 +32,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -104,7 +105,7 @@ public class WandOfThornvines extends WandUtility {
 
     @Override
     public String desc() {
-        return "This wand possesses the mystical force of summoning forces of the very earth to the wielder's command, allowing him or her to spawn thornvines from the floor. These plants will fiercely lash out at any enemy passing through, and are especially strong when created on grass-covered tiles.";
+        return Ml.g("items.wands.wandofthornvines.desc");
     }
 
     public static class Thornvine extends NPC {
@@ -292,17 +293,17 @@ public class WandOfThornvines extends WandUtility {
 
             @Override
             public String status() {
-                return "guarding";
+                return Ml.g("items.wands.wandofthornvines.status");
             }
         }
 
         @Override
         public String description() {
-            return "Thornvines are kind of semisentient plants which are very territorial and will attack anything which comes near. Their sharp thorns can inflict grievous wounds, but they are very vulnerable to fire and will quickly wither as time passes. You can unsummon it by interacting with it while holding your wand.";
+            return Ml.g("items.wands.wandofthornvines.description");
         }
 
-        private static final String STATS = "stats";
-        private static final String CHARGES = "charges";
+        private static final String STATS = Ml.g("items.wands.wandofthornvines.stats");
+        private static final String CHARGES = Ml.g("items.wands.wandofthornvines.charges");
 
         @Override
         public void storeInBundle(Bundle bundle) {

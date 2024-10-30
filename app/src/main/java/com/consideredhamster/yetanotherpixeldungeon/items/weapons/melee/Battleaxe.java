@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Battleaxe extends MeleeWeaponHeavyTH {
@@ -45,6 +46,6 @@ public class Battleaxe extends MeleeWeaponHeavyTH {
 
     @Override
     public String desc() {
-        return "The enormous steel head of this battle axe puts considerable heft behind each stroke.";
+        return Ml.g("items.weapons.melee.battleaxe.desc");
     }
 }

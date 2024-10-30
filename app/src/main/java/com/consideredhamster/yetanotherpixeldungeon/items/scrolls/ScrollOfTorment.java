@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Torment
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
@@ -93,7 +94,7 @@ public class ScrollOfTorment extends Scroll {
 
     @Override
     public String desc() {
-        return "Upon reading this parchment, mind-tearing flash of pain will affect all the present creatures in the field of view, harming them and making them flee. The user of this scroll is only partially affected by this effect, and higher magic skill allows to diminish this backlash even further.\n\nPower of these effects depend on magic skill of the reader and current health of the target.";
+        return Ml.g("items.scrolls.scrolloftorment.desc");
     }
 
     @Override

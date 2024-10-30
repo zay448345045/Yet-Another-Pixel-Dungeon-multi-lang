@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfLightning;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.watabou.utils.Random;
@@ -46,22 +47,22 @@ public class Shocking extends Weapon.Enchantment {
 
     @Override
     protected String name_p() {
-        return "Shocking %s";
+        return Ml.g("items.weapons.enchantments.shocking.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "Sparking %s";
+        return Ml.g("items.weapons.enchantments.shocking.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "shock your enemies on hit";
+        return Ml.g("items.weapons.enchantments.shocking.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "shock you on hit";
+        return Ml.g("items.weapons.enchantments.shocking.desc_n");
     }
 
     @Override

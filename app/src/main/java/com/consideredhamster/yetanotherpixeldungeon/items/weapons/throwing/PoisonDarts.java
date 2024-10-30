@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Poisoned;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class PoisonDarts extends ThrowingWeaponSpecial {
@@ -53,6 +54,6 @@ public class PoisonDarts extends ThrowingWeaponSpecial {
 
     @Override
     public String desc() {
-        return "Stings of these vicious little darts are covered in some kind of toxin, poisoning their targets with some kind of deadly venom.";
+        return Ml.g("items.weapons.throwing.poisondarts.desc");
     }
 }

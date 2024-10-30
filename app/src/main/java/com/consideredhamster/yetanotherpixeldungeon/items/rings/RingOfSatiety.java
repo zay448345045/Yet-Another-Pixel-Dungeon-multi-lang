@@ -20,6 +20,8 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfSatiety extends Ring {
@@ -37,8 +39,8 @@ public class RingOfSatiety extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = "??";
-        String sideEffect = "??";
+        String mainEffect = Ml.g("items.rings.ringofsatiety.maineffect");
+        String sideEffect = Ml.g("items.rings.ringofsatiety.sideeffect");
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
@@ -71,7 +73,8 @@ public class RingOfSatiety extends Ring {
     public class Satiety extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel comfortable warmth in your stomach." : "You feel your hunger growing faster.";
+            return Ml.g("items.rings.ringofsatiety.desc", (bonus >= 0 ? You feel comfortable warmth in your stomach. :
+            You feel your hunger growing faster.));
         }
     }
 }

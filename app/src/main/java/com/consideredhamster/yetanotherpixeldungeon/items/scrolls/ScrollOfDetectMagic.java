@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
@@ -34,8 +35,8 @@ import com.watabou.utils.Random;
 public class ScrollOfDetectMagic extends Scroll {
 
     //    private static final String TXT_REVEALED	= "You notice something peculiar!";
-    private static final String TXT_IDENTIFIED = "Your items are identified!";
-    private static final String TXT_NOTHING = "Nothing happens.";
+    private static final String TXT_IDENTIFIED = Ml.g("items.scrolls.scrollofdetectmagic.txt_identified");
+    private static final String TXT_NOTHING = Ml.g("items.scrolls.scrollofdetectmagic.txt_nothing");
 
     {
         name = "Scroll of Detect Magic";
@@ -85,7 +86,7 @@ public class ScrollOfDetectMagic extends Scroll {
 
     @Override
     public String desc() {
-        return "The incantation etched in this scroll can bestow the ability to perceive the weaves of magic upon its reader, revealing the items' supernatural qualities. This will allow its user to tell the enchanted and cursed equipment from the mundane but without further details.";
+        return Ml.g("items.scrolls.scrollofdetectmagic.desc");
     }
 
     public static boolean identify(Item... items) {

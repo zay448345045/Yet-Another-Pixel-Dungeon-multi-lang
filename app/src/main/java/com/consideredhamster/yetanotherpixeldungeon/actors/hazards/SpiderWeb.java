@@ -3,6 +3,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.hazards;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Ensnared;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -52,7 +53,7 @@ public class SpiderWeb extends Hazard {
 
     @Override
     public String desc() {
-        return "There is a bunch of webs covering this tile.";
+        return Ml.g("actors.hazards.spiderweb.desc");
     }
 
     ;
@@ -116,7 +117,7 @@ public class SpiderWeb extends Hazard {
     }
 
 
-    private static final String DURATION = "duration";
+    private static final String DURATION = Ml.g("actors.hazards.spiderweb.duration");
 
     @Override
     public void storeInBundle(Bundle bundle) {

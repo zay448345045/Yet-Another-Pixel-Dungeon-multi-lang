@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
@@ -72,9 +73,9 @@ public class ItemStatusHandler<T extends Item> {
         restore(bundle, labels, images);
     }
 
-    private static final String PFX_IMAGE = "_image";
-    private static final String PFX_LABEL = "_label";
-    private static final String PFX_KNOWN = "_known";
+    private static final String PFX_IMAGE = Ml.g("items.itemstatushandler.pfx_image");
+    private static final String PFX_LABEL = Ml.g("items.itemstatushandler.pfx_label");
+    private static final String PFX_KNOWN = Ml.g("items.itemstatushandler.pfx_known");
 
     public void save(Bundle bundle) {
         for (int i = 0; i < items.length; i++) {

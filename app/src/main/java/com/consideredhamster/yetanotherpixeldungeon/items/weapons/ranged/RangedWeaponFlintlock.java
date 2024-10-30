@@ -37,6 +37,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Throw
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -64,12 +65,12 @@ public abstract class RangedWeaponFlintlock extends RangedWeapon {
 
     }
 
-    public static final String AC_RELOAD = "RELOAD";
+    public static final String AC_RELOAD = Ml.g("items.weapons.ranged.rangedweaponflintlock.ac_reload");
 
-    protected static final String TXT_POWDER_NEEDED = "You don't have enough gunpowder to reload this gun.";
-    protected static final String TXT_NOT_LOADED = "This gun is not loaded.";
-    protected static final String TXT_ALREADY_LOADED = "This gun is already loaded.";
-    protected static final String TXT_RELOADING = "reloading...";
+    protected static final String TXT_POWDER_NEEDED = Ml.g("items.weapons.ranged.rangedweaponflintlock.txt_powder_needed");
+    protected static final String TXT_NOT_LOADED = Ml.g("items.weapons.ranged.rangedweaponflintlock.txt_not_loaded");
+    protected static final String TXT_ALREADY_LOADED = Ml.g("items.weapons.ranged.rangedweaponflintlock.txt_already_loaded");
+    protected static final String TXT_RELOADING = Ml.g("items.weapons.ranged.rangedweaponflintlock.txt_reloading");
 
     @Override
     public int maxDurability() {
@@ -114,7 +115,7 @@ public abstract class RangedWeaponFlintlock extends RangedWeapon {
 
     @Override
     public String descType() {
-        return "flintlock";
+        return Ml.g("items.weapons.ranged.rangedweaponflintlock.desctype");
     }
 
 //    @Override
@@ -320,11 +321,11 @@ public abstract class RangedWeaponFlintlock extends RangedWeapon {
 
         @Override
         public String prompt() {
-            return "Choose target to shoot at";
+            return Ml.g("items.weapons.ranged.rangedweaponflintlock.prompt");
         }
     };
 
-    private static final String LOADED = "loaded";
+    private static final String LOADED = Ml.g("items.weapons.ranged.rangedweaponflintlock.loaded");
 
     @Override
     public void storeInBundle(Bundle bundle) {

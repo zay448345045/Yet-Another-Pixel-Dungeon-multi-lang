@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap.Type;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.ItemSlot;
@@ -33,16 +34,16 @@ import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndInfoItem extends Window {
 
-    private static final String TXT_CHEST = "Chest";
-    private static final String TXT_LOCKED_CHEST = "Locked chest";
-    private static final String TXT_CRYSTAL_CHEST = "Crystal chest";
-    private static final String TXT_TOMB = "Tomb";
-    private static final String TXT_SKELETON = "Skeletal remains";
-    private static final String TXT_WONT_KNOW = "You won't know what's inside until you open it!";
-    private static final String TXT_NEED_KEY = TXT_WONT_KNOW + " But to open it you need a golden key.";
-    private static final String TXT_INSIDE = "You can see %s inside, but to open the chest you need a crystal key.";
-    private static final String TXT_OWNER = "This ancient tomb may contain something useful, but its owner will most certainly object to checking.";
-    private static final String TXT_REMAINS = "This is all that's left from one of your predecessors. Maybe it's worth checking for any valuables.";
+    private static final String TXT_CHEST = Ml.g("visuals.windows.wndinfoitem.txt_chest");
+    private static final String TXT_LOCKED_CHEST = Ml.g("visuals.windows.wndinfoitem.txt_locked_chest");
+    private static final String TXT_CRYSTAL_CHEST = Ml.g("visuals.windows.wndinfoitem.txt_crystal_chest");
+    private static final String TXT_TOMB = Ml.g("visuals.windows.wndinfoitem.txt_tomb");
+    private static final String TXT_SKELETON = Ml.g("visuals.windows.wndinfoitem.txt_skeleton");
+    private static final String TXT_WONT_KNOW = Ml.g("visuals.windows.wndinfoitem.txt_wont_know");
+    private static final String TXT_NEED_KEY = Ml.g("visuals.windows.wndinfoitem.txt_need_key", TXT_WONT_KNOW);
+    private static final String TXT_INSIDE = Ml.g("visuals.windows.wndinfoitem.txt_inside");
+    private static final String TXT_OWNER = Ml.g("visuals.windows.wndinfoitem.txt_owner");
+    private static final String TXT_REMAINS = Ml.g("visuals.windows.wndinfoitem.txt_remains");
 
     private static final float GAP = 2;
 

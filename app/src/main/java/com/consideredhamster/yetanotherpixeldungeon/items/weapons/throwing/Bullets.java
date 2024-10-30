@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Bullets extends ThrowingWeaponAmmo {
@@ -46,6 +47,6 @@ public class Bullets extends ThrowingWeaponAmmo {
 
     @Override
     public String desc() {
-        return "These small bullets are made of lead and are perfect ammunition for slings.";
+        return Ml.g("items.weapons.throwing.bullets.desc");
     }
 }

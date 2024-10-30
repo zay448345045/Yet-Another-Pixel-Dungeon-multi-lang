@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Shortsword extends MeleeWeaponLightOH {
@@ -45,6 +46,6 @@ public class Shortsword extends MeleeWeaponLightOH {
 
     @Override
     public String desc() {
-        return "It is indeed quite short, just a few inches longer, than a dagger.";
+        return Ml.g("items.weapons.melee.shortsword.desc");
     }
 }

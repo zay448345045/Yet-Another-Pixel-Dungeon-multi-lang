@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.bags;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
@@ -54,7 +55,7 @@ public class ScrollHolder extends Bag {
 
     @Override
     public String info() {
-        return "You can place any number of scrolls into this tubular container. It saves room in your backpack and protects scrolls from fire.";
+        return Ml.g("items.bags.scrollholder.info");
     }
 
     @Override

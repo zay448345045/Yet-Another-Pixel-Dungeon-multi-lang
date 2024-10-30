@@ -21,6 +21,7 @@
 
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class DiscArmor extends BodyArmorHeavy {
@@ -36,6 +37,6 @@ public class DiscArmor extends BodyArmorHeavy {
 
     @Override
     public String desc() {
-        return "This armor is made of a metal disc sewn on top of a cloth (hence the name). It's pretty durable, but bulky.";
+        return Ml.g("items.armours.body.discarmor.desc");
     }
 }

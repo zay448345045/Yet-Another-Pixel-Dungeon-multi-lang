@@ -30,6 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -43,7 +44,7 @@ import com.watabou.utils.Random;
 
 public class Shopkeeper extends NPC {
 
-    private static final String TXT_GREETINGS = "Good day! Are you interested in my wares?";
+    private static final String TXT_GREETINGS = Ml.g("actors.mobs.npcs.shopkeeper.txt_greetings");
 
     private static String[][] LINES_THREATENED = {
 
@@ -258,7 +259,7 @@ public class Shopkeeper extends NPC {
 
     @Override
     public String description() {
-        return "This stout guy looks more appropriate for a trade district in some large city than this little black market down here. Better for you, anyway.";
+        return Ml.g("actors.mobs.npcs.shopkeeper.description");
     }
 
     public float stealingChance(Item item) {
@@ -288,8 +289,8 @@ public class Shopkeeper extends NPC {
         sell();
     }
 
-    private static final String SEENBEFORE = "seenbefore";
-    private static final String THREATENED = "threatened";
+    private static final String SEENBEFORE = Ml.g("actors.mobs.npcs.shopkeeper.seenbefore");
+    private static final String THREATENED = Ml.g("actors.mobs.npcs.shopkeeper.threatened");
 
     public void storeInBundle(Bundle bundle) {
         super.storeInBundle(bundle);

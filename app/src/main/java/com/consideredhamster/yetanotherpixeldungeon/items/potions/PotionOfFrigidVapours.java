@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.FrigidVapours;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 
 public class PotionOfFrigidVapours extends Potion {
@@ -44,7 +45,7 @@ public class PotionOfFrigidVapours extends Potion {
 
     @Override
     public String desc() {
-        return "Upon exposure to open air, this chemical will evaporate into a freezing cloud, causing any creature that touches it to be frozen in place, unable to act or move.";
+        return Ml.g("items.potions.potionoffrigidvapours.desc");
     }
 
     @Override

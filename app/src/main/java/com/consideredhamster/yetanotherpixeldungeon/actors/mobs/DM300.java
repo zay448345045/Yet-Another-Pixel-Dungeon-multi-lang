@@ -44,6 +44,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.AlarmTrap;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -391,11 +392,11 @@ public class DM300 extends MobHealthy {
 
     @Override
     public String description() {
-        return "This machine was created by the Dwarves several centuries ago. Later, Dwarves started to replace machines with golems, elementals and even demons. Eventually it led their civilization to the decline. The DM-300 and similar machines were typically used for construction and mining, and in some cases, for city defense.";
+        return Ml.g("actors.mobs.dm300.description");
     }
 
-    private static final String BREAKS = "breaks";
-    private static final String LAST_MARK = "mark";
+    private static final String BREAKS = Ml.g("actors.mobs.dm300.breaks");
+    private static final String LAST_MARK = Ml.g("actors.mobs.dm300.last_mark");
 
     @Override
     public void storeInBundle(Bundle bundle) {

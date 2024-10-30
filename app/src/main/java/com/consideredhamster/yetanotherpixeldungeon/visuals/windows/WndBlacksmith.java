@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Blacksmith;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.ItemButton;
@@ -44,9 +45,9 @@ public class WndBlacksmith extends Window {
     private ItemButton btnItem2;
     private RedButton btnReforge;
 
-    private static final String TXT_PROMPT = "Ok, a deal is a deal, dat's what I can do for you: I can reforge 2 items and turn them into one of a better quality.";
-    private static final String TXT_SELECT = "Select an item to reforge";
-    private static final String TXT_REFORGE = "Reforge them";
+    private static final String TXT_PROMPT = Ml.g("visuals.windows.wndblacksmith.txt_prompt");
+    private static final String TXT_SELECT = Ml.g("visuals.windows.wndblacksmith.txt_select");
+    private static final String TXT_REFORGE = Ml.g("visuals.windows.wndblacksmith.txt_reforge");
 
     public WndBlacksmith(Blacksmith troll, Hero hero) {
 

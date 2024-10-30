@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
@@ -37,22 +38,22 @@ public class Vorpal extends Weapon.Enchantment {
 
     @Override
     protected String name_p() {
-        return "Unholy %s";
+        return Ml.g("items.weapons.enchantments.vorpal.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "Damned %s";
+        return Ml.g("items.weapons.enchantments.vorpal.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "deal tremendous unholy damage to your enemy";
+        return Ml.g("items.weapons.enchantments.vorpal.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "deal tremendous unholy damage to you";
+        return Ml.g("items.weapons.enchantments.vorpal.desc_n");
     }
 
     @Override

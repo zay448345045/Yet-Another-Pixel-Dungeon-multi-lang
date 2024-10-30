@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.BArray;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
@@ -122,6 +123,6 @@ public class WandOfBlastWave extends WandUtility {
 
     @Override
     public String desc() {
-        return "Wand will release a wave of force so strong that it may send your target flying back, slamming into walls or someone else. If this wave hits a wall or other solid object, it will cause an avalanche of stones, damaging and stunning everyone in the nearby area.";
+        return Ml.g("items.wands.wandofblastwave.desc");
     }
 }

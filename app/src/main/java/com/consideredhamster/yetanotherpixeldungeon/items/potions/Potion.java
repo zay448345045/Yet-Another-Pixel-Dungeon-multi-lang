@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.ItemStatusHandler;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Splash;
@@ -43,16 +44,16 @@ import java.util.HashSet;
 
 public abstract class Potion extends Item {
 
-    public static final String AC_DRINK = "DRINK";
+    public static final String AC_DRINK = Ml.g("items.potions.potion.ac_drink");
 
-    private static final String TXT_HARMFUL = "Harmful potion!";
-    private static final String TXT_BENEFICIAL = "Beneficial potion";
-    private static final String TXT_YES = "Yes, I know what I'm doing";
-    private static final String TXT_NO = "No, I changed my mind";
-    private static final String TXT_R_U_SURE_DRINK = "Are you sure you want to drink it? In most cases you should throw such potions at your enemies.";
-    private static final String TXT_R_U_SURE_THROW = "Are you sure you want to throw it? In most cases it makes sense to drink it.";
+    private static final String TXT_HARMFUL = Ml.g("items.potions.potion.txt_harmful");
+    private static final String TXT_BENEFICIAL = Ml.g("items.potions.potion.txt_beneficial");
+    private static final String TXT_YES = Ml.g("items.potions.potion.txt_yes");
+    private static final String TXT_NO = Ml.g("items.potions.potion.txt_no");
+    private static final String TXT_R_U_SURE_DRINK = Ml.g("items.potions.potion.txt_r_u_sure_drink");
+    private static final String TXT_R_U_SURE_THROW = Ml.g("items.potions.potion.txt_r_u_sure_throw");
 
-    private static final String TXT_IDENTIFIED = "You now know that %s color signifies a %s!";
+    private static final String TXT_IDENTIFIED = Ml.g("items.potions.potion.txt_identified");
 
     private static final float TIME_TO_DRINK = 1f;
 
@@ -300,12 +301,12 @@ public abstract class Potion extends Item {
 
     @Override
     public String name() {
-        return isTypeKnown() ? name : color + " potion";
+        return Ml.g("items.potions.potion.name", (isTypeKnown() ? name : color + " potion"));
     }
 
     @Override
     public String info() {
-        return isTypeKnown() ? desc() : "This flask contains a swirling " + color + " liquid. Who knows what it will do when drunk or thrown?";
+        return Ml.g("items.potions.potion.info", (isTypeKnown() ? desc() : "This flask contains a swirling " + color + " liquid. Who knows what it will do when drunk or thrown?"));
     }
 
 

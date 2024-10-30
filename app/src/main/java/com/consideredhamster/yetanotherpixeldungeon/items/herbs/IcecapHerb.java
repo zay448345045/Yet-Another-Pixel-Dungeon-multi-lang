@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfConfusionGas;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfFrigidVapours;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfInvisibility;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
@@ -69,7 +70,7 @@ public class IcecapHerb extends Herb {
 
     @Override
     public String desc() {
-        return "Icecap herbs feel cold to touch and have some numbing capabilities. Northern tribes sometimes use Icecap herbs as a food to keep themselves from frigid climate of their lands.\n\nThese herbs are used to brew potions of _Frigid Vapours_, _Invisibility_ and _Confusion Gas_. Consuming them will remove _chilling_ and grant a short buff to your _cold_ resistance.";
+        return Ml.g("items.herbs.icecapherb.desc");
     }
 
     public static class MintyMeat extends MeatStewed {
@@ -88,7 +89,7 @@ public class IcecapHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with an _Icecap_ herb. It smells somewhat minty. Consuming it will remove _chilling_ and grant a long buff to your _cold_ resistance.";
+            return Ml.g("items.herbs.icecapherb.desc_2");
         }
 
         @Override

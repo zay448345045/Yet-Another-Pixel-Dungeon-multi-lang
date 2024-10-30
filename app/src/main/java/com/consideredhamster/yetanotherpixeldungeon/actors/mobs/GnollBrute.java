@@ -30,6 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Tomah
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.BruteSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
 import com.watabou.utils.Callback;
@@ -37,7 +38,7 @@ import com.watabou.utils.Random;
 
 public class GnollBrute extends MobPrecise {
 
-    private static final String TXT_ENRAGED = "%s becomes enraged!";
+    private static final String TXT_ENRAGED = Ml.g("actors.mobs.gnollbrute.txt_enraged");
 
     public GnollBrute() {
 
@@ -130,6 +131,6 @@ public class GnollBrute extends MobPrecise {
 
     @Override
     public String description() {
-        return "Brutes are the largest, strongest and toughest of all gnolls. They are dumb, but very ferocious fighters. They can become temporarily enraged when injured enough.";
+        return Ml.g("actors.mobs.gnollbrute.description");
     }
 }

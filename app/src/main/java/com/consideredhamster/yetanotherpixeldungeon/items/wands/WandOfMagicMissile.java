@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.wands;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Splash;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
@@ -66,7 +67,7 @@ public class WandOfMagicMissile extends WandCombat {
 
     @Override
     public String desc() {
-        return "This wand's effect is quite simple, as it just launches bolts of pure magical energy. These bolts may be affected by the target's armor or miss entirely, but they partially compensate for this by being quite powerful.";
+        return Ml.g("items.wands.wandofmagicmissile.desc");
     }
 
 }

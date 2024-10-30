@@ -30,6 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.MeleeWea
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.RangedWeapon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
@@ -40,8 +41,8 @@ import com.watabou.utils.Bundle;
 
 public class QuickSlot extends Button implements WndBag.Listener {
 
-    private static final String TXT_SELECT_ITEM_QUICKSLOT = "Select an item for the quickslot";
-    private static final String TXT_SELECT_ITEM_OFFHAND = "Select an item for the offhand";
+    private static final String TXT_SELECT_ITEM_QUICKSLOT = Ml.g("visuals.ui.quickslot.txt_select_item_quickslot");
+    private static final String TXT_SELECT_ITEM_OFFHAND = Ml.g("visuals.ui.quickslot.txt_select_item_offhand");
 
     public static QuickSlot quickslot0;
     public static QuickSlot quickslot1;
@@ -374,9 +375,9 @@ public class QuickSlot extends Button implements WndBag.Listener {
         }
     }
 
-    private static final String QUICKSLOT1 = "quickslot1";
-    private static final String QUICKSLOT2 = "quickslot2";
-    private static final String QUICKSLOT3 = "quickslot3";
+    private static final String QUICKSLOT1 = Ml.g("visuals.ui.quickslot.quickslot1");
+    private static final String QUICKSLOT2 = Ml.g("visuals.ui.quickslot.quickslot2");
+    private static final String QUICKSLOT3 = Ml.g("visuals.ui.quickslot.quickslot3");
 
     @SuppressWarnings("unchecked")
     public static void save(Bundle bundle) {

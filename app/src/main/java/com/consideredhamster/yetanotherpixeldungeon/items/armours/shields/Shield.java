@@ -32,6 +32,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs.Durabil
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs.Featherfall;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.MeleeWeaponHeavyTH;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndOptions;
@@ -46,10 +47,10 @@ public abstract class Shield extends Armour {
 
     }
 
-    private static final String TXT_NOTEQUIPPED = "You have to equip this shield first.";
-    private static final String TXT_GUARD = "guard";
+    private static final String TXT_NOTEQUIPPED = Ml.g("items.armours.shields.shield.txt_notequipped");
+    private static final String TXT_GUARD = Ml.g("items.armours.shields.shield.txt_guard");
 
-    private static final String AC_GUARD = "GUARD";
+    private static final String AC_GUARD = Ml.g("items.armours.shields.shield.ac_guard");
 
     @Override
     public String equipAction() {
@@ -214,7 +215,7 @@ public abstract class Shield extends Armour {
     @Override
     public String info() {
 
-        final String p = "\n\n";
+        final String p = Ml.g("items.armours.shields.shield.p");
         final String s = " ";
 
         int heroStr = Dungeon.hero.STR();

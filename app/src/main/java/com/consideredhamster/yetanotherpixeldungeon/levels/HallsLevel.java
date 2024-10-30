@@ -24,6 +24,7 @@ import android.opengl.GLES20;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Halo;
@@ -215,14 +216,14 @@ public class HallsLevel extends RegularLevel {
     public static String tileNames(int tile) {
         switch (tile) {
             case Terrain.WATER:
-                return "Suspiciously colored liquid";
+                return Ml.g("levels.hallslevel.tilenames");
             case Terrain.GRASS:
-                return "Embermoss";
+                return Ml.g("levels.hallslevel.tilenames_2");
             case Terrain.HIGH_GRASS:
-                return "Emberfungi";
+                return Ml.g("levels.hallslevel.tilenames_3");
             case Terrain.STATUE:
             case Terrain.STATUE_SP:
-                return "Pillar";
+                return Ml.g("levels.hallslevel.tilenames_4");
             default:
                 return Level.tileNames(tile);
         }
@@ -231,24 +232,24 @@ public class HallsLevel extends RegularLevel {
     public static String tileDescs(int tile) {
         switch (tile) {
             case Terrain.WATER:
-                return "Something tells you that it isn't actually water, but it works the same.";
+                return Ml.g("levels.hallslevel.tiledescs");
             case Terrain.WALL_DECO:
-                return "There is an candle hanging on this wall. It burns with unnatural green flame.";
+                return Ml.g("levels.hallslevel.tiledescs_2");
             case Terrain.WALL_DECO1:
-                return "A menacing skull made from stone decorates this wall panel. Spooky!";
+                return Ml.g("levels.hallslevel.tiledescs_3");
             case Terrain.WALL_DECO2:
-                return "A some kind of weird eye is engraved on this wall panel. Weird.";
+                return Ml.g("levels.hallslevel.tiledescs_4");
             case Terrain.WALL_DECO3:
             case Terrain.WALL_DECO4:
             case Terrain.WALL_DECO5:
-                return "There is a window of stained glass in this wall. It doesn't looks breakable";
+                return Ml.g("levels.hallslevel.tiledescs_5");
             case Terrain.STATUE:
             case Terrain.STATUE_SP:
-                return "The pillar is made of real humanoid skulls. Awesome.";
+                return Ml.g("levels.hallslevel.tiledescs_6");
             case Terrain.BOOKSHELF:
-                return "Books in ancient languages smoulder in the bookshelf. May it contain something useful?";
+                return Ml.g("levels.hallslevel.tiledescs_7");
             case Terrain.SHELF_EMPTY:
-                return "Books in ancient languages smoulder in the bookshelf.";
+                return Ml.g("levels.hallslevel.tiledescs_8");
             default:
                 return Level.tileDescs(tile);
         }

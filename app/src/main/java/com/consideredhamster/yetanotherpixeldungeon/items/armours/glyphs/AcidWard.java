@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
@@ -41,22 +42,22 @@ public class AcidWard extends Armour.Glyph {
 
     @Override
     protected String name_p() {
-        return "%s of acid ward";
+        return Ml.g("items.armours.glyphs.acidward.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "%s of corrosion";
+        return Ml.g("items.armours.glyphs.acidward.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "cover your enemies in caustic ooze on hit and decrease damage from acids";
+        return Ml.g("items.armours.glyphs.acidward.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "cover you in caustic ooze you on hit";
+        return Ml.g("items.armours.glyphs.acidward.desc_n");
     }
 
     @Override

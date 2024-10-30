@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -49,17 +50,17 @@ public class Shielding extends Bonus {
 
     @Override
     public String toString() {
-        return "Shield";
+        return Ml.g("actors.buffs.bonuses.shielding.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "shield";
+        return Ml.g("actors.buffs.bonuses.shielding.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You are surrounded by a magical barrier!";
+        return Ml.g("actors.buffs.bonuses.shielding.playermessage");
     }
 
     @Override
@@ -79,6 +80,6 @@ public class Shielding extends Bonus {
 
     @Override
     public String description() {
-        return "A holy aura surrounds you, increasing your armor class and resistance against elemental damage.";
+        return Ml.g("actors.buffs.bonuses.shielding.description");
     }
 }

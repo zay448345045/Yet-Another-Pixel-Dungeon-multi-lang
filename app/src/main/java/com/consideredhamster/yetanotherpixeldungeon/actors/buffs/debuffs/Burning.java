@@ -37,6 +37,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.herbs.Herb;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
@@ -46,7 +47,7 @@ import com.watabou.utils.Random;
 
 public class Burning extends Debuff {
 
-    private static final String TXT_BURNS_UP = "%s burns up!";
+    private static final String TXT_BURNS_UP = Ml.g("actors.buffs.debuffs.burning.txt_burns_up");
 
     @Override
     public Element buffType() {
@@ -55,17 +56,17 @@ public class Burning extends Debuff {
 
     @Override
     public String toString() {
-        return "Burning";
+        return Ml.g("actors.buffs.debuffs.burning.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "burning";
+        return Ml.g("actors.buffs.debuffs.burning.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You catch fire! Quickly, run to the water!";
+        return Ml.g("actors.buffs.debuffs.burning.playermessage");
     }
 
     @Override
@@ -90,7 +91,7 @@ public class Burning extends Debuff {
 
     @Override
     public String description() {
-        return "It really burns! While burning, you constantly receive damage and can lose some of the flammable items in your inventory. Also enemies are more likely to notice you.";
+        return Ml.g("actors.buffs.debuffs.burning.description");
     }
 
     @Override

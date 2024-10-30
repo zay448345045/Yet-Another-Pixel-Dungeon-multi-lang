@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.NPC;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
@@ -129,6 +130,6 @@ public class Chakrams extends ThrowingWeaponLight {
 
     @Override
     public String desc() {
-        return "When used by a skilled user, this razor-edged disc can hit several targets at once and then return back to the hand from which it was thrown.";
+        return Ml.g("items.weapons.throwing.chakrams.desc");
     }
 }

@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Combo;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.AmbitiousImp;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.RationSmall;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MonkSprite;
 
 public class DwarfMonk extends MobEvasive {
@@ -101,6 +102,6 @@ public class DwarfMonk extends MobEvasive {
 
     @Override
     public String description() {
-        return "These monks are fanatics, who devoted themselves to protecting their city's secrets from all intruders. They don't use any armor or weapons, relying solely on the art of hand-to-hand combat.";
+        return Ml.g("actors.mobs.dwarfmonk.description");
     }
 }

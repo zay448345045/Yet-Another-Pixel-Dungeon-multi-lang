@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 
 public class Ethereal extends Weapon.Enchantment {
@@ -33,22 +34,22 @@ public class Ethereal extends Weapon.Enchantment {
 
     @Override
     protected String name_p() {
-        return "Ethereal %s";
+        return Ml.g("items.weapons.enchantments.ethereal.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "Weighted %s";
+        return Ml.g("items.weapons.enchantments.ethereal.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "weight lesser and have reduced weight penalties";
+        return Ml.g("items.weapons.enchantments.ethereal.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "weight even more than usual";
+        return Ml.g("items.weapons.enchantments.ethereal.desc_n");
     }
 
     @Override

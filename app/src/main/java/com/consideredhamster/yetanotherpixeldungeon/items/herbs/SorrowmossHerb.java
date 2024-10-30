@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfCausticOoze;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfToxicGas;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfWebbing;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
@@ -67,7 +68,7 @@ public class SorrowmossHerb extends Herb {
 
     @Override
     public String desc() {
-        return "It is said that Sorrowmoss usually grows in places where a great tragedy took place. Despite its reputation and applications, it is actually completely safe to eat.\n\nThese herbs are used to brew potions of _Toxic Gas_, _Caustic Ooze_ and _Webbing_. Consuming them will remove _corrosion_ and grant a short buff to your _acid_ resistance.";
+        return Ml.g("items.herbs.sorrowmossherb.desc");
     }
 
     public static class BitterMeat extends MeatStewed {
@@ -86,7 +87,7 @@ public class SorrowmossHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with a _Sorrowmoss_ herb. It smells pretty bitter. Consuming it will remove _corrosion_ and grant a long buff to your _acid_ resistance.";
+            return Ml.g("items.herbs.sorrowmossherb.desc_2");
         }
 
         @Override

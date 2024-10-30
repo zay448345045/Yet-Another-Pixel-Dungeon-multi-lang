@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.visuals.windows;
 
 import com.consideredhamster.yetanotherpixeldungeon.Challenges;
 import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.CheckBox;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Window;
@@ -36,7 +37,7 @@ public class WndChallenges extends Window {
     private static final int BTN_HEIGHT = 18;
     private static final int GAP = 1;
 
-    private static final String TITLE = "Challenges";
+    private static final String TITLE = Ml.g("visuals.windows.wndchallenges.title");
 
     private boolean editable;
     private ArrayList<CheckBox> boxes;

@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -33,17 +34,17 @@ public class Withered extends Debuff {
 
     @Override
     public String toString() {
-        return "Weakened";
+        return Ml.g("actors.buffs.debuffs.withered.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "weakened";
+        return Ml.g("actors.buffs.debuffs.withered.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You feel weakened!";
+        return Ml.g("actors.buffs.debuffs.withered.playermessage");
     }
 
     @Override
@@ -63,7 +64,7 @@ public class Withered extends Debuff {
 
     @Override
     public String description() {
-        return "Touch of unholy magic corrupted your body, weakening your weapons and armor. Means of recovery such as healing and recharging are hindered as well.";
+        return Ml.g("actors.buffs.debuffs.withered.description");
     }
 
 }

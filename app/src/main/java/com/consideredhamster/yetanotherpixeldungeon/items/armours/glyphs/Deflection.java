@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 
 public class Deflection extends Armour.Glyph {
@@ -39,22 +40,22 @@ public class Deflection extends Armour.Glyph {
 
     @Override
     protected String name_p() {
-        return "%s of deflection";
+        return Ml.g("items.armours.glyphs.deflection.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "%s of discharge";
+        return Ml.g("items.armours.glyphs.deflection.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "reflect non-physical damage back to it's source and make you more resistant to energy damage";
+        return Ml.g("items.armours.glyphs.deflection.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "deflect your non-physical damage back to you";
+        return Ml.g("items.armours.glyphs.deflection.desc_n");
     }
 
     @Override

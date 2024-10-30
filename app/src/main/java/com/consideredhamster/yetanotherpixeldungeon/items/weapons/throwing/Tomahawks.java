@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.watabou.utils.Random;
 
@@ -54,6 +55,6 @@ public class Tomahawks extends ThrowingWeaponHeavy {
 
     @Override
     public String desc() {
-        return "These throwing axes are so heavy that on a successful throw they not only inflict grievous wounds, but also push the target back for a short distance.";
+        return Ml.g("items.weapons.throwing.tomahawks.desc");
     }
 }

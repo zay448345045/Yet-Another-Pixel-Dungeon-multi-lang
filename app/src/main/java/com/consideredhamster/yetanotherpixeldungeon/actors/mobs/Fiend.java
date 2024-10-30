@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Tormented;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
@@ -42,7 +43,7 @@ public class Fiend extends MobRanged {
 
     private boolean charged = false;
 
-    private static final String CHARGED = "charged";
+    private static final String CHARGED = Ml.g("actors.mobs.fiend.charged");
 
     public Fiend() {
 
@@ -171,7 +172,7 @@ public class Fiend extends MobRanged {
 
     @Override
     public String description() {
-        return "Some demons seem to transcend their flesh and wear pure darkness as their form. Shadowy and menacing, these unholy abominations are born of malicious intent and are nothing more than incarnations of distilled evil, revelling only in death and pain.";
+        return Ml.g("actors.mobs.fiend.description");
     }
 
     @Override

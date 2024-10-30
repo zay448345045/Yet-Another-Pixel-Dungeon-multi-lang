@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.SkeletonSprite;
 import com.watabou.noosa.audio.Sample;
@@ -92,7 +93,7 @@ public class Skeleton extends MobPrecise {
 
     @Override
     public String description() {
-        return "Skeletons are composed of corpses bones from unlucky adventurers and inhabitants of the dungeon, animated by emanations of evil magic from the depths below. Their vile touch is infamous for its ability to sapping the lifeforce of the unlucky victim.";
+        return Ml.g("actors.mobs.skeleton.description");
     }
 
     @Override

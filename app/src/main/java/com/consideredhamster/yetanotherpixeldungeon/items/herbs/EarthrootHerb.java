@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfShield
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfStrength;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfWebbing;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.UnstablePotion;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
@@ -70,7 +71,7 @@ public class EarthrootHerb extends Herb {
 
     @Override
     public String desc() {
-        return "Certain tribes use these roots as food in their rituals, as it is believed that consuming them improves fortitude. Actually finding one of these roots is usually a feat in itself, given that they usually grow in deep caverns.\n\nThese herbs are used to brew potions of _Shield_, _Webbing_ and _Strength_ when combined with other herbs, but cannot be brewed with another such herb. Consuming them will grant a short buff to your _physical_ resistance.";
+        return Ml.g("items.herbs.earthrootherb.desc");
     }
 
     public static class ChewyMeat extends MeatStewed {
@@ -89,7 +90,7 @@ public class EarthrootHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with an _Earthroot_ herb. It feels to be rough. Consuming it will grant a long buff to your _physical_ resistance.";
+            return Ml.g("items.herbs.earthrootherb.desc_2");
         }
 
         @Override

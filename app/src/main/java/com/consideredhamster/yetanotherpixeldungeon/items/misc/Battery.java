@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfDurability
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -40,23 +41,23 @@ import java.util.ArrayList;
 
 public class Battery extends Item {
 
-    private static final String TXT_SELECT_WAND = "Select a wand to recharge";
-    private static final String TXT_REPAIR_WAND = "Your %s looks much better now!";
-    private static final String TXT_CHARGE_KEEPED = "Your ring helped you with repair!";
-    private static final String TXT_CHARGE_WASTED = "Your ring prevented proper repair.";
+    private static final String TXT_SELECT_WAND = Ml.g("items.misc.battery.txt_select_wand");
+    private static final String TXT_REPAIR_WAND = Ml.g("items.misc.battery.txt_repair_wand");
+    private static final String TXT_CHARGE_KEEPED = Ml.g("items.misc.battery.txt_charge_keeped");
+    private static final String TXT_CHARGE_WASTED = Ml.g("items.misc.battery.txt_charge_wasted");
 
     private static final float TIME_TO_APPLY = 2f;
 
-    private static final String AC_APPLY = "APPLY";
+    private static final String AC_APPLY = Ml.g("items.misc.battery.ac_apply");
 
-    private static final String TXT_STATUS = "%d/%d";
+    private static final String TXT_STATUS = Ml.g("items.misc.battery.txt_status");
 
     {
         name = "arcane battery";
         image = ItemSpriteSheet.BATTERY;
     }
 
-    private static final String VALUE = "value";
+    private static final String VALUE = Ml.g("items.misc.battery.value");
 
     private int value = 3;
     private final int limit = 3;
@@ -140,7 +141,9 @@ public class Battery extends Item {
 
     @Override
     public String info() {
-        return "This is a narrow piece of some dark, very hard stone. Using it, you can partially recharge core of any magic wand, restoring its condition to a better level.\nThis battery can be used " + (value > 2 ? "three times" : value < 2 ? "only one time" : "two times") + " more.";
+        return Ml.g("items.misc.battery.info", (value > 2 ? three times :{
+            0
+        }));
     }
 
     @Override
@@ -150,7 +153,7 @@ public class Battery extends Item {
 
     @Override
     public String toString() {
-        return super.toString() + " (" + status() + ")";
+        return Ml.g("items.misc.battery.tostring", UNKNOWN_EXPRESSION, status());
     }
 
     private final WndBag.Listener itemSelector = new WndBag.Listener() {

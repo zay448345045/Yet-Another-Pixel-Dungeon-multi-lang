@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffPassive;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -86,7 +87,7 @@ public class UnholyArmor extends BuffPassive {
 
     @Override
     public String toString() {
-        return "Unholy Armor";
+        return Ml.g("actors.buffs.special.unholyarmor.tostring");
     }
 
 //    private static final String CONSUMED	= "consumed";

@@ -46,6 +46,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.painters.TunnelPainte
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.VaultPainter;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.WeakFloorPainter;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.WellPainter;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Graph;
@@ -252,7 +253,7 @@ public class Room extends Rect implements Graph.Node, Bundlable {
         }
     }
 
-    private static final String ROOMS = "rooms";
+    private static final String ROOMS = Ml.g("levels.room.rooms");
 
     public static void restoreRoomsFromBundle(Bundle bundle) {
         if (bundle.contains(ROOMS)) {

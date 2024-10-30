@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Random;
@@ -34,17 +35,17 @@ public class Crippled extends Debuff {
 
     @Override
     public String toString() {
-        return "Crippled";
+        return Ml.g("actors.buffs.debuffs.crippled.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "crippled";
+        return Ml.g("actors.buffs.debuffs.crippled.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "Your legs are crippled! Don't move too much.";
+        return Ml.g("actors.buffs.debuffs.crippled.playermessage");
     }
 
     @Override
@@ -64,7 +65,7 @@ public class Crippled extends Debuff {
 
     @Override
     public String description() {
-        return "Your legs are severely wounded, making it harder to dodge and significantly slowing your movement. Running around will prolong duration of this effect.";
+        return Ml.g("actors.buffs.debuffs.crippled.description");
     }
 
     @Override

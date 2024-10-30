@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.GooSprite;
@@ -111,7 +112,7 @@ public class Miasma extends Blob {
 
     @Override
     public String tileDesc() {
-        return "A blackish cloud of suffocating miasma is swirling here.";
+        return Ml.g("actors.blobs.miasma.tiledesc");
     }
 
 //	@Override

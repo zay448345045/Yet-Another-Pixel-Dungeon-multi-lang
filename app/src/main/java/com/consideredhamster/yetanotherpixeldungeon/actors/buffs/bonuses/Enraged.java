@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
@@ -29,17 +30,17 @@ public class Enraged extends Bonus {
 
     @Override
     public String toString() {
-        return "Enraged";
+        return Ml.g("actors.buffs.bonuses.enraged.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "enraged";
+        return Ml.g("actors.buffs.bonuses.enraged.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You. Feel. REALLY. ANGRY!";
+        return Ml.g("actors.buffs.bonuses.enraged.playermessage");
     }
 
     @Override
@@ -59,7 +60,7 @@ public class Enraged extends Bonus {
 
     @Override
     public String description() {
-        return "Murderous rage boils in your veins. Your damage is increased, and every kill will renew duration of this buff.";
+        return Ml.g("actors.buffs.bonuses.enraged.description");
     }
 
     public void reset(int dur) {

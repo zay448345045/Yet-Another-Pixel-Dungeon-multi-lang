@@ -22,13 +22,14 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Random;
 
 public class Shocked extends Debuff {
 
-    private static final String TXT_DISARMED = "Sudden shock have made you drop your %s on the ground!";
+    private static final String TXT_DISARMED = Ml.g("actors.buffs.debuffs.shocked.txt_disarmed");
 
     @Override
     public Element buffType() {
@@ -37,17 +38,17 @@ public class Shocked extends Debuff {
 
     @Override
     public String toString() {
-        return "Electrified";
+        return Ml.g("actors.buffs.debuffs.shocked.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "electrified";
+        return Ml.g("actors.buffs.debuffs.shocked.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You are electrified!";
+        return Ml.g("actors.buffs.debuffs.shocked.playermessage");
     }
 
     @Override
@@ -67,7 +68,7 @@ public class Shocked extends Debuff {
 
     @Override
     public String description() {
-        return "Lightning coarses through your body, waiting for a moment to be released - being zapped again or stepping into water will discharge it, knocking your weapons out of your hands. Also, your wands are way less reliable because of the static charge.";
+        return Ml.g("actors.buffs.debuffs.shocked.description");
     }
 
     @Override

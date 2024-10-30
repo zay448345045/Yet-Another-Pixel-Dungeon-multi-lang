@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Charmed
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfPhaseWarp;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -178,6 +179,6 @@ public class Succubus extends MobPrecise {
 
     @Override
     public String description() {
-        return "The succubi are demons that look like seductive (in a slightly gothic way) girls. Demonic charms allow them to mesmerize mortals, making them unable to inflict any direct harm against their tormentor and leaving them vulnerable to succubus' life-draining touch.";
+        return Ml.g("actors.mobs.succubus.description");
     }
 }

@@ -29,7 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ImpSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
@@ -42,10 +42,10 @@ public class Imp extends MobEvasive {
 
     public Item item;
 
-    private static final String ITEM = "item";
+    private static final String ITEM = Ml.g("actors.mobs.imp.item");
 
-    protected static final String TXT_STOLE = "%s stole %s from you!";
-    protected static final String TXT_CARRY = "\n\nThis imp is carrying a _%s_, stolen from you.";
+    protected static final String TXT_STOLE = Ml.g("actors.mobs.imp.txt_stole");
+    protected static final String TXT_CARRY = Ml.g("actors.mobs.imp.txt_carry");
 
     public Imp() {
 
@@ -257,7 +257,7 @@ public class Imp extends MobEvasive {
 
     @Override
     public String description() {
-        return "Imps are lesser demons. They are notable neither for their strength nor their magic talent, but for their cruelty and greed. However, some of them are actually quite nice and sociable. Certainly not this one, though... " + (item != null ? Utils.format(TXT_CARRY, item.name()) : "");
+        return Ml.g("actors.mobs.imp.description", (item != null ? format(TXT_CARRY, name()) : ""));
     }
 
     @Override

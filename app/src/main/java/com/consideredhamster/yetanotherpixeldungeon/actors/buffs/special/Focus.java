@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffReactive;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class Focus extends BuffReactive {
@@ -34,7 +35,7 @@ public class Focus extends BuffReactive {
 
     @Override
     public String toString() {
-        return "Focused";
+        return Ml.g("actors.buffs.special.focus.tostring");
     }
 
 //    @Override
@@ -51,7 +52,7 @@ public class Focus extends BuffReactive {
 
     @Override
     public String description() {
-        return "You spent a turn to take aim at present enemies. Your next attack or wand zap will be twice more precise than usual.";
+        return Ml.g("actors.buffs.special.focus.description");
     }
 
 

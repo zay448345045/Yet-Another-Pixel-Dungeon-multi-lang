@@ -45,11 +45,12 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.features.Chasm;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.BoulderTrap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.Trap;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class ResultDescriptions {
 
     //    public static final String FAIL	= "%s";
-    public static final String WIN = "Obtained the Amulet of Yendor";
+    public static final String WIN = Ml.g("com.consideredhamster.yetanotherpixeldungeon.resultdescriptions.win");
 
     public static String generateResult(Object killedBy, Element killedWith) {
 
@@ -58,12 +59,20 @@ public abstract class ResultDescriptions {
 
     public static String generateMessage(Object killedBy, Element killedWith) {
 
-        return (killedBy == Dungeon.hero ? "You " + killedWith(killedBy, killedWith) + " yourself" : "You were " + killedWith(killedBy, killedWith) + " by " + killedBy(killedBy)) + "...";
+        return Ml.g("com.consideredhamster.yetanotherpixeldungeon.resultdescriptions.generatemessage", (killedBy == hero ? You
+        {
+            0
+        } yourself:
+        You were {
+            0
+        } by {
+            1
+        }));
     }
 
     private static String killedWith(Object killedBy, Element killedWith) {
 
-        String result = "killed";
+        String result = Ml.g("com.consideredhamster.yetanotherpixeldungeon.resultdescriptions.result");
 
         if (killedWith == null) {
 
@@ -133,7 +142,7 @@ public abstract class ResultDescriptions {
 
     private static String killedBy(Object killedBy) {
 
-        String result = "something";
+        String result = Ml.g("com.consideredhamster.yetanotherpixeldungeon.resultdescriptions.result_2");
 
         if (killedBy instanceof Mob) {
             Mob mob = ((Mob) killedBy);

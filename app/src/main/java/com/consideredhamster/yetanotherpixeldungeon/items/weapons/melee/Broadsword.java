@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Broadsword extends MeleeWeaponHeavyOH {
@@ -35,7 +36,7 @@ public class Broadsword extends MeleeWeaponHeavyOH {
 
     @Override
     public String desc() {
-        return "The razor-sharp length of steel blade shines reassuringly.";
+        return Ml.g("items.weapons.melee.broadsword.desc");
     }
 
     @Override

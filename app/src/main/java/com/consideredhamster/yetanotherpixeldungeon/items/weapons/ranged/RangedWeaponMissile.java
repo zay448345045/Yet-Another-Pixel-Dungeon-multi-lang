@@ -35,6 +35,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Throw
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -143,7 +144,7 @@ public abstract class RangedWeaponMissile extends RangedWeapon {
 
     @Override
     public String descType() {
-        return "missile";
+        return Ml.g("items.weapons.ranged.rangedweaponmissile.desctype");
     }
 
     public static CellSelector.Listener shooter = new CellSelector.Listener() {
@@ -207,7 +208,7 @@ public abstract class RangedWeaponMissile extends RangedWeapon {
 
         @Override
         public String prompt() {
-            return "Choose direction to shoot at";
+            return Ml.g("items.weapons.ranged.rangedweaponmissile.prompt");
         }
     };
 

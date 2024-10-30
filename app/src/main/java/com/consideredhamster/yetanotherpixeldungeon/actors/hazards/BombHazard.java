@@ -15,6 +15,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.CavesBossLevel;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.BArray;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -77,7 +78,7 @@ public class BombHazard extends Hazard {
 
     @Override
     public String desc() {
-        return "There is a bomb lying here, ready to explode.";
+        return Ml.g("actors.hazards.bombhazard.desc");
     }
 
     ;
@@ -257,8 +258,8 @@ public class BombHazard extends Hazard {
         Camera.main.shake(3 + distance, 0.2f + distance * 0.1f);
     }
 
-    private static final String STRENGTH = "strength";
-    private static final String DISTANCE = "distance";
+    private static final String STRENGTH = Ml.g("actors.hazards.bombhazard.strength");
+    private static final String DISTANCE = Ml.g("actors.hazards.bombhazard.distance");
 
     @Override
     public void storeInBundle(Bundle bundle) {

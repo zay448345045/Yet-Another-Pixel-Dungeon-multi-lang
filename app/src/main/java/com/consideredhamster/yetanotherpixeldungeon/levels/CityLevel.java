@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.AmbitiousImp;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room.Type;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.watabou.noosa.Scene;
@@ -170,9 +171,9 @@ public class CityLevel extends RegularLevel {
     public static String tileNames(int tile) {
         switch (tile) {
             case Terrain.WATER:
-                return "Suspiciously colored water";
+                return Ml.g("levels.citylevel.tilenames");
             case Terrain.HIGH_GRASS:
-                return "High blooming flowers";
+                return Ml.g("levels.citylevel.tilenames_2");
             default:
                 return Level.tileNames(tile);
         }
@@ -182,28 +183,28 @@ public class CityLevel extends RegularLevel {
     public static String tileDescs(int tile) {
         switch (tile) {
             case Terrain.ENTRANCE:
-                return "A ramp leads up to the upper depth.";
+                return Ml.g("levels.citylevel.tiledescs");
             case Terrain.EXIT:
-                return "A ramp leads down to the lower depth.";
+                return Ml.g("levels.citylevel.tiledescs_2");
             case Terrain.EMPTY_DECO:
             case Terrain.WALL_DECO3:
             case Terrain.WALL_DECO4:
             case Terrain.WALL_DECO5:
-                return "Several tiles are missing here.";
+                return Ml.g("levels.citylevel.tiledescs_3");
             case Terrain.WALL_DECO:
-                return "There is a furnace here, and it is still burning.";
+                return Ml.g("levels.citylevel.tiledescs_4");
             case Terrain.WALL_DECO1:
             case Terrain.WALL_DECO2:
-                return "There are several weapons hanging on this wall. Purely ornamental, of course.";
+                return Ml.g("levels.citylevel.tiledescs_5");
             case Terrain.EMPTY_SP:
-                return "Thick carpet covers the floor.";
+                return Ml.g("levels.citylevel.tiledescs_6");
             case Terrain.STATUE:
             case Terrain.STATUE_SP:
-                return "The statue depicts some dwarf standing in a heroic stance.";
+                return Ml.g("levels.citylevel.tiledescs_7");
             case Terrain.BOOKSHELF:
-                return "The rows of books on different disciplines fill the bookshelf. Maybe, there would be something useful in here?";
+                return Ml.g("levels.citylevel.tiledescs_8");
             case Terrain.SHELF_EMPTY:
-                return "The rows of books on different disciplines fill the bookshelf.";
+                return Ml.g("levels.citylevel.tiledescs_9");
             default:
                 return Level.tileDescs(tile);
         }

@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
@@ -129,7 +130,7 @@ public abstract class BuffActive extends Buff {
 
     }
 
-    private static final String DURATION = "duration";
+    private static final String DURATION = Ml.g("actors.buffs.buffactive.duration");
 
     @Override
     public void storeInBundle(Bundle bundle) {

@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfFortune;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
@@ -39,10 +40,10 @@ import java.util.ArrayList;
 
 public class Gold extends Item {
 
-    private static final String TXT_COLLECT = "Collect gold coins to spend them later in a shop.";
-    private static final String TXT_INFO = "A pile of %d gold coins. " + TXT_COLLECT;
-    private static final String TXT_INFO_1 = "One gold coin. " + TXT_COLLECT;
-    private static final String TXT_VALUE = "%+d";
+    private static final String TXT_COLLECT = Ml.g("items.misc.gold.txt_collect");
+    private static final String TXT_INFO = Ml.g("items.misc.gold.txt_info", TXT_COLLECT);
+    private static final String TXT_INFO_1 = Ml.g("items.misc.gold.txt_info_1", TXT_COLLECT);
+    private static final String TXT_VALUE = Ml.g("items.misc.gold.txt_value");
 
     {
         name = "gold";
@@ -105,7 +106,7 @@ public class Gold extends Item {
         return Integer.toString(quantity);
     }
 
-    private static final String VALUE = "value";
+    private static final String VALUE = Ml.g("items.misc.gold.value");
 
     @Override
     public void storeInBundle(Bundle bundle) {

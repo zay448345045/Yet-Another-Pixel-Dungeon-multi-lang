@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Quarterstaff extends MeleeWeaponHeavyOH {
@@ -40,6 +41,6 @@ public class Quarterstaff extends MeleeWeaponHeavyOH {
 
     @Override
     public String desc() {
-        return "A staff of hardwood, its ends are shod with iron. Favourite weapon of spellcasters, as it allows easier channeling of magical energies, increasing effectiveness of any wands used by its wielder.";
+        return Ml.g("items.weapons.melee.quarterstaff.desc");
     }
 }

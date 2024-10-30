@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponAmmo;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class RangedWeapon extends Weapon {
 
@@ -35,11 +36,11 @@ public abstract class RangedWeapon extends Weapon {
 
     }
 
-    protected static final String AC_SHOOT = "SHOOT";
-    protected static final String TXT_SELF_TARGET = "You can't target yourself";
-    protected static final String TXT_TARGET_CHARMED = "You can't bring yourself to harm someone so... charming.";
-    protected static final String TXT_NOTEQUIPPED = "You have to equip this weapon first.";
-    protected static final String TXT_AMMO_NEEDED = "You have to equip proper ammo first.";
+    protected static final String AC_SHOOT = Ml.g("items.weapons.ranged.rangedweapon.ac_shoot");
+    protected static final String TXT_SELF_TARGET = Ml.g("items.weapons.ranged.rangedweapon.txt_self_target");
+    protected static final String TXT_TARGET_CHARMED = Ml.g("items.weapons.ranged.rangedweapon.txt_target_charmed");
+    protected static final String TXT_NOTEQUIPPED = Ml.g("items.weapons.ranged.rangedweapon.txt_notequipped");
+    protected static final String TXT_AMMO_NEEDED = Ml.g("items.weapons.ranged.rangedweapon.txt_ammo_needed");
 
     public Class<? extends ThrowingWeaponAmmo> ammunition() {
         return null;

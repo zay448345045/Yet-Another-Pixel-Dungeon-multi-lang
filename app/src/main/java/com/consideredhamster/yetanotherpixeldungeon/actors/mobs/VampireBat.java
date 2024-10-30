@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.BatSprite;
 
@@ -101,6 +102,6 @@ public class VampireBat extends MobEvasive {
 
     @Override
     public String description() {
-        return "These brisk and tenacious inhabitants of cave domes may defeat much larger opponents by replenishing their health with each successful attack.";
+        return Ml.g("actors.mobs.vampirebat.description");
     }
 }

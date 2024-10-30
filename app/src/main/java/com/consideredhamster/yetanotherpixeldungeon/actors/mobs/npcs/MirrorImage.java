@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MirrorSprite;
 import com.watabou.utils.Bundle;
@@ -46,9 +47,9 @@ public class MirrorImage extends NPC {
     private int attack;
     private int damage;
 
-    private static final String GEAR = "gear";
-    private static final String ATTACK = "attack";
-    private static final String DAMAGE = "damage";
+    private static final String GEAR = Ml.g("actors.mobs.npcs.mirrorimage.gear");
+    private static final String ATTACK = Ml.g("actors.mobs.npcs.mirrorimage.attack");
+    private static final String DAMAGE = Ml.g("actors.mobs.npcs.mirrorimage.damage");
 
     @Override
     public void storeInBundle(Bundle bundle) {
@@ -115,7 +116,7 @@ public class MirrorImage extends NPC {
 
     @Override
     public String description() {
-        return "This illusion bears a close resemblance to you, but it's paler and twitches a little.";
+        return Ml.g("actors.mobs.npcs.mirrorimage.description");
     }
 
     @Override

@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Mace extends MeleeWeaponHeavyOH {
@@ -40,6 +41,6 @@ public class Mace extends MeleeWeaponHeavyOH {
 
     @Override
     public String desc() {
-        return "The iron head of this weapon inflicts substantial damage.";
+        return Ml.g("items.weapons.melee.mace.desc");
     }
 }

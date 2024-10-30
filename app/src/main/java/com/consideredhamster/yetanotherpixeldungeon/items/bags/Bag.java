@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Badges;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
@@ -35,7 +36,7 @@ import java.util.Iterator;
 
 public abstract class Bag extends Item implements Iterable<Item> {
 
-    public static final String AC_OPEN = "OPEN";
+    public static final String AC_OPEN = Ml.g("items.bags.bag.ac_open");
 
     {
         visible = false;
@@ -123,7 +124,7 @@ public abstract class Bag extends Item implements Iterable<Item> {
         items.clear();
     }
 
-    private static final String ITEMS = "items";
+    private static final String ITEMS = Ml.g("items.bags.bag.items");
 
     @Override
     public void storeInBundle(Bundle bundle) {

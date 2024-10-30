@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.visuals.windows;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroSubClass;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.TomeOfMastery;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.RedButton;
@@ -31,8 +32,8 @@ import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndChooseWay extends Window {
 
-    private static final String TXT_MESSAGE = "Which way will you follow?";
-    private static final String TXT_CANCEL = "I'll decide later";
+    private static final String TXT_MESSAGE = Ml.g("visuals.windows.wndchooseway.txt_message");
+    private static final String TXT_CANCEL = Ml.g("visuals.windows.wndchooseway.txt_cancel");
 
     private static final int WIDTH = 120;
     private static final int BTN_HEIGHT = 18;

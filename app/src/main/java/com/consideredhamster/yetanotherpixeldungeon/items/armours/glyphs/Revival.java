@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Debuff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
@@ -33,7 +34,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.G
 
 public class Revival extends Armour.Glyph {
 
-    private static final String TXT_RESURRECT = "You are revived by the powers of your enchantment!";
+    private static final String TXT_RESURRECT = Ml.g("items.armours.glyphs.revival.txt_resurrect");
 
     @Override
     public Glowing glowing() {
@@ -47,22 +48,22 @@ public class Revival extends Armour.Glyph {
 
     @Override
     protected String name_p() {
-        return "%s of revival";
+        return Ml.g("items.armours.glyphs.revival.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "%s of martyrdom";
+        return Ml.g("items.armours.glyphs.revival.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "save you from death with a certain chance and make you more resistant to unholy damage";
+        return Ml.g("items.armours.glyphs.revival.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "prevent ankhs from working with a certain chance";
+        return Ml.g("items.armours.glyphs.revival.desc_n");
     }
 
     @Override

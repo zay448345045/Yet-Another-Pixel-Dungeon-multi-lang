@@ -22,27 +22,28 @@ package com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public class Wonders extends Armour.Glyph {
 
     @Override
     protected String name_p() {
-        return "%s of wonders";
+        return Ml.g("items.armours.glyphs.wonders.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "%s of chaos";
+        return Ml.g("items.armours.glyphs.wonders.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "do random stuff to your enemies on hit";
+        return Ml.g("items.armours.glyphs.wonders.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "do random stuff to you on hit";
+        return Ml.g("items.armours.glyphs.wonders.desc_n");
     }
 
     @Override

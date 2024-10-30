@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -47,7 +48,7 @@ import com.watabou.noosa.ui.Component;
 
 public class Toolbar extends Component {
 
-    protected String bagTitle = "Select an item to use";
+    protected String bagTitle = Ml.g("visuals.ui.toolbar.bagtitle");
 
     private Tool btnWait;
     private Tool btnSearch;
@@ -300,7 +301,7 @@ public class Toolbar extends Component {
 
         @Override
         public String prompt() {
-            return "Select a cell or tap to search";
+            return Ml.g("visuals.ui.toolbar.prompt");
         }
     };
 

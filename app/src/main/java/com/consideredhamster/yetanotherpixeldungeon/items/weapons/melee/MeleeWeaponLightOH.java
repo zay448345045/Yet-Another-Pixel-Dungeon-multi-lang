@@ -27,16 +27,17 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.EquipableItem;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndOptions;
 
 public abstract class MeleeWeaponLightOH extends MeleeWeapon {
 
-    private static final String TXT_EQUIP_TITLE = "Equipping secondary weapon";
-    private static final String TXT_EQUIP_MESSAGE = "Because this is a light one-handed weapon, you can equip it as your off-hand weapon. It will require additional strength to be properly wielded, and may decrease your combat proficiency. Do you want to equip it as a main weapon or as an off-hand weapon?";
+    private static final String TXT_EQUIP_TITLE = Ml.g("items.weapons.melee.meleeweaponlightoh.txt_equip_title");
+    private static final String TXT_EQUIP_MESSAGE = Ml.g("items.weapons.melee.meleeweaponlightoh.txt_equip_message");
 
-    private static final String TXT_EQUIP_PRIMARY = "main hand";
-    private static final String TXT_EQUIP_SECONDARY = "offhand";
+    private static final String TXT_EQUIP_PRIMARY = Ml.g("items.weapons.melee.meleeweaponlightoh.txt_equip_primary");
+    private static final String TXT_EQUIP_SECONDARY = Ml.g("items.weapons.melee.meleeweaponlightoh.txt_equip_secondary");
 
     public MeleeWeaponLightOH(int tier) {
 
@@ -47,7 +48,7 @@ public abstract class MeleeWeaponLightOH extends MeleeWeapon {
     @Override
     public String descType() {
 //        return "This is a _tier-" + appearance + " _. It can be used as off-hand weapon, " + //                "but its strength requirement will be increased that way.";
-        return "light one-handed";
+        return Ml.g("items.weapons.melee.meleeweaponlightoh.desctype");
     }
 
     @Override

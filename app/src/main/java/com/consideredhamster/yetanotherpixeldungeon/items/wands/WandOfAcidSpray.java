@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
@@ -161,6 +162,6 @@ public class WandOfAcidSpray extends WandCombat {
 
     @Override
     public String desc() {
-        return "The vile power of this twisted bit of wood will release a torrent of a deadly blight. Due to its unfocused nature, this wand is most effective when used at point blank range, but can also be used to cover entire groups of enemies in this corrosive sludge.";
+        return Ml.g("items.wands.wandofacidspray.desc");
     }
 }

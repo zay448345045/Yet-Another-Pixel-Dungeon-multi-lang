@@ -30,6 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.bags.Bag;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
@@ -44,8 +45,8 @@ public class PotionOfBlessing extends Potion {
     public static final float DURATION = 25f;
     public static final float MODIFIER = 1.0f;
 
-    private static final String TXT_PROCCED = "A cleansing light shines from above, and all malevolent magic nearby is weakened.";
-    private static final String TXT_NOT_PROCCED = "A cleansing light shines from above, but nothing happens.";
+    private static final String TXT_PROCCED = Ml.g("items.potions.potionofblessing.txt_procced");
+    private static final String TXT_NOT_PROCCED = Ml.g("items.potions.potionofblessing.txt_not_procced");
 
     {
         name = "Potion of Blessing";
@@ -112,7 +113,7 @@ public class PotionOfBlessing extends Potion {
 
     @Override
     public String desc() {
-        return "This potion is imbued with great disruptive energy. Shattering it will bathe everything near the point of impact in a cleansing light, removing curses and harming creatures of purely magical origin.";
+        return Ml.g("items.potions.potionofblessing.desc");
     }
 
     public static boolean uncurse(int pos, Item... items) {

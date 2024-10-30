@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.quest;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class DriedRose extends Item {
@@ -34,6 +35,6 @@ public class DriedRose extends Item {
 
     @Override
     public String info() {
-        return "The rose has dried long ago, but it has kept all its petals somehow.";
+        return Ml.g("items.quest.driedrose.info");
     }
 }

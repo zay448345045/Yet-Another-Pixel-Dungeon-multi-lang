@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -75,7 +76,7 @@ public class Mimic extends MobHealthy {
     public ArrayList<Item> items;
 
     //	private static final String LEVEL	= "bonus";
-    private static final String ITEMS = "items";
+    private static final String ITEMS = Ml.g("actors.mobs.mimic.items");
 
     @Override
     public void storeInBundle(Bundle bundle) {
@@ -219,7 +220,7 @@ public class Mimic extends MobHealthy {
 
     @Override
     public String description() {
-        return "Mimics are magical creatures which can take any shape they wish. In dungeons they almost always choose a shape of a treasure chest, because they know how to beckon an adventurer, but are too slow to catch them otherwise.";
+        return Ml.g("actors.mobs.mimic.description");
     }
 
     public static Mimic spawnAt(int hp, int pos, List<Item> items) {

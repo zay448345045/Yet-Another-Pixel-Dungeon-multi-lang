@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Miasma;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.DoomSkull;
@@ -34,12 +35,12 @@ public class Doomed extends Debuff {
 
     @Override
     public String toString() {
-        return "Doomed";
+        return Ml.g("actors.buffs.debuffs.doomed.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "doomed";
+        return Ml.g("actors.buffs.debuffs.doomed.statusmessage");
     }
 
     @Override
@@ -64,12 +65,12 @@ public class Doomed extends Debuff {
 
     @Override
     public String playerMessage() {
-        return "You are doomed!";
+        return Ml.g("actors.buffs.debuffs.doomed.playermessage");
     }
 
     @Override
     public String description() {
-        return "You're doomed. Simple as that. When the duration of this effect will end, you'll die on the spot. Have a fun death!";
+        return Ml.g("actors.buffs.debuffs.doomed.description");
     }
 
     @Override

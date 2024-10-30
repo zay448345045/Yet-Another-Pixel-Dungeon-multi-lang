@@ -35,6 +35,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.quest.RatSkull;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeapon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.RegularLevel;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -57,13 +58,13 @@ public class Ghost extends NPC {
         state = WANDERING;
     }
 
-    private static final String TXT_ROSE1 = "Hello adventurer... Once I was like you - strong and confident... And now I'm dead... But I can't leave this place... Not until I have my _dried rose_... It's very important to me... Some monster stole it from my body...";
+    private static final String TXT_ROSE1 = Ml.g("actors.mobs.npcs.ghost.txt_rose1");
 
-    private static final String TXT_ROSE2 = "Please... Help me... Find the rose...";
+    private static final String TXT_ROSE2 = Ml.g("actors.mobs.npcs.ghost.txt_rose2");
 
-    private static final String TXT_RAT1 = "Hello adventurer... Once I was like you - strong and confident... And now I'm dead... But I can't leave this place... Not until I have my revenge... Slay the _fetid rat_, that has taken my life...";
+    private static final String TXT_RAT1 = Ml.g("actors.mobs.npcs.ghost.txt_rat1");
 
-    private static final String TXT_RAT2 = "Please... Help me... Slay the abomination...";
+    private static final String TXT_RAT2 = Ml.g("actors.mobs.npcs.ghost.txt_rat2");
 
 
     public Ghost() {
@@ -161,7 +162,7 @@ public class Ghost extends NPC {
 
     @Override
     public String description() {
-        return "The ghost is barely visible. It looks like a shapeless spot of faint light with a sorrowful face.";
+        return Ml.g("actors.mobs.npcs.ghost.description");
     }
 
 //	private static final HashSet<Class<?>> IMMUNITIES = new HashSet<Class<?>>();
@@ -201,17 +202,17 @@ public class Ghost extends NPC {
             armor = null;
         }
 
-        private static final String NODE = "sadGhost";
+        private static final String NODE = Ml.g("actors.mobs.npcs.ghost.node");
 
-        private static final String SPAWNED = "spawned";
-        private static final String ALTERNATIVE = "alternative";
-        private static final String LEFT2KILL = "left2kill";
-        private static final String GIVEN = "given";
-        private static final String PROCESSED = "processed";
-        private static final String COMPLETED = "completed";
-        private static final String DEPTH = "depth";
-        private static final String WEAPON = "weapon";
-        private static final String ARMOR = "armor";
+        private static final String SPAWNED = Ml.g("actors.mobs.npcs.ghost.spawned");
+        private static final String ALTERNATIVE = Ml.g("actors.mobs.npcs.ghost.alternative");
+        private static final String LEFT2KILL = Ml.g("actors.mobs.npcs.ghost.left2kill");
+        private static final String GIVEN = Ml.g("actors.mobs.npcs.ghost.given");
+        private static final String PROCESSED = Ml.g("actors.mobs.npcs.ghost.processed");
+        private static final String COMPLETED = Ml.g("actors.mobs.npcs.ghost.completed");
+        private static final String DEPTH = Ml.g("actors.mobs.npcs.ghost.depth");
+        private static final String WEAPON = Ml.g("actors.mobs.npcs.ghost.weapon");
+        private static final String ARMOR = Ml.g("actors.mobs.npcs.ghost.armor");
 
         public static void storeInBundle(Bundle bundle) {
 

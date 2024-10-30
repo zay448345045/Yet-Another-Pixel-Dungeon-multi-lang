@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.keys;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundle;
 
 public class Key extends Item {
@@ -39,7 +40,7 @@ public class Key extends Item {
         depth = Dungeon.depth;
     }
 
-    private static final String DEPTH = "depth";
+    private static final String DEPTH = Ml.g("items.keys.key.depth");
 
     @Override
     public void storeInBundle(Bundle bundle) {
@@ -65,6 +66,6 @@ public class Key extends Item {
 
     @Override
     public String status() {
-        return depth + "\u007F";
+        return Ml.g("items.keys.key.status", depth);
     }
 }

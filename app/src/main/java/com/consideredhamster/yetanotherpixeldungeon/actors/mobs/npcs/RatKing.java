@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.RatKingSprite;
 
 public class RatKing extends NPC {
@@ -78,6 +79,6 @@ public class RatKing extends NPC {
 
     @Override
     public String description() {
-        return "This rat is a little bigger than a regular marsupial rat and it's wearing a tiny crown on its head.";
+        return Ml.g("actors.mobs.npcs.ratking.description");
     }
 }

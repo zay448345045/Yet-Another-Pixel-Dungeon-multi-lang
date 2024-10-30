@@ -26,6 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Poisoned;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.watabou.utils.Random;
@@ -85,7 +86,7 @@ public class ToxicGas extends Blob {
 
     @Override
     public String tileDesc() {
-        return "A greenish cloud of toxic gas is swirling here.";
+        return Ml.g("actors.blobs.toxicgas.tiledesc");
     }
 
 }

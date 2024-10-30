@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Knives extends ThrowingWeaponLight {
@@ -45,7 +46,7 @@ public class Knives extends ThrowingWeaponLight {
 
     @Override
     public String desc() {
-        return "These simple metal blades are weighted to fly true and sting their prey with a flick of the wrist, dealing increased damage on sneak attacks.";
+        return Ml.g("items.weapons.throwing.knives.desc");
     }
 
 

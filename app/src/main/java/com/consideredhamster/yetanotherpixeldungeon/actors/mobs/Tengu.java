@@ -35,6 +35,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Shuri
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -468,11 +469,11 @@ public class Tengu extends MobRanged {
 
     @Override
     public String description() {
-        return "Tengu are members of the ancient assassins clan, which is also called Tengu. These assassins are noted for extensive use of martial arts and shadow magic.";
+        return Ml.g("actors.mobs.tengu.description");
     }
 
-    private static final String TIME_TO_JUMP = "timeToJump";
-    private static final String BREAKS = "breaks";
+    private static final String TIME_TO_JUMP = Ml.g("actors.mobs.tengu.time_to_jump");
+    private static final String BREAKS = Ml.g("actors.mobs.tengu.breaks");
 
     @Override
     public void storeInBundle(Bundle bundle) {

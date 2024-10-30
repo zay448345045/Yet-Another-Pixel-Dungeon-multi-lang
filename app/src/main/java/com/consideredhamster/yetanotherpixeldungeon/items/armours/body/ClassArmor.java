@@ -22,14 +22,15 @@ package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundle;
 
 import java.util.ArrayList;
 
 abstract public class ClassArmor extends BodyArmor {
 
-    private static final String TXT_LOW_HEALTH = "Your health is too low!";
-    private static final String TXT_NOT_EQUIPPED = "You need to be wearing this armor to use its special power!";
+    private static final String TXT_LOW_HEALTH = Ml.g("items.armours.body.classarmor.txt_low_health");
+    private static final String TXT_NOT_EQUIPPED = Ml.g("items.armours.body.classarmor.txt_not_equipped");
 
     {
 //		bonusKnown = true;
@@ -123,6 +124,6 @@ abstract public class ClassArmor extends BodyArmor {
 
     @Override
     public String desc() {
-        return "The thing looks awesome!";
+        return Ml.g("items.armours.body.classarmor.desc");
     }
 }

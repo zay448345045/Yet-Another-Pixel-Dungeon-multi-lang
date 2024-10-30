@@ -28,6 +28,7 @@
   import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Enraged;
   import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
   import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+  import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
   import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
   import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
   import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -39,7 +40,7 @@
   public class DwarvenUndead extends MobPrecise {
 
       public DwarvenKing king = null;
-      private static final String WELL = "well";
+      private static final String WELL = Ml.g("actors.mobs.dwarvenundead.well");
       public int well = 0;
 
       public DwarvenUndead() {
@@ -144,7 +145,7 @@
 
       @Override
       public String description() {
-          return "These undead dwarves, risen by the will of the King of Dwarves, were members of his court. They appear as stocky skeletons with unusually tiny skulls.";
+          return Ml.g("actors.mobs.dwarvenundead.description");
       }
 
   }

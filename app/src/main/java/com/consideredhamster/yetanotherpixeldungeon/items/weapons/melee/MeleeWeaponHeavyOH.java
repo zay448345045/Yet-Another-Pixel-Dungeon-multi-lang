@@ -23,6 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Tempered;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class MeleeWeaponHeavyOH extends MeleeWeapon {
 
@@ -35,7 +36,7 @@ public abstract class MeleeWeaponHeavyOH extends MeleeWeapon {
     @Override
     public String descType() {
 //        return "This is a _tier-" + appearance + " heavy one-handed weapon_. It can be paired with any weapon, shield or wand " + //                "without any strength requirement penalties.";
-        return "heavy one-handed";
+        return Ml.g("items.weapons.melee.meleeweaponheavyoh.desctype");
     }
 
     @Override

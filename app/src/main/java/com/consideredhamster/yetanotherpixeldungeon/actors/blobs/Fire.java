@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfClairvoyance;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.FlameParticle;
@@ -172,6 +173,6 @@ public class Fire extends Blob {
 
     @Override
     public String tileDesc() {
-        return "A fire is raging here. Better avoid it.";
+        return Ml.g("actors.blobs.fire.tiledesc");
     }
 }

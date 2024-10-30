@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.quest.DwarfToken;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.RedButton;
@@ -35,8 +36,8 @@ import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndImp extends Window {
 
-    private static final String TXT_MESSAGE = "Oh yes! You are my hero!\nRegarding your reward, I don't have cash with me right now, but I have something better for you. This is my family heirloom ring: my granddad took it off a dead %s's finger.";
-    private static final String TXT_REWARD = "Take the ring";
+    private static final String TXT_MESSAGE = Ml.g("visuals.windows.wndimp.txt_message");
+    private static final String TXT_REWARD = Ml.g("visuals.windows.wndimp.txt_reward");
 
     private static final int WIDTH = 120;
     private static final int BTN_HEIGHT = 20;

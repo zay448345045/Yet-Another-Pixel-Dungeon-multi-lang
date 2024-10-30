@@ -10,6 +10,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -78,7 +79,7 @@ public class FieryRune extends Hazard {
 
     @Override
     public String desc() {
-        return "There is a Firebrand rune placed here.";
+        return Ml.g("actors.hazards.fieryrune.desc");
     }
 
     ;
@@ -175,8 +176,8 @@ public class FieryRune extends Hazard {
     }
 
 
-    private static final String STRENGTH = "strength";
-    private static final String DURATION = "duration";
+    private static final String STRENGTH = Ml.g("actors.hazards.fieryrune.strength");
+    private static final String DURATION = Ml.g("actors.hazards.fieryrune.duration");
 
     @Override
     public void storeInBundle(Bundle bundle) {

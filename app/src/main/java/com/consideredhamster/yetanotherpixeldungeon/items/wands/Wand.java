@@ -36,6 +36,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfKnowledge;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -56,20 +57,20 @@ public abstract class Wand extends EquipableItem {
 
     private static final int USAGES_TO_KNOW = 5;
 
-    public static final String AC_ZAP = "ZAP";
+    public static final String AC_ZAP = Ml.g("items.wands.wand.ac_zap");
 
 //	private static final String TXT_WOOD	= "This thin %s wand is warm to the touch. Who knows what it will do when used?";
 //	private static final String TXT_DAMAGE	= "When this wand is used as a melee weapon, its average damage is %d points per hit.";
 //	private static final String TXT_WEAPON	= "You can use this wand as a melee weapon.";
 
-    private static final String TXT_FIZZLES = "fizzle";
-    private static final String TXT_SQUEEZE = "You squeeze another charge from your wand";
+    private static final String TXT_FIZZLES = Ml.g("items.wands.wand.txt_fizzles");
+    private static final String TXT_SQUEEZE = Ml.g("items.wands.wand.txt_squeeze");
     //	private static final String TXT_MISCAST		= "The wand miscasts!";
-    private static final String TXT_SELF_TARGET = "You can't target yourself";
+    private static final String TXT_SELF_TARGET = Ml.g("items.wands.wand.txt_self_target");
 //	private static final String TXT_TARGET_CHARMED	= "You can't bring yourself to harm someone so... charming.";
 
-    private static final String TXT_IDENTIFY = "You are now familiar enough with your %s.";
-    private static final String TXT_UNEQUIPPED = "You can't use unequipped wands.";
+    private static final String TXT_IDENTIFY = Ml.g("items.wands.wand.txt_identify");
+    private static final String TXT_UNEQUIPPED = Ml.g("items.wands.wand.txt_unequipped");
 
     private static final float TIME_TO_ZAP = 1f;
 
@@ -398,7 +399,7 @@ public abstract class Wand extends EquipableItem {
     @Override
     public String status() {
         if (isIdentified()) {
-            return getCharges() + "/" + maxCharges();
+            return Ml.g("items.wands.wand.status", getCharges(), maxCharges());
         } else {
             return null;
         }
@@ -544,7 +545,7 @@ public abstract class Wand extends EquipableItem {
 
         @Override
         public String prompt() {
-            return "Choose direction to zap";
+            return Ml.g("items.wands.wand.prompt");
         }
     };
 
@@ -572,7 +573,7 @@ public abstract class Wand extends EquipableItem {
     @Override
     public String info() {
 
-        final String p = "\n\n";
+        final String p = Ml.g("items.wands.wand.p");
 
         StringBuilder info = new StringBuilder(desc());
         info.append(p);
@@ -605,8 +606,8 @@ public abstract class Wand extends EquipableItem {
         return info.toString();
     }
 
-    private static final String UNFAMILIRIARITY = "unfamiliarity";
-    private static final String CUR_CHARGES = "curCharges";
+    private static final String UNFAMILIRIARITY = Ml.g("items.wands.wand.unfamiliriarity");
+    private static final String CUR_CHARGES = Ml.g("items.wands.wand.cur_charges");
 
     @Override
     public void storeInBundle(Bundle bundle) {

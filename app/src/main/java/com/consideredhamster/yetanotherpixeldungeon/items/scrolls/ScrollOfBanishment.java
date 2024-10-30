@@ -33,6 +33,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.bags.Bag;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
@@ -40,8 +41,8 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.Sh
 
 public class ScrollOfBanishment extends Scroll {
 
-    private static final String TXT_PROCCED = "You are engulfed in a cleansing light, and all malevolent magic in your proximity is weakened.";
-    private static final String TXT_NOT_PROCCED = "You are engulfed in a cleansing light, but nothing happens.";
+    private static final String TXT_PROCCED = Ml.g("items.scrolls.scrollofbanishment.txt_procced");
+    private static final String TXT_NOT_PROCCED = Ml.g("items.scrolls.scrollofbanishment.txt_not_procced");
 
     {
         name = "Scroll of Banishment";
@@ -94,7 +95,7 @@ public class ScrollOfBanishment extends Scroll {
 
     @Override
     public String desc() {
-        return "The incantation on this scroll will attempt to banish any evil magics that might happen to exist near the reader, weakening curses on carried items, banishing nearby creatures of magical origin and even dispelling some malicious effects.\n\nDuration of effect inflicted by this scroll depends on magic skill of the reader.";
+        return Ml.g("items.scrolls.scrollofbanishment.desc");
     }
 
     public static boolean uncurse(Hero hero, Item... items) {

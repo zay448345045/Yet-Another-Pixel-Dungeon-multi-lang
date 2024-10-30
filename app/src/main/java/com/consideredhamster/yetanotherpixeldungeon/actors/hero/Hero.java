@@ -113,6 +113,7 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.features.Sign;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.Trap;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.InterlevelScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.SurfaceScene;
@@ -141,30 +142,30 @@ import java.util.HashMap;
 
 public class Hero extends Char {
 
-    private static final String TXT_LEAVE = "One does not simply leave Pixel Dungeon.";
-    private static final String TXT_LEAVE_WARRIOR = "There is no honor in running away. I must push on.";
-    private static final String TXT_LEAVE_SCHOLAR = "It doesn't matter how foolish my decisions were, surrendering now would be even worse.";
-    private static final String TXT_LEAVE_BRIGAND = "That is not the stairs I am looking for.\nI must go down, not up.";
-    private static final String TXT_LEAVE_ACOLYTE = "I can't go back now. Everything is at stake. Retreating will only delay the inevitable!";
+    private static final String TXT_LEAVE = Ml.g("actors.hero.hero.txt_leave");
+    private static final String TXT_LEAVE_WARRIOR = Ml.g("actors.hero.hero.txt_leave_warrior");
+    private static final String TXT_LEAVE_SCHOLAR = Ml.g("actors.hero.hero.txt_leave_scholar");
+    private static final String TXT_LEAVE_BRIGAND = Ml.g("actors.hero.hero.txt_leave_brigand");
+    private static final String TXT_LEAVE_ACOLYTE = Ml.g("actors.hero.hero.txt_leave_acolyte");
 
-    private static final String TXT_EXP = "%+dEXP";
-    private static final String TXT_LEVEL_UP = "level up!";
-    private static final String TXT_NEW_LEVEL = "Welcome to level %d! You receive %s.";
+    private static final String TXT_EXP = Ml.g("actors.hero.hero.txt_exp");
+    private static final String TXT_LEVEL_UP = Ml.g("actors.hero.hero.txt_level_up");
+    private static final String TXT_NEW_LEVEL = Ml.g("actors.hero.hero.txt_new_level");
 
-    public static final String TXT_YOU_NOW_HAVE = "You pick up %s";
+    public static final String TXT_YOU_NOW_HAVE = Ml.g("actors.hero.hero.txt_you_now_have");
 
-    private static final String TXT_SOMETHING_ELSE = "There is something else here";
-    private static final String TXT_LOCKED_CHEST = "This chest is locked and you don't have matching key";
-    private static final String TXT_LOCKED_DOOR = "You don't have a matching key";
-    private static final String TXT_NOTICED_SMTH = "You noticed something";
+    private static final String TXT_SOMETHING_ELSE = Ml.g("actors.hero.hero.txt_something_else");
+    private static final String TXT_LOCKED_CHEST = Ml.g("actors.hero.hero.txt_locked_chest");
+    private static final String TXT_LOCKED_DOOR = Ml.g("actors.hero.hero.txt_locked_door");
+    private static final String TXT_NOTICED_SMTH = Ml.g("actors.hero.hero.txt_noticed_smth");
 
-    private static final String TXT_WOKEN_UP = "You were woken up by someone's presence!";
+    private static final String TXT_WOKEN_UP = Ml.g("actors.hero.hero.txt_woken_up");
 
-    private static final String TXT_BREAK_FREE_FAILED = "ensnared";
-    private static final String TXT_BREAK_FREE_WORKED = "escaped!";
+    private static final String TXT_BREAK_FREE_FAILED = Ml.g("actors.hero.hero.txt_break_free_failed");
+    private static final String TXT_BREAK_FREE_WORKED = Ml.g("actors.hero.hero.txt_break_free_worked");
 
-    private static final String TXT_WAIT = "...";
-    private static final String TXT_SEARCH = "search";
+    private static final String TXT_WAIT = Ml.g("actors.hero.hero.txt_wait");
+    private static final String TXT_SEARCH = Ml.g("actors.hero.hero.txt_search");
 
     public static final int STARTING_STR = 10;
 
@@ -225,14 +226,14 @@ public class Hero extends Char {
 //		return Math.max( 1, STR - weakened );
     }
 
-    private static final String ATTACK = "accuracy";
-    private static final String DEFENSE = "dexterity";
-    private static final String MAGIC = "magicSkill";
-    private static final String STRENGTH = "STR";
-    private static final String STR_BONUS = "strBonus";
-    private static final String LVL_BONUS = "lvlBonus";
-    private static final String LEVEL = "lvl";
-    private static final String EXPERIENCE = "exp";
+    private static final String ATTACK = Ml.g("actors.hero.hero.attack");
+    private static final String DEFENSE = Ml.g("actors.hero.hero.defense");
+    private static final String MAGIC = Ml.g("actors.hero.hero.magic");
+    private static final String STRENGTH = Ml.g("actors.hero.hero.strength");
+    private static final String STR_BONUS = Ml.g("actors.hero.hero.str_bonus");
+    private static final String LVL_BONUS = Ml.g("actors.hero.hero.lvl_bonus");
+    private static final String LEVEL = Ml.g("actors.hero.hero.level");
+    private static final String EXPERIENCE = Ml.g("actors.hero.hero.experience");
 
     @Override
     public void storeInBundle(Bundle bundle) {

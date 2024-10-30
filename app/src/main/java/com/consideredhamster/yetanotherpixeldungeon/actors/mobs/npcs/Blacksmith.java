@@ -32,6 +32,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.quest.Pickaxe;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room.Type;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -46,15 +47,15 @@ import java.util.Collection;
 
 public class Blacksmith extends NPC {
 
-    private static final String TXT_GOLD_1 = "Hey human! Wanna be useful, eh? Take dis pickaxe and mine me some _dark gold ore_, _5 pieces_ should be enough. What do you mean, how am I gonna pay? You greedy...\nOk, ok, I don't have money to pay, but I can do some smithin' for you. Consider yourself lucky, I'm the only blacksmith around.";
-    private static final String TXT_BLOOD_1 = "Hey human! Wanna be useful, eh? Take dis pickaxe and _kill a bat_ wit' it, I need its blood on the head. What do you mean, how am I gonna pay? You greedy...\nOk, ok, I don't have money to pay, but I can do some smithin' for you. Consider yourself lucky, I'm the only blacksmith around.";
-    private static final String TXT2 = "Are you kiddin' me? Where is my pickaxe?!";
-    private static final String TXT3 = "Dark gold ore. 5 pieces. Seriously, is it dat hard?";
-    private static final String TXT4 = "I said I need bat blood on the pickaxe. Chop-chop!";
-    private static final String TXT_COMPLETED = "Oh, you have returned... Better late dan never.";
-    private static final String TXT_GET_LOST = "I'm busy. Get lost!";
+    private static final String TXT_GOLD_1 = Ml.g("actors.mobs.npcs.blacksmith.txt_gold_1");
+    private static final String TXT_BLOOD_1 = Ml.g("actors.mobs.npcs.blacksmith.txt_blood_1");
+    private static final String TXT2 = Ml.g("actors.mobs.npcs.blacksmith.txt2");
+    private static final String TXT3 = Ml.g("actors.mobs.npcs.blacksmith.txt3");
+    private static final String TXT4 = Ml.g("actors.mobs.npcs.blacksmith.txt4");
+    private static final String TXT_COMPLETED = Ml.g("actors.mobs.npcs.blacksmith.txt_completed");
+    private static final String TXT_GET_LOST = Ml.g("actors.mobs.npcs.blacksmith.txt_get_lost");
 
-    private static final String TXT_LOOKS_BETTER = "your %s certainly looks better now";
+    private static final String TXT_LOOKS_BETTER = Ml.g("actors.mobs.npcs.blacksmith.txt_looks_better");
 
     {
         name = "troll blacksmith";
@@ -155,23 +156,23 @@ public class Blacksmith extends NPC {
     public static String verify(Item item1, Item item2) {
 
         if (item1 == item2) {
-            return "Select 2 different items, not the same item twice!";
+            return Ml.g("actors.mobs.npcs.blacksmith.verify");
         }
 
         if (item1.getClass() != item2.getClass()) {
-            return "Select 2 items of the same type!";
+            return Ml.g("actors.mobs.npcs.blacksmith.verify_2");
         }
 
         if (!item1.isIdentified() || !item2.isIdentified()) {
-            return "I need to know what I'm working with, identify them first!";
+            return Ml.g("actors.mobs.npcs.blacksmith.verify_3");
         }
 
         if (item1.bonus < 0 || item2.bonus < 0) {
-            return "I don't work with cursed items!";
+            return Ml.g("actors.mobs.npcs.blacksmith.verify_4");
         }
 
         if (!item1.isUpgradeable() || !item2.isUpgradeable()) {
-            return "I can't upgrade this items any further.";
+            return Ml.g("actors.mobs.npcs.blacksmith.verify_5");
         }
 
         return null;
@@ -236,7 +237,7 @@ public class Blacksmith extends NPC {
 
     @Override
     public String description() {
-        return "This troll blacksmith looks like all trolls look: he is tall and lean, and his skin resembles stone in both color and texture. The troll blacksmith is tinkering with unproportionally small tools.";
+        return Ml.g("actors.mobs.npcs.blacksmith.description");
     }
 
     public static class Quest {
@@ -255,13 +256,13 @@ public class Blacksmith extends NPC {
             reforged = false;
         }
 
-        private static final String NODE = "blacksmith";
+        private static final String NODE = Ml.g("actors.mobs.npcs.blacksmith.node");
 
-        private static final String SPAWNED = "spawned";
-        private static final String ALTERNATIVE = "alternative";
-        private static final String GIVEN = "given";
-        private static final String COMPLETED = "completed";
-        private static final String REFORGED = "reforged";
+        private static final String SPAWNED = Ml.g("actors.mobs.npcs.blacksmith.spawned");
+        private static final String ALTERNATIVE = Ml.g("actors.mobs.npcs.blacksmith.alternative");
+        private static final String GIVEN = Ml.g("actors.mobs.npcs.blacksmith.given");
+        private static final String COMPLETED = Ml.g("actors.mobs.npcs.blacksmith.completed");
+        private static final String REFORGED = Ml.g("actors.mobs.npcs.blacksmith.reforged");
 
         public static void storeInBundle(Bundle bundle) {
 

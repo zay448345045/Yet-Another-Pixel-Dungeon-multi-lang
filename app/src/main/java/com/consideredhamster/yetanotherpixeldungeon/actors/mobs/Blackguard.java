@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Harpoons;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Chains;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.BlackguardSprite;
@@ -144,7 +145,7 @@ public class Blackguard extends MobHealthy {
 
     @Override
     public String description() {
-        return "These demonic juggernauts are a pure embodiment of unrelenting rage. Their skin harder than any armor, they instead bind their bodies with heavy chains, which can also be used to pull their victims closer before pounding them to death with their bare fists.";
+        return Ml.g("actors.mobs.blackguard.description");
     }
 
 }

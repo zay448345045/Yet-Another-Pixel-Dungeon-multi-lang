@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class HuntressArmor extends BodyArmorCloth {
@@ -42,7 +43,7 @@ public class HuntressArmor extends BodyArmorCloth {
 
     @Override
     public String desc() {
-        return "Elven cloaks are usually valued because elven fabric reacts negatively at everything touched by dark magicks or evil intentions. This effect is hardly noticeable for anyone except the wearer of the cloak, but in a dungeon like this it certainly comes in handy.";
+        return Ml.g("items.armours.body.huntressarmor.desc");
     }
 
 //    public HuntressArmor() {

@@ -22,6 +22,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.ConfusionGas;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 
 public class PotionOfConfusionGas extends Potion {
@@ -44,7 +45,7 @@ public class PotionOfConfusionGas extends Potion {
 
     @Override
     public String desc() {
-        return "Upon exposure to open air, the liquid in this flask will vaporize into a confusing chromatic haze. Anyone who inhales the cloud will be disoriented instantly.";
+        return Ml.g("items.potions.potionofconfusiongas.desc");
     }
 
     @Override

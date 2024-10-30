@@ -40,6 +40,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.V
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Vorpal;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.MeleeWeaponLightOH;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
@@ -53,10 +54,10 @@ public abstract class Weapon extends EquipableItem {
 
     private static final int HITS_TO_KNOW = 10;
 
-    private static final String TXT_IDENTIFY = "You are now familiar enough with your %s to identify it. It is %s.";
+    private static final String TXT_IDENTIFY = Ml.g("items.weapons.weapon.txt_identify");
     //	private static final String TXT_INCOMPATIBLE	=
 //		"Interaction of different types of magic has negated the enchantment on this weapon!";
-    private static final String TXT_TO_STRING = "%s :%d";
+    private static final String TXT_TO_STRING = Ml.g("items.weapons.weapon.txt_to_string");
 
 //    private static final String TXT_BROKEN	= "Your %s has broken!";
 
@@ -212,9 +213,9 @@ public abstract class Weapon extends EquipableItem {
         }
     }
 
-    private static final String UNFAMILIRIARITY = "unfamiliarity";
-    private static final String ENCHANTMENT = "enchantment";
-    private static final String IMBUE = "imbue";
+    private static final String UNFAMILIRIARITY = Ml.g("items.weapons.weapon.unfamiliriarity");
+    private static final String ENCHANTMENT = Ml.g("items.weapons.weapon.enchantment");
+    private static final String IMBUE = Ml.g("items.weapons.weapon.imbue");
 
     @Override
     public void storeInBundle(Bundle bundle) {
@@ -500,7 +501,7 @@ public abstract class Weapon extends EquipableItem {
     @Override
     public String info() {
 
-        final String p = "\n\n";
+        final String p = Ml.g("items.weapons.weapon.p");
         final String s = " ";
 
         int heroStr = Dungeon.hero.STR();

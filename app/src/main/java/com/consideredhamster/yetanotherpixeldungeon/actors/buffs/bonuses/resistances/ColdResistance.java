@@ -21,23 +21,24 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class ColdResistance extends ElementResistance {
 
     @Override
     public String toString() {
-        return "Cold Resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.coldresistance.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "cold resistance";
+        return Ml.g("actors.buffs.bonuses.resistances.coldresistance.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You feel soft chill.";
+        return Ml.g("actors.buffs.bonuses.resistances.coldresistance.playermessage");
     }
 
     @Override
@@ -52,6 +53,6 @@ public class ColdResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You feel soft chill filling your entire body, numbing your body to the cold breeze of the dungeon. Your resistance to cold is increased.";
+        return Ml.g("actors.buffs.bonuses.resistances.coldresistance.description");
     }
 }

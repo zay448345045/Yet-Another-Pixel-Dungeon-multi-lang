@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.RatSprite;
 
 public class Rat extends MobEvasive {
@@ -65,6 +66,6 @@ public class Rat extends MobEvasive {
 
     @Override
     public String description() {
-        return "This vermin inhabited the City for almost as long as these sewers had existed. But recently there appeared rumours about these rats attacking pets, toddlers and even adults sometimes.";
+        return Ml.g("actors.mobs.rat.description");
     }
 }

@@ -34,6 +34,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -57,9 +58,9 @@ public abstract class ThrowingWeapon extends Weapon {
 //	private static final String TXT_R_U_SURE	=
 //		"Do you really want to equip it as a melee weapon?";
 
-    private static final String TXT_TARGET_CHARMED = "You can't bring yourself to harm someone so... charming.";
+    private static final String TXT_TARGET_CHARMED = Ml.g("items.weapons.throwing.throwingweapon.txt_target_charmed");
 
-    private static final String AC_SHOOT = "SHOOT";
+    private static final String AC_SHOOT = Ml.g("items.weapons.throwing.throwingweapon.ac_shoot");
 
     public ThrowingWeapon(int tier) {
         super();
@@ -251,7 +252,7 @@ public abstract class ThrowingWeapon extends Weapon {
     @Override
     public String info() {
 
-        final String p = "\n\n";
+        final String p = Ml.g("items.weapons.throwing.throwingweapon.p");
 
         int heroStr = Dungeon.hero.STR();
         int itemStr = strShown(isIdentified());
@@ -386,7 +387,7 @@ public abstract class ThrowingWeapon extends Weapon {
 
         @Override
         public String prompt() {
-            return "Choose target to throw at";
+            return Ml.g("items.weapons.throwing.throwingweapon.prompt");
         }
     };
 

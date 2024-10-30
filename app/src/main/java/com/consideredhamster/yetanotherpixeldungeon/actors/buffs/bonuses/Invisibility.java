@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
@@ -32,21 +33,21 @@ import com.watabou.noosa.audio.Sample;
 
 public class Invisibility extends Bonus {
 
-    private static final String TXT_DISPEL = "Invisibility is dispelled!";
+    private static final String TXT_DISPEL = Ml.g("actors.buffs.bonuses.invisibility.txt_dispel");
 
     @Override
     public String toString() {
-        return "Invisible";
+        return Ml.g("actors.buffs.bonuses.invisibility.tostring");
     }
 
     @Override
     public String statusMessage() {
-        return "invisible";
+        return Ml.g("actors.buffs.bonuses.invisibility.statusmessage");
     }
 
     @Override
     public String playerMessage() {
-        return "You see your hands turn invisible!";
+        return Ml.g("actors.buffs.bonuses.invisibility.playermessage");
     }
 
     @Override
@@ -73,7 +74,7 @@ public class Invisibility extends Bonus {
 
     @Override
     public String description() {
-        return "Your body is almost transparent, so enemies are less likely to notice you (but they still can try to find you) and stealing from shops becomes easier. Attacking, stealing or being bumped into will dispel this effect.";
+        return Ml.g("actors.buffs.bonuses.invisibility.description");
     }
 
     @Override

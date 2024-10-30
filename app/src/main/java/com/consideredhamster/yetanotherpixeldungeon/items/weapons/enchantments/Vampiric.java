@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfAcidSpray;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
@@ -43,22 +44,22 @@ public class Vampiric extends Weapon.Enchantment {
 
     @Override
     protected String name_p() {
-        return "Vampiric %s";
+        return Ml.g("items.weapons.enchantments.vampiric.name_p");
     }
 
     @Override
     protected String name_n() {
-        return "Malicious %s";
+        return Ml.g("items.weapons.enchantments.vampiric.name_n");
     }
 
     @Override
     protected String desc_p() {
-        return "drain health from non-magical enemies";
+        return Ml.g("items.weapons.enchantments.vampiric.desc_p");
     }
 
     @Override
     protected String desc_n() {
-        return "damage you on hit";
+        return Ml.g("items.weapons.enchantments.vampiric.desc_n");
     }
 
     @Override

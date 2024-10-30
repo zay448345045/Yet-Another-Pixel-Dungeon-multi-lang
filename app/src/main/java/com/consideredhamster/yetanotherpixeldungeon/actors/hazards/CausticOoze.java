@@ -5,6 +5,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Corrosion;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -54,7 +55,7 @@ public class CausticOoze extends Hazard {
 
     @Override
     public String desc() {
-        return "There is a pool of corrosive liquid here.";
+        return Ml.g("actors.hazards.causticooze.desc");
     }
 
     ;
@@ -214,7 +215,7 @@ public class CausticOoze extends Hazard {
     }
 
 
-    private static final String DURATION = "duration";
+    private static final String DURATION = Ml.g("actors.hazards.causticooze.duration");
 
     @Override
     public void storeInBundle(Bundle bundle) {

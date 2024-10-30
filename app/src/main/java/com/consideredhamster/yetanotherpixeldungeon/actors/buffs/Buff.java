@@ -21,7 +21,6 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
@@ -30,41 +29,56 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public abstract class Buff extends Actor {
 
-	public Char target;
+    public Char target;
 
     public String description() {
         return "";
     }
 
-    public String playerMessage() { return null; }
-    public String messagePrefix() { return null; }
+    public String playerMessage() {
+        return null;
+    }
 
-    public String statusMessage() { return null; }
-    public int statusColor() { return CharSprite.DEFAULT; }
+    public String messagePrefix() {
+        return null;
+    }
 
-    public String status() { return null; }
+    public String statusMessage() {
+        return null;
+    }
 
-    public void applyVisual() {}
-    public void removeVisual() {}
+    public int statusColor() {
+        return CharSprite.DEFAULT;
+    }
+
+    public String status() {
+        return null;
+    }
+
+    public void applyVisual() {
+    }
+
+    public void removeVisual() {
+    }
 
     // FIXME
-    public boolean attachOnLoad( Char target ) {
+    public boolean attachOnLoad(Char target) {
         this.target = target;
         return target.add(this);
     }
 
-    public boolean attachTo( Char target ) {
+    public boolean attachTo(Char target) {
 
         this.target = target;
 
-        if( target.add(this) ){
+        if (target.add(this)) {
 
-            if( statusMessage() != null && target.sprite != null ) {
-                target.sprite.showStatus( statusColor(), statusMessage() );
+            if (statusMessage() != null && target.sprite != null) {
+                target.sprite.showStatus(statusColor(), statusMessage());
             }
 
-            if( playerMessage() != null && Dungeon.hero == target ) {
-                GLog.i( messagePrefix() + playerMessage() );
+            if (playerMessage() != null && Dungeon.hero == target) {
+                GLog.i(messagePrefix() + playerMessage());
             }
 
             applyVisual();
@@ -77,76 +91,78 @@ public abstract class Buff extends Actor {
 
         }
     }
-	
-	public void detach() {
+
+    public void detach() {
         target.remove(this);
         removeVisual();
     }
-	
-	@Override
-	public boolean act() {
-		deactivate();
-		return true;
-	}
 
     @Override
-    public int actingPriority(){
+    public boolean act() {
+        deactivate();
+        return true;
+    }
+
+    @Override
+    public int actingPriority() {
         return 1;
     }
-	
-	public int icon() {
-		return BuffIndicator.NONE;
-	}
+
+    public int icon() {
+        return BuffIndicator.NONE;
+    }
 
 //    public float duration() {
 //        return cooldown();
 //    }
 
-    public boolean awakensMobs() { return true; }
+    public boolean awakensMobs() {
+        return true;
+    }
 
-	public static<T extends Buff> T append( Char target, Class<T> buffClass ) {
-		try {
+    public static <T extends Buff> T append(Char target, Class<T> buffClass) {
+        try {
 
-			T buff = buffClass.newInstance();
+            T buff = buffClass.newInstance();
 
-            return buff.attachTo( target ) ? buff : null;
+            return buff.attachTo(target) ? buff : null;
 
-		} catch (Exception e) {
-			return null;
-		}
-	}
-	
-	public static<T extends BuffPassive> T append( Char target, Class<T> buffClass, float duration ) {
-		T buff = append(target, buffClass);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static <T extends BuffPassive> T append(Char target, Class<T> buffClass, float duration) {
+        T buff = append(target, buffClass);
 
         if (buff != null) {
             buff.spend(duration);
         }
 
-		return buff;
-	}
-	
-	public static<T extends Buff> T affect( Char target, Class<T> buffClass ) {
-		T buff = target.buff(buffClass);
-		if (buff != null) {
-			return buff;
-		} else {
-			return append( target, buffClass );
-		}
-	}
-	
-	public static<T extends BuffPassive> T affect( Char target, Class<T> buffClass, float duration ) {
-		T buff = affect(target, buffClass);
+        return buff;
+    }
+
+    public static <T extends Buff> T affect(Char target, Class<T> buffClass) {
+        T buff = target.buff(buffClass);
+        if (buff != null) {
+            return buff;
+        } else {
+            return append(target, buffClass);
+        }
+    }
+
+    public static <T extends BuffPassive> T affect(Char target, Class<T> buffClass, float duration) {
+        T buff = affect(target, buffClass);
 
         if (buff != null) {
             buff.spend(duration);
         }
 
-		return buff;
-	}
+        return buff;
+    }
 
-    public static <T extends BuffPassive> T prolong( Char target, Class<T> buffClass, float duration ) {
-        T buff = affect( target, buffClass );
+    public static <T extends BuffPassive> T prolong(Char target, Class<T> buffClass, float duration) {
+        T buff = affect(target, buffClass);
 
         if (buff != null) {
             buff.postpone(duration);
@@ -155,8 +171,8 @@ public abstract class Buff extends Actor {
         return buff;
     }
 
-    public static<T extends BuffPassive> T shorten( Char target, Class<T> buffClass, float duration ) {
-        T buff = affect( target, buffClass );
+    public static <T extends BuffPassive> T shorten(Char target, Class<T> buffClass, float duration) {
+        T buff = affect(target, buffClass);
 
         if (buff != null) {
             buff.spend(duration * (-1));
@@ -165,13 +181,13 @@ public abstract class Buff extends Actor {
         return buff;
     }
 
-    public static void detach( Buff buff ) {
+    public static void detach(Buff buff) {
         if (buff != null) {
             buff.detach();
         }
     }
-	
-	public static void detach( Char target, Class<? extends Buff> cl ) {
-		detach( target.buff( cl ) );
-	}
+
+    public static void detach(Char target, Class<? extends Buff> cl) {
+        detach(target.buff(cl));
+    }
 }

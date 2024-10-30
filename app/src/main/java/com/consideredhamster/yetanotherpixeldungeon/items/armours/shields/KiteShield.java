@@ -25,15 +25,17 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class KiteShield extends Shield {
 
-	{
-		name = "kite shield";
-		image = ItemSpriteSheet.SHIELD_KITE;
-	}
+    {
+        name = "kite shield";
+        image = ItemSpriteSheet.SHIELD_KITE;
+    }
 
-	public KiteShield() { super( 2 ); }
-	
-	@Override
-	public String desc() {
-		return "This shield gives you a moderate amount of protection in exchange for occupied hand.";
-	}
+    public KiteShield() {
+        super(2);
+    }
+
+    @Override
+    public String desc() {
+        return "This shield gives you a moderate amount of protection in exchange for occupied hand.";
+    }
 }

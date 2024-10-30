@@ -20,8 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class Blinded extends Debuff {
@@ -34,10 +32,14 @@ public class Blinded extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "blinded"; }
+    public String statusMessage() {
+        return "blinded";
+    }
 
     @Override
-    public String playerMessage() { return "You cannot see anything!"; }
+    public String playerMessage() {
+        return "You cannot see anything!";
+    }
 
     @Override
     public int icon() {

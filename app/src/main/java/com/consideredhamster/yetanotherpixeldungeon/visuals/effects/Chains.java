@@ -20,11 +20,11 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.effects;
 
+import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Group;
 import com.watabou.noosa.Image;
 import com.watabou.utils.PointF;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 
 public class Chains extends Group {
 
@@ -38,38 +38,38 @@ public class Chains extends Group {
 
     private PointF from, to;
 
-	public Chains( int from, int to, boolean reversed ) {
-		
-		super();
+    public Chains(int from, int to, boolean reversed) {
+
+        super();
 
         this.reversed = reversed;
 
-        this.from = DungeonTilemap.tileCenterToWorld( from );
-        this.to = DungeonTilemap.tileCenterToWorld( to );
+        this.from = DungeonTilemap.tileCenterToWorld(from);
+        this.to = DungeonTilemap.tileCenterToWorld(to);
 
         float dx = this.to.x - this.from.x;
         float dy = this.to.y - this.from.y;
 
-        float distance = (float)Math.hypot(dx, dy);
-        float rotation = (float)(Math.atan2( dy, dx ) * A);
+        float distance = (float) Math.hypot(dx, dy);
+        float rotation = (float) (Math.atan2(dy, dx) * A);
 
         spent = 0f;
         duration = distance / 360f + 0.0f;
 
-        chains = new Image[ Math.round( distance / 4f ) + 1 ];
-        for (int i = 0; i < chains.length; i++){
+        chains = new Image[Math.round(distance / 4f) + 1];
+        for (int i = 0; i < chains.length; i++) {
             chains[i] = new Image(Effects.get(Effects.Type.CHAIN));
-            chains[i].scale.scale( 0.5f );
+            chains[i].scale.scale(0.5f);
             chains[i].angle = rotation;
-            chains[i].origin.set( chains[i].width(), chains[i].height() );
+            chains[i].origin.set(chains[i].width(), chains[i].height());
             add(chains[i]);
         }
-	}
-	
-	@Override
-	public void update() {
+    }
 
-		super.update();
+    @Override
+    public void update() {
+
+        super.update();
 
         float dx = to.x - from.x;
         float dy = to.y - from.y;
@@ -103,12 +103,12 @@ public class Chains extends Group {
 //
 //            }
 
-        } else if( reversed ) {
+        } else if (reversed) {
 
             for (int i = 0; i < chains.length; i++) {
                 chains[i].center(new PointF(
-                        from.x + ((dx * (i / (float) chains.length)) / duration * (duration - spent) ),
-                        from.y + ((dy * (i / (float) chains.length)) / duration * (duration - spent) )
+                        from.x + ((dx * (i / (float) chains.length)) / duration * (duration - spent)),
+                        from.y + ((dy * (i / (float) chains.length)) / duration * (duration - spent))
                 ));
             }
 
@@ -116,10 +116,10 @@ public class Chains extends Group {
 
             for (int i = 0; i < chains.length; i++) {
                 chains[i].center(new PointF(
-                        from.x + ( ( dx * ( i / (float)chains.length ) ) / duration * spent ),
-                        from.y + ( ( dy * ( i / (float)chains.length ) ) / duration * spent )
+                        from.x + ((dx * (i / (float) chains.length)) / duration * spent),
+                        from.y + ((dy * (i / (float) chains.length)) / duration * spent)
                 ));
             }
         }
-	}
+    }
 }

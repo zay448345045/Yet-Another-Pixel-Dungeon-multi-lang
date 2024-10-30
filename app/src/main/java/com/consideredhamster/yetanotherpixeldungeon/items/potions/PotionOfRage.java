@@ -22,32 +22,31 @@ package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Enraged;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Invisibility;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 
 public class PotionOfRage extends Potion {
 
-    public static final float DURATION	= 20f;
+    public static final float DURATION = 20f;
 
-	{
-		name = "Potion of Rage";
+    {
+        name = "Potion of Rage";
         shortName = "Ra";
-	}
-	
-	@Override
-	protected void apply( Hero hero ) {
-        BuffActive.add( hero, Enraged.class, DURATION );
+    }
+
+    @Override
+    protected void apply(Hero hero) {
+        BuffActive.add(hero, Enraged.class, DURATION);
         setKnown();
     }
-	
-	@Override
-	public String desc() {
-		return
-			"Drinking this potion will induce a berserker state, significantly " +
-			"increasing strength of your blows for a limited time. "+
-			"Killing an enemy in this state will extend this bloodthirsty state.";
 
-	}
+    @Override
+    public String desc() {
+        return
+                "Drinking this potion will induce a berserker state, significantly " +
+                        "increasing strength of your blows for a limited time. " +
+                        "Killing an enemy in this state will extend this bloodthirsty state.";
+
+    }
 
     @Override
     public int price() {

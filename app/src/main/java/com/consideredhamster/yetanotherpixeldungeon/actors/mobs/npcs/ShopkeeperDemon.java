@@ -20,29 +20,27 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs;
 
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.AmbitiousImpSprite;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ImpSprite;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.AmbitiousImpSprite;
 
 public class ShopkeeperDemon extends Shopkeeper {
 
     private static final String TXT_GREETINGS = "Hello, friend!";
-	
-	{
-		name = "ambitious imp";
-		spriteClass = AmbitiousImpSprite.class;
-	}
+
+    {
+        name = "ambitious imp";
+        spriteClass = AmbitiousImpSprite.class;
+    }
 
     @Override
     protected void greetings() {
-        yell( Utils.format(TXT_GREETINGS) );
+        yell(Utils.format(TXT_GREETINGS));
     }
-	
-	@Override
-	public String description() {
-		return 
-			"Imps are lesser demons. They are notable for neither their strength nor their magic talent. " +
-			"But they are quite smart and sociable, and many of imps prefer to live and do business among non-demons.";
-	}
+
+    @Override
+    public String description() {
+        return
+                "Imps are lesser demons. They are notable for neither their strength nor their magic talent. " +
+                        "But they are quite smart and sociable, and many of imps prefer to live and do business among non-demons.";
+    }
 }

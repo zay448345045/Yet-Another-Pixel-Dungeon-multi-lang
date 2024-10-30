@@ -52,12 +52,12 @@ public class Durability extends Armour.Glyph {
     }
 
     @Override
-    public boolean proc_p( Char attacker, Char defender, int damage ) {
+    public boolean proc_p(Char attacker, Char defender, int damage) {
         return false;
     }
 
     @Override
-    public boolean proc_n( Char attacker, Char defender, int damage ) {
+    public boolean proc_n(Char attacker, Char defender, int damage) {
         return false;
     }
 }

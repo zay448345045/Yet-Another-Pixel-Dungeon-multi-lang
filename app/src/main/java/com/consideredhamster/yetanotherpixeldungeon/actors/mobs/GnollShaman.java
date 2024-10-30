@@ -22,16 +22,16 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
+import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ShamanSprite;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
 
 public class GnollShaman extends MobRanged {
@@ -42,7 +42,7 @@ public class GnollShaman extends MobRanged {
 
     public GnollShaman() {
 
-        super( 2 + Dungeon.chapter() * 6 );
+        super(2 + Dungeon.chapter() * 6);
 
         /*
 
@@ -59,18 +59,18 @@ public class GnollShaman extends MobRanged {
 
          */
 
-		name = "gnoll shaman";
-		info = "Magic missile";
-		spriteClass = ShamanSprite.class;
+        name = "gnoll shaman";
+        info = "Magic missile";
+        spriteClass = ShamanSprite.class;
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
 
-	}
+    }
 
     @Override
     public boolean act() {
 
-        if( !enemySeen )
+        if (!enemySeen)
             charged = false;
 
         return super.act();
@@ -78,17 +78,17 @@ public class GnollShaman extends MobRanged {
     }
 
     @Override
-    protected boolean doAttack( Char enemy ) {
+    protected boolean doAttack(Char enemy) {
 
-        if( !Level.adjacent( pos, enemy.pos ) && !charged ) {
+        if (!Level.adjacent(pos, enemy.pos) && !charged) {
 
             charged = true;
 
-            if( Dungeon.visible[ pos ] ) {
+            if (Dungeon.visible[pos]) {
                 sprite.centerEmitter().burst(EnergyParticle.FACTORY_WHITE, 15);
             }
 
-            spend( attackDelay() );
+            spend(attackDelay());
 
             return true;
 
@@ -96,17 +96,17 @@ public class GnollShaman extends MobRanged {
 
             charged = false;
 
-            return super.doAttack( enemy );
+            return super.doAttack(enemy);
         }
     }
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return super.canAttack( enemy ) || Ballistica.cast( pos, enemy.pos, false, true ) == enemy.pos;
+    protected boolean canAttack(Char enemy) {
+        return super.canAttack(enemy) || Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
+    protected void onRangedAttack(int cell) {
 
         MagicMissile.blueLight(sprite.parent, pos, cell,
                 new Callback() {
@@ -118,17 +118,16 @@ public class GnollShaman extends MobRanged {
 
         Sample.INSTANCE.play(Assets.SND_ZAP);
 
-        super.onRangedAttack( cell );
+        super.onRangedAttack(cell);
     }
-	
 
 
     @Override
-    public boolean cast( Char enemy ) {
+    public boolean cast(Char enemy) {
 
-        if (hit( this, enemy, true, true )) {
+        if (hit(this, enemy, true, true)) {
 
-            enemy.damage( absorb( damageRoll() + damageRoll(), enemy.armorClass() ), this, Element.ENERGY );
+            enemy.damage(absorb(damageRoll() + damageRoll(), enemy.armorClass()), this, Element.ENERGY);
 
         } else {
 
@@ -140,9 +139,9 @@ public class GnollShaman extends MobRanged {
     }
 
     @Override
-    public void die( Object cause, Element dmg ) {
-        Ghost.Quest.process( pos );
-        super.die( cause, dmg );
+    public void die(Object cause, Element dmg) {
+        Ghost.Quest.process(pos);
+        super.die(cause, dmg);
     }
 
     @Override
@@ -154,14 +153,14 @@ public class GnollShaman extends MobRanged {
     }
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
         super.storeInBundle(bundle);
-        bundle.put( CHARGED, charged );
+        bundle.put(CHARGED, charged);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        charged = bundle.getBoolean( CHARGED );
+        charged = bundle.getBoolean(CHARGED);
     }
 }

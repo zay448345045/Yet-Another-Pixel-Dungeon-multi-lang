@@ -25,10 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Corrosion;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.CausticOoze;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.Hazard;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Caustic;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.watabou.utils.Random;
@@ -37,48 +34,48 @@ public class PotionOfCausticOoze extends Potion {
 
     public static final int BASE_VAL = 10;
 
-	{
-		name = "Potion of Caustic Ooze";
+    {
+        name = "Potion of Caustic Ooze";
         shortName = "CO";
         harmful = true;
-	}
-	
-	@Override
-	public void shatter( int cell ) {
+    }
 
-        int duration = Random.IntRange( BASE_VAL, BASE_VAL * 2 );
-        CausticOoze.spawn( cell, duration );
+    @Override
+    public void shatter(int cell) {
 
-        for ( int n : Level.NEIGHBOURS9 ) {
+        int duration = Random.IntRange(BASE_VAL, BASE_VAL * 2);
+        CausticOoze.spawn(cell, duration);
+
+        for (int n : Level.NEIGHBOURS9) {
 
             int pos = cell + n;
 
             Char ch;
 
-            if ( ( ch = Actor.findChar( pos )) != null ) {
-                BuffActive.add( ch, Corrosion.class, n == 0 ?
-                    Random.IntRange( BASE_VAL, BASE_VAL * 3 / 2 ) :
-                    Random.IntRange( BASE_VAL / 2, BASE_VAL )
+            if ((ch = Actor.findChar(pos)) != null) {
+                BuffActive.add(ch, Corrosion.class, n == 0 ?
+                        Random.IntRange(BASE_VAL, BASE_VAL * 3 / 2) :
+                        Random.IntRange(BASE_VAL / 2, BASE_VAL)
                 );
             }
 
-            CellEmitter.get( pos ).burst( Speck.factory( Speck.CAUSTIC ), 3 );
+            CellEmitter.get(pos).burst(Speck.factory(Speck.CAUSTIC), 3);
         }
 
-        super.shatter( cell );
+        super.shatter(cell);
     }
-	
-	@Override
-	public String desc() {
-		return
-			"Uncorking or shattering this pressurized glass will cause its contents to explode " +
-            "into a deadly vapours, which will cover everything around in a highly caustic ooze.";
-	}
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 85 * quantity : super.price();
-	}
+
+    @Override
+    public String desc() {
+        return
+                "Uncorking or shattering this pressurized glass will cause its contents to explode " +
+                        "into a deadly vapours, which will cover everything around in a highly caustic ooze.";
+    }
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 85 * quantity : super.price();
+    }
 
     @Override
     public float brewingChance() {

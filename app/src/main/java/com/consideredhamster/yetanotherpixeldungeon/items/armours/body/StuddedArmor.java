@@ -25,17 +25,19 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class StuddedArmor extends BodyArmorLight {
 
-	{	
-		name = "studded armor";
-		image = ItemSpriteSheet.ARMOR_STUDDED;
+    {
+        name = "studded armor";
+        image = ItemSpriteSheet.ARMOR_STUDDED;
         appearance = 4;
-	}
-	
-	public StuddedArmor() { super( 1 ); }
-	
-	@Override
-	public String desc() {
-		return "Armor made from tanned monster hide, reinforced with metal rivets. " +
+    }
+
+    public StuddedArmor() {
+        super(1);
+    }
+
+    @Override
+    public String desc() {
+        return "Armor made from tanned monster hide, reinforced with metal rivets. " +
                 "Not as light as cloth armor but provides better protection.";
-	}
+    }
 }

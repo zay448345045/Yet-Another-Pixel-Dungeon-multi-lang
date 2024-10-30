@@ -30,18 +30,17 @@ import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.Shield
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Ethereal;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Tempered;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 public abstract class MeleeWeapon extends Weapon {
 
-	public MeleeWeapon(int tier) {
+    public MeleeWeapon(int tier) {
 
-		super();
-		
-		this.tier = tier;
+        super();
 
-	}
+        this.tier = tier;
+
+    }
 
     private static final String TXT_NOTEQUIPPED = "You have to equip this weapon first!";
     private static final String TXT_CANNOTGUARD = "You can guard only with shields and melee weapons!";
@@ -56,7 +55,7 @@ public abstract class MeleeWeapon extends Weapon {
 
     @Override
     public String quickAction() {
-        return isEquipped( Dungeon.hero ) ? AC_UNEQUIP : AC_EQUIP;
+        return isEquipped(Dungeon.hero) ? AC_UNEQUIP : AC_EQUIP;
     }
 
 //    @Override
@@ -67,56 +66,57 @@ public abstract class MeleeWeapon extends Weapon {
 //    }
 
     @Override
-    public void execute( Hero hero, String action ) {
+    public void execute(Hero hero, String action) {
         if (action == AC_GUARD) {
 
             if (!isEquipped(hero)) {
 
                 GLog.n(TXT_NOTEQUIPPED);
 
-            } if ( hero.belongings.weap2 != null && !(hero.belongings.weap2 instanceof MeleeWeapon) && !(hero.belongings.weap2 instanceof Shield) ) {
+            }
+            if (hero.belongings.weap2 != null && !(hero.belongings.weap2 instanceof MeleeWeapon) && !(hero.belongings.weap2 instanceof Shield)) {
 
                 GLog.n(TXT_CANNOTGUARD);
 
             } else {
 
-                hero.buff( Satiety.class ).decrease( Satiety.POINT * str() / hero.STR() );
-                hero.spendAndNext( Actor.TICK );
-                Buff.affect( hero, Guard.class ).reset( 1 );
+                hero.buff(Satiety.class).decrease(Satiety.POINT * str() / hero.STR());
+                hero.spendAndNext(Actor.TICK);
+                Buff.affect(hero, Guard.class).reset(1);
 
             }
 
         } else {
 
-            super.execute( hero, action );
+            super.execute(hero, action);
 
         }
     }
 
     @Override
     public int maxDurability() {
-        return 100 ;
+        return 100;
     }
 
     @Override
-    public int min( int bonus ) {
-        return Math.max( 0, tier + state + bonus + ( enchantment instanceof Tempered ? bonus + tier - 1 : 0 ) - 2 );
+    public int min(int bonus) {
+        return Math.max(0, tier + state + bonus + (enchantment instanceof Tempered ? bonus + tier - 1 : 0) - 2);
     }
 
     @Override
-    public int max( int bonus ) {
-        return Math.max( 0, tier * 2 + state * dmgMod() - 1
-                + ( enchantment instanceof Tempered || bonus >= 0 ? bonus * dmgMod() : 0 )
-                + ( enchantment instanceof Tempered && bonus >= 0 ? bonus + tier + 1 : 0 ) ) ;
+    public int max(int bonus) {
+        return Math.max(0, tier * 2 + state * dmgMod() - 1
+                + (enchantment instanceof Tempered || bonus >= 0 ? bonus * dmgMod() : 0)
+                + (enchantment instanceof Tempered && bonus >= 0 ? bonus + tier + 1 : 0));
     }
 
     public int dmgMod() {
-        return tier ;
+        return tier;
     }
 
     @Override
     public int str(int bonus) {
-        return 5 + tier * 2 - bonus * ( enchantment instanceof Ethereal ? 2 : 1 );
+        return 5 + tier * 2 - bonus * (enchantment instanceof Ethereal ? 2 : 1);
     }
 
     @Override
@@ -127,29 +127,31 @@ public abstract class MeleeWeapon extends Weapon {
     }
 
     @Override
-    public float stealingDifficulty() { return 0.75f; }
+    public float stealingDifficulty() {
+        return 0.75f;
+    }
 
-	@Override
-	public int price() {
+    @Override
+    public int price() {
 
         int price = 20 + state * 10;
 
         price *= lootChapter();
 
-        if ( isIdentified() ) {
-            price += bonus > 0 ? price * bonus / 3 : price * bonus / 6 ;
-        } else if( isCursedKnown() && bonus >= 0 ) {
+        if (isIdentified()) {
+            price += bonus > 0 ? price * bonus / 3 : price * bonus / 6;
+        } else if (isCursedKnown() && bonus >= 0) {
             price -= price / 4;
         } else {
             price /= 2;
         }
 
-        if( enchantment != null && isEnchantKnown() ) {
+        if (enchantment != null && isEnchantKnown()) {
             price += price / 4;
         }
 
         return price;
-	}
+    }
 
     @Override
     public boolean isUpgradeable() {

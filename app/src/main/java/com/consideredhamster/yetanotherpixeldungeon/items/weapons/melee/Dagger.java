@@ -23,29 +23,29 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Dagger extends MeleeWeaponLightOH {
-	
-	{
-		name = "dagger";
-		image = ItemSpriteSheet.DAGGER;
-	}
 
-	public Dagger() {
-		super( 2 );
-	}
+    {
+        name = "dagger";
+        image = ItemSpriteSheet.DAGGER;
+    }
+
+    public Dagger() {
+        super(2);
+    }
 
     @Override
     public boolean canBackstab() {
         return true;
     }
 
-	@Override
-	public Type weaponType() {
-		return Type.M_SWORD;
-	}
+    @Override
+    public Type weaponType() {
+        return Type.M_SWORD;
+    }
 
-	@Override
-	public String desc() {
-		return "A simple iron dagger with a well worn wooden handle. It is ideal for backstabbing, "+
-				"dealing doubled damage to unsuspecting or ambushed targets.";
-	}
+    @Override
+    public String desc() {
+        return "A simple iron dagger with a well worn wooden handle. It is ideal for backstabbing, " +
+                "dealing doubled damage to unsuspecting or ambushed targets.";
+    }
 }

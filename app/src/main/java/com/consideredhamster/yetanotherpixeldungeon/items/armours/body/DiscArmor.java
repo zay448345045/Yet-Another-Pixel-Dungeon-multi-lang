@@ -31,7 +31,7 @@ public class DiscArmor extends BodyArmorHeavy {
     }
 
     public DiscArmor() {
-        super( 1 );
+        super(1);
     }
 
     @Override

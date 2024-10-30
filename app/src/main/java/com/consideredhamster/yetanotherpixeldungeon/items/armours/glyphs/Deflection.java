@@ -27,10 +27,10 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.G
 
 public class Deflection extends Armour.Glyph {
 
-	@Override
-	public Glowing glowing() {
-		return PURPLE                  ;
-	}
+    @Override
+    public Glowing glowing() {
+        return PURPLE;
+    }
 
     @Override
     public Class<? extends Element> resistance() {
@@ -58,12 +58,12 @@ public class Deflection extends Armour.Glyph {
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
         return false;
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
         return false;
     }
 }

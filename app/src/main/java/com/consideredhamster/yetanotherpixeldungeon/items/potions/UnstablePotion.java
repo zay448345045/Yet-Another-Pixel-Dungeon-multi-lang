@@ -27,8 +27,8 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class UnstablePotion extends Potion {
 
-	{
-		name = "Unstable Potion";
+    {
+        name = "Unstable Potion";
         shortName = "??";
 
         image = ItemSpriteSheet.POTION_UNSTABLE;
@@ -52,39 +52,39 @@ public class UnstablePotion extends Potion {
         return true;
     }
 
-	private Potion getRandomPotion(){
-        Potion potion= (Potion)Generator.random( Generator.Category.POTION );
+    private Potion getRandomPotion() {
+        Potion potion = (Potion) Generator.random(Generator.Category.POTION);
         potion.color = color;
         potion.dud = true;
         return potion;
     }
 
     @Override
-    protected void apply( Hero hero ) {
+    protected void apply(Hero hero) {
         getRandomPotion().apply(hero);
     }
 
     @Override
-    public void shatter( int cell ) {
+    public void shatter(int cell) {
         getRandomPotion().shatter(cell);
     }
 
     @Override
-	public String desc() {
-		return
-            "This flask contains odd layered liquid and is obviously unstable. " +
-            "Its effects will be completely unpredictable whether drunk or thrown.";
-	}
+    public String desc() {
+        return
+                "This flask contains odd layered liquid and is obviously unstable. " +
+                        "Its effects will be completely unpredictable whether drunk or thrown.";
+    }
 
     @Override
     public String quickAction() {
         return AC_THROW;
     }
 
-	@Override
-	public int price() {
-		return isTypeKnown() ? 25 * quantity : super.price();
-	}
+    @Override
+    public int price() {
+        return isTypeKnown() ? 25 * quantity : super.price();
+    }
 
     @Override
     public float brewingChance() {

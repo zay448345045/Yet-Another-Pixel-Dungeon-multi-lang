@@ -20,26 +20,24 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged;
 
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponAmmo;
 
 public abstract class RangedWeapon extends Weapon {
 
-	public RangedWeapon(int tier) {
+    public RangedWeapon(int tier) {
 
-		super();
-		
-		this.tier = tier;
+        super();
 
-	}
+        this.tier = tier;
+
+    }
 
     protected static final String AC_SHOOT = "SHOOT";
-    protected static final String TXT_SELF_TARGET	= "You can't target yourself";
-    protected static final String TXT_TARGET_CHARMED	= "You can't bring yourself to harm someone so... charming.";
+    protected static final String TXT_SELF_TARGET = "You can't target yourself";
+    protected static final String TXT_TARGET_CHARMED = "You can't bring yourself to harm someone so... charming.";
     protected static final String TXT_NOTEQUIPPED = "You have to equip this weapon first.";
     protected static final String TXT_AMMO_NEEDED = "You have to equip proper ammo first.";
 
@@ -47,13 +45,13 @@ public abstract class RangedWeapon extends Weapon {
         return null;
     }
 
-    public boolean checkAmmo( Hero hero, boolean showMessage ) {
+    public boolean checkAmmo(Hero hero, boolean showMessage) {
         return false;
     }
 
     @Override
     public String status() {
-        return isEquipped( Dungeon.hero ) && ammunition().isInstance( Dungeon.hero.belongings.weap2 ) ? Integer.toString( Dungeon.hero.belongings.weap2.quantity ) : null;
+        return isEquipped(Dungeon.hero) && ammunition().isInstance(Dungeon.hero.belongings.weap2) ? Integer.toString(Dungeon.hero.belongings.weap2.quantity) : null;
     }
 
     @Override
@@ -63,7 +61,7 @@ public abstract class RangedWeapon extends Weapon {
 
     @Override
     public String quickAction() {
-        return isEquipped( Dungeon.hero ) ? AC_UNEQUIP : AC_EQUIP;
+        return isEquipped(Dungeon.hero) ? AC_UNEQUIP : AC_EQUIP;
     }
 
 //    @Override
@@ -114,7 +112,9 @@ public abstract class RangedWeapon extends Weapon {
 //	}
 
     @Override
-    public float stealingDifficulty() { return 0.75f; }
+    public float stealingDifficulty() {
+        return 0.75f;
+    }
 
     @Override
     public int price() {
@@ -123,15 +123,15 @@ public abstract class RangedWeapon extends Weapon {
 
         price *= lootChapter();
 
-        if ( isIdentified() ) {
-            price += bonus > 0 ? price * bonus / 3 : price * bonus / 6 ;
-        } else if( isCursedKnown() && bonus >= 0 ) {
+        if (isIdentified()) {
+            price += bonus > 0 ? price * bonus / 3 : price * bonus / 6;
+        } else if (isCursedKnown() && bonus >= 0) {
             price -= price / 4;
         } else {
             price /= 2;
         }
 
-        if( enchantment != null && isEnchantKnown() ) {
+        if (enchantment != null && isEnchantKnown()) {
             price += price / 4;
         }
 

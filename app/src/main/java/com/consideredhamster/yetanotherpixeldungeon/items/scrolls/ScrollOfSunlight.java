@@ -20,52 +20,52 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Sunlight;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfSunlight extends Scroll {
 
-    private static final String TXT_MESSAGE	= "The whole area is suddenly illuminated with rays of warm light.";
+    private static final String TXT_MESSAGE = "The whole area is suddenly illuminated with rays of warm light.";
 
-	{
-		name = "Scroll of Sunlight";
+    {
+        name = "Scroll of Sunlight";
         shortName = "Su";
 
         spellSprite = SpellSprite.SCROLL_SUNLIGHT;
         spellColour = SpellSprite.COLOUR_HOLY;
-	}
-	
-	@Override
-	protected void doRead() {
+    }
 
-        curUser.sprite.centerEmitter().start( Speck.factory( Speck.NOTE ), 0.3f, 5 );
-        Sample.INSTANCE.play( Assets.SND_LULLABY );
+    @Override
+    protected void doRead() {
 
-        GameScene.add( Blob.seed( curUser.pos, 250 * ( 110 + curUser.magicPower() ) / 100, Sunlight.class ) );
+        curUser.sprite.centerEmitter().start(Speck.factory(Speck.NOTE), 0.3f, 5);
+        Sample.INSTANCE.play(Assets.SND_LULLABY);
 
-        GLog.i( TXT_MESSAGE );
+        GameScene.add(Blob.seed(curUser.pos, 250 * (110 + curUser.magicPower()) / 100, Sunlight.class));
+
+        GLog.i(TXT_MESSAGE);
 
         super.doRead();
-	}
-	
-	@Override
-	public String desc() {
-		return
-			"Reading this scroll will light the area with a bright sunlight. Here deep in the " +
-            "dungeon, sunlight can mean much more than simple illumination. Everything that lives " +
-            "which is touched by this light, will be rejuvenated in mere moments. Everything " +
-            "unnatural, on the contrary, will become disoriented and more susceptible to attacks." +
-            "\n\nDuration of this effect of depends on magic skill of the reader.";
-	}
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 70 * quantity : super.price();
-	}
+    }
+
+    @Override
+    public String desc() {
+        return
+                "Reading this scroll will light the area with a bright sunlight. Here deep in the " +
+                        "dungeon, sunlight can mean much more than simple illumination. Everything that lives " +
+                        "which is touched by this light, will be rejuvenated in mere moments. Everything " +
+                        "unnatural, on the contrary, will become disoriented and more susceptible to attacks." +
+                        "\n\nDuration of this effect of depends on magic skill of the reader.";
+    }
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 70 * quantity : super.price();
+    }
 }

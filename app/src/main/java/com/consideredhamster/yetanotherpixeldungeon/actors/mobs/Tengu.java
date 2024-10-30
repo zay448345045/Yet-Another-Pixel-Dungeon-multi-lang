@@ -20,47 +20,40 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
+import com.consideredhamster.yetanotherpixeldungeon.Badges;
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.Statistics;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Enraged;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Invisibility;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Debuff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.BombHazard;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
+import com.consideredhamster.yetanotherpixeldungeon.items.keys.SkeletonKey;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Shurikens;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.TenguSprite;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Badges;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.Statistics;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
-import com.consideredhamster.yetanotherpixeldungeon.items.keys.SkeletonKey;
-import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfClairvoyance;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Shurikens;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
-import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.TenguSprite;
 import com.watabou.utils.Random;
+
+import java.util.ArrayList;
 
 public class Tengu extends MobRanged {
 
-	private static final int JUMP_DELAY = 18;
+    private static final int JUMP_DELAY = 18;
 
-	private final static int LINE_GREETINGS = 0;
+    private final static int LINE_GREETINGS = 0;
     private final static int LINE_JUMPCLOSER = 1;
     private final static int LINE_JUMPFURTHER = 2;
     private final static int LINE_HIDEAWAY = 3;
@@ -138,7 +131,7 @@ public class Tengu extends MobRanged {
 
     public Tengu() {
 
-        super( 3, 15, true );
+        super(3, 15, true);
 
         name = Dungeon.depth == Statistics.deepestFloor ? "Tengu" : "memory of Tengu";
         info = "Boss enemy!";
@@ -151,7 +144,7 @@ public class Tengu extends MobRanged {
         resistances.put(Element.Mind.class, Element.Resist.PARTIAL);
         resistances.put(Element.Body.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
     }
 
     @Override
@@ -160,11 +153,13 @@ public class Tengu extends MobRanged {
     }
 
     @Override
-    protected float healthValueModifier() { return 0.25f; }
+    protected float healthValueModifier() {
+        return 0.25f;
+    }
 
     @Override
-    protected void onRangedAttack( int cell ) {
-        ((MissileSprite)sprite.parent.recycle( MissileSprite.class )).
+    protected void onRangedAttack(int cell) {
+        ((MissileSprite) sprite.parent.recycle(MissileSprite.class)).
                 reset(pos, cell, new Shurikens(), new Callback() {
                     @Override
                     public void call() {
@@ -174,27 +169,27 @@ public class Tengu extends MobRanged {
 
         super.onRangedAttack(cell);
     }
-	
-	@Override
-	protected boolean getCloser( int target ) {
-		if (!rooted ) {
-            if ( enemy != null ) {
-                if ( canSeeTarget( enemy ) ) {
+
+    @Override
+    protected boolean getCloser(int target) {
+        if (!rooted) {
+            if (enemy != null) {
+                if (canSeeTarget(enemy)) {
                     yell(LINE_JUMPCLOSER);
                     jumpCloser();
                 } else {
-                    if( enemy.stealth() <= 0 || Random.Float() < 0.1 / enemy.stealth() ) {
+                    if (enemy.stealth() <= 0 || Random.Float() < 0.1 / enemy.stealth()) {
 
-                        if( enemy.invisible == 0 ) {
-                            yell( LINE_DISCOVERED );
+                        if (enemy.invisible == 0) {
+                            yell(LINE_DISCOVERED);
                         }
 
                         jumpCloser();
 
                     } else {
 
-                        if( Random.Int( 10 ) == 0 ) {
-                            yell( LINE_LOOKINGFOR );
+                        if (Random.Int(10) == 0) {
+                            yell(LINE_LOOKINGFOR);
                         }
 
                         jumpAway();
@@ -204,85 +199,85 @@ public class Tengu extends MobRanged {
             } else {
                 jumpAway();
             }
-			return true;
-		} else {
-			return super.getCloser( target );
-		}
-	}
-	
-	@Override
-	protected boolean canAttack( Char enemy ) {
-		return Ballistica.cast( pos, enemy.pos, false, true ) == enemy.pos;
-	}
-	
-	@Override
-	protected boolean doAttack( Char enemy ) {
+            return true;
+        } else {
+            return super.getCloser(target);
+        }
+    }
 
-		timeToJump++;
+    @Override
+    protected boolean canAttack(Char enemy) {
+        return Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
+    }
 
-		if ( !rooted && timeToJump >= ( JUMP_DELAY - breaks * 2 ) ) {
-            if( enemy != null && !Level.adjacent( pos, enemy.pos ) ) {
+    @Override
+    protected boolean doAttack(Char enemy) {
+
+        timeToJump++;
+
+        if (!rooted && timeToJump >= (JUMP_DELAY - breaks * 2)) {
+            if (enemy != null && !Level.adjacent(pos, enemy.pos)) {
                 jumpCloser();
-                yell( LINE_JUMPCLOSER );
+                yell(LINE_JUMPCLOSER);
             } else {
-                yell( LINE_JUMPFURTHER );
+                yell(LINE_JUMPFURTHER);
                 jumpAway();
             }
 
-			return true;
-		} else {
-			return super.doAttack(enemy);
-		}
-	}
+            return true;
+        } else {
+            return super.doAttack(enemy);
+        }
+    }
 
     @Override
-    public void damage( int dmg, Object src, Element type ) {
+    public void damage(int dmg, Object src, Element type) {
 
         if (HP <= 0) {
             return;
         }
 
-        if( buff( Invisibility.class ) != null ) {
-            yell( LINE_REVEALED );
+        if (buff(Invisibility.class) != null) {
+            yell(LINE_REVEALED);
         }
 
         timeToJump++;
 
-        super.damage( dmg, src, type );
+        super.damage(dmg, src, type);
     }
 
     @Override
     public boolean act() {
 
-        if( 3 - breaks > 4 * HP / HT ) {
+        if (3 - breaks > 4 * HP / HT) {
 
-            yell( LINE_HIDEAWAY );
-            GLog.i( "Tengu disappears somewhere!" );
+            yell(LINE_HIDEAWAY);
+            GLog.i("Tengu disappears somewhere!");
 
             breaks++;
             hideAway();
 
             return true;
 
-        } else if( buff( Invisibility.class ) != null ) {
+        } else if (buff(Invisibility.class) != null) {
 
-            if( shadowCount() > 0 ) {
+            if (shadowCount() > 0) {
 
-                heal( 1 );
+                heal(1);
                 sprite.idle();
-                spend( TICK );
+                spend(TICK);
                 next();
 
                 return true;
 
             } else {
 
-                Invisibility.dispel( this );
+                Invisibility.dispel(this);
 
                 enemy = Dungeon.hero;
                 jumpCloser();
 
-                yell( LINE_SHOWINGUP );
+                yell(LINE_SHOWINGUP);
 
                 return true;
 
@@ -305,7 +300,7 @@ public class Tengu extends MobRanged {
         ArrayList<Integer> cells = new ArrayList<>();
 
         for (Integer cell : Dungeon.level.filterTrappedCells(Dungeon.level.getPassableCellsList())) {
-            if (pos != cell && Level.adjacent( enemy.pos, cell ) ) {
+            if (pos != cell && Level.adjacent(enemy.pos, cell)) {
                 cells.add(cell);
             }
         }
@@ -313,24 +308,24 @@ public class Tengu extends MobRanged {
         if (!cells.isEmpty()) {
             newPos = Random.element(cells);
 
-            if( shadowCount() < breaks && canSeeTarget( enemy ) ) {
+            if (shadowCount() < breaks && canSeeTarget(enemy)) {
                 spawnShadow(pos);
             }
         }
 
-        if( Dungeon.visible[ pos ] ){
-            CellEmitter.get( pos ).burst( Speck.factory( Speck.WOOL ), 6 );
-            Sample.INSTANCE.play( Assets.SND_PUFF );
+        if (Dungeon.visible[pos]) {
+            CellEmitter.get(pos).burst(Speck.factory(Speck.WOOL), 6);
+            Sample.INSTANCE.play(Assets.SND_PUFF);
         }
 
-        if( enemy != null ) {
-            beckon( enemy.pos );
+        if (enemy != null) {
+            beckon(enemy.pos);
         }
 
-        sprite.move( pos, newPos );
-        move( newPos );
+        sprite.move(pos, newPos);
+        move(newPos);
 
-        spend( 1 / moveSpeed() );
+        spend(1 / moveSpeed());
     }
 
     private void jumpAway() {
@@ -341,7 +336,7 @@ public class Tengu extends MobRanged {
         ArrayList<Integer> cells = new ArrayList<>();
 
         for (Integer cell : Dungeon.level.filterTrappedCells(Dungeon.level.getPassableCellsList())) {
-            if ( pos != cell && !Level.adjacent( pos, cell ) && Level.distance( pos, cell ) <= 6 ) {
+            if (pos != cell && !Level.adjacent(pos, cell) && Level.distance(pos, cell) <= 6) {
                 cells.add(cell);
             }
         }
@@ -349,32 +344,32 @@ public class Tengu extends MobRanged {
         if (!cells.isEmpty()) {
             newPos = Random.element(cells);
 
-            if( Level.adjacent( pos, enemy.pos ) && canSeeTarget( enemy ) ) {
+            if (Level.adjacent(pos, enemy.pos) && canSeeTarget(enemy)) {
                 spawnBomb(pos);
             }
         }
 
-        if( Dungeon.visible[ pos ] ){
-            CellEmitter.get( pos ).burst( Speck.factory( Speck.WOOL ), 6 );
-            Sample.INSTANCE.play( Assets.SND_PUFF );
+        if (Dungeon.visible[pos]) {
+            CellEmitter.get(pos).burst(Speck.factory(Speck.WOOL), 6);
+            Sample.INSTANCE.play(Assets.SND_PUFF);
         }
 
-        sprite.move( pos, newPos );
-        move( newPos );
+        sprite.move(pos, newPos);
+        move(newPos);
 
-        spend( 1 / moveSpeed() );
+        spend(1 / moveSpeed());
     }
 
-    private void spawnBomb( int cell ) {
+    private void spawnBomb(int cell) {
 
         BombHazard hazard = new BombHazard();
-        hazard.setValues( cell, BombHazard.BOMB_NINJA, Random.Int( 1, 3 + breaks ), 0 );
-        GameScene.add( hazard );
-        ( (BombHazard.BombSprite) hazard.sprite ).appear();
+        hazard.setValues(cell, BombHazard.BOMB_NINJA, Random.Int(1, 3 + breaks), 0);
+        GameScene.add(hazard);
+        ((BombHazard.BombSprite) hazard.sprite).appear();
 
     }
 
-    private void spawnShadow( int cell ) {
+    private void spawnShadow(int cell) {
 
         final TenguShadow clone = new TenguShadow();
 
@@ -385,31 +380,31 @@ public class Tengu extends MobRanged {
         clone.state = clone.HUNTING;
         clone.target = target;
 
-        clone.beckon( target );
+        clone.beckon(target);
 
-        sprite.turnTo( pos, cell );
+        sprite.turnTo(pos, cell);
 
-        GameScene.add( clone, TICK );
-        clone.sprite.emitter().burst( ShadowParticle.CURSE, 6 );
+        GameScene.add(clone, TICK);
+        clone.sprite.emitter().burst(ShadowParticle.CURSE, 6);
 
     }
 
     private void hideAway() {
 
-        Debuff.removeAll( this );
-        BuffActive.add( this, Invisibility.class, HT - HP );
+        Debuff.removeAll(this);
+        BuffActive.add(this, Invisibility.class, HT - HP);
 
         jumpAway();
         clearShadows();
 
         ArrayList<Integer> cells = new ArrayList<>();
         for (Integer cell : Dungeon.level.filterTrappedCells(Dungeon.level.getPassableCellsList())) {
-            if ( pos != cell && !Level.adjacent( pos, cell ) && Level.distance( pos, cell  ) <= 3 ) {
+            if (pos != cell && !Level.adjacent(pos, cell) && Level.distance(pos, cell) <= 3) {
                 cells.add(cell);
             }
         }
 
-        for( int i = 0 ; i < breaks + 1 ; i++ ) {
+        for (int i = 0; i < breaks + 1; i++) {
             if (!cells.isEmpty()) {
                 Integer cell = Random.element(cells);
                 cells.remove(cell);
@@ -421,8 +416,8 @@ public class Tengu extends MobRanged {
     private int shadowCount() {
         int result = 0;
 
-        for( Mob mob : Dungeon.level.mobs ) {
-            if( mob instanceof TenguShadow ) {
+        for (Mob mob : Dungeon.level.mobs) {
+            if (mob instanceof TenguShadow) {
                 result++;
             }
         }
@@ -432,9 +427,9 @@ public class Tengu extends MobRanged {
 
     private void clearShadows() {
 
-        for( Mob mob : (Iterable<Mob>)Dungeon.level.mobs.clone() ) {
-            if( mob instanceof TenguShadow ) {
-                mob.die( null, null );
+        for (Mob mob : (Iterable<Mob>) Dungeon.level.mobs.clone()) {
+            if (mob instanceof TenguShadow) {
+                mob.die(null, null);
             }
         }
     }
@@ -443,55 +438,55 @@ public class Tengu extends MobRanged {
     public void notice() {
         super.notice();
 
-        if ( enemySeen && HP == HT && breaks == 0 ) {
-            yell( LINE_GREETINGS );
+        if (enemySeen && HP == HT && breaks == 0) {
+            yell(LINE_GREETINGS);
         }
     }
 
-    private void yell( int line ) {
-        yell( LINES[ line ][ Random.Int( LINES[ line ].length ) ] );
+    private void yell(int line) {
+        yell(LINES[line][Random.Int(LINES[line].length)]);
     }
 
     @Override
-    public float awareness(){
+    public float awareness() {
         return 2.0f;
     }
 
     @Override
-    public void die( Object cause, Element dmg ) {
+    public void die(Object cause, Element dmg) {
 
-        yell( LINE_NEARDEATH );
+        yell(LINE_NEARDEATH);
         clearShadows();
 
-        super.die( cause, dmg );
+        super.die(cause, dmg);
 
         GameScene.bossSlain();
         Badges.validateBossSlain();
-        Dungeon.level.drop( new SkeletonKey(), pos ).sprite.drop();
+        Dungeon.level.drop(new SkeletonKey(), pos).sprite.drop();
 
     }
-	
-	@Override
-	public String description() {
-		return
-			"Tengu are members of the ancient assassins clan, which is also called Tengu. " +
-			"These assassins are noted for extensive use of martial arts and shadow magic.";
-	}
-
-    private static final String TIME_TO_JUMP	= "timeToJump";
-    private static final String BREAKS	= "breaks";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public String description() {
+        return
+                "Tengu are members of the ancient assassins clan, which is also called Tengu. " +
+                        "These assassins are noted for extensive use of martial arts and shadow magic.";
+    }
+
+    private static final String TIME_TO_JUMP = "timeToJump";
+    private static final String BREAKS = "breaks";
+
+    @Override
+    public void storeInBundle(Bundle bundle) {
         super.storeInBundle(bundle);
-        bundle.put( BREAKS, breaks );
-        bundle.put( TIME_TO_JUMP, timeToJump );
+        bundle.put(BREAKS, breaks);
+        bundle.put(TIME_TO_JUMP, timeToJump);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        breaks = bundle.getInt( BREAKS );
-        timeToJump = bundle.getInt( TIME_TO_JUMP );
+        breaks = bundle.getInt(BREAKS);
+        timeToJump = bundle.getInt(TIME_TO_JUMP);
     }
 }

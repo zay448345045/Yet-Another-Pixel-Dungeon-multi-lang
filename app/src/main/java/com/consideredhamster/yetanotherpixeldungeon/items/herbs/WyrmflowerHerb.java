@@ -31,7 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class WyrmflowerHerb extends Herb {
 
-    private static final ItemSprite.Glowing RED = new ItemSprite.Glowing( 0xCC0000 );
+    private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 
     private static final int HPBONUS_HERB = 2;
     private static final int HPBONUS_MEAT = 4;
@@ -46,19 +46,19 @@ public class WyrmflowerHerb extends Herb {
         //these herbs cannot be brewed with themselves
         mainPotion = UnstablePotion.class;
 
-        subPotions.add( PotionOfWisdom.class );
-        subPotions.add( PotionOfStrength.class );
+        subPotions.add(PotionOfWisdom.class);
+        subPotions.add(PotionOfStrength.class);
     }
 
-    private static void onConsume( Hero hero, int hpBonus ) {
+    private static void onConsume(Hero hero, int hpBonus) {
         hero.HP = hero.HT += hpBonus;
-        hero.sprite.showStatus( CharSprite.POSITIVE, "+%d hp", hpBonus );
+        hero.sprite.showStatus(CharSprite.POSITIVE, "+%d hp", hpBonus);
     }
 
     @Override
-    public void onConsume( Hero hero ) {
-        super.onConsume( hero );
-        onConsume( hero, HPBONUS_HERB );
+    public void onConsume(Hero hero) {
+        super.onConsume(hero);
+        onConsume(hero, HPBONUS_HERB);
     }
 
     @Override
@@ -86,9 +86,9 @@ public class WyrmflowerHerb extends Herb {
         }
 
         @Override
-        public void onConsume( Hero hero ) {
-            super.onConsume( hero );
-            WyrmflowerHerb.onConsume( hero, HPBONUS_MEAT );
+        public void onConsume(Hero hero) {
+            super.onConsume(hero);
+            WyrmflowerHerb.onConsume(hero, HPBONUS_MEAT);
         }
 
         @Override

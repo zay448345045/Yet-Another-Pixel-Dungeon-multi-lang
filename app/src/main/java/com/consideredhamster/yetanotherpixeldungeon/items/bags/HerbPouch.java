@@ -31,41 +31,41 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
 public class HerbPouch extends Bag {
 
-	{
-		name = "alchemist's pouch";
-		image = ItemSpriteSheet.POUCH;
-		
-		size = 19;
+    {
+        name = "alchemist's pouch";
+        image = ItemSpriteSheet.POUCH;
+
+        size = 19;
         visible = false;
         unique = true;
-	}
-	
-	@Override
-	public boolean grab( Item item ) {
-		return item instanceof Herb || item instanceof MeatBurned ||
-            item instanceof MeatRaw || item instanceof MeatStewed;
-	}
-	
-	@Override
+    }
+
+    @Override
+    public boolean grab(Item item) {
+        return item instanceof Herb || item instanceof MeatBurned ||
+                item instanceof MeatRaw || item instanceof MeatStewed;
+    }
+
+    @Override
     public Icons icon() {
         return Icons.HERB_POUCH;
     }
 
-	@Override
-	public int price() {
-		return 50;
-	}
-	
-	@Override
-	public String info() {
-		return
-			"This small velvet pouch allows you to store any number of herbs in it. Very convenient.";
-	}
+    @Override
+    public int price() {
+        return 50;
+    }
 
     @Override
-    public boolean doPickUp( Hero hero ) {
+    public String info() {
+        return
+                "This small velvet pouch allows you to store any number of herbs in it. Very convenient.";
+    }
 
-        return hero.belongings.getItem( HerbPouch.class ) == null && super.doPickUp( hero ) ;
+    @Override
+    public boolean doPickUp(Hero hero) {
+
+        return hero.belongings.getItem(HerbPouch.class) == null && super.doPickUp(hero);
 
     }
 }

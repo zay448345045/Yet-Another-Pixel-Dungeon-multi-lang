@@ -22,59 +22,58 @@ package com.consideredhamster.yetanotherpixeldungeon.items.misc;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Debuff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.items.bags.Bag;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.watabou.utils.Random;
 
 import java.util.ArrayList;
 
 public class Ankh extends Item {
 
-	{
+    {
         visible = false;
-		stackable = true;
-		name = "ankh";
-		image = ItemSpriteSheet.ANKH;
-	}
+        stackable = true;
+        name = "ankh";
+        image = ItemSpriteSheet.ANKH;
+    }
 
-    private static final String TXT_RESURRECT	= "You are resurrected by the powers of Ankh!";
+    private static final String TXT_RESURRECT = "You are resurrected by the powers of Ankh!";
 
     @Override
-    public ArrayList<String> actions( Hero hero ) {
-        ArrayList<String> actions = super.actions( hero );
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
 
-        actions.remove( AC_THROW );
-        actions.remove( AC_DROP );
+        actions.remove(AC_THROW);
+        actions.remove(AC_DROP);
 
         return actions;
     }
-	
-	@Override
-	public String info() {
-		return 
-			"The ancient symbol of immortality grants an ability to return to life after death. ";
-	}
+
+    @Override
+    public String info() {
+        return
+                "The ancient symbol of immortality grants an ability to return to life after death. ";
+    }
 
 
-	public static void resurrect( Hero hero ) {
-        new Flare( 8, 32 ).color(0xFFFF66, true).show(hero.sprite, 2f) ;
+    public static void resurrect(Hero hero) {
+        new Flare(8, 32).color(0xFFFF66, true).show(hero.sprite, 2f);
         GameScene.flash(0xFFFFAA);
 
         hero.HP = hero.HT;
 
         Debuff.removeAll(hero);
 
-        uncurse( hero, hero.belongings.backpack.items.toArray( new Item[0] ) );
+        uncurse(hero, hero.belongings.backpack.items.toArray(new Item[0]));
 
-        uncurse( hero,
+        uncurse(hero,
                 hero.belongings.weap1,
                 hero.belongings.weap2,
                 hero.belongings.armor,
@@ -84,19 +83,19 @@ public class Ankh extends Item {
 
         hero.sprite.showStatus(CharSprite.POSITIVE, "resurrected!");
         GLog.w(TXT_RESURRECT);
-	}
+    }
 
-    public static boolean uncurse( Hero hero, Item... items ) {
+    public static boolean uncurse(Hero hero, Item... items) {
 
         boolean procced = false;
 
-        for(Item item : items) {
+        for (Item item : items) {
 
             if (item != null) {
 
-                if( item instanceof Bag ) {
+                if (item instanceof Bag) {
 
-                    uncurse( hero, ((Bag)item).items.toArray( new Item[0] ) );
+                    uncurse(hero, ((Bag) item).items.toArray(new Item[0]));
 
                 } else {
 
@@ -123,19 +122,19 @@ public class Ankh extends Item {
         }
 
         if (procced) {
-            hero.sprite.emitter().start( ShadowParticle.UP, 0.05f, 10 );
+            hero.sprite.emitter().start(ShadowParticle.UP, 0.05f, 10);
         }
 
         return procced;
     }
 
-	@Override
+    @Override
     public String status() {
-        return Integer.toString( quantity );
+        return Integer.toString(quantity);
     }
 
-	@Override
-	public int price() {
-		return 100 * quantity;
-	}
+    @Override
+    public int price() {
+        return 100 * quantity;
+    }
 }

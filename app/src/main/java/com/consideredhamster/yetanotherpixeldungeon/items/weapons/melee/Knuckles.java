@@ -25,26 +25,26 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Knuckles extends MeleeWeaponLightOH {
 
-	{
-		name = "knuckleduster";
-		image = ItemSpriteSheet.KNUCKLEDUSTER;
-	}
-	
-	public Knuckles() {
-		super( 1 );
-	}
+    {
+        name = "knuckleduster";
+        image = ItemSpriteSheet.KNUCKLEDUSTER;
+    }
+
+    public Knuckles() {
+        super(1);
+    }
 
     @Override
     public int maxDurability() {
 
-        return 150 ;
+        return 150;
 
     }
 
     @Override
-    public float speedFactor( Hero hero ) {
+    public float speedFactor(Hero hero) {
 
-        return super.speedFactor( hero ) * 1.333f;
+        return super.speedFactor(hero) * 1.333f;
 
     }
 
@@ -59,7 +59,7 @@ public class Knuckles extends MeleeWeaponLightOH {
     }
 
     @Override
-    public int max( int bonus ) {
+    public int max(int bonus) {
         return super.max(bonus) + 3;
     }
 
@@ -77,11 +77,11 @@ public class Knuckles extends MeleeWeaponLightOH {
     public Type weaponType() {
         return Type.M_BLUNT;
     }
-	
-	@Override
-	public String desc() {
-		return "A piece of iron shaped to fit around the knuckles. This simple design allows " +
+
+    @Override
+    public String desc() {
+        return "A piece of iron shaped to fit around the knuckles. This simple design allows " +
                 "attacking with this weapon as fast as with fists, while being almost impossible " +
                 "to knock it out of them.";
-	}
+    }
 }

@@ -20,19 +20,19 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.blobs;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.FlameParticle;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfClairvoyance;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.FlameParticle;
+import com.watabou.utils.Random;
 
 public class Fire extends Blob {
 
@@ -42,23 +42,23 @@ public class Fire extends Blob {
         name = "raging fire";
     }
 
-	@Override
-	protected void evolve() {
+    @Override
+    protected void evolve() {
 
-		boolean[] flammable = Level.flammable;
-		
-		int from = WIDTH + 1;
-		int to = Level.LENGTH - WIDTH - 1;
-		
-		boolean observe = false;
+        boolean[] flammable = Level.flammable;
 
-        Blob blob = Dungeon.level.blobs.get( Overgrowth.class );
+        int from = WIDTH + 1;
+        int to = Level.LENGTH - WIDTH - 1;
+
+        boolean observe = false;
+
+        Blob blob = Dungeon.level.blobs.get(Overgrowth.class);
 
         if (blob != null) {
 
             int par[] = blob.cur;
 
-            for (int i=0; i < LENGTH; i++) {
+            for (int i = 0; i < LENGTH; i++) {
 
                 if (cur[i] > 0) {
                     blob.volume -= par[i];
@@ -66,32 +66,32 @@ public class Fire extends Blob {
                 }
             }
         }
-		
-		for (int pos=from; pos < to; pos++) {
-			
-			int fire;
-			
-			if (cur[pos] > 0) {
 
-				burn( pos );
+        for (int pos = from; pos < to; pos++) {
 
-				fire = cur[pos] - Random.Int( 2 );
+            int fire;
 
-				if (fire <= 0 && flammable[pos]) {
-					
-					int oldTile = Dungeon.level.map[pos];
-					Level.set( pos, Terrain.EMBERS );
-					
+            if (cur[pos] > 0) {
+
+                burn(pos);
+
+                fire = cur[pos] - Random.Int(2);
+
+                if (fire <= 0 && flammable[pos]) {
+
+                    int oldTile = Dungeon.level.map[pos];
+                    Level.set(pos, Terrain.EMBERS);
+
 //					if (Dungeon.visible[pos]) {
-                        observe = true;
-                        GameScene.updateMap( pos );
-                        GameScene.discoverTile( pos, oldTile );
+                    observe = true;
+                    GameScene.updateMap(pos);
+                    GameScene.discoverTile(pos, oldTile);
 //					}
-				}
-				
-			} else {
+                }
 
-				if (flammable[pos] && (cur[pos-1] > 0 || cur[pos+1] > 0 || cur[pos-WIDTH] > 0 || cur[pos+WIDTH] > 0)) {
+            } else {
+
+                if (flammable[pos] && (cur[pos - 1] > 0 || cur[pos + 1] > 0 || cur[pos - WIDTH] > 0 || cur[pos + WIDTH] > 0)) {
 
                     int flammability = 10;
 
@@ -112,66 +112,66 @@ public class Fire extends Blob {
 
                     }
 
-				} else {
-					fire = 0;
-				}
-			}
-			
-			volume += (off[pos] = fire);
-
-		}
-		
-		if (observe) {
-			Dungeon.observe();
-		}
-	}
-	
-	private void burn( int pos ) {
-		Char ch = Actor.findChar(pos);
-		if (ch != null) {
-            if( ch.buff( Burning.class ) == null ){
-                BuffActive.add( ch, Burning.class, TICK * 5 );
-            } else {
-                BuffActive.add( ch, Burning.class, TICK );
+                } else {
+                    fire = 0;
+                }
             }
-		}
-		
-		Heap heap = Dungeon.level.heaps.get( pos );
-		if (heap != null) {
-			heap.burn();
-		}
 
-        if( Dungeon.level.map[pos] == Terrain.DOOR_ILLUSORY) {
-
-            GameScene.discoverTile( pos, Dungeon.level.map[pos] );
-
-            Level.set( pos, Terrain.DOOR_CLOSED);
-
-            GameScene.updateMap( pos );
-
-            ScrollOfClairvoyance.discover( pos );
+            volume += (off[pos] = fire);
 
         }
-	}
-	
-	public void seed( int cell, int amount ) {
-		if (cur[cell] == 0) {
-			volume += amount;
-			cur[cell] = amount;
-		} else {
+
+        if (observe) {
+            Dungeon.observe();
+        }
+    }
+
+    private void burn(int pos) {
+        Char ch = Actor.findChar(pos);
+        if (ch != null) {
+            if (ch.buff(Burning.class) == null) {
+                BuffActive.add(ch, Burning.class, TICK * 5);
+            } else {
+                BuffActive.add(ch, Burning.class, TICK);
+            }
+        }
+
+        Heap heap = Dungeon.level.heaps.get(pos);
+        if (heap != null) {
+            heap.burn();
+        }
+
+        if (Dungeon.level.map[pos] == Terrain.DOOR_ILLUSORY) {
+
+            GameScene.discoverTile(pos, Dungeon.level.map[pos]);
+
+            Level.set(pos, Terrain.DOOR_CLOSED);
+
+            GameScene.updateMap(pos);
+
+            ScrollOfClairvoyance.discover(pos);
+
+        }
+    }
+
+    public void seed(int cell, int amount) {
+        if (cur[cell] == 0) {
+            volume += amount;
+            cur[cell] = amount;
+        } else {
             volume += amount - cur[cell];
             cur[cell] = amount;
         }
-	}
-	
-	@Override
-	public void use( BlobEmitter emitter ) {
-		super.use( emitter );
-		emitter.start( FlameParticle.FACTORY, 0.03f, 0 );
-	}
-	
-	@Override
-	public String tileDesc() {
-		return "A fire is raging here. Better avoid it.";
-	}
+    }
+
+    @Override
+    public void use(BlobEmitter emitter) {
+        super.use(emitter);
+        emitter.start(FlameParticle.FACTORY, 0.03f, 0);
+    }
+
+    @Override
+    public String tileDesc() {
+        return "A fire is raging here. Better avoid it.";
+    }
 }

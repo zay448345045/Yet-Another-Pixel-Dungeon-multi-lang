@@ -21,40 +21,40 @@
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.watabou.noosa.TextureFilm;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.TextureFilm;
 
 public class AmbitiousImpSprite extends MobSprite {
 
-	public AmbitiousImpSprite() {
-		super();
-		
-		texture( Assets.NPC_IMP );
-		
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
-		
-		idle = new Animation( 5, true );
-		idle.frames(frames, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7);
+    public AmbitiousImpSprite() {
+        super();
 
-        run = new Animation( 1, true );
-        run.frames( frames, 0 );
+        texture(Assets.NPC_IMP);
 
-        die = new Animation( 1, false );
-        die.frames( frames, 0 );
-		
-		play( idle );
-	}
-	
-	@Override
-	public void link( Char ch ) {
-		super.link( ch );
+        TextureFilm frames = new TextureFilm(texture, 16, 16);
 
-        if( Dungeon.depth != 25 ) {
-            alpha( 0.25f );
+        idle = new Animation(5, true);
+        idle.frames(frames, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7);
+
+        run = new Animation(1, true);
+        run.frames(frames, 0);
+
+        die = new Animation(1, false);
+        die.frames(frames, 0);
+
+        play(idle);
+    }
+
+    @Override
+    public void link(Char ch) {
+        super.link(ch);
+
+        if (Dungeon.depth != 25) {
+            alpha(0.25f);
         }
-	}
-	
+    }
+
 //	@Override
 //	public void onComplete( Animation anim ) {
 //		if (anim == die) {

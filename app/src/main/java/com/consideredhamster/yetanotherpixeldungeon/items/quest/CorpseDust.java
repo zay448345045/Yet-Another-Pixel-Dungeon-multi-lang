@@ -24,21 +24,21 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class CorpseDust extends Item {
-	
-	{
-		name = "corpse dust";
-		image = ItemSpriteSheet.DUST;
-		
+
+    {
+        name = "corpse dust";
+        image = ItemSpriteSheet.DUST;
+
 //		cursed = true;
 //		cursedKnown = true;
 //
-		unique = true;
-	}
-	
-	@Override
-	public String info() {
-		return
-			"The ball of corpse dust doesn't differ outwardly from a regular dust ball. However, " +
-			"you know somehow that it's better to get rid of it as soon as possible.";
-	}
+        unique = true;
+    }
+
+    @Override
+    public String info() {
+        return
+                "The ball of corpse dust doesn't differ outwardly from a regular dust ball. However, " +
+                        "you know somehow that it's better to get rid of it as soon as possible.";
+    }
 }

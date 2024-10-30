@@ -21,13 +21,13 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Difficulties;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.watabou.utils.Random;
 
 public abstract class MobHealthy extends Mob {
 
     protected MobHealthy(int exp) {
-        this( Dungeon.chapter(), exp, false );
+        this(Dungeon.chapter(), exp, false);
     }
 
     protected MobHealthy(int t, int exp, boolean isBoss) {
@@ -43,11 +43,11 @@ public abstract class MobHealthy extends Mob {
         accuracy = exp + tier;
         dexterity = exp;
 
-        if( !isBoss ) {
+        if (!isBoss) {
 
-            if( Dungeon.difficulty == Difficulties.NORMAL ) {
+            if (Dungeon.difficulty == Difficulties.NORMAL) {
                 HT = Random.NormalIntRange(HT, HT * 2);
-            } else if( Dungeon.difficulty > Difficulties.NORMAL ) {
+            } else if (Dungeon.difficulty > Difficulties.NORMAL) {
                 HT = HT * 2;
             }
 
@@ -56,7 +56,7 @@ public abstract class MobHealthy extends Mob {
 
         } else {
 
-            if( Dungeon.difficulty > Difficulties.HARDCORE ) {
+            if (Dungeon.difficulty > Difficulties.HARDCORE) {
                 HT = HT * 15;
             } else {
                 HT = HT * 8 + HT * 2 * Dungeon.difficulty;
@@ -77,12 +77,12 @@ public abstract class MobHealthy extends Mob {
     }
 
     @Override
-    public float awareness(){
-        return super.awareness() * ( 1.0f - tier * 0.05f );
+    public float awareness() {
+        return super.awareness() * (1.0f - tier * 0.05f);
     }
 
     @Override
-    public float stealth(){
-        return super.stealth() * ( 1.0f - tier * 0.05f );
+    public float stealth() {
+        return super.stealth() * (1.0f - tier * 0.05f);
     }
 }

@@ -20,17 +20,14 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
+import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
+import com.watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -73,20 +70,20 @@ public class StormWard extends Armour.Glyph {
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
 
         if (Level.adjacent(attacker.pos, defender.pos)) {
 
-            HashSet<Char> affected = Thunderstorm.spreadFrom( attacker.pos );
+            HashSet<Char> affected = Thunderstorm.spreadFrom(attacker.pos);
 
-            if( affected != null && !affected.isEmpty() ) {
-                for( Char ch : affected ) {
-                    int power = Random.IntRange( damage / 4, damage / 3 ) ;
-                    ch.damage( ch == defender ? power : power / 2, this, Element.SHOCK );
+            if (affected != null && !affected.isEmpty()) {
+                for (Char ch : affected) {
+                    int power = Random.IntRange(damage / 4, damage / 3);
+                    ch.damage(ch == defender ? power : power / 2, this, Element.SHOCK);
                 }
             }
 
-            attacker.sprite.parent.add( new Lightning( attacker.pos, attacker.pos ) );
+            attacker.sprite.parent.add(new Lightning(attacker.pos, attacker.pos));
 
             return true;
         }
@@ -95,18 +92,18 @@ public class StormWard extends Armour.Glyph {
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
 
-        HashSet<Char> affected = Thunderstorm.spreadFrom( defender.pos );
+        HashSet<Char> affected = Thunderstorm.spreadFrom(defender.pos);
 
-        if( affected != null && !affected.isEmpty() ) {
-            for( Char ch : affected ) {
-                int power = Random.IntRange( damage / 4, damage / 3 ) ;
-                ch.damage( ch == defender ? power : power / 2, this, Element.SHOCK );
+        if (affected != null && !affected.isEmpty()) {
+            for (Char ch : affected) {
+                int power = Random.IntRange(damage / 4, damage / 3);
+                ch.damage(ch == defender ? power : power / 2, this, Element.SHOCK);
             }
         }
 
-        defender.sprite.parent.add( new Lightning( defender.pos, defender.pos ) );
+        defender.sprite.parent.add(new Lightning(defender.pos, defender.pos));
 
         return true;
     }

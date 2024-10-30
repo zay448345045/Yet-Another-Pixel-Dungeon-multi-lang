@@ -24,22 +24,22 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Spear extends MeleeWeaponLightTH {
 
-	{
-		name = "spear";
-		image = ItemSpriteSheet.SPEAR;
-	}
-	
-	public Spear() {
-		super( 1 );
-	}
+    {
+        name = "spear";
+        image = ItemSpriteSheet.SPEAR;
+    }
 
-	@Override
-	public Type weaponType() {
-		return Type.M_POLEARM;
-	}
-	
-	@Override
-	public String desc() {
-		return "A slender wooden rod tipped with sharpened iron.";
-	}
+    public Spear() {
+        super(1);
+    }
+
+    @Override
+    public Type weaponType() {
+        return Type.M_POLEARM;
+    }
+
+    @Override
+    public String desc() {
+        return "A slender wooden rod tipped with sharpened iron.";
+    }
 }

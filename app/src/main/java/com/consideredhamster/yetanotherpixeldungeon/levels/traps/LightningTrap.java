@@ -20,15 +20,15 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.traps;
 
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.Random;
 
@@ -36,36 +36,36 @@ public class LightningTrap extends Trap {
 
     // FIXME
     public static LightningTrap TRAP = new LightningTrap();
-	
-	// 00x66CCEE
-	
-	public static void trigger( int pos, Char ch ) {
 
-        Level.set( pos, Terrain.INACTIVE_TRAP );
+    // 00x66CCEE
 
-        int[] tiles = Random.Int( 2 ) == 0 ? Level.NEIGHBOURS5 : Level.NEIGHBOURSX ;
+    public static void trigger(int pos, Char ch) {
 
-        Emitter emitter = CellEmitter.center( pos );
-        emitter.burst( SparkParticle.FACTORY, Random.Int( 4, 6 ) );
+        Level.set(pos, Terrain.INACTIVE_TRAP);
 
-        for( int n : tiles ) {
+        int[] tiles = Random.Int(2) == 0 ? Level.NEIGHBOURS5 : Level.NEIGHBOURSX;
 
-            ch = Actor.findChar( pos + n );
+        Emitter emitter = CellEmitter.center(pos);
+        emitter.burst(SparkParticle.FACTORY, Random.Int(4, 6));
+
+        for (int n : tiles) {
+
+            ch = Actor.findChar(pos + n);
 
             if (ch != null) {
 
                 int power = 10 + Dungeon.chapter() * 3;
 
-                power = Random.IntRange( power / 2, power );
+                power = Random.IntRange(power / 2, power);
 
                 ch.damage(n == 0 ? power : power / 2, TRAP, Element.SHOCK);
 
             }
 
-            if( Dungeon.visible[ pos ] ) {
-                emitter.parent.add( new Lightning( pos, pos + n ) );
+            if (Dungeon.visible[pos]) {
+                emitter.parent.add(new Lightning(pos, pos + n));
             }
 
         }
-	}
+    }
 }

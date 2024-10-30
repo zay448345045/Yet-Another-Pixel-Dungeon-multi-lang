@@ -23,7 +23,6 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Miasma;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.DoomSkull;
@@ -39,7 +38,9 @@ public class Doomed extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "doomed"; }
+    public String statusMessage() {
+        return "doomed";
+    }
 
     @Override
     public int icon() {
@@ -48,21 +49,23 @@ public class Doomed extends Debuff {
 
     @Override
     public void applyVisual() {
-        Sample.INSTANCE.play( Assets.SND_GHOST, 1.25f, 1.25f, 1.25f );
+        Sample.INSTANCE.play(Assets.SND_GHOST, 1.25f, 1.25f, 1.25f);
     }
 
     @Override
     public void removeVisual() {
 
-        if( target.sprite.visible ){
-            DoomSkull.createAtChar( target );
+        if (target.sprite.visible) {
+            DoomSkull.createAtChar(target);
         }
 
-        Sample.INSTANCE.play( Assets.SND_DESCEND, 0.75f, 0.75f, 1.25f );
+        Sample.INSTANCE.play(Assets.SND_DESCEND, 0.75f, 0.75f, 1.25f);
     }
 
     @Override
-    public String playerMessage() { return "You are doomed!"; }
+    public String playerMessage() {
+        return "You are doomed!";
+    }
 
     @Override
     public String description() {
@@ -73,8 +76,8 @@ public class Doomed extends Debuff {
     @Override
     public boolean act() {
 
-        if( target.sprite.visible && duration > 1 ){
-            target.sprite.showStatus( CharSprite.BLACK, Integer.toString( duration - 1 ) );
+        if (target.sprite.visible && duration > 1) {
+            target.sprite.showStatus(CharSprite.BLACK, Integer.toString(duration - 1));
         }
 
         return super.act();
@@ -88,10 +91,10 @@ public class Doomed extends Debuff {
     @Override
     public void detach() {
 
-        target.damage( target.currentHealthValue(), this, Element.DOOM );
+        target.damage(target.currentHealthValue(), this, Element.DOOM);
 
-        if( !target.isAlive() ){
-            GameScene.add( Blob.seed( target.pos, target.totalHealthValue(), Miasma.class ) );
+        if (!target.isAlive()) {
+            GameScene.add(Blob.seed(target.pos, target.totalHealthValue(), Miasma.class));
         }
 
         super.detach();

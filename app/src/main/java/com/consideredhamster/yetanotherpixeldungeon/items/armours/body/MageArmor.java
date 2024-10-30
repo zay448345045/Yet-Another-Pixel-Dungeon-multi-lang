@@ -23,20 +23,20 @@ package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class MageArmor extends BodyArmorCloth {
-	
+
 //	private static final String AC_SPECIAL = "MOLTEN EARTH";
 //
 //	private static final String TXT_NOT_MAGE	= "Only mages can use this armor!";
-	
-	{
-		name = "mystic robe";
-		image = ItemSpriteSheet.ARMOR_MAGE;
+
+    {
+        name = "mystic robe";
+        image = ItemSpriteSheet.ARMOR_MAGE;
 
         appearance = 1;
-	}
+    }
 
     public MageArmor() {
-        super( 1 );
+        super(1);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class MageArmor extends BodyArmorCloth {
 //    public MageArmor() {
 //        super( 1 );
 //    }
-	
+
 //	@Override
 //	public String special() {
 //		return AC_SPECIAL;

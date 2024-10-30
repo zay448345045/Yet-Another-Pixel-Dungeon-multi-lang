@@ -34,7 +34,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class IcecapHerb extends Herb {
 
-    private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x2244FF );
+    private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x2244FF);
 
     {
         name = "Icecap herb";
@@ -45,21 +45,21 @@ public class IcecapHerb extends Herb {
 
         mainPotion = PotionOfFrigidVapours.class;
 
-        subPotions.add( PotionOfConfusionGas.class );
-        subPotions.add( PotionOfInvisibility.class );
+        subPotions.add(PotionOfConfusionGas.class);
+        subPotions.add(PotionOfInvisibility.class);
     }
 
-    private static void onConsume( Hero hero, float duration ) {
+    private static void onConsume(Hero hero, float duration) {
 
-        BuffActive.add( hero, ColdResistance.class, duration );
-        Debuff.remove( hero, Frozen.class );
+        BuffActive.add(hero, ColdResistance.class, duration);
+        Debuff.remove(hero, Frozen.class);
 
     }
 
     @Override
-    public void onConsume( Hero hero ) {
-        super.onConsume( hero );
-        onConsume( hero, DURATION_HERB );
+    public void onConsume(Hero hero) {
+        super.onConsume(hero);
+        onConsume(hero, DURATION_HERB);
     }
 
     @Override
@@ -86,9 +86,9 @@ public class IcecapHerb extends Herb {
         }
 
         @Override
-        public void onConsume( Hero hero ) {
-            super.onConsume( hero );
-            IcecapHerb.onConsume( hero, DURATION_MEAT );
+        public void onConsume(Hero hero) {
+            super.onConsume(hero);
+            IcecapHerb.onConsume(hero, DURATION_MEAT);
         }
 
         @Override

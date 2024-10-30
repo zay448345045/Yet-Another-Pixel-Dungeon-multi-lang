@@ -20,23 +20,22 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.traps;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Fire;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.FlameParticle;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.watabou.utils.Random;
 
 public class FireTrap extends Trap {
 
-	// 0xFF7708
-	
-	public static void trigger( int pos, Char ch ) {
+    // 0xFF7708
 
-		GameScene.add( Blob.seed( pos, Random.IntRange( 4, 6 ), Fire.class ) );
-		CellEmitter.get( pos ).burst( FlameParticle.FACTORY, 5 );
-		
-	}
+    public static void trigger(int pos, Char ch) {
+
+        GameScene.add(Blob.seed(pos, Random.IntRange(4, 6), Fire.class));
+        CellEmitter.get(pos).burst(FlameParticle.FACTORY, 5);
+
+    }
 }

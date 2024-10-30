@@ -20,41 +20,41 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
+import com.watabou.noosa.TextureFilm;
 
 public class WraithSprite extends MobSprite {
 
     private Animation blink;
 
-	public WraithSprite() {
-		super();
-		
-		texture( Assets.WRAITH );
-		
-		TextureFilm frames = new TextureFilm( texture, 14, 15 );
-		
-		idle = new Animation( 5, true );
-		idle.frames(frames, 0, 1);
-		
-		run = new Animation( 10, true );
-		run.frames( frames, 0, 1 );
+    public WraithSprite() {
+        super();
 
-        blink = new Animation( 15, false );
-        blink.frames( frames, 7, 6, 5, 4, 0 );
-		
-		attack = new Animation( 10, false );
-		attack.frames( frames, 0, 2, 3 );
+        texture(Assets.WRAITH);
+
+        TextureFilm frames = new TextureFilm(texture, 14, 15);
+
+        idle = new Animation(5, true);
+        idle.frames(frames, 0, 1);
+
+        run = new Animation(10, true);
+        run.frames(frames, 0, 1);
+
+        blink = new Animation(15, false);
+        blink.frames(frames, 7, 6, 5, 4, 0);
+
+        attack = new Animation(10, false);
+        attack.frames(frames, 0, 2, 3);
 
 //        cast = attack.clone();
-		
-		die = new Animation( 8, false );
-		die.frames( frames, 0, 4, 5, 6, 7 );
-		
-		play( idle );
-	}
+
+        die = new Animation(8, false);
+        die.frames(frames, 0, 4, 5, 6, 7);
+
+        play(idle);
+    }
 
 
 //    public void cast(int cell) {
@@ -74,7 +74,7 @@ public class WraithSprite extends MobSprite {
 
 
     @Override
-    public void onComplete( Animation anim ) {
+    public void onComplete(Animation anim) {
         if (anim == blink) {
             isMoving = false;
             idle();
@@ -88,24 +88,24 @@ public class WraithSprite extends MobSprite {
     public void die() {
         super.die();
         if (Dungeon.visible[ch.pos]) {
-            emitter().burst( ShadowParticle.CURSE, 10 );
+            emitter().burst(ShadowParticle.CURSE, 10);
         }
     }
 
-    public void blink( int from, int to ) {
+    public void blink(int from, int to) {
 
-        place( to );
+        place(to);
 
-        play( blink );
-        turnTo( from , to );
+        play(blink);
+        turnTo(from, to);
 
         isMoving = true;
 
         ch.onMotionComplete();
     }
-	
-	@Override
-	public int blood() {
-		return 0x88000000;
-	}
+
+    @Override
+    public int blood() {
+        return 0x88000000;
+    }
 }

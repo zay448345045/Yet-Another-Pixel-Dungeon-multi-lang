@@ -20,26 +20,23 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
+import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.WarlockSprite;
+import com.watabou.noosa.Camera;
+import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+
+import java.util.HashSet;
 
 public class DwarfWarlock extends MobRanged {
 
@@ -49,7 +46,7 @@ public class DwarfWarlock extends MobRanged {
 
     public DwarfWarlock() {
 
-        super( 15 );
+        super(15);
 
         /*
 
@@ -66,22 +63,22 @@ public class DwarfWarlock extends MobRanged {
 
          */
 
-		name = "dwarf warlock";
-		info = "Lightning bolt";
-		spriteClass = WarlockSprite.class;
-		
-		loot = Gold.class;
-		lootChance = 0.25f;
+        name = "dwarf warlock";
+        info = "Lightning bolt";
+        spriteClass = WarlockSprite.class;
 
-        resistances.put( Element.Unholy.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
+        loot = Gold.class;
+        lootChance = 0.25f;
 
-	}
+        resistances.put(Element.Unholy.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+
+    }
 
     @Override
     public boolean act() {
 
-        if( !enemySeen )
+        if (!enemySeen)
             charged = false;
 
         return super.act();
@@ -89,17 +86,17 @@ public class DwarfWarlock extends MobRanged {
     }
 
     @Override
-    protected boolean doAttack( Char enemy ) {
+    protected boolean doAttack(Char enemy) {
 
-        if( !Level.adjacent( pos, enemy.pos ) && !charged ) {
+        if (!Level.adjacent(pos, enemy.pos) && !charged) {
 
             charged = true;
 
-            if( Dungeon.visible[ pos ] ) {
+            if (Dungeon.visible[pos]) {
                 sprite.centerEmitter().burst(EnergyParticle.FACTORY_BLUE, 10);
             }
 
-            spend( attackDelay() );
+            spend(attackDelay());
 
             return true;
 
@@ -107,20 +104,20 @@ public class DwarfWarlock extends MobRanged {
 
             charged = false;
 
-            return super.doAttack( enemy );
+            return super.doAttack(enemy);
         }
     }
 
-	@Override
-	protected boolean canAttack( Char enemy ) {
-        return super.canAttack( enemy ) || Ballistica.cast( pos, enemy.pos, false, true ) == enemy.pos;
-	}
+    @Override
+    protected boolean canAttack(Char enemy) {
+        return super.canAttack(enemy) || Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
+    }
 
     @Override
-    protected void onRangedAttack( int cell ) {
+    protected void onRangedAttack(int cell) {
 
-        sprite.parent.add( new Lightning( pos, cell ) );
-        CellEmitter.center( cell ).burst( SparkParticle.FACTORY, Random.IntRange( 3, 5 ) );
+        sprite.parent.add(new Lightning(pos, cell));
+        CellEmitter.center(cell).burst(SparkParticle.FACTORY, Random.IntRange(3, 5));
 
         onCastComplete();
 
@@ -129,43 +126,43 @@ public class DwarfWarlock extends MobRanged {
     }
 
     @Override
-	public boolean cast( Char enemy ) {
+    public boolean cast(Char enemy) {
 
-        HashSet<Char> affected = Thunderstorm.spreadFrom( enemy.pos );
+        HashSet<Char> affected = Thunderstorm.spreadFrom(enemy.pos);
 
-        if( affected != null && !affected.isEmpty() ) {
-            for( Char ch : affected ) {
+        if (affected != null && !affected.isEmpty()) {
+            for (Char ch : affected) {
 
-                int power = damageRoll() + ( ch == enemy ? damageRoll() : 0 ) ;
+                int power = damageRoll() + (ch == enemy ? damageRoll() : 0);
 
-                ch.damage( power, this, Element.SHOCK );
+                ch.damage(power, this, Element.SHOCK);
 
-                if( Dungeon.hero == ch ) {
-                    Camera.main.shake( 1, 0.1f );
+                if (Dungeon.hero == ch) {
+                    Camera.main.shake(1, 0.1f);
                 }
             }
         }
 
         return true;
-	}
-
-	@Override
-	public String description() {
-		return
-			"When dwarves' interests have shifted from engineering to arcane arts, " +
-			"warlocks have come to power in the city. They started with elemental magic, " +
-			"but soon switched to demonology and necromancy.";
-	}
-
-    @Override
-    public void storeInBundle( Bundle bundle ) {
-        super.storeInBundle(bundle);
-        bundle.put( CHARGED, charged );
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public String description() {
+        return
+                "When dwarves' interests have shifted from engineering to arcane arts, " +
+                        "warlocks have come to power in the city. They started with elemental magic, " +
+                        "but soon switched to demonology and necromancy.";
+    }
+
+    @Override
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+        bundle.put(CHARGED, charged);
+    }
+
+    @Override
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        charged = bundle.getBoolean( CHARGED );
+        charged = bundle.getBoolean(CHARGED);
     }
 }

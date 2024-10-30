@@ -23,7 +23,6 @@ package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.particles.Emitter;
@@ -32,36 +31,36 @@ public class IceBlockSprite extends MobSprite {
 
     protected Emitter sparkles;
 
-	public IceBlockSprite() {
-		super();
-		
-		texture( Assets.ICEBLOCK );
-		
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
+    public IceBlockSprite() {
+        super();
 
-		idle = new Animation( 5, true );
-		idle.frames( frames, 4 );
+        texture(Assets.ICEBLOCK);
+
+        TextureFilm frames = new TextureFilm(texture, 16, 16);
+
+        idle = new Animation(5, true);
+        idle.frames(frames, 4);
 //		idle.frames( frames, 4, 5, 6, 7 );
 
-		run = idle.clone();
-		
-		attack = idle.clone();
+        run = idle.clone();
 
-        spawn = new Animation( 10, false );
-        spawn.frames( frames, 0, 1, 3, 4 );
-		
-		die = new Animation( 10, false );
-		die.frames( frames, 8 );
+        attack = idle.clone();
 
-		play( idle );
-	}
+        spawn = new Animation(10, false);
+        spawn.frames(frames, 0, 1, 3, 4);
 
-	@Override
-    public void link( Char ch ) {
-        super.link( ch );
-        if ( sparkles == null ){
+        die = new Animation(10, false);
+        die.frames(frames, 8);
+
+        play(idle);
+    }
+
+    @Override
+    public void link(Char ch) {
+        super.link(ch);
+        if (sparkles == null) {
             sparkles = emitter();
-            sparkles.pour( Speck.factory( Speck.LIGHT ), 0.5f );
+            sparkles.pour(Speck.factory(Speck.LIGHT), 0.5f);
         }
     }
 
@@ -69,19 +68,19 @@ public class IceBlockSprite extends MobSprite {
     public void die() {
         super.die();
 
-        if ( sparkles != null ){
+        if (sparkles != null) {
             sparkles.on = false;
             sparkles = null;
         }
 
-        if ( Dungeon.visible[ch.pos]) {
-            emitter().burst( Speck.factory( Speck.ICESHARD ), 6 );
+        if (Dungeon.visible[ch.pos]) {
+            emitter().burst(Speck.factory(Speck.ICESHARD), 6);
         }
     }
 
 
     @Override
-    public void update(){
+    public void update() {
 
         super.update();
 

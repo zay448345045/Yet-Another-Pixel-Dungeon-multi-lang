@@ -27,32 +27,32 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 
 public class PotionOfShield extends Potion {
 
-    public static final float DURATION	= 30f;
+    public static final float DURATION = 30f;
 
-	{
-		name = "Potion of Shield";
+    {
+        name = "Potion of Shield";
         shortName = "Sh";
-	}
+    }
 
     @Override
-    protected void apply( Hero hero ) {
-        BuffActive.add(hero, Shielding.class, DURATION );
+    protected void apply(Hero hero) {
+        BuffActive.add(hero, Shielding.class, DURATION);
         setKnown();
     }
 
     @Override
-	public String desc() {
-		return
-			"This potion is imbued with a powerful protective magic. Consuming it will temporarily " +
-            "create a kind of force field around you, giving you both improved physical protection " +
-            "and resistance to most sources of magical damage.";
-	}
+    public String desc() {
+        return
+                "This potion is imbued with a powerful protective magic. Consuming it will temporarily " +
+                        "create a kind of force field around you, giving you both improved physical protection " +
+                        "and resistance to most sources of magical damage.";
+    }
 
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 90 * quantity : super.price();
-	}
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 90 * quantity : super.price();
+    }
 
     @Override
     public float brewingChance() {

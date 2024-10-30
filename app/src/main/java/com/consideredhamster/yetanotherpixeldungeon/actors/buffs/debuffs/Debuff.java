@@ -1,6 +1,5 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
@@ -32,21 +31,29 @@ import java.util.HashSet;
 public abstract class Debuff extends BuffActive {
 
     @Override
-    public String messagePrefix() { return GLog.WARNING; }
+    public String messagePrefix() {
+        return GLog.WARNING;
+    }
 
     @Override
-    public int statusColor() { return CharSprite.WARNING; }
+    public int statusColor() {
+        return CharSprite.WARNING;
+    }
 
-    public static void removeAll( Char target ) {
-        remove( target, Debuff.class );
-    };
+    public static void removeAll(Char target) {
+        remove(target, Debuff.class);
+    }
 
-    public static<T extends BuffActive> void remove( Char target, Class<T> debuffClass ) {
-        for( Buff buff : (HashSet<Buff>)target.buffs().clone() ){
-            if( debuffClass.isInstance( buff ) ){
+    ;
+
+    public static <T extends BuffActive> void remove(Char target, Class<T> debuffClass) {
+        for (Buff buff : (HashSet<Buff>) target.buffs().clone()) {
+            if (debuffClass.isInstance(buff)) {
                 buff.detach();
             }
         }
-    };
+    }
+
+    ;
 
 }

@@ -25,20 +25,20 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class ScaleArmor extends BodyArmorLight {
 
-	{
-		name = "scale armor";
-		image = ItemSpriteSheet.ARMOR_SCALE;
+    {
+        name = "scale armor";
+        image = ItemSpriteSheet.ARMOR_SCALE;
         appearance = 8;
-	}
-	
-	public ScaleArmor() {
-		super( 3 );
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    public ScaleArmor() {
+        super(3);
+    }
+
+    @Override
+    public String desc() {
         return
-			"This armor miraculously combines protection of heavy armors and mobility of " +
-            "light armors. Truly a work of a master.";
-	}
+                "This armor miraculously combines protection of heavy armors and mobility of " +
+                        "light armors. Truly a work of a master.";
+    }
 }

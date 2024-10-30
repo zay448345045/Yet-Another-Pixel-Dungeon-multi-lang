@@ -20,9 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.painters;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Shopkeeper;
@@ -30,36 +27,36 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.ShopkeeperD
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.ShopkeeperDwarf;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.ShopkeeperGhost;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.ShopkeeperTroll;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.ArmorerKit;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.Battery;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.EmptyBottle;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.Explosives;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.CraftingKit;
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.Waterskin;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.Whetstone;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.DiscArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.PlateArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.HuntressArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.StuddedArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.MageArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.MailArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.ScaleArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.PlateArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.RogueArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.ScaleArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.SplintArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.StuddedArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.KiteShield;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.RoundShield;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.TowerShield;
 import com.consideredhamster.yetanotherpixeldungeon.items.bags.Bag;
+import com.consideredhamster.yetanotherpixeldungeon.items.bags.HerbPouch;
 import com.consideredhamster.yetanotherpixeldungeon.items.bags.PotionSash;
 import com.consideredhamster.yetanotherpixeldungeon.items.bags.ScrollHolder;
-import com.consideredhamster.yetanotherpixeldungeon.items.bags.HerbPouch;
 import com.consideredhamster.yetanotherpixeldungeon.items.bags.WandHolster;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.RationLarge;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.ArmorerKit;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.Battery;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.CraftingKit;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.Explosives;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.Waterskin;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.Whetstone;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.EmptyBottle;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfMending;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfStrength;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
@@ -67,7 +64,18 @@ import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfDetect
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfUpgrade;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.*;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Battleaxe;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Broadsword;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Dagger;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Glaive;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Greatsword;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Halberd;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Knuckles;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Mace;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Quarterstaff;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Shortsword;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Spear;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Warhammer;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Arbalest;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Arquebuse;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Bow;
@@ -101,130 +109,136 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ShopPainter extends Painter {
 
-	private static int pasWidth;
-	private static int pasHeight;
+    private static int pasWidth;
+    private static int pasHeight;
 
     private static ArrayList<Item> kits;
     private static ArrayList<Item> ammo1;
     private static ArrayList<Item> ammo2;
 
-    private final static Item[] defaultKits = { new Whetstone(), new ArmorerKit(), new CraftingKit(), new Battery() };
-    private final static Item[] defaultAmmo1 = { new Arrows(), new Arrows(), new Quarrels(), new Quarrels() };
-    private final static Item[] defaultAmmo2 = { new Bullets(), new Bullets(), new Explosives.Gunpowder(), new Explosives.Gunpowder() };
+    private final static Item[] defaultKits = {new Whetstone(), new ArmorerKit(), new CraftingKit(), new Battery()};
+    private final static Item[] defaultAmmo1 = {new Arrows(), new Arrows(), new Quarrels(), new Quarrels()};
+    private final static Item[] defaultAmmo2 = {new Bullets(), new Bullets(), new Explosives.Gunpowder(), new Explosives.Gunpowder()};
 
-    private static final String KITS		= "shops_kits";
-    private static final String AMMO1		= "shops_ammo1";
-    private static final String AMMO2		= "shops_ammo2";
+    private static final String KITS = "shops_kits";
+    private static final String AMMO1 = "shops_ammo1";
+    private static final String AMMO2 = "shops_ammo2";
 
     public static void initAssortment() {
 
         kits = new ArrayList<>();
-        kits.addAll( Arrays.asList( defaultKits ) );
+        kits.addAll(Arrays.asList(defaultKits));
 
         ammo1 = new ArrayList<>();
-        ammo1.addAll( Arrays.asList( defaultAmmo1 ) );
+        ammo1.addAll(Arrays.asList(defaultAmmo1));
 
         ammo2 = new ArrayList<>();
-        ammo2.addAll( Arrays.asList( defaultAmmo2 ) );
+        ammo2.addAll(Arrays.asList(defaultAmmo2));
 
     }
 
-    public static void saveAssortment( Bundle bundle) {
+    public static void saveAssortment(Bundle bundle) {
 
-        bundle.put( KITS, kits );
-        bundle.put( AMMO1, ammo1 );
-        bundle.put( AMMO2, ammo2 );
+        bundle.put(KITS, kits);
+        bundle.put(AMMO1, ammo1);
+        bundle.put(AMMO2, ammo2);
 
     }
 
-    public static void loadAssortment( Bundle bundle ) {
+    public static void loadAssortment(Bundle bundle) {
 
         kits = new ArrayList<>();
-        for (Bundlable item : bundle.getCollection( KITS )) {
-            if( item != null ){
-                kits.add( (Item)item );
+        for (Bundlable item : bundle.getCollection(KITS)) {
+            if (item != null) {
+                kits.add((Item) item);
             }
-        };
+        }
+        ;
 
         ammo1 = new ArrayList<>();
-        for (Bundlable item : bundle.getCollection( AMMO1 )) {
-            if( item != null ){
-                ammo1.add( (Item)item );
+        for (Bundlable item : bundle.getCollection(AMMO1)) {
+            if (item != null) {
+                ammo1.add((Item) item);
             }
-        };
+        }
+        ;
 
         ammo2 = new ArrayList<>();
-        for (Bundlable item : bundle.getCollection( AMMO2 )) {
-            if( item != null ){
-                ammo2.add( (Item)item );
+        for (Bundlable item : bundle.getCollection(AMMO2)) {
+            if (item != null) {
+                ammo2.add((Item) item);
             }
-        };
+        }
+        ;
     }
 
-	public static void paint( Level level, Room room ) {
-		
-		fill(level, room, Terrain.WALL);
-		fill(level, room, 1, Terrain.EMPTY_SP);
+    public static void paint(Level level, Room room) {
 
-		pasWidth = room.width() - 2;
-		pasHeight = room.height() - 2;
-		int per = pasWidth * 2 + pasHeight * 2;
-		
-		Item[] range = range( level );
-		
-		int pos = xy2p( room, room.entrance() ) + (per - range.length) / 2;
-		for (int i=0; i < range.length; i++) {
-			
-			Point xy = p2xy( room, (pos + per) % per );
-			int cell = xy.x + xy.y * Level.WIDTH;
-			
-			if (level.heaps.get( cell ) != null) {
-				do {
-					cell = room.random();
-				} while (level.heaps.get( cell ) != null);
-			}
-			
-			level.drop( range[i], cell, true ).type = Heap.Type.FOR_SALE;
-			
-			pos++;
-		}
-		
-		placeShopkeeper( level, room );
-		
-		for (Room.Door door : room.connected.values()) {
-			door.set( Room.Door.Type.REGULAR );
-		}
-	}
-	
-	private static Item[] range( Level level ) {
-		
-		ArrayList<Item> items = new ArrayList<Item>();
+        fill(level, room, Terrain.WALL);
+        fill(level, room, 1, Terrain.EMPTY_SP);
 
-        if ( level instanceof LastShopLevel) {
+        pasWidth = room.width() - 2;
+        pasHeight = room.height() - 2;
+        int per = pasWidth * 2 + pasHeight * 2;
+
+        Item[] range = range(level);
+
+        int pos = xy2p(room, room.entrance()) + (per - range.length) / 2;
+        for (int i = 0; i < range.length; i++) {
+
+            Point xy = p2xy(room, (pos + per) % per);
+            int cell = xy.x + xy.y * Level.WIDTH;
+
+            if (level.heaps.get(cell) != null) {
+                do {
+                    cell = room.random();
+                } while (level.heaps.get(cell) != null);
+            }
+
+            level.drop(range[i], cell, true).type = Heap.Type.FOR_SALE;
+
+            pos++;
+        }
+
+        placeShopkeeper(level, room);
+
+        for (Room.Door door : room.connected.values()) {
+            door.set(Room.Door.Type.REGULAR);
+        }
+    }
+
+    private static Item[] range(Level level) {
+
+        ArrayList<Item> items = new ArrayList<Item>();
+
+        if (level instanceof LastShopLevel) {
 
             int questsCompleted = Dungeon.questsCompleted();
 
-            items.add( Random.oneOf(
+            items.add(Random.oneOf(
                     new Knuckles(), new Dagger(), new Quarterstaff(),
                     new Sling(), new Bow(), new Arbalest(),
                     new Pistole(), new Arquebuse(), new Handcannon()
-            ).enchant().repair().fix().uncurse(3).upgrade(3).identify() );
+            ).enchant().repair().fix().uncurse(3).upgrade(3).identify());
 
-            items.add( Random.oneOf(
+            items.add(Random.oneOf(
                     new Spear(), new Mace(), new Shortsword(),
                     new Glaive(), new Battleaxe(), new Broadsword(),
                     new Halberd(), new Warhammer(), new Greatsword()
-            ).enchant().repair().fix().uncurse(3).upgrade(3).identify() );
+            ).enchant().repair().fix().uncurse(3).upgrade(3).identify());
 
-            items.add( Random.oneOf(
+            items.add(Random.oneOf(
                     new StuddedArmor(), new DiscArmor(), new RoundShield(),
                     new MailArmor(), new SplintArmor(), new KiteShield(),
                     new ScaleArmor(), new PlateArmor(), new TowerShield()
-            ).inscribe().repair().fix().uncurse(3).upgrade(3).identify() );
+            ).inscribe().repair().fix().uncurse(3).upgrade(3).identify());
 
-            items.add( Random.oneOf(
+            items.add(Random.oneOf(
                     new PoisonDarts(), new Bolas(), new Boomerangs(),
                     new Knives(), new Shurikens(), new Chakrams(),
                     new Javelins(), new Tomahawks(), new Harpoons()
@@ -234,22 +248,22 @@ public class ShopPainter extends Painter {
                     new Bullets(), new Explosives.Gunpowder()
             ).random();
 
-            ammo1.quantity += Random.IntRange( 20, 30 );
-            items.add( ammo1 );
+            ammo1.quantity += Random.IntRange(20, 30);
+            items.add(ammo1);
 
             Item ammo2 = Random.oneOf(
                     new Arrows(), new Quarrels()
             ).random();
 
-            ammo2.quantity += Random.IntRange( 10, 20 );
-            items.add( ammo2 );
+            ammo2.quantity += Random.IntRange(10, 20);
+            items.add(ammo2);
 
             Item ammo3 = Random.oneOf(
                     new Explosives.BombStick(), new Explosives.BombBundle()
             ).random();
 
-            ammo3.quantity += Random.IntRange( 1, 2 );
-            items.add( ammo3 );
+            ammo3.quantity += Random.IntRange(1, 2);
+            items.add(ammo3);
 
             items.add(Generator.random(Generator.Category.RING).uncurse(3).upgrade(3));
             items.add(Generator.random(Generator.Category.WAND).repair().fix().uncurse(3).upgrade(3));
@@ -313,65 +327,66 @@ public class ShopPainter extends Painter {
 
             }
 
-            if( bag != null ) {
+            if (bag != null) {
                 items.add(bag);
             }
 
-            if( weapon != null ) {
+            if (weapon != null) {
                 weapon.repair().fix().identify().upgrade(Random.Int(Dungeon.chapter()));
 
-                if( Random.Int( 5 ) < Dungeon.chapter() ) {
+                if (Random.Int(5) < Dungeon.chapter()) {
                     weapon.enchant();
                 }
 
                 items.add(weapon);
             }
 
-            if( armour != null ) {
-                armour.repair().fix().identify().upgrade( Random.Int( Dungeon.chapter() ) );
+            if (armour != null) {
+                armour.repair().fix().identify().upgrade(Random.Int(Dungeon.chapter()));
 
-                if( Random.Int( 5 ) < Dungeon.chapter() ) {
+                if (Random.Int(5) < Dungeon.chapter()) {
                     armour.inscribe();
                 }
 
                 items.add(armour);
             }
 
-            if( ranged instanceof RangedWeapon ) {
+            if (ranged instanceof RangedWeapon) {
                 ranged.repair().fix().identify().upgrade(Random.Int(Dungeon.chapter()));
 
-                if( Random.Int( 5 ) < Dungeon.chapter() ) {
-                    ((RangedWeapon)ranged).enchant();
+                if (Random.Int(5) < Dungeon.chapter()) {
+                    ((RangedWeapon) ranged).enchant();
                 }
 
                 items.add(ranged);
-            } else if( ranged instanceof ThrowingWeapon || ranged instanceof Explosives ) {
+            } else if (ranged instanceof ThrowingWeapon || ranged instanceof Explosives) {
                 ranged.random();
                 items.add(ranged);
             }
 
-            if( thrown != null ) {
+            if (thrown != null) {
                 thrown.random();
                 items.add(thrown);
             }
 
             Item ammo1 = generateAmmo1().random();
-            ammo1.quantity += Dungeon.chapter() * ( ammo1 instanceof Explosives.Gunpowder ? 10 : 5 );
-            items.add( ammo1 );
+            ammo1.quantity += Dungeon.chapter() * (ammo1 instanceof Explosives.Gunpowder ? 10 : 5);
+            items.add(ammo1);
 
             Item ammo2 = generateAmmo2().random();
-            ammo2.quantity += Dungeon.chapter() * ( ammo2 instanceof Explosives.Gunpowder ? 10 : 5 ); ;
-            items.add( ammo2 );
+            ammo2.quantity += Dungeon.chapter() * (ammo2 instanceof Explosives.Gunpowder ? 10 : 5);
+            ;
+            items.add(ammo2);
 
-            Ring ring = (Ring)Generator.random(Generator.Category.RING);
-            if( ring != null) {
-                ring.bonus = Random.Int( Dungeon.chapter() );
+            Ring ring = (Ring) Generator.random(Generator.Category.RING);
+            if (ring != null) {
+                ring.bonus = Random.Int(Dungeon.chapter());
                 items.add(ring);
             }
 
-            Wand wand = (Wand)Generator.random(Generator.Category.WAND);
-            if( wand != null ) {
-                wand.bonus = Random.Int( Dungeon.chapter() );
+            Wand wand = (Wand) Generator.random(Generator.Category.WAND);
+            if (wand != null) {
+                wand.bonus = Random.Int(Dungeon.chapter());
                 wand.repair().fix();
                 wand.recharge();
                 items.add(wand);
@@ -383,45 +398,45 @@ public class ShopPainter extends Painter {
             items.add(new ScrollOfDetectMagic());
             items.add(Generator.random(Generator.Category.SCROLL));
 
-            items.add( generateKits() );
+            items.add(generateKits());
 
             items.add(new RationLarge());
             items.add(new Waterskin());
             items.add(new OilLantern.OilFlask());
             items.add(new EmptyBottle());
         }
-		
-		Item[] range = items.toArray( new Item[0] );
+
+        Item[] range = items.toArray(new Item[0]);
 //		Random.shuffle( range );
-		
-		return range;
-	}
+
+        return range;
+    }
 
     private static Item generateAmmo1() {
-        if( !ammo1.isEmpty() ) {
-            return ammo1.remove( Random.Int( ammo1.size() ) );
+        if (!ammo1.isEmpty()) {
+            return ammo1.remove(Random.Int(ammo1.size()));
         } else {
-            return Random.oneOf( defaultAmmo1 );
+            return Random.oneOf(defaultAmmo1);
         }
     }
 
     private static Item generateAmmo2() {
-        if( !ammo2.isEmpty() ) {
-            return ammo2.remove( Random.Int( ammo2.size() ) );
+        if (!ammo2.isEmpty()) {
+            return ammo2.remove(Random.Int(ammo2.size()));
         } else {
-            return Random.oneOf( defaultAmmo2 );
+            return Random.oneOf(defaultAmmo2);
         }
     }
 
     private static Item generateKits() {
-        if( !kits.isEmpty() ) {
-            return kits.remove( Random.Int( kits.size() ) );
+        if (!kits.isEmpty()) {
+            return kits.remove(Random.Int(kits.size()));
         } else {
-            return Random.oneOf( defaultKits );
+            return Random.oneOf(defaultKits);
         }
     }
-	
-	private static void placeShopkeeper( Level level, Room room ) {
+
+    private static void placeShopkeeper(Level level, Room room) {
 
         int pos;
         do {
@@ -432,70 +447,70 @@ public class ShopPainter extends Painter {
 
         if (level instanceof LastShopLevel) {
             shopkeeper = new ShopkeeperDemon();
-        } else if( level instanceof CityLevel) {
+        } else if (level instanceof CityLevel) {
             shopkeeper = new ShopkeeperDwarf();
-        } else if( level instanceof CavesLevel) {
+        } else if (level instanceof CavesLevel) {
             shopkeeper = new ShopkeeperTroll();
-        } else if( level instanceof PrisonLevel) {
+        } else if (level instanceof PrisonLevel) {
             shopkeeper = new ShopkeeperGhost();
         } else {
             shopkeeper = new Shopkeeper();
         }
 
         shopkeeper.pos = pos;
-        level.mobs.add( shopkeeper );
+        level.mobs.add(shopkeeper);
 
-		if (level instanceof LastShopLevel) {
-			for (int i=0; i < Level.NEIGHBOURS9.length; i++) {
-				int p = shopkeeper.pos + Level.NEIGHBOURS9[i];
-				if (level.map[p] == Terrain.EMPTY_SP) {
-					level.map[p] = Terrain.WATER;
-				}
-			}
-		}
-	}
-	
-	private static int xy2p( Room room, Point xy ) {
-		if (xy.y == room.top) {
-			
-			return (xy.x - room.left - 1);
-			
-		} else if (xy.x == room.right) {
-			
-			return (xy.y - room.top - 1) + pasWidth;
-			
-		} else if (xy.y == room.bottom) {
-			
-			return (room.right - xy.x - 1) + pasWidth + pasHeight;
-			
-		} else /*if (xy.x == room.left)*/ {
-			
-			if (xy.y == room.top + 1) {
-				return 0;
-			} else {
-				return (room.bottom - xy.y - 1) + pasWidth * 2 + pasHeight;
-			}
-			
-		}
-	}
-	
-	private static Point p2xy( Room room, int p ) {
-		if (p < pasWidth) {
-			
-			return new Point( room.left + 1 + p, room.top + 1);
-			
-		} else if (p < pasWidth + pasHeight) {
-			
-			return new Point( room.right - 1, room.top + 1 + (p - pasWidth) );
-			
-		} else if (p < pasWidth * 2 + pasHeight) {
-			
-			return new Point( room.right - 1 - (p - (pasWidth + pasHeight)), room.bottom - 1 );
-			
-		} else {
+        if (level instanceof LastShopLevel) {
+            for (int i = 0; i < Level.NEIGHBOURS9.length; i++) {
+                int p = shopkeeper.pos + Level.NEIGHBOURS9[i];
+                if (level.map[p] == Terrain.EMPTY_SP) {
+                    level.map[p] = Terrain.WATER;
+                }
+            }
+        }
+    }
 
-			return new Point( room.left + 1, room.bottom - 1 - (p - (pasWidth * 2 + pasHeight)) );
-			
-		}
-	}
+    private static int xy2p(Room room, Point xy) {
+        if (xy.y == room.top) {
+
+            return (xy.x - room.left - 1);
+
+        } else if (xy.x == room.right) {
+
+            return (xy.y - room.top - 1) + pasWidth;
+
+        } else if (xy.y == room.bottom) {
+
+            return (room.right - xy.x - 1) + pasWidth + pasHeight;
+
+        } else /*if (xy.x == room.left)*/ {
+
+            if (xy.y == room.top + 1) {
+                return 0;
+            } else {
+                return (room.bottom - xy.y - 1) + pasWidth * 2 + pasHeight;
+            }
+
+        }
+    }
+
+    private static Point p2xy(Room room, int p) {
+        if (p < pasWidth) {
+
+            return new Point(room.left + 1 + p, room.top + 1);
+
+        } else if (p < pasWidth + pasHeight) {
+
+            return new Point(room.right - 1, room.top + 1 + (p - pasWidth));
+
+        } else if (p < pasWidth * 2 + pasHeight) {
+
+            return new Point(room.right - 1 - (p - (pasWidth + pasHeight)), room.bottom - 1);
+
+        } else {
+
+            return new Point(room.left + 1, room.bottom - 1 - (p - (pasWidth * 2 + pasHeight)));
+
+        }
+    }
 }

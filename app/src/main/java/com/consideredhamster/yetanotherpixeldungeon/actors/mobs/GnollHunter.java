@@ -20,26 +20,24 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import com.watabou.utils.Callback;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroClass;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Arrows;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Bullets;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Javelins;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Quarrels;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.GnollSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
+import com.watabou.utils.Callback;
 
 public class GnollHunter extends MobRanged {
 
     public GnollHunter() {
 
-        super( Dungeon.chapter() * 5 - 2 );
+        super(Dungeon.chapter() * 5 - 2);
 
         /*
 
@@ -56,14 +54,14 @@ public class GnollHunter extends MobRanged {
 
          */
 
-		name = "gnoll hunter";
-		info = "Spear throw";
+        name = "gnoll hunter";
+        info = "Spear throw";
 
-		spriteClass = GnollSprite.class;
+        spriteClass = GnollSprite.class;
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
 
-        switch( Dungeon.chapter() ) {
+        switch (Dungeon.chapter()) {
             case 1:
                 loot = Bullets.class;
                 lootChance = 0.25f;
@@ -81,37 +79,37 @@ public class GnollHunter extends MobRanged {
                 lootChance = 0.5f;
                 break;
         }
-	}
-
-    @Override
-    protected boolean canAttack( Char enemy ) {
-        return super.canAttack( enemy ) || Ballistica.cast( pos, enemy.pos, false, true ) == enemy.pos;
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
-        ((MissileSprite)sprite.parent.recycle( MissileSprite.class )).
-            reset(pos, cell, new Javelins(), new Callback() {
-                @Override
-                public void call() {
-                    onAttackComplete();
-                }
-            });
-
-        super.onRangedAttack( cell );
+    protected boolean canAttack(Char enemy) {
+        return super.canAttack(enemy) || Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
     }
 
-	@Override
-	public void die( Object cause, Element dmg ) {
-		Ghost.Quest.process( pos );
-		super.die( cause, dmg );
-	}
-	
-	@Override
-	public String description() {
+    @Override
+    protected void onRangedAttack(int cell) {
+        ((MissileSprite) sprite.parent.recycle(MissileSprite.class)).
+                reset(pos, cell, new Javelins(), new Callback() {
+                    @Override
+                    public void call() {
+                        onAttackComplete();
+                    }
+                });
+
+        super.onRangedAttack(cell);
+    }
+
+    @Override
+    public void die(Object cause, Element dmg) {
+        Ghost.Quest.process(pos);
+        super.die(cause, dmg);
+    }
+
+    @Override
+    public String description() {
 
         return "Gnolls are hyena-like humanoids. Curiously, they are very rarely observed so " +
                 "close to a human settlements, preferring to dwell somewhere in wilderness.";
-	}
+    }
 
 }

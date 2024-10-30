@@ -24,34 +24,34 @@ import java.util.Locale;
 
 public class RingOfSatiety extends Ring {
 
-	{
-		name = "Ring of Satiety";
+    {
+        name = "Ring of Satiety";
         shortName = "Sa";
-	}
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Satiety();
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    @Override
+    protected RingBuff buff() {
+        return new Satiety();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
         String sideEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 2 );
-            sideEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 3 );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
+            sideEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 3);
         }
 
         StringBuilder desc = new StringBuilder(
-            "Rings of satiety optimize digestive mechanisms of wearer's body, making it possible " +
-            "to go without food longer and increasing nutriety of consumed meals, both helping in " +
-            "the times of hunger and helping to prolong times of excess."
+                "Rings of satiety optimize digestive mechanisms of wearer's body, making it possible " +
+                        "to go without food longer and increasing nutriety of consumed meals, both helping in " +
+                        "the times of hunger and helping to prolong times of excess."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -66,14 +66,14 @@ public class RingOfSatiety extends Ring {
         }
 
         return desc.toString();
-	}
-	
-	public class Satiety extends RingBuff {
+    }
+
+    public class Satiety extends RingBuff {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "You feel comfortable warmth in your stomach." :
-                "You feel your hunger growing faster." ;
+                    "You feel comfortable warmth in your stomach." :
+                    "You feel your hunger growing faster.";
         }
-	}
+    }
 }

@@ -40,18 +40,18 @@ public abstract class MeleeWeaponHeavyOH extends MeleeWeapon {
     }
 
     @Override
-    public int min( int bonus ) {
-        return super.min(bonus) + ( enchantment instanceof Tempered ? 1 : 0 ) + 1;
+    public int min(int bonus) {
+        return super.min(bonus) + (enchantment instanceof Tempered ? 1 : 0) + 1;
     }
 
     @Override
-    public int max( int bonus ) {
-        return super.max(bonus) + ( enchantment instanceof Tempered ? 1 : 0 ) + 4;
+    public int max(int bonus) {
+        return super.max(bonus) + (enchantment instanceof Tempered ? 1 : 0) + 4;
     }
 
     @Override
     public int dmgMod() {
-        return super.dmgMod() + 1 ;
+        return super.dmgMod() + 1;
     }
 
     @Override

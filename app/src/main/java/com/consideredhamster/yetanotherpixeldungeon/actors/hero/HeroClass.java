@@ -20,67 +20,43 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.hero;
 
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.ScaleArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.food.RationMedium;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.Explosives;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.EmptyBottle;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfInvisibility;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfLevitation;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfMending;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfMindVision;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfStrength;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfWisdom;
-import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfShadows;
-import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfClairvoyance;
-import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfDetectMagic;
-import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfPhaseWarp;
-import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfTransmutation;
-import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfUpgrade;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfFirebrand;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfIceBarrier;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfLightning;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfMagicMissile;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfThornvines;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Freezing;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Arbalest;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Bow;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Pistole;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Arrows;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Harpoons;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Quarrels;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Badges;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.HuntressArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.MageArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.RogueArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.StuddedArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.RoundShield;
+import com.consideredhamster.yetanotherpixeldungeon.items.bags.Keyring;
+import com.consideredhamster.yetanotherpixeldungeon.items.food.RationMedium;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.ArmorerKit;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Battery;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.CraftingKit;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Waterskin;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Whetstone;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.HuntressArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.StuddedArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.MageArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.RogueArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.RoundShield;
-import com.consideredhamster.yetanotherpixeldungeon.items.bags.Keyring;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.EmptyBottle;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfShadows;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfRaiseDead;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Sling;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Bullets;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfMagicMissile;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Dagger;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Quarterstaff;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Shortsword;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Sling;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Bullets;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Knives;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.utils.Bundle;
 
 public enum HeroClass {
 
-	WARRIOR( "warrior" ), BRIGAND( "brigand" ), SCHOLAR( "scholar" ), ACOLYTE( "acolyte" );
+    WARRIOR("warrior"), BRIGAND("brigand"), SCHOLAR("scholar"), ACOLYTE("acolyte");
 
-	private String title;
-	
-	private HeroClass( String title ) {
-		this.title = title;
-	}
+    private String title;
+
+    private HeroClass(String title) {
+        this.title = title;
+    }
 
     public static final String[] WAR_ABOUT = {
 //            "Your ancestors were many a man. Mad warlords and ruthless mercenaries, some. Noble knights and pious crusaders, others. Cowards? None of them.",
@@ -176,35 +152,35 @@ public enum HeroClass {
             "- health",
             "- strength",
     };
-	
-	public void initHero( Hero hero ) {
-		
-		hero.heroClass = this;
-		
-		initCommon(hero);
-		
-		switch (this) {
+
+    public void initHero(Hero hero) {
+
+        hero.heroClass = this;
+
+        initCommon(hero);
+
+        switch (this) {
             case WARRIOR:
-                initWarrior( hero );
+                initWarrior(hero);
                 break;
 
             case BRIGAND:
-                initRogue( hero );
+                initRogue(hero);
                 break;
 
             case SCHOLAR:
-                initMage( hero );
+                initMage(hero);
                 break;
 
             case ACOLYTE:
-                initHuntress( hero );
+                initHuntress(hero);
                 break;
-		}
-	}
-	
-	private static void initCommon( Hero hero ) {
+        }
+    }
 
-		new Keyring().collect();
+    private static void initCommon(Hero hero) {
+
+        new Keyring().collect();
         new RationMedium().collect();
 
 //        new ScrollOfClairvoyance().quantity(30).identify().collect();
@@ -219,25 +195,24 @@ public enum HeroClass {
 //        new PotionOfStrength().quantity(4).identify().collect();
 //        new ScrollOfUpgrade().quantity(4).identify().collect();
 
-        new Waterskin().setLimit( 5 ).fill().collect();
+        new Waterskin().setLimit(5).fill().collect();
         new OilLantern().collect();
 
     }
-	
-	public Badges.Badge masteryBadge() {
-		switch (this) {
-		case WARRIOR:
-			return Badges.Badge.MASTERY_WARRIOR;
-        case BRIGAND:
-            return Badges.Badge.MASTERY_BRIGAND;
-		case SCHOLAR:
-			return Badges.Badge.MASTERY_SCHOLAR;
-		case ACOLYTE:
-			return Badges.Badge.MASTERY_ACOLYTE;
-		}
-		return null;
-	}
 
+    public Badges.Badge masteryBadge() {
+        switch (this) {
+            case WARRIOR:
+                return Badges.Badge.MASTERY_WARRIOR;
+            case BRIGAND:
+                return Badges.Badge.MASTERY_BRIGAND;
+            case SCHOLAR:
+                return Badges.Badge.MASTERY_SCHOLAR;
+            case ACOLYTE:
+                return Badges.Badge.MASTERY_ACOLYTE;
+        }
+        return null;
+    }
 
 
     public Badges.Badge victoryBadge() {
@@ -254,15 +229,15 @@ public enum HeroClass {
         }
         return null;
     }
-	
-	private static void initWarrior( Hero hero ) {
 
-		hero.STR++;
+    private static void initWarrior(Hero hero) {
+
+        hero.STR++;
 
         hero.HP = (hero.HT += 5);
         hero.defenseSkill -= 5;
 
-		(hero.belongings.weap1 = new Shortsword()).identify().repair().fix();
+        (hero.belongings.weap1 = new Shortsword()).identify().repair().fix();
         (hero.belongings.weap2 = new RoundShield()).identify().repair().fix();
         (hero.belongings.armor = new StuddedArmor()).identify().repair().fix();
 
@@ -270,7 +245,7 @@ public enum HeroClass {
 
     }
 
-    private static void initRogue( Hero hero ) {
+    private static void initRogue(Hero hero) {
 
         hero.defenseSkill += 5;
         hero.magicPower -= 5;
@@ -280,28 +255,28 @@ public enum HeroClass {
         (hero.belongings.armor = new RogueArmor()).identify().repair().fix();
         (hero.belongings.ring1 = new RingOfShadows()).identify();
 
-        hero.belongings.ring1.activate( hero );
+        hero.belongings.ring1.activate(hero);
 
         new Whetstone().collect();
     }
-	
-	private static void initMage( Hero hero ) {
+
+    private static void initMage(Hero hero) {
 
         hero.magicPower += 5;
         hero.attackSkill -= 5;
 
-		(hero.belongings.weap1 = new Quarterstaff()).identify().repair().fix();
-		(hero.belongings.weap2 = new WandOfMagicMissile()).identify().repair().fix();
+        (hero.belongings.weap1 = new Quarterstaff()).identify().repair().fix();
+        (hero.belongings.weap2 = new WandOfMagicMissile()).identify().repair().fix();
         (hero.belongings.armor = new MageArmor()).identify().repair().fix();
 
-        ((Wand)hero.belongings.weap2).recharge();
+        ((Wand) hero.belongings.weap2).recharge();
 
         new ScrollOfRaiseDead().identify().collect();
         new Battery().collect();
 
-	}
-	
-	private static void initHuntress( Hero hero ) {
+    }
+
+    private static void initHuntress(Hero hero) {
 
         hero.STR--;
 
@@ -309,20 +284,20 @@ public enum HeroClass {
         hero.attackSkill += 5;
 
         (hero.belongings.weap1 = new Sling()).repair().identify().fix();
-        (hero.belongings.weap2 = new Bullets()).quantity( 30 );
+        (hero.belongings.weap2 = new Bullets()).quantity(30);
         (hero.belongings.armor = new HuntressArmor()).identify().repair().fix();
 
         new EmptyBottle().quantity(3).collect();
         new CraftingKit().collect();
     }
-	
-	public String title() {
-		return title;
-	}
-	
-	public String spritesheet() {
-		
-		switch (this) {
+
+    public String title() {
+        return title;
+    }
+
+    public String spritesheet() {
+
+        switch (this) {
             case WARRIOR:
                 return Assets.WARRIOR;
             case BRIGAND:
@@ -331,10 +306,10 @@ public enum HeroClass {
                 return Assets.SCHOLAR;
             case ACOLYTE:
                 return Assets.ACOLYTE;
-		}
-		
-		return null;
-	}
+        }
+
+        return null;
+    }
 
     public String[] history() {
 
@@ -352,9 +327,9 @@ public enum HeroClass {
         return null;
     }
 
-	public String[] details() {
-		
-		switch (this) {
+    public String[] details() {
+
+        switch (this) {
             case WARRIOR:
                 return WAR_DETAILS;
             case BRIGAND:
@@ -364,18 +339,18 @@ public enum HeroClass {
             case ACOLYTE:
                 return HUN_DETAILS;
         }
-		
-		return null;
-	}
 
-	private static final String CLASS	= "class";
-	
-	public void storeInBundle( Bundle bundle ) {
-		bundle.put( CLASS, toString() );
-	}
-	
-	public static HeroClass restoreInBundle( Bundle bundle ) {
-		String value = bundle.getString( CLASS );
-		return value.length() > 0 ? valueOf( value ) : WARRIOR;
-	}
+        return null;
+    }
+
+    private static final String CLASS = "class";
+
+    public void storeInBundle(Bundle bundle) {
+        bundle.put(CLASS, toString());
+    }
+
+    public static HeroClass restoreInBundle(Bundle bundle) {
+        String value = bundle.getString(CLASS);
+        return value.length() > 0 ? valueOf(value) : WARRIOR;
+    }
 }

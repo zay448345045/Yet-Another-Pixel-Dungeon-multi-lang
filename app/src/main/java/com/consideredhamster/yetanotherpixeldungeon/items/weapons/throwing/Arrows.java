@@ -24,29 +24,29 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Arrows extends ThrowingWeaponAmmo {
 
-	{
-		name = "arrows";
-		image = ItemSpriteSheet.ARROW;
-	}
+    {
+        name = "arrows";
+        image = ItemSpriteSheet.ARROW;
+    }
 
-	public Arrows() {
-		this( 1 );
-	}
+    public Arrows() {
+        this(1);
+    }
 
-	public Arrows(int number) {
-        super( 2 );
-		quantity = number;
-	}
+    public Arrows(int number) {
+        super(2);
+        quantity = number;
+    }
 
     @Override
     public int image() {
         return quantity > 1 ? ItemSpriteSheet.ARROWS : image;
 //        return (isEquipped( Dungeon.hero ) || Dungeon.hero.belongings.backpack.items.contains(this) ) ? ItemSpriteSheet.ARROWS : image;
     }
-	
-	@Override
-	public String desc() {
-		return 
-			"A wooden shaft with metal tip and basic fletching. Flies fast, strikes true.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "A wooden shaft with metal tip and basic fletching. Flies fast, strikes true.";
+    }
 }

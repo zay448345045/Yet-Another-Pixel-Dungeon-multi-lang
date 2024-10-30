@@ -20,27 +20,18 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.AmbitiousImp;
 import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
-import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.GolemSprite;
-import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
 public class Golem extends MobHealthy {
 
     public Golem() {
 
-        super( 16 );
+        super(16);
 
         /*
 
@@ -57,35 +48,35 @@ public class Golem extends MobHealthy {
 
          */
 
-		name = "stone golem";
-		info = "Magical, Slow, Knockback";
+        name = "stone golem";
+        info = "Magical, Slow, Knockback";
 
-		spriteClass = GolemSprite.class;
+        spriteClass = GolemSprite.class;
         dexterity /= 2;
 
-        resistances.put( Element.Flame.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Frost.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Shock.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Energy.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Unholy.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Flame.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Frost.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Shock.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Energy.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Unholy.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Mind.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Body.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Mind.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Body.class, Element.Resist.IMMUNE);
 
-        resistances.put( Element.Knockback.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Doom.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Knockback.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Doom.class, Element.Resist.PARTIAL);
 
-	}
+    }
 
     @Override
     public boolean isMagical() {
         return true;
     }
-	
-	@Override
-	public float attackSpeed() {
-		return 0.75f;
-	}
+
+    @Override
+    public float attackSpeed() {
+        return 0.75f;
+    }
 
     @Override
     public float moveSpeed() {
@@ -93,29 +84,29 @@ public class Golem extends MobHealthy {
     }
 
     @Override
-    public int attackProc( final Char enemy, int damage, boolean blocked ) {
+    public int attackProc(final Char enemy, int damage, boolean blocked) {
 
-        if( Random.Int( 10 ) < tier ) {
-            Pushing.knockback( enemy, pos, 1, damage / 2 );
+        if (Random.Int(10) < tier) {
+            Pushing.knockback(enemy, pos, 1, damage / 2);
         }
 
         return damage;
     }
-	
-	@Override
-	public void die( Object cause, Element dmg ) {
-		AmbitiousImp.Quest.process( this );
-		
-		super.die( cause, dmg );
-	}
-	
-	@Override
-	public String description() {
-		return
-			"The Dwarves tried to combine their knowledge of mechanisms with their newfound power of elemental binding. " +
-			"They used spirits of earth as the \"soul\" for the mechanical bodies of golems, which were believed to be " +
-			"most controllable of all. Despite this, the tiniest mistake in the ritual could cause an outbreak. But it " +
-            "is still worth it, as golem's fists can knock away even the sturdiest foes.";
-	}
+
+    @Override
+    public void die(Object cause, Element dmg) {
+        AmbitiousImp.Quest.process(this);
+
+        super.die(cause, dmg);
+    }
+
+    @Override
+    public String description() {
+        return
+                "The Dwarves tried to combine their knowledge of mechanisms with their newfound power of elemental binding. " +
+                        "They used spirits of earth as the \"soul\" for the mechanical bodies of golems, which were believed to be " +
+                        "most controllable of all. Despite this, the tiniest mistake in the ritual could cause an outbreak. But it " +
+                        "is still worth it, as golem's fists can knock away even the sturdiest foes.";
+    }
 
 }

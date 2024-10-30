@@ -28,41 +28,41 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
 public class ScrollHolder extends Bag {
 
-	{
-		name = "scroll holder";
-		image = ItemSpriteSheet.HOLDER;
-		
-		size = 19;
+    {
+        name = "scroll holder";
+        image = ItemSpriteSheet.HOLDER;
+
+        size = 19;
         visible = false;
         unique = true;
-	}
-	
-	@Override
-	public boolean grab( Item item ) {
-		return item instanceof Scroll;
-	}
+    }
+
+    @Override
+    public boolean grab(Item item) {
+        return item instanceof Scroll;
+    }
 
     @Override
     public Icons icon() {
         return Icons.SCROLL_HOLDER;
     }
-	
-	@Override
-	public int price() {
-		return 50;
-	}
-	
-	@Override
-	public String info() {
-		return
-			"You can place any number of scrolls into this tubular container. " +
-			"It saves room in your backpack and protects scrolls from fire.";
-	}
 
     @Override
-    public boolean doPickUp( Hero hero ) {
+    public int price() {
+        return 50;
+    }
 
-        return hero.belongings.getItem( ScrollHolder.class ) == null && super.doPickUp( hero ) ;
+    @Override
+    public String info() {
+        return
+                "You can place any number of scrolls into this tubular container. " +
+                        "It saves room in your backpack and protects scrolls from fire.";
+    }
+
+    @Override
+    public boolean doPickUp(Hero hero) {
+
+        return hero.belongings.getItem(ScrollHolder.class) == null && super.doPickUp(hero);
 
     }
 }

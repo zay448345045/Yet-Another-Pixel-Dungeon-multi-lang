@@ -21,16 +21,13 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroClass;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.RatSprite;
 
 public class Rat extends MobEvasive {
 
     public Rat() {
 
-        super( 1 );
+        super(1);
 
         /*
 
@@ -54,8 +51,8 @@ public class Rat extends MobEvasive {
 
         minDamage += 1;
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Knockback.class, Element.Resist.VULNERABLE );
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Knockback.class, Element.Resist.VULNERABLE);
 
     }
 
@@ -65,11 +62,11 @@ public class Rat extends MobEvasive {
 //
 //		super.die( cause, dmg );
 //	}
-	
-	@Override
-	public String description() {
-		return "This vermin inhabited the City for almost as long as these sewers had existed. " +
+
+    @Override
+    public String description() {
+        return "This vermin inhabited the City for almost as long as these sewers had existed. " +
                 "But recently there appeared rumours about these rats attacking pets, toddlers and " +
                 "even adults sometimes.";
-	}
+    }
 }

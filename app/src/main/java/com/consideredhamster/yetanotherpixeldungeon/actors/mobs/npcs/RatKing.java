@@ -20,67 +20,66 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs;
 
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
-
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.RatKingSprite;
 
 public class RatKing extends NPC {
 
-	{
-		name = "rat king";
-		spriteClass = RatKingSprite.class;
-		
-		state = SLEEPING;
-	}
-	
+    {
+        name = "rat king";
+        spriteClass = RatKingSprite.class;
+
+        state = SLEEPING;
+    }
+
 //	@Override
 //	public int dexterity( Char enemy ) {
 //		return 1000;
 //	}
-	
-	@Override
-	public float moveSpeed() {
-		return 2f;
-	}
-	
-	@Override
-	public Char chooseEnemy() {
-		return null;
-	}
-	
-	@Override
-    public void damage( int dmg, Object src, Element type ) {
-	}
-	
-	@Override
-    public boolean add( Buff buff ) {
+
+    @Override
+    public float moveSpeed() {
+        return 2f;
+    }
+
+    @Override
+    public Char chooseEnemy() {
+        return null;
+    }
+
+    @Override
+    public void damage(int dmg, Object src, Element type) {
+    }
+
+    @Override
+    public boolean add(Buff buff) {
         return false;
     }
-	
-	@Override
-	public boolean reset() {
-		return true;
-	}
-	
-	@Override
-	public void interact() {
-		sprite.turnTo( pos, Dungeon.hero.pos );
-		if (state == SLEEPING) {
-			notice();
-			yell( "I'm not sleeping!" );
-			state = WANDERING;
-		} else {
-			yell( "What is it? I have no time for this nonsense. My kingdom won't rule itself!" );
-		}
-	}
-	
-	@Override
-	public String description() {
-		return 
-			"This rat is a little bigger than a regular marsupial rat " +
-			"and it's wearing a tiny crown on its head.";
-	}
+
+    @Override
+    public boolean reset() {
+        return true;
+    }
+
+    @Override
+    public void interact() {
+        sprite.turnTo(pos, Dungeon.hero.pos);
+        if (state == SLEEPING) {
+            notice();
+            yell("I'm not sleeping!");
+            state = WANDERING;
+        } else {
+            yell("What is it? I have no time for this nonsense. My kingdom won't rule itself!");
+        }
+    }
+
+    @Override
+    public String description() {
+        return
+                "This rat is a little bigger than a regular marsupial rat " +
+                        "and it's wearing a tiny crown on its head.";
+    }
 }

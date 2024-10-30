@@ -53,10 +53,14 @@ public class Shielding extends Bonus {
     }
 
     @Override
-    public String statusMessage() { return "shield"; }
+    public String statusMessage() {
+        return "shield";
+    }
 
     @Override
-    public String playerMessage() { return "You are surrounded by a magical barrier!"; }
+    public String playerMessage() {
+        return "You are surrounded by a magical barrier!";
+    }
 
     @Override
     public int icon() {
@@ -65,15 +69,15 @@ public class Shielding extends Bonus {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.PROTECTION );
+        target.sprite.add(CharSprite.State.PROTECTION);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.PROTECTION );
+        target.sprite.remove(CharSprite.State.PROTECTION);
     }
 
-	@Override
+    @Override
     public String description() {
         return "A holy aura surrounds you, increasing your armor class and resistance against elemental damage.";
     }

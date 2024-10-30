@@ -24,32 +24,32 @@ import java.util.Locale;
 
 public class RingOfFortune extends Ring {
 
-	{
-		name = "Ring of Fortune";
+    {
+        name = "Ring of Fortune";
         shortName = "Fo";
-	}
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Fortune();
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    @Override
+    protected RingBuff buff() {
+        return new Fortune();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
         }
 
         StringBuilder desc = new StringBuilder(
-            "First impression is that this ring affects nothing at all, but when using it for an " +
-            "extended amount of time you may find your wealth to be increased substantially due to " +
-            "being blessing with greater luck."
+                "First impression is that this ring affects nothing at all, but when using it for an " +
+                        "extended amount of time you may find your wealth to be increased substantially due to " +
+                        "being blessing with greater luck."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -64,14 +64,14 @@ public class RingOfFortune extends Ring {
         }
 
         return desc.toString();
-	}
-	
-	public class Fortune extends RingBuff {
+    }
+
+    public class Fortune extends RingBuff {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "You don't feel anything special on equipping this ring. Is that good?" :
-                "You don't feel anything special on equipping this ring. Is that bad?" ;
+                    "You don't feel anything special on equipping this ring. Is that good?" :
+                    "You don't feel anything special on equipping this ring. Is that bad?";
         }
-	}
+    }
 }

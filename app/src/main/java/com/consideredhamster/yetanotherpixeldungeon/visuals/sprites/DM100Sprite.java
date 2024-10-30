@@ -26,42 +26,42 @@ import com.watabou.noosa.TextureFilm;
 
 public class DM100Sprite extends MobSprite {
 
-	public DM100Sprite() {
-		super();
-		
-		texture( Assets.DM100 );
-		
-		TextureFilm frames = new TextureFilm( texture, 20, 16 );
-		
-		idle = new Animation( 2, true );
-		idle.frames( frames, 0, 0, 0, 0, 1 );
-		
-		run = new Animation( 15, true );
-		run.frames( frames, 2, 3 );
+    public DM100Sprite() {
+        super();
 
-		attack = new Animation( 12, false );
-		attack.frames( frames, 4, 5, 6 );
-		
-		die = new Animation( 6, false );
-		die.frames( frames, 7, 8, 9 );
+        texture(Assets.DM100);
+
+        TextureFilm frames = new TextureFilm(texture, 20, 16);
+
+        idle = new Animation(2, true);
+        idle.frames(frames, 0, 0, 0, 0, 1);
+
+        run = new Animation(15, true);
+        run.frames(frames, 2, 3);
+
+        attack = new Animation(12, false);
+        attack.frames(frames, 4, 5, 6);
+
+        die = new Animation(6, false);
+        die.frames(frames, 7, 8, 9);
 
         cast = attack.clone();
-		
-		play( idle );
-	}
-	
-	@Override
-	public void onComplete( Animation anim ) {
-		
-		super.onComplete( anim );
-		
-		if (anim == die) {
-			emitter().burst( Speck.factory( Speck.WOOL ), 5 );
-		}
-	}
-	
-	@Override
-	public int blood() {
-		return 0xFFFFFF88;
-	}
+
+        play(idle);
+    }
+
+    @Override
+    public void onComplete(Animation anim) {
+
+        super.onComplete(anim);
+
+        if (anim == die) {
+            emitter().burst(Speck.factory(Speck.WOOL), 5);
+        }
+    }
+
+    @Override
+    public int blood() {
+        return 0xFFFFFF88;
+    }
 }

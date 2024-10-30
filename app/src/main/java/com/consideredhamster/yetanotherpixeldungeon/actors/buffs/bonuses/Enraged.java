@@ -33,10 +33,14 @@ public class Enraged extends Bonus {
     }
 
     @Override
-    public String statusMessage() { return "enraged"; }
+    public String statusMessage() {
+        return "enraged";
+    }
 
     @Override
-    public String playerMessage() { return "You. Feel. REALLY. ANGRY!"; }
+    public String playerMessage() {
+        return "You. Feel. REALLY. ANGRY!";
+    }
 
     @Override
     public int icon() {
@@ -45,12 +49,12 @@ public class Enraged extends Bonus {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.ENRAGED );
+        target.sprite.add(CharSprite.State.ENRAGED);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.ENRAGED );
+        target.sprite.remove(CharSprite.State.ENRAGED);
     }
 
     @Override
@@ -59,12 +63,12 @@ public class Enraged extends Bonus {
                 "renew duration of this buff.";
     }
 
-    public void reset( int dur ) {
+    public void reset(int dur) {
 
-        if( duration < dur ){
+        if (duration < dur) {
             duration = dur;
         }
 
-        delay( TICK );
+        delay(TICK);
     }
 }

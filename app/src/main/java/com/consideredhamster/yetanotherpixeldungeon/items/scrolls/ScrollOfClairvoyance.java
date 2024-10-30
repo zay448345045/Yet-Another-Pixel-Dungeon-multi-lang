@@ -21,41 +21,41 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 public class ScrollOfClairvoyance extends Scroll {
 
-	private static final String TXT_LAYOUT = "The layout of current floor is revealed to you!";
-	
-	{
-		name = "Scroll of Clairvoyance";
+    private static final String TXT_LAYOUT = "The layout of current floor is revealed to you!";
+
+    {
+        name = "Scroll of Clairvoyance";
         shortName = "Cl";
 
         spellSprite = SpellSprite.SCROLL_FARSIGHT;
         spellColour = SpellSprite.COLOUR_RUNE;
-	}
-	
-	@Override
-	protected void doRead() {
-		
-		int length = Level.LENGTH;
+    }
+
+    @Override
+    protected void doRead() {
+
+        int length = Level.LENGTH;
 //		int[] map = Dungeon.level.map;
-		boolean[] mapped = Dungeon.level.mapped;
-		boolean[] discoverable = Level.discoverable;
+        boolean[] mapped = Dungeon.level.mapped;
+        boolean[] discoverable = Level.discoverable;
 
 //		boolean noticed = false;
-		
-		for (int i=0; i < length; i++) {
-			
+
+        for (int i = 0; i < length; i++) {
+
 //			int terr = map[i];
-			
-			if (discoverable[i]) {
-				
-				mapped[i] = true;
+
+            if (discoverable[i]) {
+
+                mapped[i] = true;
                 Dungeon.level.mapped[i] = true;
 //				if ((Terrain.flags[terr] & Terrain.TRAPPED) != 0) {
 //
@@ -69,11 +69,11 @@ public class ScrollOfClairvoyance extends Scroll {
 //						noticed = true;
 //					}
 //				}
-			}
-		}
-		Dungeon.observe();
-		
-		GLog.i( TXT_LAYOUT );
+            }
+        }
+        Dungeon.observe();
+
+        GLog.i(TXT_LAYOUT);
 //		if (noticed) {
 //			Sample.INSTANCE.play( Assets.SND_SECRET );
 //		}
@@ -82,22 +82,22 @@ public class ScrollOfClairvoyance extends Scroll {
 //        new Flare( 6, 32 ).color(0x3399FF, true).show(curUser.sprite, 2f);
 
         super.doRead();
-	}
-	
-	@Override
-	public String desc() {
-		return
-			"Once this scroll is read, an image of crystal clarity will be etched into your memory, " +
-			"alerting you to the precise layout of the floor and revealing all of the treasures it keeps. " +
-			"The locations of traps and creatures will remain unknown.";
-	}
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 80 * quantity : super.price();
-	}
-	
-	public static void discover( int cell ) {
-		CellEmitter.get( cell ).start( Speck.factory( Speck.DISCOVER ), 0.1f, 4 );
-	}
+    }
+
+    @Override
+    public String desc() {
+        return
+                "Once this scroll is read, an image of crystal clarity will be etched into your memory, " +
+                        "alerting you to the precise layout of the floor and revealing all of the treasures it keeps. " +
+                        "The locations of traps and creatures will remain unknown.";
+    }
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 80 * quantity : super.price();
+    }
+
+    public static void discover(int cell) {
+        CellEmitter.get(cell).start(Speck.factory(Speck.DISCOVER), 0.1f, 4);
+    }
 }

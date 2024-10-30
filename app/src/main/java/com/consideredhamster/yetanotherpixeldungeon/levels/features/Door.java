@@ -20,50 +20,50 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.features;
 
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfClairvoyance;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.audio.Sample;
 
 public class Door {
 
-	public static void enter( int pos ) {
-		Level.set(pos, Terrain.OPEN_DOOR);
-		Dungeon.observe();
-		
-		if (Dungeon.visible[pos]) {
-            GameScene.updateMap( pos );
-			Sample.INSTANCE.play( Assets.SND_OPEN );
-		}
-	}
-	
-	public static void leave( int pos ) {
-		if (Dungeon.level.heaps.get( pos ) == null) {
-			Level.set( pos, Terrain.DOOR_CLOSED);
-			Dungeon.observe();
+    public static void enter(int pos) {
+        Level.set(pos, Terrain.OPEN_DOOR);
+        Dungeon.observe();
+
+        if (Dungeon.visible[pos]) {
+            GameScene.updateMap(pos);
+            Sample.INSTANCE.play(Assets.SND_OPEN);
+        }
+    }
+
+    public static void leave(int pos) {
+        if (Dungeon.level.heaps.get(pos) == null) {
+            Level.set(pos, Terrain.DOOR_CLOSED);
+            Dungeon.observe();
 
             if (Dungeon.visible[pos]) {
-                GameScene.updateMap( pos );
+                GameScene.updateMap(pos);
             }
-		}
-	}
+        }
+    }
 
-    public static void discover( int pos ) {
+    public static void discover(int pos) {
 
-        if( Dungeon.visible[pos] ) {
+        if (Dungeon.visible[pos]) {
 
-            GameScene.discoverTile( pos, Dungeon.level.map[pos] );
+            GameScene.discoverTile(pos, Dungeon.level.map[pos]);
 
-            Level.set( pos, Actor.findChar(pos) != null || Dungeon.level.heaps.get( pos ) != null ?
+            Level.set(pos, Actor.findChar(pos) != null || Dungeon.level.heaps.get(pos) != null ?
                     Terrain.OPEN_DOOR : Terrain.DOOR_CLOSED);
 
-            GameScene.updateMap( pos );
+            GameScene.updateMap(pos);
 
-            ScrollOfClairvoyance.discover( pos );
+            ScrollOfClairvoyance.discover(pos);
 
         }
     }

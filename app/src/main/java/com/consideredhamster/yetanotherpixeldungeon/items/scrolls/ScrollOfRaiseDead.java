@@ -20,53 +20,52 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Charmed;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Controlled;
+import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Wraith;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Wraith;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 
 import java.util.ArrayList;
 
 public class ScrollOfRaiseDead extends Scroll {
-	
-	{
-		name = "Scroll of Raise Dead";
+
+    {
+        name = "Scroll of Raise Dead";
         shortName = "Ra";
 
         spellSprite = SpellSprite.SCROLL_RAISEDEAD;
         spellColour = SpellSprite.COLOUR_DARK;
-	}
+    }
 
-	@Override
-	protected void doRead() {
+    @Override
+    protected void doRead() {
 
-        ArrayList<Wraith> summoned = Wraith.spawnAround( curUser.magicPower() / 3, curUser.pos, 1 );
+        ArrayList<Wraith> summoned = Wraith.spawnAround(curUser.magicPower() / 3, curUser.pos, 1);
 
-        for( Wraith w : summoned ){
+        for (Wraith w : summoned) {
 
-            float duration = Random.Int( 16, 20 ) * ( 110 + curUser.magicPower() ) / 100;
+            float duration = Random.Int(16, 20) * (110 + curUser.magicPower()) / 100;
 
-            BuffActive.add( w, Controlled.class, duration );
+            BuffActive.add(w, Controlled.class, duration);
 
         }
 
         Sample.INSTANCE.play(Assets.SND_DEATH);
 
-		super.doRead();
-	}
+        super.doRead();
+    }
 
-	@Override
-	public String desc() {
-		return
+    @Override
+    public String desc() {
+        return
                 "Malicious magics hidden within this scroll allow its reader to commune with unspeakable, " +
-                "giving him or her an ability to summon a lost soul from the underworld. Be careful, " +
-                "as it will eventually turn on its master!" +
-                "\n\nDuration of controlling effect depends on magic skill of the reader.";
-	}
+                        "giving him or her an ability to summon a lost soul from the underworld. Be careful, " +
+                        "as it will eventually turn on its master!" +
+                        "\n\nDuration of controlling effect depends on magic skill of the reader.";
+    }
 
     @Override
     public int price() {

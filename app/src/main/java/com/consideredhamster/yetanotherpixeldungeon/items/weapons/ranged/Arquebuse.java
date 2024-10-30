@@ -26,28 +26,28 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Arquebuse extends RangedWeaponFlintlock {
 
-	{
-		name = "arquebuse";
-		image = ItemSpriteSheet.ARQUEBUS;
-	}
+    {
+        name = "arquebuse";
+        image = ItemSpriteSheet.ARQUEBUS;
+    }
 
-	public Arquebuse() {
-		super( 2 );
-	}
+    public Arquebuse() {
+        super(2);
+    }
 
     @Override
     public Class<? extends ThrowingWeaponAmmo> ammunition() {
         return Bullets.class;
     }
 
-	@Override
-	public Type weaponType() {
-		return Type.R_FLINTLOCK;
-	}
-	
-	@Override
-	public String desc() {
-		return "Once standard-issue weapon in some armies, these firearms are quite rare now. They " +
+    @Override
+    public Type weaponType() {
+        return Type.R_FLINTLOCK;
+    }
+
+    @Override
+    public String desc() {
+        return "Once standard-issue weapon in some armies, these firearms are quite rare now. They " +
                 "were feared for their ability to pierce through any armor with their shots.";
-	}
+    }
 }

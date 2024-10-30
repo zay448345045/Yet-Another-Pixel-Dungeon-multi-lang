@@ -26,36 +26,30 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.BlastParticle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SmokeParticle;
 import com.watabou.utils.Random;
 
 public class Rockfall {
 
-	public static void affect( int pos, int power, Object src ) {
+    public static void affect(int pos, int power, Object src) {
 
-        if( pos < 0 || pos > Level.LENGTH )
+        if (pos < 0 || pos > Level.LENGTH)
             return;
 
-        if( Level.solid[pos] )
+        if (Level.solid[pos])
             return;
 
         Char ch = Actor.findChar(pos);
         if (ch != null) {
 
-            int dmg = Char.absorb( Random.IntRange( power / 2 , power ), ch.armorClass() );
+            int dmg = Char.absorb(Random.IntRange(power / 2, power), ch.armorClass());
 
             ch.damage(dmg, src, Element.PHYSICAL);
 
-            if ( ch.isAlive() ) {
+            if (ch.isAlive()) {
                 BuffActive.addFromDamage(ch, Vertigo.class, dmg);
             }
         }
@@ -67,8 +61,8 @@ public class Rockfall {
 
         if (Dungeon.visible[pos]) {
 
-            CellEmitter.get(pos).start( Speck.factory(Speck.ROCK), 0.2f, 3 );
+            CellEmitter.get(pos).start(Speck.factory(Speck.ROCK), 0.2f, 3);
 
         }
-	}
+    }
 }

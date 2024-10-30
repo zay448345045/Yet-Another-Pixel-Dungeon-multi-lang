@@ -20,38 +20,38 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.TextureFilm;
 
 public class FiendSprite extends MobSprite {
 
-	public FiendSprite() {
-		super();
-		
-		texture( Assets.FIEND );
+    public FiendSprite() {
+        super();
 
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
-		
-		idle = new Animation( 5, true );
-		idle.frames(frames, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 4, 10, 11, 10, 4, 1, 1 );
+        texture(Assets.FIEND);
 
-        run = new Animation( 5, true );
-        run.frames( frames, 0, 1, 2, 3 );
+        TextureFilm frames = new TextureFilm(texture, 16, 16);
 
-        attack = new Animation( 15, false );
-        attack.frames( frames, 10, 11, 12, 13, 14, 15 );
+        idle = new Animation(5, true);
+        idle.frames(frames, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 4, 10, 11, 10, 4, 1, 1);
+
+        run = new Animation(5, true);
+        run.frames(frames, 0, 1, 2, 3);
+
+        attack = new Animation(15, false);
+        attack.frames(frames, 10, 11, 12, 13, 14, 15);
 
 //        cast = new Animation( 15, false );
 //        cast.frames( frames, 8, 9, 10, 11, 12 );
 
-        cast = new Animation( 15, false );
-        cast.frames( frames, 4, 5, 6, 7, 8, 9 );
+        cast = new Animation(15, false);
+        cast.frames(frames, 4, 5, 6, 7, 8, 9);
 
-        die = new Animation( 10, false );
-        die.frames( frames, 16, 17, 18, 19, 19, 19 );
-		
-		play( idle );
-	}
+        die = new Animation(10, false);
+        die.frames(frames, 16, 17, 18, 19, 19, 19);
+
+        play(idle);
+    }
 
     @Override
     public int blood() {

@@ -20,22 +20,22 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Tormented;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Miasma;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
+import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Miasma;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Tormented;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.FiendSprite;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Bundle;
+import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
 public class Fiend extends MobRanged {
@@ -46,7 +46,7 @@ public class Fiend extends MobRanged {
 
     public Fiend() {
 
-        super( 19 );
+        super(19);
 
         /*
 
@@ -63,15 +63,15 @@ public class Fiend extends MobRanged {
 
          */
 
-		name = "fiend";
-		spriteClass = FiendSprite.class;
+        name = "fiend";
+        spriteClass = FiendSprite.class;
 
 //        resistances.put( Element.Mind.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Body.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Doom.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Dispel.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Body.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Doom.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Dispel.class, Element.Resist.PARTIAL);
 
-	}
+    }
 
     @Override
     public boolean isMagical() {
@@ -81,7 +81,7 @@ public class Fiend extends MobRanged {
     @Override
     public boolean act() {
 
-        if( !enemySeen )
+        if (!enemySeen)
             charged = false;
 
         return super.act();
@@ -89,13 +89,13 @@ public class Fiend extends MobRanged {
     }
 
     @Override
-    protected boolean doAttack( Char enemy ) {
+    protected boolean doAttack(Char enemy) {
 
-        if( !Level.adjacent( pos, enemy.pos ) && !charged ) {
+        if (!Level.adjacent(pos, enemy.pos) && !charged) {
 
             charged = true;
 
-            sprite.centerEmitter().burst( EnergyParticle.FACTORY_BLACK, 25 );
+            sprite.centerEmitter().burst(EnergyParticle.FACTORY_BLACK, 25);
 
             spend(attackDelay());
 
@@ -105,7 +105,7 @@ public class Fiend extends MobRanged {
 
             charged = false;
 
-            return super.doAttack( enemy );
+            return super.doAttack(enemy);
         }
     }
 
@@ -115,22 +115,22 @@ public class Fiend extends MobRanged {
 //    }
 
     @Override
-    public int attackProc( Char enemy, int damage, boolean blocked ) {
+    public int attackProc(Char enemy, int damage, boolean blocked) {
 
-        if( !blocked && Random.Int( 10 ) < tier ) {
-            BuffActive.addFromDamage( enemy, Tormented.class, damageRoll() * 2 );
+        if (!blocked && Random.Int(10) < tier) {
+            BuffActive.addFromDamage(enemy, Tormented.class, damageRoll() * 2);
         }
 
         return damage;
     }
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return super.canAttack( enemy ) || Ballistica.cast( pos, enemy.pos, false, true ) == enemy.pos;
+    protected boolean canAttack(Char enemy) {
+        return super.canAttack(enemy) || Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
+    protected void onRangedAttack(int cell) {
 
         MagicMissile.shadow(sprite.parent, pos, cell,
                 new Callback() {
@@ -142,15 +142,15 @@ public class Fiend extends MobRanged {
 
         Sample.INSTANCE.play(Assets.SND_ZAP);
 
-        super.onRangedAttack( cell );
+        super.onRangedAttack(cell);
     }
 
     @Override
-    public boolean cast( Char enemy ) {
+    public boolean cast(Char enemy) {
 
-        if (hit( this, enemy, true, true )) {
+        if (hit(this, enemy, true, true)) {
 
-            enemy.damage( damageRoll(), this, Element.UNHOLY );
+            enemy.damage(damageRoll(), this, Element.UNHOLY);
 
         } else {
 
@@ -162,11 +162,11 @@ public class Fiend extends MobRanged {
     }
 
     @Override
-    public void die( Object cause, Element dmg ) {
+    public void die(Object cause, Element dmg) {
 
         GameScene.add(Blob.seed(pos, 100, Miasma.class));
 
-        super.die( cause, dmg );
+        super.die(cause, dmg);
     }
 
     @Override
@@ -178,14 +178,14 @@ public class Fiend extends MobRanged {
     }
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
         super.storeInBundle(bundle);
-        bundle.put( CHARGED, charged );
+        bundle.put(CHARGED, charged);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        charged = bundle.getBoolean( CHARGED );
+        charged = bundle.getBoolean(CHARGED);
     }
 }

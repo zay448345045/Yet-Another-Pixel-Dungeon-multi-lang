@@ -22,22 +22,22 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfDisintegration;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandUtility;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
 public class Arcane extends Weapon.Enchantment {
 
-	@Override
-	public Glowing glowing() {
-		return PURPLE;
-	}
+    @Override
+    public Glowing glowing() {
+        return PURPLE;
+    }
 
     @Override
     public Class<? extends Wand> wandBonus() {
@@ -65,17 +65,17 @@ public class Arcane extends Weapon.Enchantment {
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
 
-        if( attacker instanceof Hero ) {
+        if (attacker instanceof Hero) {
 
-            Hero hero = (Hero)attacker;
+            Hero hero = (Hero) attacker;
 
             for (Item item : hero.belongings) {
                 if (item instanceof Wand) {
                     Wand wand = (Wand) item;
-                    if ( wand instanceof WandUtility || Random.Int( 2 ) == 0 ) {
-                        wand.setCharges( wand.getCharges() + 1 );
+                    if (wand instanceof WandUtility || Random.Int(2) == 0) {
+                        wand.setCharges(wand.getCharges() + 1);
                     }
                 }
             }
@@ -87,17 +87,17 @@ public class Arcane extends Weapon.Enchantment {
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
 
-        if( attacker instanceof Hero ) {
+        if (attacker instanceof Hero) {
 
-            Hero hero = (Hero)attacker;
+            Hero hero = (Hero) attacker;
 
             for (Item item : hero.belongings) {
                 if (item instanceof Wand) {
                     Wand wand = (Wand) item;
-                    if ( wand instanceof WandUtility || Random.Int( 2 ) == 0 ) {
-                        wand.setCharges( wand.getCharges() - 1 );
+                    if (wand instanceof WandUtility || Random.Int(2) == 0) {
+                        wand.setCharges(wand.getCharges() - 1);
                     }
                 }
             }

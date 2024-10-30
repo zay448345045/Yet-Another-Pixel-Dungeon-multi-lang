@@ -20,20 +20,20 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.TextureFilm;
 
 public class BruteSprite extends MobSprite {
 
     private int cellToAttack;
 
-	public BruteSprite() {
-		super();
-		
-		texture( Assets.BRUTE );
-		
-		TextureFilm frames = new TextureFilm( texture, 12, 16 );
-		
+    public BruteSprite() {
+        super();
+
+        texture(Assets.BRUTE);
+
+        TextureFilm frames = new TextureFilm(texture, 12, 16);
+
 //		idle = new Animation( 2, true );
 //		idle.frames( frames, 0, 0, 0, 1, 0, 0, 1, 1 );
 //
@@ -46,22 +46,22 @@ public class BruteSprite extends MobSprite {
 //		die = new Animation( 12, false );
 //		die.frames(frames, 8, 9, 10);
 
-        idle = new Animation( 2, true );
-        idle.frames( frames, 21, 21, 21, 22, 21, 21, 22, 22 );
+        idle = new Animation(2, true);
+        idle.frames(frames, 21, 21, 21, 22, 21, 21, 22, 22);
 
-        run = new Animation( 12, true );
-        run.frames( frames, 25, 26, 27, 28 );
+        run = new Animation(12, true);
+        run.frames(frames, 25, 26, 27, 28);
 
-        attack = new Animation( 12, false );
-        attack.frames( frames, 23, 24 );
+        attack = new Animation(12, false);
+        attack.frames(frames, 23, 24);
 
-        die = new Animation( 12, false );
-        die.frames( frames, 29, 30, 31 );
+        die = new Animation(12, false);
+        die.frames(frames, 29, 30, 31);
 
         cast = attack.clone();
-		
-		play( idle );
-	}
+
+        play(idle);
+    }
 
 //    @Override
 //    public void attack( int cell ) {

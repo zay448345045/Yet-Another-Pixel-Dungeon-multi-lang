@@ -21,26 +21,24 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.wands;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class WandOfLightning extends WandCombat {
 
-	{
-		name = "Wand of Lightning";
+    {
+        name = "Wand of Lightning";
         image = ItemSpriteSheet.WAND_LIGHTNING;
 
         goThrough = false;
@@ -49,15 +47,15 @@ public class WandOfLightning extends WandCombat {
     private static ArrayList<Char> affected = new ArrayList<Char>();
 
     @Override
-    public float effectiveness( int bonus ) {
-        return super.effectiveness( bonus ) * 1.20f;
+    public float effectiveness(int bonus) {
+        return super.effectiveness(bonus) * 1.20f;
     }
-	
-	@Override
-	protected void onZap( int cell ) {
+
+    @Override
+    protected void onZap(int cell) {
 
         affected.clear();
-        hit( cell, 2 );
+        hit(cell, 2);
 
         if (!affected.isEmpty()) {
 
@@ -70,55 +68,55 @@ public class WandOfLightning extends WandCombat {
 
             }
         }
-	}
+    }
 
-	private void hit( int cell, int times ) {
+    private void hit(int cell, int times) {
 
-        Char ch = Char.findChar( cell );
+        Char ch = Char.findChar(cell);
 
-        if( ch != null && ( !Level.water[ cell ] || ch.flying ) ) {
+        if (ch != null && (!Level.water[cell] || ch.flying)) {
 
-            if( times > 0 && !affected.contains( ch ) ) {
+            if (times > 0 && !affected.contains(ch)) {
 
                 affected.add(ch);
 
                 for (Char mob : Dungeon.level.mobs) {
                     if (!affected.contains(mob) && Level.distance(ch.pos, mob.pos) <= 2
-                            && Level.distance( curUser.pos, mob.pos) > Level.distance( curUser.pos, ch.pos )
+                            && Level.distance(curUser.pos, mob.pos) > Level.distance(curUser.pos, ch.pos)
                             && Ballistica.cast(ch.pos, mob.pos, false, true) == mob.pos
                     ) {
 
                         CellEmitter.center(mob.pos).burst(SparkParticle.FACTORY, 3);
                         curUser.sprite.parent.add(new Lightning(ch.pos, mob.pos));
 
-                        hit( mob.pos, times - 1 );
+                        hit(mob.pos, times - 1);
                     }
                 }
             }
 
         } else {
 
-            affected.addAll( Thunderstorm.spreadFrom( cell ) );
+            affected.addAll(Thunderstorm.spreadFrom(cell));
 
         }
     }
-	
-	@Override
-	protected void fx( int cell, Callback callback ) {
+
+    @Override
+    protected void fx(int cell, Callback callback) {
 
         // moved all of the logic to the Thunderstorm blob
 
-        CellEmitter.center( cell ).burst( SparkParticle.FACTORY, Random.IntRange( 3, 5 ) );
-        curUser.sprite.parent.add( new Lightning( curUser.pos, cell ) );
+        CellEmitter.center(cell).burst(SparkParticle.FACTORY, Random.IntRange(3, 5));
+        curUser.sprite.parent.add(new Lightning(curUser.pos, cell));
         callback.call();
 
-	}
-	
-	@Override
-	public String desc() {
-		return
-			"This wand conjures forth deadly arcs of electricity, roasting its target with a high " +
-            "voltage zap. Effects of this wand can chain to further targets or be transmitted by " +
-            "water, so it is better to not stand in the same pool as your target!";
-	}
+    }
+
+    @Override
+    public String desc() {
+        return
+                "This wand conjures forth deadly arcs of electricity, roasting its target with a high " +
+                        "voltage zap. Effects of this wand can chain to further targets or be transmitted by " +
+                        "water, so it is better to not stand in the same pool as your target!";
+    }
 }

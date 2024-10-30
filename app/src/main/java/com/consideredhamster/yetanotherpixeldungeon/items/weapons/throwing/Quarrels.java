@@ -24,29 +24,29 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Quarrels extends ThrowingWeaponAmmo {
 
-	{
-		name = "quarrels";
-		image = ItemSpriteSheet.QUARREL;
-	}
+    {
+        name = "quarrels";
+        image = ItemSpriteSheet.QUARREL;
+    }
 
-	public Quarrels() {
-		this( 1 );
-	}
+    public Quarrels() {
+        this(1);
+    }
 
-	public Quarrels(int number) {
-        super( 3 );
-		quantity = number;
-	}
+    public Quarrels(int number) {
+        super(3);
+        quantity = number;
+    }
 
     @Override
     public int image() {
         return quantity > 1 ? ItemSpriteSheet.QUARRELS : image;
 //        return (isEquipped( Dungeon.hero ) || Dungeon.hero.belongings.backpack.items.contains(this) ) ? ItemSpriteSheet.QUARRELS : image;
     }
-	
-	@Override
-	public String desc() {
-		return 
-			"This kind of ammunition is designed to be used with arbalests.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "This kind of ammunition is designed to be used with arbalests.";
+    }
 }

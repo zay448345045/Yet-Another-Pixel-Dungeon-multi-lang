@@ -26,14 +26,13 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Shuri
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ShadowSprite;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.TenguSprite;
 import com.watabou.utils.Callback;
 
 public class TenguShadow extends MobRanged {
 
     public TenguShadow() {
 
-        super( 3, 6, false );
+        super(3, 6, false);
 
         name = "shadow clone";
         info = "Shuriken throw, Stationary";
@@ -57,8 +56,8 @@ public class TenguShadow extends MobRanged {
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
-        ((MissileSprite)sprite.parent.recycle( MissileSprite.class )).
+    protected void onRangedAttack(int cell) {
+        ((MissileSprite) sprite.parent.recycle(MissileSprite.class)).
                 reset(pos, cell, new Shurikens(), new Callback() {
                     @Override
                     public void call() {
@@ -70,23 +69,25 @@ public class TenguShadow extends MobRanged {
     }
 
     @Override
-    protected boolean getCloser( int target ) {
+    protected boolean getCloser(int target) {
         return false;
     }
 
     @Override
-    protected boolean getFurther( int target ) { return false; }
+    protected boolean getFurther(int target) {
+        return false;
+    }
 
-	@Override
-	protected boolean canAttack( Char enemy ) {
-		return Ballistica.cast( pos, enemy.pos, false, true ) == enemy.pos;
-	}
+    @Override
+    protected boolean canAttack(Char enemy) {
+        return Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
+    }
 
-	@Override
-	public String description() {
-		return
-			"Despite being made from shadows, this figure looks to be corporeal enough to be " +
-            "harmed by mundane means. However, it doesn't seems to be capable of anything " +
-            "beyond just standing there and throwing shurikens.";
-	}
+    @Override
+    public String description() {
+        return
+                "Despite being made from shadows, this figure looks to be corporeal enough to be " +
+                        "harmed by mundane means. However, it doesn't seems to be capable of anything " +
+                        "beyond just standing there and throwing shurikens.";
+    }
 }

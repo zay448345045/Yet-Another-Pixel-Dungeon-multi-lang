@@ -21,36 +21,34 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.MindVision;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 public class PotionOfMindVision extends Potion {
 
-    public static final float DURATION	= 35f;
+    public static final float DURATION = 35f;
 
-	{
-		name = "Potion of Mind Vision";
+    {
+        name = "Potion of Mind Vision";
         shortName = "Mi";
-	}
-	
-	@Override
-	protected void apply( Hero hero ) {
-        BuffActive.add(hero, MindVision.class, DURATION );
+    }
+
+    @Override
+    protected void apply(Hero hero) {
+        BuffActive.add(hero, MindVision.class, DURATION);
         Dungeon.observe();
 
         setKnown();
     }
-	
-	@Override
-	public String desc() {
-		return
-			"After drinking this, your mind will become attuned to the psychic signature " +
-			"of distant creatures, enabling you to sense everyone on current floor through walls. " +
-			"Also this potion will negate most of the disadvantages of blindness.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "After drinking this, your mind will become attuned to the psychic signature " +
+                        "of distant creatures, enabling you to sense everyone on current floor through walls. " +
+                        "Also this potion will negate most of the disadvantages of blindness.";
+    }
 
     @Override
     public int price() {

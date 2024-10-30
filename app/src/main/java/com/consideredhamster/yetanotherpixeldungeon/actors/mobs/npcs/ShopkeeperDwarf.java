@@ -20,27 +20,27 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs;
 
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ShopkeeperDwarfSprite;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ShopkeeperDwarfSprite;
 
 public class ShopkeeperDwarf extends Shopkeeper {
 
-	private static final String TXT_GREETINGS = "I may not like humans like you,\nbut coins are always welcome.";
-	
-	{
-		name = "dwarf shopkeeper";
-		spriteClass = ShopkeeperDwarfSprite.class;
-	}
+    private static final String TXT_GREETINGS = "I may not like humans like you,\nbut coins are always welcome.";
+
+    {
+        name = "dwarf shopkeeper";
+        spriteClass = ShopkeeperDwarfSprite.class;
+    }
 
     @Override
     protected void greetings() {
-        yell( Utils.format(TXT_GREETINGS) );
+        yell(Utils.format(TXT_GREETINGS));
     }
-	
-	@Override
-	public String description() {
-		return 
-			"Looks like this dwarf owns a shop here. He looks surprised by your presence, but is " +
-            "certainly not happy to see you.";
-	}
+
+    @Override
+    public String description() {
+        return
+                "Looks like this dwarf owns a shop here. He looks surprised by your presence, but is " +
+                        "certainly not happy to see you.";
+    }
 }

@@ -20,40 +20,40 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.ToxicGas;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
+import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.ToxicGas;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 
 public class PotionOfToxicGas extends Potion {
 
-    public static final int BASE_VAL	= 450;
+    public static final int BASE_VAL = 450;
 
-	{
-		name = "Potion of Toxic Gas";
+    {
+        name = "Potion of Toxic Gas";
         shortName = "TG";
         harmful = true;
-	}
-	
-	@Override
-	public void shatter( int cell ) {
+    }
 
-        GameScene.add( Blob.seed( cell, BASE_VAL, ToxicGas.class ) );
-        super.shatter( cell );
+    @Override
+    public void shatter(int cell) {
 
-	}
-	
-	@Override
-	public String desc() {
-		return
-			"Uncorking or shattering this pressurized glass will cause its contents to explode " +
-            "into a deadly cloud of highly flammable toxic gas, which will poison whoever happen to inhale it. " +
-            "You might choose to fling this potion at distant enemies instead of uncorking it by hand.";
-	}
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 60 * quantity : super.price();
-	}
+        GameScene.add(Blob.seed(cell, BASE_VAL, ToxicGas.class));
+        super.shatter(cell);
+
+    }
+
+    @Override
+    public String desc() {
+        return
+                "Uncorking or shattering this pressurized glass will cause its contents to explode " +
+                        "into a deadly cloud of highly flammable toxic gas, which will poison whoever happen to inhale it. " +
+                        "You might choose to fling this potion at distant enemies instead of uncorking it by hand.";
+    }
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 60 * quantity : super.price();
+    }
 
     @Override
     public float brewingChance() {

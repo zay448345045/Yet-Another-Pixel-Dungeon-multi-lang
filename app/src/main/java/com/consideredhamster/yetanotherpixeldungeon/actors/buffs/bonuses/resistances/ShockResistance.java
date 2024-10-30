@@ -25,13 +25,15 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class ShockResistance extends ElementResistance {
 
-	@Override
-	public String toString() {
-		return "Shock Resistance";
-	}
+    @Override
+    public String toString() {
+        return "Shock Resistance";
+    }
 
     @Override
-    public String statusMessage() { return "shock resistance"; }
+    public String statusMessage() {
+        return "shock resistance";
+    }
 
     @Override
     public String playerMessage() {
@@ -44,7 +46,7 @@ public class ShockResistance extends ElementResistance {
     }
 
     @Override
-    public Class<? extends Element> resistance(){
+    public Class<? extends Element> resistance() {
         return Element.Shock.class;
     }
 

@@ -20,12 +20,12 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.effects;
 
-import com.watabou.noosa.Image;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.Image;
 
 public class BannerSprites {
 
-	public enum  Type {
+    public enum Type {
         TITLE_LOGO,
         TITLE_LOGO_RUNES,
         YET_ANOTHER,
@@ -33,33 +33,35 @@ public class BannerSprites {
         SELECT_YOUR_HERO,
         BOSS_SLAIN,
         GAME_OVER,
-	};
-	
-	public static Image get( Type type ) {
-		Image icon = new Image( Assets.BANNERS );
-		switch (type) {
-		    case TITLE_LOGO:
-		    	icon.frame( icon.texture.uvRect( 0, 0, 128, 63 ) );
-		    	break;
+    }
+
+    ;
+
+    public static Image get(Type type) {
+        Image icon = new Image(Assets.BANNERS);
+        switch (type) {
+            case TITLE_LOGO:
+                icon.frame(icon.texture.uvRect(0, 0, 128, 63));
+                break;
             case TITLE_LOGO_RUNES:
-                icon.frame( icon.texture.uvRect( 0, 64, 128, 127 ) );
+                icon.frame(icon.texture.uvRect(0, 64, 128, 127));
                 break;
             case YET_ANOTHER:
-                icon.frame( icon.texture.uvRect( 0, 128, 128, 191 ) );
+                icon.frame(icon.texture.uvRect(0, 128, 128, 191));
                 break;
             case YET_ANOTHER_RUNES:
-                icon.frame( icon.texture.uvRect( 0, 192, 128, 255 ) );
+                icon.frame(icon.texture.uvRect(0, 192, 128, 255));
                 break;
             case SELECT_YOUR_HERO:
-                icon.frame( icon.texture.uvRect( 0, 256, 128, 311 ) );
+                icon.frame(icon.texture.uvRect(0, 256, 128, 311));
                 break;
             case GAME_OVER:
-                icon.frame( icon.texture.uvRect( 0, 312, 128, 375 ) );
+                icon.frame(icon.texture.uvRect(0, 312, 128, 375));
                 break;
             case BOSS_SLAIN:
-                icon.frame( icon.texture.uvRect( 0, 376, 128, 439 ) );
-			    break;
-		}
-		return icon;
-	}
+                icon.frame(icon.texture.uvRect(0, 376, 128, 439));
+                break;
+        }
+        return icon;
+    }
 }

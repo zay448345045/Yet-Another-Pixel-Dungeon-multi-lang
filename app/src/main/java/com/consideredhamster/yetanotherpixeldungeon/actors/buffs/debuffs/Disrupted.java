@@ -21,10 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
-import com.watabou.noosa.audio.Sample;
 
 public class Disrupted extends Debuff {
 
@@ -39,7 +36,9 @@ public class Disrupted extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "disrupted"; }
+    public String statusMessage() {
+        return "disrupted";
+    }
 
 //    @Override
 //    public String playerMessage() { return "You catch fire! Quickly, run to the water!"; }

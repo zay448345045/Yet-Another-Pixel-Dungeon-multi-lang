@@ -37,10 +37,14 @@ public class Withered extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "weakened"; }
+    public String statusMessage() {
+        return "weakened";
+    }
 
     @Override
-    public String playerMessage() { return "You feel weakened!"; }
+    public String playerMessage() {
+        return "You feel weakened!";
+    }
 
     @Override
     public int icon() {
@@ -49,12 +53,12 @@ public class Withered extends Debuff {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.WITHERED );
+        target.sprite.add(CharSprite.State.WITHERED);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.WITHERED );
+        target.sprite.remove(CharSprite.State.WITHERED);
     }
 
     @Override

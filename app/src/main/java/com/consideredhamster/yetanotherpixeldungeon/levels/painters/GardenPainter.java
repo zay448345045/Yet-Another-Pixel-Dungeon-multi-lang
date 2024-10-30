@@ -20,64 +20,64 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.painters;
 
-import com.watabou.utils.Point;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
+import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 
 public class GardenPainter extends Painter {
 
-	public static void paint( Level level, Room room ) {
-		
-		fill( level, room, Terrain.WALL );
-		fill( level, room, 1, Terrain.HIGH_GRASS );
-		fill( level, room, 2, Terrain.WATER );
+    public static void paint(Level level, Room room) {
+
+        fill(level, room, Terrain.WALL);
+        fill(level, room, 1, Terrain.HIGH_GRASS);
+        fill(level, room, 2, Terrain.WATER);
 
         for (Point door : room.connected.values()) {
             if (door.x == room.left) {
-                set( level, door.x + 1, door.y, Terrain.EMPTY );
+                set(level, door.x + 1, door.y, Terrain.EMPTY);
             } else if (door.x == room.right) {
-                set( level, door.x - 1, door.y, Terrain.EMPTY );
+                set(level, door.x - 1, door.y, Terrain.EMPTY);
             } else if (door.y == room.top) {
-                set( level, door.x, door.y + 1, Terrain.EMPTY );
+                set(level, door.x, door.y + 1, Terrain.EMPTY);
             } else if (door.y == room.bottom) {
-                set( level, door.x , door.y - 1, Terrain.EMPTY );
+                set(level, door.x, door.y - 1, Terrain.EMPTY);
             }
         }
 
-        if( Dungeon.level.feeling != Level.Feeling.ASHES ){
+        if (Dungeon.level.feeling != Level.Feeling.ASHES) {
 
             int chance = 9 - Dungeon.chapter();
 
-            for( int i = room.left + 1 ; i < room.right ; i++ ){
-                if( Random.Int( chance ) == 0 ){
-                    level.drop( Generator.random( Generator.Category.HERB ), ( room.top + 1 ) * Level.WIDTH + i, true ).type = Heap.Type.HEAP;
+            for (int i = room.left + 1; i < room.right; i++) {
+                if (Random.Int(chance) == 0) {
+                    level.drop(Generator.random(Generator.Category.HERB), (room.top + 1) * Level.WIDTH + i, true).type = Heap.Type.HEAP;
                 }
 
-                if( Random.Int( chance ) == 0 ){
-                    level.drop( Generator.random( Generator.Category.HERB ), ( room.bottom - 1 ) * Level.WIDTH + i, true ).type = Heap.Type.HEAP;
-                }
-            }
-
-            for( int i = room.top + 2 ; i < room.bottom - 1 ; i++ ){
-                if( Random.Int( chance ) == 0 ){
-                    level.drop( Generator.random( Generator.Category.HERB ), i * Level.WIDTH + room.left + 1, true ).type = Heap.Type.HEAP;
-                }
-
-                if( Random.Int( chance ) == 0 ){
-                    level.drop( Generator.random( Generator.Category.HERB ), i * Level.WIDTH + room.right - 1, true ).type = Heap.Type.HEAP;
+                if (Random.Int(chance) == 0) {
+                    level.drop(Generator.random(Generator.Category.HERB), (room.bottom - 1) * Level.WIDTH + i, true).type = Heap.Type.HEAP;
                 }
             }
 
-            room.entrance().set( Dungeon.depth > 1 ? Room.Door.Type.HIDDEN : Room.Door.Type.REGULAR );
+            for (int i = room.top + 2; i < room.bottom - 1; i++) {
+                if (Random.Int(chance) == 0) {
+                    level.drop(Generator.random(Generator.Category.HERB), i * Level.WIDTH + room.left + 1, true).type = Heap.Type.HEAP;
+                }
+
+                if (Random.Int(chance) == 0) {
+                    level.drop(Generator.random(Generator.Category.HERB), i * Level.WIDTH + room.right - 1, true).type = Heap.Type.HEAP;
+                }
+            }
+
+            room.entrance().set(Dungeon.depth > 1 ? Room.Door.Type.HIDDEN : Room.Door.Type.REGULAR);
 
         } else {
 
-            room.entrance().set( Room.Door.Type.EMPTY );
+            room.entrance().set(Room.Door.Type.EMPTY);
 
         }
     }

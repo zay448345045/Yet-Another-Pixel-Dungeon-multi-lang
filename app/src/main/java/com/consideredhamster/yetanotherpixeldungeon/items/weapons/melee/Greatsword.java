@@ -23,23 +23,23 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Greatsword extends MeleeWeaponHeavyTH {
-	
-	{
-		name = "greatsword";
-		image = ItemSpriteSheet.GREATSWORD;
-	}
-	
-	public Greatsword() {
-		super( 2 );
-	}
 
-	@Override
-	public Type weaponType() {
-		return Type.M_SWORD;
-	}
-	
-	@Override
-	public String desc() {
-		return "This towering blade inflicts heavy damage by investing its heft into every cut.";
-	}
+    {
+        name = "greatsword";
+        image = ItemSpriteSheet.GREATSWORD;
+    }
+
+    public Greatsword() {
+        super(2);
+    }
+
+    @Override
+    public Type weaponType() {
+        return Type.M_SWORD;
+    }
+
+    @Override
+    public String desc() {
+        return "This towering blade inflicts heavy damage by investing its heft into every cut.";
+    }
 }

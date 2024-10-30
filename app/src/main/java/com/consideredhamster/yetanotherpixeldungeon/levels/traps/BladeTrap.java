@@ -20,13 +20,12 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.traps;
 
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Wound;
+import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
 public class BladeTrap extends Trap {
@@ -35,27 +34,26 @@ public class BladeTrap extends Trap {
 
     public static BladeTrap TRAP = new BladeTrap();
 
-	public static void trigger( int pos, Char ch ) {
+    public static void trigger(int pos, Char ch) {
 
-		if (ch != null) {
+        if (ch != null) {
 
             int power = 10 + Dungeon.chapter() * 5;
 
-			int damage = Char.absorb( Random.IntRange( power / 2 , power ), ch.armorClass() );
+            int damage = Char.absorb(Random.IntRange(power / 2, power), ch.armorClass());
 
-            ch.damage( damage, TRAP, Element.PHYSICAL );
+            ch.damage(damage, TRAP, Element.PHYSICAL);
 
             Sample.INSTANCE.play(Assets.SND_HIT);
 
-			Wound.hit( ch );
+            Wound.hit(ch);
 
-		} else {
+        } else {
 
-			Wound.hit( pos );
+            Wound.hit(pos);
 
-		}
-	}
-
+        }
+    }
 
 
 }

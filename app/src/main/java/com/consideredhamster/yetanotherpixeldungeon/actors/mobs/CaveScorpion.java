@@ -22,8 +22,8 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Corrosion;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Corrosion;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.CausticOoze;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ScorpionSprite;
 import com.watabou.utils.Random;
@@ -32,7 +32,7 @@ public class CaveScorpion extends MobHealthy {
 
     public CaveScorpion() {
 
-        super( 12 );
+        super(12);
 
         /*
 
@@ -49,43 +49,43 @@ public class CaveScorpion extends MobHealthy {
 
          */
 
-		name = "cave scorpion";
-		info = "Corrosive attack, Acidic blood";
+        name = "cave scorpion";
+        info = "Corrosive attack, Acidic blood";
 
-		spriteClass = ScorpionSprite.class;
+        spriteClass = ScorpionSprite.class;
 
-        resistances.put( Element.Acid.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Acid.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Mind.class, Element.Resist.VULNERABLE );
+        resistances.put(Element.Mind.class, Element.Resist.VULNERABLE);
 
-        resistances.put( Element.Knockback.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Knockback.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
 
-	}
+    }
 
     @Override
-    public int attackProc( Char enemy, int damage, boolean blocked ) {
+    public int attackProc(Char enemy, int damage, boolean blocked) {
 
-        if( !blocked && Random.Int( 10 ) < tier ) {
-            BuffActive.addFromDamage( enemy, Corrosion.class, damage * 2 );
+        if (!blocked && Random.Int(10) < tier) {
+            BuffActive.addFromDamage(enemy, Corrosion.class, damage * 2);
         }
 
         return damage;
     }
 
     @Override
-	public void die( Object cause, Element dmg ) {
+    public void die(Object cause, Element dmg) {
 
-        CausticOoze.spawn( pos, (int)Math.sqrt( totalHealthValue() ) );
+        CausticOoze.spawn(pos, (int) Math.sqrt(totalHealthValue()));
 
         super.die(cause, dmg);
     }
 
-	@Override
-	public String description() {
-		return
-			"These huge arachnid-like creatures pose a significant threat to any adventurer " +
-            "due to a ability to inject acid with their tails.";
-	}
+    @Override
+    public String description() {
+        return
+                "These huge arachnid-like creatures pose a significant threat to any adventurer " +
+                        "due to a ability to inject acid with their tails.";
+    }
 
 }

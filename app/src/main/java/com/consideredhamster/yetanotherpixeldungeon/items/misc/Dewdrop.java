@@ -20,65 +20,65 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.misc;
 
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
+import com.watabou.noosa.audio.Sample;
 
 public class Dewdrop extends Item {
 
-    public  static final int    NUTRIETY    = 6;
+    public static final int NUTRIETY = 6;
 
-    private static final String TXT_VALUE	= "%+dHP";
+    private static final String TXT_VALUE = "%+dHP";
 
-	{
-		name = "dewdrop";
-		image = ItemSpriteSheet.DEWDROP;
-		
-		stackable = true;
-	}
-	
-	@Override
-	public boolean doPickUp( Hero hero ) {
-		
-		Waterskin vial = hero.belongings.getItem( Waterskin.class );
-		
-		if (vial == null || vial.isFull()) {
+    {
+        name = "dewdrop";
+        image = ItemSpriteSheet.DEWDROP;
 
-			int value = Math.max( 1, ( hero.HT - hero.HP ) / 3 );
-			
-			int effect = Math.min( hero.HT - hero.HP, value * quantity );
+        stackable = true;
+    }
 
-			if ( effect > 0 ) {
+    @Override
+    public boolean doPickUp(Hero hero) {
 
-				hero.HP += effect;
-				hero.sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 );
-				hero.sprite.showStatus(CharSprite.POSITIVE, TXT_VALUE, effect);
+        Waterskin vial = hero.belongings.getItem(Waterskin.class);
+
+        if (vial == null || vial.isFull()) {
+
+            int value = Math.max(1, (hero.HT - hero.HP) / 3);
+
+            int effect = Math.min(hero.HT - hero.HP, value * quantity);
+
+            if (effect > 0) {
+
+                hero.HP += effect;
+                hero.sprite.emitter().burst(Speck.factory(Speck.HEALING), 1);
+                hero.sprite.showStatus(CharSprite.POSITIVE, TXT_VALUE, effect);
 //                hero.buff( Hunger.class ).satisfy( NUTRIETY );
 
-			} else {
+            } else {
 
                 return false;
 
             }
-			
-		} else if (vial != null) {
-			
-			vial.collectDew( this );
-			
-		}
-		
-		Sample.INSTANCE.play( Assets.SND_DEWDROP );
+
+        } else if (vial != null) {
+
+            vial.collectDew(this);
+
+        }
+
+        Sample.INSTANCE.play(Assets.SND_DEWDROP);
 //		hero.spendAndNext( TIME_TO_PICK_UP );
-		
-		return true;
-	}
-	
-	@Override
-	public String info() {
-		return "A crystal clear dewdrop.";
-	}
+
+        return true;
+    }
+
+    @Override
+    public String info() {
+        return "A crystal clear dewdrop.";
+    }
 }

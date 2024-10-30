@@ -20,64 +20,66 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.effects;
 
-import com.watabou.noosa.Image;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.Image;
 
 public class Effects {
 
-	public enum  Type {
-		RIPPLE,
-		LIGHTNING,
-		WOUND,
-		RAY,
-		CHAIN,
-		DRAIN,
-		CONTROL,
-		DOOM,
+    public enum Type {
+        RIPPLE,
+        LIGHTNING,
+        WOUND,
+        RAY,
+        CHAIN,
+        DRAIN,
+        CONTROL,
+        DOOM,
         CROSS,
         LASER,
         SHOCK,
-	};
-	
-	public static Image get( Type type ) {
-		Image icon = new Image( Assets.EFFECTS );
-		switch (type) {
+    }
+
+    ;
+
+    public static Image get(Type type) {
+        Image icon = new Image(Assets.EFFECTS);
+        switch (type) {
             case RIPPLE:
-                icon.frame( icon.texture.uvRect( 0, 0, 16, 16 ) );
+                icon.frame(icon.texture.uvRect(0, 0, 16, 16));
                 break;
             case CHAIN:
-                icon.frame( icon.texture.uvRect( 0, 16, 8, 24 ) );
+                icon.frame(icon.texture.uvRect(0, 16, 8, 24));
                 break;
             case LIGHTNING:
-                icon.frame( icon.texture.uvRect( 16, 0, 32, 8 ) );
+                icon.frame(icon.texture.uvRect(16, 0, 32, 8));
                 break;
             case WOUND:
-                icon.frame( icon.texture.uvRect( 16, 8, 32, 16 ) );
+                icon.frame(icon.texture.uvRect(16, 8, 32, 16));
                 break;
             case RAY:
-                icon.frame( icon.texture.uvRect( 16, 16, 32, 24 ) );
+                icon.frame(icon.texture.uvRect(16, 16, 32, 24));
                 break;
             case DRAIN:
-                icon.frame( icon.texture.uvRect( 16, 24, 32, 32 ) );
+                icon.frame(icon.texture.uvRect(16, 24, 32, 32));
                 break;
             case CONTROL:
-                icon.frame( icon.texture.uvRect( 0, 24, 16, 32 ) );
+                icon.frame(icon.texture.uvRect(0, 24, 16, 32));
                 break;
             case DOOM:
-                icon.frame( icon.texture.uvRect( 32, 0, 48, 16 ) );
+                icon.frame(icon.texture.uvRect(32, 0, 48, 16));
                 break;
             case CROSS:
-                icon.frame( icon.texture.uvRect( 48, 0, 64, 16 ) );
+                icon.frame(icon.texture.uvRect(48, 0, 64, 16));
                 break;
             case LASER:
-                icon.frame( icon.texture.uvRect( 32, 16, 48, 24 ) );
+                icon.frame(icon.texture.uvRect(32, 16, 48, 24));
                 break;
             case SHOCK:
-                icon.frame( icon.texture.uvRect( 48, 16, 64, 32 ) );
+                icon.frame(icon.texture.uvRect(48, 16, 64, 32));
                 break;
-		}
+        }
 
 
-		return icon;
-	}
+        return icon;
+    }
 }

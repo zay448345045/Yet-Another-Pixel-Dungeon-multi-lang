@@ -24,24 +24,24 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class DwarfToken extends Item {
-	
-	{
-		name = "dwarf token";
-		image = ItemSpriteSheet.TOKEN;
-		
-		stackable = true;
-		unique = true;
-	}
-	
-	@Override
-	public String info() {
-		return
-			"Many dwarves and some of their larger creations carry these small pieces of metal of unknown purpose. " +
-			"Maybe they are jewelry or maybe some kind of ID. Dwarves are strange folk.";
-	}
-	
-	@Override
-	public int price() {
-		return 0;
-	}
+
+    {
+        name = "dwarf token";
+        image = ItemSpriteSheet.TOKEN;
+
+        stackable = true;
+        unique = true;
+    }
+
+    @Override
+    public String info() {
+        return
+                "Many dwarves and some of their larger creations carry these small pieces of metal of unknown purpose. " +
+                        "Maybe they are jewelry or maybe some kind of ID. Dwarves are strange folk.";
+    }
+
+    @Override
+    public int price() {
+        return 0;
+    }
 }

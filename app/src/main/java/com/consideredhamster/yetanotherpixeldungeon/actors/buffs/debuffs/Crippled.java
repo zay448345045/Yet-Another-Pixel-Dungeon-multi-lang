@@ -21,12 +21,8 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Splash;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
 
 public class Crippled extends Debuff {
@@ -42,10 +38,14 @@ public class Crippled extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "crippled"; }
+    public String statusMessage() {
+        return "crippled";
+    }
 
     @Override
-    public String playerMessage() { return "Your legs are crippled! Don't move too much."; }
+    public String playerMessage() {
+        return "Your legs are crippled! Don't move too much.";
+    }
 
     @Override
     public int icon() {
@@ -54,12 +54,12 @@ public class Crippled extends Debuff {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.BLEEDING );
+        target.sprite.add(CharSprite.State.BLEEDING);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.BLEEDING );
+        target.sprite.remove(CharSprite.State.BLEEDING);
     }
 
     @Override
@@ -71,9 +71,9 @@ public class Crippled extends Debuff {
     @Override
     public boolean act() {
 
-        target.damage( Random.Int( (int) Math.sqrt( target.totalHealthValue() * 0.5f ) ) + 1, this, Element.BODY );
+        target.damage(Random.Int((int) Math.sqrt(target.totalHealthValue() * 0.5f)) + 1, this, Element.BODY);
 
-        if( target.moving && Random.Int( 2 ) == 0 ) duration++;
+        if (target.moving && Random.Int(2) == 0) duration++;
 
         return super.act();
     }

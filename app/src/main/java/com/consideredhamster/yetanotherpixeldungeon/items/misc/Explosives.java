@@ -20,22 +20,19 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.misc;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.ToxicGas;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.BombHazard;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PathFinder;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.BombHazard;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
+import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Random;
 
 import java.util.ArrayList;
 
@@ -56,50 +53,60 @@ public abstract class Explosives extends Item {
     private static final String TXT_POWDER_SALVAGED = "You salvaged %s portions of gunpowder.";
     private static final String TXT_BOMBS_SALVAGED = "You salvaged %s bomb sticks.";
 
-    protected Explosives combineResult( Hero hero ) {
+    protected Explosives combineResult(Hero hero) {
         return null;
-    };
+    }
 
-    protected Explosives salvageResult( Hero hero ) {
+    ;
+
+    protected Explosives salvageResult(Hero hero) {
         return null;
-    };
+    }
 
-    public int damage( int strength ) { return strength / 3; }
+    ;
 
-    public int radius( int strength ) { return strength < 50 ? 0 : strength < 150 ? 1 : strength < 300 ? 2 : strength < 500 ? 3 : 4 ; }
+    public int damage(int strength) {
+        return strength / 3;
+    }
+
+    public int radius(int strength) {
+        return strength < 50 ? 0 : strength < 150 ? 1 : strength < 300 ? 2 : strength < 500 ? 3 : 4;
+    }
 
     @Override
-    public int priceModifier() { return 2; }
+    public int priceModifier() {
+        return 2;
+    }
 
     @Override
     public String quickAction() {
         return AC_THROW;
     }
-	
-	@Override
-    public ArrayList<String> actions( Hero hero ) {
-        ArrayList<String> actions = super.actions( hero );
 
-        actions.add( AC_COMBINE );
-        actions.add( AC_SALVAGE );
+    @Override
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
+
+        actions.add(AC_COMBINE);
+        actions.add(AC_SALVAGE);
 
         return actions;
     }
 
     @Override
-    public void execute( Hero hero, String action ) {
+    public void execute(Hero hero, String action) {
 
         if (action == AC_SALVAGE) {
 
             curUser = hero;
             curItem = this;
 
-            Explosives result = salvageResult( curUser );
+            Explosives result = salvageResult(curUser);
 
-            if( result != null ) {
+            if (result != null) {
 
-                if ( !result.doPickUp( Dungeon.hero )) {
-                    Dungeon.level.drop( result, Dungeon.hero.pos ).sprite.drop();
+                if (!result.doPickUp(Dungeon.hero)) {
+                    Dungeon.level.drop(result, Dungeon.hero.pos).sprite.drop();
                 }
 
                 QuickSlot.refresh();
@@ -119,12 +126,12 @@ public abstract class Explosives extends Item {
             curUser = hero;
             curItem = this;
 
-            Explosives result = combineResult( curUser );
+            Explosives result = combineResult(curUser);
 
-            if( result != null ) {
+            if (result != null) {
 
-                if ( !result.doPickUp( Dungeon.hero )) {
-                    Dungeon.level.drop( result, Dungeon.hero.pos ).sprite.drop();
+                if (!result.doPickUp(Dungeon.hero)) {
+                    Dungeon.level.drop(result, Dungeon.hero.pos).sprite.drop();
                 }
 
                 updateQuickslot();
@@ -141,7 +148,7 @@ public abstract class Explosives extends Item {
 
         } else {
 
-            super.execute( hero, action );
+            super.execute(hero, action);
 
         }
     }
@@ -225,7 +232,7 @@ public abstract class Explosives extends Item {
 
         @Override
         public Item random() {
-            quantity = Random.IntRange( 10, 20 ) * 5;
+            quantity = Random.IntRange(10, 20) * 5;
             return this;
         }
 
@@ -235,11 +242,11 @@ public abstract class Explosives extends Item {
         }
 
         @Override
-        protected Explosives combineResult( Hero hero ) {
+        protected Explosives combineResult(Hero hero) {
 
-            Gunpowder powder = curUser.belongings.getItem( Explosives.Gunpowder.class );
+            Gunpowder powder = curUser.belongings.getItem(Explosives.Gunpowder.class);
 
-            if ( powder != null && powder.quantity >= BombStick.powderMax ) {
+            if (powder != null && powder.quantity >= BombStick.powderMax) {
 
                 if (powder.quantity <= BombStick.powderMax) {
 
@@ -251,18 +258,20 @@ public abstract class Explosives extends Item {
 
                 }
 
-                GLog.i( TXT_STICK_MADE );
+                GLog.i(TXT_STICK_MADE);
 
                 return new BombStick();
 
             } else {
 
-                GLog.n( TXT_MORE_POWDER_NEEDED );
+                GLog.n(TXT_MORE_POWDER_NEEDED);
 
                 return null;
 
             }
-        };
+        }
+
+        ;
 
         @Override
         public String info() {
@@ -272,11 +281,11 @@ public abstract class Explosives extends Item {
         }
 
         @Override
-        public ArrayList<String> actions( Hero hero ) {
-            ArrayList<String> actions = super.actions( hero );
+        public ArrayList<String> actions(Hero hero) {
+            ArrayList<String> actions = super.actions(hero);
 
-            actions.remove( AC_SALVAGE );
-            actions.remove( AC_THROW );
+            actions.remove(AC_SALVAGE);
+            actions.remove(AC_THROW);
 
             return actions;
         }
@@ -302,15 +311,15 @@ public abstract class Explosives extends Item {
         @Override
         public String info() {
             return
-                "This is a makeshift pipe bomb, filled with black powder. Conveniently, its fuse is " +
-                "lit automatically when the bomb is thrown.\n\n" +
-                "You can get " + powderMin + "-" + powderMax + " portions of gunpowder by salvaging this. " +
-                "You can get a bomb bundle by combining " + BombBundle.sticksMax + " " + name + "s." ;
+                    "This is a makeshift pipe bomb, filled with black powder. Conveniently, its fuse is " +
+                            "lit automatically when the bomb is thrown.\n\n" +
+                            "You can get " + powderMin + "-" + powderMax + " portions of gunpowder by salvaging this. " +
+                            "You can get a bomb bundle by combining " + BombBundle.sticksMax + " " + name + "s.";
         }
 
         @Override
         public Item random() {
-            quantity = Random.IntRange( 2, 4 );
+            quantity = Random.IntRange(2, 4);
             return this;
         }
 
@@ -320,41 +329,43 @@ public abstract class Explosives extends Item {
         }
 
         @Override
-        protected Explosives combineResult( Hero hero ) {
+        protected Explosives combineResult(Hero hero) {
 
-            BombStick sticks = curUser.belongings.getItem( BombStick.class );
+            BombStick sticks = curUser.belongings.getItem(BombStick.class);
 
-           if ( sticks != null && sticks.quantity >= BombBundle.sticksMax ) {
+            if (sticks != null && sticks.quantity >= BombBundle.sticksMax) {
 
-               if (sticks.quantity <= BombBundle.sticksMax) {
+                if (sticks.quantity <= BombBundle.sticksMax) {
 
-                   sticks.detachAll(Dungeon.hero.belongings.backpack);
+                    sticks.detachAll(Dungeon.hero.belongings.backpack);
 
-               } else {
+                } else {
 
-                   sticks.quantity -= BombBundle.sticksMax;
+                    sticks.quantity -= BombBundle.sticksMax;
 
-               }
+                }
 
-               GLog.i( TXT_BUNDLE_MADE );
+                GLog.i(TXT_BUNDLE_MADE);
 
-               return new BombBundle();
+                return new BombBundle();
 
             } else {
 
-               GLog.n( TXT_MORE_BOMBS_NEEDED );
+                GLog.n(TXT_MORE_BOMBS_NEEDED);
 
-               return null;
+                return null;
 
             }
-        };
+        }
+
+        ;
 
         @Override
-        protected Explosives salvageResult( Hero hero ) {
+        protected Explosives salvageResult(Hero hero) {
 
-            Explosives bomb = (Explosives)detach(curUser.belongings.backpack);
+            Explosives bomb = (Explosives) detach(curUser.belongings.backpack);
 
-            if( bomb != null && bomb.quantity > 0 ) {
+            if (bomb != null && bomb.quantity > 0) {
 
                 Item powder = new Gunpowder().quantity(Random.IntRange(powderMin, powderMax));
 
@@ -365,32 +376,34 @@ public abstract class Explosives extends Item {
 
             return null;
 
-        };
+        }
+
+        ;
 
         @Override
-        protected void onThrow( int cell ) {
+        protected void onThrow(int cell) {
 
-            if( Level.solid[ cell ] ) {
-                cell = Ballistica.trace[ Ballistica.distance - 1 ];
+            if (Level.solid[cell]) {
+                cell = Ballistica.trace[Ballistica.distance - 1];
             }
 
             if (Level.chasm[cell]) {
 
-                super.onThrow( cell );
+                super.onThrow(cell);
 
             } else {
 
-                Explosives bomb = (Explosives)detach(curUser.belongings.backpack);
+                Explosives bomb = (Explosives) detach(curUser.belongings.backpack);
 
-                if( bomb != null ) {
+                if (bomb != null) {
 
 //                    int strength = bomb.price();
 //                    explode(cell, bomb.damage(strength), bomb.radius(strength), curUser);
 
                     BombHazard hazard = new BombHazard();
-                    hazard.setValues( cell, BombHazard.BOMB_STICK, Random.IntRange( 15, 20 ), 1 );
-                    GameScene.add( hazard );
-                    ( (BombHazard.BombSprite) hazard.sprite ).appear();
+                    hazard.setValues(cell, BombHazard.BOMB_STICK, Random.IntRange(15, 20), 1);
+                    GameScene.add(hazard);
+                    ((BombHazard.BombSprite) hazard.sprite).appear();
 
                 }
             }
@@ -411,13 +424,13 @@ public abstract class Explosives extends Item {
         @Override
         public String info() {
             return
-                "This is a huge bomb made of several other bombs. It is a very powerful explosive.\n\n" +
-                "You can get " + sticksMin + "-" + sticksMax + " bomb sticks by salvaging this.";
+                    "This is a huge bomb made of several other bombs. It is a very powerful explosive.\n\n" +
+                            "You can get " + sticksMin + "-" + sticksMax + " bomb sticks by salvaging this.";
         }
 
         @Override
         public Item random() {
-            quantity = Random.IntRange( 1, 2 );
+            quantity = Random.IntRange(1, 2);
             return this;
         }
 
@@ -427,54 +440,56 @@ public abstract class Explosives extends Item {
         }
 
         @Override
-        protected Explosives salvageResult( Hero hero ) {
+        protected Explosives salvageResult(Hero hero) {
 
-            Explosives bomb = (Explosives)detach(curUser.belongings.backpack);
+            Explosives bomb = (Explosives) detach(curUser.belongings.backpack);
 
-            if( bomb != null && bomb.quantity > 0 ) {
+            if (bomb != null && bomb.quantity > 0) {
 
-                Item sticks = new BombStick().quantity( Random.IntRange( sticksMin, sticksMax ) );
+                Item sticks = new BombStick().quantity(Random.IntRange(sticksMin, sticksMax));
 
-                GLog.i( TXT_BOMBS_SALVAGED, sticks.quantity );
+                GLog.i(TXT_BOMBS_SALVAGED, sticks.quantity);
 
-                return (BombStick)sticks;
+                return (BombStick) sticks;
             }
 
             return null;
 
-        };
+        }
+
+        ;
 
         @Override
-        public ArrayList<String> actions( Hero hero ) {
-            ArrayList<String> actions = super.actions( hero );
+        public ArrayList<String> actions(Hero hero) {
+            ArrayList<String> actions = super.actions(hero);
 
-            actions.remove( AC_COMBINE );
+            actions.remove(AC_COMBINE);
 
             return actions;
         }
 
         @Override
-        protected void onThrow( int cell ) {
+        protected void onThrow(int cell) {
 
-            if( Level.solid[ cell ] ) {
-                cell = Ballistica.trace[ Ballistica.distance - 1 ];
+            if (Level.solid[cell]) {
+                cell = Ballistica.trace[Ballistica.distance - 1];
             }
 
             if (Level.chasm[cell]) {
-                super.onThrow( cell );
+                super.onThrow(cell);
             } else {
 
-                Explosives bomb = (Explosives)detach(curUser.belongings.backpack);
+                Explosives bomb = (Explosives) detach(curUser.belongings.backpack);
 
-                if( bomb != null ) {
+                if (bomb != null) {
 
 //                    int strength = bomb.price();
 //                    explode(cell, bomb.damage(strength), bomb.radius(strength), curUser);
 
                     BombHazard hazard = new BombHazard();
-                    hazard.setValues( cell, BombHazard.BOMB_BUNCH, Random.IntRange( 45, 60 ), 2 );
-                    GameScene.add( hazard );
-                    ( (BombHazard.BombSprite) hazard.sprite ).appear();
+                    hazard.setValues(cell, BombHazard.BOMB_BUNCH, Random.IntRange(45, 60), 2);
+                    GameScene.add(hazard);
+                    ((BombHazard.BombSprite) hazard.sprite).appear();
 
                 }
             }

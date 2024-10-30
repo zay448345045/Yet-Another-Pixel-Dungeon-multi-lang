@@ -20,7 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.painters;
 
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Statue;
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
@@ -34,22 +33,23 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.watabou.utils.Point;
+import com.watabou.utils.Random;
 
 public class StatuePainter extends Painter {
 
-	public static void paint( Level level, Room room ) {
+    public static void paint(Level level, Room room) {
 
-		fill( level, room, Terrain.WALL );
-		fill( level, room, 1, Terrain.EMPTY );
+        fill(level, room, Terrain.WALL);
+        fill(level, room, 1, Terrain.EMPTY);
 
 //		Point c = room.center();
 //		int cx = c.x;
 //		int cy = c.y;
-		
-		Room.Door door = room.entrance();
-		
-		door.set(Room.Door.Type.LOCKED);
-		level.addItemToSpawn(new IronKey());
+
+        Room.Door door = room.entrance();
+
+        door.set(Room.Door.Type.LOCKED);
+        level.addItemToSpawn(new IronKey());
 
         int x = -1;
         int y = -1;
@@ -60,45 +60,45 @@ public class StatuePainter extends Painter {
 
         if (door.x == room.left) {
 
-            a = new Point( room.left+1, entrance.y-1 );
-            b = new Point( room.left+1, entrance.y+1 );
+            a = new Point(room.left + 1, entrance.y - 1);
+            b = new Point(room.left + 1, entrance.y + 1);
             x = room.right - 1;
             y = room.top + room.height() / 2;
 
         } else if (door.x == room.right) {
 
-            a = new Point( room.right-1, entrance.y-1 );
-            b = new Point( room.right-1, entrance.y+1 );
+            a = new Point(room.right - 1, entrance.y - 1);
+            b = new Point(room.right - 1, entrance.y + 1);
             x = room.left + 1;
             y = room.top + room.height() / 2;
 
         } else if (door.y == room.top) {
 
-            a = new Point( entrance.x+1, room.top+1 );
-            b = new Point( entrance.x-1, room.top+1 );
+            a = new Point(entrance.x + 1, room.top + 1);
+            b = new Point(entrance.x - 1, room.top + 1);
             x = room.left + room.width() / 2;
             y = room.bottom - 1;
 
         } else if (door.y == room.bottom) {
 
-            a = new Point( entrance.x+1, room.bottom-1 );
-            b = new Point( entrance.x-1, room.bottom-1 );
+            a = new Point(entrance.x + 1, room.bottom - 1);
+            b = new Point(entrance.x - 1, room.bottom - 1);
             x = room.left + room.width() / 2;
             y = room.top + 1;
 
         }
 
         if (a != null && level.map[a.x + a.y * Level.WIDTH] == Terrain.EMPTY) {
-            set( level, a, Terrain.STATUE );
+            set(level, a, Terrain.STATUE);
         }
         if (b != null && level.map[b.x + b.y * Level.WIDTH] == Terrain.EMPTY) {
-            set( level, b, Terrain.STATUE );
+            set(level, b, Terrain.STATUE);
         }
 
         int pos = x + y * Level.WIDTH;
 
-        level.drop( prize(), pos, true ).type =
-        Random.Int(3) == 0 ? Heap.Type.CHEST : Heap.Type.HEAP;
+        level.drop(prize(), pos, true).type =
+                Random.Int(3) == 0 ? Heap.Type.CHEST : Heap.Type.HEAP;
         set(level, pos, Terrain.PEDESTAL);
 
         Statue statue1 = new Statue();
@@ -126,7 +126,7 @@ public class StatuePainter extends Painter {
         Actor.occupyCell(statue2);
 
         level.addItemToSpawn(new PotionOfInvisibility());
-		
+
 //		Statue statue = new Statue();
 //		statue.pos = cx + cy * Level.WIDTH;
 //		bonus.mobs.add(statue);
@@ -138,18 +138,18 @@ public class StatuePainter extends Painter {
 //
 //        set(bonus, c, Terrain.PEDESTAL);
 //        bonus.drop(prize(bonus), c);
-	}
+    }
 
     private static Item prize() {
 
         Weapon prize = null;
 
-        for (int i=0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
 
             Weapon another;
             do {
-                another = (Weapon)Generator.random( Generator.Category.WEAPON );
-            } while (another instanceof ThrowingWeapon || another.bonus < 0 );
+                another = (Weapon) Generator.random(Generator.Category.WEAPON);
+            } while (another instanceof ThrowingWeapon || another.bonus < 0);
 
             if (prize == null || another.lootLevel() > prize.lootLevel()) {
                 prize = another;

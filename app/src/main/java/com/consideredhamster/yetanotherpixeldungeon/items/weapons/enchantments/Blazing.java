@@ -60,15 +60,15 @@ public class Blazing extends Weapon.Enchantment {
         return "burn you on hit";
     }
 
-	@Override
-	protected boolean proc_p( Char attacker, Char defender, int damage ) {
-            defender.damage(Random.IntRange(damage / 3, damage / 2), this, Element.FLAME);
-            return true;
-	}
+    @Override
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
+        defender.damage(Random.IntRange(damage / 3, damage / 2), this, Element.FLAME);
+        return true;
+    }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
-            attacker.damage(Random.IntRange(damage / 3, damage / 2), this, Element.FLAME);
-            return true;
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
+        attacker.damage(Random.IntRange(damage / 3, damage / 2), this, Element.FLAME);
+        return true;
     }
 }

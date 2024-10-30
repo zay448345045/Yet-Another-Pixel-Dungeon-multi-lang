@@ -20,10 +20,16 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.scenes;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-
+import com.consideredhamster.yetanotherpixeldungeon.Badges;
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Statistics;
+import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
+import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndError;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndStory;
 import com.watabou.input.Touchscreen;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.BitmapTextMultiline;
@@ -33,43 +39,38 @@ import com.watabou.noosa.TouchArea;
 import com.watabou.noosa.audio.Music;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Badges;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.Statistics;
-import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndError;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndStory;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class InterlevelScene extends PixelScene {
 
-	private static final float TIME_TO_FADE = 0.5f;
-	
-	private static final String TXT_DESCENDING	= "Descending...";
-	private static final String TXT_ASCENDING	= "Ascending...";
-	private static final String TXT_LOADING		= "Loading...";
-	private static final String TXT_RESURRECTING= "Resurrecting...";
-	private static final String TXT_RETURNING	= "Returning...";
-	private static final String TXT_FALLING		= "Falling...";
-	private static final String TXT_CONTINUE	= "Tap to continue!";
+    private static final float TIME_TO_FADE = 0.5f;
 
-	private static final String ERR_FILE_NOT_FOUND	= "File not found. For some reason.";
-	private static final String ERR_GENERIC			= "Something went wrong..."	;	
-	
-	public static enum Mode {
-		DESCEND, ASCEND, CONTINUE, RESURRECT, RETURN, FALL
-	};
-	public static Mode mode;
-	
-	public static int returnDepth;
-	public static int returnPos;
-	
-	public static boolean noStory = false;
-	
-	public static boolean fallIntoPit;
+    private static final String TXT_DESCENDING = "Descending...";
+    private static final String TXT_ASCENDING = "Ascending...";
+    private static final String TXT_LOADING = "Loading...";
+    private static final String TXT_RESURRECTING = "Resurrecting...";
+    private static final String TXT_RETURNING = "Returning...";
+    private static final String TXT_FALLING = "Falling...";
+    private static final String TXT_CONTINUE = "Tap to continue!";
+
+    private static final String ERR_FILE_NOT_FOUND = "File not found. For some reason.";
+    private static final String ERR_GENERIC = "Something went wrong...";
+
+    public static enum Mode {
+        DESCEND, ASCEND, CONTINUE, RESURRECT, RETURN, FALL
+    }
+
+    ;
+    public static Mode mode;
+
+    public static int returnDepth;
+    public static int returnPos;
+
+    public static boolean noStory = false;
+
+    public static boolean fallIntoPit;
 
     private static final String[] TIPS = {
 
@@ -299,29 +300,29 @@ public class InterlevelScene extends PixelScene {
             "Your lantern makes it much easier to check for traps and secret doors",
             "Oil lantern can be used to start fires on adjacent tiles if you have spare oil flasks",
     };
-	
-	private enum Phase {
-		FADE_IN, STATIC, FADE_OUT
-	}
 
-	private Phase phase;
-	private float timeLeft;
-	
-    private BitmapText            message;
+    private enum Phase {
+        FADE_IN, STATIC, FADE_OUT
+    }
+
+    private Phase phase;
+    private float timeLeft;
+
+    private BitmapText message;
     private ArrayList<BitmapText> tipBox;
 
-	private Thread thread;
-	private String error = null;
-	private boolean pause = false;
+    private Thread thread;
+    private String error = null;
+    private boolean pause = false;
 
-	@Override
-	public void create() {
-		super.create();
-		
-		String text = "";
+    @Override
+    public void create() {
+        super.create();
+
+        String text = "";
 //        int depth = Dungeon.depth;
 
-		switch (mode) {
+        switch (mode) {
             case DESCEND:
                 text = TXT_DESCENDING;
 //                depth++;
@@ -355,17 +356,17 @@ public class InterlevelScene extends PixelScene {
                 text = TXT_FALLING;
 //                depth++;
                 break;
-		}
-		
-		message = PixelScene.createText( text, 10 );
-		message.measure();
-		message.x = (Camera.main.width - message.width()) / 2;
-		message.y = (Camera.main.height - message.height()) / 2;
-		add(message);
+        }
+
+        message = PixelScene.createText(text, 10);
+        message.measure();
+        message.x = (Camera.main.width - message.width()) / 2;
+        message.y = (Camera.main.height - message.height()) / 2;
+        add(message);
 
         tipBox = new ArrayList<>();
 
-        if( YetAnotherPixelDungeon.loadingTips() > 0 ) {
+        if (YetAnotherPixelDungeon.loadingTips() > 0) {
 
             BitmapTextMultiline tip = PixelScene.createMultiline(TIPS[Random.Int(TIPS.length)], 6);
             tip.maxWidth = Camera.main.width * 9 / 10;
@@ -381,228 +382,228 @@ public class InterlevelScene extends PixelScene {
         }
 
 
-		phase = Phase.FADE_IN;
-		timeLeft = TIME_TO_FADE;
-		
-		thread = new Thread() {
-			@Override
-			public void run() {
-				
-				try {
-					
-					Generator.reset();
-					
-					switch (mode) {
-					case DESCEND:
-						descend();
-						break;
-					case ASCEND:
-						ascend();
-						break;
-					case CONTINUE:
-						restore();
-						break;
+        phase = Phase.FADE_IN;
+        timeLeft = TIME_TO_FADE;
+
+        thread = new Thread() {
+            @Override
+            public void run() {
+
+                try {
+
+                    Generator.reset();
+
+                    switch (mode) {
+                        case DESCEND:
+                            descend();
+                            break;
+                        case ASCEND:
+                            ascend();
+                            break;
+                        case CONTINUE:
+                            restore();
+                            break;
 //					case RESURRECT:
 //                        resurrect();
 //                        break;
-					case RETURN:
-						returnTo();
-						break;
-					case FALL:
-						fall();
-						break;
-					}
+                        case RETURN:
+                            returnTo();
+                            break;
+                        case FALL:
+                            fall();
+                            break;
+                    }
 
-					if ((Dungeon.depth % 6) == 0 && Dungeon.depth == Statistics.deepestFloor ) {
-						Sample.INSTANCE.load( Assets.SND_BOSS );
-					}
+                    if ((Dungeon.depth % 6) == 0 && Dungeon.depth == Statistics.deepestFloor) {
+                        Sample.INSTANCE.load(Assets.SND_BOSS);
+                    }
 
-                    if( mode != Mode.CONTINUE ) {
+                    if (mode != Mode.CONTINUE) {
                         Dungeon.saveAll();
                         Badges.saveGlobal();
                     }
-					
-				} catch (FileNotFoundException e) {
-					
-					error = ERR_FILE_NOT_FOUND;
-					
-				} catch (Exception e) {
 
-					error = e.toString();
+                } catch (FileNotFoundException e) {
+
+                    error = ERR_FILE_NOT_FOUND;
+
+                } catch (Exception e) {
+
+                    error = e.toString();
                     YetAnotherPixelDungeon.reportException(e);
-					
-				}
+
+                }
 
 //                error = ERR_FILE_NOT_FOUND;
-				
-				if (phase == Phase.STATIC && error == null) {
-					phase = Phase.FADE_OUT;
-					timeLeft = TIME_TO_FADE * 2;
-				}
-			}
-		};
-		thread.start();
-	}
-	
-	@Override
-	public void update() {
-		super.update();
-		
-		float p = timeLeft / TIME_TO_FADE;
-		
-		switch (phase) {
-		
-		case FADE_IN:
 
-			message.alpha( 1 - p );
-
-            for (BitmapText line : tipBox) {
-                line.alpha( 1 - p );
-            }
-
-			if ((timeLeft -= Game.elapsed) <= 0) {
-				if (thread.isAlive() || error != null || YetAnotherPixelDungeon.loadingTips() > 2 ) {
-                    phase = Phase.STATIC;
-
-                    if( !thread.isAlive() && error == null) {
-                        message.text(TXT_CONTINUE);
-                        message.measure();
-                        message.x = (Camera.main.width - message.width()) / 2;
-                        message.y = (Camera.main.height - message.height()) / 2;
-
-                        TouchArea hotArea = new TouchArea(0, 0, Camera.main.width, Camera.main.height) {
-                            @Override
-                            protected void onClick(Touchscreen.Touch touch) {
-                                phase = Phase.FADE_OUT;
-                                timeLeft = TIME_TO_FADE;
-                                this.destroy();
-                            }
-                        };
-                        add(hotArea);
-                    }
-
-                } else {
+                if (phase == Phase.STATIC && error == null) {
                     phase = Phase.FADE_OUT;
-                    timeLeft = ( YetAnotherPixelDungeon.loadingTips() > 0 ?
-                            TIME_TO_FADE * YetAnotherPixelDungeon.loadingTips() * 3 : TIME_TO_FADE );
+                    timeLeft = TIME_TO_FADE * 2;
                 }
-			}
-			break;
-			
-		case FADE_OUT:
-
-			message.alpha( p );
-
-            for (BitmapText line : tipBox) {
-                line.alpha( p );
             }
+        };
+        thread.start();
+    }
 
-			if (mode == Mode.CONTINUE || (mode == Mode.DESCEND && Dungeon.depth == 1)) {
-				Music.INSTANCE.volume( p );
-			}
-			if ((timeLeft -= Game.elapsed) <= 0) {
-				Game.switchScene( GameScene.class );
-			}
-			break;
-			
-		case STATIC:
+    @Override
+    public void update() {
+        super.update();
 
-            if (error != null) {
+        float p = timeLeft / TIME_TO_FADE;
 
-                add(new WndError(error) {
-                    public void onBackPressed() {
-                        super.onBackPressed();
-                        Game.switchScene(StartScene.class);
+        switch (phase) {
+
+            case FADE_IN:
+
+                message.alpha(1 - p);
+
+                for (BitmapText line : tipBox) {
+                    line.alpha(1 - p);
+                }
+
+                if ((timeLeft -= Game.elapsed) <= 0) {
+                    if (thread.isAlive() || error != null || YetAnotherPixelDungeon.loadingTips() > 2) {
+                        phase = Phase.STATIC;
+
+                        if (!thread.isAlive() && error == null) {
+                            message.text(TXT_CONTINUE);
+                            message.measure();
+                            message.x = (Camera.main.width - message.width()) / 2;
+                            message.y = (Camera.main.height - message.height()) / 2;
+
+                            TouchArea hotArea = new TouchArea(0, 0, Camera.main.width, Camera.main.height) {
+                                @Override
+                                protected void onClick(Touchscreen.Touch touch) {
+                                    phase = Phase.FADE_OUT;
+                                    timeLeft = TIME_TO_FADE;
+                                    this.destroy();
+                                }
+                            };
+                            add(hotArea);
+                        }
+
+                    } else {
+                        phase = Phase.FADE_OUT;
+                        timeLeft = (YetAnotherPixelDungeon.loadingTips() > 0 ?
+                                TIME_TO_FADE * YetAnotherPixelDungeon.loadingTips() * 3 : TIME_TO_FADE);
                     }
-                });
+                }
+                break;
 
-                error = null;
+            case FADE_OUT:
 
+                message.alpha(p);
+
+                for (BitmapText line : tipBox) {
+                    line.alpha(p);
+                }
+
+                if (mode == Mode.CONTINUE || (mode == Mode.DESCEND && Dungeon.depth == 1)) {
+                    Music.INSTANCE.volume(p);
+                }
+                if ((timeLeft -= Game.elapsed) <= 0) {
+                    Game.switchScene(GameScene.class);
+                }
+                break;
+
+            case STATIC:
+
+                if (error != null) {
+
+                    add(new WndError(error) {
+                        public void onBackPressed() {
+                            super.onBackPressed();
+                            Game.switchScene(StartScene.class);
+                        }
+                    });
+
+                    error = null;
+
+                }
+                break;
+        }
+    }
+
+    private void descend() throws Exception {
+
+        Actor.fixTime();
+
+        if (Dungeon.hero == null) {
+            Dungeon.init();
+            if (noStory) {
+                Dungeon.chapters.add(WndStory.ID_SEWERS);
+                noStory = false;
             }
-			break;
-		}
-	}
-	
-	private void descend() throws Exception {
-		
-		Actor.fixTime();
+        } else {
+            Dungeon.saveAll();
+        }
 
-		if (Dungeon.hero == null) {
-			Dungeon.init();
-			if (noStory) {
-				Dungeon.chapters.add( WndStory.ID_SEWERS );
-				noStory = false;
-			}
-		} else {
-			Dungeon.saveAll();
-		}
-		
-		Level level;
-		if (Dungeon.depth >= Statistics.deepestFloor) {
-			level = Dungeon.newLevel();
-		} else {
-			Dungeon.depth++;
-			level = Dungeon.loadLevel( Dungeon.hero.heroClass );
-		}
-		Dungeon.switchLevel( level, level.entrance );
-	}
-	
-	private void fall() throws Exception {
-		
-		Actor.fixTime();
-		Dungeon.saveAll();
-		
-		Level level;
+        Level level;
+        if (Dungeon.depth >= Statistics.deepestFloor) {
+            level = Dungeon.newLevel();
+        } else {
+            Dungeon.depth++;
+            level = Dungeon.loadLevel(Dungeon.hero.heroClass);
+        }
+        Dungeon.switchLevel(level, level.entrance);
+    }
 
-		if( Dungeon.depth <= 25 ){
+    private void fall() throws Exception {
 
-            if( Dungeon.depth >= Statistics.deepestFloor ){
+        Actor.fixTime();
+        Dungeon.saveAll();
+
+        Level level;
+
+        if (Dungeon.depth <= 25) {
+
+            if (Dungeon.depth >= Statistics.deepestFloor) {
                 level = Dungeon.newLevel();
             } else {
                 Dungeon.depth++;
-                level = Dungeon.loadLevel( Dungeon.hero.heroClass );
+                level = Dungeon.loadLevel(Dungeon.hero.heroClass);
             }
         } else {
-		    // You hear distant a sound of  malicious laughter.
-            level = Dungeon.loadLevel( Dungeon.hero.heroClass );
+            // You hear distant a sound of  malicious laughter.
+            level = Dungeon.loadLevel(Dungeon.hero.heroClass);
         }
 
-		Dungeon.switchLevel( level, fallIntoPit ? level.pitCell() : level.randomRespawnCell( true, true ) );
-	}
-	
-	private void ascend() throws Exception {
-		Actor.fixTime();
-		
-		Dungeon.saveAll();
-		Dungeon.depth--;
-		Level level = Dungeon.
-                loadLevel( Dungeon.hero.heroClass );
-		Dungeon.switchLevel( level, level.exit );
-	}
-	
-	private void returnTo() throws Exception {
-		
-		Actor.fixTime();
-		
-		Dungeon.saveAll();
-		Dungeon.depth = returnDepth;
-		Level level = Dungeon.loadLevel( Dungeon.hero.heroClass );
-		Dungeon.switchLevel(level, Level.resizingNeeded ? level.adjustPos(returnPos) : returnPos);
-	}
-	
-	private void restore() throws Exception {
-		
-		Actor.fixTime();
-		
-		Dungeon.loadGame(StartScene.curClass);
-		if (Dungeon.depth == -1) {
-			Dungeon.depth = Statistics.deepestFloor;
-			Dungeon.switchLevel( Dungeon.loadLevel( StartScene.curClass ), -1 );
-		} else {
-			Level level = Dungeon.loadLevel( StartScene.curClass );
-			Dungeon.switchLevel( level, Level.resizingNeeded ? level.adjustPos( Dungeon.hero.pos ) : Dungeon.hero.pos );
-		}
-	}
+        Dungeon.switchLevel(level, fallIntoPit ? level.pitCell() : level.randomRespawnCell(true, true));
+    }
+
+    private void ascend() throws Exception {
+        Actor.fixTime();
+
+        Dungeon.saveAll();
+        Dungeon.depth--;
+        Level level = Dungeon.
+                loadLevel(Dungeon.hero.heroClass);
+        Dungeon.switchLevel(level, level.exit);
+    }
+
+    private void returnTo() throws Exception {
+
+        Actor.fixTime();
+
+        Dungeon.saveAll();
+        Dungeon.depth = returnDepth;
+        Level level = Dungeon.loadLevel(Dungeon.hero.heroClass);
+        Dungeon.switchLevel(level, Level.resizingNeeded ? level.adjustPos(returnPos) : returnPos);
+    }
+
+    private void restore() throws Exception {
+
+        Actor.fixTime();
+
+        Dungeon.loadGame(StartScene.curClass);
+        if (Dungeon.depth == -1) {
+            Dungeon.depth = Statistics.deepestFloor;
+            Dungeon.switchLevel(Dungeon.loadLevel(StartScene.curClass), -1);
+        } else {
+            Level level = Dungeon.loadLevel(StartScene.curClass);
+            Dungeon.switchLevel(level, Level.resizingNeeded ? level.adjustPos(Dungeon.hero.pos) : Dungeon.hero.pos);
+        }
+    }
 
 //	private void resurrect() throws Exception {
 //
@@ -626,8 +627,8 @@ public class InterlevelScene extends PixelScene {
 //        }
 //    }
 
-	@Override
-	protected void onBackPressed() {
-		// Do nothing
-	}
+    @Override
+    protected void onBackPressed() {
+        // Do nothing
+    }
 }

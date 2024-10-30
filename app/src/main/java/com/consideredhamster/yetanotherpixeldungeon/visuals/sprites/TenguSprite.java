@@ -20,54 +20,53 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.watabou.utils.Callback;
+import com.watabou.noosa.TextureFilm;
 
 public class TenguSprite extends MobSprite {
-	
-	public TenguSprite() {
-		super();
-		
-		texture( Assets.TENGU );
-		
-		TextureFilm frames = new TextureFilm( texture, 14, 16 );
-		
-		idle = new Animation( 2, true );
-		idle.frames( frames, 0, 0, 0, 1 );
-		
-		run = new Animation( 15, false );
-		run.frames( frames, 2, 3, 4, 5, 0 );
-		
-		attack = new Animation( 15, false );
-		attack.frames( frames, 6, 7, 7, 0 );
-		
-		die = new Animation( 8, false );
-		die.frames( frames, 8, 9, 10, 10, 10, 10, 10, 10 );
-		
-		play( run.clone() );
-	}
-	
-	@Override
-	public void move( int from, int to ) {
-		
-		place( to );
-		
-		play( run );
-		turnTo( from , to );
-		
-		isMoving = true;
-		
-		ch.onMotionComplete();
-	}
 
-	@Override
-	public void onComplete( Animation anim ) {
-		if (anim == run) {
-			isMoving = false;
-			idle();
-		} else {
-			super.onComplete( anim );
-		}
-	}
+    public TenguSprite() {
+        super();
+
+        texture(Assets.TENGU);
+
+        TextureFilm frames = new TextureFilm(texture, 14, 16);
+
+        idle = new Animation(2, true);
+        idle.frames(frames, 0, 0, 0, 1);
+
+        run = new Animation(15, false);
+        run.frames(frames, 2, 3, 4, 5, 0);
+
+        attack = new Animation(15, false);
+        attack.frames(frames, 6, 7, 7, 0);
+
+        die = new Animation(8, false);
+        die.frames(frames, 8, 9, 10, 10, 10, 10, 10, 10);
+
+        play(run.clone());
+    }
+
+    @Override
+    public void move(int from, int to) {
+
+        place(to);
+
+        play(run);
+        turnTo(from, to);
+
+        isMoving = true;
+
+        ch.onMotionComplete();
+    }
+
+    @Override
+    public void onComplete(Animation anim) {
+        if (anim == run) {
+            isMoving = false;
+            idle();
+        } else {
+            super.onComplete(anim);
+        }
+    }
 }

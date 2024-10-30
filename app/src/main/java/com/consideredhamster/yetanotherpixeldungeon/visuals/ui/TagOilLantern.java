@@ -25,55 +25,57 @@ import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
 
 public class TagOilLantern extends Tag {
 
-	private ItemSlot slot;
+    private ItemSlot slot;
 
-	private OilLantern item = null;
+    private OilLantern item = null;
 
-	public TagOilLantern() {
+    public TagOilLantern() {
 
-		super( 0x7C8072 );
-		setSize( 24, 22 );
-        item = Dungeon.hero.belongings.getItem( OilLantern.class );
+        super(0x7C8072);
+        setSize(24, 22);
+        item = Dungeon.hero.belongings.getItem(OilLantern.class);
 
-	}
-	
-	@Override
-	protected void createChildren() {
+    }
 
-		super.createChildren();
+    @Override
+    protected void createChildren() {
 
-		slot = new ItemSlot() {
+        super.createChildren();
 
-			protected void onClick() {
-                item.execute( Dungeon.hero, item.quickAction() );
+        slot = new ItemSlot() {
+
+            protected void onClick() {
+                item.execute(Dungeon.hero, item.quickAction());
                 flash();
-			};
+            }
+
+            ;
 
             protected boolean onLongClick() {
-                item.execute( Dungeon.hero, OilLantern.AC_BURN );
+                item.execute(Dungeon.hero, OilLantern.AC_BURN);
                 flash();
                 return true;
-            };
-		};
+            }
 
-
+            ;
+        };
 
 
         slot.setScale(0.8f);
-		add( slot );
-	}
-	
-	@Override
-	protected void layout() {
+        add(slot);
+    }
 
-		super.layout();
+    @Override
+    protected void layout() {
+
+        super.layout();
 
 //        if( YetAnotherPixelDungeon.buttons() ){
 
-            bg.scale.x = -1.0f;
-            bg.x += bg.width;
+        bg.scale.x = -1.0f;
+        bg.x += bg.width;
 
-            slot.setRect( x + 2, y + 2, width - 5, height - 4 );
+        slot.setRect(x + 2, y + 2, width - 5, height - 4);
 
 //        } else {
 //
@@ -81,15 +83,15 @@ public class TagOilLantern extends Tag {
 //
 //        }
 
-	}
-	
-	@Override
-	public void update() {
+    }
+
+    @Override
+    public void update() {
 
         super.update();
 
-        slot.item( item );
-        slot.enable( Dungeon.hero.isAlive() && Dungeon.hero.ready );
+        slot.item(item);
+        slot.enable(Dungeon.hero.isAlive() && Dungeon.hero.ready);
 
-	}
+    }
 }

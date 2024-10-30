@@ -20,30 +20,24 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Fire;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Ensnared;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.FireDrakeSprite;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Callback;
 
 public class FireDrake extends MobPrecise {
 
     public FireDrake() {
 
-        super( 14 );
+        super(14);
 
         /*
 
@@ -67,11 +61,11 @@ public class FireDrake extends MobPrecise {
 
         flying = true;
 
-        resistances.put( Element.Flame.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Flame.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
 
-        resistances.put( Element.Frost.class, Element.Resist.VULNERABLE );
-        resistances.put( Element.Knockback.class, Element.Resist.VULNERABLE );
+        resistances.put(Element.Frost.class, Element.Resist.VULNERABLE);
+        resistances.put(Element.Knockback.class, Element.Resist.VULNERABLE);
 
     }
 
@@ -86,13 +80,13 @@ public class FireDrake extends MobPrecise {
 //    }
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return super.canAttack( enemy ) || Level.distance( pos, enemy.pos ) <= 2 &&
+    protected boolean canAttack(Char enemy) {
+        return super.canAttack(enemy) || Level.distance(pos, enemy.pos) <= 2 &&
                 Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
+    protected void onRangedAttack(int cell) {
 
         MagicMissile.fire(sprite.parent, pos, cell,
                 new Callback() {
@@ -104,17 +98,16 @@ public class FireDrake extends MobPrecise {
 
         Sample.INSTANCE.play(Assets.SND_ZAP);
 
-        super.onRangedAttack( cell );
+        super.onRangedAttack(cell);
     }
 
 
-
     @Override
-    public boolean cast( Char enemy ) {
+    public boolean cast(Char enemy) {
 
-        if (hit( this, enemy, true, true )) {
+        if (hit(this, enemy, true, true)) {
 
-            enemy.damage( damageRoll(), this, Element.FLAME );
+            enemy.damage(damageRoll(), this, Element.FLAME);
 
         } else {
 
@@ -125,21 +118,21 @@ public class FireDrake extends MobPrecise {
     }
 
     @Override
-    public void die( Object cause, Element dmg ) {
+    public void die(Object cause, Element dmg) {
 
         if (Level.flammable[pos]) {
             GameScene.add(Blob.seed(pos, 1, Fire.class));
         }
 
-        super.die( cause, dmg );
+        super.die(cause, dmg);
     }
-	
-	@Override
-	public String description() {
-		return
-			"Drakes of different kinds had roamed the deeper bowels of this world long before " +
-            "dwarves domesticated them. Fire drakes are the most common variety, able to fly and " +
-            "belch fire to protect their bearded masters.";
-	}
+
+    @Override
+    public String description() {
+        return
+                "Drakes of different kinds had roamed the deeper bowels of this world long before " +
+                        "dwarves domesticated them. Fire drakes are the most common variety, able to fly and " +
+                        "belch fire to protect their bearded masters.";
+    }
 
 }

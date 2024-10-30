@@ -21,57 +21,60 @@
 package com.consideredhamster.yetanotherpixeldungeon.visuals.ui;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Waterskin;
 
 public class TagWaterskin extends Tag {
 
-	private ItemSlot slot;
+    private ItemSlot slot;
 
-	private Waterskin item = null;
+    private Waterskin item = null;
 
-	public TagWaterskin() {
+    public TagWaterskin() {
 
-		super( 0x7C8072 );
-		setSize( 24, 22 );
-        item = Dungeon.hero.belongings.getItem( Waterskin.class );
+        super(0x7C8072);
+        setSize(24, 22);
+        item = Dungeon.hero.belongings.getItem(Waterskin.class);
 
-	}
-	
-	@Override
-	protected void createChildren() {
-		super.createChildren();
+    }
 
-		slot = new ItemSlot() {
+    @Override
+    protected void createChildren() {
+        super.createChildren();
 
-			protected void onClick() {
-                item.execute( Dungeon.hero, Waterskin.AC_DRINK );
+        slot = new ItemSlot() {
+
+            protected void onClick() {
+                item.execute(Dungeon.hero, Waterskin.AC_DRINK);
                 flash();
-			};
+            }
+
+            ;
 
             protected boolean onLongClick() {
-                item.execute( Dungeon.hero, Waterskin.AC_POUR );
+                item.execute(Dungeon.hero, Waterskin.AC_POUR);
                 flash();
                 return true;
-            };
-		};
+            }
+
+            ;
+        };
 
 
         slot.setScale(0.8f);
-		add( slot );
-	}
-	
-	@Override
-	protected void layout() {
+        add(slot);
+    }
 
-		super.layout();
+    @Override
+    protected void layout() {
+
+        super.layout();
 
 //        if( YetAnotherPixelDungeon.buttons() ){
 
-            bg.scale.x = -1.0f;
-            bg.x += bg.width;
+        bg.scale.x = -1.0f;
+        bg.x += bg.width;
 
-            slot.setRect( x + 2, y + 2, width - 5, height - 4 );
+        slot.setRect(x + 2, y + 2, width - 5, height - 4);
 
 //        } else {
 //
@@ -79,15 +82,15 @@ public class TagWaterskin extends Tag {
 //
 //        }
 
-	}
-	
-	@Override
-	public void update() {
+    }
+
+    @Override
+    public void update() {
 
         super.update();
 
-        slot.item( item );
-        slot.enable( Dungeon.hero.isAlive() && Dungeon.hero.ready );
+        slot.item(item);
+        slot.enable(Dungeon.hero.isAlive() && Dungeon.hero.ready);
 
-	}
+    }
 }

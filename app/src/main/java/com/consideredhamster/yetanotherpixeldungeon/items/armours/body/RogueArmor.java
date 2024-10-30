@@ -23,21 +23,21 @@ package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class RogueArmor extends BodyArmorCloth {
-	
+
 //	private static final String TXT_FOV 		= "You can only jump to an empty location in your field of view";
 //	private static final String TXT_NOT_ROGUE	= "Only rogues can use this armor!";
 //
 //	private static final String AC_SPECIAL = "SMOKE BOMB";
-	
-	{
-		name = "rogue garb";
-		image = ItemSpriteSheet.ARMOR_ROGUE;
+
+    {
+        name = "rogue garb";
+        image = ItemSpriteSheet.ARMOR_ROGUE;
 
         appearance = 2;
-	}
+    }
 
     public RogueArmor() {
-        super( 1 );
+        super(1);
     }
 
     @Override
@@ -70,14 +70,14 @@ public class RogueArmor extends BodyArmorCloth {
 //            return false;
 //        }
 //    }
-	
+
 //	@Override
 //	public String desc() {
 //		return
 //			"Wearing this dark garb, a rogue can perform a trick, that is called \"smoke bomb\" " +
 //			"(though no real explosives are used): he blinds enemies who could see him and jumps aside.";
 //	}
-	
+
 //	protected static CellSelector.Listener teleporter = new  CellSelector.Listener() {
 //
 //		@Override

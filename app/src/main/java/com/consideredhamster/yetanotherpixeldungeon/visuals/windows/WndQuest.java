@@ -24,8 +24,8 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.NPC;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
 
 public class WndQuest extends WndTitledMessage {
-	
-	public WndQuest( NPC questgiver, String text ) {
-		super( questgiver.sprite(), Utils.capitalize( questgiver.name ), text );
-	}
+
+    public WndQuest(NPC questgiver, String text) {
+        super(questgiver.sprite(), Utils.capitalize(questgiver.name), text);
+    }
 }

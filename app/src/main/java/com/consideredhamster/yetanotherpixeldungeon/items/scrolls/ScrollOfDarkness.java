@@ -20,48 +20,48 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Darkness;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.watabou.noosa.audio.Sample;
 
 public class ScrollOfDarkness extends Scroll {
 
-    private static final String TXT_MESSAGE	= "You are suddenly engulfed by a clouds of impenetrable shadow.";
+    private static final String TXT_MESSAGE = "You are suddenly engulfed by a clouds of impenetrable shadow.";
 
-	{
-		name = "Scroll of Darkness";
+    {
+        name = "Scroll of Darkness";
         shortName = "Da";
 
         spellSprite = SpellSprite.SCROLL_DARKNESS;
         spellColour = SpellSprite.COLOUR_WILD;
-	}
-	
-	@Override
-	protected void doRead() {
+    }
 
-        curUser.sprite.centerEmitter().start( Speck.factory( Speck.DARKNESS ), 0.3f, 5 );
-        Sample.INSTANCE.play( Assets.SND_GHOST );
+    @Override
+    protected void doRead() {
 
-        GameScene.add( Blob.seed( curUser.pos, 1000 * ( 110 + curUser.magicPower() ) / 100, Darkness.class ) );
+        curUser.sprite.centerEmitter().start(Speck.factory(Speck.DARKNESS), 0.3f, 5);
+        Sample.INSTANCE.play(Assets.SND_GHOST);
 
-        GLog.i( TXT_MESSAGE );
+        GameScene.add(Blob.seed(curUser.pos, 1000 * (110 + curUser.magicPower()) / 100, Darkness.class));
+
+        GLog.i(TXT_MESSAGE);
 
         super.doRead();
-	}
-	
-	@Override
-	public String desc() {
-		return
-			"Unnatural darkness from the deepest abysses is summoned by the call of this otherwise " +
-            "unremarkable sheet of paper. This darkness is so thick that it nothing can see through it " +
-            "without magical means." +
-            "\n\nDuration of this effect depends on magic skill of the reader.";
-	}
+    }
+
+    @Override
+    public String desc() {
+        return
+                "Unnatural darkness from the deepest abysses is summoned by the call of this otherwise " +
+                        "unremarkable sheet of paper. This darkness is so thick that it nothing can see through it " +
+                        "without magical means." +
+                        "\n\nDuration of this effect depends on magic skill of the reader.";
+    }
 
     @Override
     public int price() {

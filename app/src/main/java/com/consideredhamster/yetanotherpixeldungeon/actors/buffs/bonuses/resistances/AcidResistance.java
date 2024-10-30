@@ -25,13 +25,15 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class AcidResistance extends ElementResistance {
 
-	@Override
-	public String toString() {
-		return "Acid Resistance";
-	}
+    @Override
+    public String toString() {
+        return "Acid Resistance";
+    }
 
     @Override
-    public String statusMessage() { return "acid resistance"; }
+    public String statusMessage() {
+        return "acid resistance";
+    }
 
     @Override
     public String playerMessage() {
@@ -44,13 +46,13 @@ public class AcidResistance extends ElementResistance {
     }
 
     @Override
-    public Class<? extends Element> resistance(){
+    public Class<? extends Element> resistance() {
         return Element.Acid.class;
     }
 
     @Override
     public String description() {
         return "Your skin became somewhat oily, and it feels like it should help against caustic " +
-            "blights of all kind. Your resistance to acid damage is increased.";
+                "blights of all kind. Your resistance to acid damage is increased.";
     }
 }

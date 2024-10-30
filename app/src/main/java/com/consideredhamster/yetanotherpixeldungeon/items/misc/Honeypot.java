@@ -20,123 +20,123 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.misc;
 
-import java.util.ArrayList;
-
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.tweeners.AlphaTweener;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Bee;
 import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Splash;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Splash;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.noosa.tweeners.AlphaTweener;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
+import java.util.ArrayList;
+
 public class Honeypot extends Item {
-	
-	public static final String AC_SHATTER	= "SHATTER";
-	
-	{
-		name = "honeypot";
+
+    public static final String AC_SHATTER = "SHATTER";
+
+    {
+        name = "honeypot";
 //		image = ItemSpriteSheet.HONEYPOT;
 //		defaultAction = AC_THROW;
-		stackable = true;
-	}
+        stackable = true;
+    }
 
     @Override
     public String quickAction() {
         return AC_THROW;
     }
-	
-	@Override
-	public ArrayList<String> actions( Hero hero ) {
-		ArrayList<String> actions = super.actions( hero );
-		actions.add( AC_SHATTER );
-		return actions;
-	}
-	
-	@Override
-	public void execute( final Hero hero, String action ) {
-		if (action.equals( AC_SHATTER )) {
-			
-			hero.sprite.cast(hero.pos);
-			shatter( hero.pos );
-			
-			detach( hero.belongings.backpack );
-			hero.spendAndNext( TIME_TO_THROW );
-			
-		} else {
-			super.execute( hero, action );
-		}
-	}
-	
-	@Override
-	protected void onThrow( int cell ) {
-		if (Level.chasm[cell]) {
-			super.onThrow( cell );
-		} else {
+
+    @Override
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
+        actions.add(AC_SHATTER);
+        return actions;
+    }
+
+    @Override
+    public void execute(final Hero hero, String action) {
+        if (action.equals(AC_SHATTER)) {
+
+            hero.sprite.cast(hero.pos);
+            shatter(hero.pos);
+
+            detach(hero.belongings.backpack);
+            hero.spendAndNext(TIME_TO_THROW);
+
+        } else {
+            super.execute(hero, action);
+        }
+    }
+
+    @Override
+    protected void onThrow(int cell) {
+        if (Level.chasm[cell]) {
+            super.onThrow(cell);
+        } else {
             detach(curUser.belongings.backpack);
 
-			shatter( cell );
-		}
-	}
-	
-	private void shatter( int pos ) {
-		Sample.INSTANCE.play( Assets.SND_SHATTER );
-		
-		if (Dungeon.visible[pos]) {
-			Splash.at( pos, 0xffd500, 5 );
-		}
-		
-		int newPos = pos;
-		if (Actor.findChar( pos ) != null) {
-			ArrayList<Integer> candidates = new ArrayList<Integer>();
-			boolean[] passable = Level.passable;
-			
-			for (int n : Level.NEIGHBOURS4) {
-				int c = pos + n;
-				if (passable[c] && Actor.findChar( c ) == null) {
-					candidates.add( c );
-				}
-			}
-	
-			newPos = candidates.size() > 0 ? Random.element( candidates ) : -1;
-		}
-		
-		if (newPos != -1) {
-			final Bee bee = new Bee();
-			bee.spawn( Dungeon.depth );
-			bee.HP = bee.HT;
-			bee.pos = pos;
-			
-            Pushing.move( bee, newPos, new Callback() {
-                @Override
-                public void call(){
-                    GameScene.add( bee );
+            shatter(cell);
+        }
+    }
+
+    private void shatter(int pos) {
+        Sample.INSTANCE.play(Assets.SND_SHATTER);
+
+        if (Dungeon.visible[pos]) {
+            Splash.at(pos, 0xffd500, 5);
+        }
+
+        int newPos = pos;
+        if (Actor.findChar(pos) != null) {
+            ArrayList<Integer> candidates = new ArrayList<Integer>();
+            boolean[] passable = Level.passable;
+
+            for (int n : Level.NEIGHBOURS4) {
+                int c = pos + n;
+                if (passable[c] && Actor.findChar(c) == null) {
+                    candidates.add(c);
                 }
-            } );
+            }
+
+            newPos = candidates.size() > 0 ? Random.element(candidates) : -1;
+        }
+
+        if (newPos != -1) {
+            final Bee bee = new Bee();
+            bee.spawn(Dungeon.depth);
+            bee.HP = bee.HT;
+            bee.pos = pos;
+
+            Pushing.move(bee, newPos, new Callback() {
+                @Override
+                public void call() {
+                    GameScene.add(bee);
+                }
+            });
 
 
-			bee.sprite.alpha( 0 );
-			bee.sprite.parent.add( new AlphaTweener( bee.sprite, 1, 0.15f ) );
-			
-			Sample.INSTANCE.play( Assets.SND_BEE );
-		}
-	}
-	
-	@Override
-	public int price() {
-		return 50 * quantity;
-	}
-	
-	@Override
-	public String info() {
-		return
-			"There is not much honey in this small honeypot, but there is a golden bee there and it doesn't want to leave it.";
-	}
+            bee.sprite.alpha(0);
+            bee.sprite.parent.add(new AlphaTweener(bee.sprite, 1, 0.15f));
+
+            Sample.INSTANCE.play(Assets.SND_BEE);
+        }
+    }
+
+    @Override
+    public int price() {
+        return 50 * quantity;
+    }
+
+    @Override
+    public String info() {
+        return
+                "There is not much honey in this small honeypot, but there is a golden bee there and it doesn't want to leave it.";
+    }
 }

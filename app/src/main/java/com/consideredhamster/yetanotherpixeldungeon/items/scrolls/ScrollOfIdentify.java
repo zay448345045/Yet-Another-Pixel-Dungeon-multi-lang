@@ -20,12 +20,12 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
+import com.watabou.utils.Random;
 
 public class ScrollOfIdentify extends InventoryScroll {
 
@@ -33,16 +33,16 @@ public class ScrollOfIdentify extends InventoryScroll {
 //    private static final String TXT_IDENTIFIED	= "Your equipped items are identified!";
 //    private static final String TXT_NOTHING 	= "Nothing happens.";
 
-	{
-		name = "Scroll of Identify";
+    {
+        name = "Scroll of Identify";
         shortName = "Id";
 
-		inventoryTitle = "Select an item to identify";
-		mode = WndBag.Mode.UNIDENTIFED;
+        inventoryTitle = "Select an item to identify";
+        mode = WndBag.Mode.UNIDENTIFED;
 
         spellSprite = SpellSprite.SCROLL_IDENTIFY;
         spellColour = SpellSprite.COLOUR_RUNE;
-	}
+    }
 
 //    @Override
 //    protected void doRead() {
@@ -71,9 +71,9 @@ public class ScrollOfIdentify extends InventoryScroll {
 //        super.doRead();
 //    }
 
-	@Override
-	protected void onItemSelected( Item item ) {
-		
+    @Override
+    protected void onItemSelected(Item item) {
+
 //		curUser.sprite.parent.add( new Identification( curUser.sprite.center().offset( 0, -16 ) ) );
         curUser.sprite.emitter().start(Speck.factory(Speck.QUESTION), 0.1f, Random.IntRange(6, 9));
 
@@ -83,20 +83,20 @@ public class ScrollOfIdentify extends InventoryScroll {
 //        Badges.validateItemLevelAcquired(item);
 
     }
-	
-	@Override
-	public String desc() {
-		return
-			"Incantation etched on this scroll can bestow its reader with ability to perceive the " +
-            "very nature of things, revealing their purposes and qualities. However, duration of " +
-            "this spell is really short, so it is possible to assess only a single item with its help.";
-	}
 
-    public static boolean identify( Item... items ) {
+    @Override
+    public String desc() {
+        return
+                "Incantation etched on this scroll can bestow its reader with ability to perceive the " +
+                        "very nature of things, revealing their purposes and qualities. However, duration of " +
+                        "this spell is really short, so it is possible to assess only a single item with its help.";
+    }
+
+    public static boolean identify(Item... items) {
 
         boolean procced = false;
 
-        for (int i=0; i < items.length; i++) {
+        for (int i = 0; i < items.length; i++) {
             Item item = items[i];
             if (item != null) {
 
@@ -141,9 +141,9 @@ public class ScrollOfIdentify extends InventoryScroll {
 //
 //        return noticed;
 //    }
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 55 * quantity : super.price();
-	}
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 55 * quantity : super.price();
+    }
 }

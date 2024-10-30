@@ -25,13 +25,15 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class BodyResistance extends ElementResistance {
 
-	@Override
-	public String toString() {
-		return "Body resistance";
-	}
+    @Override
+    public String toString() {
+        return "Body resistance";
+    }
 
     @Override
-    public String statusMessage() { return "body resistance"; }
+    public String statusMessage() {
+        return "body resistance";
+    }
 
     @Override
     public String playerMessage() {
@@ -44,13 +46,13 @@ public class BodyResistance extends ElementResistance {
     }
 
     @Override
-    public Class<? extends Element> resistance(){
+    public Class<? extends Element> resistance() {
         return Element.Body.class;
     }
 
     @Override
     public String description() {
         return "You feel unnaturally healthy as if your body started to work in overtime. " +
-            "Your resistance to negative conditions affecting your body is increased.";
+                "Your resistance to negative conditions affecting your body is increased.";
     }
 }

@@ -20,34 +20,32 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Levitation;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 public class PotionOfLevitation extends Potion {
 
-    public static final float DURATION	= 25f;
+    public static final float DURATION = 25f;
 
-	{
-		name = "Potion of Levitation";
+    {
+        name = "Potion of Levitation";
         shortName = "Le";
-	}
-	
-	@Override
-	protected void apply( Hero hero ) {
-        BuffActive.add( hero, Levitation.class, DURATION );
+    }
+
+    @Override
+    protected void apply(Hero hero) {
+        BuffActive.add(hero, Levitation.class, DURATION);
         setKnown();
     }
-	
-	@Override
-	public String desc() {
-		return
-			"Drinking this curious liquid will cause you to hover in the air, moving faster and stealthier. " +
-			"This state also allows drifting over traps or chasms and seeing over the high grass. Flames and gases " +
-			"fill the air, however, and cannot be bypassed while airborne.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "Drinking this curious liquid will cause you to hover in the air, moving faster and stealthier. " +
+                        "This state also allows drifting over traps or chasms and seeing over the high grass. Flames and gases " +
+                        "fill the air, however, and cannot be bypassed while airborne.";
+    }
 
     @Override
     public int price() {

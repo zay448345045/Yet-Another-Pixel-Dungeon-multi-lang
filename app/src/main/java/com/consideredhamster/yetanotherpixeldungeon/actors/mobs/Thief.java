@@ -20,24 +20,21 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import com.watabou.utils.Callback;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroClass;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Knives;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ThiefSprite;
+import com.watabou.utils.Callback;
 
 public class Thief extends MobPrecise {
 
     public Thief() {
 
-        super( 2 );
+        super(2);
 
         /*
 
@@ -61,8 +58,8 @@ public class Thief extends MobPrecise {
         loot = Gold.class;
         lootChance = 0.25f;
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-	}
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+    }
 
     @Override
     public int damageRoll() {
@@ -70,14 +67,14 @@ public class Thief extends MobPrecise {
     }
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return super.canAttack( enemy ) || HP >= HT && Level.distance( pos, enemy.pos ) <= 2 &&
+    protected boolean canAttack(Char enemy) {
+        return super.canAttack(enemy) || HP >= HT && Level.distance(pos, enemy.pos) <= 2 &&
                 Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
-        ((MissileSprite)sprite.parent.recycle( MissileSprite.class )).
+    protected void onRangedAttack(int cell) {
+        ((MissileSprite) sprite.parent.recycle(MissileSprite.class)).
                 reset(pos, cell, new Knives(), new Callback() {
                     @Override
                     public void call() {
@@ -85,7 +82,7 @@ public class Thief extends MobPrecise {
                     }
                 });
 
-        super.onRangedAttack( cell );
+        super.onRangedAttack(cell);
     }
 
 //    @Override
@@ -95,7 +92,7 @@ public class Thief extends MobPrecise {
 //    }
 
     @Override
-    public String description(){
+    public String description() {
 
         return "The Sewers always been hiding place for all sorts of cutthroats and outlaws. " +
                 "Usually armed with different manners of daggers and knives, these ruffians " +

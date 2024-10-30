@@ -28,41 +28,41 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
 public class Keyring extends Bag {
 
-	{
-		name = "keys";
-		image = ItemSpriteSheet.KEYRING;
-		
-		size = 14;
+    {
+        name = "keys";
+        image = ItemSpriteSheet.KEYRING;
+
+        size = 14;
         visible = false;
         unique = true;
-	}
+    }
 
-	@Override
-	public boolean grab( Item item ) {
-		return item instanceof Key;
-	}
+    @Override
+    public boolean grab(Item item) {
+        return item instanceof Key;
+    }
 
     @Override
     public Icons icon() {
         return Icons.KEYRING;
     }
-	
-	@Override
-	public int price() {
-		return 0;
-	}
-	
-	@Override
-	public String info() {
-		return
-			"This is a copper keyring, that lets you keep all your keys " +
-			"separately from the rest of your belongings.";
-	}
 
     @Override
-    public boolean doPickUp( Hero hero ) {
+    public int price() {
+        return 0;
+    }
 
-        return hero.belongings.getItem( Keyring.class ) == null && super.doPickUp( hero ) ;
+    @Override
+    public String info() {
+        return
+                "This is a copper keyring, that lets you keep all your keys " +
+                        "separately from the rest of your belongings.";
+    }
+
+    @Override
+    public boolean doPickUp(Hero hero) {
+
+        return hero.belongings.getItem(Keyring.class) == null && super.doPickUp(hero);
 
     }
 }

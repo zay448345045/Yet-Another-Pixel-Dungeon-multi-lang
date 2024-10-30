@@ -24,33 +24,33 @@ import java.util.Locale;
 
 public class RingOfEvasion extends Ring {
 
-	{
-		name = "Ring of Evasion";
+    {
+        name = "Ring of Evasion";
         shortName = "Ev";
-	}
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Evasion();
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    @Override
+    protected RingBuff buff() {
+        return new Evasion();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
         String sideEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 2 );
-            sideEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
+            sideEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
         }
 
         StringBuilder desc = new StringBuilder(
-            "Rings of this kind serve to improve reflexes and speed of their wearer, making them " +
-            "harder to be hit - especially when they are on the move."
+                "Rings of this kind serve to improve reflexes and speed of their wearer, making them " +
+                        "harder to be hit - especially when they are on the move."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -65,14 +65,14 @@ public class RingOfEvasion extends Ring {
         }
 
         return desc.toString();
-	}
-	
-	public class Evasion extends RingBuff {
+    }
+
+    public class Evasion extends RingBuff {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "You feel that your reflexes are improved." :
-                "You feel that your reflexes are dampened." ;
+                    "You feel that your reflexes are improved." :
+                    "You feel that your reflexes are dampened.";
         }
-	}
+    }
 }

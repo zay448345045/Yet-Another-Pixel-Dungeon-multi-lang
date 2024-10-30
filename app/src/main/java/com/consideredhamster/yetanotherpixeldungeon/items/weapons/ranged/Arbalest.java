@@ -20,35 +20,34 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Quarrels;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponAmmo;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Arbalest extends RangedWeaponMissile {
 
-	{
-		name = "arbalest";
-		image = ItemSpriteSheet.ARBALEST;
-	}
+    {
+        name = "arbalest";
+        image = ItemSpriteSheet.ARBALEST;
+    }
 
-	public Arbalest() {
-		super( 3 );
-	}
+    public Arbalest() {
+        super(3);
+    }
 
     @Override
     public Class<? extends ThrowingWeaponAmmo> ammunition() {
         return Quarrels.class;
     }
 
-	@Override
-	public Type weaponType() {
-		return Type.R_MISSILE;
-	}
-	
-	@Override
-	public String desc() {
-		return "This devious mechanism allows shooting quarrels with ridiculous force, but " +
+    @Override
+    public Type weaponType() {
+        return Type.R_MISSILE;
+    }
+
+    @Override
+    public String desc() {
+        return "This devious mechanism allows shooting quarrels with ridiculous force, but " +
                 "requires a trained body to reload it afterwards.";
-	}
+    }
 }

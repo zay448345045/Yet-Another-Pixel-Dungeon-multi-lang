@@ -20,163 +20,163 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.ui;
 
-import java.util.ArrayList;
-
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 
+import java.util.ArrayList;
+
 public class TagAttack extends Tag {
-	
-	private static final float ENABLED	= 1.0f;
-	private static final float DISABLED	= 0.3f;
-	
-	public static TagAttack instance;
-	
-	private CharSprite sprite = null;
-	
-	private static Mob lastTarget = null;
-	private ArrayList<Mob> candidates = new ArrayList<>();
-	
-	public TagAttack() {
-		super( TagDanger.COLOR );
-		
-		instance = this;
-		
-		setSize( 24, 24 );
-		visible( false );
-		enable( false );
-	}
-	
-	@Override
-	protected void createChildren() {
-		super.createChildren();
-	}
-	
-	@Override
-	protected void layout() {
-		super.layout();
-		
-		if (sprite != null) {
-			sprite.x = x + (width - sprite.width()) / 2;
-			sprite.y = y + (height - sprite.height()) / 2;
-			PixelScene.align( sprite );
-		}
-	}	
-	
-	@Override
-	public void update() {
-		super.update();
-		
-		if (Dungeon.hero.isAlive()) {
 
-            enable( Dungeon.hero.ready );
-			
-		} else {
-			visible( false );
-			enable( false );
-		}
-	}
+    private static final float ENABLED = 1.0f;
+    private static final float DISABLED = 0.3f;
 
-	private void checkEnemies() {
+    public static TagAttack instance;
+
+    private CharSprite sprite = null;
+
+    private static Mob lastTarget = null;
+    private ArrayList<Mob> candidates = new ArrayList<>();
+
+    public TagAttack() {
+        super(TagDanger.COLOR);
+
+        instance = this;
+
+        setSize(24, 24);
+        visible(false);
+        enable(false);
+    }
+
+    @Override
+    protected void createChildren() {
+        super.createChildren();
+    }
+
+    @Override
+    protected void layout() {
+        super.layout();
+
+        if (sprite != null) {
+            sprite.x = x + (width - sprite.width()) / 2;
+            sprite.y = y + (height - sprite.height()) / 2;
+            PixelScene.align(sprite);
+        }
+    }
+
+    @Override
+    public void update() {
+        super.update();
+
+        if (Dungeon.hero.isAlive()) {
+
+            enable(Dungeon.hero.ready);
+
+        } else {
+            visible(false);
+            enable(false);
+        }
+    }
+
+    private void checkEnemies() {
 
 //		int heroPos = Dungeon.hero.pos;
 
-		candidates.clear();
+        candidates.clear();
 
-		for (Mob mob : Dungeon.hero.visibleEnemies() ) {
-			if (mob != null) {
-				candidates.add( mob );
-			}
-		}
-		
-		if (!candidates.contains( lastTarget )) {
-			if (candidates.isEmpty()) {
-				lastTarget = null;
-			} else {
-				lastTarget = candidates.get(0);
-				updateImage();				
-				flash();
-			}
-		} else {
-			if (!bg.visible) {
-				flash();
-			}
-		}
-		
-		visible( lastTarget != null );
-		enable( Dungeon.hero.ready );
-	}
-	
-	private void updateImage() {
-		
-		if (sprite != null) {
-			sprite.killAndErase();
-			sprite = null;
-		}
-		
-		try {
-			sprite = lastTarget.spriteClass.newInstance();
-			sprite.idle();
-			sprite.paused = true;
-			add( sprite );
+        for (Mob mob : Dungeon.hero.visibleEnemies()) {
+            if (mob != null) {
+                candidates.add(mob);
+            }
+        }
 
-			sprite.x = x + (width - sprite.width()) / 2;
-			sprite.y = y + (height - sprite.height()) / 2;
-			PixelScene.align( sprite );
-			
-		} catch (Exception e) {
-		}
-	}
-	
-	private boolean enabled = true;
+        if (!candidates.contains(lastTarget)) {
+            if (candidates.isEmpty()) {
+                lastTarget = null;
+            } else {
+                lastTarget = candidates.get(0);
+                updateImage();
+                flash();
+            }
+        } else {
+            if (!bg.visible) {
+                flash();
+            }
+        }
 
-	private void enable( boolean value ) {
-		enabled = value;
-		if (sprite != null) {
-			sprite.alpha( value ? ENABLED : DISABLED );
-		}
-	}
-	
-	private void visible( boolean value ) {
-		bg.visible = value;
-		if (sprite != null) {
-			sprite.visible = value;
-		}
-	}
-	
-	@Override
-	protected void onClick() {
-		if ( visible && enabled && Dungeon.hero.ready && lastTarget != null ) {
+        visible(lastTarget != null);
+        enable(Dungeon.hero.ready);
+    }
 
-			Dungeon.hero.handle( lastTarget.pos );
+    private void updateImage() {
 
-		}
-	}
+        if (sprite != null) {
+            sprite.killAndErase();
+            sprite = null;
+        }
+
+        try {
+            sprite = lastTarget.spriteClass.newInstance();
+            sprite.idle();
+            sprite.paused = true;
+            add(sprite);
+
+            sprite.x = x + (width - sprite.width()) / 2;
+            sprite.y = y + (height - sprite.height()) / 2;
+            PixelScene.align(sprite);
+
+        } catch (Exception e) {
+        }
+    }
+
+    private boolean enabled = true;
+
+    private void enable(boolean value) {
+        enabled = value;
+        if (sprite != null) {
+            sprite.alpha(value ? ENABLED : DISABLED);
+        }
+    }
+
+    private void visible(boolean value) {
+        bg.visible = value;
+        if (sprite != null) {
+            sprite.visible = value;
+        }
+    }
+
+    @Override
+    protected void onClick() {
+        if (visible && enabled && Dungeon.hero.ready && lastTarget != null) {
+
+            Dungeon.hero.handle(lastTarget.pos);
+
+        }
+    }
 
     @Override
     protected boolean onLongClick() {
 
         if (visible && enabled && Dungeon.hero.ready && lastTarget != null) {
-            Toolbar.examineMob( lastTarget.pos );
+            Toolbar.examineMob(lastTarget.pos);
             return true;
         }
 
         return false;
     }
-	
-	public static void target( Mob target ) {
-		lastTarget = target;
-		instance.updateImage();
-		
-		HealthIndicator.instance.target( target );
-	}
-	
-	public static void updateState() {
 
-        if( instance != null ) {
+    public static void target(Mob target) {
+        lastTarget = target;
+        instance.updateImage();
+
+        HealthIndicator.instance.target(target);
+    }
+
+    public static void updateState() {
+
+        if (instance != null) {
             instance.checkEnemies();
         }
-	}
+    }
 }

@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
-public class PotionSash extends Bag{
+public class PotionSash extends Bag {
 
     {
         name = "potion belt";
@@ -39,7 +39,7 @@ public class PotionSash extends Bag{
     }
 
     @Override
-    public boolean grab( Item item ) {
+    public boolean grab(Item item) {
         return item instanceof Potion;
     }
 
@@ -56,15 +56,15 @@ public class PotionSash extends Bag{
     @Override
     public String info() {
         return
-            "You can store a significant number of potions in the curiously made containers " +
-            "which go around this wondrous sash. It would not only save room in your backpack, " +
-            "but also protect these potions from breaking.";
+                "You can store a significant number of potions in the curiously made containers " +
+                        "which go around this wondrous sash. It would not only save room in your backpack, " +
+                        "but also protect these potions from breaking.";
     }
 
     @Override
-    public boolean doPickUp( Hero hero ) {
+    public boolean doPickUp(Hero hero) {
 
-        return hero.belongings.getItem( PotionSash.class ) == null && super.doPickUp( hero ) ;
+        return hero.belongings.getItem(PotionSash.class) == null && super.doPickUp(hero);
 
     }
 }

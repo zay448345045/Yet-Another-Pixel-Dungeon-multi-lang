@@ -22,7 +22,6 @@ package com.consideredhamster.yetanotherpixeldungeon.levels.painters;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.WellWater;
-import com.consideredhamster.yetanotherpixeldungeon.items.keys.SkeletonKey;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
@@ -31,23 +30,23 @@ import com.watabou.utils.Random;
 
 public class BossExitPainter extends Painter {
 
-	public static void paint( Level level, Room room ) {
+    public static void paint(Level level, Room room) {
 
-		fill( level, room, Terrain.WALL );
-		fill( level, room, 1, Terrain.EMPTY );
-        fill( level, room.left, room.top - 1, room.width(), 1, Terrain.WALL );
-		
-		for (Room.Door door : room.connected.values()) {
-			door.set( Room.Door.Type.REGULAR );
-		}
-		
-		level.exit = room.top * Level.WIDTH + (room.left + room.right) / 2;
-		set( level, level.exit, Terrain.UNLOCKED_EXIT );
+        fill(level, room, Terrain.WALL);
+        fill(level, room, 1, Terrain.EMPTY);
+        fill(level, room.left, room.top - 1, room.width(), 1, Terrain.WALL);
+
+        for (Room.Door door : room.connected.values()) {
+            door.set(Room.Door.Type.REGULAR);
+        }
+
+        level.exit = room.top * Level.WIDTH + (room.left + room.right) / 2;
+        set(level, level.exit, Terrain.UNLOCKED_EXIT);
 
         Point c = room.center();
-        set( level, c.x, c.y, Terrain.WELL );
+        set(level, c.x, c.y, Terrain.WELL);
 
-        WellWater water = (WellWater)level.blobs.get( WellWater.class );
+        WellWater water = (WellWater) level.blobs.get(WellWater.class);
         if (water == null) {
             try {
                 water = new WellWater();
@@ -56,10 +55,10 @@ public class BossExitPainter extends Painter {
             }
         }
 
-        int amount = 3 + Dungeon.chapter() + Random.IntRange( 0, 4 );
+        int amount = 3 + Dungeon.chapter() + Random.IntRange(0, 4);
 
-        water.seed( c.x + Level.WIDTH * c.y, amount );
-        level.blobs.put( WellWater.class, water );
-	}
-	
+        water.seed(c.x + Level.WIDTH * c.y, amount);
+        level.blobs.put(WellWater.class, water);
+    }
+
 }

@@ -24,29 +24,29 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Shurikens extends ThrowingWeaponLight {
 
-	{
-		name = "shurikens";
-		image = ItemSpriteSheet.THROWING_STAR;
-	}
-	
-	public Shurikens() {
-		this( 1 );
-	}
-	
-	public Shurikens(int number) {
-        super( 2 );
-		quantity = number;
-	}
+    {
+        name = "shurikens";
+        image = ItemSpriteSheet.THROWING_STAR;
+    }
+
+    public Shurikens() {
+        this(1);
+    }
+
+    public Shurikens(int number) {
+        super(2);
+        quantity = number;
+    }
 
     @Override
     public boolean canBackstab() {
         return true;
     }
-	
-	@Override
-	public String desc() {
-		return 
-			"Star-shaped pieces of metal with razor-sharp blades do significant damage " +
-			"when they hit unaware targets.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "Star-shaped pieces of metal with razor-sharp blades do significant damage " +
+                        "when they hit unaware targets.";
+    }
 }

@@ -20,49 +20,41 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.traps;
 
-import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Rockfall;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 
 public class BoulderTrap extends Trap {
 
-	// 0xCCCC55
+    // 0xCCCC55
 
     // FIXME
     public static BoulderTrap TRAP = new BoulderTrap();
-	
-	public static void trigger( int pos, Char ch ) {
+
+    public static void trigger(int pos, Char ch) {
 
         // FIXME
 
-        Sample.INSTANCE.play( Assets.SND_ROCKS );
+        Sample.INSTANCE.play(Assets.SND_ROCKS);
         Camera.main.shake(3, 0.35f);
 
         int power = 10 + Dungeon.chapter() * 4;
 
-        for(int n : Level.NEIGHBOURS9) {
+        for (int n : Level.NEIGHBOURS9) {
 
-            if( n == 0 || Random.Float() < 0.75f ) {
+            if (n == 0 || Random.Float() < 0.75f) {
 
-                Rockfall.affect( pos + n, power, TRAP );
+                Rockfall.affect(pos + n, power, TRAP);
 
-                if( n != 0 ) {
-                    Dungeon.level.press( pos + n, null );
+                if (n != 0) {
+                    Dungeon.level.press(pos + n, null);
                 }
             }
         }
-	}
+    }
 }

@@ -26,29 +26,29 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Handcannon extends RangedWeaponFlintlock {
 
-	{
-		name = "handcannon";
-		image = ItemSpriteSheet.HANDCANNON;
-	}
+    {
+        name = "handcannon";
+        image = ItemSpriteSheet.HANDCANNON;
+    }
 
-	public Handcannon() {
-		super( 3 );
-	}
+    public Handcannon() {
+        super(3);
+    }
 
     @Override
     public Class<? extends ThrowingWeaponAmmo> ammunition() {
         return Bullets.class;
     }
 
-	@Override
-	public Type weaponType() {
-		return Type.R_FLINTLOCK;
-	}
-	
-	@Override
-	public String desc() {
-		return "While initially flintlock weapons were a human invention, dwarves quickly adapted " +
+    @Override
+    public Type weaponType() {
+        return Type.R_FLINTLOCK;
+    }
+
+    @Override
+    public String desc() {
+        return "While initially flintlock weapons were a human invention, dwarves quickly adapted " +
                 "and improved the concept. Handcannons are heavy and require lots of strength to " +
                 "use, but they are far more deadly than any other firearm.";
-	}
+    }
 }

@@ -20,75 +20,75 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.features;
 
-import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
 public class Bookshelf {
 
-    private static final String TXT_FOUND_SCROLL	= "You found a %s!";
-    private static final String TXT_IDENTIFY_SCROLL	= "You found some notes about scrolls.";
-    private static final String TXT_FOUND_NOTHING	= "You found nothing interesting.";
-    private static final String TXT_FOUND_READING	= "You found %s";
+    private static final String TXT_FOUND_SCROLL = "You found a %s!";
+    private static final String TXT_IDENTIFY_SCROLL = "You found some notes about scrolls.";
+    private static final String TXT_FOUND_NOTHING = "You found nothing interesting.";
+    private static final String TXT_FOUND_READING = "You found %s";
 
     private static final String[] BOOKS = {
 
             // LORE 
 
-			"some religious scripture which tells that this world was created by an almighty and mysterious entity named Watabou, but was then abandoned by Him.", 
+            "some religious scripture which tells that this world was created by an almighty and mysterious entity named Watabou, but was then abandoned by Him.",
 
-			"a legend which tells how Watabou used a miraculous Cube to fill this world with wonderful music of the spheres, but this artifact was completely lost long ago.", 
+            "a legend which tells how Watabou used a miraculous Cube to fill this world with wonderful music of the spheres, but this artifact was completely lost long ago.",
 
-			"some scripture which tells that this world was torn asunder into a dozens of different realities, and every single one of them was different and existed on its own.", 
+            "some scripture which tells that this world was torn asunder into a dozens of different realities, and every single one of them was different and existed on its own.",
 
-			"some ancient scripture which tells that this world was corrupted by a cruel and mischievous entity, which for some reason was considered to be a hamster.", 
+            "some ancient scripture which tells that this world was corrupted by a cruel and mischievous entity, which for some reason was considered to be a hamster.",
 
-			"a mouldy book which tells about how the powerful Wizard of Yendor bravely fought in a great war against a dark god and won it, but only at the cost of his own life.", 
+            "a mouldy book which tells about how the powerful Wizard of Yendor bravely fought in a great war against a dark god and won it, but only at the cost of his own life.",
 
-			// DENIZENS 
+            // DENIZENS
 
-			"an old book which describes gnolls and their savage habits and rituals. Apparently, gnolls believe that they can absorb qualities of those who they are eating.",
+            "an old book which describes gnolls and their savage habits and rituals. Apparently, gnolls believe that they can absorb qualities of those who they are eating.",
 
-			"a half-torn book which describes various encounters with trolls. These creatures seem to be as reclusive in their daily life as they are ferocious when threatened.", 
+            "a half-torn book which describes various encounters with trolls. These creatures seem to be as reclusive in their daily life as they are ferocious when threatened.",
 
-			"some old booklet about the glorious technological achievements of dwarven blacksmiths and artificers. There is a blot of something what looks like dried blood on it.", 
+            "some old booklet about the glorious technological achievements of dwarven blacksmiths and artificers. There is a blot of something what looks like dried blood on it.",
 
-			"a grimoire which describes the horrible demonic creatures inhabiting the bowels of this world, one of the most powerful of which is called Yog-Dzewa.", 
+            "a grimoire which describes the horrible demonic creatures inhabiting the bowels of this world, one of the most powerful of which is called Yog-Dzewa.",
 
-			"a mouldy tome which, it seems, told about the rituals to summon different creatures of magical origin - undead, golems, elementals... It is too worn out to be of any use.",
+            "a mouldy tome which, it seems, told about the rituals to summon different creatures of magical origin - undead, golems, elementals... It is too worn out to be of any use.",
 
-			// CHARACTERS 
+            // CHARACTERS
 
-			"a history book which tells stories of the ill-tempered, but brave and honourable people of the Thule. No other land is as famous for its warriors and sea traders.", 
+            "a history book which tells stories of the ill-tempered, but brave and honourable people of the Thule. No other land is as famous for its warriors and sea traders.",
 
-			"a geography book which contains description of somewhat wild and barbaric, but cunning and mischievous tribes inhabiting vast southern deserts.",
+            "a geography book which contains description of somewhat wild and barbaric, but cunning and mischievous tribes inhabiting vast southern deserts.",
 
-			"a philosophy book which was written by one of the many sorcerers of the Eastern Empire, which is famous for valuing knowledge above everything else.", 
+            "a philosophy book which was written by one of the many sorcerers of the Eastern Empire, which is famous for valuing knowledge above everything else.",
 
-			"an autobiography book which describes lives of the people of the West - simple, but capable folk who live by the will and blessing of their druidic leaders.",
+            "an autobiography book which describes lives of the people of the West - simple, but capable folk who live by the will and blessing of their druidic leaders.",
 
-			// CREDITS 
+            // CREDITS
 
-			"an old book about Inevielle, a flame sorceress. She was also renowned for her linguistic prowess and a knack for funny animals.", 
+            "an old book about Inevielle, a flame sorceress. She was also renowned for her linguistic prowess and a knack for funny animals.",
 
-			"the biography of Logodum, a famous artist whose masterful paintings made this world a much more beautiful place. His works are known even until these days.", 
+            "the biography of Logodum, a famous artist whose masterful paintings made this world a much more beautiful place. His works are known even until these days.",
 
-			"some storybook which tells a fragment of the tale of a weary adventurer. With his trusty knuckleduster and net, he was able to hack through any problem.", 
+            "some storybook which tells a fragment of the tale of a weary adventurer. With his trusty knuckleduster and net, he was able to hack through any problem.",
 
-			"old notes about B'gnu-Thun, a hunter and a craftsman. Beautiful belts, mighty shields and lot of other wondrous things were created thanks to his talent.", 
+            "old notes about B'gnu-Thun, a hunter and a craftsman. Beautiful belts, mighty shields and lot of other wondrous things were created thanks to his talent.",
 
-			"a story about R'byj, a cunning troll warlord who, with his knowledge of tactics and strategies, made a huge impact on the current state of this world.",
+            "a story about R'byj, a cunning troll warlord who, with his knowledge of tactics and strategies, made a huge impact on the current state of this world.",
 
-			"music sheets written by Jivvy, a talented bard from eastern lands whose songs deserved much greater praise and popularity.",
+            "music sheets written by Jivvy, a talented bard from eastern lands whose songs deserved much greater praise and popularity.",
 
-			"a tome which was written by Evan the Shattered, a great sage who worked tirelessly to improve his world. His deeds inspired many, and were adored by even more.",
+            "a tome which was written by Evan the Shattered, a great sage who worked tirelessly to improve his world. His deeds inspired many, and were adored by even more.",
 
             // CONTEST WINNERS
 
@@ -107,41 +107,41 @@ public class Bookshelf {
 
             // MISC
 
-			"scribbles of some ancient philosopher which are filled with thoughts about how this world is off its balance because it is not in its completed state yet.", 
+            "scribbles of some ancient philosopher which are filled with thoughts about how this world is off its balance because it is not in its completed state yet.",
 
-			"a list of bizarre prophecies, which mentions dead men blowing into a horns, arrival of demons in blood-red raiments, and giant crabs in formal dresses.",
+            "a list of bizarre prophecies, which mentions dead men blowing into a horns, arrival of demons in blood-red raiments, and giant crabs in formal dresses.",
 
     };
 
-	public static void examine( int cell ) {
+    public static void examine(int cell) {
 
-        if (Random.Float() < ( 0.05f + 0.05f * Dungeon.chapter() ) ) {
-            Scroll scroll =  (Scroll)Generator.random( Generator.Category.SCROLL );
+        if (Random.Float() < (0.05f + 0.05f * Dungeon.chapter())) {
+            Scroll scroll = (Scroll) Generator.random(Generator.Category.SCROLL);
 
-            if( !scroll.isTypeKnown() && Random.Int( 2 ) == 0 ){
-                GLog.i( TXT_IDENTIFY_SCROLL );
+            if (!scroll.isTypeKnown() && Random.Int(2) == 0) {
+                GLog.i(TXT_IDENTIFY_SCROLL);
                 scroll.identify();
             } else {
-                GLog.i( TXT_FOUND_SCROLL, scroll.name() );
-                Dungeon.level.drop( scroll, Dungeon.hero.pos ).sprite.drop();
+                GLog.i(TXT_FOUND_SCROLL, scroll.name());
+                Dungeon.level.drop(scroll, Dungeon.hero.pos).sprite.drop();
             }
 
-        } else if (Random.Float() < 0.05f ) {
+        } else if (Random.Float() < 0.05f) {
 
-            GLog.i( TXT_FOUND_READING, BOOKS[ Random.Int( BOOKS.length ) ] );
+            GLog.i(TXT_FOUND_READING, BOOKS[Random.Int(BOOKS.length)]);
 
         } else {
 
-            GLog.i( TXT_FOUND_NOTHING );
+            GLog.i(TXT_FOUND_NOTHING);
 
         }
 
-        Level.set( cell, Terrain.SHELF_EMPTY );
+        Level.set(cell, Terrain.SHELF_EMPTY);
         Dungeon.observe();
-		
-		if (Dungeon.visible[cell]) {
-            GameScene.updateMap( cell );
-			Sample.INSTANCE.play(Assets.SND_OPEN);
-		}
-	}
+
+        if (Dungeon.visible[cell]) {
+            GameScene.updateMap(cell);
+            Sample.INSTANCE.play(Assets.SND_OPEN);
+        }
+    }
 }

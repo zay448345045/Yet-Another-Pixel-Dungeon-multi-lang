@@ -27,35 +27,35 @@ import com.watabou.utils.Random;
 
 public class Tomahawks extends ThrowingWeaponHeavy {
 
-	{
-		name = "tomahawks";
-		image = ItemSpriteSheet.TOMAHAWK;
-	}
-	
-	public Tomahawks() {
-		this( 1 );
-	}
-	
-	public Tomahawks(int number) {
-        super( 2 );
-		quantity = number;
-	}
+    {
+        name = "tomahawks";
+        image = ItemSpriteSheet.TOMAHAWK;
+    }
+
+    public Tomahawks() {
+        this(1);
+    }
+
+    public Tomahawks(int number) {
+        super(2);
+        quantity = number;
+    }
 
     @Override
-    public void proc( Char attacker, final Char defender, int damage ) {
+    public void proc(Char attacker, final Char defender, int damage) {
 
         super.proc(attacker, defender, damage);
 
-        if( damage > Random.Int( defender.totalHealthValue() ) ){
-            Pushing.knockback( defender, attacker.pos, 1, 0 );
+        if (damage > Random.Int(defender.totalHealthValue())) {
+            Pushing.knockback(defender, attacker.pos, 1, 0);
         }
 
     }
-	
-	@Override
-	public String desc() {
-		return 
-			"These throwing axes are so heavy that on a successful throw they not only inflict " +
-            "grievous wounds, but also push the target back for a short distance.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "These throwing axes are so heavy that on a successful throw they not only inflict " +
+                        "grievous wounds, but also push the target back for a short distance.";
+    }
 }

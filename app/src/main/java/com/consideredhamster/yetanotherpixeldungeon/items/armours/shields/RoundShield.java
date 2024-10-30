@@ -25,15 +25,17 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class RoundShield extends Shield {
 
-	{
-		name = "round shield";
-		image = ItemSpriteSheet.SHIELD_ROUND;
-	}
+    {
+        name = "round shield";
+        image = ItemSpriteSheet.SHIELD_ROUND;
+    }
 
-	public RoundShield() { super( 1 ); }
-	
-	@Override
-	public String desc() {
-		return "Simple yet very sturdily made shield.";
-	}
+    public RoundShield() {
+        super(1);
+    }
+
+    @Override
+    public String desc() {
+        return "Simple yet very sturdily made shield.";
+    }
 }

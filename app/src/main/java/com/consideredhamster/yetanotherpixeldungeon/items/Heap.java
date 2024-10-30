@@ -20,131 +20,126 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
-
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.items.food.Food;
-import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.Dewdrop;
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Badges;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.Statistics;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mimic;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Wraith;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Splash;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.BlastParticle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ElmoParticle;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatBurned;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
+import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.Herb;
 import com.consideredhamster.yetanotherpixeldungeon.items.keys.Key;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.Dewdrop;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.BlastParticle;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ElmoParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.Collection;
+import java.util.LinkedList;
+
 public class Heap implements Bundlable {
 
-	private static final String TXT_MIMIC = "This is a mimic!";
-	private static final String TXT_BURNED = "Fire burns %s lying on the floor!";
+    private static final String TXT_MIMIC = "This is a mimic!";
+    private static final String TXT_BURNED = "Fire burns %s lying on the floor!";
 
-	private static final String TXT_BLOWNUP = "%s is destroyed!";
-	private static final String TXT_DAMAGED = "%s is damaged!";
-	private static final String TXT_SHATTER = "%s is shattered!";
+    private static final String TXT_BLOWNUP = "%s is destroyed!";
+    private static final String TXT_DAMAGED = "%s is damaged!";
+    private static final String TXT_SHATTER = "%s is shattered!";
 
-	private static final String TXT_KNOWN_BY_BREWING = "You now know that this is %s!";
+    private static final String TXT_KNOWN_BY_BREWING = "You now know that this is %s!";
 
-	private static final int HERBS_TO_POTION = 3;
-	
-	public enum Type {
-		HEAP, 
-		FOR_SALE, 
-		CHEST, 
-		LOCKED_CHEST, 
-		CRYSTAL_CHEST,
-		TOMB,
+    private static final int HERBS_TO_POTION = 3;
+
+    public enum Type {
+        HEAP,
+        FOR_SALE,
+        CHEST,
+        LOCKED_CHEST,
+        CRYSTAL_CHEST,
+        TOMB,
         BONES,
         BONES_CURSED,
         CHEST_MIMIC
-	}
-	public Type type = Type.HEAP;
-	
-	public int pos = 0;
-	public int hp = 0;
+    }
 
-	public ItemSprite sprite;
-	
-	public LinkedList<Item> items = new LinkedList<Item>();
-	
-	public int image() {
-		switch (type) {
-		case HEAP:
-		case FOR_SALE:
-			return items.size() > 0 ? items.peek().image() : 0;
-		case CHEST:
-		case CHEST_MIMIC:
-			return ItemSpriteSheet.CHEST;
-		case LOCKED_CHEST:
-			return ItemSpriteSheet.LOCKED_CHEST;
-		case CRYSTAL_CHEST:
-			return ItemSpriteSheet.CRYSTAL_CHEST;
-		case TOMB:
-			return ItemSpriteSheet.TOMB;
-		case BONES:
-		case BONES_CURSED:
-			return ItemSpriteSheet.BONES;
-		default:
-			return 0;
-		}
-	}
-	
-	public ItemSprite.Glowing glowing() {
-		return (type == Type.HEAP || type == Type.FOR_SALE) && items.size() > 0 ? items.peek().glowing() : null;
-	}
-	
-	public void open() {
-		switch (type) {
-		case CHEST_MIMIC:
-			if (Mimic.spawnAt( hp, pos, items ) != null) {
-				GLog.n( TXT_MIMIC );
-				destroy();
-			} else {
-				type = Type.CHEST;
-			}
-			break;
-		case TOMB:
-            CellEmitter.center( pos ).start( Speck.factory( Speck.RATTLE ), 0.1f, 3 );
-            Sample.INSTANCE.play(Assets.SND_TOMB);
-            if (Wraith.spawnAt(pos) == null) {
-                Wraith.spawnAround(pos, 1);
-            }
-			break;
+    public Type type = Type.HEAP;
 
-		case BONES:
-            CellEmitter.center( pos ).start(Speck.factory(Speck.RATTLE), 0.1f, 3);
-            Sample.INSTANCE.play(Assets.SND_BONES, 1, 1, 1.0f);
-            break;
+    public int pos = 0;
+    public int hp = 0;
 
-        case BONES_CURSED:
-            CellEmitter.center( pos ).start(Speck.factory(Speck.RATTLE), 0.1f, 3);
-            Sample.INSTANCE.play(Assets.SND_CURSED, 1, 1, 0.5f);
-            if (Wraith.spawnAt(pos) == null) {
-                Wraith.spawnAround(pos, 1);
-            }
+    public ItemSprite sprite;
+
+    public LinkedList<Item> items = new LinkedList<Item>();
+
+    public int image() {
+        switch (type) {
+            case HEAP:
+            case FOR_SALE:
+                return items.size() > 0 ? items.peek().image() : 0;
+            case CHEST:
+            case CHEST_MIMIC:
+                return ItemSpriteSheet.CHEST;
+            case LOCKED_CHEST:
+                return ItemSpriteSheet.LOCKED_CHEST;
+            case CRYSTAL_CHEST:
+                return ItemSpriteSheet.CRYSTAL_CHEST;
+            case TOMB:
+                return ItemSpriteSheet.TOMB;
+            case BONES:
+            case BONES_CURSED:
+                return ItemSpriteSheet.BONES;
+            default:
+                return 0;
+        }
+    }
+
+    public ItemSprite.Glowing glowing() {
+        return (type == Type.HEAP || type == Type.FOR_SALE) && items.size() > 0 ? items.peek().glowing() : null;
+    }
+
+    public void open() {
+        switch (type) {
+            case CHEST_MIMIC:
+                if (Mimic.spawnAt(hp, pos, items) != null) {
+                    GLog.n(TXT_MIMIC);
+                    destroy();
+                } else {
+                    type = Type.CHEST;
+                }
+                break;
+            case TOMB:
+                CellEmitter.center(pos).start(Speck.factory(Speck.RATTLE), 0.1f, 3);
+                Sample.INSTANCE.play(Assets.SND_TOMB);
+                if (Wraith.spawnAt(pos) == null) {
+                    Wraith.spawnAround(pos, 1);
+                }
+                break;
+
+            case BONES:
+                CellEmitter.center(pos).start(Speck.factory(Speck.RATTLE), 0.1f, 3);
+                Sample.INSTANCE.play(Assets.SND_BONES, 1, 1, 1.0f);
+                break;
+
+            case BONES_CURSED:
+                CellEmitter.center(pos).start(Speck.factory(Speck.RATTLE), 0.1f, 3);
+                Sample.INSTANCE.play(Assets.SND_CURSED, 1, 1, 0.5f);
+                if (Wraith.spawnAt(pos) == null) {
+                    Wraith.spawnAround(pos, 1);
+                }
 
 //			for (Item item : items) {
 //				if (item.bonus < 0) {
@@ -155,67 +150,67 @@ public class Heap implements Bundlable {
 //					break;
 //				}
 //			}
-			break;
-		default:
-		}
-		
-		if (type != Type.CHEST_MIMIC) {
-			type = Type.HEAP;
-			sprite.link();
-			sprite.drop();
+                break;
+            default:
+        }
 
-            Dungeon.level.press( pos, null );
-		}
-	}
-	
-	public int size() {
-		return items.size();
-	}
-	
-	public Item pickUp() {
-		
-		Item item = items.removeFirst();
-		if (items.isEmpty()) {
-			destroy();
-		} else if (sprite != null) {
-			sprite.view( image(), glowing() );
-		}
-		
-		return item;
-	}
-	
-	public Item peek() {
-		return items.peek();
-	}
-	
-	public void drop( Item item ) {
-		
-		if (item.stackable) {
-			
-			Class<?> c = item.getClass();
-			for (Item i : items) {
-				if (i.getClass() == c) {
-					i.quantity += item.quantity;
-					item = i;
-					break;
-				}
-			}
-			items.remove( item );
-			
-		}
-		
-		if (item instanceof Dewdrop) {
-			items.add( item );
-		} else {
-			items.addFirst( item );
-		}
-		
-		if (sprite != null) {
-			sprite.view(image(), glowing());
-		}
-	}
-	
-	public void replace( Item a, Item b ) {
+        if (type != Type.CHEST_MIMIC) {
+            type = Type.HEAP;
+            sprite.link();
+            sprite.drop();
+
+            Dungeon.level.press(pos, null);
+        }
+    }
+
+    public int size() {
+        return items.size();
+    }
+
+    public Item pickUp() {
+
+        Item item = items.removeFirst();
+        if (items.isEmpty()) {
+            destroy();
+        } else if (sprite != null) {
+            sprite.view(image(), glowing());
+        }
+
+        return item;
+    }
+
+    public Item peek() {
+        return items.peek();
+    }
+
+    public void drop(Item item) {
+
+        if (item.stackable) {
+
+            Class<?> c = item.getClass();
+            for (Item i : items) {
+                if (i.getClass() == c) {
+                    i.quantity += item.quantity;
+                    item = i;
+                    break;
+                }
+            }
+            items.remove(item);
+
+        }
+
+        if (item instanceof Dewdrop) {
+            items.add(item);
+        } else {
+            items.addFirst(item);
+        }
+
+        if (sprite != null) {
+            sprite.view(image(), glowing());
+        }
+    }
+
+    public void replace(Item a, Item b) {
 
         boolean found = false;
 
@@ -231,15 +226,15 @@ public class Heap implements Bundlable {
             }
         }
 
-        if( found ) {
+        if (found) {
 
-            items.remove( a );
+            items.remove(a);
 
         } else {
-            int index = items.indexOf( a );
+            int index = items.indexOf(a);
 
             if (index != -1) {
-                items.remove( index );
+                items.remove(index);
                 items.add(index, b);
             }
         }
@@ -250,91 +245,91 @@ public class Heap implements Bundlable {
 //            items.remove( index );
 //            items.add(index, b);
 //        }
-	}
-	
-	public void burn() {
-		
-		if (type == Type.CHEST_MIMIC) {
-			Mimic m = Mimic.spawnAt(hp, pos, items);
-			if (m != null) {
+    }
 
-                Burning buff = Buff.affect( m, Burning.class );
-                buff.add( Actor.TICK * 2 );
-				destroy();
+    public void burn() {
 
-			}
-		}
-		if (type != Type.HEAP) {
-			return;
-		}
-		
-		boolean heapBurnt = false;
+        if (type == Type.CHEST_MIMIC) {
+            Mimic m = Mimic.spawnAt(hp, pos, items);
+            if (m != null) {
+
+                Burning buff = Buff.affect(m, Burning.class);
+                buff.add(Actor.TICK * 2);
+                destroy();
+
+            }
+        }
+        if (type != Type.HEAP) {
+            return;
+        }
+
+        boolean heapBurnt = false;
 //		boolean evaporated = false;
-		
-		for (Item item : items.toArray( new Item[0] )) {
+
+        for (Item item : items.toArray(new Item[0])) {
 
             boolean burnt = false;
 
             if (item instanceof Scroll) {
 
-                items.remove( item );
+                items.remove(item);
                 burnt = true;
 
             } else if (item instanceof Herb) {
 
-                items.remove( item );
+                items.remove(item);
                 burnt = true;
 
-			} else if ( item instanceof MeatRaw || item instanceof MeatStewed ) {
+            } else if (item instanceof MeatRaw || item instanceof MeatStewed) {
 
                 MeatBurned result = new MeatBurned();
                 result.quantity = item.quantity();
 
-				replace( item, result );
-				burnt = true;
+                replace(item, result);
+                burnt = true;
 
-			}
+            }
 
-            if( burnt && Dungeon.visible[ pos ] ) {
+            if (burnt && Dungeon.visible[pos]) {
                 GLog.w(TXT_BURNED, item.toString());
                 heapBurnt = true;
             }
-		}
-		
-		if (
+        }
+
+        if (
                 heapBurnt
 //				|| evaporated
-		) {
-			if (Dungeon.visible[pos]) {
+        ) {
+            if (Dungeon.visible[pos]) {
 //				if (burnt) {
-					burnFX( pos );
+                burnFX(pos);
 //				} else {
 //					evaporateFX( pos );
 //				}
-			}
-		}
+            }
+        }
 
         if (isEmpty()) {
             destroy();
         } else if (sprite != null) {
-            sprite.view( image(), glowing() );
+            sprite.view(image(), glowing());
         }
-	}
-	
-	public void freeze( float duration ) {
-		
-		if (type == Type.CHEST_MIMIC) {
-			Mimic m = Mimic.spawnAt( hp, pos, items );
-			if (m != null) {
-                Frozen buff = Buff.affect( m, Frozen.class );
-                buff.add( duration );
-				destroy();
-			}
-		}
-		if (type != Type.HEAP) {
-			return;
-		}
-		
+    }
+
+    public void freeze(float duration) {
+
+        if (type == Type.CHEST_MIMIC) {
+            Mimic m = Mimic.spawnAt(hp, pos, items);
+            if (m != null) {
+                Frozen buff = Buff.affect(m, Frozen.class);
+                buff.add(duration);
+                destroy();
+            }
+        }
+        if (type != Type.HEAP) {
+            return;
+        }
+
 //		boolean frozen = false;
 //		for (Item item : items.toArray( new Item[0] )) {
 //			if (item instanceof RawMeat ) {
@@ -350,30 +345,30 @@ public class Heap implements Bundlable {
 //				sprite.view( image(), glowing() );
 //			}
 //		}
-	}
-	
-	public boolean shatter() {
+    }
+
+    public boolean shatter() {
 
         if (type != Type.HEAP) {
             return false;
         }
 
-        for (Item item : items.toArray( new Item[0] )) {
+        for (Item item : items.toArray(new Item[0])) {
             if (item instanceof Potion) {
 
                 ((Potion) item).shatter(pos);
 
-                item.quantity -= Random.Int( item.quantity ) + 1;
+                item.quantity -= Random.Int(item.quantity) + 1;
 
-                if( item.quantity < 1 )
-                    items.remove( item );
+                if (item.quantity < 1)
+                    items.remove(item);
 
                 if (isEmpty()) {
                     destroy();
                 }
 
-                if( Dungeon.visible[ pos ] ) {
-                    GLog.w( TXT_SHATTER, item.name() );
+                if (Dungeon.visible[pos]) {
+                    GLog.w(TXT_SHATTER, item.name());
                 }
 
                 return true;
@@ -396,9 +391,9 @@ public class Heap implements Bundlable {
             return false;
         }
 
-        for ( Item item : items.toArray( new Item[0] ) ) {
+        for (Item item : items.toArray(new Item[0])) {
 
-            if( !( item instanceof Key) && !item.unique ) {
+            if (!(item instanceof Key) && !item.unique) {
 
                 boolean success = false;
 
@@ -429,19 +424,19 @@ public class Heap implements Bundlable {
 
                 }
 
-                if( Dungeon.visible[ pos ] ) {
-                    GLog.w( success ? TXT_BLOWNUP : TXT_DAMAGED, item.name() );
+                if (Dungeon.visible[pos]) {
+                    GLog.w(success ? TXT_BLOWNUP : TXT_DAMAGED, item.name());
                     blastFX(pos);
                 }
             }
         }
 
-		if (isEmpty()) {
-			destroy();
-		} else {
-			sprite.link();
-			sprite.drop();
-		}
+        if (isEmpty()) {
+            destroy();
+        } else {
+            sprite.link();
+            sprite.drop();
+        }
 
         return true;
     }
@@ -510,39 +505,39 @@ public class Heap implements Bundlable {
 //			return null;
 //		}
 //	}
-	
-	public static void burnFX( int pos ) {
-		CellEmitter.get( pos ).burst( ElmoParticle.FACTORY, 6 );
-		Sample.INSTANCE.play( Assets.SND_BURNING );
-	}
-	
+
+    public static void burnFX(int pos) {
+        CellEmitter.get(pos).burst(ElmoParticle.FACTORY, 6);
+        Sample.INSTANCE.play(Assets.SND_BURNING);
+    }
+
 //	public static void evaporateFX( int pos ) {
 //		CellEmitter.get( pos ).burst(Speck.factory(Speck.STEAM), 5);
 //        Sample.INSTANCE.play(Assets.SND_PUFF);
 //	}
 
-    public static void blastFX(int pos ) {
-        CellEmitter.get( pos ).burst( BlastParticle.FACTORY, 15 );
+    public static void blastFX(int pos) {
+        CellEmitter.get(pos).burst(BlastParticle.FACTORY, 15);
     }
-	
-	public boolean isEmpty() {
-		return items == null || items.size() == 0;
-	}
-	
-	public void destroy() {
-		Dungeon.level.heaps.remove( this.pos );
-		if (sprite != null) {
-			sprite.kill();
-		}
-		items.clear();
-		items = null;
-	}
+
+    public boolean isEmpty() {
+        return items == null || items.size() == 0;
+    }
+
+    public void destroy() {
+        Dungeon.level.heaps.remove(this.pos);
+        if (sprite != null) {
+            sprite.kill();
+        }
+        items.clear();
+        items = null;
+    }
 
     protected Heap.Type randomHeapType() {
 
         Heap.Type type = null;
 
-        switch (Random.Int( 20 )) {
+        switch (Random.Int(20)) {
             case 0:
             case 1:
             case 2:
@@ -551,7 +546,7 @@ public class Heap implements Bundlable {
                 break;
 
             case 4:
-                type = Dungeon.depth > 1 && Dungeon.chapter() > Random.Int( 10 ) ? Type.BONES_CURSED : Type.BONES;
+                type = Dungeon.depth > 1 && Dungeon.chapter() > Random.Int(10) ? Type.BONES_CURSED : Type.BONES;
                 break;
 
             case 5:
@@ -562,7 +557,7 @@ public class Heap implements Bundlable {
                 break;
 
             case 9:
-                type = Dungeon.depth > 1 && Dungeon.chapter() > Random.Int( 10 ) ? Type.CHEST_MIMIC : Type.CHEST;
+                type = Dungeon.depth > 1 && Dungeon.chapter() > Random.Int(10) ? Type.CHEST_MIMIC : Type.CHEST;
                 break;
 
             default:
@@ -574,33 +569,33 @@ public class Heap implements Bundlable {
 
     public Heap randomizeType() {
 
-        if( type == Type.HEAP ) {
+        if (type == Type.HEAP) {
             type = randomHeapType();
         }
 
         return this;
     }
 
-    private static final String HP	    = "hp";
-    private static final String POS		= "pos";
-    private static final String TYPE	= "type";
-    private static final String ITEMS	= "items";
+    private static final String HP = "hp";
+    private static final String POS = "pos";
+    private static final String TYPE = "type";
+    private static final String ITEMS = "items";
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public void restoreFromBundle( Bundle bundle ) {
-		hp = bundle.getInt( HP );
-		pos = bundle.getInt( POS );
-		type = Type.valueOf( bundle.getString( TYPE ) );
-		items = new LinkedList<Item>( (Collection<? extends Item>)(Object) bundle.getCollection( ITEMS ) );
-	}
+    @SuppressWarnings("unchecked")
+    @Override
+    public void restoreFromBundle(Bundle bundle) {
+        hp = bundle.getInt(HP);
+        pos = bundle.getInt(POS);
+        type = Type.valueOf(bundle.getString(TYPE));
+        items = new LinkedList<Item>((Collection<? extends Item>) (Object) bundle.getCollection(ITEMS));
+    }
 
-	@Override
-	public void storeInBundle( Bundle bundle ) {
-		bundle.put( HP, hp);
-		bundle.put( POS, pos );
-		bundle.put( TYPE, type.toString() );
-		bundle.put( ITEMS, items );
-	}
-	
+    @Override
+    public void storeInBundle(Bundle bundle) {
+        bundle.put(HP, hp);
+        bundle.put(POS, pos);
+        bundle.put(TYPE, type.toString());
+        bundle.put(ITEMS, items);
+    }
+
 }

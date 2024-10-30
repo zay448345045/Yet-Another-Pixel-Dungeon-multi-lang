@@ -23,134 +23,132 @@ package com.consideredhamster.yetanotherpixeldungeon.visuals.effects;
 import android.annotation.SuppressLint;
 import android.util.SparseArray;
 
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
 
 public class Speck extends Image {
 
-	public static final int HEALING		= 0;
-	public static final int STAR		= 1;
-	public static final int LIGHT		= 2;
-	public static final int QUESTION	= 3;
-	public static final int UP			= 4;
-	public static final int SCREAM		= 5;
-	public static final int BONE		= 6;
-	public static final int WOOL		= 7;
-	public static final int ROCK		= 8;
-	public static final int NOTE		= 9;
-	public static final int CHANGE		= 10;
-	public static final int HEART		= 11;
-	public static final int BUBBLE		= 12;
-	public static final int STEAM		= 13;
-	public static final int COIN		= 14;
-	public static final int COBWEB		= 15;
+    public static final int HEALING = 0;
+    public static final int STAR = 1;
+    public static final int LIGHT = 2;
+    public static final int QUESTION = 3;
+    public static final int UP = 4;
+    public static final int SCREAM = 5;
+    public static final int BONE = 6;
+    public static final int WOOL = 7;
+    public static final int ROCK = 8;
+    public static final int NOTE = 9;
+    public static final int CHANGE = 10;
+    public static final int HEART = 11;
+    public static final int BUBBLE = 12;
+    public static final int STEAM = 13;
+    public static final int COIN = 14;
+    public static final int COBWEB = 15;
 
-	public static final int CONTROL		= 16;
-	public static final int TORMENT		= 17;
-	public static final int BANISH		= 18;
-	public static final int SPARKS		= 19;
-    public static final int ICESHARD  	= 20;
-    public static final int BLAST     	= 21;
+    public static final int CONTROL = 16;
+    public static final int TORMENT = 17;
+    public static final int BANISH = 18;
+    public static final int SPARKS = 19;
+    public static final int ICESHARD = 20;
+    public static final int BLAST = 21;
 
-	public static final int DISCOVER	= 101;
-	public static final int EVOKE		= 102;
-	public static final int MASTERY		= 103;
-	public static final int KIT			= 104;
-	public static final int RATTLE		= 105;
-	public static final int JET			= 106;
-    public static final int TOXIC		= 107;
-    public static final int DARKNESS    = 108;
-    public static final int DUST		= 109;
-    public static final int FORGE		= 110;
-    public static final int CONFUSION	= 111;
-    public static final int RAISE_DEAD	= 112;
-    public static final int POISON  	= 113;
-    public static final int VERTIGO  	= 114;
-    public static final int HOLY      	= 115;
-    public static final int BLAST_FIRE  = 116;
-    public static final int BLAST_ACID  = 117;
-    public static final int CAUSTIC     = 118;
+    public static final int DISCOVER = 101;
+    public static final int EVOKE = 102;
+    public static final int MASTERY = 103;
+    public static final int KIT = 104;
+    public static final int RATTLE = 105;
+    public static final int JET = 106;
+    public static final int TOXIC = 107;
+    public static final int DARKNESS = 108;
+    public static final int DUST = 109;
+    public static final int FORGE = 110;
+    public static final int CONFUSION = 111;
+    public static final int RAISE_DEAD = 112;
+    public static final int POISON = 113;
+    public static final int VERTIGO = 114;
+    public static final int HOLY = 115;
+    public static final int BLAST_FIRE = 116;
+    public static final int BLAST_ACID = 117;
+    public static final int CAUSTIC = 118;
 
-	private static final int SIZE = 8;
+    private static final int SIZE = 8;
 
-	private int type;
-	private float lifespan;
-	private float left;
-	
-	private static TextureFilm film;
-	
-	private static SparseArray<Emitter.Factory> factories = new SparseArray<Emitter.Factory>();
-	
-	public Speck() {
-		super();
-		
-		texture( Assets.SPECKS );
-		if (film == null) {
-			film = new TextureFilm( texture, SIZE, SIZE );
-		}
-		
-		origin.set( SIZE / 2f );
-	}
-	
-	public void reset( int index, float x, float y, int type ) {
-		revive();
-		
-		this.type = type;
-		switch (type) {
+    private int type;
+    private float lifespan;
+    private float left;
+
+    private static TextureFilm film;
+
+    private static SparseArray<Emitter.Factory> factories = new SparseArray<Emitter.Factory>();
+
+    public Speck() {
+        super();
+
+        texture(Assets.SPECKS);
+        if (film == null) {
+            film = new TextureFilm(texture, SIZE, SIZE);
+        }
+
+        origin.set(SIZE / 2f);
+    }
+
+    public void reset(int index, float x, float y, int type) {
+        revive();
+
+        this.type = type;
+        switch (type) {
             case DISCOVER:
             case HOLY:
-                frame( film.get( LIGHT ) );
+                frame(film.get(LIGHT));
                 break;
             case EVOKE:
             case MASTERY:
             case KIT:
             case FORGE:
             case VERTIGO:
-                frame( film.get( STAR ) );
+                frame(film.get(STAR));
                 break;
             case RATTLE:
             case RAISE_DEAD:
-                frame( film.get( BONE ) );
+                frame(film.get(BONE));
                 break;
             case JET:
             case TOXIC:
             case DARKNESS:
             case DUST:
             case CAUSTIC:
-                frame( film.get( STEAM ) );
+                frame(film.get(STEAM));
                 break;
             case POISON:
-                frame( film.get( BUBBLE ) );
+                frame(film.get(BUBBLE));
                 break;
             case CONFUSION:
-                frame( film.get( CHANGE ) );
+                frame(film.get(CHANGE));
                 break;
             case BLAST_FIRE:
             case BLAST_ACID:
-                frame( film.get( BLAST ) );
+                frame(film.get(BLAST));
                 break;
             default:
-                frame( film.get( type ) );
-		}
-		
-		this.x = x - origin.x;
-		this.y = y - origin.y;
-		
-		resetColorAlpha();
-		scale.set( 1 );
-		speed.set( 0 );
-		acc.set( 0 );
-		angle = 0;
-		angularSpeed = 0;
-		
-		switch (type) {
+                frame(film.get(type));
+        }
+
+        this.x = x - origin.x;
+        this.y = y - origin.y;
+
+        resetColorAlpha();
+        scale.set(1);
+        speed.set(0);
+        acc.set(0);
+        angle = 0;
+        angularSpeed = 0;
+
+        switch (type) {
 
             case HEALING:
                 speed.set(0, -20);
@@ -208,7 +206,7 @@ public class Speck extends Image {
                 break;
 
             case HOLY:
-                hardlight( SpellSprite.COLOUR_HOLY );
+                hardlight(SpellSprite.COLOUR_HOLY);
             case LIGHT:
                 angle = Random.Float(360);
                 angularSpeed = 90;
@@ -237,9 +235,9 @@ public class Speck extends Image {
 
             case BONE:
                 lifespan = 0.2f;
-                speed.polar( Random.Float( 2 * 3.1415926f ), 24 / lifespan );
-                acc.set( 0, 128 );
-                angle = Random.Float( 360 );
+                speed.polar(Random.Float(2 * 3.1415926f), 24 / lifespan);
+                acc.set(0, 128);
+                angle = Random.Float(360);
                 angularSpeed = 360;
                 break;
 
@@ -249,7 +247,7 @@ public class Speck extends Image {
                 acc.set(0, -2 * speed.y / lifespan);
                 angle = Random.Float(360);
                 angularSpeed = 360;
-                scale.set( 0.7f, 0.7f );
+                scale.set(0.7f, 0.7f);
                 break;
 
             case RAISE_DEAD:
@@ -261,7 +259,7 @@ public class Speck extends Image {
 
                 this.x = x - speed.x * lifespan;
                 this.y = y - speed.y * lifespan;
-                scale.set( 0.7f, 0.7f );
+                scale.set(0.7f, 0.7f);
                 break;
 
             case WOOL:
@@ -384,49 +382,49 @@ public class Speck extends Image {
 
             case ICESHARD:
                 lifespan = 0.5f;
-                speed.polar( Random.Float( 2 * 3.1415926f ), 16 / lifespan );
-                acc.set( 0, 128 );
-                angle = Random.Float( 360 );
+                speed.polar(Random.Float(2 * 3.1415926f), 16 / lifespan);
+                acc.set(0, 128);
+                angle = Random.Float(360);
                 angularSpeed = 360;
                 break;
 
             case BLAST_FIRE:
-                hardlight( 0xFF8833 );
-                lifespan = Random.Float( 0.1f, 0.3f );
+                hardlight(0xFF8833);
+                lifespan = Random.Float(0.1f, 0.3f);
                 break;
 
             case BLAST_ACID:
-                hardlight( 0x00c500 );
-                lifespan = Random.Float( 0.1f, 0.3f );
+                hardlight(0x00c500);
+                lifespan = Random.Float(0.1f, 0.3f);
                 break;
 
             case BLAST:
-                lifespan = Random.Float( 0.1f, 0.3f );
+                lifespan = Random.Float(0.1f, 0.3f);
                 break;
         }
-		
-		left = lifespan;
-	}
-	
-	@SuppressLint("FloatMath")
-	@Override
-	public void update() {
-		super.update();
-		
-		left -= Game.elapsed;
-		if (left <= 0) {
-			
-			kill();
-			
-		} else {
-			
-			float p = 1 - left / lifespan;	// 0 -> 1
-			
-			switch (type) {
-				
+
+        left = lifespan;
+    }
+
+    @SuppressLint("FloatMath")
+    @Override
+    public void update() {
+        super.update();
+
+        left -= Game.elapsed;
+        if (left <= 0) {
+
+            kill();
+
+        } else {
+
+            float p = 1 - left / lifespan;    // 0 -> 1
+
+            switch (type) {
+
                 case STAR:
                 case FORGE:
-                    scale.set( 1 - p );
+                    scale.set(1 - p);
                     am = p < 0.2f ? p * 5f : (1 - p) * 1.25f;
                     break;
 
@@ -443,25 +441,25 @@ public class Speck extends Image {
 
                 case HOLY:
                 case LIGHT:
-                    am = scale.set( p < 0.2f ? p * 5f : (1 - p) * 1.25f ).x;
+                    am = scale.set(p < 0.2f ? p * 5f : (1 - p) * 1.25f).x;
                     break;
 
                 case DISCOVER:
                     am = 1 - p;
-                    scale.set( (p < 0.5f ? p : 1 - p) * 2 );
+                    scale.set((p < 0.5f ? p : 1 - p) * 2);
                     break;
 
                 case QUESTION:
-                    scale.set( (float)(Math.sqrt( p < 0.5f ? p : 1 - p ) * 3) );
+                    scale.set((float) (Math.sqrt(p < 0.5f ? p : 1 - p) * 3));
                     break;
 
                 case UP:
-                    scale.set( (float)(Math.sqrt( p < 0.5f ? p : 1 - p ) * 2) );
+                    scale.set((float) (Math.sqrt(p < 0.5f ? p : 1 - p) * 2));
                     break;
 
                 case SCREAM:
-                    am = (float)Math.sqrt( (p < 0.5f ? p : 1 - p) * 2f );
-                    scale.set( p * 7 );
+                    am = (float) Math.sqrt((p < 0.5f ? p : 1 - p) * 2f);
+                    scale.set(p * 7);
                     break;
 
                 case BONE:
@@ -471,7 +469,7 @@ public class Speck extends Image {
                     break;
 
                 case ROCK:
-                    am = p < 0.2f ? p * 5 : 1 ;
+                    am = p < 0.2f ? p * 5 : 1;
                     break;
 
                 case NOTE:
@@ -479,22 +477,22 @@ public class Speck extends Image {
                     break;
 
                 case WOOL:
-                    scale.set( 1 - p );
+                    scale.set(1 - p);
                     break;
 
                 case CHANGE:
-                    am = (float)(float)Math.sqrt( (p < 0.5f ? p : 1 - p) * 2);
+                    am = (float) (float) Math.sqrt((p < 0.5f ? p : 1 - p) * 2);
                     scale.y = (1 + p) * 0.5f;
-                    scale.x = scale.y * (float)Math.cos( left * 15 );
+                    scale.x = scale.y * (float) Math.cos(left * 15);
                     break;
 
                 case VERTIGO:
-                    scale.set( 1 - p );
+                    scale.set(1 - p);
                     am = 1 - p * p;
                     break;
 
                 case HEART:
-                    scale.set( 1 - p );
+                    scale.set(1 - p);
                     am = 1 - p * p;
                     break;
 
@@ -509,11 +507,11 @@ public class Speck extends Image {
                 case DUST:
                 case CAUSTIC:
                     am = p < 0.5f ? p : 1 - p;
-                    scale.set( 1 + p * 2 );
+                    scale.set(1 + p * 2);
                     break;
 
                 case CONTROL:
-                    scale.set( 1 - p );
+                    scale.set(1 - p);
                     am = 1 - p * p;
                     break;
 
@@ -521,53 +519,54 @@ public class Speck extends Image {
                 case SPARKS:
                 case COBWEB:
                     am = p < 0.5f ? p : 1 - p;
-                    scale.set( 1 + p );
+                    scale.set(1 + p);
                     break;
 
                 case JET:
                     am = (p < 0.5f ? p : 1 - p) * 2;
-                    scale.set( p * 1.5f );
+                    scale.set(p * 1.5f);
                     break;
 
                 case COIN:
-                    scale.x = (float)Math.cos( left * 5 );
-                    rm = gm = bm = (Math.abs( scale.x ) + 1) * 0.5f;
+                    scale.x = (float) Math.cos(left * 5);
+                    rm = gm = bm = (Math.abs(scale.x) + 1) * 0.5f;
                     am = p < 0.9f ? 1 : (1 - p) * 10;
                     break;
 
                 case BLAST:
                 case BLAST_FIRE:
                 case BLAST_ACID:
-                    scale.set( p * 2f );
+                    scale.set(p * 2f);
                     am = 1 - p;
                     break;
-			}
-		}
-	}
-	
-	public static Emitter.Factory factory( final int type ) {
-		return factory( type, false );
-	}
-	
-	public static Emitter.Factory factory( final int type, final boolean lightMode ) {
-		
-		Emitter.Factory factory = factories.get( type );
-		
-		if (factory == null) {
-			factory = new Emitter.Factory() {
-				@Override
-				public void emit ( Emitter emitter, int index, float x, float y ) {
-					Speck p = (Speck)emitter.recycle( Speck.class );
-					p.reset( index, x, y, type );
-				}
-				@Override
-				public boolean lightMode() {
-					return lightMode;
-				}
-			};
-			factories.put( type, factory );
-		}
-		
-		return factory;
-	}
+            }
+        }
+    }
+
+    public static Emitter.Factory factory(final int type) {
+        return factory(type, false);
+    }
+
+    public static Emitter.Factory factory(final int type, final boolean lightMode) {
+
+        Emitter.Factory factory = factories.get(type);
+
+        if (factory == null) {
+            factory = new Emitter.Factory() {
+                @Override
+                public void emit(Emitter emitter, int index, float x, float y) {
+                    Speck p = (Speck) emitter.recycle(Speck.class);
+                    p.reset(index, x, y, type);
+                }
+
+                @Override
+                public boolean lightMode() {
+                    return lightMode;
+                }
+            };
+            factories.put(type, factory);
+        }
+
+        return factory;
+    }
 }

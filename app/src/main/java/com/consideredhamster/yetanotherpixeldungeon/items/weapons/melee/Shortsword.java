@@ -24,28 +24,28 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Shortsword extends MeleeWeaponLightOH {
 
-	{
-		name = "shortsword";
-		image = ItemSpriteSheet.GLADIUS;
-	}
-	
-	public Shortsword() {
-		super( 3 );
-	}
+    {
+        name = "shortsword";
+        image = ItemSpriteSheet.GLADIUS;
+    }
+
+    public Shortsword() {
+        super(3);
+    }
 
     @Override
-    public int max( int bonus ) {
+    public int max(int bonus) {
         return super.max(bonus) - 2;
     }
 
-	@Override
-	public Type weaponType() {
-		return Type.M_SWORD;
-	}
-	
-	@Override
-	public String desc() {
-		return 
-			"It is indeed quite short, just a few inches longer, than a dagger.";
-	}
+    @Override
+    public Type weaponType() {
+        return Type.M_SWORD;
+    }
+
+    @Override
+    public String desc() {
+        return
+                "It is indeed quite short, just a few inches longer, than a dagger.";
+    }
 }

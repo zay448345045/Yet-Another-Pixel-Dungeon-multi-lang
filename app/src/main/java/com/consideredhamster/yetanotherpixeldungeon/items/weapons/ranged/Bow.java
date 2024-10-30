@@ -26,27 +26,27 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Bow extends RangedWeaponMissile {
 
-	{
-		name = "bow";
-		image = ItemSpriteSheet.BOW;
-	}
+    {
+        name = "bow";
+        image = ItemSpriteSheet.BOW;
+    }
 
-	public Bow() {
-		super( 2 );
-	}
+    public Bow() {
+        super(2);
+    }
 
     @Override
     public Class<? extends ThrowingWeaponAmmo> ammunition() {
         return Arrows.class;
     }
 
-	@Override
-	public Type weaponType() {
-		return Type.R_MISSILE;
-	}
+    @Override
+    public Type weaponType() {
+        return Type.R_MISSILE;
+    }
 
-	@Override
-	public String desc() {
-		return "In the hands of a skilled archer, this weapon can be extremely effective.";
-	}
+    @Override
+    public String desc() {
+        return "In the hands of a skilled archer, this weapon can be extremely effective.";
+    }
 }

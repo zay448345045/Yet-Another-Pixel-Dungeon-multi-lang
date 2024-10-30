@@ -20,63 +20,62 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.traps;
 
-import java.util.ArrayList;
-
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfPhaseWarp;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfLifeDrain;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.watabou.utils.Random;
 
+import java.util.ArrayList;
+
 public class SummoningTrap extends Trap {
 
-	private static final float DELAY = 2f;
-	
-//	private static final Mob DUMMY = new Mob() {};
-	
-	// 0x770088
-	
-	public static void trigger( int pos, Char ch ) {
+    private static final float DELAY = 2f;
 
-		if (Dungeon.bossLevel()) {
-			return;
-		}
-		
-		int nMobs = 1;
-		if (Random.Int( 2 ) == 0) {
-			nMobs++;
-			if (Random.Int( 2 ) == 0) {
-				nMobs++;
-			}
-		}
-		
-		ArrayList<Integer> candidates = new ArrayList<Integer>();
-		
-		for (int i=0; i < Level.NEIGHBOURS8.length; i++) {
-			int p = pos + Level.NEIGHBOURS8[i];
-			if (Actor.findChar( p ) == null && (Level.passable[p] || Level.avoid[p])) {
-				candidates.add( p );
-			}
-		}
-		
-		while (nMobs > 0 && candidates.size() > 0) {
-			int index = Random.index( candidates );
+//	private static final Mob DUMMY = new Mob() {};
+
+    // 0x770088
+
+    public static void trigger(int pos, Char ch) {
+
+        if (Dungeon.bossLevel()) {
+            return;
+        }
+
+        int nMobs = 1;
+        if (Random.Int(2) == 0) {
+            nMobs++;
+            if (Random.Int(2) == 0) {
+                nMobs++;
+            }
+        }
+
+        ArrayList<Integer> candidates = new ArrayList<Integer>();
+
+        for (int i = 0; i < Level.NEIGHBOURS8.length; i++) {
+            int p = pos + Level.NEIGHBOURS8[i];
+            if (Actor.findChar(p) == null && (Level.passable[p] || Level.avoid[p])) {
+                candidates.add(p);
+            }
+        }
+
+        while (nMobs > 0 && candidates.size() > 0) {
+            int index = Random.index(candidates);
 
             Mob mob = Bestiary.mob(Dungeon.depth);
             mob.state = mob.HUNTING;
-            GameScene.add( mob, DELAY );
+            GameScene.add(mob, DELAY);
 
-            ScrollOfPhaseWarp.appear( mob, candidates.get( index ) );
+            ScrollOfPhaseWarp.appear(mob, candidates.get(index));
 
-			Actor.occupyCell( mob );
-			
-			candidates.remove( index );
-			nMobs--;
-		}
-	}
+            Actor.occupyCell(mob);
+
+            candidates.remove(index);
+            nMobs--;
+        }
+    }
 }

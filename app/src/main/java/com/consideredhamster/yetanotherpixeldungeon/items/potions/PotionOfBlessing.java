@@ -20,52 +20,52 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
-import com.consideredhamster.yetanotherpixeldungeon.items.bags.Bag;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
+import com.consideredhamster.yetanotherpixeldungeon.items.bags.Bag;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShaftParticle;
-import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Random;
 
 public class PotionOfBlessing extends Potion {
 
-    public static final float DURATION	= 25f;
-    public static final float MODIFIER	= 1.0f;
+    public static final float DURATION = 25f;
+    public static final float MODIFIER = 1.0f;
 
-    private static final String TXT_PROCCED	=
+    private static final String TXT_PROCCED =
             "A cleansing light shines from above, and all malevolent magic nearby is weakened.";
-    private static final String TXT_NOT_PROCCED	=
+    private static final String TXT_NOT_PROCCED =
             "A cleansing light shines from above, but nothing happens.";
-	
-	{
-		name = "Potion of Blessing";
+
+    {
+        name = "Potion of Blessing";
         shortName = "Bl";
         harmful = true;
-	}
+    }
 
 
     @Override
-    public void shatter( int cell ) {
+    public void shatter(int cell) {
 
         if (Dungeon.visible[cell]) {
             setKnown();
 
-            splash( cell );
-            Sample.INSTANCE.play( Assets.SND_SHATTER );
+            splash(cell);
+            Sample.INSTANCE.play(Assets.SND_SHATTER);
 
-            new Flare(6, 32).color(SpellSprite.COLOUR_HOLY, true).show( cell, 2f );
+            new Flare(6, 32).color(SpellSprite.COLOUR_HOLY, true).show(cell, 2f);
         }
 
         boolean affected = false;
@@ -74,61 +74,61 @@ public class PotionOfBlessing extends Potion {
 
             int c = cell + n;
 
-            Char ch = Char.findChar( c );
+            Char ch = Char.findChar(c);
 
-            if( ch == null ) {
+            if (ch == null) {
 
-                Heap heap = Dungeon.level.heaps.get( c );
+                Heap heap = Dungeon.level.heaps.get(c);
 
                 if (heap != null) {
-                    affected = affected | uncurse( c, heap.items.toArray( new Item[0] ) );
+                    affected = affected | uncurse(c, heap.items.toArray(new Item[0]));
                 }
 
-            } else if( ch == curUser ) {
-                affected = uncurse( c, curUser.belongings.backpack.items.toArray( new Item[0] ) ) |
-                        uncurse( c,
-                        curUser.belongings.weap1,
-                        curUser.belongings.weap2,
-                        curUser.belongings.armor,
-                        curUser.belongings.ring1,
-                        curUser.belongings.ring2 );
+            } else if (ch == curUser) {
+                affected = uncurse(c, curUser.belongings.backpack.items.toArray(new Item[0])) |
+                        uncurse(c,
+                                curUser.belongings.weap1,
+                                curUser.belongings.weap2,
+                                curUser.belongings.armor,
+                                curUser.belongings.ring1,
+                                curUser.belongings.ring2);
 
-            } else if ( ch.isMagical() ) {
+            } else if (ch.isMagical()) {
 
                 int damage = ch.totalHealthValue();
 
-                ch.damage( ( n == 0 ? Random.IntRange( damage / 2, damage ) : Random.IntRange( damage / 3, damage / 2 ) ), curUser, Element.DISPEL );
+                ch.damage((n == 0 ? Random.IntRange(damage / 2, damage) : Random.IntRange(damage / 3, damage / 2)), curUser, Element.DISPEL);
                 affected = true;
 
             }
 
-            CellEmitter.get( c ).burst(ShaftParticle.FACTORY, 5 );
+            CellEmitter.get(c).burst(ShaftParticle.FACTORY, 5);
         }
 
         if (affected) {
-            GLog.p( TXT_PROCCED );
+            GLog.p(TXT_PROCCED);
         } else {
-            GLog.i( TXT_NOT_PROCCED );
+            GLog.i(TXT_NOT_PROCCED);
         }
     }
 
     @Override
-	public String desc() {
-		return
-			"This potion is imbued with great disruptive energy. Shattering it will bathe " +
-            "everything near the point of impact in a cleansing light, removing curses and " +
-            "harming creatures of purely magical origin.";
-	}
+    public String desc() {
+        return
+                "This potion is imbued with great disruptive energy. Shattering it will bathe " +
+                        "everything near the point of impact in a cleansing light, removing curses and " +
+                        "harming creatures of purely magical origin.";
+    }
 
-    public static boolean uncurse( int pos, Item... items ) {
+    public static boolean uncurse(int pos, Item... items) {
 
         int procced = 0;
-        for(Item item : items) {
+        for (Item item : items) {
             if (item != null) {
 
-                if( item instanceof Bag) {
+                if (item instanceof Bag) {
 
-                    uncurse( pos, ((Bag)item).items.toArray( new Item[0] )  );
+                    uncurse(pos, ((Bag) item).items.toArray(new Item[0]));
 
                 } else {
 
@@ -154,17 +154,17 @@ public class PotionOfBlessing extends Potion {
             }
         }
 
-        if ( procced > 0 ) {
-            CellEmitter.get( pos ).burst(ShadowParticle.UP, procced * 5);
+        if (procced > 0) {
+            CellEmitter.get(pos).burst(ShadowParticle.UP, procced * 5);
         }
 
         return procced > 0;
     }
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 50 * quantity : super.price();
-	}
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 50 * quantity : super.price();
+    }
 
     @Override
     public float brewingChance() {

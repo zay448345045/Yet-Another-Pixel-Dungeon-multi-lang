@@ -20,39 +20,39 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
+import com.watabou.noosa.TextureFilm;
 
 public class SuccubusSprite extends MobSprite {
 
     private int cellToAttack;
 
-	public SuccubusSprite() {
-		super();
-		
-		texture( Assets.SUCCUBUS );
-		
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
-		
-		idle = new Animation( 5, true );
-		idle.frames( frames, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 12, 13, 14, 1 );
-		
-		run = new Animation( 15, true );
-		run.frames( frames, 3, 4, 5, 6, 7, 8 );
-		
-		attack = new Animation( 12, false );
-		attack.frames( frames, 9, 10, 11 );
-		
-		cast = new Animation( 10, false );
-		cast.frames( frames, 12, 13, 14 );
-		
-		die = new Animation( 10, false );
-		die.frames( frames, 15 );
-		
-		play( idle );
-	}
+    public SuccubusSprite() {
+        super();
+
+        texture(Assets.SUCCUBUS);
+
+        TextureFilm frames = new TextureFilm(texture, 16, 16);
+
+        idle = new Animation(5, true);
+        idle.frames(frames, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 12, 13, 14, 1);
+
+        run = new Animation(15, true);
+        run.frames(frames, 3, 4, 5, 6, 7, 8);
+
+        attack = new Animation(12, false);
+        attack.frames(frames, 9, 10, 11);
+
+        cast = new Animation(10, false);
+        cast.frames(frames, 12, 13, 14);
+
+        die = new Animation(10, false);
+        die.frames(frames, 15);
+
+        play(idle);
+    }
 
 //    @Override
 //    public void attack( int cell ) {
@@ -88,11 +88,11 @@ public class SuccubusSprite extends MobSprite {
 //            super.onComplete( anim );
 //        }
 //    }
-	
-	@Override
-	public void die() {
-		super.die();
-		emitter().burst( Speck.factory( Speck.HEART ), 6 );
-		emitter().burst( ShadowParticle.UP, 8 );
-	}
+
+    @Override
+    public void die() {
+        super.die();
+        emitter().burst(Speck.factory(Speck.HEART), 6);
+        emitter().burst(ShadowParticle.UP, 8);
+    }
 }

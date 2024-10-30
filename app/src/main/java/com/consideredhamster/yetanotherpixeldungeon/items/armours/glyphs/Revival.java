@@ -24,21 +24,21 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Debuff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 public class Revival extends Armour.Glyph {
 
-    private static final String TXT_RESURRECT	= "You are revived by the powers of your enchantment!";
-	
-	@Override
-	public Glowing glowing() {
-		return YELLOW;
-	}
+    private static final String TXT_RESURRECT = "You are revived by the powers of your enchantment!";
+
+    @Override
+    public Glowing glowing() {
+        return YELLOW;
+    }
 
     @Override
     public Class<? extends Element> resistance() {
@@ -66,22 +66,22 @@ public class Revival extends Armour.Glyph {
     }
 
     @Override
-    public boolean proc_p( Char attacker, Char defender, int damage ) {
+    public boolean proc_p(Char attacker, Char defender, int damage) {
         return false;
     }
 
     @Override
-    public boolean proc_n( Char attacker, Char defender, int damage ) {
+    public boolean proc_n(Char attacker, Char defender, int damage) {
         return false;
     }
 
-    public static void resurrect( Hero hero ) {
-        new Flare( 8, 32 ).color(0xFFFF66, true).show(hero.sprite, 2f) ;
+    public static void resurrect(Hero hero) {
+        new Flare(8, 32).color(0xFFFF66, true).show(hero.sprite, 2f);
         GameScene.flash(0xFFFFAA);
 
         hero.HP = hero.HT;
 
-        Debuff.removeAll( hero );
+        Debuff.removeAll(hero);
 
         hero.sprite.showStatus(CharSprite.POSITIVE, "resurrected!");
         GLog.w(TXT_RESURRECT);

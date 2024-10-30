@@ -14,9 +14,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.HazardSprite
 import com.watabou.noosa.Game;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.noosa.tweeners.AlphaTweener;
-import com.watabou.noosa.tweeners.ScaleTweener;
 import com.watabou.utils.Bundle;
-import com.watabou.utils.PointF;
 
 /*
  * Pixel Dungeon
@@ -57,9 +55,11 @@ public class CausticOoze extends Hazard {
     @Override
     public String desc() {
         return "There is a pool of corrosive liquid here.";
-    };
+    }
 
-    public void setValues( int pos, int duration ) {
+    ;
+
+    public void setValues(int pos, int duration) {
 
         this.pos = pos;
         this.duration = duration;
@@ -67,34 +67,34 @@ public class CausticOoze extends Hazard {
     }
 
     @Override
-    public void press( int cell, Char ch ){
-        if( ch != null && !ch.flying ){
+    public void press(int cell, Char ch) {
+        if (ch != null && !ch.flying) {
 
-            BuffActive.add( ch, Corrosion.class, TICK * 2 );
-            CellEmitter.center( cell ).burst( AcidParticle.BURST, 4 );
+            BuffActive.add(ch, Corrosion.class, TICK * 2);
+            CellEmitter.center(cell).burst(AcidParticle.BURST, 4);
 
-        } else if( ch == null ) {
+        } else if (ch == null) {
 
-            CellEmitter.center( cell ).burst( AcidParticle.BURST, 4 );
+            CellEmitter.center(cell).burst(AcidParticle.BURST, 4);
 
         }
     }
 
     @Override
-    protected boolean act(){
+    protected boolean act() {
 
-        if( --duration > 0 ){
+        if (--duration > 0) {
 
             Char ch;
-            if ( ( ch = Actor.findChar( pos )) != null && !ch.flying ) {
-                BuffActive.add( ch, Corrosion.class, TICK * 2 );
+            if ((ch = Actor.findChar(pos)) != null && !ch.flying) {
+                BuffActive.add(ch, Corrosion.class, TICK * 2);
             }
 
             updateSprite();
-            spend( TICK );
+            spend(TICK);
 
         } else {
-            ((CausticOoze.OozeSprite)sprite).disappear();
+            ((CausticOoze.OozeSprite) sprite).disappear();
             destroy();
         }
 
@@ -102,24 +102,24 @@ public class CausticOoze extends Hazard {
     }
 
     public void updateSprite() {
-        var = Math.min( duration / 3, MAX_LEVEL );
-        sprite.changeFrame( var );
+        var = Math.min(duration / 3, MAX_LEVEL);
+        sprite.changeFrame(var);
     }
 
-    public static void spawn( int cell, int duration ) {
+    public static void spawn(int cell, int duration) {
 
-        if( !Level.water[ cell ] && Level.passable[ cell ] ){
+        if (!Level.water[cell] && Level.passable[cell]) {
 
-            CausticOoze ooze = Hazard.findHazard( cell, CausticOoze.class );
+            CausticOoze ooze = Hazard.findHazard(cell, CausticOoze.class);
 
-            if( ooze == null ){
+            if (ooze == null) {
 
                 ooze = new CausticOoze();
-                ooze.setValues( cell, duration );
+                ooze.setValues(cell, duration);
 
-                GameScene.add( ooze );
+                GameScene.add(ooze);
                 ooze.updateSprite();
-                ( (CausticOoze.OozeSprite) ooze.sprite ).appear();
+                ((CausticOoze.OozeSprite) ooze.sprite).appear();
 
             } else {
 
@@ -138,7 +138,7 @@ public class CausticOoze extends Hazard {
 
         protected Emitter vapours;
 
-        public OozeSprite(){
+        public OozeSprite() {
 
             super();
             time = 0.0f;
@@ -147,28 +147,28 @@ public class CausticOoze extends Hazard {
         }
 
         @Override
-        protected String asset(){
+        protected String asset() {
             return Assets.HAZ_OOZE;
         }
 
         @Override
-        public int spritePriority(){
+        public int spritePriority() {
             return 1;
         }
 
         @Override
-        public void link( Hazard hazard ) {
+        public void link(Hazard hazard) {
 
-            super.link( hazard );
+            super.link(hazard);
 
             vapours = GameScene.emitter();
 
-            if( vapours != null ){
-                vapours.pos( this );
-                vapours.pour( Speck.factory( Speck.CAUSTIC ), 1.0f );
+            if (vapours != null) {
+                vapours.pos(this);
+                vapours.pour(Speck.factory(Speck.CAUSTIC), 1.0f);
             }
 
-            parent.add( vapours );
+            parent.add(vapours);
         }
 
         @Override
@@ -176,7 +176,7 @@ public class CausticOoze extends Hazard {
             super.update();
 
             time += Game.elapsed * 2;
-            scale.set( 0.95f + (float)Math.sin( time ) * 0.05f );
+            scale.set(0.95f + (float) Math.sin(time) * 0.05f);
 
             if (vapours != null) {
                 vapours.visible = visible;
@@ -184,30 +184,30 @@ public class CausticOoze extends Hazard {
 
         }
 
-        public void appear( ) {
+        public void appear() {
 
-            alpha( 0f );
+            alpha(0f);
 
-            parent.add( new AlphaTweener( this, 0.75f, ANIM_TIME ) {
+            parent.add(new AlphaTweener(this, 0.75f, ANIM_TIME) {
                 @Override
                 protected void onComplete() {
-                    parent.erase( this );
+                    parent.erase(this);
                 }
             });
         }
 
-        public void disappear( ) {
+        public void disappear() {
 
             if (vapours != null) {
                 vapours.on = false;
                 vapours = null;
             }
 
-            parent.add( new AlphaTweener( this, 0.0f, ANIM_TIME ) {
+            parent.add(new AlphaTweener(this, 0.0f, ANIM_TIME) {
                 @Override
                 protected void onComplete() {
                     OozeSprite.this.killAndErase();
-                    parent.erase( this );
+                    parent.erase(this);
                 }
             });
         }
@@ -217,20 +217,20 @@ public class CausticOoze extends Hazard {
     private static final String DURATION = "duration";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
 
-        super.storeInBundle( bundle );
+        super.storeInBundle(bundle);
 
-        bundle.put( DURATION, duration );
+        bundle.put(DURATION, duration);
 
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
 
-        super.restoreFromBundle( bundle );
+        super.restoreFromBundle(bundle);
 
-        duration = bundle.getInt( DURATION );
+        duration = bundle.getInt(DURATION);
 
     }
 }

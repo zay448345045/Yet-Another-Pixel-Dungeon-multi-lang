@@ -25,8 +25,8 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 
 public class HighGrass {
 
-	public static void trample( Level level, int pos, Char ch ) {
-		
+    public static void trample(Level level, int pos, Char ch) {
+
 //		Level.set( pos, Terrain.GRASS_EMPTY );
 //		GameScene.updateMap( pos );
 //
@@ -50,19 +50,19 @@ public class HighGrass {
 //				bonus.drop( new Dewdrop(), pos ).sprite.drop();
 //			}
 //		}
-		
+
 //		int leaves = 4;
-		
-		// Warlock's barkskin
+
+        // Warlock's barkskin
 //		if (ch instanceof Hero && ((Hero)ch).subClass == HeroSubClass.WARDEN) {
 //			Buff.affect( ch, Barkskin.class ).bonus( ch.HT / 3 );
 //			leaves = 8;
 //		}
-		
+
 //		CellEmitter.get( pos ).burst( LeafParticle.LEVEL_SPECIFIC, leaves );
 //        if( Dungeon.visible[ pos ] ) {
 //            CellEmitter.get(pos).burst(LeafParticle.LEVEL_SPECIFIC, Random.Int(5, 6));
 //            Dungeon.observe();
 //        }
-	}
+    }
 }

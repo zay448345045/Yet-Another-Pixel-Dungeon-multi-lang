@@ -25,13 +25,15 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class MindResistance extends ElementResistance {
 
-	@Override
-	public String toString() {
-		return "Mind Resistance";
-	}
+    @Override
+    public String toString() {
+        return "Mind Resistance";
+    }
 
     @Override
-    public String statusMessage() { return "mind resistance"; }
+    public String statusMessage() {
+        return "mind resistance";
+    }
 
     @Override
     public String playerMessage() {
@@ -44,13 +46,13 @@ public class MindResistance extends ElementResistance {
     }
 
     @Override
-    public Class<? extends Element> resistance(){
+    public Class<? extends Element> resistance() {
         return Element.Mind.class;
     }
 
     @Override
     public String description() {
         return "You feel totally awake, nothing can interrupt your thought processes. " +
-            "Your resistance to negative conditions affecting your mind is increased.";
+                "Your resistance to negative conditions affecting your mind is increased.";
     }
 }

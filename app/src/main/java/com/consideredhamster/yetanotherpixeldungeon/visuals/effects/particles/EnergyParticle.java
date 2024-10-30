@@ -21,128 +21,149 @@
 package com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles;
 
 import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.PixelParticle;
 import com.watabou.noosa.particles.Emitter.Factory;
+import com.watabou.noosa.particles.PixelParticle;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
 
 public class EnergyParticle extends PixelParticle {
-	
-	public static final Emitter.Factory FACTORY = new Factory() {	
-		@Override
-		public void emit( Emitter emitter, int index, float x, float y ) {
-			((EnergyParticle)emitter.recycle( EnergyParticle.class )).reset( x, y );
-		}
-		@Override
-		public boolean lightMode() {
-			return true;
-		};
-	};
 
-    public static final Emitter.Factory FACTORY_BLUE = new Factory() {
+    public static final Emitter.Factory FACTORY = new Factory() {
         @Override
-        public void emit( Emitter emitter, int index, float x, float y ) {
-            ((BlueEnergyParticle)emitter.recycle( BlueEnergyParticle.class )).reset( x, y );
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((EnergyParticle) emitter.recycle(EnergyParticle.class)).reset(x, y);
         }
+
         @Override
         public boolean lightMode() {
             return true;
-        };
+        }
+
+        ;
+    };
+
+    public static final Emitter.Factory FACTORY_BLUE = new Factory() {
+        @Override
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((BlueEnergyParticle) emitter.recycle(BlueEnergyParticle.class)).reset(x, y);
+        }
+
+        @Override
+        public boolean lightMode() {
+            return true;
+        }
+
+        ;
     };
 
     public static final Emitter.Factory FACTORY_WHITE = new Factory() {
         @Override
-        public void emit( Emitter emitter, int index, float x, float y ) {
-            ((WhiteEnergyParticle)emitter.recycle( WhiteEnergyParticle.class )).reset( x, y );
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((WhiteEnergyParticle) emitter.recycle(WhiteEnergyParticle.class)).reset(x, y);
         }
+
         @Override
         public boolean lightMode() {
             return true;
-        };
+        }
+
+        ;
     };
-	
-	public static final Emitter.Factory FACTORY_PURPLE = new Factory() {
-		@Override
-		public void emit( Emitter emitter, int index, float x, float y ) {
-			((PurpleEnergyParticle)emitter.recycle( PurpleEnergyParticle.class )).reset( x, y );
-		}
-		@Override
-		public boolean lightMode() {
-			return true;
-		};
-	};
-	
-	public static final Emitter.Factory FACTORY_ORANGE = new Factory() {
-		@Override
-		public void emit( Emitter emitter, int index, float x, float y ) {
-			((OrangeEnergyParticle)emitter.recycle( OrangeEnergyParticle.class )).reset( x, y );
-		}
-		@Override
-		public boolean lightMode() {
-			return true;
-		};
-	};
-	
-	public static final Emitter.Factory FACTORY_GREEN = new Factory() {
-		@Override
-		public void emit( Emitter emitter, int index, float x, float y ) {
-			((GreenEnergyParticle)emitter.recycle( GreenEnergyParticle.class )).reset( x, y );
-		}
-		@Override
-		public boolean lightMode() {
-			return true;
-		};
-	};
-	
-	public static final Emitter.Factory FACTORY_BLIGHT = new Factory() {
-		@Override
-		public void emit( Emitter emitter, int index, float x, float y ) {
-			((BlightEnergyParticle)emitter.recycle( BlightEnergyParticle.class )).reset( x, y );
-		}
-		@Override
-		public boolean lightMode() {
-			return false;
-		};
-	};
+
+    public static final Emitter.Factory FACTORY_PURPLE = new Factory() {
+        @Override
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((PurpleEnergyParticle) emitter.recycle(PurpleEnergyParticle.class)).reset(x, y);
+        }
+
+        @Override
+        public boolean lightMode() {
+            return true;
+        }
+
+        ;
+    };
+
+    public static final Emitter.Factory FACTORY_ORANGE = new Factory() {
+        @Override
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((OrangeEnergyParticle) emitter.recycle(OrangeEnergyParticle.class)).reset(x, y);
+        }
+
+        @Override
+        public boolean lightMode() {
+            return true;
+        }
+
+        ;
+    };
+
+    public static final Emitter.Factory FACTORY_GREEN = new Factory() {
+        @Override
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((GreenEnergyParticle) emitter.recycle(GreenEnergyParticle.class)).reset(x, y);
+        }
+
+        @Override
+        public boolean lightMode() {
+            return true;
+        }
+
+        ;
+    };
+
+    public static final Emitter.Factory FACTORY_BLIGHT = new Factory() {
+        @Override
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((BlightEnergyParticle) emitter.recycle(BlightEnergyParticle.class)).reset(x, y);
+        }
+
+        @Override
+        public boolean lightMode() {
+            return false;
+        }
+
+        ;
+    };
 
     public static final Emitter.Factory FACTORY_BLACK = new Factory() {
         @Override
-        public void emit( Emitter emitter, int index, float x, float y ) {
-            ((BlackEnergyParticle)emitter.recycle( BlackEnergyParticle.class )).reset( x, y );
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((BlackEnergyParticle) emitter.recycle(BlackEnergyParticle.class)).reset(x, y);
         }
 //        @Override
 //        public boolean lightMode() {
 //            return true;
 //        };
     };
-	
-	public EnergyParticle() {
-		super();
-		
-		lifespan = 0.5f;
 
-		color( 0xFFFFAA );
+    public EnergyParticle() {
+        super();
 
-        speed.polar(Random.Float(PointF.PI2),Random.Float(32,48));
-	}
-	
-	public void reset( float x, float y ) {
-		revive();
-		
-		left = lifespan;
-		
-		this.x = x - speed.x * lifespan;
-		this.y = y - speed.y * lifespan;
-	}
-	
-	@Override
-	public void update() {
-		super.update();
-		
-		float p = left / lifespan;
-		am = p < 0.5f ? p * p * 4 : (1 - p) * 2; 
-		size( Random.Float( 5 * left / lifespan ) );
-	}
+        lifespan = 0.5f;
+
+        color(0xFFFFAA);
+
+        speed.polar(Random.Float(PointF.PI2), Random.Float(32, 48));
+    }
+
+    public void reset(float x, float y) {
+        revive();
+
+        left = lifespan;
+
+        this.x = x - speed.x * lifespan;
+        this.y = y - speed.y * lifespan;
+    }
+
+    @Override
+    public void update() {
+        super.update();
+
+        float p = left / lifespan;
+        am = p < 0.5f ? p * p * 4 : (1 - p) * 2;
+        size(Random.Float(5 * left / lifespan));
+    }
 
     public static class BlueEnergyParticle extends EnergyParticle {
 
@@ -164,46 +185,46 @@ public class EnergyParticle extends PixelParticle {
             color(0xFFFFFF);
         }
     }
-	
-	public static class PurpleEnergyParticle extends EnergyParticle {
-		
-		public PurpleEnergyParticle() {
-			
-			super();
-			
-			color(0xFFAAFF);
-		}
-	}
-	
-	public static class OrangeEnergyParticle extends EnergyParticle {
-		
-		public OrangeEnergyParticle() {
-			
-			super();
-			
-			color(0xEE7722);
-		}
-	}
-	
-	public static class BlightEnergyParticle extends EnergyParticle {
-		
-		public BlightEnergyParticle() {
-			
-			super();
-			
-			color(0x00c500);
-		}
-	}
-	
-	public static class GreenEnergyParticle extends EnergyParticle {
-		
-		public GreenEnergyParticle() {
-			
-			super();
-			
-			color(0x22EE66);
-		}
-	}
+
+    public static class PurpleEnergyParticle extends EnergyParticle {
+
+        public PurpleEnergyParticle() {
+
+            super();
+
+            color(0xFFAAFF);
+        }
+    }
+
+    public static class OrangeEnergyParticle extends EnergyParticle {
+
+        public OrangeEnergyParticle() {
+
+            super();
+
+            color(0xEE7722);
+        }
+    }
+
+    public static class BlightEnergyParticle extends EnergyParticle {
+
+        public BlightEnergyParticle() {
+
+            super();
+
+            color(0x00c500);
+        }
+    }
+
+    public static class GreenEnergyParticle extends EnergyParticle {
+
+        public GreenEnergyParticle() {
+
+            super();
+
+            color(0x22EE66);
+        }
+    }
 
     public static class BlackEnergyParticle extends EnergyParticle {
 

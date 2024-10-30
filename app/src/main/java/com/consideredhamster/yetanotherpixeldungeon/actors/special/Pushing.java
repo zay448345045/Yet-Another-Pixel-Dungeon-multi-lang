@@ -22,160 +22,158 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.special;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.DM300;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
-import com.watabou.noosa.Camera;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
+import com.watabou.noosa.Camera;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.tweeners.PosTweener;
 import com.watabou.noosa.tweeners.Tweener;
 import com.watabou.utils.Callback;
 import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
 
 public class Pushing extends Actor {
 
-    private static final float SPEED  = 240f;
+    private static final float SPEED = 240f;
     public static Pushing KNOCKBACK = new Pushing();
 
-	private CharSprite sprite;
-	private int from;
-	private int to;
-	
-//	private Effect effect;
-	private Callback callback;
+    private CharSprite sprite;
+    private int from;
+    private int to;
 
-	public Pushing(){}
+    //	private Effect effect;
+    private Callback callback;
 
-	public Pushing( Char ch, int from, int to ) {
-        this( ch, from, to, null );
+    public Pushing() {
     }
 
-	public Pushing( Char ch, int from, int to, Callback callback ) {
+    public Pushing(Char ch, int from, int to) {
+        this(ch, from, to, null);
+    }
 
-		sprite = ch.sprite;
+    public Pushing(Char ch, int from, int to, Callback callback) {
 
-		this.callback = callback;
-		this.from = from;
-		this.to = to;
+        sprite = ch.sprite;
 
-	}
-	
-	@Override
-	protected boolean act() {
+        this.callback = callback;
+        this.from = from;
+        this.to = to;
 
-		if (sprite != null) {
+    }
 
-                PointF dest = sprite.worldToCamera( to );
-                PointF d = PointF.diff( sprite.worldToCamera( from ), dest );
+    @Override
+    protected boolean act() {
 
-                PosTweener tweener = new PosTweener( sprite, dest, d.length() / SPEED );
+        if (sprite != null) {
 
-                tweener.listener = new Tweener.Listener() {
-                    @Override
-                    public void onComplete( Tweener tweener ){
-                        Actor.remove( Pushing.this );
+            PointF dest = sprite.worldToCamera(to);
+            PointF d = PointF.diff(sprite.worldToCamera(from), dest);
 
-                        if( callback != null ){
-                            callback.call();
-                        }
+            PosTweener tweener = new PosTweener(sprite, dest, d.length() / SPEED);
 
-                        next();
+            tweener.listener = new Tweener.Listener() {
+                @Override
+                public void onComplete(Tweener tweener) {
+                    Actor.remove(Pushing.this);
+
+                    if (callback != null) {
+                        callback.call();
                     }
-                };
 
-                sprite.parent.add( tweener );
+                    next();
+                }
+            };
 
-			return false;
+            sprite.parent.add(tweener);
 
-		} else {
+            return false;
 
-			Actor.remove( Pushing.this );
-			return true;
-		}
-	}
+        } else {
 
-	public static void knockback( final Char ch, int pushFrom, int distance, final int damage ) {
+            Actor.remove(Pushing.this);
+            return true;
+        }
+    }
+
+    public static void knockback(final Char ch, int pushFrom, int distance, final int damage) {
 
         // resistance roughly halves knockback distance
         // vulnerability increases it roughly by half
         // immunity means that target simply receives damage
 
-        distance = Element.Resist.modifyValue( distance, ch, Element.KNOCKBACK );
+        distance = Element.Resist.modifyValue(distance, ch, Element.KNOCKBACK);
 
-        if( distance > 0 ){
+        if (distance > 0) {
 
             // first, we "remove" target from the tilemap and check where it
             // should land when knocked back, as if it weren't there
-            Actor.freeCell( ch.pos );
-            int pushTo = Ballistica.cast( pushFrom, ch.pos, true, true );
+            Actor.freeCell(ch.pos);
+            int pushTo = Ballistica.cast(pushFrom, ch.pos, true, true);
 
-            push( ch, pushTo, distance, damage, null );
+            push(ch, pushTo, distance, damage, null);
 
         } else {
 
             // if the target is immovable, then just deal damage straight up
             // don't wanna this wand to be useless against Yog, for instance
-            dealDamage( ch, damage );
+            dealDamage(ch, damage);
 
         }
     }
 
-    public static void push( final Char ch, int pushTo, int distance, final int damage, final Callback callback ) {
+    public static void push(final Char ch, int pushTo, int distance, final int damage, final Callback callback) {
 
         // then we calculate where the targer would actually land, considering
         // the maximum distance which it is supposed to be knocked back
-        Ballistica.cast( ch.pos, pushTo, true, true );
-        Ballistica.distance = Math.min( Ballistica.distance, distance );
+        Ballistica.cast(ch.pos, pushTo, true, true);
+        Ballistica.distance = Math.min(Ballistica.distance, distance);
 
-        if( Ballistica.distance > 0 ){
+        if (Ballistica.distance > 0) {
 
             // gotta make those final for the sake of using callback mechanics
-            final int newPos = Ballistica.trace[ Ballistica.distance ];
+            final int newPos = Ballistica.trace[Ballistica.distance];
 
-            final Char charOnPos = Char.findChar( newPos );
+            final Char charOnPos = Char.findChar(newPos);
 
-            if( Dungeon.visible[ newPos ] ) {
+            if (Dungeon.visible[newPos]) {
                 ch.sprite.visible = true;
             }
 
             // apply visual effect of moving, with all of the important stuff
             // happening only when the knockback animation is finished
-            move( ch, newPos, new Callback() {
+            move(ch, newPos, new Callback() {
 
                 @Override
-                public void call(){
+                public void call() {
 
                     // if target was pushed into a wall or another char, we damage/confuse
                     // it and move it back by a single tile of distance
 
-                    if( charOnPos != null || Level.solid[ newPos ] ){
+                    if (charOnPos != null || Level.solid[newPos]) {
 
-                        hitObstacle( ch, Ballistica.trace[ Ballistica.distance - 1 ], damage );
+                        hitObstacle(ch, Ballistica.trace[Ballistica.distance - 1], damage);
 
                     }
 
-                    if( callback != null ) {
+                    if (callback != null) {
                         callback.call();
                     }
 
-                    if( ch.isAlive() ){
+                    if (ch.isAlive()) {
 
                         // mobs get waken up by this effect  (beckon() is not the best way to
                         // do that but it works), but also get delayed for a turn to make the
                         // knockback thing actually matter on short distances
-                        if( ch instanceof Mob ){
-                            ( (Mob) ch ).beckon( ch.pos );
-                            ch.delay( 1f );
-                        } else if( ch == Dungeon.hero ) {
+                        if (ch instanceof Mob) {
+                            ((Mob) ch).beckon(ch.pos);
+                            ch.delay(1f);
+                        } else if (ch == Dungeon.hero) {
                             Dungeon.hero.interrupt();
                         }
 
@@ -183,74 +181,74 @@ public class Pushing extends Actor {
                         // gotta re-check whether mobs killed by knockback activate traps or not
 
 //                        ch.pos = newPos;
-                        Actor.occupyCell( ch );
-                        Dungeon.level.press( ch.pos, ch );
+                        Actor.occupyCell(ch);
+                        Dungeon.level.press(ch.pos, ch);
                     }
 
                     // if we knock our target mobs into another one, then apply knockback to this
                     // one as well - but only for one tile of distance because I don't know any better
-                    if( charOnPos != null ){
-                        knockback( charOnPos, ch.pos, 1, damage / 2 );
+                    if (charOnPos != null) {
+                        knockback(charOnPos, ch.pos, 1, damage / 2);
                     }
 
                 }
-            } );
+            });
 
         }
     }
 
-    private static void hitObstacle( final Char ch, int pushTo, final int damage ) {
+    private static void hitObstacle(final Char ch, int pushTo, final int damage) {
 
         // move() method handles changing the target's position value
-        move( ch, pushTo, null );
+        move(ch, pushTo, null);
 
         // deal damage, apply confusion debuff, usual stuff
-        dealDamage( ch, damage );
+        dealDamage(ch, damage);
 
         // attract nearby mobs because hitting a wall at 100500 mph would be kinda noisy
         for (Mob mob : Dungeon.level.mobs) {
-            if ( ch != mob && Level.distance( ch.pos, mob.pos ) <= 4 ) {
-                mob.beckon( ch.pos );
+            if (ch != mob && Level.distance(ch.pos, mob.pos) <= 4) {
+                mob.beckon(ch.pos);
             }
         }
 
         // make sounds and shake the screen to make this effect meatier
-        if( Dungeon.visible[ ch.pos ] ) {
-            Sample.INSTANCE.play( Assets.SND_BLAST, 1.0f, 1.0f, 0.5f );
-            Camera.main.shake( 2, 0.1f );
+        if (Dungeon.visible[ch.pos]) {
+            Sample.INSTANCE.play(Assets.SND_BLAST, 1.0f, 1.0f, 0.5f);
+            Camera.main.shake(2, 0.1f);
         }
 
     }
 
-    private static void dealDamage( Char ch, int damage ) {
+    private static void dealDamage(Char ch, int damage) {
 
-        if( damage > 0 ){
+        if (damage > 0) {
 
-            int dmg = Char.absorb( damage, ch.armorClass() );
+            int dmg = Char.absorb(damage, ch.armorClass());
 
-            ch.damage( dmg, KNOCKBACK, Element.PHYSICAL );
+            ch.damage(dmg, KNOCKBACK, Element.PHYSICAL);
 
-            if( ch.isAlive() ) {
-                BuffActive.addFromDamage( ch, Vertigo.class, damage );
+            if (ch.isAlive()) {
+                BuffActive.addFromDamage(ch, Vertigo.class, damage);
             }
         }
     }
 
-    public static void move( final Char ch, final int newPos, final Callback callback ) {
+    public static void move(final Char ch, final int newPos, final Callback callback) {
 
         // moved this method here to avoid repeatng the same pieces of code over and over
         // it is still not the most elegant
-        Actor.addDelayed( new Pushing( ch, ch.pos, newPos, new Callback() {
+        Actor.addDelayed(new Pushing(ch, ch.pos, newPos, new Callback() {
 
             @Override
-            public void call(){
-                if( callback != null ){
+            public void call() {
+                if (callback != null) {
                     callback.call();
                 }
 
             }
 
-        }), -1 );
+        }), -1);
 
         // change target's positions immediately, but only after the animation started
         ch.pos = newPos;

@@ -20,14 +20,14 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles;
 
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.noosa.particles.Emitter.Factory;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
+import com.watabou.noosa.particles.Emitter;
+import com.watabou.noosa.particles.Emitter.Factory;
+import com.watabou.noosa.particles.PixelParticle;
+import com.watabou.utils.Random;
 
 public class WebParticle extends PixelParticle {
-	
+
 //	public static final Emitter.Factory FACTORY = new Factory() {
 //		@Override
 //		public void emit( Emitter emitter, int index, float x, float y ) {
@@ -39,28 +39,28 @@ public class WebParticle extends PixelParticle {
 
     public static final Emitter.Factory FACTORY = new Factory() {
         @Override
-        public void emit ( Emitter emitter, int index, float x, float y ) {
-            ((Speck)emitter.recycle( Speck.class )).reset( index, x, y, Speck.COBWEB );
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((Speck) emitter.recycle(Speck.class)).reset(index, x, y, Speck.COBWEB);
         }
     };
-	
-	public WebParticle() {
-		super();
-		
-		color( 0xFFFFF );
-		lifespan = 5f;
-	}
-	
-	public void reset( float x, float y ) {
-		revive();
-		
-		this.x = x;
-		this.y = y;
-		
-		left = lifespan;
-		angle = Random.Float( 360 );
-	}
-	
+
+    public WebParticle() {
+        super();
+
+        color(0xFFFFF);
+        lifespan = 5f;
+    }
+
+    public void reset(float x, float y) {
+        revive();
+
+        this.x = x;
+        this.y = y;
+
+        left = lifespan;
+        angle = Random.Float(360);
+    }
+
 //	@Override
 //	public void update() {
 //		super.update();

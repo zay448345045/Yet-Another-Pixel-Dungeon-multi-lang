@@ -20,114 +20,114 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.food;
 
-import java.util.ArrayList;
-
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Poisoned;
-import com.consideredhamster.yetanotherpixeldungeon.items.herbs.SungrassHerb;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndOptions;
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Badges;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Statistics;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Poisoned;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.CarrionSwarm;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.items.herbs.SungrassHerb;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndOptions;
+import com.watabou.noosa.audio.Sample;
+
+import java.util.ArrayList;
 
 public abstract class Food extends Item {
 
     private static final String TXT_NOT_THAT_HUNGRY = "Don't waste your food!";
 
     private static final String TXT_R_U_SURE =
-        "Your satiety cannot be greater than 100% anyway, so probably it would be a better idea to " +
-        "spend some more time before eating this piece of food. Are you sure you want to eat it now?";
+            "Your satiety cannot be greater than 100% anyway, so probably it would be a better idea to " +
+                    "spend some more time before eating this piece of food. Are you sure you want to eat it now?";
 
-    private static final String TXT_YES			= "Yes, I know what I'm doing";
-    private static final String TXT_NO			= "No, I changed my mind";
-	
-	public static final String AC_EAT	        = "EAT";
+    private static final String TXT_YES = "Yes, I know what I'm doing";
+    private static final String TXT_NO = "No, I changed my mind";
 
-	public float time;
-	public float energy;
-	public String message;
+    public static final String AC_EAT = "EAT";
 
-	{
-		stackable = true;
+    public float time;
+    public float energy;
+    public String message;
+
+    {
+        stackable = true;
         time = 3f;
-	}
+    }
 
     @Override
     public String quickAction() {
         return AC_EAT;
     }
-	
-	@Override
-	public ArrayList<String> actions( Hero hero ) {
-		ArrayList<String> actions = super.actions( hero );
-		actions.add( AC_EAT );
-		return actions;
-	}
-	
-	@Override
-	public void execute( final Hero hero, String action ) {
 
-		if ( action.equals( AC_EAT ) && hero != null ) {
+    @Override
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
+        actions.add(AC_EAT);
+        return actions;
+    }
+
+    @Override
+    public void execute(final Hero hero, String action) {
+
+        if (action.equals(AC_EAT) && hero != null) {
 
             final Satiety hunger = hero.buff(Satiety.class);
 
-            if( hero.buff( Poisoned.class ) == null || this instanceof SungrassHerb || this instanceof SungrassHerb.SavoryMeat ){
+            if (hero.buff(Poisoned.class) == null || this instanceof SungrassHerb || this instanceof SungrassHerb.SavoryMeat) {
 
-                if( hunger.energy() + energy > Satiety.MAXIMUM ){
+                if (hunger.energy() + energy > Satiety.MAXIMUM) {
 
                     GameScene.show(
-                            new WndOptions( TXT_NOT_THAT_HUNGRY, TXT_R_U_SURE, TXT_YES, TXT_NO ) {
+                            new WndOptions(TXT_NOT_THAT_HUNGRY, TXT_R_U_SURE, TXT_YES, TXT_NO) {
                                 @Override
-                                protected void onSelect( int index ){
-                                    if( index == 0 ){
-                                        consume( hunger, hero );
+                                protected void onSelect(int index) {
+                                    if (index == 0) {
+                                        consume(hunger, hero);
                                     }
                                 }
                             }
                     );
 
                 } else {
-                    consume( hunger, hero );
+                    consume(hunger, hero);
                 }
 
             } else {
 
-                GLog.n( Poisoned.TXT_CANNOT_EAT );
+                GLog.n(Poisoned.TXT_CANNOT_EAT);
 
             }
-			
-		} else {
-		
-			super.execute( hero, action );
-			
-		}
-	}
 
-    private void consume( Satiety hunger, Hero hero ) {
+        } else {
 
-        hunger.increase( energy );
-        detach( hero.belongings.backpack );
-        onConsume( hero );
+            super.execute(hero, action);
 
-        hero.sprite.operate( hero.pos );
+        }
+    }
+
+    private void consume(Satiety hunger, Hero hero) {
+
+        hunger.increase(energy);
+        detach(hero.belongings.backpack);
+        onConsume(hero);
+
+        hero.sprite.operate(hero.pos);
         hero.busy();
-        SpellSprite.show( hero, SpellSprite.FOOD );
-        Sample.INSTANCE.play( Assets.SND_EAT );
+        SpellSprite.show(hero, SpellSprite.FOOD);
+        Sample.INSTANCE.play(Assets.SND_EAT);
 
-        hero.spend( time );
+        hero.spend(time);
 
         for (Mob mob : Dungeon.level.mobs) {
-            if ( mob instanceof CarrionSwarm ) {
-                mob.beckon( hero.pos );
+            if (mob instanceof CarrionSwarm) {
+                mob.beckon(hero.pos);
             }
         }
 
@@ -136,15 +136,15 @@ public abstract class Food extends Item {
         updateQuickslot();
     }
 
-    public void onConsume( Hero hero ) {
-        GLog.i( message );
+    public void onConsume(Hero hero) {
+        GLog.i(message);
     }
 
     @Override
     public String info() {
         return desc() + "\n\n" +
-            "Eating this piece of food will take _" + (int)time + "_ turns and " +
-            "restore _" + (int)( energy / 10 ) + "%_ of your satiety.";
+                "Eating this piece of food will take _" + (int) time + "_ turns and " +
+                "restore _" + (int) (energy / 10) + "%_ of your satiety.";
     }
 
 }

@@ -25,62 +25,58 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
-import com.watabou.utils.Random;
-
-import java.util.ArrayList;
 
 public class EntrancePainter extends Painter {
 
-	public static void paint( Level level, Room room ) {
-		
-		fill( level, room, Terrain.WALL );
-        fill( level, room, 1, Terrain.EMPTY );
+    public static void paint(Level level, Room room) {
 
-        if( level.feeling == Level.Feeling.WATER ) {
+        fill(level, room, Terrain.WALL);
+        fill(level, room, 1, Terrain.EMPTY);
 
-            fill( level, room, 1, Terrain.WATER );
+        if (level.feeling == Level.Feeling.WATER) {
 
-        } else if( level.feeling == Level.Feeling.GRASS ) {
+            fill(level, room, 1, Terrain.WATER);
 
-            fill( level, room, 1, Terrain.GRASS );
+        } else if (level.feeling == Level.Feeling.GRASS) {
 
-        } else if( level.feeling == Level.Feeling.BOOKS ){
+            fill(level, room, 1, Terrain.GRASS);
 
-            fill( level, room, 1, Terrain.EMPTY_SP );
-            fill( level, room, 2, Terrain.EMPTY );
+        } else if (level.feeling == Level.Feeling.BOOKS) {
 
-        } else if( level.feeling == Level.Feeling.TRAPS ) {
+            fill(level, room, 1, Terrain.EMPTY_SP);
+            fill(level, room, 2, Terrain.EMPTY);
 
-            for( int i = 0 ; i < 3 ; i++ ){
-                set( level, room.random( 0 ), Terrain.INACTIVE_TRAP );
+        } else if (level.feeling == Level.Feeling.TRAPS) {
+
+            for (int i = 0; i < 3; i++) {
+                set(level, room.random(0), Terrain.INACTIVE_TRAP);
             }
 
-        } else if( level.feeling == Level.Feeling.ASHES ) {
+        } else if (level.feeling == Level.Feeling.ASHES) {
 
-            for( int i = 0 ; i < 5 ; i++ ){
-                set( level, room.random( 0 ), Terrain.EMBERS );
+            for (int i = 0; i < 5; i++) {
+                set(level, room.random(0), Terrain.EMBERS);
             }
 
         }
 
         Room.Door.Type type = Room.Door.Type.REGULAR;
 
-        if( Dungeon.depth == 2 && !(
-            Badges.isUnlocked( Badges.Badge.BOSS_SLAIN_1 ) ||
-            Badges.isUnlocked( Badges.Badge.STRENGTH_ATTAINED_1 ) ||
-            Badges.isUnlocked( Badges.Badge.ITEMS_UPGRADED_1) )
+        if (Dungeon.depth == 2 && !(
+                Badges.isUnlocked(Badges.Badge.BOSS_SLAIN_1) ||
+                        Badges.isUnlocked(Badges.Badge.STRENGTH_ATTAINED_1) ||
+                        Badges.isUnlocked(Badges.Badge.ITEMS_UPGRADED_1))
         ) {
             type = Room.Door.Type.HIDDEN;
         }
 
-		for (Room.Door door : room.connected.values()) {
-            door.set( type );
-		}
+        for (Room.Door door : room.connected.values()) {
+            door.set(type);
+        }
 
-		level.entrance = room.random( 1 );
-		set( level, level.entrance, Terrain.ENTRANCE );
+        level.entrance = room.random(1);
+        set(level, level.entrance, Terrain.ENTRANCE);
 
 
-
-	}
+    }
 }

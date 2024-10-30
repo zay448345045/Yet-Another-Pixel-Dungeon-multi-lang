@@ -20,15 +20,15 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.AmbitiousImp;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Room.Type;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.watabou.noosa.Scene;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.noosa.particles.PixelParticle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.AmbitiousImp;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Room.Type;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
@@ -37,82 +37,82 @@ import java.util.Arrays;
 
 public class CityLevel extends RegularLevel {
 
-	{
-		color1 = 0x4b6636;
-		color2 = 0xf2f2f2;
+    {
+        color1 = 0x4b6636;
+        color2 = 0xf2f2f2;
 
 //        viewDistance = 5;
-	}
-	
-	@Override
-	public String tilesTex() {
-		return Assets.TILES_CITY;
-	}
-	
-	@Override
-	public String waterTex() {
-		return Assets.WATER_CITY;
-	}
+    }
+
+    @Override
+    public String tilesTex() {
+        return Assets.TILES_CITY;
+    }
+
+    @Override
+    public String waterTex() {
+        return Assets.WATER_CITY;
+    }
 
     @Override
     protected boolean[] water() {
-        return Patch.generate( feeling == Feeling.WATER ? 0.65f : 0.45f, 4 );
+        return Patch.generate(feeling == Feeling.WATER ? 0.65f : 0.45f, 4);
     }
 
     @Override
     protected boolean[] grass() {
-        return Patch.generate( feeling == Feeling.GRASS ? 0.60f : 0.40f, 3 );
+        return Patch.generate(feeling == Feeling.GRASS ? 0.60f : 0.40f, 3);
     }
-	
-	@Override
-	protected void assignRoomType() {
-		super.assignRoomType();
-		
-		for (Room r : rooms) {
-			if (r.type == Type.TUNNEL) {
-				r.type = Type.PASSAGE;
-			}
-		}
-	}
-	
-	@Override
-	protected void decorate() {
 
-	    for( int i = 0 ; i < LENGTH ; i++ ){
-            passable[ i ] =
-                map[ i ] != Terrain.WALL && map[ i ] != Terrain.STATUE && map[ i ] != Terrain.GRATE &&
-                map[ i ] != Terrain.CHASM && map[ i ] != Terrain.WALL_SIGN;
+    @Override
+    protected void assignRoomType() {
+        super.assignRoomType();
+
+        for (Room r : rooms) {
+            if (r.type == Type.TUNNEL) {
+                r.type = Type.PASSAGE;
+            }
+        }
+    }
+
+    @Override
+    protected void decorate() {
+
+        for (int i = 0; i < LENGTH; i++) {
+            passable[i] =
+                    map[i] != Terrain.WALL && map[i] != Terrain.STATUE && map[i] != Terrain.GRATE &&
+                            map[i] != Terrain.CHASM && map[i] != Terrain.WALL_SIGN;
         }
 
-        for( int i = 0 ; i < LENGTH ; i++ ) {
-            if( i != entrance && map[ i ] != Terrain.WALL ) {
-                if( !PathFinder.buildDistanceMap( i, entrance, passable ) ) {
-                    map[ i ] = Terrain.CHASM;
+        for (int i = 0; i < LENGTH; i++) {
+            if (i != entrance && map[i] != Terrain.WALL) {
+                if (!PathFinder.buildDistanceMap(i, entrance, passable)) {
+                    map[i] = Terrain.CHASM;
                 }
             }
         }
 
-	    for (int i=WIDTH + 1; i < LENGTH - WIDTH - 1; i++) {
+        for (int i = WIDTH + 1; i < LENGTH - WIDTH - 1; i++) {
             if (map[i] == Terrain.EMPTY) {
-                if (Random.Int( 10 ) == 0 ) {
+                if (Random.Int(10) == 0) {
                     map[i] = Terrain.EMPTY_DECO;
                 }
             }
         }
 
-        for (int i=0; i < LENGTH ; i++) {
+        for (int i = 0; i < LENGTH; i++) {
             if (
                     i + WIDTH < LENGTH && map[i] == Terrain.WALL &&
-                    !Arrays.asList( Terrain.WALLS ).contains( map[i + WIDTH] ) &&
-                    Random.Int( 15 ) == 0
+                            !Arrays.asList(Terrain.WALLS).contains(map[i + WIDTH]) &&
+                            Random.Int(15) == 0
             ) {
 
                 map[i] = Random.oneOf(
                         Terrain.WALL_DECO, Terrain.WALL_DECO1, Terrain.WALL_DECO2
                 );
 
-            } else if(
-                    map[i] == Terrain.WALL && Random.Int( 10 ) == 0
+            } else if (
+                    map[i] == Terrain.WALL && Random.Int(10) == 0
             ) {
 
                 map[i] = Random.oneOf(
@@ -121,25 +121,25 @@ public class CityLevel extends RegularLevel {
             }
         }
 
-        for( Room room : rooms ){
-            if( room.type == Room.Type.STANDARD ){
+        for (Room room : rooms) {
+            if (room.type == Room.Type.STANDARD) {
                 for (Room.Door door : room.connected.values()) {
-                    if( door.type == Room.Door.Type.REGULAR ){
+                    if (door.type == Room.Door.Type.REGULAR) {
 
                         int pos = door.y * Level.WIDTH + door.x;
 
                         boolean clear = true;
 
-                        for( int i : Level.NEIGHBOURSX ) {
-                            if( map[ pos + i ] == Terrain.WALL ) {
+                        for (int i : Level.NEIGHBOURSX) {
+                            if (map[pos + i] == Terrain.WALL) {
                                 clear = false;
                             }
                         }
 
-                        if( clear && Random.Int( 5 ) == 0 ) {
-                            for( int i : Level.NEIGHBOURS4 ) {
-                                if( map[ pos + i ] == Terrain.WALL ) {
-                                    map[ pos + i ] = Terrain.GRATE;
+                        if (clear && Random.Int(5) == 0) {
+                            for (int i : Level.NEIGHBOURS4) {
+                                if (map[pos + i] == Terrain.WALL) {
+                                    map[pos + i] = Terrain.GRATE;
                                 }
                             }
                         }
@@ -147,40 +147,40 @@ public class CityLevel extends RegularLevel {
                 }
             }
         }
-	}
-	
-	@Override
-	protected void createItems() {
-		super.createItems();
-		
-		AmbitiousImp.Quest.spawn(this, roomExit);
-	}
+    }
 
     @Override
-    public String tileName( int tile ) {
+    protected void createItems() {
+        super.createItems();
+
+        AmbitiousImp.Quest.spawn(this, roomExit);
+    }
+
+    @Override
+    public String tileName(int tile) {
         return CityLevel.tileNames(tile);
     }
 
     @Override
-    public String tileDesc( int tile ) {
+    public String tileDesc(int tile) {
         return CityLevel.tileDescs(tile);
     }
 
-//	@Override
-	public static String tileNames( int tile ) {
-		switch (tile) {
-		case Terrain.WATER:
-			return "Suspiciously colored water";
-		case Terrain.HIGH_GRASS:
-			return "High blooming flowers";
-		default:
-			return Level.tileNames(tile);
-		}
-	}
-	
-//	@Override
-	public static String tileDescs(int tile) {
-		switch (tile) {
+    //	@Override
+    public static String tileNames(int tile) {
+        switch (tile) {
+            case Terrain.WATER:
+                return "Suspiciously colored water";
+            case Terrain.HIGH_GRASS:
+                return "High blooming flowers";
+            default:
+                return Level.tileNames(tile);
+        }
+    }
+
+    //	@Override
+    public static String tileDescs(int tile) {
+        switch (tile) {
             case Terrain.ENTRANCE:
                 return "A ramp leads up to the upper depth.";
             case Terrain.EXIT:
@@ -206,187 +206,187 @@ public class CityLevel extends RegularLevel {
                 return "The rows of books on different disciplines fill the bookshelf.";
             default:
                 return Level.tileDescs(tile);
-		}
-	}
-	
-	@Override
-	public void addVisuals( Scene scene ) {
-		super.addVisuals( scene );
-		addVisuals( this, scene );
-	}
-	
-	public static void addVisuals( Level level, Scene scene ) {
-		for (int i=0; i < LENGTH; i++) {
-			if (level.map[i] == Terrain.WALL_DECO) {
-				scene.add( new Smoke( i ) );
-			}
-		}
-	}
-	
-	private static class Smoke extends Emitter {
-		
-		private int pos;
-		
-		private static final Emitter.Factory factory = new Factory() {
-			
-			@Override
-			public void emit( Emitter emitter, int index, float x, float y ) {
-				SmokeParticle p = (SmokeParticle)emitter.recycle( SmokeParticle.class );
-				p.reset( x, y );
-			}
-		};
-		
-		public Smoke( int pos ) {
-			super();
-			
-			this.pos = pos;
-			
-			PointF p = DungeonTilemap.tileCenterToWorld( pos );
-			pos( p.x - 4, p.y - 2, 4, 0 );
-			
-			pour( factory, 0.2f );
-		}
-		
-		@Override
-		public void update() {
-			if (visible = Dungeon.visible[pos]) {
-				super.update();
-			}
-		}
-	}
-	
-	public static final class SmokeParticle extends PixelParticle {
-		
-		public SmokeParticle() {
-			super();
-			
-			color( 0x000000 );
-			speed.set( Random.Float( 8 ), -Random.Float( 8 ) );
-		}
-		
-		public void reset( float x, float y ) {
-			revive();
-			
-			this.x = x;
-			this.y = y;
-			
-			left = lifespan = 2f;
-		}
-		
-		@Override
-		public void update() {
-			super.update();
-			float p = left / lifespan;
-			am = p > 0.8f ? 1 - p : p * 0.25f;
-			size( 8 - p * 4 );
-		}
-	}
+        }
+    }
 
-    public static void pregenerate( Level level ) {
+    @Override
+    public void addVisuals(Scene scene) {
+        super.addVisuals(scene);
+        addVisuals(this, scene);
+    }
+
+    public static void addVisuals(Level level, Scene scene) {
+        for (int i = 0; i < LENGTH; i++) {
+            if (level.map[i] == Terrain.WALL_DECO) {
+                scene.add(new Smoke(i));
+            }
+        }
+    }
+
+    private static class Smoke extends Emitter {
+
+        private int pos;
+
+        private static final Emitter.Factory factory = new Factory() {
+
+            @Override
+            public void emit(Emitter emitter, int index, float x, float y) {
+                SmokeParticle p = (SmokeParticle) emitter.recycle(SmokeParticle.class);
+                p.reset(x, y);
+            }
+        };
+
+        public Smoke(int pos) {
+            super();
+
+            this.pos = pos;
+
+            PointF p = DungeonTilemap.tileCenterToWorld(pos);
+            pos(p.x - 4, p.y - 2, 4, 0);
+
+            pour(factory, 0.2f);
+        }
+
+        @Override
+        public void update() {
+            if (visible = Dungeon.visible[pos]) {
+                super.update();
+            }
+        }
+    }
+
+    public static final class SmokeParticle extends PixelParticle {
+
+        public SmokeParticle() {
+            super();
+
+            color(0x000000);
+            speed.set(Random.Float(8), -Random.Float(8));
+        }
+
+        public void reset(float x, float y) {
+            revive();
+
+            this.x = x;
+            this.y = y;
+
+            left = lifespan = 2f;
+        }
+
+        @Override
+        public void update() {
+            super.update();
+            float p = left / lifespan;
+            am = p > 0.8f ? 1 - p : p * 0.25f;
+            size(8 - p * 4);
+        }
+    }
+
+    public static void pregenerate(Level level) {
 
         // First, we fill everything with empty tiles
-        Painter.fill( level, 1, 1, WIDTH - 2, HEIGHT - 2, Terrain.EMPTY );
+        Painter.fill(level, 1, 1, WIDTH - 2, HEIGHT - 2, Terrain.EMPTY);
 
         // Then, we generate chasms, which grow in size and number as you descend deeper
-        boolean[] chasm = new boolean[ Level.LENGTH ];
+        boolean[] chasm = new boolean[Level.LENGTH];
 
-        switch( Dungeon.depth ) {
+        switch (Dungeon.depth) {
 //            case 19:
 //                chasm = Patch.generate( 0.20f, 2 );
 //                break;
             case 20:
-                chasm = Patch.generate( 0.35f, 3 );
+                chasm = Patch.generate(0.35f, 3);
                 break;
             case 21:
-                chasm = Patch.generate( 0.45f, 4 );
+                chasm = Patch.generate(0.45f, 4);
                 break;
             case 22:
-                chasm = Patch.generate( 0.55f, 5 );
+                chasm = Patch.generate(0.55f, 5);
                 break;
             case 23:
-                chasm = Patch.generate( 0.65f, 6 );
+                chasm = Patch.generate(0.65f, 6);
                 break;
 
         }
 
-        for ( int i = 0 ; i < LENGTH ; i++ ){
-            if ( level.map[ i ] == Terrain.EMPTY && chasm[ i ] ) {
-                level.map[ i ] = Terrain.CHASM;
+        for (int i = 0; i < LENGTH; i++) {
+            if (level.map[i] == Terrain.EMPTY && chasm[i]) {
+                level.map[i] = Terrain.CHASM;
             }
         }
 
         // Then we seed everything with random stuff to add some visual variety to the empty floors
-        for( int w = 0 ; w < 3; w++ ) {
-            for( int h = 0 ; h < 3 ; h++ ) {
+        for (int w = 0; w < 3; w++) {
+            for (int h = 0; h < 3; h++) {
 
-                int x = w * 8 + Random.Int( 6 ) + 2 ;
-                int y = h * 8 + Random.Int( 6 ) + 2 ;
+                int x = w * 8 + Random.Int(6) + 2;
+                int y = h * 8 + Random.Int(6) + 2;
 
-                int pos = x * Level.WIDTH + y ;
+                int pos = x * Level.WIDTH + y;
 
-                switch( Random.Int( 10 ) ) {
+                switch (Random.Int(10)) {
 
                     case 0:
 
-                        level.map[ pos ] = Terrain.STATUE;
+                        level.map[pos] = Terrain.STATUE;
                         break;
 
                     case 1:
 
-                        level.map[ pos ] = Terrain.PEDESTAL;
+                        level.map[pos] = Terrain.PEDESTAL;
                         break;
 
                     case 2:
 
-                        level.map[ pos ] = Terrain.EMPTY_WELL;
+                        level.map[pos] = Terrain.EMPTY_WELL;
                         break;
 
                     case 3:
 
-                        level.map[ pos ] = Terrain.BARRICADE;
+                        level.map[pos] = Terrain.BARRICADE;
                         break;
 
                     case 4:
 
-                        level.map[ pos ] = Terrain.STATUE_SP;
+                        level.map[pos] = Terrain.STATUE_SP;
                         break;
 
                     case 5:
 
-                        level.map[ pos ] = Terrain.WALL;
+                        level.map[pos] = Terrain.WALL;
                         break;
 
                     case 6:
 
-                        for( int c : Level.NEIGHBOURS9 ) {
-                            level.map[ pos + c ] = Terrain.WALL;
+                        for (int c : Level.NEIGHBOURS9) {
+                            level.map[pos + c] = Terrain.WALL;
                         }
 
                         break;
 
                     case 7:
 
-                        level.map[ pos ] = Random.oneOf(
-                            Terrain.PEDESTAL, Terrain.EMPTY_WELL, Terrain.EMPTY
+                        level.map[pos] = Random.oneOf(
+                                Terrain.PEDESTAL, Terrain.EMPTY_WELL, Terrain.EMPTY
                         );
 
-                        for( int c : Level.NEIGHBOURS4 ) {
-                            level.map[ pos + c ] = Terrain.STATUE;
+                        for (int c : Level.NEIGHBOURS4) {
+                            level.map[pos + c] = Terrain.STATUE;
                         }
 
                         break;
 
                     case 8:
 
-                        for( int c : Level.NEIGHBOURSX ) {
-                            level.map[ pos + c ] = Terrain.STATUE;
+                        for (int c : Level.NEIGHBOURSX) {
+                            level.map[pos + c] = Terrain.STATUE;
                         }
 
-                        for( int c : Level.NEIGHBOURS4 ) {
-                            level.map[ pos + c ] = Terrain.EMPTY;
+                        for (int c : Level.NEIGHBOURS4) {
+                            level.map[pos + c] = Terrain.EMPTY;
                         }
 
-                        level.map[ pos ] = Random.oneOf(
+                        level.map[pos] = Random.oneOf(
                                 Terrain.PEDESTAL, Terrain.EMPTY_WELL, Terrain.EMPTY
                         );
 
@@ -394,11 +394,11 @@ public class CityLevel extends RegularLevel {
 
                     case 9:
 
-                        for( int c : Level.NEIGHBOURS8 ) {
-                            level.map[ pos + c ] = Terrain.EMPTY_SP;
+                        for (int c : Level.NEIGHBOURS8) {
+                            level.map[pos + c] = Terrain.EMPTY_SP;
                         }
 
-                        level.map[ pos ] = Random.oneOf(
+                        level.map[pos] = Random.oneOf(
                                 Terrain.PEDESTAL, Terrain.STATUE_SP, Terrain.EMPTY_SP
                         );
 

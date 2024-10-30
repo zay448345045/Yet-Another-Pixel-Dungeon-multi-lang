@@ -22,7 +22,6 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resist
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Bonus;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public abstract class ElementResistance extends Bonus {
 

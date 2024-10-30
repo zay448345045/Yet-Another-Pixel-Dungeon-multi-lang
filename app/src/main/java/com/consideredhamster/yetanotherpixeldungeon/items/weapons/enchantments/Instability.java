@@ -46,19 +46,19 @@ public class Instability extends Weapon.Enchantment {
     }
 
     @Override
-    public boolean proc( Weapon weapon, Char attacker, Char defender, int damage ) {
-        return random().proc( weapon, attacker, defender, damage );
+    public boolean proc(Weapon weapon, Char attacker, Char defender, int damage) {
+        return random().proc(weapon, attacker, defender, damage);
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
 
         return false;
 
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
 
         return false;
 

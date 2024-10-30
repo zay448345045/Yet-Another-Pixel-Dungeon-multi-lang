@@ -25,20 +25,20 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class ClothArmor extends BodyArmorCloth {
 
-	{	
-		name = "cloth armor";
+    {
+        name = "cloth armor";
 
         image = ItemSpriteSheet.ARMOR_HUNTRESS;
 
         appearance = 1;
-	}
-	
-	public ClothArmor() {
-		super( 1 );
-	}
-	
-	@Override
-	public String desc() {
-		return "This lightweight armor offers more protection from cold than from enemy blows. Still, better than nothing.";
-	}
+    }
+
+    public ClothArmor() {
+        super(1);
+    }
+
+    @Override
+    public String desc() {
+        return "This lightweight armor offers more protection from cold than from enemy blows. Still, better than nothing.";
+    }
 }

@@ -21,33 +21,33 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.FrigidVapours;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 
 public class PotionOfFrigidVapours extends Potion {
 
-    public static final int BASE_VAL	= 200;
-	
-	{
-		name = "Potion of Frigid Vapours";
+    public static final int BASE_VAL = 200;
+
+    {
+        name = "Potion of Frigid Vapours";
         shortName = "Fr";
         harmful = true;
-	}
-	
-	@Override
-	public void shatter( int cell ) {
+    }
 
-        GameScene.add( Blob.seed( cell, BASE_VAL, FrigidVapours.class ) );
-        super.shatter( cell );
+    @Override
+    public void shatter(int cell) {
 
-	}
-	
-	@Override
-	public String desc() {
-		return 
-			"Upon exposure to open air, this chemical will evaporate into a freezing cloud, causing " +
-			"any creature that touches it to be frozen in place, unable to act or move.";
-	}
+        GameScene.add(Blob.seed(cell, BASE_VAL, FrigidVapours.class));
+        super.shatter(cell);
+
+    }
+
+    @Override
+    public String desc() {
+        return
+                "Upon exposure to open air, this chemical will evaporate into a freezing cloud, causing " +
+                        "any creature that touches it to be frozen in place, unable to act or move.";
+    }
 
     @Override
     public int price() {

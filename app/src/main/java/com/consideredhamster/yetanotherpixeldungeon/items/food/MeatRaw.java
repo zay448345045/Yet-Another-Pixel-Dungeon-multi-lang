@@ -25,21 +25,23 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class MeatRaw extends Food {
 
-	{
-		name = "raw meat";
-		image = ItemSpriteSheet.MEAT;
+    {
+        name = "raw meat";
+        image = ItemSpriteSheet.MEAT;
 
-		energy = Satiety.MAXIMUM * 0.20f;
-		message = "That meat tasted... strange.";
-	}
+        energy = Satiety.MAXIMUM * 0.20f;
+        message = "That meat tasted... strange.";
+    }
 
-	@Override
-	public String desc() {
-		return "This is a piece of raw, uncooked meat. Definitely an option if you are starving, " +
-            "but it is better be stewed otherwise.";
-	}
-	
-	public int price() {
-		return 10 * quantity;
-	};
+    @Override
+    public String desc() {
+        return "This is a piece of raw, uncooked meat. Definitely an option if you are starving, " +
+                "but it is better be stewed otherwise.";
+    }
+
+    public int price() {
+        return 10 * quantity;
+    }
+
+    ;
 }

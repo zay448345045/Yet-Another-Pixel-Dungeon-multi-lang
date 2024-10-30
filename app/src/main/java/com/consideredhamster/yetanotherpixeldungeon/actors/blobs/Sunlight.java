@@ -20,25 +20,25 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.blobs;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Rejuvenation;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Disrupted;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShaftParticle;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Rejuvenation;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Disrupted;
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShaftParticle;
+import com.watabou.utils.Random;
 
 public class Sunlight extends Blob {
-	
-	@Override
-	protected void evolve() {
+
+    @Override
+    protected void evolve() {
 
         super.evolve();
 
@@ -46,13 +46,13 @@ public class Sunlight extends Blob {
 
             boolean mapUpdated = false;
 
-            Blob blob = Dungeon.level.blobs.get( Thunderstorm.class );
+            Blob blob = Dungeon.level.blobs.get(Thunderstorm.class);
 
             if (blob != null) {
 
                 int par[] = blob.cur;
 
-                for (int i=0; i < LENGTH; i++) {
+                for (int i = 0; i < LENGTH; i++) {
 
                     if (cur[i] > 0) {
                         blob.volume -= par[i];
@@ -63,7 +63,7 @@ public class Sunlight extends Blob {
 
             int growth[] = new int[LENGTH];
 
-            for (int i=0; i < LENGTH; i++) {
+            for (int i = 0; i < LENGTH; i++) {
 
                 if (cur[i] > 0) {
 
@@ -77,11 +77,11 @@ public class Sunlight extends Blob {
                 }
             }
 
-            for (int i=0; i < LENGTH; i++) {
+            for (int i = 0; i < LENGTH; i++) {
 
                 int c = Dungeon.level.map[i];
 
-                if ( Random.Int(20) < growth[i] ) {
+                if (Random.Int(20) < growth[i]) {
 
                     if (c == Terrain.EMBERS) {
 
@@ -93,7 +93,7 @@ public class Sunlight extends Blob {
                         Level.set(i, Terrain.HIGH_GRASS);
                         mapUpdated = true;
 
-                    } else if (c == Terrain.HIGH_GRASS && Dungeon.level.heaps.get(i) == null && Random.Int( 50 ) < growth[i]) {
+                    } else if (c == Terrain.HIGH_GRASS && Dungeon.level.heaps.get(i) == null && Random.Int(50) < growth[i]) {
 
                         Dungeon.level.drop(Generator.random(Generator.Category.HERB), i, true).type = Heap.Type.HEAP;
 
@@ -101,12 +101,12 @@ public class Sunlight extends Blob {
                 }
 
 
-                if (cur[i] > 0 ) {
+                if (cur[i] > 0) {
                     Char ch = Actor.findChar(i);
 
-                    if( ch != null ){
+                    if (ch != null) {
                         Class buffClass = ch.isMagical() ? Disrupted.class : Rejuvenation.class;
-                        BuffActive.add( ch, buffClass, TICK );
+                        BuffActive.add(ch, buffClass, TICK);
                     }
                 }
             }
@@ -116,16 +116,16 @@ public class Sunlight extends Blob {
                 Dungeon.observe();
             }
         }
-	}
-	
-	@Override
-	public void use( BlobEmitter emitter ) {
-		super.use(emitter);
-		emitter.start(ShaftParticle.FACTORY, 1.0f, 0);
-	}
-	
-	@Override
-	public String tileDesc() {
-		return "Shafts of light pierce the gloom of the underground, restoring life of everything they touch.";
-	}
+    }
+
+    @Override
+    public void use(BlobEmitter emitter) {
+        super.use(emitter);
+        emitter.start(ShaftParticle.FACTORY, 1.0f, 0);
+    }
+
+    @Override
+    public String tileDesc() {
+        return "Shafts of light pierce the gloom of the underground, restoring life of everything they touch.";
+    }
 }

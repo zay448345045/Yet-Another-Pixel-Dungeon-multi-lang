@@ -20,47 +20,44 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.InterlevelScene;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.watabou.noosa.Game;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.tweeners.AlphaTweener;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfLifeDrain;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 import java.util.ArrayList;
 
 public class ScrollOfPhaseWarp extends Scroll {
 
-	public static final String TXT_TELEPORTED_VISITED =
-		"In a blink of an eye you were teleported to somewhere else. You feel deja vu.";
+    public static final String TXT_TELEPORTED_VISITED =
+            "In a blink of an eye you were teleported to somewhere else. You feel deja vu.";
 
     public static final String TXT_TELEPORTED_UNKNOWN =
-        "In a blink of an eye you were teleported to somewhere else. You can't remember this place.";
-	
-	public static final String TXT_NO_TELEPORT = 
-		"Teleportation fails!";
-	
-	{
-		name = "Scroll of Phase Warp";
+            "In a blink of an eye you were teleported to somewhere else. You can't remember this place.";
+
+    public static final String TXT_NO_TELEPORT =
+            "Teleportation fails!";
+
+    {
+        name = "Scroll of Phase Warp";
         shortName = "Ph";
 
         spellSprite = SpellSprite.SCROLL_TELEPORT;
         spellColour = SpellSprite.COLOUR_WILD;
-	}
-	
-	@Override
-	protected void doRead() {
+    }
+
+    @Override
+    protected void doRead() {
 
         int pos = curUser.pos;
 
@@ -68,29 +65,29 @@ public class ScrollOfPhaseWarp extends Scroll {
 
         ArrayList<Integer> cells = new ArrayList<>();
 
-        for( int cell = 0; cell < Level.LENGTH ; cell++ ){
+        for (int cell = 0; cell < Level.LENGTH; cell++) {
 
-            if( !Level.solid[cell] && Level.passable[cell] && Actor.findChar(cell) == null && Level.distance( pos, cell ) > 4 ) {
-                cells.add( cell );
+            if (!Level.solid[cell] && Level.passable[cell] && Actor.findChar(cell) == null && Level.distance(pos, cell) > 4) {
+                cells.add(cell);
             }
         }
 
-        while( pos == curUser.pos || !PathFinder.buildDistanceMap( curUser.pos, pos, Level.passable ) ) {
+        while (pos == curUser.pos || !PathFinder.buildDistanceMap(curUser.pos, pos, Level.passable)) {
 
-            pos = Random.element( cells );
+            pos = Random.element(cells);
 
         }
 
         if (pos == -1) {
 
-            GLog.w( TXT_NO_TELEPORT );
+            GLog.w(TXT_NO_TELEPORT);
 
         } else {
 
             ScrollOfPhaseWarp.appear(curUser, pos);
             Dungeon.level.press(pos, curUser);
 
-            BuffActive.add(curUser, Vertigo.class, Random.Float(5f, 10f) );
+            BuffActive.add(curUser, Vertigo.class, Random.Float(5f, 10f));
             Dungeon.observe();
 
         }
@@ -99,32 +96,32 @@ public class ScrollOfPhaseWarp extends Scroll {
 //        Game.switchScene( InterlevelScene.class );
 
         super.doRead();
-	}
+    }
 
-    public static void appear( Char ch, int pos ) {
+    public static void appear(Char ch, int pos) {
 
         ch.sprite.interruptMotion();
 
-        ch.move( pos );
-        ch.sprite.place( pos );
+        ch.move(pos);
+        ch.sprite.place(pos);
 
         if (ch.invisible == 0) {
-            ch.sprite.alpha( 0 );
-            ch.sprite.parent.add( new AlphaTweener( ch.sprite, 1, 0.4f ) );
+            ch.sprite.alpha(0);
+            ch.sprite.parent.add(new AlphaTweener(ch.sprite, 1, 0.4f));
         }
 
-        ch.sprite.emitter().start( Speck.factory( Speck.LIGHT ), 0.2f, 3 );
-        Sample.INSTANCE.play( Assets.SND_TELEPORT );
+        ch.sprite.emitter().start(Speck.factory(Speck.LIGHT), 0.2f, 3);
+        Sample.INSTANCE.play(Assets.SND_TELEPORT);
     }
 
     @Override
-	public String desc() {
-		return
-			"The spell on this parchment instantly transports the reader " +
-			"to a random location on the dungeon level. It can be used " +
-			"to escape a dangerous situation, but this method of transportation " +
-            "can be harmful for the mind of its user.";
-	}
+    public String desc() {
+        return
+                "The spell on this parchment instantly transports the reader " +
+                        "to a random location on the dungeon level. It can be used " +
+                        "to escape a dangerous situation, but this method of transportation " +
+                        "can be harmful for the mind of its user.";
+    }
 
     @Override
     public int price() {

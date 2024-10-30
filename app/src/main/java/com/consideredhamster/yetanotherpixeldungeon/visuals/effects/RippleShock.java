@@ -24,37 +24,36 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
-import com.watabou.utils.Random;
 
 public class RippleShock extends Image {
 
-	private static final float TIME_TO_FADE = 0.5f;
+    private static final float TIME_TO_FADE = 0.5f;
 
-	private float time;
+    private float time;
 
-	public RippleShock() {
-		super( Effects.get( Effects.Type.SHOCK ) );
-	}
-	
-	public void reset( int p ) {
-		revive();
-		
-		x = (p % Level.WIDTH) * DungeonTilemap.SIZE;
-		y = (p / Level.WIDTH) * DungeonTilemap.SIZE;
-		
-		origin.set( width / 2, height / 2 );
-		
-		time = TIME_TO_FADE;
-	}
-	
-	@Override
-	public void update() {
-		super.update();
-		
-		if ((time -= Game.elapsed) <= 0) {
-			kill();
-		} else {
-			float p = time / TIME_TO_FADE;
+    public RippleShock() {
+        super(Effects.get(Effects.Type.SHOCK));
+    }
+
+    public void reset(int p) {
+        revive();
+
+        x = (p % Level.WIDTH) * DungeonTilemap.SIZE;
+        y = (p / Level.WIDTH) * DungeonTilemap.SIZE;
+
+        origin.set(width / 2, height / 2);
+
+        time = TIME_TO_FADE;
+    }
+
+    @Override
+    public void update() {
+        super.update();
+
+        if ((time -= Game.elapsed) <= 0) {
+            kill();
+        } else {
+            float p = time / TIME_TO_FADE;
 
 //            if( Random.Int( 3 ) == 0 ){
 //                scale.y *= -1;
@@ -64,7 +63,7 @@ public class RippleShock extends Image {
 //                scale.x *= -1;
 //            }
 
-			alpha( p );
-		}
-	}
+            alpha(p);
+        }
+    }
 }

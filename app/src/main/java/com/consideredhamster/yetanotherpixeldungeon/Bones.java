@@ -20,101 +20,100 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon;
 
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.watabou.noosa.Game;
+import com.watabou.utils.Bundle;
+import com.watabou.utils.Random;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
-import com.watabou.noosa.Game;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
-
 public class Bones {
 
-	private static final String BONES_FILE	= "bones_%d.dat";
+    private static final String BONES_FILE = "bones_%d.dat";
 
-	private static final String LEVEL	= "level";
-	private static final String ITEM	= "item";
-	
-	private static int depth = -1;
-	private static Item item;
-	
-	public static void leave() {
-		
-		item = null;
-		switch (Random.Int( 5 )) {
-		case 0:
-			item = Dungeon.hero.belongings.weap1;
-			break;
-		case 1:
-            item = Dungeon.hero.belongings.weap2;
-            break;
-        case 2:
-            item = Dungeon.hero.belongings.armor;
-			break;
-		case 3:
-			item = Dungeon.hero.belongings.ring1;
-			break;
-		case 4:
-			item = Dungeon.hero.belongings.ring2;
-			break;
-		}
+    private static final String LEVEL = "level";
+    private static final String ITEM = "item";
 
-		if (item == null) {
-			if (Dungeon.gold > 0) {
-				item = new Gold( Random.IntRange( 1, Dungeon.gold ) );
-			} else {
-				item = new Gold( 1 );
-			}
-		}
-		
-		depth = Dungeon.depth;
-		
-		Bundle bundle = new Bundle();
-		bundle.put( LEVEL, Statistics.deepestFloor );
-		bundle.put( ITEM, item );
+    private static int depth = -1;
+    private static Item item;
 
-        String bonesFile = Utils.format( BONES_FILE, Dungeon.difficulty );
+    public static void leave() {
 
-		try {
-			OutputStream output = Game.instance.openFileOutput( bonesFile, Game.MODE_PRIVATE );
-			Bundle.write( bundle, output );
-			output.close();
-		} catch (IOException e) {
+        item = null;
+        switch (Random.Int(5)) {
+            case 0:
+                item = Dungeon.hero.belongings.weap1;
+                break;
+            case 1:
+                item = Dungeon.hero.belongings.weap2;
+                break;
+            case 2:
+                item = Dungeon.hero.belongings.armor;
+                break;
+            case 3:
+                item = Dungeon.hero.belongings.ring1;
+                break;
+            case 4:
+                item = Dungeon.hero.belongings.ring2;
+                break;
+        }
 
-		}
-	}
-	
-	public static Item get() {
+        if (item == null) {
+            if (Dungeon.gold > 0) {
+                item = new Gold(Random.IntRange(1, Dungeon.gold));
+            } else {
+                item = new Gold(1);
+            }
+        }
 
-        String bonesFile = Utils.format( BONES_FILE, Dungeon.difficulty );
+        depth = Dungeon.depth;
 
-		if (depth == -1) {
-			
-			try {
+        Bundle bundle = new Bundle();
+        bundle.put(LEVEL, Statistics.deepestFloor);
+        bundle.put(ITEM, item);
 
-				InputStream input = Game.instance.openFileInput( bonesFile ) ;
-				Bundle bundle = Bundle.read( input );
-				input.close();
-				
-				depth = bundle.getInt( LEVEL );
-				item = (Item)bundle.get( ITEM );
-				
-				return get();
-				
-			} catch (IOException e) {
-				return null;
-			}
-			
-		} else {
-			if (depth == Dungeon.depth) {
-				Game.instance.deleteFile( bonesFile );
-				depth = 0;
-				
+        String bonesFile = Utils.format(BONES_FILE, Dungeon.difficulty);
+
+        try {
+            OutputStream output = Game.instance.openFileOutput(bonesFile, Game.MODE_PRIVATE);
+            Bundle.write(bundle, output);
+            output.close();
+        } catch (IOException e) {
+
+        }
+    }
+
+    public static Item get() {
+
+        String bonesFile = Utils.format(BONES_FILE, Dungeon.difficulty);
+
+        if (depth == -1) {
+
+            try {
+
+                InputStream input = Game.instance.openFileInput(bonesFile);
+                Bundle bundle = Bundle.read(input);
+                input.close();
+
+                depth = bundle.getInt(LEVEL);
+                item = (Item) bundle.get(ITEM);
+
+                return get();
+
+            } catch (IOException e) {
+                return null;
+            }
+
+        } else {
+            if (depth == Dungeon.depth) {
+                Game.instance.deleteFile(bonesFile);
+                depth = 0;
+
 //				if (!item.stackable) {
 //					item.cursed = true;
 //					item.cursedKnown = true;
@@ -127,20 +126,20 @@ public class Bones {
 //					}
 //				}
 
-                item.identify( Item.ITEM_UNKNOWN, true );
-				
-				if (item instanceof Ring) {
-					((Ring)item).syncGem();
-				}
+                item.identify(Item.ITEM_UNKNOWN, true);
+
+                if (item instanceof Ring) {
+                    ((Ring) item).syncGem();
+                }
 
 //                if (item instanceof Wand) {
 //                    ((Wand)item).syncWood();
 //                }
-				
-				return item;
-			} else {
-				return null;
-			}
-		}
-	}
+
+                return item;
+            } else {
+                return null;
+            }
+        }
+    }
 }

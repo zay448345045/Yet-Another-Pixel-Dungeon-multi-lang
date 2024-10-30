@@ -35,37 +35,37 @@ import java.util.Locale;
 public abstract class WandCombat extends Wand {
 
     @Override
-    public int maxCharges( int bonus ) {
-        return 2 + ( bonus > 0 ? bonus : 0 ) ;
+    public int maxCharges(int bonus) {
+        return 2 + (bonus > 0 ? bonus : 0);
     }
 
     @Override
-    public float effectiveness( int bonus ) {
-        return ( 0.30f + 0.05f * state + ( bonus > 0 ? 0.10f * bonus : 0 ) );
+    public float effectiveness(int bonus) {
+        return (0.30f + 0.05f * state + (bonus > 0 ? 0.10f * bonus : 0));
     }
 
     @Override
-    public float rechargeRate( int bonus ) {
+    public float rechargeRate(int bonus) {
         return 0.04f;
     }
 
     @Override
     public int damageRoll() {
 
-        if( curUser != null ) {
+        if (curUser != null) {
 
             float eff = effectiveness();
 
-            if( curUser.buff( Withered.class ) != null )
+            if (curUser.buff(Withered.class) != null)
                 eff *= 0.5f;
 
-            if( curUser.buff( Charmed.class ) != null )
+            if (curUser.buff(Charmed.class) != null)
                 eff *= 0.5f;
 
-            int max = (int)( curUser.magicPower() * eff );
+            int max = (int) (curUser.magicPower() * eff);
             int min = max * 3 / 5;
 
-            return Random.IntRange( min, max );
+            return Random.IntRange(min, max);
 
         } else {
 
@@ -75,19 +75,19 @@ public abstract class WandCombat extends Wand {
     }
 
     @Override
-    protected float miscastChance( int bonus ) {
+    protected float miscastChance(int bonus) {
 
-        if( !isIdentified() || bonus < 0 ){
-            return 0.35f - 0.05f * state - 0.05f * bonus ;
+        if (!isIdentified() || bonus < 0) {
+            return 0.35f - 0.05f * state - 0.05f * bonus;
         } else {
             return 0f;
         }
     }
 
     @Override
-    protected float squeezeChance( int bonus ) {
+    protected float squeezeChance(int bonus) {
 
-        if( isIdentified() && bonus >= 0 ){
+        if (isIdentified() && bonus >= 0) {
             return 0.2f + 0.05f * state + 0.05f * bonus;
         } else {
             return 0f;
@@ -103,7 +103,7 @@ public abstract class WandCombat extends Wand {
     @Override
     protected void spendCharges() {
 
-        if( curCharges > 0 ) curCharges--;
+        if (curCharges > 0) curCharges--;
 
     }
 
@@ -120,63 +120,63 @@ public abstract class WandCombat extends Wand {
         // but it should work for now. maybe when i'll get to reworking weapons, i'll expand this
         float magicPower =
                 hero.belongings.ring1 instanceof RingOfWillpower && !hero.belongings.ring1.isIdentified() ||
-                hero.belongings.ring2 instanceof RingOfWillpower && !hero.belongings.ring2.isIdentified() ||
-                hero.belongings.weap1 instanceof Quarterstaff && !hero.belongings.weap1.isIdentified() ?
-                hero.magicPower : hero.magicPower();
+                        hero.belongings.ring2 instanceof RingOfWillpower && !hero.belongings.ring2.isIdentified() ||
+                        hero.belongings.weap1 instanceof Quarterstaff && !hero.belongings.weap1.isIdentified() ?
+                        hero.magicPower : hero.magicPower();
 
         float attunement =
                 hero.belongings.ring1 instanceof RingOfMysticism && !hero.belongings.ring1.isIdentified() ||
-                hero.belongings.ring2 instanceof RingOfMysticism && !hero.belongings.ring2.isIdentified() ||
-                hero.belongings.armor instanceof MageArmor && !hero.belongings.armor.isIdentified() ?
-                hero.baseAttunement() : hero.attunement();
+                        hero.belongings.ring2 instanceof RingOfMysticism && !hero.belongings.ring2.isIdentified() ||
+                        hero.belongings.armor instanceof MageArmor && !hero.belongings.armor.isIdentified() ?
+                        hero.baseAttunement() : hero.attunement();
 
         // again, if the wand is not identified yet, then values are displayed as if it was unupgraded
 
-        int max = (int)( magicPower * effectiveness( isIdentified() ? bonus : 0 ) );
+        int max = (int) (magicPower * effectiveness(isIdentified() ? bonus : 0));
         int min = max * 3 / 5;
 
-        String recharge = String.format( Locale.getDefault(), "%.1f",
-                1.0f / attunement / rechargeRate( isIdentified() ? bonus : 0 )
+        String recharge = String.format(Locale.getDefault(), "%.1f",
+                1.0f / attunement / rechargeRate(isIdentified() ? bonus : 0)
         );
 
-        String chance = String.format( Locale.getDefault(), "%.0f",
-            100 * ( !isIdentified() || bonus < 0
-            ? miscastChance( isIdentified() ? bonus : 0 )
-            : squeezeChance( isIdentified() ? bonus : 0 ) )
+        String chance = String.format(Locale.getDefault(), "%.0f",
+                100 * (!isIdentified() || bonus < 0
+                        ? miscastChance(isIdentified() ? bonus : 0)
+                        : squeezeChance(isIdentified() ? bonus : 0))
         );
 
-        if ( !isIdentified() ){
+        if (!isIdentified()) {
 
             info.append(
-                "This wand is _" + ( isCursedKnown() && bonus < 0 ? "cursed" : "unidentified" ) +
-                "_, but is in a _" + stateToString( state ) + " condition_. Most likely, it " +
-                "holds only _up to " + maxCharges( 0 ) + " charges_ and will probably " +
-                "have _" + chance + "% chance_ to miscast when used."
+                    "This wand is _" + (isCursedKnown() && bonus < 0 ? "cursed" : "unidentified") +
+                            "_, but is in a _" + stateToString(state) + " condition_. Most likely, it " +
+                            "holds only _up to " + maxCharges(0) + " charges_ and will probably " +
+                            "have _" + chance + "% chance_ to miscast when used."
             );
 
-            info.append( p );
+            info.append(p);
 
             info.append(
-                "With your current magic power and attunement values, this wand will " +
-                "(probably) deal _" + min + "-" + max + " points_ of damage per charge " +
-                "and recover one charge _per " + recharge + " turns_."
+                    "With your current magic power and attunement values, this wand will " +
+                            "(probably) deal _" + min + "-" + max + " points_ of damage per charge " +
+                            "and recover one charge _per " + recharge + " turns_."
             );
 
         } else {
 
             info.append(
-                "This wand is _" + ( bonus < 0 ? "cursed" : "not cursed" ) + "_ and is " +
-                "in a _" + stateToString( state ) + "_ condition. It currently holds _" +
-                getCharges() + "/" + maxCharges() + "_ charges and will have _" + chance +"%_ " +
-                "chance to " + ( bonus < 0 ? "miscast when used." : "squeeze an additional charge." )
+                    "This wand is _" + (bonus < 0 ? "cursed" : "not cursed") + "_ and is " +
+                            "in a _" + stateToString(state) + "_ condition. It currently holds _" +
+                            getCharges() + "/" + maxCharges() + "_ charges and will have _" + chance + "%_ " +
+                            "chance to " + (bonus < 0 ? "miscast when used." : "squeeze an additional charge.")
             );
 
-            info.append( p );
+            info.append(p);
 
             info.append(
-                "With your current magic power and attunement values, " +
-                "this wand will deal _" + min + "-" + max + " points_ of damage per charge " +
-                "and recover one charge _per " + recharge  + " turns_."
+                    "With your current magic power and attunement values, " +
+                            "this wand will deal _" + min + "-" + max + " points_ of damage per charge " +
+                            "and recover one charge _per " + recharge + " turns_."
             );
 
         }

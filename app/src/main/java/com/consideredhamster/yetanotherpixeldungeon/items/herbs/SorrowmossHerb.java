@@ -27,7 +27,6 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Debuff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfCausticOoze;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfMending;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfToxicGas;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfWebbing;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
@@ -35,7 +34,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class SorrowmossHerb extends Herb {
 
-    private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x009900 );
+    private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x009900);
 
     {
         name = "Sorrowmoss herb";
@@ -46,19 +45,19 @@ public class SorrowmossHerb extends Herb {
 
         mainPotion = PotionOfCausticOoze.class;
 
-        subPotions.add( PotionOfToxicGas.class );
-        subPotions.add( PotionOfWebbing.class );
+        subPotions.add(PotionOfToxicGas.class);
+        subPotions.add(PotionOfWebbing.class);
     }
 
-    private static void onConsume( Hero hero, float duration ) {
-        BuffActive.add( hero, AcidResistance.class, duration );
-        Debuff.remove( hero, Corrosion.class );
+    private static void onConsume(Hero hero, float duration) {
+        BuffActive.add(hero, AcidResistance.class, duration);
+        Debuff.remove(hero, Corrosion.class);
     }
 
     @Override
-    public void onConsume( Hero hero ) {
-        super.onConsume( hero );
-        onConsume( hero, DURATION_HERB );
+    public void onConsume(Hero hero) {
+        super.onConsume(hero);
+        onConsume(hero, DURATION_HERB);
     }
 
     @Override
@@ -84,9 +83,9 @@ public class SorrowmossHerb extends Herb {
         }
 
         @Override
-        public void onConsume( Hero hero ) {
-            super.onConsume( hero );
-            SorrowmossHerb.onConsume( hero, DURATION_MEAT );
+        public void onConsume(Hero hero) {
+            super.onConsume(hero);
+            SorrowmossHerb.onConsume(hero, DURATION_MEAT);
         }
 
         @Override

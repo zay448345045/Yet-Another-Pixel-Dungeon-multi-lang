@@ -20,23 +20,21 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfDisintegration;
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.DeathRay;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.PurpleParticle;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfDisintegration;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.DeathRay;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.PurpleParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.EyeSprite;
-import com.watabou.utils.Random;
+import com.watabou.noosa.audio.Sample;
 
 import java.util.ArrayList;
 
@@ -44,7 +42,7 @@ public class EvilEye extends MobRanged {
 
     public EvilEye() {
 
-        super( 11 );
+        super(11);
 
         /*
 
@@ -61,18 +59,18 @@ public class EvilEye extends MobRanged {
 
          */
 
-		name = "evil eye";
-		info = "Flying, Disintegration ray";
-		spriteClass = EyeSprite.class;
-		
-		flying = true;
+        name = "evil eye";
+        info = "Flying, Disintegration ray";
+        spriteClass = EyeSprite.class;
+
+        flying = true;
 
         resistances.put(Element.Energy.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Knockback.class, Element.Resist.VULNERABLE );
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Knockback.class, Element.Resist.VULNERABLE);
 
-	}
+    }
 
     private ArrayList<Integer> cells = new ArrayList<Integer>();
 
@@ -86,48 +84,48 @@ public class EvilEye extends MobRanged {
 //	}
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return /*Level.adjacent( pos, enemy.pos ) &&*/ Ballistica.cast( pos, enemy.pos, false, false ) == enemy.pos;
+    protected boolean canAttack(Char enemy) {
+        return /*Level.adjacent( pos, enemy.pos ) &&*/ Ballistica.cast(pos, enemy.pos, false, false) == enemy.pos;
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
+    protected void onRangedAttack(int cell) {
         onCastComplete();
-        super.onRangedAttack( cell );
+        super.onRangedAttack(cell);
     }
 
     @Override
-    public boolean attack( Char enemy ){
-        shootRay( enemy.pos );
+    public boolean attack(Char enemy) {
+        shootRay(enemy.pos);
         return true;
     }
 
-    private void shootRay( int target ) {
+    private void shootRay(int target) {
 
         cells.clear();
         boolean terrainAffected = false;
 
-        int reflectFrom = Ballistica.cast( pos, target, true, false );
-        cells = WandOfDisintegration.getCellsFromTrace( cells );
+        int reflectFrom = Ballistica.cast(pos, target, true, false);
+        cells = WandOfDisintegration.getCellsFromTrace(cells);
 
-        sprite.parent.add( new DeathRay( pos, reflectFrom ) );
-        Sample.INSTANCE.play( Assets.SND_RAY );
+        sprite.parent.add(new DeathRay(pos, reflectFrom));
+        Sample.INSTANCE.play(Assets.SND_RAY);
 
 //        for ( int i = 1 ; i <= Ballistica.distance ; i++ ) {
 //            terrainAffected = terrainAffected || burnTile( Ballistica.trace[i] );
 //        }
 
-        if( Level.solid[ reflectFrom ] ){
+        if (Level.solid[reflectFrom]) {
 
-            int reflectTo = WandOfDisintegration.getReflectTo( pos, reflectFrom );
+            int reflectTo = WandOfDisintegration.getReflectTo(pos, reflectFrom);
 
-            if( reflectFrom != reflectTo ){
+            if (reflectFrom != reflectTo) {
 
-                Ballistica.cast( reflectFrom, reflectTo, true, false );
-                reflectTo = Ballistica.trace[ Ballistica.distance ] ;
+                Ballistica.cast(reflectFrom, reflectTo, true, false);
+                reflectTo = Ballistica.trace[Ballistica.distance];
 
-                cells = WandOfDisintegration.getCellsFromTrace( cells );
-                sprite.parent.add( new DeathRay( reflectFrom, reflectTo ) );
+                cells = WandOfDisintegration.getCellsFromTrace(cells);
+                sprite.parent.add(new DeathRay(reflectFrom, reflectTo));
 
 //                for ( int i = 1 ; i <= Ballistica.distance ; i++ ) {
 //                    terrainAffected = terrainAffected || burnTile( Ballistica.trace[i] );
@@ -136,8 +134,8 @@ public class EvilEye extends MobRanged {
             }
         }
 
-        for ( int c : cells ) {
-            terrainAffected = terrainAffected || burnTile( c );
+        for (int c : cells) {
+            terrainAffected = terrainAffected || burnTile(c);
         }
 
         if (terrainAffected) {
@@ -145,52 +143,52 @@ public class EvilEye extends MobRanged {
         }
     }
 
-    private boolean burnTile( int cell ) {
+    private boolean burnTile(int cell) {
 
         boolean terrainAffected = false;
 
-        Char ch = Actor.findChar( cell );
+        Char ch = Actor.findChar(cell);
 
-        if ( ch != null ) {
-            ch.damage( Char.absorb( damageRoll(), ch.armorClass(), true ), this, Element.ENERGY );
-            CellEmitter.center( cell ).burst( PurpleParticle.BURST, 3 );
+        if (ch != null) {
+            ch.damage(Char.absorb(damageRoll(), ch.armorClass(), true), this, Element.ENERGY);
+            CellEmitter.center(cell).burst(PurpleParticle.BURST, 3);
         }
 
-        if ( Dungeon.level.map[cell] == Terrain.DOOR_CLOSED ) {
+        if (Dungeon.level.map[cell] == Terrain.DOOR_CLOSED) {
 
-            Level.set( cell, Terrain.EMBERS );
-            GameScene.updateMap( cell );
+            Level.set(cell, Terrain.EMBERS);
+            GameScene.updateMap(cell);
             terrainAffected = true;
 
-            if( Dungeon.visible[ cell ] ){
-                CellEmitter.center( cell ).burst( PurpleParticle.BURST, 16 );
+            if (Dungeon.visible[cell]) {
+                CellEmitter.center(cell).burst(PurpleParticle.BURST, 16);
             }
 
-        } else if ( Dungeon.level.map[cell] == Terrain.HIGH_GRASS ) {
+        } else if (Dungeon.level.map[cell] == Terrain.HIGH_GRASS) {
 
-            Level.set( cell, Terrain.GRASS );
-            GameScene.updateMap( cell );
+            Level.set(cell, Terrain.GRASS);
+            GameScene.updateMap(cell);
             terrainAffected = true;
 
-            if( Dungeon.visible[ cell ] ){
-                CellEmitter.center( cell ).burst( PurpleParticle.BURST, 4 );
+            if (Dungeon.visible[cell]) {
+                CellEmitter.center(cell).burst(PurpleParticle.BURST, 4);
             }
 
         } else {
 
-            if( Dungeon.visible[ cell ] ){
-                CellEmitter.center( cell ).burst( PurpleParticle.BURST, 3 );
+            if (Dungeon.visible[cell]) {
+                CellEmitter.center(cell).burst(PurpleParticle.BURST, 3);
             }
 
         }
 
         return terrainAffected;
     }
-	
-	@Override
-	public String description() {
-		return
-			"One of this creature's other names is \"orb of hatred\", because when it sees an enemy, " +
-			"it uses its deathgaze recklessly, often ignoring its allies and wounding them.";
-	}
+
+    @Override
+    public String description() {
+        return
+                "One of this creature's other names is \"orb of hatred\", because when it sees an enemy, " +
+                        "it uses its deathgaze recklessly, often ignoring its allies and wounding them.";
+    }
 }

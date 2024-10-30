@@ -1,7 +1,6 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.hazards;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.ConfusionGas;
@@ -12,8 +11,6 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.FrigidVapours;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Miasma;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.ToxicGas;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
-import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
-import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.levels.CavesBossLevel;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
@@ -22,7 +19,6 @@ import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.BlastParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.FlameParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SmokeParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SnowParticle;
@@ -31,12 +27,9 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.HazardSprite
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
 import com.watabou.noosa.tweeners.AlphaTweener;
-import com.watabou.noosa.tweeners.ScaleTweener;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
-import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
 
 /*
@@ -85,9 +78,11 @@ public class BombHazard extends Hazard {
     @Override
     public String desc() {
         return "There is a bomb lying here, ready to explode.";
-    };
+    }
 
-    public void setValues( int pos, int var, int strength, int distance ) {
+    ;
+
+    public void setValues(int pos, int var, int strength, int distance) {
 
         this.pos = pos;
         this.var = var;
@@ -95,77 +90,77 @@ public class BombHazard extends Hazard {
         this.strength = strength;
         this.distance = distance;
 
-        spend( TICK );
+        spend(TICK);
 
     }
 
     @Override
-    public void press( int cell, Char ch ){
+    public void press(int cell, Char ch) {
         // Do nothing
     }
 
     @Override
-    protected boolean act(){
-    
-        explode( pos, strength, distance, var );
-    
-        if( var == BOMB_ROUND ){
+    protected boolean act() {
 
-            GameScene.add( Blob.seed( pos, 3, Fire.class ) );
-        
-            for( int n : Level.NEIGHBOURS8 ){
-                if( Level.flammable[ pos + n ] || !Level.water[ pos + n ] &&
-                        Level.passable[ pos + n ] && Random.Int( 2 ) == 0 ){
-                    GameScene.add( Blob.seed( pos + n, 3, Fire.class ) );
+        explode(pos, strength, distance, var);
+
+        if (var == BOMB_ROUND) {
+
+            GameScene.add(Blob.seed(pos, 3, Fire.class));
+
+            for (int n : Level.NEIGHBOURS8) {
+                if (Level.flammable[pos + n] || !Level.water[pos + n] &&
+                        Level.passable[pos + n] && Random.Int(2) == 0) {
+                    GameScene.add(Blob.seed(pos + n, 3, Fire.class));
                 }
             }
 
-        } else if( var == BOMB_NINJA ) {
-            switch( strength ) {
+        } else if (var == BOMB_NINJA) {
+            switch (strength) {
                 case 1:
-                    GameScene.add( Blob.seed( pos, 50, Darkness.class ) );
-                    if ( Dungeon.visible[ pos ] ) {
-                        CellEmitter.get( pos ).burst( Speck.factory( Speck.DARKNESS ), 6 );
+                    GameScene.add(Blob.seed(pos, 50, Darkness.class));
+                    if (Dungeon.visible[pos]) {
+                        CellEmitter.get(pos).burst(Speck.factory(Speck.DARKNESS), 6);
                     }
                     break;
 
                 case 2:
-                    GameScene.add( Blob.seed( pos, 50, ConfusionGas.class ) );
-                    if ( Dungeon.visible[ pos ] ) {
-                        CellEmitter.get( pos ).burst( Speck.factory( Speck.CONFUSION, true ), 6 );
+                    GameScene.add(Blob.seed(pos, 50, ConfusionGas.class));
+                    if (Dungeon.visible[pos]) {
+                        CellEmitter.get(pos).burst(Speck.factory(Speck.CONFUSION, true), 6);
                     }
                     break;
 
                 case 3:
-                    GameScene.add( Blob.seed( pos, 50, ToxicGas.class ) );
-                    if ( Dungeon.visible[ pos ] ) {
-                        CellEmitter.get( pos ).burst( Speck.factory( Speck.TOXIC, true ), 6 );
+                    GameScene.add(Blob.seed(pos, 50, ToxicGas.class));
+                    if (Dungeon.visible[pos]) {
+                        CellEmitter.get(pos).burst(Speck.factory(Speck.TOXIC, true), 6);
                     }
                     break;
                 case 4:
-                    GameScene.add( Blob.seed( pos, 50, FrigidVapours.class ) );
-                    if ( Dungeon.visible[ pos ] ) {
-                        CellEmitter.get( pos ).burst( SnowParticle.FACTORY, 10 );
+                    GameScene.add(Blob.seed(pos, 50, FrigidVapours.class));
+                    if (Dungeon.visible[pos]) {
+                        CellEmitter.get(pos).burst(SnowParticle.FACTORY, 10);
                     }
                     break;
                 case 5:
-                    GameScene.add( Blob.seed( pos, 50, Miasma.class ) );
-                    if ( Dungeon.visible[ pos ] ) {
-                        CellEmitter.get( pos ).burst( GooSprite.GooParticle.FACTORY, 10 );
+                    GameScene.add(Blob.seed(pos, 50, Miasma.class));
+                    if (Dungeon.visible[pos]) {
+                        CellEmitter.get(pos).burst(GooSprite.GooParticle.FACTORY, 10);
                     }
                     break;
                 case 6:
-                    GameScene.add( Blob.seed( pos, 2, Fire.class ) );
+                    GameScene.add(Blob.seed(pos, 2, Fire.class));
 
-                    for( int n : Level.NEIGHBOURS8 ){
-                        if( Level.flammable[ pos + n ] || !Level.water[ pos + n ] &&
-                                Level.passable[ pos + n ] && Random.Int( 2 ) == 0 ){
-                            GameScene.add( Blob.seed( pos + n, 2, Fire.class ) );
+                    for (int n : Level.NEIGHBOURS8) {
+                        if (Level.flammable[pos + n] || !Level.water[pos + n] &&
+                                Level.passable[pos + n] && Random.Int(2) == 0) {
+                            GameScene.add(Blob.seed(pos + n, 2, Fire.class));
                         }
                     }
 
-                    if ( Dungeon.visible[ pos ] ) {
-                        CellEmitter.get( pos ).burst( FlameParticle.FACTORY, 6 );
+                    if (Dungeon.visible[pos]) {
+                        CellEmitter.get(pos).burst(FlameParticle.FACTORY, 6);
                     }
                     break;
             }
@@ -173,18 +168,18 @@ public class BombHazard extends Hazard {
 
         }
 
-        if ( Dungeon.visible[ pos ] ) {
-            CellEmitter.get( pos ).burst( SmokeParticle.FACTORY, 6 );
+        if (Dungeon.visible[pos]) {
+            CellEmitter.get(pos).burst(SmokeParticle.FACTORY, 6);
         }
-        ((BombHazard.BombSprite)sprite).disappear();
+        ((BombHazard.BombSprite) sprite).disappear();
         destroy();
 
         return true;
     }
-    
-    public static void explode( int pos, int strength, int distance, int var ) {
 
-        if( distance > 0 ) {
+    public static void explode(int pos, int strength, int distance, int var) {
+
+        if (distance > 0) {
 
             PathFinder.buildDistanceMap(pos, BArray.not(Level.losBlockHigh, null), distance);
 
@@ -257,31 +252,31 @@ public class BombHazard extends Hazard {
                 }
             }
         }
-    
-        Sample.INSTANCE.play( Assets.SND_BLAST, 1 + distance );
-        Camera.main.shake( 3 + distance, 0.2f + distance * 0.1f );
+
+        Sample.INSTANCE.play(Assets.SND_BLAST, 1 + distance);
+        Camera.main.shake(3 + distance, 0.2f + distance * 0.1f);
     }
 
     private static final String STRENGTH = "strength";
     private static final String DISTANCE = "distance";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
 
-        super.storeInBundle( bundle );
+        super.storeInBundle(bundle);
 
-        bundle.put( STRENGTH, strength );
-        bundle.put( DISTANCE, distance );
+        bundle.put(STRENGTH, strength);
+        bundle.put(DISTANCE, distance);
 
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
 
-        super.restoreFromBundle( bundle );
+        super.restoreFromBundle(bundle);
 
-        strength = bundle.getInt( STRENGTH );
-        distance = bundle.getInt( DISTANCE );
+        strength = bundle.getInt(STRENGTH);
+        distance = bundle.getInt(DISTANCE);
 
     }
 
@@ -292,7 +287,7 @@ public class BombHazard extends Hazard {
         private float time;
         private float dropInterval;
 
-        public BombSprite(){
+        public BombSprite() {
 
             super();
             time = 0.0f;
@@ -300,12 +295,12 @@ public class BombHazard extends Hazard {
         }
 
         @Override
-        protected String asset(){
+        protected String asset() {
             return Assets.HAZ_BOMB;
         }
 
         @Override
-        public int spritePriority(){
+        public int spritePriority() {
             return 3;
         }
 
@@ -313,38 +308,38 @@ public class BombHazard extends Hazard {
         public void update() {
             super.update();
 
-            if ( dropInterval > 0 ) {
+            if (dropInterval > 0) {
 
-                if ( (dropInterval -= Game.elapsed) <= 0 ){
+                if ((dropInterval -= Game.elapsed) <= 0) {
 
-                    speed.set( 0 );
-                    acc.set( 0 );
-                    place( hazard.pos );
+                    speed.set(0);
+                    acc.set(0);
+                    place(hazard.pos);
 
-                    if( visible ){
-                        if( Level.water[ hazard.pos ] ){
-                            GameScene.ripple( hazard.pos );
+                    if (visible) {
+                        if (Level.water[hazard.pos]) {
+                            GameScene.ripple(hazard.pos);
                         }
                     }
                 }
             } else {
                 time += Game.elapsed * 2;
-                scale.set( 0.95f + (float)Math.sin( time ) * 0.05f );
+                scale.set(0.95f + (float) Math.sin(time) * 0.05f);
             }
 
         }
 
-        public void appear( ) {
+        public void appear() {
 
             dropInterval = ANIM_TIME;
 
-            speed.set( 0, -100 );
-            acc.set( 0, -speed.y / ANIM_TIME * 2 );
+            speed.set(0, -100);
+            acc.set(0, -speed.y / ANIM_TIME * 2);
 
         }
 
-        public void disappear( ) {
-            parent.add(new AlphaTweener( this, 0.0f, 0.0f ) {
+        public void disappear() {
+            parent.add(new AlphaTweener(this, 0.0f, 0.0f) {
                 @Override
                 protected void onComplete() {
                     parent.erase(this);

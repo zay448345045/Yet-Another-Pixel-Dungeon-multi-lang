@@ -29,48 +29,48 @@ import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 
 public class Recharging extends Buff {
 
-	@Override
-	public boolean act() {
-		if (target.isAlive()) {
+    @Override
+    public boolean act() {
+        if (target.isAlive()) {
 
-            if( target.buff( Withered.class ) == null ){
+            if (target.buff(Withered.class) == null) {
 
                 Hero hero = (Hero) target;
 
-                charge( hero, hero.belongings.weap2 );
+                charge(hero, hero.belongings.weap2);
 
-                charge( hero, hero.belongings.backpack.items.toArray( new Item[0] ) );
+                charge(hero, hero.belongings.backpack.items.toArray(new Item[0]));
             }
 
-			spend( TICK );
-			
-		} else {
-			
-			deactivate();
-			
-		}
+            spend(TICK);
 
-		return true;
-	}
+        } else {
 
-    public static void charge( Hero hero, Item... items ) {
+            deactivate();
 
-        for( Item item : items ){
+        }
 
-            if( item instanceof Wand ){
+        return true;
+    }
+
+    public static void charge(Hero hero, Item... items) {
+
+        for (Item item : items) {
+
+            if (item instanceof Wand) {
 
                 Wand wand = (Wand) item;
 
-                if( wand.getCharges() < wand.maxCharges() ){
+                if (wand.getCharges() < wand.maxCharges()) {
 
-                    wand.charge( hero.attunement() );
+                    wand.charge(hero.attunement());
                     wand.updateQuickslot();
 
                 }
 
-            } else if( item instanceof WandHolster ) {
+            } else if (item instanceof WandHolster) {
 
-                charge( hero, ((WandHolster)item).items.toArray( new Item[0] ) );
+                charge(hero, ((WandHolster) item).items.toArray(new Item[0]));
 
             }
         }

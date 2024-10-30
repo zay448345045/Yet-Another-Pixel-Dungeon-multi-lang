@@ -21,27 +21,20 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Thunderstorm;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Tormented;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.DeathRay;
+import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ElmoParticle;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MagusSprite;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Miasma;
-import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.EnergyParticle;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MagusSprite;
 import com.watabou.utils.Random;
 
 import java.util.HashSet;
@@ -57,13 +50,13 @@ public class Magus extends MobRanged {
     private static final int ACID = 4;
     private static final int UNHOLY = 5;
     private static final int ENERGY = 6;
-    
-    
+
+
     private static final String PREPARED = "prepared";
 
     public Magus() {
 
-        super( 19 );
+        super(19);
 
         /*
 
@@ -80,22 +73,22 @@ public class Magus extends MobRanged {
 
          */
 
-		name = "magus";
-		info = "Magical, Elemental bolt";
-		spriteClass = MagusSprite.class;
+        name = "magus";
+        info = "Magical, Elemental bolt";
+        spriteClass = MagusSprite.class;
 
-        resistances.put( Element.Flame.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Frost.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Acid.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Shock.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Energy.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Unholy.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Flame.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Frost.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Acid.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Shock.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Energy.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Unholy.class, Element.Resist.PARTIAL);
 //        resistances.put( Element.Mind.class, Element.Resist.PARTIAL );
 //        resistances.put( Element.Body.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Doom.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Doom.class, Element.Resist.PARTIAL);
 //        resistances.put( Element.Dispel.class, Element.Resist.PARTIAL );
 
-	}
+    }
 
     @Override
     public boolean isMagical() {
@@ -105,7 +98,7 @@ public class Magus extends MobRanged {
     @Override
     public boolean act() {
 
-        if( !enemySeen )
+        if (!enemySeen)
             spellPrepared = 0;
 
         return super.act();
@@ -113,131 +106,131 @@ public class Magus extends MobRanged {
     }
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return super.canAttack( enemy ) || Ballistica.cast( pos, enemy.pos, false, true ) == enemy.pos;
+    protected boolean canAttack(Char enemy) {
+        return super.canAttack(enemy) || Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
     }
-    
+
     @Override
-    public boolean doAttack( Char enemy ) {
-        
-        if( spellPrepared == NONE ) {
-            
+    public boolean doAttack(Char enemy) {
+
+        if (spellPrepared == NONE) {
+
 //            spellPrepared = SHOCK;
-            spellPrepared = Random.oneOf( FLAME, FROST, SHOCK, ACID, UNHOLY, ENERGY );
-    
-            if( Dungeon.visible[ pos ] ) {
-                switch ( spellPrepared ) {
+            spellPrepared = Random.oneOf(FLAME, FROST, SHOCK, ACID, UNHOLY, ENERGY);
+
+            if (Dungeon.visible[pos]) {
+                switch (spellPrepared) {
                     case FLAME:
-                        sprite.centerEmitter().burst( EnergyParticle.FACTORY_ORANGE, 10 );
+                        sprite.centerEmitter().burst(EnergyParticle.FACTORY_ORANGE, 10);
                         break;
                     case FROST:
-                        sprite.centerEmitter().burst( EnergyParticle.FACTORY_WHITE, 10 );
+                        sprite.centerEmitter().burst(EnergyParticle.FACTORY_WHITE, 10);
                         break;
                     case SHOCK:
-                        sprite.centerEmitter().burst( EnergyParticle.FACTORY_BLUE, 10 );
+                        sprite.centerEmitter().burst(EnergyParticle.FACTORY_BLUE, 10);
                         break;
                     case ACID:
-                        sprite.centerEmitter().burst( EnergyParticle.FACTORY_BLIGHT, 10 );
+                        sprite.centerEmitter().burst(EnergyParticle.FACTORY_BLIGHT, 10);
                         break;
                     case UNHOLY:
-                        sprite.centerEmitter().burst( EnergyParticle.FACTORY_BLACK, 10 );
+                        sprite.centerEmitter().burst(EnergyParticle.FACTORY_BLACK, 10);
                         break;
                     case ENERGY:
-                        sprite.centerEmitter().burst( EnergyParticle.FACTORY_GREEN, 10 );
+                        sprite.centerEmitter().burst(EnergyParticle.FACTORY_GREEN, 10);
                         break;
                 }
             }
-            
+
             spend(attackDelay());
-            
+
             return true;
-            
+
         } else {
-            
-            return super.doAttack( enemy );
-            
+
+            return super.doAttack(enemy);
+
         }
     }
-    
+
     @Override
     public void onAttackComplete() {
-        throwSpell( enemy.pos );
+        throwSpell(enemy.pos);
         spend(attackDelay());
         next();
     }
-    
+
     @Override
-    public void onRangedAttack( int cell ) {
-        throwSpell( enemy.pos );
-        super.onRangedAttack( cell );
+    public void onRangedAttack(int cell) {
+        throwSpell(enemy.pos);
+        super.onRangedAttack(cell);
     }
 
     @Override
-    public boolean attack( Char enemy ) {
+    public boolean attack(Char enemy) {
 
-        if ( spellPrepared == SHOCK || hit( this, enemy, true, true )) {
-    
+        if (spellPrepared == SHOCK || hit(this, enemy, true, true)) {
+
             int power = damageRoll();
-            
-            switch ( spellPrepared ) {
-                
+
+            switch (spellPrepared) {
+
                 case FLAME:
-                    
-                    enemy.damage( power, this, Element.FLAME );
+
+                    enemy.damage(power, this, Element.FLAME);
                     break;
-                    
+
                 case FROST:
-                    
-                    enemy.damage( power, this, Element.FROST );
-    
-                    if( enemy.isAlive() ){
-                        BuffActive.add( enemy, Frozen.class, power );
+
+                    enemy.damage(power, this, Element.FROST);
+
+                    if (enemy.isAlive()) {
+                        BuffActive.add(enemy, Frozen.class, power);
                     }
-                    
+
                     break;
-                    
+
                 case SHOCK:
-                    
-                    HashSet<Char> affected = Thunderstorm.spreadFrom( enemy.pos );
-    
-                    if( affected != null && !affected.isEmpty() ) {
-                        for( Char ch : affected ) {
-                            ch.damage( ch == enemy ? power : power / 2, this, Element.SHOCK );
+
+                    HashSet<Char> affected = Thunderstorm.spreadFrom(enemy.pos);
+
+                    if (affected != null && !affected.isEmpty()) {
+                        for (Char ch : affected) {
+                            ch.damage(ch == enemy ? power : power / 2, this, Element.SHOCK);
                         }
                     }
                     break;
-                    
+
                 case ACID:
-                    
-                    enemy.damage( power, this, Element.ACID );
+
+                    enemy.damage(power, this, Element.ACID);
                     break;
-                    
+
                 case UNHOLY:
-                    
-                    enemy.damage( power, this, Element.UNHOLY );
+
+                    enemy.damage(power, this, Element.UNHOLY);
                     break;
-                    
+
                 case ENERGY:
-                    
-                    enemy.damage( power, this, Element.ENERGY );
+
+                    enemy.damage(power, this, Element.ENERGY);
                     break;
             }
-            
+
 
         } else {
 
             enemy.missed();
 
         }
-        
+
         spellPrepared = NONE;
 
         return true;
     }
-    
-    protected void throwSpell( int cell ) {
-        
-        switch ( spellPrepared ) {
+
+    protected void throwSpell(int cell) {
+
+        switch (spellPrepared) {
             case FLAME:
                 MagicMissile.fire(sprite.parent, pos, cell,
                         new Callback() {
@@ -257,7 +250,7 @@ public class Magus extends MobRanged {
                         });
                 break;
             case SHOCK:
-                sprite.parent.add( new Lightning( pos, cell ) );
+                sprite.parent.add(new Lightning(pos, cell));
                 onCastComplete();
                 break;
             case ACID:
@@ -291,29 +284,29 @@ public class Magus extends MobRanged {
                 onCastComplete();
                 break;
         }
-    
+
         Sample.INSTANCE.play(Assets.SND_ZAP);
-        
+
     }
 
     @Override
     public String description() {
         return
                 "Their eyes filled with spite and disdain, magi are technically the highest caste " +
-                "of the demonic society. Being quite frail, they prefer to blast their enemies with " +
-                "an assortment of elemental spells from afar while leaving the dirty work to " +
-                "their subordinates.";
+                        "of the demonic society. Being quite frail, they prefer to blast their enemies with " +
+                        "an assortment of elemental spells from afar while leaving the dirty work to " +
+                        "their subordinates.";
     }
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
         super.storeInBundle(bundle);
-        bundle.put( PREPARED, spellPrepared );
+        bundle.put(PREPARED, spellPrepared);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        spellPrepared = bundle.getInt( PREPARED );
+        spellPrepared = bundle.getInt(PREPARED);
     }
 }

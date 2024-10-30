@@ -26,28 +26,28 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Pistole extends RangedWeaponFlintlock {
 
-	{
-		name = "pistole";
-		image = ItemSpriteSheet.PISTOLE;
-	}
+    {
+        name = "pistole";
+        image = ItemSpriteSheet.PISTOLE;
+    }
 
-	public Pistole() {
-		super( 1 );
-	}
+    public Pistole() {
+        super(1);
+    }
 
     @Override
     public Class<? extends ThrowingWeaponAmmo> ammunition() {
         return Bullets.class;
     }
 
-	@Override
-	public Type weaponType() {
-		return Type.R_FLINTLOCK;
-	}
-	
-	@Override
-	public String desc() {
-		return "A lighter variety of flintlock weapons, this simple firearm is still capable of " +
+    @Override
+    public Type weaponType() {
+        return Type.R_FLINTLOCK;
+    }
+
+    @Override
+    public String desc() {
+        return "A lighter variety of flintlock weapons, this simple firearm is still capable of " +
                 "tearing through target's armor with ease.";
-	}
+    }
 }

@@ -33,7 +33,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class EarthrootHerb extends Herb {
 
-    private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing( 0x663300 );
+    private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0x663300);
 
     {
         name = "Earthroot herb";
@@ -45,22 +45,22 @@ public class EarthrootHerb extends Herb {
         //these herbs cannot be brewed with themselves
         mainPotion = UnstablePotion.class;
 
-        subPotions.add( PotionOfStrength.class );
-        subPotions.add( PotionOfWebbing.class );
-        subPotions.add( PotionOfShield.class );
+        subPotions.add(PotionOfStrength.class);
+        subPotions.add(PotionOfWebbing.class);
+        subPotions.add(PotionOfShield.class);
     }
 
-    private static void onConsume( Hero hero, float duration ) {
+    private static void onConsume(Hero hero, float duration) {
 
-        BuffActive.add( hero, PhysicalResistance.class, duration );
+        BuffActive.add(hero, PhysicalResistance.class, duration);
 //        Debuff.remove( hero, Ensnared.class );
 
     }
 
     @Override
-    public void onConsume( Hero hero ) {
-        super.onConsume( hero );
-        onConsume( hero, DURATION_HERB );
+    public void onConsume(Hero hero) {
+        super.onConsume(hero);
+        onConsume(hero, DURATION_HERB);
     }
 
     @Override
@@ -88,15 +88,15 @@ public class EarthrootHerb extends Herb {
         }
 
         @Override
-        public void onConsume( Hero hero ) {
-            super.onConsume( hero );
-            EarthrootHerb.onConsume( hero, DURATION_MEAT );
+        public void onConsume(Hero hero) {
+            super.onConsume(hero);
+            EarthrootHerb.onConsume(hero, DURATION_MEAT);
         }
 
         @Override
         public String desc() {
             return "This meat was stewed in a pot with an _Earthroot_ herb. It feels to be rough. " +
-                "Consuming it will grant a long buff to your _physical_ resistance.";
+                    "Consuming it will grant a long buff to your _physical_ resistance.";
         }
 
         @Override

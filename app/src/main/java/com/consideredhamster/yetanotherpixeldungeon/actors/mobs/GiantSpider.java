@@ -35,7 +35,7 @@ public class GiantSpider extends MobHealthy {
 
     public GiantSpider() {
 
-        super( 7 );
+        super(7);
 
         /*
 
@@ -52,74 +52,74 @@ public class GiantSpider extends MobHealthy {
 
          */
 
-		name = "giant spider";
-		info = "Poison bite, Spiderwebs";
+        name = "giant spider";
+        info = "Poison bite, Spiderwebs";
 
-		spriteClass = SpiderSprite.class;
-		
-		loot = new MeatRaw();
-		lootChance = 0.150f;
-		
-		FLEEING = new Fleeing();
+        spriteClass = SpiderSprite.class;
 
-        resistances.put( Element.Mind.class, Element.Resist.VULNERABLE );
-        resistances.put( Element.Ensnaring.class, Element.Resist.IMMUNE );
+        loot = new MeatRaw();
+        lootChance = 0.150f;
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Knockback.class, Element.Resist.PARTIAL );
-	}
-	
-	@Override
-	protected boolean act() {
-		boolean result = super.act();
+        FLEEING = new Fleeing();
 
-		if (state == FLEEING && buff( Tormented.class ) == null ) {
-			if (enemy != null && enemySeen && enemy.buff( Poisoned.class ) == null) {
-				state = HUNTING;
-			}
-		}
+        resistances.put(Element.Mind.class, Element.Resist.VULNERABLE);
+        resistances.put(Element.Ensnaring.class, Element.Resist.IMMUNE);
 
-		return result;
-	}
-	
-	@Override
-	public int attackProc( Char enemy, int damage, boolean blocked ) {
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Knockback.class, Element.Resist.PARTIAL);
+    }
 
-        if( !blocked && Random.Int( 10 ) < tier ) {
-            BuffActive.addFromDamage( enemy, Poisoned.class, damage * 2 );
+    @Override
+    protected boolean act() {
+        boolean result = super.act();
+
+        if (state == FLEEING && buff(Tormented.class) == null) {
+            if (enemy != null && enemySeen && enemy.buff(Poisoned.class) == null) {
+                state = HUNTING;
+            }
+        }
+
+        return result;
+    }
+
+    @Override
+    public int attackProc(Char enemy, int damage, boolean blocked) {
+
+        if (!blocked && Random.Int(10) < tier) {
+            BuffActive.addFromDamage(enemy, Poisoned.class, damage * 2);
             state = FLEEING;
-		}
-		
-		return damage;
-	}
+        }
 
-	@Override
-    public void die( Object cause, Element dmg ) {
+        return damage;
+    }
 
-        Ghost.Quest.process( pos );
+    @Override
+    public void die(Object cause, Element dmg) {
 
-        SpiderWeb.spawn( pos, Random.IntRange( 5, 7 ) );
+        Ghost.Quest.process(pos);
 
-        super.die( cause, dmg );
+        SpiderWeb.spawn(pos, Random.IntRange(5, 7));
+
+        super.die(cause, dmg);
 
     }
-	
-	@Override
-	public String description() {		
-		return 
-			"These overgrown subterranean spiders try to avoid direct combat, preferring to poison " +
-            "their target and then run away. Their abdomens store large amounts of web, which is " +
-            "usually used to wrap up their prey after it succumbs to their venom.";
-	}
-	
-	private class Fleeing extends Mob.Fleeing {
-		@Override
-		protected void nowhereToRun() {
-			if (buff( Tormented.class ) == null) {
-				state = HUNTING;
-			} else {
-				super.nowhereToRun();
-			}
-		}
-	}
+
+    @Override
+    public String description() {
+        return
+                "These overgrown subterranean spiders try to avoid direct combat, preferring to poison " +
+                        "their target and then run away. Their abdomens store large amounts of web, which is " +
+                        "usually used to wrap up their prey after it succumbs to their venom.";
+    }
+
+    private class Fleeing extends Mob.Fleeing {
+        @Override
+        protected void nowhereToRun() {
+            if (buff(Tormented.class) == null) {
+                state = HUNTING;
+            } else {
+                super.nowhereToRun();
+            }
+        }
+    }
 }

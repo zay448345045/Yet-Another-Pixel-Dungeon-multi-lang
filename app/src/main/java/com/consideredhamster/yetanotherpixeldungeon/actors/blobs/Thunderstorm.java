@@ -20,31 +20,31 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.blobs;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Corrosion;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
+import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.RainParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.RainParticle;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 import java.util.HashSet;
 
@@ -58,8 +58,8 @@ public class Thunderstorm extends Blob {
         name = "thunderstorm";
     }
 
-	@Override
-	protected void evolve() {
+    @Override
+    protected void evolve() {
 
         super.evolve();
 
@@ -67,13 +67,13 @@ public class Thunderstorm extends Blob {
 
             boolean mapUpdated = false;
 
-            Blob blob = Dungeon.level.blobs.get( Fire.class );
+            Blob blob = Dungeon.level.blobs.get(Fire.class);
 
             if (blob != null) {
 
                 int par[] = blob.cur;
 
-                for (int i=0; i < LENGTH; i++) {
+                for (int i = 0; i < LENGTH; i++) {
 
                     if (cur[i] > 0) {
                         blob.volume -= par[i];
@@ -85,7 +85,7 @@ public class Thunderstorm extends Blob {
             int count = 0;
             int humidity[] = new int[LENGTH];
 
-            for (int i=0; i < LENGTH; i++) {
+            for (int i = 0; i < LENGTH; i++) {
 
                 if (cur[i] > 0) {
 
@@ -99,7 +99,7 @@ public class Thunderstorm extends Blob {
                 }
             }
 
-            for (int i=0; i < LENGTH; i++) {
+            for (int i = 0; i < LENGTH; i++) {
 
                 if (cur[i] > 0) {
 
@@ -108,25 +108,25 @@ public class Thunderstorm extends Blob {
                             && !Level.important[i]
                             && !Level.solid[i]
                             && !Level.chasm[i]
-                            ) {
+                    ) {
 
                         int oldTile = Dungeon.level.map[i];
                         Level.set(i, Terrain.WATER);
 
 //                        if (Dungeon.visible[i]) {
-                            mapUpdated = true;
+                        mapUpdated = true;
 //                            GameScene.updateMap( i );
-                            GameScene.discoverTile( i, oldTile );
+                        GameScene.discoverTile(i, oldTile);
 //                        }
                     }
 
                     // attempt to fill the wells
                     if (
-                        Random.Int(20) < humidity[i] &&
-                        ( Dungeon.level.map[i] == Terrain.WELL ||
-                        Dungeon.level.map[i] == Terrain.EMPTY_WELL )
+                            Random.Int(20) < humidity[i] &&
+                                    (Dungeon.level.map[i] == Terrain.WELL ||
+                                            Dungeon.level.map[i] == Terrain.EMPTY_WELL)
                     ) {
-                        fill( i );
+                        fill(i);
                     }
 
                     Char ch = Actor.findChar(i);
@@ -152,25 +152,25 @@ public class Thunderstorm extends Blob {
             boolean heared = false;
             boolean affected[] = new boolean[LENGTH];
 
-            for (int i=0; i < amount; i++) {
+            for (int i = 0; i < amount; i++) {
 
-                int cell = Random.Int( LENGTH );
+                int cell = Random.Int(LENGTH);
 
-                if( cur[cell] > 0 && !affected[cell] && !Level.solid[cell] && !Level.chasm[cell] ) {
+                if (cur[cell] > 0 && !affected[cell] && !Level.solid[cell] && !Level.chasm[cell]) {
 
                     amount--;
 
-                    thunderstrike( cell, this );
+                    thunderstrike(cell, this);
 
-                    for( int n : Level.NEIGHBOURS9 ) {
-                        affected[ cell + n ] = true;
+                    for (int n : Level.NEIGHBOURS9) {
+                        affected[cell + n] = true;
                     }
 
-                    if( Dungeon.visible[ cell ] ) {
+                    if (Dungeon.visible[cell]) {
 
                         viewed = true;
 
-                    } else if ( Level.distance( cell, Dungeon.hero.pos ) <= 4 ) {
+                    } else if (Level.distance(cell, Dungeon.hero.pos) <= 4) {
 
                         heared = true;
 
@@ -178,92 +178,92 @@ public class Thunderstorm extends Blob {
                 }
             }
 
-            if ( viewed && Dungeon.hero.isAlive() ) {
+            if (viewed && Dungeon.hero.isAlive()) {
 
                 viewed();
 
-            } else if ( heared && Dungeon.hero.isAlive() ) {
+            } else if (heared && Dungeon.hero.isAlive()) {
 
                 listen();
 
             }
         }
-	}
+    }
 
-    public static void thunderstrike( int cell, Blob blob ) {
+    public static void thunderstrike(int cell, Blob blob) {
 
-        HashSet<Char> affected = spreadFrom( cell );
+        HashSet<Char> affected = spreadFrom(cell);
 
-        if( affected != null && !affected.isEmpty() ) {
-            for( Char ch : affected ) {
+        if (affected != null && !affected.isEmpty()) {
+            for (Char ch : affected) {
 
                 int power = ch.pos == cell ? ch.HT * 2 / 3 : ch.HT / 3;
 
-                if( Bestiary.isBoss(ch) ) {
+                if (Bestiary.isBoss(ch)) {
                     power = power / 4;
-                } else if ( ch instanceof Hero ) {
+                } else if (ch instanceof Hero) {
                     power = power / 2;
                 }
 
-                ch.damage( power, blob, Element.SHOCK);
+                ch.damage(power, blob, Element.SHOCK);
 
             }
         }
 
         for (Mob mob : Dungeon.level.mobs) {
-            if (Level.distance( cell, mob.pos ) <= 4 ) {
+            if (Level.distance(cell, mob.pos) <= 4) {
                 mob.beckon(cell);
             }
         }
 
-        Emitter emitter = CellEmitter.get( cell );
-        int[] tiles = Random.Int( 2 ) == 0 ? Level.NEIGHBOURS5 : Level.NEIGHBOURSX ;
+        Emitter emitter = CellEmitter.get(cell);
+        int[] tiles = Random.Int(2) == 0 ? Level.NEIGHBOURS5 : Level.NEIGHBOURSX;
 
-        for( int n : tiles ) {
+        for (int n : tiles) {
 
-            if( Dungeon.visible[ cell + n ] ) {
-                emitter.parent.add( new Lightning( cell, cell + n ) );
+            if (Dungeon.visible[cell + n]) {
+                emitter.parent.add(new Lightning(cell, cell + n));
             }
 
         }
 
-        if( Dungeon.visible[ cell ] ){
-            emitter.burst( SparkParticle.FACTORY, Random.Int( 4, 6 ) );
+        if (Dungeon.visible[cell]) {
+            emitter.burst(SparkParticle.FACTORY, Random.Int(4, 6));
         }
     }
 
-    public static HashSet<Char> spreadFrom( int pos ) {
+    public static HashSet<Char> spreadFrom(int pos) {
 
         HashSet<Char> targets = new HashSet<>();
 
-        if( pos < 0 || pos > Level.LENGTH )
+        if (pos < 0 || pos > Level.LENGTH)
             return targets;
 
-        Char primary = Actor.findChar( pos );
-        if( primary != null ) {
-            targets.add( primary );
+        Char primary = Actor.findChar(pos);
+        if (primary != null) {
+            targets.add(primary);
         }
 
-        if( Level.water[pos] && ( primary == null || !primary.flying ) ){
+        if (Level.water[pos] && (primary == null || !primary.flying)) {
 
-            PathFinder.buildDistanceMap( pos, Level.water, MAX_DISTANCE );
+            PathFinder.buildDistanceMap(pos, Level.water, MAX_DISTANCE);
 
             // check for other non-flying mobs in the same pool of water
-            for( int c = 0 ; c < Level.LENGTH ; c++ ){
+            for (int c = 0; c < Level.LENGTH; c++) {
 
-                if( PathFinder.distance[ c ] < Integer.MAX_VALUE ){
+                if (PathFinder.distance[c] < Integer.MAX_VALUE) {
 
                     // highlight affected water tiles
-                    GameScene.electrify( c );
+                    GameScene.electrify(c);
 
-                    if( Dungeon.visible[ c ] ){
-                        CellEmitter.get( c ).burst( SparkParticle.FACTORY, Random.IntRange( 2, 4 ) );
+                    if (Dungeon.visible[c]) {
+                        CellEmitter.get(c).burst(SparkParticle.FACTORY, Random.IntRange(2, 4));
                     }
 
-                    Char ch = Actor.findChar( c );
+                    Char ch = Actor.findChar(c);
 
-                    if( ch != null && !ch.flying && !targets.contains( ch ) ){
-                        targets.add( ch );
+                    if (ch != null && !ch.flying && !targets.contains(ch)) {
+                        targets.add(ch);
                     }
                 }
             }
@@ -272,12 +272,12 @@ public class Thunderstorm extends Blob {
         return targets;
     }
 
-    public void fill( int cell ) {
+    public void fill(int cell) {
 
-        if( Dungeon.depth == 24 )
+        if (Dungeon.depth == 24)
             return;
 
-        WellWater water = (WellWater)Dungeon.level.blobs.get( WellWater.class );
+        WellWater water = (WellWater) Dungeon.level.blobs.get(WellWater.class);
         if (water == null) {
             try {
                 water = new WellWater();
@@ -286,16 +286,16 @@ public class Thunderstorm extends Blob {
             }
         }
 
-        water.seed( cell, water.volume + 1 );
+        water.seed(cell, water.volume + 1);
 
-        if ( Dungeon.level.map[ cell ] == Terrain.EMPTY_WELL) {
+        if (Dungeon.level.map[cell] == Terrain.EMPTY_WELL) {
 
-            Level.set( cell, Terrain.WELL );
-            GameScene.updateMap( cell );
+            Level.set(cell, Terrain.WELL);
+            GameScene.updateMap(cell);
 
         }
 
-        if( Dungeon.visible[ cell ] ) {
+        if (Dungeon.visible[cell]) {
             GLog.i("Rain fills the well!");
         }
     }
@@ -312,16 +312,16 @@ public class Thunderstorm extends Blob {
         Sample.INSTANCE.play(Assets.SND_BLAST, 1, 1, Random.Float(1.8f, 2.25f));
         Camera.main.shake(2, 0.2f);
     }
-	
-	@Override
-	public void use( BlobEmitter emitter ) {
-		super.use(emitter);
-		emitter.start( RainParticle.FACTORY, 0.5f, 0 );
 
-	}
-	
-	@Override
-	public String tileDesc() {
-		return "Storm clouds fly under the ceiling here, raining down water and, occasionally, lightning.";
-	}
+    @Override
+    public void use(BlobEmitter emitter) {
+        super.use(emitter);
+        emitter.start(RainParticle.FACTORY, 0.5f, 0);
+
+    }
+
+    @Override
+    public String tileDesc() {
+        return "Storm clouds fly under the ceiling here, raining down water and, occasionally, lightning.";
+    }
 }

@@ -23,25 +23,25 @@ package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class PlateArmor extends BodyArmorHeavy {
-	
+
 //	private static int LEAP_TIME	= 1;
 //	private static int SHOCK_TIME	= 3;
 //
 //	private static final String AC_SPECIAL = "HEROIC LEAP";
 //
 //	private static final String TXT_NOT_WARRIOR	= "Only warriors can use this armor!";
-	
-	{
-		name = "plate armor";
-		image = ItemSpriteSheet.ARMOR_PLATE;
+
+    {
+        name = "plate armor";
+        image = ItemSpriteSheet.ARMOR_PLATE;
 
         appearance = 9;
-	}
+    }
 
     public PlateArmor() {
-        super( 3 );
+        super(3);
     }
-	
+
 //	@Override
 //	public String special() {
 //		return AC_SPECIAL;
@@ -62,16 +62,16 @@ public class PlateArmor extends BodyArmorHeavy {
 //		}
 //	}
 
-	@Override
-	public String desc() {
+    @Override
+    public String desc() {
 //		return
 //			"While this armor looks heavy, it allows a warrior to perform heroic leap towards " +
 //			"a targeted location, slamming down to stun all neighbouring enemies.";
         return
                 "Enormous plates of metal are joined together into a suit that provides " +
-                "unmatched protection to any adventurer strong enough to bear its staggering weight.";
-	}
-	
+                        "unmatched protection to any adventurer strong enough to bear its staggering weight.";
+    }
+
 //	protected static CellSelector.Listener leaper = new  CellSelector.Listener() {
 //
 //		@Override

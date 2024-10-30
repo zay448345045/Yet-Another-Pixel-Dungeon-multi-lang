@@ -20,70 +20,70 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.BodyArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Ethereal;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndOptions;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.GameMath;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Ethereal;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
 
 public abstract class EquipableItem extends Item {
 
-	protected static final String TXT_EQUIP = "You equip your %s.";
-	protected static final String TXT_UNEQUIP = "You unequip your %s.";
-    protected static final String TXT_ISEQUIPPED	= "%s is already equipped";
+    protected static final String TXT_EQUIP = "You equip your %s.";
+    protected static final String TXT_UNEQUIP = "You unequip your %s.";
+    protected static final String TXT_ISEQUIPPED = "%s is already equipped";
 
-	private static final String TXT_UNEQUIP_CURSED = "your %s is cursed, and you cannot remove it.";
-	private static final String TXT_DETECT_CURSED = "this %s was cursed, but you managed to unequip it before it was too late.";
+    private static final String TXT_UNEQUIP_CURSED = "your %s is cursed, and you cannot remove it.";
+    private static final String TXT_DETECT_CURSED = "this %s was cursed, but you managed to unequip it before it was too late.";
 
     protected static final String TXT_EQUIP_CURSED_HAND = "your grip involuntarily tightens around your %s";
     protected static final String TXT_EQUIP_CURSED_BODY = "your %s constricts around you painfully";
     protected static final String TXT_EQUIP_CURSED_RING = "your %s suddenly tightens around your finger";
 
-	public static final String AC_EQUIP		= "EQUIP";
-	public static final String AC_UNEQUIP	= "UNEQUIP";
+    public static final String AC_EQUIP = "EQUIP";
+    public static final String AC_UNEQUIP = "UNEQUIP";
 
     private static final String TXT_ITEM_IS_CURSED = "This item is cursed!";
 
     private static final String TXT_R_U_SURE =
             "You are aware that this item is cursed. Once equipped, it would be impossible to " +
-            "remove until the curse is removed. Are you really sure you want to equip it?";
+                    "remove until the curse is removed. Are you really sure you want to equip it?";
 
     private static final String TXT_ITEM_IS_HEAVY = "This item is heavy!";
 
     private static final String TXT_R_U_SURE_HEAVY =
             "This item seems to be heavier than your current Strength. Once equipped, it may " +
-            "severely decrease your combat proficiency. Are you really sure you want to equip it?";
+                    "severely decrease your combat proficiency. Are you really sure you want to equip it?";
 
     protected static final String TXT_ITEM_IS_INCOMPATIBLE = "This item is incompatible!";
 
     protected static final String TXT_R_U_SURE_INCOMPATIBLE =
             "You are aware that this item is not compatible with your current gear, and will " +
-            "require additional strength to be properly wielded. Once equipped, it may decrease " +
-            "your combat proficiency. Are you really sure you want to equip it?";
+                    "require additional strength to be properly wielded. Once equipped, it may decrease " +
+                    "your combat proficiency. Are you really sure you want to equip it?";
 
-    protected static final String TXT_YES			= "Yes, I know what I'm doing";
-    protected static final String TXT_NO			= "No, I changed my mind";
+    protected static final String TXT_YES = "Yes, I know what I'm doing";
+    protected static final String TXT_NO = "No, I changed my mind";
 
     @Override
-	public ArrayList<String> actions( Hero hero ) {
-		ArrayList<String> actions = super.actions( hero );
-		actions.add(isEquipped(hero) ? AC_UNEQUIP : AC_EQUIP);
-		return actions;
-	}
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
+        actions.add(isEquipped(hero) ? AC_UNEQUIP : AC_EQUIP);
+        return actions;
+    }
 
     public int str(int bonus) {
         return 0;
@@ -93,8 +93,8 @@ public abstract class EquipableItem extends Item {
         return str(bonus);
     }
 
-    public int strShown( boolean identified ) {
-        return identified ? str() : str(0) ;
+    public int strShown(boolean identified) {
+        return identified ? str() : str(0);
     }
 
     public int penaltyBase(Hero hero, int str) {
@@ -105,80 +105,83 @@ public abstract class EquipableItem extends Item {
 
     }
 
-    public float penaltyFactor( Hero hero, boolean identified ) {
+    public float penaltyFactor(Hero hero, boolean identified) {
 
-        return 1.0f - 0.025f * GameMath.gate( 0, penaltyBase(hero, strShown( identified ) ) -
-            ( this instanceof Weapon && ((Weapon)this).enchantment instanceof Ethereal ? bonus : 0 ), 20 );
+        return 1.0f - 0.025f * GameMath.gate(0, penaltyBase(hero, strShown(identified)) -
+                (this instanceof Weapon && ((Weapon) this).enchantment instanceof Ethereal ? bonus : 0), 20);
+
+    }
+
+    public float speedFactor(Hero hero) {
+
+        return hero.STR() < strShown(true) ? 1.0f / (2.0f - penaltyFactor(hero, true)) : 1.0f;
 
     }
 
-    public float speedFactor( Hero hero ) {
-
-        return hero.STR() < strShown( true ) ?  1.0f / ( 2.0f - penaltyFactor( hero, true ) ) : 1.0f;
-
+    public boolean incompatibleWith(EquipableItem item) {
+        return false;
     }
-    public boolean incompatibleWith( EquipableItem item ) { return false ; }
-	
-	@Override
-	public void execute( Hero hero, String action ) {
-		if (action.equals( AC_EQUIP )) {
-            doEquipCarefully( hero );
-		} else if (action.equals( AC_UNEQUIP )) {
-			doUnequip( hero, true );
-		} else {
-			super.execute( hero, action );
-		}
-	}
-	
-	@Override
-	public void doDrop( Hero hero ) {
-		if (!isEquipped( hero ) || doUnequip( hero, false, this instanceof BodyArmor ) ) {
-			super.doDrop( hero );
-		}
-	}
 
-	@Override
-	public void onThrow( int cell ) {
+    @Override
+    public void execute(Hero hero, String action) {
+        if (action.equals(AC_EQUIP)) {
+            doEquipCarefully(hero);
+        } else if (action.equals(AC_UNEQUIP)) {
+            doUnequip(hero, true);
+        } else {
+            super.execute(hero, action);
+        }
+    }
 
-		if (isEquipped( curUser ) ) {
+    @Override
+    public void doDrop(Hero hero) {
+        if (!isEquipped(hero) || doUnequip(hero, false, this instanceof BodyArmor)) {
+            super.doDrop(hero);
+        }
+    }
 
-            if (quantity == 1 && !this.doUnequip( curUser, false, this instanceof BodyArmor )) {
-				return;
-			}
+    @Override
+    public void onThrow(int cell) {
+
+        if (isEquipped(curUser)) {
+
+            if (quantity == 1 && !this.doUnequip(curUser, false, this instanceof BodyArmor)) {
+                return;
+            }
         }
 
-        super.onThrow( cell );
-	}
+        super.onThrow(cell);
+    }
 
-    protected static boolean detectCursed( Item item, Hero hero ) {
+    protected static boolean detectCursed(Item item, Hero hero) {
 
         float chance = 0.2f;
 
-        if( item instanceof Weapon ) {
+        if (item instanceof Weapon) {
 
-            chance -= item.bonus * ( ((Weapon)item).isEnchanted() ? 0.1f : 0.05f );
+            chance -= item.bonus * (((Weapon) item).isEnchanted() ? 0.1f : 0.05f);
 
-        } else if( item instanceof Armour ) {
+        } else if (item instanceof Armour) {
 
-            chance -= item.bonus * ( ((Armour)item).isInscribed() ? 0.1f : 0.05f );
+            chance -= item.bonus * (((Armour) item).isInscribed() ? 0.1f : 0.05f);
 
-        } else if( item instanceof Wand ) {
+        } else if (item instanceof Wand) {
 
-            chance -= item.bonus * 0.1f ;
+            chance -= item.bonus * 0.1f;
 
-        } else if( item instanceof Ring ) {
+        } else if (item instanceof Ring) {
 
-            chance -= item.bonus * 0.05f ;
+            chance -= item.bonus * 0.05f;
 
         }
 
-        if( Random.Float() < chance * hero.attunement() ) {
+        if (Random.Float() < chance * hero.attunement()) {
 
             item.identify(CURSED_KNOWN);
-            GLog.w( TXT_DETECT_CURSED, item.name() );
+            GLog.w(TXT_DETECT_CURSED, item.name());
 
-            Sample.INSTANCE.play( Assets.SND_CURSED, 0.8f, 0.8f, 0.8f );
-            Camera.main.shake( 1, 0.1f );
+            Sample.INSTANCE.play(Assets.SND_CURSED, 0.8f, 0.8f, 0.8f);
+            Camera.main.shake(1, 0.1f);
 
             return true;
 
@@ -189,55 +192,57 @@ public abstract class EquipableItem extends Item {
         }
     }
 
-	protected float time2equip( Hero hero ) {
-		return 1.0f / speedFactor( hero );
-	}
+    protected float time2equip(Hero hero) {
+        return 1.0f / speedFactor(hero);
+    }
 
 //    public boolean disarmable() {
 //        return bonus >= 0;
 //    }
-	
-	public abstract boolean doEquip( Hero hero );
 
-    public void doEquipCarefully( Hero hero ) {
+    public abstract boolean doEquip(Hero hero);
 
-        if( bonus < 0 && isCursedKnown() ) {
+    public void doEquipCarefully(Hero hero) {
+
+        if (bonus < 0 && isCursedKnown()) {
 
             final Hero heroFinal = hero;
 
             GameScene.show(
-                new WndOptions( TXT_ITEM_IS_CURSED, TXT_R_U_SURE, TXT_YES, TXT_NO ) {
-
-                    @Override
-                    protected void onSelect(int index) {
-                        if (index == 0) {
-                            doEquip( heroFinal );
-                        }
-                    }
-                }
-            );
-
-        } else  if (this.str( this.isIdentified() ? bonus : 0 )>hero.STR()){
-            final Hero heroFinal = hero;
-            GameScene.show(
-                    new WndOptions( TXT_ITEM_IS_HEAVY, TXT_R_U_SURE_HEAVY, TXT_YES, TXT_NO ) {
+                    new WndOptions(TXT_ITEM_IS_CURSED, TXT_R_U_SURE, TXT_YES, TXT_NO) {
 
                         @Override
                         protected void onSelect(int index) {
                             if (index == 0) {
-                                doEquip( heroFinal );
+                                doEquip(heroFinal);
                             }
                         }
                     }
             );
-        }else {
 
-            doEquip( hero );
+        } else if (this.str(this.isIdentified() ? bonus : 0) > hero.STR()) {
+            final Hero heroFinal = hero;
+            GameScene.show(
+                    new WndOptions(TXT_ITEM_IS_HEAVY, TXT_R_U_SURE_HEAVY, TXT_YES, TXT_NO) {
+
+                        @Override
+                        protected void onSelect(int index) {
+                            if (index == 0) {
+                                doEquip(heroFinal);
+                            }
+                        }
+                    }
+            );
+        } else {
+
+            doEquip(hero);
 
         }
-    };
-	
-	public boolean doUnequip( Hero hero, boolean collect, boolean single ) {
+    }
+
+    ;
+
+    public boolean doUnequip(Hero hero, boolean collect, boolean single) {
 
         if (bonus < 0) {
 //            int dmg = hero.HP / 5;
@@ -248,40 +253,40 @@ public abstract class EquipableItem extends Item {
 //            } else {
 //                hero.damage(dmg, null, null);
 //                GLog.w(TXT_UNEQUIP_CURSED_FAIL, name() );
-                GLog.w(TXT_UNEQUIP_CURSED, name() );
-                return false;
+            GLog.w(TXT_UNEQUIP_CURSED, name());
+            return false;
 //            }
         } else if (single) {
-            hero.spendAndNext( time2equip( hero ) );
+            hero.spendAndNext(time2equip(hero));
             GLog.i(TXT_UNEQUIP, name());
         }
-		
-		if (collect && !collect( hero.belongings.backpack )) {
-			Dungeon.level.drop( this, hero.pos );
-		}
 
-		return true;
-	}
+        if (collect && !collect(hero.belongings.backpack)) {
+            Dungeon.level.drop(this, hero.pos);
+        }
 
-    public final boolean doUnequip( Hero hero, boolean collect ) {
-        return doUnequip( hero, collect, true );
+        return true;
     }
 
-    public final void onEquip( Hero hero ) {
+    public final boolean doUnequip(Hero hero, boolean collect) {
+        return doUnequip(hero, collect, true);
+    }
 
-        if( bonus < 0 ) {
+    public final void onEquip(Hero hero) {
 
-            if( this instanceof BodyArmor ) {
-                GLog.n( TXT_EQUIP_CURSED_BODY, name() );
-            } else if( this instanceof Ring ) {
-                GLog.n( TXT_EQUIP_CURSED_RING, name() );
+        if (bonus < 0) {
+
+            if (this instanceof BodyArmor) {
+                GLog.n(TXT_EQUIP_CURSED_BODY, name());
+            } else if (this instanceof Ring) {
+                GLog.n(TXT_EQUIP_CURSED_RING, name());
             } else {
-                GLog.n( TXT_EQUIP_CURSED_HAND, name() );
+                GLog.n(TXT_EQUIP_CURSED_HAND, name());
             }
 
-            hero.sprite.emitter().burst( ShadowParticle.CURSE, 6 );
+            hero.sprite.emitter().burst(ShadowParticle.CURSE, 6);
 
-            Sample.INSTANCE.play( Assets.SND_CURSED );
+            Sample.INSTANCE.play(Assets.SND_CURSED);
 
         } else {
 
@@ -289,6 +294,6 @@ public abstract class EquipableItem extends Item {
 
         }
 
-        identify( CURSED_KNOWN );
+        identify(CURSED_KNOWN);
     }
 }

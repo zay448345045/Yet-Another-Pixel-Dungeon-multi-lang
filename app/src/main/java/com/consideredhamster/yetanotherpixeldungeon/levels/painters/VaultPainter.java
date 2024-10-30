@@ -21,8 +21,8 @@
 package com.consideredhamster.yetanotherpixeldungeon.levels.painters;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap.Type;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.keys.GoldenKey;
 import com.consideredhamster.yetanotherpixeldungeon.items.keys.IronKey;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
@@ -34,22 +34,22 @@ import com.watabou.utils.Random;
 
 public class VaultPainter extends Painter {
 
-	public static void paint( Level level, Room room ) {
+    public static void paint(Level level, Room room) {
 
-		fill( level, room, Terrain.WALL );
-		fill( level, room, 1, Terrain.EMPTY );
-		
-		int cx = (room.left + room.right) / 2;
-		int cy = (room.top + room.bottom) / 2;
-		int c = cx + cy * Level.WIDTH;
-		
+        fill(level, room, Terrain.WALL);
+        fill(level, room, 1, Terrain.EMPTY);
+
+        int cx = (room.left + room.right) / 2;
+        int cy = (room.top + room.bottom) / 2;
+        int c = cx + cy * Level.WIDTH;
+
 //		switch (Random.Int( 3 )) {
 //
 //		case 0:
-			level.drop( prize( level ), c, true ).type = Type.LOCKED_CHEST;
-			level.addItemToSpawn( new GoldenKey() );
+        level.drop(prize(level), c, true).type = Type.LOCKED_CHEST;
+        level.addItemToSpawn(new GoldenKey());
 //			break;
-			
+
 //		case 1:
 //			Item i1, i2;
 //			do {
@@ -66,33 +66,33 @@ public class VaultPainter extends Painter {
 //			set( level, c, Terrain.PEDESTAL );
 //			break;
 //		}
-		
-		room.entrance().set( Room.Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey() );
-	}
-	
-	private static Item prize( Level level ) {
 
-        Item wand = level.itemToSpawnAsPrize( Wand.class );
-        Item ring = level.itemToSpawnAsPrize( Ring.class );
+        room.entrance().set(Room.Door.Type.LOCKED);
+        level.addItemToSpawn(new IronKey());
+    }
 
-        Item prize = Random.oneOf( wand, ring );
+    private static Item prize(Level level) {
 
-        if( wand != null && prize != wand )
-            level.addItemToSpawn( wand );
+        Item wand = level.itemToSpawnAsPrize(Wand.class);
+        Item ring = level.itemToSpawnAsPrize(Ring.class);
 
-        if( ring != null && prize != ring )
-            level.addItemToSpawn( ring );
+        Item prize = Random.oneOf(wand, ring);
 
-        if( prize == null ) {
-        	prize = Generator.random( Random.oneOf(
-					Generator.Category.WAND,
-					Generator.Category.RING
-			) );
+        if (wand != null && prize != wand)
+            level.addItemToSpawn(wand);
+
+        if (ring != null && prize != ring)
+            level.addItemToSpawn(ring);
+
+        if (prize == null) {
+            prize = Generator.random(Random.oneOf(
+                    Generator.Category.WAND,
+                    Generator.Category.RING
+            ));
         }
 
-		prize.uncurse( 3 );
+        prize.uncurse(3);
 
-		return prize;
-	}
+        return prize;
+    }
 }

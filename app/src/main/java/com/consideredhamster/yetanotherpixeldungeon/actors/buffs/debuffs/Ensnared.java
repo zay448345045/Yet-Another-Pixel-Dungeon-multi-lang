@@ -38,10 +38,14 @@ public class Ensnared extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "ensnared"; }
+    public String statusMessage() {
+        return "ensnared";
+    }
 
     @Override
-    public String playerMessage() { return "You are ensnared! Struggle to escape!"; }
+    public String playerMessage() {
+        return "You are ensnared! Struggle to escape!";
+    }
 
     @Override
     public int icon() {
@@ -50,12 +54,12 @@ public class Ensnared extends Debuff {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.ENSNARED );
+        target.sprite.add(CharSprite.State.ENSNARED);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.ENSNARED );
+        target.sprite.remove(CharSprite.State.ENSNARED);
     }
 
     @Override
@@ -66,8 +70,8 @@ public class Ensnared extends Debuff {
     }
 
     @Override
-    public boolean attachOnLoad( Char target ) {
-        if (super.attachOnLoad( target )) {
+    public boolean attachOnLoad(Char target) {
+        if (super.attachOnLoad(target)) {
             target.rooted = true;
             return true;
         } else {
@@ -76,8 +80,8 @@ public class Ensnared extends Debuff {
     }
 
     @Override
-    public boolean attachTo( Char target ) {
-        if (super.attachTo( target )) {
+    public boolean attachTo(Char target) {
+        if (super.attachTo(target)) {
             target.rooted = true;
             return true;
         } else {

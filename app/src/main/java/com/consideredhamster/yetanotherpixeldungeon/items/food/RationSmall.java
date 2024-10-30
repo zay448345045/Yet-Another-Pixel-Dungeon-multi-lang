@@ -25,21 +25,21 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class RationSmall extends Food {
 
-	{
-		name = "small ration";
-		image = ItemSpriteSheet.OVERPRICED;
+    {
+        name = "small ration";
+        image = ItemSpriteSheet.OVERPRICED;
 
-		energy = Satiety.MAXIMUM * 0.5f;
-		message = "That food tasted good!";
-	}
-	
-	@Override
-	public String desc() {
-		return "It looks exactly like a standard ration of food but smaller.";
-	}
-	
-	@Override
-	public int price() {
-		return 20 * quantity;
-	}
+        energy = Satiety.MAXIMUM * 0.5f;
+        message = "That food tasted good!";
+    }
+
+    @Override
+    public String desc() {
+        return "It looks exactly like a standard ration of food but smaller.";
+    }
+
+    @Override
+    public int price() {
+        return 20 * quantity;
+    }
 }

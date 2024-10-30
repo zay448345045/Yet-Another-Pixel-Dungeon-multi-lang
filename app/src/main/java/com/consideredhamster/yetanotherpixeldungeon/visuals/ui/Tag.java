@@ -20,21 +20,21 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.ui;
 
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Chrome;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.NinePatch;
 import com.watabou.noosa.ui.Button;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Chrome;
 
 public class Tag extends Button {
 
-	private float r;
-	private float g;
-	private float b;
-	protected NinePatch bg;
-	
-	protected float lightness = 0;
+    private float r;
+    private float g;
+    private float b;
+    protected NinePatch bg;
 
-    public Tag( int color ) {
+    protected float lightness = 0;
+
+    public Tag(int color) {
 
         super();
 
@@ -43,49 +43,48 @@ public class Tag extends Button {
         this.b = (color & 0xFF) / 255f;
 
 
-
         bg.ra = bg.ga = bg.ba = 0;
         bg.rm = this.r;
         bg.gm = this.g;
         bg.bm = this.b;
     }
-	
-	@Override
-	protected void createChildren() {
-		
-		super.createChildren();
-		
-		bg = Chrome.get( Chrome.Type.TAG_RIGHT );
-		add( bg );
-	}
-	
-	@Override
-	protected void layout() {
-		
-		super.layout();
-		
-		bg.x = x;
-		bg.y = y;
-		bg.size( width, height );
-	}
-	
-	public void flash() {
-		lightness = 1f;
-	}
-	
-	@Override
-	public void update() {
-		super.update();
-		
-		if (visible && lightness > 0.5) {
-			if ((lightness -= Game.elapsed) > 0.5) {
-				bg.ra = bg.ga = bg.ba = 2 * lightness - 1;
-				bg.rm = 2 * r * (1 - lightness);
-				bg.gm = 2 * g * (1 - lightness);
-				bg.bm = 2 * b * (1 - lightness);
-			} else {
-				bg.hardlight( r, g, b );
-			}
-		}
-	}
+
+    @Override
+    protected void createChildren() {
+
+        super.createChildren();
+
+        bg = Chrome.get(Chrome.Type.TAG_RIGHT);
+        add(bg);
+    }
+
+    @Override
+    protected void layout() {
+
+        super.layout();
+
+        bg.x = x;
+        bg.y = y;
+        bg.size(width, height);
+    }
+
+    public void flash() {
+        lightness = 1f;
+    }
+
+    @Override
+    public void update() {
+        super.update();
+
+        if (visible && lightness > 0.5) {
+            if ((lightness -= Game.elapsed) > 0.5) {
+                bg.ra = bg.ga = bg.ba = 2 * lightness - 1;
+                bg.rm = 2 * r * (1 - lightness);
+                bg.gm = 2 * g * (1 - lightness);
+                bg.bm = 2 * b * (1 - lightness);
+            } else {
+                bg.hardlight(r, g, b);
+            }
+        }
+    }
 }

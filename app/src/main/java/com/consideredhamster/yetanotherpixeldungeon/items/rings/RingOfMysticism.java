@@ -23,35 +23,35 @@ package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 import java.util.Locale;
 
 public class RingOfMysticism extends Ring {
-	
-	{
-		name = "Ring of Mysticism";
+
+    {
+        name = "Ring of Mysticism";
         shortName = "My";
-	}
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Mysticism();
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    @Override
+    protected RingBuff buff() {
+        return new Mysticism();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
         String sideEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 3 );
-            sideEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 3);
+            sideEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
         }
 
         StringBuilder desc = new StringBuilder(
-            "This ring was enchanted to increase magical sensitivity of it's wearer. Rings of " +
-            "this kind are often used by spellcasters of all kinds, since having greater " +
-            "attunement with magical currents really helps in their line of work."
+                "This ring was enchanted to increase magical sensitivity of it's wearer. Rings of " +
+                        "this kind are often used by spellcasters of all kinds, since having greater " +
+                        "attunement with magical currents really helps in their line of work."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -66,14 +66,14 @@ public class RingOfMysticism extends Ring {
         }
 
         return desc.toString();
-	}
-	
-	public class Mysticism extends RingBuff {
+    }
+
+    public class Mysticism extends RingBuff {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "Suddenly, your perception of magical currents is improved." :
-                "Suddenly, your perception of magical currents is dampened." ;
+                    "Suddenly, your perception of magical currents is improved." :
+                    "Suddenly, your perception of magical currents is dampened.";
         }
-	}
+    }
 }

@@ -25,12 +25,12 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
 public class Backpack extends Bag {
-	{
+    {
         name = "backpack";
         image = ItemSpriteSheet.BACKPACK;
 
         size = 19;
-	}
+    }
 
 //    @Override
 //    public ArrayList<String> actions( Hero hero ) {
@@ -58,9 +58,9 @@ public class Backpack extends Bag {
     }
 
     @Override
-    public boolean doPickUp( Hero hero ) {
+    public boolean doPickUp(Hero hero) {
 
-        return hero.belongings.getItem( Backpack.class ) == null && super.doPickUp( hero ) ;
+        return hero.belongings.getItem(Backpack.class) == null && super.doPickUp(hero);
 
     }
 }

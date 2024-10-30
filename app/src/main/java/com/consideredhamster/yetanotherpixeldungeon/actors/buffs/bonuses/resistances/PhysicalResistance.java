@@ -24,14 +24,16 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class PhysicalResistance extends ElementResistance {
-	
-	@Override
-	public String toString() {
-		return "Physical resistance";
-	}
 
     @Override
-    public String statusMessage() { return "physical resistance"; }
+    public String toString() {
+        return "Physical resistance";
+    }
+
+    @Override
+    public String statusMessage() {
+        return "physical resistance";
+    }
 
     @Override
     public String playerMessage() {
@@ -44,7 +46,7 @@ public class PhysicalResistance extends ElementResistance {
     }
 
     @Override
-    public Class<? extends Element> resistance(){
+    public Class<? extends Element> resistance() {
         return Element.Physical.class;
     }
 
@@ -56,6 +58,6 @@ public class PhysicalResistance extends ElementResistance {
     @Override
     public String description() {
         return "Somehow your entire skin becomes much tougher without affecting your mobility. " +
-            "Your resistance to physical damage is partially increased.";
+                "Your resistance to physical damage is partially increased.";
     }
 }

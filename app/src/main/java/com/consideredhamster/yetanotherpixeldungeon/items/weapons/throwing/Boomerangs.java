@@ -20,28 +20,27 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
 
 public class Boomerangs extends ThrowingWeaponSpecial {
 
-	{
-		name = "boomerangs";
-		image = ItemSpriteSheet.BOOMERANG;
-	}
+    {
+        name = "boomerangs";
+        image = ItemSpriteSheet.BOOMERANG;
+    }
 
-	public Boomerangs() {
-		this( 1 );
-	}
+    public Boomerangs() {
+        this(1);
+    }
 
-	public Boomerangs(int number) {
-        super( 3 );
-		quantity = number;
-	}
+    public Boomerangs(int number) {
+        super(3);
+        quantity = number;
+    }
 
     @Override
     public boolean returnsWhenThrown() {
@@ -49,26 +48,26 @@ public class Boomerangs extends ThrowingWeaponSpecial {
     }
 
     @Override
-    public int str( int bonus ) {
-        return super.str( bonus ) + 1;
+    public int str(int bonus) {
+        return super.str(bonus) + 1;
     }
 
     @Override
-    public int max( int bonus ) {
-        return super.max(bonus) + 1 ;
+    public int max(int bonus) {
+        return super.max(bonus) + 1;
     }
 
     @Override
-    public void proc( Char attacker, Char defender, int damage ) {
+    public void proc(Char attacker, Char defender, int damage) {
         super.proc(attacker, defender, damage);
 
-        BuffActive.addFromDamage( defender, Vertigo.class, damageRoll( (Hero) attacker ) );
+        BuffActive.addFromDamage(defender, Vertigo.class, damageRoll((Hero) attacker));
     }
-	
-	@Override
-	public String desc() {
-		return 
-			"Thrown to the enemy these flat curved wooden missiles will return to the hands of its thrower when missed. " +
-            "Their blunt edges do not deal significant damage, but precise throw of a boomerang can stun the target.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "Thrown to the enemy these flat curved wooden missiles will return to the hands of its thrower when missed. " +
+                        "Their blunt edges do not deal significant damage, but precise throw of a boomerang can stun the target.";
+    }
 }

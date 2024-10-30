@@ -25,7 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 public abstract class ThrowingWeaponSpecial extends ThrowingWeapon {
 
     public ThrowingWeaponSpecial(int tier) {
-        super( tier );
+        super(tier);
     }
 
     @Override
@@ -34,17 +34,17 @@ public abstract class ThrowingWeaponSpecial extends ThrowingWeapon {
     }
 
     @Override
-    public int min( int bonus ) {
+    public int min(int bonus) {
         return tier;
     }
 
     @Override
-    public int max( int bonus ) {
+    public int max(int bonus) {
         return 2 + tier * 3;
     }
 
     @Override
-    public int str( int bonus ) {
+    public int str(int bonus) {
         return 6 + tier * 2;
     }
 
@@ -60,6 +60,6 @@ public abstract class ThrowingWeaponSpecial extends ThrowingWeapon {
 
     @Override
     public int price() {
-        return quantity * ( 5 + tier * 5 );
+        return quantity * (5 + tier * 5);
     }
 }

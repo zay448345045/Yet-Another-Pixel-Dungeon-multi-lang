@@ -24,29 +24,29 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Bullets extends ThrowingWeaponAmmo {
 
-	{
-		name = "bullets";
-		image = ItemSpriteSheet.PELLET;
-	}
+    {
+        name = "bullets";
+        image = ItemSpriteSheet.PELLET;
+    }
 
-	public Bullets() {
-		this( 1 );
-	}
+    public Bullets() {
+        this(1);
+    }
 
-	public Bullets(int number) {
-        super( 1 );
-		quantity = number;
-	}
+    public Bullets(int number) {
+        super(1);
+        quantity = number;
+    }
 
     @Override
     public int image() {
         return quantity > 1 ? ItemSpriteSheet.PELLETS : image;
 //        return (isEquipped( Dungeon.hero ) || Dungeon.hero.belongings.backpack.items.contains(this) ) ? ItemSpriteSheet.PELLETS : image;
     }
-	
-	@Override
-	public String desc() {
-		return 
-			"These small bullets are made of lead and are perfect ammunition for slings.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "These small bullets are made of lead and are perfect ammunition for slings.";
+    }
 }

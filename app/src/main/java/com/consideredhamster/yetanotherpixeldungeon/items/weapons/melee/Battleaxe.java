@@ -24,27 +24,27 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Battleaxe extends MeleeWeaponHeavyTH {
 
-	{
-		name = "battle axe";
-		image = ItemSpriteSheet.BATTLE_AXE;
-	}
-	
-	public Battleaxe() {
-		super( 1 );
-	}
+    {
+        name = "battle axe";
+        image = ItemSpriteSheet.BATTLE_AXE;
+    }
 
-	@Override
-	public int max( int bonus ) {
-		return super.max(bonus) + 2;
-	}
+    public Battleaxe() {
+        super(1);
+    }
 
-	@Override
-	public Type weaponType() {
-		return Type.M_BLUNT;
-	}
-	
-	@Override
-	public String desc() {
-		return "The enormous steel head of this battle axe puts considerable heft behind each stroke.";
-	}
+    @Override
+    public int max(int bonus) {
+        return super.max(bonus) + 2;
+    }
+
+    @Override
+    public Type weaponType() {
+        return Type.M_BLUNT;
+    }
+
+    @Override
+    public String desc() {
+        return "The enormous steel head of this battle axe puts considerable heft behind each stroke.";
+    }
 }

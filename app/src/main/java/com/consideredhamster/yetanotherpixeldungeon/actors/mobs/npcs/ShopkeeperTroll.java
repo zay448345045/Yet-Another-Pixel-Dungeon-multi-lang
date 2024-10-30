@@ -20,27 +20,27 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs;
 
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ShopkeeperTrollSprite;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ShopkeeperTrollSprite;
 
 public class ShopkeeperTroll extends Shopkeeper {
 
-	private static final String TXT_GREETINGS = "A human down here?\nInteresting.";
-	
-	{
-		name = "troll shopkeeper";
-		spriteClass = ShopkeeperTrollSprite.class;
-	}
+    private static final String TXT_GREETINGS = "A human down here?\nInteresting.";
+
+    {
+        name = "troll shopkeeper";
+        spriteClass = ShopkeeperTrollSprite.class;
+    }
 
     @Override
     protected void greetings() {
-        yell( Utils.format(TXT_GREETINGS) );
+        yell(Utils.format(TXT_GREETINGS));
     }
-	
-	@Override
-	public String description() {
-		return 
-			"This troll looks like all trolls look: he is tall and lean, and his skin resembles stone " +
-            "in both color and texture. You haven't seen many trolls owning a shop, though.";
-	}
+
+    @Override
+    public String description() {
+        return
+                "This troll looks like all trolls look: he is tall and lean, and his skin resembles stone " +
+                        "in both color and texture. You haven't seen many trolls owning a shop, though.";
+    }
 }

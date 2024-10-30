@@ -61,14 +61,14 @@ public class Freezing extends Weapon.Enchantment {
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
-        BuffActive.addFromDamage( defender, Frozen.class, damage );
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
+        BuffActive.addFromDamage(defender, Frozen.class, damage);
         return true;
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
-        BuffActive.addFromDamage( attacker, Frozen.class, damage );
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
+        BuffActive.addFromDamage(attacker, Frozen.class, damage);
         return true;
     }
 }

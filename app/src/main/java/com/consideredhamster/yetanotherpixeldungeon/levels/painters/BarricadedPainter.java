@@ -20,62 +20,62 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.painters;
 
-import com.consideredhamster.yetanotherpixeldungeon.items.food.RationMedium;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.items.food.RationMedium;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfLiquidFlame;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
+import com.watabou.utils.Random;
 
 public class BarricadedPainter extends Painter {
 
-	public static void paint( Level level, Room room ) {
-		
-		final int floor = Terrain.EMPTY_SP;
-		
-		fill( level, room, Terrain.WALL );
-		fill( level, room, 1, floor );
+    public static void paint(Level level, Room room) {
+
+        final int floor = Terrain.EMPTY_SP;
+
+        fill(level, room, Terrain.WALL);
+        fill(level, room, 1, floor);
 
         if (room.width() > room.height()) {
-            for (int i=room.left + 2; i < room.right; i += 2) {
-                fill( level, i, room.top + 2, 1, room.height() - 3, Terrain.SHELF_EMPTY );
+            for (int i = room.left + 2; i < room.right; i += 2) {
+                fill(level, i, room.top + 2, 1, room.height() - 3, Terrain.SHELF_EMPTY);
             }
         } else {
-            for (int i=room.top + 2; i < room.bottom; i += 2) {
-                fill( level, room.left + 2, i, room.width() - 3, 1, Terrain.SHELF_EMPTY );
+            for (int i = room.top + 2; i < room.bottom; i += 2) {
+                fill(level, room.left + 2, i, room.width() - 3, 1, Terrain.SHELF_EMPTY);
             }
         }
-		
-		int n = 2 + Random.Int( (Dungeon.chapter() + 1) / 2 );
-		for (int i=0; i < n; i++) {
-			int pos;
-			do {
-				pos = room.random();
-			} while (level.map[pos] != floor);
-			level.drop( prize( level ), pos, true ).type = Heap.Type.BONES;
-		}
-		
-		room.entrance().set( Room.Door.Type.BARRICADE );
-		level.addItemToSpawn( new PotionOfLiquidFlame() );
-	}
-	
-	private static Item prize( Level level ) {
 
-		Item prize = level.itemToSpawnAsPrize( RationMedium.class );
+        int n = 2 + Random.Int((Dungeon.chapter() + 1) / 2);
+        for (int i = 0; i < n; i++) {
+            int pos;
+            do {
+                pos = room.random();
+            } while (level.map[pos] != floor);
+            level.drop(prize(level), pos, true).type = Heap.Type.BONES;
+        }
+
+        room.entrance().set(Room.Door.Type.BARRICADE);
+        level.addItemToSpawn(new PotionOfLiquidFlame());
+    }
+
+    private static Item prize(Level level) {
+
+        Item prize = level.itemToSpawnAsPrize(RationMedium.class);
 
         if (prize != null) {
             return prize;
         }
-		
-		return Generator.random( Random.oneOf(
-			Generator.Category.POTION,
-			Generator.Category.SCROLL,
-			Generator.Category.GOLD,
-			Generator.Category.MISC
-		) );
-	}
+
+        return Generator.random(Random.oneOf(
+                Generator.Category.POTION,
+                Generator.Category.SCROLL,
+                Generator.Category.GOLD,
+                Generator.Category.MISC
+        ));
+    }
 }

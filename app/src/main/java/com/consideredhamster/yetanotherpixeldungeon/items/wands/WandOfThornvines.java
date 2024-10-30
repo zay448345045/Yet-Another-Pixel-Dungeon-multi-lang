@@ -22,26 +22,24 @@ package com.consideredhamster.yetanotherpixeldungeon.items.wands;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Crippled;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Tormented;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.NPC;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.AcidParticle;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.LeafParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ThornvineSprite;
 import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
@@ -51,87 +49,87 @@ import java.util.HashSet;
 
 public class WandOfThornvines extends WandUtility {
 
-	{
-		name = "Wand of Thornvines";
+    {
+        name = "Wand of Thornvines";
         image = ItemSpriteSheet.WAND_THORNVINE;
         goThrough = false;
-	}
+    }
 
     @Override
-    public float effectiveness( int bonus ) {
-        return super.effectiveness( bonus ) * 0.90f;
+    public float effectiveness(int bonus) {
+        return super.effectiveness(bonus) * 0.90f;
     }
-	
-	@Override
-	protected void onZap( int cell ) {
+
+    @Override
+    protected void onZap(int cell) {
 
         // stats of thornvine depend on magic stats and wand stats
         int stats = damageRoll();
         int level = getCharges();
 
         // first we check the targeted tile
-        if( Thornvine.spawnAt( stats, level, cell ) == null ) {
+        if (Thornvine.spawnAt(stats, level, cell) == null) {
 
             // then we check the previous tile
-            int prevCell = Ballistica.trace[ Ballistica.distance - 1 ];
+            int prevCell = Ballistica.trace[Ballistica.distance - 1];
 
-            if( Thornvine.spawnAt( stats, level, prevCell ) == null ) {
+            if (Thornvine.spawnAt(stats, level, prevCell) == null) {
 
                 // and THEN we check all tiles around the targeted
                 ArrayList<Integer> candidates = new ArrayList<Integer>();
 
                 for (int n : Level.NEIGHBOURS8) {
                     int pos = cell + n;
-                    if( Level.adjacent( pos, prevCell ) && !Level.solid[ pos ] && !Level.chasm[ pos ] && Actor.findChar( pos ) == null ){
-                        candidates.add( pos );
+                    if (Level.adjacent(pos, prevCell) && !Level.solid[pos] && !Level.chasm[pos] && Actor.findChar(pos) == null) {
+                        candidates.add(pos);
                     }
                 }
 
-                if ( candidates.size() > 0 ){
-                    Thornvine.spawnAt( stats, level, candidates.get( Random.Int( candidates.size() ) ) );
+                if (candidates.size() > 0) {
+                    Thornvine.spawnAt(stats, level, candidates.get(Random.Int(candidates.size())));
                 } else {
-                    GLog.i( "nothing happened" );
+                    GLog.i("nothing happened");
                 }
             }
         }
 
-        CellEmitter.center( cell ).burst( LeafParticle.GENERAL, 5 );
-        Sample.INSTANCE.play( Assets.SND_PLANT );
-	}
-	
-	protected void fx( int cell, Callback callback ) {
-		MagicMissile.foliage( curUser.sprite.parent, curUser.pos, cell, callback );
-		Sample.INSTANCE.play( Assets.SND_ZAP );
-	}
-	
-	@Override
-	public String desc() {
-		return
-			"This wand possesses the mystical force of summoning forces of the very earth to the " +
-            "wielder's command, allowing him or her to spawn thornvines from the floor. These " +
-            "plants will fiercely lash out at any enemy passing through, and are especially strong " +
-            "when created on grass-covered tiles.";
-	}
+        CellEmitter.center(cell).burst(LeafParticle.GENERAL, 5);
+        Sample.INSTANCE.play(Assets.SND_PLANT);
+    }
+
+    protected void fx(int cell, Callback callback) {
+        MagicMissile.foliage(curUser.sprite.parent, curUser.pos, cell, callback);
+        Sample.INSTANCE.play(Assets.SND_ZAP);
+    }
+
+    @Override
+    public String desc() {
+        return
+                "This wand possesses the mystical force of summoning forces of the very earth to the " +
+                        "wielder's command, allowing him or her to spawn thornvines from the floor. These " +
+                        "plants will fiercely lash out at any enemy passing through, and are especially strong " +
+                        "when created on grass-covered tiles.";
+    }
 
     public static class Thornvine extends NPC {
 
         private int stats;
         private int charges;
 
-        public Thornvine(){
+        public Thornvine() {
 
             name = "thornvine";
             spriteClass = ThornvineSprite.class;
 
-            resistances.put( Element.Flame.class, Element.Resist.VULNERABLE );
+            resistances.put(Element.Flame.class, Element.Resist.VULNERABLE);
 
-            resistances.put( Element.Shock.class, Element.Resist.PARTIAL);
+            resistances.put(Element.Shock.class, Element.Resist.PARTIAL);
 //            resistances.put( Element.Body.class, Element.Resist.PARTIAL );
 
-            resistances.put( Element.Mind.class, Element.Resist.IMMUNE );
+            resistances.put(Element.Mind.class, Element.Resist.IMMUNE);
 //            resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
 
-            resistances.put( Element.Knockback.class, Element.Resist.IMMUNE );
+            resistances.put(Element.Knockback.class, Element.Resist.IMMUNE);
 
             PASSIVE = new Guarding();
             hostile = false;
@@ -156,13 +154,15 @@ public class WandOfThornvines extends WandUtility {
         @Override
         public int viewDistance() {
             return 1;
-        };
+        }
+
+        ;
 
         @Override
         protected boolean act() {
 
-            if( --HP <= 0 ){
-                die( this );
+            if (--HP <= 0) {
+                die(this);
                 return true;
             }
 
@@ -171,36 +171,36 @@ public class WandOfThornvines extends WandUtility {
 
 
         @Override
-        public void interact(){
+        public void interact() {
 
-            if( Dungeon.hero.belongings.weap2 instanceof WandOfThornvines ) {
+            if (Dungeon.hero.belongings.weap2 instanceof WandOfThornvines) {
 
                 // we restore at least one charge less than what was spent on the vine
-                ((WandOfThornvines)Dungeon.hero.belongings.weap2).addCharges( ( ( HP - 1 ) * charges / HT ) );
-                GLog.i( "You recall the thornvine into the wand." );
+                ((WandOfThornvines) Dungeon.hero.belongings.weap2).addCharges(((HP - 1) * charges / HT));
+                GLog.i("You recall the thornvine into the wand.");
 
             } else {
 
-                GLog.i( "You unsummon the thornvine." );
+                GLog.i("You unsummon the thornvine.");
 
             }
 
-            Dungeon.hero.sprite.pickup( pos );
-            Sample.INSTANCE.play( Assets.SND_MELD );
+            Dungeon.hero.sprite.pickup(pos);
+            Sample.INSTANCE.play(Assets.SND_MELD);
 
-            Dungeon.hero.spend( TICK );
+            Dungeon.hero.spend(TICK);
             Dungeon.hero.busy();
 
-            die( this );
+            die(this);
 
         }
 
         @Override
-        public int attackProc( Char enemy, int damage, boolean blocked ) {
+        public int attackProc(Char enemy, int damage, boolean blocked) {
 
             // thornvines apply crippled on hit
-            if( !blocked ) {
-                BuffActive.addFromDamage( enemy, Crippled.class, damage );
+            if (!blocked) {
+                BuffActive.addFromDamage(enemy, Crippled.class, damage);
             }
 
             return damage;
@@ -210,17 +210,17 @@ public class WandOfThornvines extends WandUtility {
         protected Char chooseEnemy() {
 
             // thornvines attack your enemies by default
-            if ( enemy == null || !enemy.isAlive() ) {
+            if (enemy == null || !enemy.isAlive()) {
 
                 HashSet<Mob> enemies = new HashSet<Mob>();
 
-                for ( Mob mob: Dungeon.level.mobs ) {
-                    if ( mob.hostile && !mob.friendly && Level.fieldOfView[mob.pos] ) {
-                        enemies.add( mob );
+                for (Mob mob : Dungeon.level.mobs) {
+                    if (mob.hostile && !mob.friendly && Level.fieldOfView[mob.pos]) {
+                        enemies.add(mob);
                     }
                 }
 
-                return enemies.size() > 0 ? Random.element( enemies ) : null;
+                return enemies.size() > 0 ? Random.element(enemies) : null;
 
             } else {
 
@@ -229,7 +229,7 @@ public class WandOfThornvines extends WandUtility {
             }
         }
 
-        private void adjustStats( int stats, int charges ) {
+        private void adjustStats(int stats, int charges) {
 
             HT = stats + charges * 2 + 2;
             armorClass = 0;
@@ -244,28 +244,28 @@ public class WandOfThornvines extends WandUtility {
             this.charges = charges;
         }
 
-        public static Thornvine spawnAt( int stats, int charges, int pos ){
+        public static Thornvine spawnAt(int stats, int charges, int pos) {
 
             // cannot spawn on walls, chasms or already occupied tiles
-            if ( !Level.solid[pos] && !Level.chasm[pos] && Actor.findChar( pos ) == null ){
+            if (!Level.solid[pos] && !Level.chasm[pos] && Actor.findChar(pos) == null) {
 
                 Thornvine vine = new Thornvine();
 
-                if( Dungeon.level.map[ pos ] == Terrain.GRASS || Dungeon.level.map[ pos ] == Terrain.HIGH_GRASS ){
-                    stats += ( stats / 2 + Random.Int( stats % 2 + 1 ) );
+                if (Dungeon.level.map[pos] == Terrain.GRASS || Dungeon.level.map[pos] == Terrain.HIGH_GRASS) {
+                    stats += (stats / 2 + Random.Int(stats % 2 + 1));
                 }
 
-                vine.adjustStats( stats, charges );
+                vine.adjustStats(stats, charges);
                 vine.HP = vine.HT;
 
                 vine.pos = pos;
                 vine.enemySeen = true;
                 vine.state = vine.PASSIVE;
 
-                GameScene.add( vine, 0f );
-                Dungeon.level.press( vine.pos, vine );
+                GameScene.add(vine, 0f);
+                Dungeon.level.press(vine.pos, vine);
 
-                vine.sprite.emitter().burst( LeafParticle.LEVEL_SPECIFIC, 5 );
+                vine.sprite.emitter().burst(LeafParticle.LEVEL_SPECIFIC, 5);
                 vine.sprite.spawn();
 
                 return vine;
@@ -280,22 +280,22 @@ public class WandOfThornvines extends WandUtility {
         private class Guarding extends Mob.Passive {
 
             @Override
-            public boolean act( boolean enemyInFOV, boolean justAlerted ){
+            public boolean act(boolean enemyInFOV, boolean justAlerted) {
 
-                if (enemyInFOV && canAttack( enemy ) && enemy != Dungeon.hero ) {
+                if (enemyInFOV && canAttack(enemy) && enemy != Dungeon.hero) {
 
-                    return doAttack( enemy );
+                    return doAttack(enemy);
 
                 } else {
 
-                    spend( TICK );
+                    spend(TICK);
                     return true;
 
                 }
             }
 
             @Override
-            public String status(){
+            public String status() {
                 return "guarding";
             }
         }
@@ -303,26 +303,26 @@ public class WandOfThornvines extends WandUtility {
         @Override
         public String description() {
             return
-                "Thornvines are kind of semisentient plants which are very territorial and will " +
-                "attack anything which comes near. Their sharp thorns can inflict grievous wounds, " +
-                "but they are very vulnerable to fire and will quickly wither as time passes. " +
-                "You can unsummon it by interacting with it while holding your wand.";
+                    "Thornvines are kind of semisentient plants which are very territorial and will " +
+                            "attack anything which comes near. Their sharp thorns can inflict grievous wounds, " +
+                            "but they are very vulnerable to fire and will quickly wither as time passes. " +
+                            "You can unsummon it by interacting with it while holding your wand.";
         }
 
-        private static final String STATS	= "stats";
-        private static final String CHARGES	= "charges";
+        private static final String STATS = "stats";
+        private static final String CHARGES = "charges";
 
         @Override
-        public void storeInBundle( Bundle bundle ) {
+        public void storeInBundle(Bundle bundle) {
             super.storeInBundle(bundle);
-            bundle.put( STATS, stats );
-            bundle.put( CHARGES, charges );
+            bundle.put(STATS, stats);
+            bundle.put(CHARGES, charges);
         }
 
         @Override
-        public void restoreFromBundle( Bundle bundle ) {
+        public void restoreFromBundle(Bundle bundle) {
             super.restoreFromBundle(bundle);
-            adjustStats( bundle.getInt( STATS ), bundle.getInt( CHARGES ) );
+            adjustStats(bundle.getInt(STATS), bundle.getInt(CHARGES));
         }
     }
 }

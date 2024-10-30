@@ -24,17 +24,17 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Warhammer extends MeleeWeaponHeavyTH {
 
-	{
-		name = "warhammer";
-		image = ItemSpriteSheet.WARHAMMER;
-	}
-	
-	public Warhammer() {
-		super( 3 );
-	}
+    {
+        name = "warhammer";
+        image = ItemSpriteSheet.WARHAMMER;
+    }
+
+    public Warhammer() {
+        super(3);
+    }
 
     @Override
-    public int max( int bonus ) {
+    public int max(int bonus) {
         return super.max(bonus) - 3;
     }
 
@@ -43,15 +43,15 @@ public class Warhammer extends MeleeWeaponHeavyTH {
         return super.lootChapter() - 1;
     }
 
-	@Override
-	public Type weaponType() {
-		return Type.M_BLUNT;
-	}
-	
-	@Override
-	public String desc() {
-		return 
-			"Few creatures can withstand the crushing blow of this towering mass of lead and steel, " +
-			"but only the strongest of adventurers can use it effectively.";
-	}
+    @Override
+    public Type weaponType() {
+        return Type.M_BLUNT;
+    }
+
+    @Override
+    public String desc() {
+        return
+                "Few creatures can withstand the crushing blow of this towering mass of lead and steel, " +
+                        "but only the strongest of adventurers can use it effectively.";
+    }
 }

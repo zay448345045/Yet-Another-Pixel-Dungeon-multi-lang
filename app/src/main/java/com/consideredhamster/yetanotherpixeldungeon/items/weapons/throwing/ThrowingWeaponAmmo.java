@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 public abstract class ThrowingWeaponAmmo extends ThrowingWeapon {
 
     public ThrowingWeaponAmmo(int tier) {
-        super( tier );
+        super(tier);
     }
 
     @Override
@@ -35,17 +35,17 @@ public abstract class ThrowingWeaponAmmo extends ThrowingWeapon {
     }
 
     @Override
-    public int min( int bonus ) {
+    public int min(int bonus) {
         return tier - 1;
     }
 
     @Override
-    public int max( int bonus ) {
+    public int max(int bonus) {
         return tier + 1;
     }
 
     @Override
-    public int str( int bonus ) {
+    public int str(int bonus) {
         return 5;
     }
 
@@ -56,7 +56,7 @@ public abstract class ThrowingWeaponAmmo extends ThrowingWeapon {
 
     @Override
     public int baseAmount() {
-        return 25 - tier * 5 ;
+        return 25 - tier * 5;
     }
 
     @Override
@@ -71,21 +71,21 @@ public abstract class ThrowingWeaponAmmo extends ThrowingWeapon {
 
         final String p = "\n\n";
 
-        StringBuilder info = new StringBuilder( desc() );
+        StringBuilder info = new StringBuilder(desc());
 
-        info.append( p );
+        info.append(p);
 
-        if (isEquipped( Dungeon.hero )) {
+        if (isEquipped(Dungeon.hero)) {
 
             info.append("You hold these " + name + " at the ready.");
 
-        } else if( Dungeon.hero.belongings.backpack.contains(this) ) {
+        } else if (Dungeon.hero.belongings.backpack.contains(this)) {
 
-            info.append( "These " + name + " are in your backpack. " );
+            info.append("These " + name + " are in your backpack. ");
 
         } else {
 
-            info.append( "These " + name + " are on the dungeon's floor." );
+            info.append("These " + name + " are on the dungeon's floor.");
 
         }
 

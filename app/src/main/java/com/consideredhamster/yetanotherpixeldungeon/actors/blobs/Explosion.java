@@ -20,39 +20,34 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.blobs;
 
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.levels.features.Chasm;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.BlastParticle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SmokeParticle;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SmokeParticle;
 
 public class Explosion {
 
     // FIXME
     private static Explosion EXPLOSION = new Explosion();
 
-	// Returns true, if this cell is visible
-	public static boolean affect( int c, int r, int radius, int damage, Object source ) {
+    // Returns true, if this cell is visible
+    public static boolean affect(int c, int r, int radius, int damage, Object source) {
 
         boolean terrainAffected = false;
 
         if (Dungeon.visible[c]) {
-            CellEmitter.get( c ).start( Speck.factory( Speck.BLAST_FIRE, true ), 0.05f, 6 );
+            CellEmitter.get(c).start(Speck.factory(Speck.BLAST_FIRE, true), 0.05f, 6);
 //            CellEmitter.get(c).burst( BlastParticle.FACTORY, 6 );
-            CellEmitter.get(c).burst( SmokeParticle.FACTORY, 3 );
+            CellEmitter.get(c).burst(SmokeParticle.FACTORY, 3);
         }
 
         if (Level.flammable[c]) {
@@ -74,14 +69,14 @@ public class Explosion {
 //            dmg /= ( radius + 2 );
 
             if (damage > 0) {
-                ch.damage(Char.absorb(damage, ch.armorClass(), true ), EXPLOSION, Element.EXPLOSION);
-                if ( ch.isAlive() ) {
-                    BuffActive.addFromDamage( ch, Vertigo.class, damage );
+                ch.damage(Char.absorb(damage, ch.armorClass(), true), EXPLOSION, Element.EXPLOSION);
+                if (ch.isAlive()) {
+                    BuffActive.addFromDamage(ch, Vertigo.class, damage);
                 }
             }
         }
 
-        if( Dungeon.hero.isAlive() ) {
+        if (Dungeon.hero.isAlive()) {
             Heap heap = Dungeon.level.heaps.get(c);
             if (heap != null) {
                 heap.blast();
@@ -92,5 +87,5 @@ public class Explosion {
 
         return terrainAffected;
 
-	}
+    }
 }

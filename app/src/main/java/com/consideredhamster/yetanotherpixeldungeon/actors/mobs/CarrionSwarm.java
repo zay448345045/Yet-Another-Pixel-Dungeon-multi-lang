@@ -30,7 +30,7 @@ public class CarrionSwarm extends MobEvasive {
 
     public CarrionSwarm() {
 
-        super( 5 );
+        super(5);
 
         /*
 
@@ -53,11 +53,11 @@ public class CarrionSwarm extends MobEvasive {
         spriteClass = SwarmSprite.class;
         flying = true;
 
-        resistances.put( Element.Knockback.class, Element.Resist.VULNERABLE );
-        resistances.put( Element.Mind.class, Element.Resist.VULNERABLE );
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Knockback.class, Element.Resist.VULNERABLE);
+        resistances.put(Element.Mind.class, Element.Resist.VULNERABLE);
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
 
-	}
+    }
 
 //    @Override
 //    public float attackDelay() {
@@ -68,19 +68,19 @@ public class CarrionSwarm extends MobEvasive {
     public String description() {
         return
                 "The deadly swarm of flies buzzes angrily. These unclean foes " +
-                "have uncanny sense of smell when it comes to anything edible.";
+                        "have uncanny sense of smell when it comes to anything edible.";
     }
 
     @Override
-    public int attackProc( Char enemy, int damage, boolean blocked  ) {
+    public int attackProc(Char enemy, int damage, boolean blocked) {
 
-        if( !blocked && damage > 0 ){
+        if (!blocked && damage > 0) {
 
-            Satiety hunger = enemy.buff( Satiety.class );
+            Satiety hunger = enemy.buff(Satiety.class);
 
-            if( hunger != null ){
+            if (hunger != null) {
 
-                hunger.decrease( Satiety.POINT * 10 );
+                hunger.decrease(Satiety.POINT * 10);
 
             }
 
@@ -90,8 +90,8 @@ public class CarrionSwarm extends MobEvasive {
     }
 
     @Override
-    public void die( Object cause, Element dmg ) {
-        Ghost.Quest.process( pos );
-        super.die( cause, dmg );
+    public void die(Object cause, Element dmg) {
+        Ghost.Quest.process(pos);
+        super.die(cause, dmg);
     }
 }

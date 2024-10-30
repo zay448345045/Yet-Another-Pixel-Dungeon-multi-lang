@@ -24,24 +24,24 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Quarterstaff extends MeleeWeaponHeavyOH {
 
-	{
-		name = "quarterstaff";
-		image = ItemSpriteSheet.QUARTERSTAFF;
-	}
-	
-	public Quarterstaff() {
-		super( 1 );
-	}
+    {
+        name = "quarterstaff";
+        image = ItemSpriteSheet.QUARTERSTAFF;
+    }
 
-	@Override
-	public Type weaponType() {
-		return Type.M_POLEARM;
-	}
-	
-	@Override
-	public String desc() {
-		return "A staff of hardwood, its ends are shod with iron. Favourite weapon of spellcasters, " +
+    public Quarterstaff() {
+        super(1);
+    }
+
+    @Override
+    public Type weaponType() {
+        return Type.M_POLEARM;
+    }
+
+    @Override
+    public String desc() {
+        return "A staff of hardwood, its ends are shod with iron. Favourite weapon of spellcasters, " +
                 "as it allows easier channeling of magical energies, increasing effectiveness of " +
                 "any wands used by its wielder.";
-	}
+    }
 }

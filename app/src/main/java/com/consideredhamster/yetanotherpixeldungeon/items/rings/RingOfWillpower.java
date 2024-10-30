@@ -27,20 +27,21 @@ import java.util.Locale;
 
 public class RingOfWillpower extends Ring {
 
-	{
-		name = "Ring of Willpower";
+    {
+        name = "Ring of Willpower";
         shortName = "Wi";
-	}
+    }
 
     public static final HashSet<Class<? extends Element>> RESISTS = new HashSet<>();
+
     static {
         RESISTS.add(Element.Mind.class);
     }
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Willpower();
-	}
+
+    @Override
+    protected RingBuff buff() {
+        return new Willpower();
+    }
 
     @Override
     public String desc() {
@@ -48,18 +49,18 @@ public class RingOfWillpower extends Ring {
         String mainEffect = "??";
         String sideEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 2 );
-            sideEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
+            sideEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
         }
 
         StringBuilder desc = new StringBuilder(
-            "By increasing wearer's willpower, this ring indirectly increases their magical " +
-            "abilities. Also, it offers additional benefit of making it easier to " +
-            "shrug off all kinds of mental debuffs."
+                "By increasing wearer's willpower, this ring indirectly increases their magical " +
+                        "abilities. Also, it offers additional benefit of making it easier to " +
+                        "shrug off all kinds of mental debuffs."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -80,8 +81,8 @@ public class RingOfWillpower extends Ring {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "Your arcane proficiency is improved." :
-                "Your arcane proficiency is decreased." ;
+                    "Your arcane proficiency is improved." :
+                    "Your arcane proficiency is decreased.";
         }
     }
 }

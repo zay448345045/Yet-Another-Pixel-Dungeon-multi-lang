@@ -28,11 +28,11 @@ import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 
 public class ToxicTrap extends Trap {
 
-	// 0x40CC55
-	
-	public static void trigger( int pos, Char ch ) {
-		
-		GameScene.add( Blob.seed( pos, 300 + 10 * Dungeon.depth, ToxicGas.class ) );
-		
-	}
+    // 0x40CC55
+
+    public static void trigger(int pos, Char ch) {
+
+        GameScene.add(Blob.seed(pos, 300 + 10 * Dungeon.depth, ToxicGas.class));
+
+    }
 }

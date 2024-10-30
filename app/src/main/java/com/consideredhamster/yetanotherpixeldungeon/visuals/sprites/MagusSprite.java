@@ -20,34 +20,34 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.TextureFilm;
 
 public class MagusSprite extends MobSprite {
 
-	public MagusSprite() {
-		super();
-		
-		texture( Assets.MAGUS );
+    public MagusSprite() {
+        super();
 
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
-		
-		idle = new Animation( 5, true );
-		idle.frames(frames, 0, 1, 2, 3 );
+        texture(Assets.MAGUS);
 
-        run = new Animation( 5, true );
-        run.frames( frames, 4, 5, 6, 7 );
+        TextureFilm frames = new TextureFilm(texture, 16, 16);
 
-        attack = new Animation( 15, false );
-        attack.frames( frames, 8, 9, 10, 11, 12, 13 );
+        idle = new Animation(5, true);
+        idle.frames(frames, 0, 1, 2, 3);
 
-        die = new Animation( 10, false );
-        die.frames( frames, 14, 15, 16, 17, 18, 19, 20, 21 );
-		
-		cast = attack.clone();
-		
-		play( idle );
-	}
+        run = new Animation(5, true);
+        run.frames(frames, 4, 5, 6, 7);
+
+        attack = new Animation(15, false);
+        attack.frames(frames, 8, 9, 10, 11, 12, 13);
+
+        die = new Animation(10, false);
+        die.frames(frames, 14, 15, 16, 17, 18, 19, 20, 21);
+
+        cast = attack.clone();
+
+        play(idle);
+    }
 
     @Override
     public int blood() {

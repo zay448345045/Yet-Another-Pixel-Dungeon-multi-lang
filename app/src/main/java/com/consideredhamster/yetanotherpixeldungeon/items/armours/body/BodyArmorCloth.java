@@ -18,23 +18,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
- 
+
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
 public abstract class BodyArmorCloth extends BodyArmor {
 
     public BodyArmorCloth(int tier) {
-        super( tier );
+        super(tier);
     }
 
     @Override
-    public int str( int bonus ) {
+    public int str(int bonus) {
         return super.str(bonus) - 4;
     }
 
     @Override
-    public int dr( int bonus ) {
-        return super.dr( bonus ) - 4;
+    public int dr(int bonus) {
+        return super.dr(bonus) - 4;
     }
 
     @Override

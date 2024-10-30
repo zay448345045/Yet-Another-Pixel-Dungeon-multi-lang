@@ -24,22 +24,22 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Mace extends MeleeWeaponHeavyOH {
 
-	{
-		name = "mace";
-		image = ItemSpriteSheet.MACE;
-	}
-	
-	public Mace() {
-		super( 2 );
-	}
+    {
+        name = "mace";
+        image = ItemSpriteSheet.MACE;
+    }
 
-	@Override
-	public Type weaponType() {
-		return Type.M_BLUNT;
-	}
-	
-	@Override
-	public String desc() {
-		return "The iron head of this weapon inflicts substantial damage.";
-	}
+    public Mace() {
+        super(2);
+    }
+
+    @Override
+    public Type weaponType() {
+        return Type.M_BLUNT;
+    }
+
+    @Override
+    public String desc() {
+        return "The iron head of this weapon inflicts substantial damage.";
+    }
 }

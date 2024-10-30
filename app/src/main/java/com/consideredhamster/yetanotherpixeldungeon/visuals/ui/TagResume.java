@@ -20,51 +20,51 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.ui;
 
-import com.watabou.noosa.Image;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
+import com.watabou.noosa.Image;
 
 public class TagResume extends Tag {
-	
-	private Image icon;
-	
-	public TagResume() {
-		super( 0xCDD5C0 );
-		
-		setSize( 24, 22 );
-		
-		visible = false;
-	}
-	
-	@Override
-	protected void createChildren() {
-		super.createChildren();
-		
-		icon = Icons.get( Icons.RESUME );
-		add( icon );
-	}
-	
-	@Override
-	protected void layout() {
-		super.layout();
-		
-		icon.x = PixelScene.align( PixelScene.uiCamera, x+1 + (width - icon.width) / 2 );
-		icon.y = PixelScene.align( PixelScene.uiCamera, y + (height - icon.height) / 2 );
-	}
-	
-	@Override
-	public void update() {
-		boolean prevVisible = visible;
-		visible = (Dungeon.hero.lastAction != null);
-		if (visible && !prevVisible) {
-			flash();
-		}
 
-		super.update();
-	}
-	
-	@Override
-	protected void onClick() {
-		Dungeon.hero.resume();
-	}
+    private Image icon;
+
+    public TagResume() {
+        super(0xCDD5C0);
+
+        setSize(24, 22);
+
+        visible = false;
+    }
+
+    @Override
+    protected void createChildren() {
+        super.createChildren();
+
+        icon = Icons.get(Icons.RESUME);
+        add(icon);
+    }
+
+    @Override
+    protected void layout() {
+        super.layout();
+
+        icon.x = PixelScene.align(PixelScene.uiCamera, x + 1 + (width - icon.width) / 2);
+        icon.y = PixelScene.align(PixelScene.uiCamera, y + (height - icon.height) / 2);
+    }
+
+    @Override
+    public void update() {
+        boolean prevVisible = visible;
+        visible = (Dungeon.hero.lastAction != null);
+        if (visible && !prevVisible) {
+            flash();
+        }
+
+        super.update();
+    }
+
+    @Override
+    protected void onClick() {
+        Dungeon.hero.resume();
+    }
 }

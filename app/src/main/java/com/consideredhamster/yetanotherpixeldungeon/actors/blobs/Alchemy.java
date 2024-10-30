@@ -24,45 +24,43 @@ import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Journal;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.watabou.utils.Bundle;
 
 public class Alchemy extends Blob {
 
-	protected int pos;
-	
-	@Override
-	public void restoreFromBundle( Bundle bundle ) {
-		super.restoreFromBundle( bundle );
-		
-		for (int i=0; i < LENGTH; i++) {
-			if (cur[i] > 0) {
-				pos = i;
-				break;
-			}
-		}
-	}
-	
-	@Override
-	protected void evolve() {
-		volume = off[pos] = cur[pos];
-		
-		if (Dungeon.visible[pos]) {
-			Journal.add( Journal.Feature.ALCHEMY );
-		}
-	}
-	
-	@Override
-	public void seed( int cell, int amount ) {
-		cur[pos] = 0;
-		pos = cell;
-		volume = cur[pos] = amount;
-	}
-	
-	@Override
-	public void use( BlobEmitter emitter ) {
-		super.use( emitter );	
-		emitter.start( Speck.factory( Speck.BUBBLE ), 0.4f, 0 );
-	}
+    protected int pos;
+
+    @Override
+    public void restoreFromBundle(Bundle bundle) {
+        super.restoreFromBundle(bundle);
+
+        for (int i = 0; i < LENGTH; i++) {
+            if (cur[i] > 0) {
+                pos = i;
+                break;
+            }
+        }
+    }
+
+    @Override
+    protected void evolve() {
+        volume = off[pos] = cur[pos];
+
+        if (Dungeon.visible[pos]) {
+            Journal.add(Journal.Feature.ALCHEMY);
+        }
+    }
+
+    @Override
+    public void seed(int cell, int amount) {
+        cur[pos] = 0;
+        pos = cell;
+        volume = cur[pos] = amount;
+    }
+
+    @Override
+    public void use(BlobEmitter emitter) {
+        super.use(emitter);
+        emitter.start(Speck.factory(Speck.BUBBLE), 0.4f, 0);
+    }
 }

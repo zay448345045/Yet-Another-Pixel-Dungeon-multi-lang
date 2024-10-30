@@ -21,14 +21,12 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
 public class Tormented extends Debuff {
-	
-	public final static String TXT_CANNOT_ATTACK = "You are in panic! You cannot attack!";
+
+    public final static String TXT_CANNOT_ATTACK = "You are in panic! You cannot attack!";
 
     @Override
     public Element buffType() {
@@ -41,10 +39,14 @@ public class Tormented extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "tormented"; }
+    public String statusMessage() {
+        return "tormented";
+    }
 
     @Override
-    public String playerMessage() { return "Your mind is seized with fear and pain!"; }
+    public String playerMessage() {
+        return "Your mind is seized with fear and pain!";
+    }
 
     @Override
     public int icon() {
@@ -70,7 +72,7 @@ public class Tormented extends Debuff {
     @Override
     public boolean act() {
 
-        target.damage( Random.Int( (int) Math.sqrt( target.currentHealthValue() * 1.5f ) ) + 1, this, Element.MIND );
+        target.damage(Random.Int((int) Math.sqrt(target.currentHealthValue() * 1.5f)) + 1, this, Element.MIND);
 
         return super.act();
 

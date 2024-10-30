@@ -20,50 +20,50 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.ui;
 
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Image;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
+import com.watabou.noosa.BitmapText;
+import com.watabou.noosa.Camera;
+import com.watabou.noosa.Image;
 
 public class TagDanger extends Tag {
 
-    private static final float ENABLED	= 1.0f;
-    private static final float DISABLED	= 0.3f;
-	
-	public static final int COLOR	= 0xFF4C4C;
-	
-	private BitmapText number;
-	private Image icon;
-	
-	private int enemyIndex = 0;
-	
-	private int lastNumber = -1;
+    private static final float ENABLED = 1.0f;
+    private static final float DISABLED = 0.3f;
+
+    public static final int COLOR = 0xFF4C4C;
+
+    private BitmapText number;
+    private Image icon;
+
+    private int enemyIndex = 0;
+
+    private int lastNumber = -1;
 
     private boolean enabled = true;
 
     public TagDanger() {
-		super( 0xFF4C4C );
-		
-		setSize( 24, 16 );
-		
-		visible = false;
-	}
+        super(0xFF4C4C);
 
-    private void enable( boolean value ) {
+        setSize(24, 16);
+
+        visible = false;
+    }
+
+    private void enable(boolean value) {
         enabled = value;
 
         if (icon != null) {
-            icon.alpha( value ? ENABLED : DISABLED );
+            icon.alpha(value ? ENABLED : DISABLED);
         }
 
         if (number != null) {
-            number.alpha( value ? ENABLED : DISABLED );
+            number.alpha(value ? ENABLED : DISABLED);
         }
     }
 
-    private void visible( boolean value ) {
+    private void visible(boolean value) {
         bg.visible = value;
 
         if (icon != null) {
@@ -74,79 +74,79 @@ public class TagDanger extends Tag {
             number.visible = value;
         }
     }
-	
-	@Override
-	protected void createChildren() {
-		super.createChildren();
-		
-		number = new BitmapText( PixelScene.font1x );
-		add( number );
-		
-		icon = Icons.SKULL.get();
-		add( icon );
-	}
-	
-	@Override
-	protected void layout() {
-		super.layout();
-		
-		icon.x = right() - 10;
-		icon.y = y + (height - icon.height) / 2;
-		
-		placeNumber();
-	}
-	
-	private void placeNumber() {
-		number.x = right() - 11 - number.width();
-		number.y = PixelScene.align( y + (height - number.baseLine()) / 2 );
-	}
-	
-	@Override
-	public void update() {
-		
-		if (Dungeon.hero.isAlive()) {
-			int v = Dungeon.hero.visibleEnemies().size();
-			if (v != lastNumber) {
-				lastNumber = v;
-				if (visible = lastNumber > 0) {
-					number.text( Integer.toString( lastNumber ) );
-					number.measure();
-					placeNumber();
 
-					flash();
-				}
-			}
+    @Override
+    protected void createChildren() {
+        super.createChildren();
+
+        number = new BitmapText(PixelScene.font1x);
+        add(number);
+
+        icon = Icons.SKULL.get();
+        add(icon);
+    }
+
+    @Override
+    protected void layout() {
+        super.layout();
+
+        icon.x = right() - 10;
+        icon.y = y + (height - icon.height) / 2;
+
+        placeNumber();
+    }
+
+    private void placeNumber() {
+        number.x = right() - 11 - number.width();
+        number.y = PixelScene.align(y + (height - number.baseLine()) / 2);
+    }
+
+    @Override
+    public void update() {
+
+        if (Dungeon.hero.isAlive()) {
+            int v = Dungeon.hero.visibleEnemies().size();
+            if (v != lastNumber) {
+                lastNumber = v;
+                if (visible = lastNumber > 0) {
+                    number.text(Integer.toString(lastNumber));
+                    number.measure();
+                    placeNumber();
+
+                    flash();
+                }
+            }
 
             if (!Dungeon.hero.ready) {
-                enable( false );
+                enable(false);
             } else {
-                enable( visible );
+                enable(visible);
             }
 
         } else {
-			enable( false );
-            visible( false );
-		}
-		
-		super.update();
-	}
-	
-	@Override
-	protected void onClick() {
-		
-		Mob target = next();
+            enable(false);
+            visible(false);
+        }
 
-		if( target != null ) {
+        super.update();
+    }
+
+    @Override
+    protected void onClick() {
+
+        Mob target = next();
+
+        if (target != null) {
             Camera.main.target = null;
             Camera.main.focusOn(target.sprite);
         }
-	}
+    }
 
     public Mob next() {
 
-        Mob target = Dungeon.hero.visibleEnemy( enemyIndex++ );
+        Mob target = Dungeon.hero.visibleEnemy(enemyIndex++);
 
-        if( target != null ) {
+        if (target != null) {
             TagAttack.instance.target(target);
             HealthIndicator.instance.target(target);
         }

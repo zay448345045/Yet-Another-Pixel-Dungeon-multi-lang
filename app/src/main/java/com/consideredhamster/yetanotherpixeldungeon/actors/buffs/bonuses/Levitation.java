@@ -34,10 +34,14 @@ public class Levitation extends Bonus {
     }
 
     @Override
-    public String statusMessage() { return "levitating"; }
+    public String statusMessage() {
+        return "levitating";
+    }
 
     @Override
-    public String playerMessage() { return "You start floating in the air!"; }
+    public String playerMessage() {
+        return "You start floating in the air!";
+    }
 
     @Override
     public int icon() {
@@ -45,36 +49,36 @@ public class Levitation extends Bonus {
     }
 
     @Override
-    public void applyVisual(){
-        target.sprite.add( CharSprite.State.LEVITATING );
+    public void applyVisual() {
+        target.sprite.add(CharSprite.State.LEVITATING);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.LEVITATING );
+        target.sprite.remove(CharSprite.State.LEVITATING);
     }
 
     @Override
     public String description() {
         return "The whole body feels like it is lighter than air! While levitating, traps and " +
-            "terrain effects do not affect you, and your movement speed and dexterity are increased.";
+                "terrain effects do not affect you, and your movement speed and dexterity are increased.";
     }
-	
-	@Override
-	public boolean attachTo( Char target ) {
-		if (super.attachTo( target )) {
-			target.flying = true;
-			Ensnared.detach(target, Ensnared.class);
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	@Override
-	public void detach() {
-		target.flying = false;
-		Dungeon.level.press( target.pos, target );
-		super.detach();
-	}
+
+    @Override
+    public boolean attachTo(Char target) {
+        if (super.attachTo(target)) {
+            target.flying = true;
+            Ensnared.detach(target, Ensnared.class);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public void detach() {
+        target.flying = false;
+        Dungeon.level.press(target.pos, target);
+        super.detach();
+    }
 }

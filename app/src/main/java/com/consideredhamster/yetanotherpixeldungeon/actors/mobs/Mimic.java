@@ -20,36 +20,36 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
+import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MimicSprite;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Bundle;
+import com.watabou.utils.Callback;
+import com.watabou.utils.Random;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MimicSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-
 public class Mimic extends MobHealthy {
 
-    private static final float TIME_TO_DEVOUR	= 1.5f;
+    private static final float TIME_TO_DEVOUR = 1.5f;
 
     public Mimic() {
 
-        super( Dungeon.depth + 1 );
+        super(Dungeon.depth + 1);
 
         name = "mimic";
         info = "Slow, Devour item";
@@ -61,36 +61,36 @@ public class Mimic extends MobHealthy {
         minDamage += tier;
         maxDamage += tier;
 
-        HP = HT += Random.IntRange( 5, 10 );
+        HP = HT += Random.IntRange(5, 10);
 
         baseSpeed = 0.75f;
 
         resistances.put(Element.Mind.class, Element.Resist.PARTIAL);
         resistances.put(Element.Body.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Knockback.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Knockback.class, Element.Resist.PARTIAL);
     }
-	
-	public ArrayList<Item> items;
-	
-//	private static final String LEVEL	= "bonus";
-	private static final String ITEMS	= "items";
-	
-	@Override
-	public void storeInBundle( Bundle bundle ) {
-		super.storeInBundle(bundle);
-		bundle.put( ITEMS, items );
+
+    public ArrayList<Item> items;
+
+    //	private static final String LEVEL	= "bonus";
+    private static final String ITEMS = "items";
+
+    @Override
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+        bundle.put(ITEMS, items);
 //		bundle.put( LEVEL, bonus );
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	public void restoreFromBundle( Bundle bundle ) {
-		super.restoreFromBundle(bundle);
-		items = new ArrayList<Item>( (Collection<? extends Item>) (Object) bundle.getCollection( ITEMS ) );
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public void restoreFromBundle(Bundle bundle) {
+        super.restoreFromBundle(bundle);
+        items = new ArrayList<Item>((Collection<? extends Item>) (Object) bundle.getCollection(ITEMS));
 //		adjustStats( bundle.getInt( LEVEL ) );
-	}
+    }
 
 //    @Override
 //    public float attackDelay() {
@@ -102,7 +102,7 @@ public class Mimic extends MobHealthy {
 //	public int accuracy( Char target ) {
 //		return 9 + bonus;
 //	}
-	
+
 //	@Override
 //	public int attackProc( Char enemy, int damage ) {
 //		if (enemy == Dungeon.hero && Random.Int( 3 ) == 0) {
@@ -126,18 +126,18 @@ public class Mimic extends MobHealthy {
 //	}
 
     @Override
-    public boolean cast( Char enemy ) {
+    public boolean cast(Char enemy) {
         return false;
     }
 
     @Override
     protected boolean act() {
 
-        Heap heap = Dungeon.level.heaps.get( pos );
+        Heap heap = Dungeon.level.heaps.get(pos);
 
         if (heap != null && heap.type == Heap.Type.HEAP && !enemySeen) {
 
-            ((MimicSprite)sprite).devour();
+            ((MimicSprite) sprite).devour();
 
             Item item = heap.pickUp();
 
@@ -147,7 +147,7 @@ public class Mimic extends MobHealthy {
                 GLog.w("Mimic swallows %s lying on the floor!", item.toString());
             }
 
-            spend( TIME_TO_DEVOUR );
+            spend(TIME_TO_DEVOUR);
 
             return true;
 
@@ -179,9 +179,9 @@ public class Mimic extends MobHealthy {
         }
     }
 
-    private void devour( Item item ) {
+    private void devour(Item item) {
 
-        if ( items.contains( item ) ) {
+        if (items.contains(item)) {
             return;
         }
 
@@ -197,84 +197,84 @@ public class Mimic extends MobHealthy {
 
         items.add(item);
     }
-	
-	@Override
-	public void die( Object cause, Element dmg ) {
 
-		super.die( cause, dmg );
-		
-		if (items != null) {
-			for (Item item : items) {
-				Dungeon.level.drop( item, pos ).sprite.drop();
-			}
-		}
-	}
-	
-	@Override
-	public boolean reset() {
-		state = WANDERING;
+    @Override
+    public void die(Object cause, Element dmg) {
+
+        super.die(cause, dmg);
+
+        if (items != null) {
+            for (Item item : items) {
+                Dungeon.level.drop(item, pos).sprite.drop();
+            }
+        }
+    }
+
+    @Override
+    public boolean reset() {
+        state = WANDERING;
         pos = Dungeon.level.randomRespawnCell();
         return true;
     }
 
-	@Override
-	public String description() {
-		return
-			"Mimics are magical creatures which can take any shape they wish. In dungeons they almost always " +
-			"choose a shape of a treasure chest, because they know how to beckon an adventurer, but are too slow " +
-            "to catch them otherwise.";
-	}
-	
-	public static Mimic spawnAt( int hp, int pos, List<Item> items ) {
-		final Char ch = Actor.findChar( pos );
+    @Override
+    public String description() {
+        return
+                "Mimics are magical creatures which can take any shape they wish. In dungeons they almost always " +
+                        "choose a shape of a treasure chest, because they know how to beckon an adventurer, but are too slow " +
+                        "to catch them otherwise.";
+    }
 
-		if (ch != null) {
-			ArrayList<Integer> candidates = new ArrayList<Integer>();
-			for (int n : Level.NEIGHBOURS8) {
-				int cell = pos + n;
-				if ((Level.passable[cell] || Level.avoid[cell]) && Actor.findChar( cell ) == null) {
-					candidates.add( cell );
-				}
-			}
-			if (candidates.size() > 0) {
+    public static Mimic spawnAt(int hp, int pos, List<Item> items) {
+        final Char ch = Actor.findChar(pos);
 
-                Pushing.move( ch, Random.element( candidates ), new Callback() {
+        if (ch != null) {
+            ArrayList<Integer> candidates = new ArrayList<Integer>();
+            for (int n : Level.NEIGHBOURS8) {
+                int cell = pos + n;
+                if ((Level.passable[cell] || Level.avoid[cell]) && Actor.findChar(cell) == null) {
+                    candidates.add(cell);
+                }
+            }
+            if (candidates.size() > 0) {
+
+                Pushing.move(ch, Random.element(candidates), new Callback() {
                     @Override
-                    public void call(){
+                    public void call() {
 
-                        Actor.occupyCell( ch );
+                        Actor.occupyCell(ch);
 
-                        Dungeon.level.press( ch.pos, ch );
+                        Dungeon.level.press(ch.pos, ch);
                     }
-                } );
+                });
 
-			} else {
-				return null;
-			}
-		}
-		
-		Mimic m = new Mimic();
-		m.items = new ArrayList<Item>( items );
+            } else {
+                return null;
+            }
+        }
+
+        Mimic m = new Mimic();
+        m.items = new ArrayList<Item>(items);
 //		m.adjustStats( Dungeon.depth );
 //		m.HP = m.HT;
-		m.pos = pos;
+        m.pos = pos;
         m.enemySeen = true;
         m.special = true;
         m.state = m.HUNTING;
 
-        if( hp > 0 ) {
+        if (hp > 0) {
             m.HT = m.HP = hp;
         }
 
-		GameScene.add( m, 0.5f );
-		
-		m.sprite.turnTo( pos, Dungeon.hero.pos );
-		
-		if (Dungeon.visible[m.pos]) {
-			CellEmitter.get( pos ).burst( Speck.factory( Speck.STAR ), 10 );
-			Sample.INSTANCE.play( Assets.SND_MIMIC );
-		}
-		
-		return m;
-	}
+        GameScene.add(m, 0.5f);
+
+        m.sprite.turnTo(pos, Dungeon.hero.pos);
+
+        if (Dungeon.visible[m.pos]) {
+            CellEmitter.get(pos).burst(Speck.factory(Speck.STAR), 10);
+            Sample.INSTANCE.play(Assets.SND_MIMIC);
+        }
+
+        return m;
+    }
 }

@@ -24,34 +24,34 @@ import java.util.Locale;
 
 public class RingOfAccuracy extends Ring {
 
-	{
-		name = "Ring of Accuracy";
+    {
+        name = "Ring of Accuracy";
         shortName = "Ac";
-	}
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Accuracy();
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    @Override
+    protected RingBuff buff() {
+        return new Accuracy();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
         String sideEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 2 );
-            sideEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
+            sideEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
         }
 
         StringBuilder desc = new StringBuilder(
-            "It is said that such rings were imbued with spirits of long-forgotten hunters and " +
-            "warriors, which allows them to grant the wearer greater skill with all manners of " +
-            "melee and ranged weapons."
+                "It is said that such rings were imbued with spirits of long-forgotten hunters and " +
+                        "warriors, which allows them to grant the wearer greater skill with all manners of " +
+                        "melee and ranged weapons."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -67,13 +67,13 @@ public class RingOfAccuracy extends Ring {
 
         return desc.toString();
     }
-	
-	public class Accuracy extends RingBuff {
+
+    public class Accuracy extends RingBuff {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "You feel that your fighting prowess is enhanced." :
-                "You feel that your fighting prowess is dulled." ;
+                    "You feel that your fighting prowess is enhanced." :
+                    "You feel that your fighting prowess is dulled.";
         }
-	}
+    }
 }

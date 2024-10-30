@@ -20,39 +20,39 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.TextureFilm;
 
 public class ScorpionSprite extends MobSprite {
-	
-	public ScorpionSprite() {
-		super();
-		
-		texture( Assets.SCORPION);
-		
-		TextureFilm frames = new TextureFilm( texture, 18, 17 );
-		
-		idle = new Animation( 12, true );
-		idle.frames( frames, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 2, 1, 2 );
-		
-		run = new Animation( 8, true );
-		run.frames( frames, 5, 5, 6, 6 );
-		
-		attack = new Animation( 15, false );
-		attack.frames( frames, 0, 3, 4 );
-		
+
+    public ScorpionSprite() {
+        super();
+
+        texture(Assets.SCORPION);
+
+        TextureFilm frames = new TextureFilm(texture, 18, 17);
+
+        idle = new Animation(12, true);
+        idle.frames(frames, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 2, 1, 2);
+
+        run = new Animation(8, true);
+        run.frames(frames, 5, 5, 6, 6);
+
+        attack = new Animation(15, false);
+        attack.frames(frames, 0, 3, 4);
+
 //		cast = attack.clone();
-		
-		die = new Animation( 12, false );
-		die.frames( frames, 0, 7, 8, 9, 10 );
-		
-		play( idle );
-	}
-	
-	@Override
-	public int blood() {
-		return 0x007044;
-	}
+
+        die = new Animation(12, false);
+        die.frames(frames, 0, 7, 8, 9, 10);
+
+        play(idle);
+    }
+
+    @Override
+    public int blood() {
+        return 0x007044;
+    }
 
 //	@Override
 //	public void attack( int cell ) {

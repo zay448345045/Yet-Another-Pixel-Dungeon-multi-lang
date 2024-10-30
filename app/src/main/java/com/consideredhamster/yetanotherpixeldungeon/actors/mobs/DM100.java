@@ -24,112 +24,111 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Lightning;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.DM100Sprite;
-import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
 
 public class DM100 extends MobHealthy {
 
     public DM100() {
 
-        super( 4, 9, false );
+        super(4, 9, false);
 
-		name = "DM-100";
-		info = "Fast movement, Repair machine";
-		spriteClass = DM100Sprite.class;
+        name = "DM-100";
+        info = "Fast movement, Repair machine";
+        spriteClass = DM100Sprite.class;
 
-		maxDamage /= 2;
-		dexterity /= 2;
+        maxDamage /= 2;
+        dexterity /= 2;
 
-		HP = HT /= 2;
-		EXP = 0;
+        HP = HT /= 2;
+        EXP = 0;
 
-		resistances.put( Element.Acid.class, Element.Resist.PARTIAL );
-		resistances.put( Element.Flame.class, Element.Resist.PARTIAL );
-		resistances.put( Element.Frost.class, Element.Resist.PARTIAL );
-		resistances.put( Element.Unholy.class, Element.Resist.PARTIAL );
-		resistances.put( Element.Physical.class, Element.Resist.PARTIAL );
-	
-		resistances.put( Element.Doom.class, Element.Resist.IMMUNE );
-		resistances.put( Element.Mind.class, Element.Resist.IMMUNE );
-		resistances.put( Element.Body.class, Element.Resist.IMMUNE );
-		resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-		resistances.put( Element.Knockback.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Acid.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Flame.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Frost.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Unholy.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Physical.class, Element.Resist.PARTIAL);
 
-	}
+        resistances.put(Element.Doom.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Mind.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Body.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Knockback.class, Element.Resist.IMMUNE);
+
+    }
 
     @Override
     public float moveSpeed() {
         return 2.0f;
     }
-    
+
     @Override
-	public boolean act() {
-	
-		if ( state == SLEEPING ) {
-		
-			spend( TICK );
-			return true;
-		
-		}
+    public boolean act() {
 
-		Char ally = null;
+        if (state == SLEEPING) {
 
-		for ( int n : Level.NEIGHBOURS8 ) {
+            spend(TICK);
+            return true;
 
-			Char ch = Actor.findChar(pos + n );
+        }
 
-			if ( ch instanceof DM100 || ch instanceof DM300 ) {
-				// checking who is more damaged
-				if ( ally == null || ( ch.HT - ch.HP ) > ( ally.HT - ally.HP ) ) {
-					ally = ch;
-				}
-			}
-		}
+        Char ally = null;
 
-		if ( ally != null && ally.HP < ally.HT ) {
+        for (int n : Level.NEIGHBOURS8) {
 
-			final int allyPos = ally.pos;
+            Char ch = Actor.findChar(pos + n);
 
-			sprite.cast( allyPos, new Callback() {
-				@Override
-				public void call() { repair( allyPos ); }
-			}  );
-			sprite.parent.add( new Lightning( pos, allyPos ) );
+            if (ch instanceof DM100 || ch instanceof DM300) {
+                // checking who is more damaged
+                if (ally == null || (ch.HT - ch.HP) > (ally.HT - ally.HP)) {
+                    ally = ch;
+                }
+            }
+        }
 
-			spend( TICK );
-			return false;
+        if (ally != null && ally.HP < ally.HT) {
 
-		} else {
-			
-			return super.act();
-			
-		}
-	}
+            final int allyPos = ally.pos;
 
-	public void repair( int pos ) {
+            sprite.cast(allyPos, new Callback() {
+                @Override
+                public void call() {
+                    repair(allyPos);
+                }
+            });
+            sprite.parent.add(new Lightning(pos, allyPos));
 
-		Char ch = Actor.findChar(pos);
+            spend(TICK);
+            return false;
 
-		if (ch != null) {
+        } else {
 
-			ch.heal(damageRoll() / 2);
-			ch.sprite.emitter().burst(Speck.factory(Speck.HEALING), 1);
+            return super.act();
 
-		}
+        }
+    }
 
-		next();
-	}
-	
-	@Override
-	public String description() {
-		return
-			"These machines were created by Dwarves several centuries ago. Later, Dwarves started to replace machines with " +
-			"golems, elementals and even demons. Eventually it led their civilization to the decline. The DM-100 and larger " +
-			"machines were typically used for construction and mining, and in some cases, for city defense.";
-	}
+    public void repair(int pos) {
+
+        Char ch = Actor.findChar(pos);
+
+        if (ch != null) {
+
+            ch.heal(damageRoll() / 2);
+            ch.sprite.emitter().burst(Speck.factory(Speck.HEALING), 1);
+
+        }
+
+        next();
+    }
+
+    @Override
+    public String description() {
+        return
+                "These machines were created by Dwarves several centuries ago. Later, Dwarves started to replace machines with " +
+                        "golems, elementals and even demons. Eventually it led their civilization to the decline. The DM-100 and larger " +
+                        "machines were typically used for construction and mining, and in some cases, for city defense.";
+    }
 }

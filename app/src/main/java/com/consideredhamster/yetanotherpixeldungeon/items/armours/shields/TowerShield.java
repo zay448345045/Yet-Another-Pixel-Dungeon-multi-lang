@@ -25,15 +25,17 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class TowerShield extends Shield {
 
-	{
-		name = "tower shield";
-		image = ItemSpriteSheet.SHIELD_TOWER;
-	}
+    {
+        name = "tower shield";
+        image = ItemSpriteSheet.SHIELD_TOWER;
+    }
 
-	public TowerShield() { super( 3 ); }
-	
-	@Override
-	public String desc() {
-		return "Size of this shield allows to cover your whole body behind it.";
-	}
+    public TowerShield() {
+        super(3);
+    }
+
+    @Override
+    public String desc() {
+        return "Size of this shield allows to cover your whole body behind it.";
+    }
 }

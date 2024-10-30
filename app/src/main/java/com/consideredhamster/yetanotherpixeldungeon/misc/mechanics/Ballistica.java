@@ -22,12 +22,11 @@ package com.consideredhamster.yetanotherpixeldungeon.misc.mechanics;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 public final class Ballistica {
 
-	public static int[] trace = new int[Math.max( Level.WIDTH, Level.HEIGHT )];
-	public static int distance;
+    public static int[] trace = new int[Math.max(Level.WIDTH, Level.HEIGHT)];
+    public static int distance;
 
     private static int stepA;
     private static int stepB;
@@ -36,12 +35,12 @@ public final class Ballistica {
 
     private static boolean hit;
 
-    public static int cast( int from, int to, boolean goThrough, boolean hitChars ) {
+    public static int cast(int from, int to, boolean goThrough, boolean hitChars) {
 
 //        GLog.i( "from=" + from);
 //        GLog.i( "to=" + to);
 
-        if( from == to ){
+        if (from == to) {
             distance = 0;
             trace[0] = from;
             return to;
@@ -60,8 +59,8 @@ public final class Ballistica {
         int stepX = dx > 0 ? +1 : -1;
         int stepY = dy > 0 ? +1 : -1;
 
-        dx = Math.abs( dx );
-        dy = Math.abs( dy );
+        dx = Math.abs(dx);
+        dy = Math.abs(dy);
 
         if (dx > dy) {
 
@@ -79,23 +78,23 @@ public final class Ballistica {
 
         }
 
-        int cell = Ballistica.calc( from, to, hitChars, goThrough, dA / 2 );
+        int cell = Ballistica.calc(from, to, hitChars, goThrough, dA / 2);
 
-        if ( !hit ) {
+        if (!hit) {
 
             for (int err = 0; err <= dA; err++) {
 
-                int calc = Ballistica.calc( from, to, hitChars, goThrough, err );
+                int calc = Ballistica.calc(from, to, hitChars, goThrough, err);
 
-                if ( hit ) {
+                if (hit) {
                     return calc;
                 }
             }
 
             // to avoid distance being calculated incorrectly when throwing behind a wall
             // not the best way to do it, gotta fix that sometimes later (I hope)
-            if( !hit ) {
-                return Ballistica.calc( from, to, hitChars, goThrough, dA / 2 );
+            if (!hit) {
+                return Ballistica.calc(from, to, hitChars, goThrough, dA / 2);
             }
         }
 
@@ -103,7 +102,7 @@ public final class Ballistica {
 
     }
 
-    private static int calc( int from, int to, boolean hitChars, boolean goThrough, int err ) {
+    private static int calc(int from, int to, boolean hitChars, boolean goThrough, int err) {
 
         hit = false;
         distance = 0;
@@ -111,7 +110,7 @@ public final class Ballistica {
 
         int cell = from;
 
-        while ( ( !hit || goThrough ) && distance < trace.length - 1 ) {
+        while ((!hit || goThrough) && distance < trace.length - 1) {
 
             cell += stepA;
 
@@ -130,8 +129,8 @@ public final class Ballistica {
             trace[distance] = cell;
 //            trace[ distance + 1 ] = 0;
 
-            if ( cell > 0 && cell < Level.solid.length ) {
-                if (Level.solid[cell] || ( hitChars && Actor.findChar(cell) != null ) ) {
+            if (cell > 0 && cell < Level.solid.length) {
+                if (Level.solid[cell] || (hitChars && Actor.findChar(cell) != null)) {
                     return trace[distance];
                 }
 //            } else {

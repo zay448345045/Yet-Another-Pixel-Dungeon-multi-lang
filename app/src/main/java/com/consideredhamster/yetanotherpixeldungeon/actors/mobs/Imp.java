@@ -20,28 +20,23 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Invisibility;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ImpSprite;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ElmoParticle;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ImpSprite;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
 import com.watabou.utils.Random;
-
-import java.util.HashSet;
 
 public class Imp extends MobEvasive {
 
@@ -49,12 +44,12 @@ public class Imp extends MobEvasive {
 
     private static final String ITEM = "item";
 
-    protected static final String TXT_STOLE	= "%s stole %s from you!";
-	protected static final String TXT_CARRY	= "\n\nThis imp is carrying a _%s_, stolen from you.";
+    protected static final String TXT_STOLE = "%s stole %s from you!";
+    protected static final String TXT_CARRY = "\n\nThis imp is carrying a _%s_, stolen from you.";
 
     public Imp() {
 
-        super( 17 );
+        super(17);
 
         /*
 
@@ -81,8 +76,8 @@ public class Imp extends MobEvasive {
 
         resistances.put(Element.Unholy.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Dispel.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Knockback.class, Element.Resist.VULNERABLE );
+        resistances.put(Element.Dispel.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Knockback.class, Element.Resist.VULNERABLE);
 
     }
 
@@ -131,21 +126,21 @@ public class Imp extends MobEvasive {
 //    }
 
     @Override
-    public void die( Object cause, Element dmg ) {
+    public void die(Object cause, Element dmg) {
 
         super.die(cause, dmg);
 
         if (item != null) {
-            Dungeon.level.drop( item, pos ).sprite.drop();
+            Dungeon.level.drop(item, pos).sprite.drop();
         }
     }
 
     @Override
     protected boolean act() {
 
-        if(
-            HP >= HT && state == HUNTING && enemy != null && item == null
-            && !Level.adjacent( pos, enemy.pos ) && invisible == 0
+        if (
+                HP >= HT && state == HUNTING && enemy != null && item == null
+                        && !Level.adjacent(pos, enemy.pos) && invisible == 0
         ) {
 
             sprite.cast(enemy.pos, new Callback() {
@@ -157,7 +152,7 @@ public class Imp extends MobEvasive {
                 }
             });
 
-            spend( TICK );
+            spend(TICK);
             return true;
 
         }
@@ -166,21 +161,23 @@ public class Imp extends MobEvasive {
     }
 
     @Override
-    protected boolean doAttack( Char enemy ) {
+    protected boolean doAttack(Char enemy) {
 
-        if ( invisible > 0 && item == null && enemy instanceof Hero && ((Hero)enemy).belongings.backpack.countVisibleItems() > 0 ) {
+        if (invisible > 0 && item == null && enemy instanceof Hero && ((Hero) enemy).belongings.backpack.countVisibleItems() > 0) {
 
-            Invisibility.dispel( this );
+            Invisibility.dispel(this);
             final int enemyPos = enemy.pos;
 
             boolean visible = Level.fieldOfView[pos] || Level.fieldOfView[enemyPos];
 
-            if ( visible ) {
+            if (visible) {
 
-                sprite.cast( enemyPos, new Callback() {
+                sprite.cast(enemyPos, new Callback() {
                     @Override
-                    public void call() { onRangedAttack( enemyPos ); }
-                }  );
+                    public void call() {
+                        onRangedAttack(enemyPos);
+                    }
+                });
 
             } else {
 
@@ -188,53 +185,53 @@ public class Imp extends MobEvasive {
 
             }
 
-            spend( attackDelay() );
+            spend(attackDelay());
 
             return !visible;
 
 
         } else {
 
-            return super.doAttack( enemy );
+            return super.doAttack(enemy);
 
         }
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
+    protected void onRangedAttack(int cell) {
 
         onCastComplete();
 
-        super.onRangedAttack( cell );
+        super.onRangedAttack(cell);
     }
 
     @Override
-    public boolean cast( Char enemy ) {
+    public boolean cast(Char enemy) {
 
-        if (hit( this, enemy, false, false )) {
+        if (hit(this, enemy, false, false)) {
 
             if (item == null && enemy instanceof Hero) {
 
-                Hero hero = (Hero)enemy;
+                Hero hero = (Hero) enemy;
 
                 Item item = hero.belongings.randomVisibleUnequipped();
 
-                if (item != null ) {
+                if (item != null) {
 
                     Sample.INSTANCE.play(Assets.SND_MIMIC, 1, 1, 1.5f);
                     GLog.w(TXT_STOLE, this.name, item.name());
 
                     state = FLEEING;
 
-                    int amount = Random.IntRange( 1, item.quantity() );
-                    this.item = item.detach( hero.belongings.backpack, amount );
+                    int amount = Random.IntRange(1, item.quantity());
+                    this.item = item.detach(hero.belongings.backpack, amount);
 
-                    if( this.item != null ) {
+                    if (this.item != null) {
                         this.item.quantity(amount);
                     }
 
                     ((MissileSprite) sprite.parent.recycle(MissileSprite.class)).
-                    reset(enemy.pos, pos, item, null);
+                            reset(enemy.pos, pos, item, null);
 
 //                    spend( attackDelay() * (-1) );
 
@@ -252,30 +249,30 @@ public class Imp extends MobEvasive {
     }
 
     public void vanish() {
-        BuffActive.add(this, Invisibility.class, Random.Float( 10.0f, 15.0f ) );
+        BuffActive.add(this, Invisibility.class, Random.Float(10.0f, 15.0f));
         if (Dungeon.visible[pos]) {
-            GLog.i( name + " vanishes from sight!");
+            GLog.i(name + " vanishes from sight!");
         }
     }
 
-	@Override
+    @Override
     public String description() {
         return
-            "Imps are lesser demons. They are notable neither for their strength nor their magic talent, but for their cruelty " +
-            "and greed. However, some of them are actually quite nice and sociable. Certainly not this one, though... " +
-            ( item != null ? Utils.format( TXT_CARRY, item.name() ) : "" );
+                "Imps are lesser demons. They are notable neither for their strength nor their magic talent, but for their cruelty " +
+                        "and greed. However, some of them are actually quite nice and sociable. Certainly not this one, though... " +
+                        (item != null ? Utils.format(TXT_CARRY, item.name()) : "");
     }
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
         super.storeInBundle(bundle);
-        bundle.put( ITEM, item );
+        bundle.put(ITEM, item);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
-        super.restoreFromBundle( bundle );
-        item = (Item)bundle.get( ITEM );
+    public void restoreFromBundle(Bundle bundle) {
+        super.restoreFromBundle(bundle);
+        item = (Item) bundle.get(ITEM);
     }
 
 }

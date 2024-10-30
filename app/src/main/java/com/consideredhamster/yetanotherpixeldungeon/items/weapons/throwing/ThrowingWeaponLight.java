@@ -23,7 +23,7 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing;
 public abstract class ThrowingWeaponLight extends ThrowingWeapon {
 
     public ThrowingWeaponLight(int tier) {
-        super( tier );
+        super(tier);
     }
 
     @Override
@@ -32,17 +32,17 @@ public abstract class ThrowingWeaponLight extends ThrowingWeapon {
     }
 
     @Override
-    public int min( int bonus ) {
+    public int min(int bonus) {
         return tier + 1;
     }
 
     @Override
-    public int max( int bonus ) {
+    public int max(int bonus) {
         return 3 + tier * 3;
     }
 
     @Override
-    public int str( int bonus ) {
+    public int str(int bonus) {
         return 7 + tier * 2;
     }
 

@@ -25,13 +25,15 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class ColdResistance extends ElementResistance {
 
-	@Override
-	public String toString() {
-		return "Cold Resistance";
-	}
+    @Override
+    public String toString() {
+        return "Cold Resistance";
+    }
 
     @Override
-    public String statusMessage() { return "cold resistance"; }
+    public String statusMessage() {
+        return "cold resistance";
+    }
 
     @Override
     public String playerMessage() {
@@ -44,13 +46,13 @@ public class ColdResistance extends ElementResistance {
     }
 
     @Override
-    public Class<? extends Element> resistance(){
+    public Class<? extends Element> resistance() {
         return Element.Frost.class;
     }
 
     @Override
     public String description() {
         return "You feel soft chill filling your entire body, numbing your body to the cold breeze " +
-            "of the dungeon. Your resistance to cold is increased.";
+                "of the dungeon. Your resistance to cold is increased.";
     }
 }

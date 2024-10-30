@@ -27,26 +27,24 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Chains;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
 import com.watabou.utils.Callback;
 
 public class Harpoons extends ThrowingWeaponHeavy {
 
-	{
-		name = "harpoons";
-		image = ItemSpriteSheet.HARPOON;
-	}
+    {
+        name = "harpoons";
+        image = ItemSpriteSheet.HARPOON;
+    }
 
-	public Harpoons() {
-		this( 1 );
-	}
+    public Harpoons() {
+        this(1);
+    }
 
-	public Harpoons(int number) {
-        super( 3 );
-		quantity = number;
-	}
+    public Harpoons(int number) {
+        super(3);
+        quantity = number;
+    }
 
     @Override
     public boolean returnsWhenThrown() {
@@ -64,42 +62,42 @@ public class Harpoons extends ThrowingWeaponHeavy {
     }
 
     @Override
-    public void proc(Char attacker, final Char defender, int damage ) {
+    public void proc(Char attacker, final Char defender, int damage) {
 
         super.proc(attacker, defender, damage);
 
-        if( !Level.adjacent( attacker.pos, defender.pos ) ) {
+        if (!Level.adjacent(attacker.pos, defender.pos)) {
 
             int distance = damage * 6 / defender.totalHealthValue() + 1;
 
-            distance = Element.Resist.modifyValue( distance, defender, Element.KNOCKBACK );
+            distance = Element.Resist.modifyValue(distance, defender, Element.KNOCKBACK);
 
-            if( distance > 0 ) {
+            if (distance > 0) {
 
-                final int newPos = Ballistica.trace[Math.max( 1, Ballistica.distance - distance )];
+                final int newPos = Ballistica.trace[Math.max(1, Ballistica.distance - distance)];
 
-                Pushing.move( defender, newPos, new Callback() {
+                Pushing.move(defender, newPos, new Callback() {
                     @Override
-                    public void call(){
-                        Actor.moveToCell( defender, newPos );
-                        Dungeon.level.press( newPos, defender );
-                        defender.delay( 1f );
+                    public void call() {
+                        Actor.moveToCell(defender, newPos);
+                        Dungeon.level.press(newPos, defender);
+                        defender.delay(1f);
                     }
-                } );
+                });
 
             } else {
 
-                onThrow( defender.pos );
+                onThrow(defender.pos);
 
             }
         }
     }
-	
-	@Override
-	public String desc() {
-		return 
-			"Most of the harpoon's weight is due to the chain which is attached to it. Those rare " +
-            "throwing weapons that can be used to pull your some targets towards you. If target is " +
-            "too heavy to be pulled, harpoon will drop on the ground instead.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "Most of the harpoon's weight is due to the chain which is attached to it. Those rare " +
+                        "throwing weapons that can be used to pull your some targets towards you. If target is " +
+                        "too heavy to be pulled, harpoon will drop on the ground instead.";
+    }
 }

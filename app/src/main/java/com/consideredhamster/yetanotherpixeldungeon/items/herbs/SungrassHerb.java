@@ -37,7 +37,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class SungrassHerb extends Herb {
 
-    private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing( 0xFFFF44 );
+    private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 
     {
         name = "Sungrass herb";
@@ -48,24 +48,24 @@ public class SungrassHerb extends Herb {
 
         mainPotion = PotionOfMending.class;
 
-        subPotions.add( PotionOfBlessing.class );
-        subPotions.add( PotionOfShield.class );
+        subPotions.add(PotionOfBlessing.class);
+        subPotions.add(PotionOfShield.class);
     }
 
-    private static void onConsume( Hero hero, float duration ) {
+    private static void onConsume(Hero hero, float duration) {
 
-        BuffActive.add( hero, BodyResistance.class, duration );
+        BuffActive.add(hero, BodyResistance.class, duration);
 
-        Debuff.remove( hero, Poisoned.class );
-        Debuff.remove( hero, Crippled.class );
-        Debuff.remove( hero, Withered.class );
+        Debuff.remove(hero, Poisoned.class);
+        Debuff.remove(hero, Crippled.class);
+        Debuff.remove(hero, Withered.class);
 
     }
 
     @Override
-    public void onConsume( Hero hero ) {
-        super.onConsume( hero );
-        onConsume( hero, DURATION_HERB );
+    public void onConsume(Hero hero) {
+        super.onConsume(hero);
+        onConsume(hero, DURATION_HERB);
     }
 
     @Override
@@ -91,9 +91,9 @@ public class SungrassHerb extends Herb {
         }
 
         @Override
-        public void onConsume( Hero hero ) {
-            super.onConsume( hero );
-            SungrassHerb.onConsume( hero, DURATION_MEAT );
+        public void onConsume(Hero hero) {
+            super.onConsume(hero);
+            SungrassHerb.onConsume(hero, DURATION_MEAT);
         }
 
         @Override

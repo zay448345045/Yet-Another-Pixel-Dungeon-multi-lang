@@ -20,18 +20,13 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.features;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroClass;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Levitation;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroClass;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
@@ -39,11 +34,15 @@ import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfLevitation;
 import com.consideredhamster.yetanotherpixeldungeon.levels.RegularLevel;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.InterlevelScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MobSprite;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndOptions;
+import com.watabou.noosa.Camera;
+import com.watabou.noosa.Game;
+import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
 public class Chasm {
@@ -51,43 +50,43 @@ public class Chasm {
     // FIXME
     private static Chasm CHASM = new Chasm();
 
-	private static final String TXT_CHASM	= "Chasm";
-	private static final String TXT_YES		= "Yes, I know what I'm doing";
-	private static final String TXT_NO		= "No, I changed my mind";
-    private static final String TXT_POTION	= "Use potion of Levitation";
-	private static final String TXT_JUMP 	=
-		"Do you really want to jump into the chasm? You can probably die.";
+    private static final String TXT_CHASM = "Chasm";
+    private static final String TXT_YES = "Yes, I know what I'm doing";
+    private static final String TXT_NO = "No, I changed my mind";
+    private static final String TXT_POTION = "Use potion of Levitation";
+    private static final String TXT_JUMP =
+            "Do you really want to jump into the chasm? You can probably die.";
 
     private static final String TXT_LANDS_SAFELY = "You safely land on the floor!";
     private static final String TXT_SHATTER_PACK = "Your %s has not survived the fall!";
 
-	public static boolean jumpConfirmed = false;
-	public static boolean useLevitation = false;
+    public static boolean jumpConfirmed = false;
+    public static boolean useLevitation = false;
 
-	public static void heroJump( final Hero hero ) {
+    public static void heroJump(final Hero hero) {
 
-		GameScene.show(
+        GameScene.show(
 
-            ( Potion.getKnown().contains(PotionOfLevitation.class) && hero.belongings.getItem(PotionOfLevitation.class) != null ?
+                (Potion.getKnown().contains(PotionOfLevitation.class) && hero.belongings.getItem(PotionOfLevitation.class) != null ?
 
-                new WndOptions(TXT_CHASM, TXT_JUMP, TXT_YES, TXT_POTION, TXT_NO) {
+                        new WndOptions(TXT_CHASM, TXT_JUMP, TXT_YES, TXT_POTION, TXT_NO) {
 
-                    @Override
-                    protected void onSelect(int index) {
-                        if (index < 2) {
+                            @Override
+                            protected void onSelect(int index) {
+                                if (index < 2) {
 
-                            jumpConfirmed = true;
+                                    jumpConfirmed = true;
 
-                            if (index == 1) {
-                                useLevitation = true;
+                                    if (index == 1) {
+                                        useLevitation = true;
+                                    }
+
+                                    hero.resume();
+                                }
                             }
-
-                            hero.resume();
                         }
-                    }
-                }
 
-                : new WndOptions(TXT_CHASM, TXT_JUMP, TXT_YES, TXT_NO) {
+                        : new WndOptions(TXT_CHASM, TXT_JUMP, TXT_YES, TXT_NO) {
 
                     @Override
                     protected void onSelect(int index) {
@@ -100,45 +99,45 @@ public class Chasm {
                         }
                     }
                 }
-            )
+                )
         );
-	}
-	
-	public static void heroFall( int pos ) {
-		
-		jumpConfirmed = false;
+    }
 
-        if( !useLevitation ) {
-            if( Dungeon.hero.heroClass == HeroClass.ACOLYTE ) {
+    public static void heroFall(int pos) {
+
+        jumpConfirmed = false;
+
+        if (!useLevitation) {
+            if (Dungeon.hero.heroClass == HeroClass.ACOLYTE) {
                 Sample.INSTANCE.play(Assets.SND_FALLING, 1.0f, 1.0f, 1.2f);
             } else {
                 Sample.INSTANCE.play(Assets.SND_FALLING);
             }
         }
-		
-		if (Dungeon.hero.isAlive()) {
-			Dungeon.hero.interrupt();
-			InterlevelScene.mode = InterlevelScene.Mode.FALL;
-			if (Dungeon.level instanceof RegularLevel) {
-				Room room = ((RegularLevel)Dungeon.level).room( pos );
-				InterlevelScene.fallIntoPit = room != null && room.type == Room.Type.WEAK_FLOOR;
-			} else {
-				InterlevelScene.fallIntoPit = false;
-			}
-			Game.switchScene( InterlevelScene.class );
-		} else {
-			Dungeon.hero.sprite.visible = false;
-		}
-	}
-	
-	public static void heroLand() {
-		
-		Hero hero = Dungeon.hero;
 
-        if( useLevitation ) {
+        if (Dungeon.hero.isAlive()) {
+            Dungeon.hero.interrupt();
+            InterlevelScene.mode = InterlevelScene.Mode.FALL;
+            if (Dungeon.level instanceof RegularLevel) {
+                Room room = ((RegularLevel) Dungeon.level).room(pos);
+                InterlevelScene.fallIntoPit = room != null && room.type == Room.Type.WEAK_FLOOR;
+            } else {
+                InterlevelScene.fallIntoPit = false;
+            }
+            Game.switchScene(InterlevelScene.class);
+        } else {
+            Dungeon.hero.sprite.visible = false;
+        }
+    }
 
-            BuffActive.add( hero, Levitation.class, Math.round( Random.Float(PotionOfLevitation.DURATION / 5, PotionOfLevitation.DURATION / 4 ) ));
-            GLog.p( TXT_LANDS_SAFELY );
+    public static void heroLand() {
+
+        Hero hero = Dungeon.hero;
+
+        if (useLevitation) {
+
+            BuffActive.add(hero, Levitation.class, Math.round(Random.Float(PotionOfLevitation.DURATION / 5, PotionOfLevitation.DURATION / 4)));
+            GLog.p(TXT_LANDS_SAFELY);
             useLevitation = false;
 
         } else {
@@ -169,17 +168,17 @@ public class Chasm {
                 dmg = hero.HT * 5 / hero.STR();
             }
 
-            if ( hero.isAlive()) {
+            if (hero.isAlive()) {
                 hero.damage(Char.absorb(dmg, hero.armorClass()), CHASM, Element.FALLING);
             } else {
                 hero.die(CHASM, Element.FALLING);
             }
 
         }
-	}
+    }
 
-	public static void mobFall( Mob mob ) {
-		mob.destroy();
-		((MobSprite)mob.sprite).fall();
-	}
+    public static void mobFall(Mob mob) {
+        mob.destroy();
+        ((MobSprite) mob.sprite).fall();
+    }
 }

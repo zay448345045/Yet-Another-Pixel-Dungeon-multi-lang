@@ -22,22 +22,17 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Light;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.TagAttack;
 import com.watabou.noosa.audio.Sample;
 
 public class Invisibility extends Bonus {
 
-    private static final String TXT_DISPEL		=
+    private static final String TXT_DISPEL =
             "Invisibility is dispelled!";
 
     @Override
@@ -46,10 +41,14 @@ public class Invisibility extends Bonus {
     }
 
     @Override
-    public String statusMessage() { return "invisible"; }
+    public String statusMessage() {
+        return "invisible";
+    }
 
     @Override
-    public String playerMessage() { return "You see your hands turn invisible!"; }
+    public String playerMessage() {
+        return "You see your hands turn invisible!";
+    }
 
     @Override
     public int icon() {
@@ -57,19 +56,19 @@ public class Invisibility extends Bonus {
     }
 
     @Override
-    public void applyVisual(){
+    public void applyVisual() {
 
-        if( target.sprite.visible ){
-            Sample.INSTANCE.play( Assets.SND_MELD );
+        if (target.sprite.visible) {
+            Sample.INSTANCE.play(Assets.SND_MELD);
         }
 
-        target.sprite.add( CharSprite.State.INVISIBLE );
+        target.sprite.add(CharSprite.State.INVISIBLE);
     }
 
     @Override
     public void removeVisual() {
-        if( target.invisible <= 0 ){
-            target.sprite.remove( CharSprite.State.INVISIBLE );
+        if (target.invisible <= 0) {
+            target.sprite.remove(CharSprite.State.INVISIBLE);
         }
     }
 
@@ -81,8 +80,8 @@ public class Invisibility extends Bonus {
     }
 
     @Override
-    public boolean attachOnLoad( Char target ) {
-        if (super.attachOnLoad( target )) {
+    public boolean attachOnLoad(Char target) {
+        if (super.attachOnLoad(target)) {
 
             target.invisible++;
 
@@ -92,18 +91,18 @@ public class Invisibility extends Bonus {
         }
     }
 
-	@Override
-	public boolean attachTo( Char target ) {
-		if (super.attachTo( target )) {
+    @Override
+    public boolean attachTo(Char target) {
+        if (super.attachTo(target)) {
 
-			target.invisible++;
+            target.invisible++;
 
-            if( target == Dungeon.hero ){
+            if (target == Dungeon.hero) {
 
-                OilLantern lantern = Dungeon.hero.belongings.getItem( OilLantern.class );
+                OilLantern lantern = Dungeon.hero.belongings.getItem(OilLantern.class);
 
-                if( target.isAlive() && lantern != null && lantern.isActivated() ){
-                    lantern.deactivate( Dungeon.hero, true );
+                if (target.isAlive() && lantern != null && lantern.isActivated()) {
+                    lantern.deactivate(Dungeon.hero, true);
                 }
 
             } else {
@@ -113,45 +112,45 @@ public class Invisibility extends Bonus {
 
             }
 
-			return true;
+            return true;
 
-		} else {
-			return false;
-		}
-	}
-	
-	@Override
-	public void detach() {
+        } else {
+            return false;
+        }
+    }
 
-		if( target.invisible > 0 ) {
+    @Override
+    public void detach() {
+
+        if (target.invisible > 0) {
             target.invisible--;
 
-            if( target != Dungeon.hero ) {
+            if (target != Dungeon.hero) {
                 Dungeon.hero.checkVisibleMobs();
                 TagAttack.updateState();
             }
         }
 
-		super.detach();
-	}
+        super.detach();
+    }
 
 
     public static void dispel() {
 
-        Invisibility.dispel( Dungeon.hero );
+        Invisibility.dispel(Dungeon.hero);
 
     }
 
-	public static void dispel( Char ch ) {
+    public static void dispel(Char ch) {
 
-        Invisibility buff = ch.buff( Invisibility.class );
-        if ( buff != null ) {
+        Invisibility buff = ch.buff(Invisibility.class);
+        if (buff != null) {
 
             if (ch == Dungeon.hero) {
                 GLog.w(TXT_DISPEL);
             }
 
             buff.detach();
-		}
-	}
+        }
+    }
 }

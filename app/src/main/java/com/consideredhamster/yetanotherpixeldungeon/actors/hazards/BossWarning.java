@@ -46,9 +46,11 @@ public class BossWarning extends Hazard {
     @Override
     public String desc() {
         return "DM-300 has targeted this tile for its next attack.";
-    };
+    }
 
-    public void setValues( int pos, int var ) {
+    ;
+
+    public void setValues(int pos, int var) {
 
         this.pos = pos;
         this.var = var;
@@ -56,29 +58,30 @@ public class BossWarning extends Hazard {
     }
 
     @Override
-    public void press( int cell, Char ch ) {}
+    public void press(int cell, Char ch) {
+    }
 
     @Override
-    protected boolean act(){
-        spend( TICK );
+    protected boolean act() {
+        spend(TICK);
         return true;
     }
 
     @Override
     public void destroy() {
 
-        ( (BossWarning.WarningSprite) sprite ).disappear();
+        ((BossWarning.WarningSprite) sprite).disappear();
         super.destroy();
 
     }
 
-    public static void spawn( int cell, int var ) {
+    public static void spawn(int cell, int var) {
 
         BossWarning mark = new BossWarning();
-        mark.setValues( cell, var );
+        mark.setValues(cell, var);
 
-        GameScene.add( mark );
-        ( (BossWarning.WarningSprite) mark.sprite ).appear();
+        GameScene.add(mark);
+        ((BossWarning.WarningSprite) mark.sprite).appear();
 
     }
 
@@ -87,19 +90,20 @@ public class BossWarning extends Hazard {
         private static float ANIM_TIME = 0.25f;
         private float time;
 
-        public WarningSprite(){
+        public WarningSprite() {
 
             super();
             time = 0.0f;
 
         }
+
         @Override
-        public int spritePriority(){
+        public int spritePriority() {
             return 4;
         }
 
         @Override
-        protected String asset(){
+        protected String asset() {
             return Assets.HAZ_MARK;
         }
 
@@ -110,14 +114,14 @@ public class BossWarning extends Hazard {
             time += Game.elapsed * 3;
 
 //            tint( 1.2f, 1.2f, 1.0f, 0.2f + (float)Math.sin( time ) * 0.1f );
-            speed.polar( time, 1.0f );
+            speed.polar(time, 1.0f);
         }
 
-        public void appear( ) {
+        public void appear() {
 
             am = 0.0f;
 
-            parent.add(new AlphaTweener( this, 1.0f, ANIM_TIME ) {
+            parent.add(new AlphaTweener(this, 1.0f, ANIM_TIME) {
                 @Override
                 protected void onComplete() {
                     parent.erase(this);
@@ -125,9 +129,9 @@ public class BossWarning extends Hazard {
             });
         }
 
-        public void disappear( ) {
+        public void disappear() {
 
-            parent.add(new AlphaTweener( this, 0.0f, ANIM_TIME ) {
+            parent.add(new AlphaTweener(this, 0.0f, ANIM_TIME) {
                 @Override
                 protected void onComplete() {
                     parent.erase(this);

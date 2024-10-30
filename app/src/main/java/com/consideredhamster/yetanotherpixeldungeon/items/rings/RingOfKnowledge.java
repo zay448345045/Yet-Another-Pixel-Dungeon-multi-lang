@@ -24,31 +24,31 @@ import java.util.Locale;
 
 public class RingOfKnowledge extends Ring {
 
-	{
-		name = "Ring of Knowledge";
+    {
+        name = "Ring of Knowledge";
         shortName = "Kn";
-	}
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Knowledge();
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    @Override
+    protected RingBuff buff() {
+        return new Knowledge();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
         }
 
         StringBuilder desc = new StringBuilder(
-            "Both scholars and their pupils appreciate such rings, because they increase cognitive " +
-            "capacity of their wearer, allowing to learn more things in a shorter amount of time."
+                "Both scholars and their pupils appreciate such rings, because they increase cognitive " +
+                        "capacity of their wearer, allowing to learn more things in a shorter amount of time."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -63,14 +63,14 @@ public class RingOfKnowledge extends Ring {
         }
 
         return desc.toString();
-	}
-	
-	public class Knowledge extends RingBuff {
+    }
+
+    public class Knowledge extends RingBuff {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "You feel that your mind starts working better, your memory improves." :
-                "You start feeling stupid. It is like something prevents you from thinking clearly." ;
+                    "You feel that your mind starts working better, your memory improves." :
+                    "You start feeling stupid. It is like something prevents you from thinking clearly.";
         }
-	}
+    }
 }

@@ -32,7 +32,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class WhirlvineHerb extends Herb {
 
-    private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF );
+    private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
 
     {
         name = "Whirlvine herb";
@@ -43,21 +43,21 @@ public class WhirlvineHerb extends Herb {
 
         mainPotion = PotionOfThunderstorm.class;
 
-        subPotions.add( PotionOfLevitation.class );
-        subPotions.add( PotionOfToxicGas.class );
+        subPotions.add(PotionOfLevitation.class);
+        subPotions.add(PotionOfToxicGas.class);
     }
 
-    private static void onConsume( Hero hero, float duration ) {
+    private static void onConsume(Hero hero, float duration) {
 
-        BuffActive.add( hero, ShockResistance.class, duration );
+        BuffActive.add(hero, ShockResistance.class, duration);
 //        Debuff.remove( hero, Shocked.class );
 
     }
 
     @Override
-    public void onConsume( Hero hero ) {
-        super.onConsume( hero );
-        onConsume( hero, DURATION_HERB );
+    public void onConsume(Hero hero) {
+        super.onConsume(hero);
+        onConsume(hero, DURATION_HERB);
     }
 
     @Override
@@ -83,9 +83,9 @@ public class WhirlvineHerb extends Herb {
         }
 
         @Override
-        public void onConsume( Hero hero ) {
-            super.onConsume( hero );
-            WhirlvineHerb.onConsume( hero, DURATION_MEAT );
+        public void onConsume(Hero hero) {
+            super.onConsume(hero);
+            WhirlvineHerb.onConsume(hero, DURATION_MEAT);
         }
 
         @Override

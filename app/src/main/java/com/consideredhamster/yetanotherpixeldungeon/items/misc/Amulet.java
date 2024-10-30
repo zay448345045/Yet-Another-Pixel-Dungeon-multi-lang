@@ -20,79 +20,79 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.misc;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.watabou.noosa.Game;
 import com.consideredhamster.yetanotherpixeldungeon.Badges;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Statistics;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.AmuletScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
+import com.watabou.noosa.Game;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Amulet extends Item {
-	
-	private static final String AC_END = "INVOKE";
-	
-	{
-		name = "Amulet of Yendor";
-		image = ItemSpriteSheet.AMULET;
-		
-		unique = true;
-	}
-	
-	@Override
-	public ArrayList<String> actions( Hero hero ) {
-		ArrayList<String> actions = super.actions( hero );
-		actions.add( AC_END );
-		return actions;
-	}
-	
-	@Override
-	public void execute( Hero hero, String action ) {
-		if (action == AC_END) {
-			
-			showAmuletScene( false );
-			
-		} else {
-			
-			super.execute( hero, action );
-			
-		}
-	}
-	
-	@Override
-	public boolean doPickUp( Hero hero ) {
-		if (super.doPickUp( hero )) {
-			
-			if (!Statistics.amuletObtained) {
-				Statistics.amuletObtained = true;
-				Badges.validateVictory();
 
-				showAmuletScene( true );
-			}
-			
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	private void showAmuletScene( boolean showText ) {
-		try {
-			Dungeon.saveAll();
-			AmuletScene.noText = !showText;
-			Game.switchScene( AmuletScene.class );
-		} catch (IOException e) {
-		}
-	}
-	
-	@Override
-	public String info() {
-		return 
-			"The Amulet of Yendor is the most powerful known artifact, once held by a wizard of Yendor. " +
-            "It is said that the amulet is able to fulfil any wish of its owner, but only once.";
-	}
+    private static final String AC_END = "INVOKE";
+
+    {
+        name = "Amulet of Yendor";
+        image = ItemSpriteSheet.AMULET;
+
+        unique = true;
+    }
+
+    @Override
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
+        actions.add(AC_END);
+        return actions;
+    }
+
+    @Override
+    public void execute(Hero hero, String action) {
+        if (action == AC_END) {
+
+            showAmuletScene(false);
+
+        } else {
+
+            super.execute(hero, action);
+
+        }
+    }
+
+    @Override
+    public boolean doPickUp(Hero hero) {
+        if (super.doPickUp(hero)) {
+
+            if (!Statistics.amuletObtained) {
+                Statistics.amuletObtained = true;
+                Badges.validateVictory();
+
+                showAmuletScene(true);
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void showAmuletScene(boolean showText) {
+        try {
+            Dungeon.saveAll();
+            AmuletScene.noText = !showText;
+            Game.switchScene(AmuletScene.class);
+        } catch (IOException e) {
+        }
+    }
+
+    @Override
+    public String info() {
+        return
+                "The Amulet of Yendor is the most powerful known artifact, once held by a wizard of Yendor. " +
+                        "It is said that the amulet is able to fulfil any wish of its owner, but only once.";
+    }
 }

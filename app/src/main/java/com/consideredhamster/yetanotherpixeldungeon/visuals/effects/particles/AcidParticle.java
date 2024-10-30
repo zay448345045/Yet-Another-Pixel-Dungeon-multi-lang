@@ -29,59 +29,59 @@ import com.watabou.utils.Random;
 
 public class AcidParticle extends PixelParticle.Shrinking {
 
-	public static final Factory FACTORY = new Factory() {
-		@Override
-		public void emit( Emitter emitter, int index, float x, float y ) {
-			((AcidParticle)emitter.recycle( AcidParticle.class )).reset( x, y );
-		}
-	};
-
-    public static final Emitter.Factory BURST = new Factory() {
+    public static final Factory FACTORY = new Factory() {
         @Override
-        public void emit( Emitter emitter, int index, float x, float y ) {
-            ((AcidParticle)emitter.recycle( AcidParticle.class )).resetBurst( x, y );
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((AcidParticle) emitter.recycle(AcidParticle.class)).reset(x, y);
         }
     };
 
-	public AcidParticle() {
-		super();
-		
-		color( 0x00c500 );
-		lifespan = 0.8f;
-		
-		acc.set( 0, +40 );
-	}
-	
-	public void reset( float x, float y ) {
-		revive();
-		
-		this.x = x;
-		this.y = y;
+    public static final Emitter.Factory BURST = new Factory() {
+        @Override
+        public void emit(Emitter emitter, int index, float x, float y) {
+            ((AcidParticle) emitter.recycle(AcidParticle.class)).resetBurst(x, y);
+        }
+    };
 
-        size = 3;
-        speed.set( 0 );
+    public AcidParticle() {
+        super();
 
-        left = lifespan;
+        color(0x00c500);
+        lifespan = 0.8f;
+
+        acc.set(0, +40);
     }
 
-
-    public void resetBurst( float x, float y ) {
+    public void reset(float x, float y) {
         revive();
 
         this.x = x;
         this.y = y;
 
         size = 3;
-        speed.polar( Random.Float( PointF.PI2 ), Random.Float( 16, 32 ) );
+        speed.set(0);
 
         left = lifespan;
     }
-	
-	@Override
-	public void update() {
-		super.update();
-		float p = left / lifespan;
-		am = p > 0.6f ? (1 - p) * 2.5f : 1;
-        color( ColorMath.interpolate( 0x00c500, 0x006600, am ) );
-	}
+
+
+    public void resetBurst(float x, float y) {
+        revive();
+
+        this.x = x;
+        this.y = y;
+
+        size = 3;
+        speed.polar(Random.Float(PointF.PI2), Random.Float(16, 32));
+
+        left = lifespan;
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        float p = left / lifespan;
+        am = p > 0.6f ? (1 - p) * 2.5f : 1;
+        color(ColorMath.interpolate(0x00c500, 0x006600, am));
+    }
 }

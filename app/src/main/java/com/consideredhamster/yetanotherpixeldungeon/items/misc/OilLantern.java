@@ -47,20 +47,20 @@ import java.util.ArrayList;
 
 public class OilLantern extends Item {
 
-	public static final String AC_LIGHT	= "LIGHT";
-    public static final String AC_SNUFF    = "SNUFF";
-    public static final String AC_REFILL   = "REFILL";
-    public static final String AC_BURN 	= "BURN";
+    public static final String AC_LIGHT = "LIGHT";
+    public static final String AC_SNUFF = "SNUFF";
+    public static final String AC_REFILL = "REFILL";
+    public static final String AC_BURN = "BURN";
 
-	private static final float TIME_TO_USE = 1f;
-	private static final int MAX_CHARGE = 100;
+    private static final float TIME_TO_USE = 1f;
+    private static final int MAX_CHARGE = 100;
 
-	private static final String TXT_STATUS	= "%d%%";
+    private static final String TXT_STATUS = "%d%%";
 
-	private static final String TXT_CANT_BURN	= "You need a spare oil flask for this!";
-	private static final String TXT_NO_FLASKS	= "You don't have oil to refill the lamp!";
+    private static final String TXT_CANT_BURN = "You need a spare oil flask for this!";
+    private static final String TXT_NO_FLASKS = "You don't have oil to refill the lamp!";
 
-	private static final String TXT_DEACTIVATE = "Your lantern flickers faintly and goes out!";
+    private static final String TXT_DEACTIVATE = "Your lantern flickers faintly and goes out!";
 
     private static final String TXT_REFILL = "You refill the lantern.";
 
@@ -72,19 +72,19 @@ public class OilLantern extends Item {
     private static final String TXT_BURN_TILE = "You pour the oil from an oil flask on a nearby tile and ignite it.";
     private static final String TXT_BURN_FAIL = "You try to ignite a nearby tile, but it doesn't catch fire.";
 
-	{
-		name = "oil lantern";
-		image = ItemSpriteSheet.LANTERN;
+    {
+        name = "oil lantern";
+        image = ItemSpriteSheet.LANTERN;
 
         active = false;
         charge = MAX_CHARGE;
         flasks = 0;
 
-		visible = false;
-		unique = true;
+        visible = false;
+        unique = true;
 
         updateSprite();
-	}
+    }
 
     private boolean active;
     private int charge;
@@ -95,7 +95,7 @@ public class OilLantern extends Item {
     private static final String CHARGE = "charge";
 
     public void updateSprite() {
-        image = isActivated() ? ItemSpriteSheet.LANTERN_LIT : ItemSpriteSheet.LANTERN ;
+        image = isActivated() ? ItemSpriteSheet.LANTERN_LIT : ItemSpriteSheet.LANTERN;
     }
 
     public int getCharge() {
@@ -112,140 +112,140 @@ public class OilLantern extends Item {
     }
 
     public boolean isActivated() {
-        return active ;
+        return active;
     }
 
     @Override
     public String quickAction() {
-        return charge > 0 ? ( isActivated() ? AC_SNUFF : AC_LIGHT ) : AC_REFILL ;
+        return charge > 0 ? (isActivated() ? AC_SNUFF : AC_LIGHT) : AC_REFILL;
     }
-	
-	@Override
-	public void storeInBundle( Bundle bundle ) {
-		super.storeInBundle( bundle );
-        bundle.put( ACTIVE, active );
-        bundle.put( CHARGE, charge );
-        bundle.put( FLASKS, flasks );
-	}
-	
-	@Override
-	public void restoreFromBundle( Bundle bundle ) {
-		super.restoreFromBundle( bundle );
-        active = bundle.getBoolean( ACTIVE );
-        charge = bundle.getInt( CHARGE );
-        flasks = bundle.getInt( FLASKS );
+
+    @Override
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+        bundle.put(ACTIVE, active);
+        bundle.put(CHARGE, charge);
+        bundle.put(FLASKS, flasks);
+    }
+
+    @Override
+    public void restoreFromBundle(Bundle bundle) {
+        super.restoreFromBundle(bundle);
+        active = bundle.getBoolean(ACTIVE);
+        charge = bundle.getInt(CHARGE);
+        flasks = bundle.getInt(FLASKS);
 
         updateSprite();
-	}
-	
-	@Override
-	public ArrayList<String> actions( Hero hero ) {
-		ArrayList<String> actions = super.actions( hero );
+    }
 
-        actions.add( isActivated() ? AC_SNUFF : AC_LIGHT );
-        actions.add( AC_REFILL );
-        actions.add( AC_BURN );
+    @Override
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
 
-        actions.remove( AC_THROW );
-        actions.remove( AC_DROP );
+        actions.add(isActivated() ? AC_SNUFF : AC_LIGHT);
+        actions.add(AC_REFILL);
+        actions.add(AC_BURN);
 
-		return actions;
-	}
+        actions.remove(AC_THROW);
+        actions.remove(AC_DROP);
 
-	@Override
-	public void execute( final Hero hero, String action ) {
+        return actions;
+    }
 
-        if (action.equals( AC_LIGHT )) {
+    @Override
+    public void execute(final Hero hero, String action) {
 
-            if( charge > 0 ){
+        if (action.equals(AC_LIGHT)) {
 
-                if( hero.buff( Frozen.class ) == null ){
+            if (charge > 0) {
 
-                    activate( hero, true );
+                if (hero.buff(Frozen.class) == null) {
+
+                    activate(hero, true);
 
                 } else {
 
-                    GLog.n( Frozen.TXT_CANNOT_LIGHT );
+                    GLog.n(Frozen.TXT_CANNOT_LIGHT);
 
                 }
 
             }
 
-        } else if (action.equals( AC_SNUFF ) ) {
+        } else if (action.equals(AC_SNUFF)) {
 
-            if( isActivated() ){
+            if (isActivated()) {
 
-                deactivate( hero, true );
+                deactivate(hero, true);
 
             }
 
-        } else if (action.equals( AC_REFILL ) ) {
+        } else if (action.equals(AC_REFILL)) {
 
-            if ( flasks > 0 ) {
+            if (flasks > 0) {
 
-                refill( hero );
+                refill(hero);
 
             } else {
-                GLog.w( TXT_NO_FLASKS );
+                GLog.w(TXT_NO_FLASKS);
             }
 
-        } else if (action.equals( AC_BURN ) ) {
+        } else if (action.equals(AC_BURN)) {
 
-            if ( flasks > 0 ) {
+            if (flasks > 0) {
 
                 curUser = hero;
                 curItem = this;
 
-                GameScene.selectCell( burner );
+                GameScene.selectCell(burner);
 
             } else {
-                GLog.w( TXT_CANT_BURN );
+                GLog.w(TXT_CANT_BURN);
             }
 
         } else {
 
-			super.execute( hero, action );
-			
-		}
-	}
+            super.execute(hero, action);
 
-    public void refill( Hero hero ) {
+        }
+    }
+
+    public void refill(Hero hero) {
 
         flasks--;
         charge = MAX_CHARGE;
 
-        hero.spend( TIME_TO_USE );
+        hero.spend(TIME_TO_USE);
         hero.busy();
 
-        Sample.INSTANCE.play( Assets.SND_DRINK, 1.0f, 1.0f, 1.2f );
-        hero.sprite.operate( hero.pos );
+        Sample.INSTANCE.play(Assets.SND_DRINK, 1.0f, 1.0f, 1.2f);
+        hero.sprite.operate(hero.pos);
 
-        GLog.i( TXT_REFILL );
+        GLog.i(TXT_REFILL);
         updateQuickslot();
 
     }
 
-    public void activate( Hero hero, boolean voluntary ) {
+    public void activate(Hero hero, boolean voluntary) {
 
         active = true;
         updateSprite();
 
-        Buff.affect( hero, Light.class );
+        Buff.affect(hero, Light.class);
 //        hero.updateSpriteState();
 
-        hero.search( false );
+        hero.search(false);
 
-        if( voluntary ){
+        if (voluntary) {
 
-            hero.spend( TIME_TO_USE );
+            hero.spend(TIME_TO_USE);
             hero.busy();
 
-            GLog.i( TXT_LIGHT );
-            hero.sprite.operate( hero.pos );
+            GLog.i(TXT_LIGHT);
+            hero.sprite.operate(hero.pos);
 
         }
 
-        Sample.INSTANCE.play( Assets.SND_CLICK );
+        Sample.INSTANCE.play(Assets.SND_CLICK);
         updateQuickslot();
 
         Invisibility.dispel();
@@ -253,71 +253,71 @@ public class OilLantern extends Item {
 
     }
 
-    public void deactivate( Hero hero, boolean voluntary ) {
+    public void deactivate(Hero hero, boolean voluntary) {
 
         active = false;
         updateSprite();
 
-        Buff.detach( hero, Light.class );
+        Buff.detach(hero, Light.class);
 //        hero.updateSpriteState();
 
-        if( voluntary ){
+        if (voluntary) {
 
-            hero.spend( TIME_TO_USE );
+            hero.spend(TIME_TO_USE);
             hero.busy();
 
-            hero.sprite.operate( hero.pos );
-            GLog.i( TXT_SNUFF );
+            hero.sprite.operate(hero.pos);
+            GLog.i(TXT_SNUFF);
 
         } else {
 
-            GLog.w( TXT_DEACTIVATE );
+            GLog.w(TXT_DEACTIVATE);
 
         }
 
-        Sample.INSTANCE.play( Assets.SND_PUFF );
+        Sample.INSTANCE.play(Assets.SND_PUFF);
         updateQuickslot();
 
         Dungeon.observe();
 
     }
-	
-	public OilLantern collectFlask( OilFlask oil ) {
 
-		flasks += oil.quantity;
+    public OilLantern collectFlask(OilFlask oil) {
 
-		updateQuickslot();
+        flasks += oil.quantity;
+
+        updateQuickslot();
 
         return this;
 
-	}
+    }
 
     @Override
     public int price() {
         return 0;
     }
 
-	@Override
-	public String status() {
-		return Utils.format( TXT_STATUS, charge );
-	}
-	
-	@Override
-	public String info() {
-		return 
-			"This lamp from a hardened glass is an indispensable item in the dungeon, which is " +
-            "notorious for its poor ambient lighting. Even in the darkest of dungeons, this simple " +
-            "device can illuminate your way, provided that you've got oil flasks to keep it " +
-            "alight.\n\n" +
-                ( isActivated() ?
-                    "This small lantern shines vigorously, brighting your day. " :
-                    "This small lantern is snuffed out, waiting for its moment to shine. "
-                ) +
-            "You have " + ( charge / 10.0 ) + " oz of oil left and " + flasks + " spare flask" +
-            ( flasks != 1 ? "s" : "" ) + " remaining.";
-	}
+    @Override
+    public String status() {
+        return Utils.format(TXT_STATUS, charge);
+    }
 
-	public static class OilFlask extends Item {
+    @Override
+    public String info() {
+        return
+                "This lamp from a hardened glass is an indispensable item in the dungeon, which is " +
+                        "notorious for its poor ambient lighting. Even in the darkest of dungeons, this simple " +
+                        "device can illuminate your way, provided that you've got oil flasks to keep it " +
+                        "alight.\n\n" +
+                        (isActivated() ?
+                                "This small lantern shines vigorously, brighting your day. " :
+                                "This small lantern is snuffed out, waiting for its moment to shine. "
+                        ) +
+                        "You have " + (charge / 10.0) + " oz of oil left and " + flasks + " spare flask" +
+                        (flasks != 1 ? "s" : "") + " remaining.";
+    }
+
+    public static class OilFlask extends Item {
 
         {
             name = "oil flask";
@@ -327,13 +327,13 @@ public class OilLantern extends Item {
         }
 
         @Override
-        public boolean doPickUp( Hero hero ) {
+        public boolean doPickUp(Hero hero) {
 
-            OilLantern lamp = hero.belongings.getItem( OilLantern.class );
+            OilLantern lamp = hero.belongings.getItem(OilLantern.class);
 
             if (lamp != null) {
 
-                lamp.collectFlask( this );
+                lamp.collectFlask(this);
                 GameScene.pickUp(this);
 
                 Sample.INSTANCE.play(Assets.SND_ITEM);
@@ -354,51 +354,51 @@ public class OilLantern extends Item {
         @Override
         public String info() {
             return
-                "This container holds 10 oz of lantern oil. You can use it to " +
-                "refill your lantern or pour on something to burn it.";
+                    "This container holds 10 oz of lantern oil. You can use it to " +
+                            "refill your lantern or pour on something to burn it.";
         }
     }
 
 
-
     protected static CellSelector.Listener burner = new CellSelector.Listener() {
         @Override
-        public void onSelect( Integer target ) {
+        public void onSelect(Integer target) {
 
             if (target != null) {
 
-                Ballistica.cast( curUser.pos, target, false, true );
+                Ballistica.cast(curUser.pos, target, false, true);
 
-                int cell = Ballistica.trace[ 0 ];
+                int cell = Ballistica.trace[0];
 
-                if( Ballistica.distance > 0 ){
-                    cell = Ballistica.trace[ 1 ];
+                if (Ballistica.distance > 0) {
+                    cell = Ballistica.trace[1];
                 }
 
-                if( Level.flammable[ cell ] || !Level.solid[ cell ] && !Level.chasm[ cell ] ){
-                    GameScene.add( Blob.seed( cell, 5, Fire.class ) );
+                if (Level.flammable[cell] || !Level.solid[cell] && !Level.chasm[cell]) {
+                    GameScene.add(Blob.seed(cell, 5, Fire.class));
                 }
 
-                ((OilLantern)curItem).flasks--;
+                ((OilLantern) curItem).flasks--;
                 Invisibility.dispel();
 
-                if( curUser.pos == cell ) {
-                    GLog.i( TXT_BURN_SELF );
-                } else if( Level.flammable[ cell ] || !Level.solid[ cell ] && !Level.chasm[ cell ] ){
-                    GLog.i( TXT_BURN_TILE );
+                if (curUser.pos == cell) {
+                    GLog.i(TXT_BURN_SELF);
+                } else if (Level.flammable[cell] || !Level.solid[cell] && !Level.chasm[cell]) {
+                    GLog.i(TXT_BURN_TILE);
                 } else {
-                    GLog.i( TXT_BURN_FAIL );
+                    GLog.i(TXT_BURN_FAIL);
                 }
 
                 Sample.INSTANCE.play(Assets.SND_BURNING, 0.6f, 0.6f, 1.5f);
-                CellEmitter.get( cell ).burst( FlameParticle.FACTORY, 5 );
+                CellEmitter.get(cell).burst(FlameParticle.FACTORY, 5);
 
                 curUser.sprite.operate(cell);
                 curUser.busy();
-                curUser.spend( Actor.TICK );
+                curUser.spend(Actor.TICK);
 
             }
         }
+
         @Override
         public String prompt() {
             return "Select nearby tile to burn";

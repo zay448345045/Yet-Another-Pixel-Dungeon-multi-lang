@@ -24,33 +24,33 @@ import java.util.Locale;
 
 public class RingOfAwareness extends Ring {
 
-	{
-		name = "Ring of Awareness";
+    {
+        name = "Ring of Awareness";
         shortName = "Aw";
-	}
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Awareness();
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    @Override
+    protected RingBuff buff() {
+        return new Awareness();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
         String sideEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 3 );
-            sideEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 3);
+            sideEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
         }
 
         StringBuilder desc = new StringBuilder(
-            "These rings improve wearer's perception, making him or her to be more aware " +
-            "of different threats as well as allowing for a much deadlier counterattacks."
+                "These rings improve wearer's perception, making him or her to be more aware " +
+                        "of different threats as well as allowing for a much deadlier counterattacks."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -66,14 +66,14 @@ public class RingOfAwareness extends Ring {
 
         return desc.toString();
 
-	}
-	
-	public class Awareness extends RingBuff {
+    }
+
+    public class Awareness extends RingBuff {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "You feel that your alertness is improved." :
-                "You feel that your alertness is dimmed." ;
+                    "You feel that your alertness is improved." :
+                    "You feel that your alertness is dimmed.";
         }
-	}
+    }
 }

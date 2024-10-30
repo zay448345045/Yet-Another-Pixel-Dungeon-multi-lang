@@ -23,7 +23,6 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.hazards;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.HazardSprite;
 import com.watabou.utils.Bundle;
 
@@ -38,16 +37,16 @@ public abstract class Hazard extends Actor {
     public int var;
 
     @Override
-    protected boolean act(){
+    protected boolean act() {
         return false;
     }
 
     @Override
-    public int actingPriority(){
+    public int actingPriority() {
         return 3;
     }
 
-    public abstract void press( int cell, Char ch );
+    public abstract void press(int cell, Char ch);
 
     public HazardSprite sprite() {
         HazardSprite sprite = null;
@@ -61,7 +60,9 @@ public abstract class Hazard extends Actor {
 
     public String desc() {
         return null;
-    };
+    }
+
+    ;
 
     public void destroy() {
 
@@ -70,43 +71,43 @@ public abstract class Hazard extends Actor {
 
     }
 
-    public static <T extends Hazard> T findHazard( int pos, Class<T> hazardClass ) {
+    public static <T extends Hazard> T findHazard(int pos, Class<T> hazardClass) {
 
-        for( Hazard hazard : Dungeon.level.hazards ) {
-            if( pos == hazard.pos && hazardClass.isInstance( hazard ) ){
-                return hazardClass.cast( hazard );
+        for (Hazard hazard : Dungeon.level.hazards) {
+            if (pos == hazard.pos && hazardClass.isInstance(hazard)) {
+                return hazardClass.cast(hazard);
             }
         }
 
         return null;
     }
 
-    public static HashSet<Hazard> findHazards( int pos ) {
+    public static HashSet<Hazard> findHazards(int pos) {
 
         HashSet<Hazard> hazards = new HashSet<>();
 
-        for( Hazard hazard : Dungeon.level.hazards ) {
-            if( pos == hazard.pos )
-                hazards.add( hazard );
+        for (Hazard hazard : Dungeon.level.hazards) {
+            if (pos == hazard.pos)
+                hazards.add(hazard);
         }
 
         return hazards;
     }
 
-    private static final String POS	= "pos";
-    private static final String VAR	= "var";
+    private static final String POS = "pos";
+    private static final String VAR = "var";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
-        super.storeInBundle( bundle );
-        bundle.put( POS, pos );
-        bundle.put( VAR, var );
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+        bundle.put(POS, pos);
+        bundle.put(VAR, var);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
-        super.restoreFromBundle( bundle );
-        pos = bundle.getInt( POS );
-        var = bundle.getInt( VAR );
+    public void restoreFromBundle(Bundle bundle) {
+        super.restoreFromBundle(bundle);
+        pos = bundle.getInt(POS);
+        var = bundle.getInt(VAR);
     }
 }

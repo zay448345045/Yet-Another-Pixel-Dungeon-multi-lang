@@ -21,8 +21,8 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
@@ -45,10 +45,14 @@ public class Frozen extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "frozen"; }
+    public String statusMessage() {
+        return "frozen";
+    }
 
     @Override
-    public String playerMessage() { return "Intense cold slows your movement!"; }
+    public String playerMessage() {
+        return "Intense cold slows your movement!";
+    }
 
     @Override
     public int icon() {
@@ -57,12 +61,12 @@ public class Frozen extends Debuff {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.CHILLED );
+        target.sprite.add(CharSprite.State.CHILLED);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.CHILLED );
+        target.sprite.remove(CharSprite.State.CHILLED);
     }
 
     @Override
@@ -73,11 +77,10 @@ public class Frozen extends Debuff {
     }
 
 
-
     @Override
     public boolean act() {
 
-        if( Level.water[ target.pos ] && !target.flying && Random.Int( 2 ) == 0 ) {
+        if (Level.water[target.pos] && !target.flying && Random.Int(2) == 0) {
             duration++;
         }
 
@@ -85,20 +88,20 @@ public class Frozen extends Debuff {
     }
 
     @Override
-    public boolean attachTo( Char target ) {
+    public boolean attachTo(Char target) {
 
-        if (super.attachTo( target )) {
+        if (super.attachTo(target)) {
 
-            Buff.detach( target, Burning.class );
+            Buff.detach(target, Burning.class);
 
-            if( target instanceof Hero ){
+            if (target instanceof Hero) {
 
-                Hero hero = (Hero)target;
+                Hero hero = (Hero) target;
 
-                OilLantern lantern = hero.belongings.getItem( OilLantern.class );
+                OilLantern lantern = hero.belongings.getItem(OilLantern.class);
 
-                if( lantern != null && lantern.isActivated() ){
-                    lantern.deactivate( hero, false );
+                if (lantern != null && lantern.isActivated()) {
+                    lantern.deactivate(hero, false);
                 }
 
             }

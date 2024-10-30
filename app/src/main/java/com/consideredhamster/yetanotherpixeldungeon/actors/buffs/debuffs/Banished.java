@@ -21,14 +21,11 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
 public class Banished extends Debuff {
-	
+
 //	public int object = 0;
 
     @Override
@@ -42,7 +39,9 @@ public class Banished extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "banished"; }
+    public String statusMessage() {
+        return "banished";
+    }
 
 //    @Override
 //    public String playerMessage() { return ""; }
@@ -72,7 +71,7 @@ public class Banished extends Debuff {
     @Override
     public boolean act() {
 
-        target.damage( Random.Int( (int) Math.sqrt( target.totalHealthValue() * 1.5f ) ) + 1, this, Element.DISPEL );
+        target.damage(Random.Int((int) Math.sqrt(target.totalHealthValue() * 1.5f)) + 1, this, Element.DISPEL);
 
         return super.act();
 

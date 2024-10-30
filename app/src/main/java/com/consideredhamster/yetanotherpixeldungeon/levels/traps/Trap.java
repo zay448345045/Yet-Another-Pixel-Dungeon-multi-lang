@@ -39,16 +39,16 @@ public abstract class Trap {
 
     private static final String TXT_R_U_SURE =
             "You are aware of a trap on this tile. Once you step on it, the trap would be " +
-            "activated, which would most likely be quite a painful experience. Are you " +
-            "REALLY sure you want to step here?";
+                    "activated, which would most likely be quite a painful experience. Are you " +
+                    "REALLY sure you want to step here?";
 
-    private static final String TXT_YES			= "Yes, I know what I'm doing";
-    private static final String TXT_NO			= "No, I changed my mind";
+    private static final String TXT_YES = "Yes, I know what I'm doing";
+    private static final String TXT_NO = "No, I changed my mind";
 
     public static boolean stepConfirmed = false;
 
-    public static boolean itsATrap( int terrain ){
-        switch( terrain ) {
+    public static boolean itsATrap(int terrain) {
+        switch (terrain) {
 
             case Terrain.TOXIC_TRAP:
             case Terrain.FIRE_TRAP:
@@ -66,11 +66,11 @@ public abstract class Trap {
         }
     }
 
-    public static void askForConfirmation( final Hero hero ) {
+    public static void askForConfirmation(final Hero hero) {
         GameScene.show(
-                new WndOptions( TXT_TRAPPED, TXT_R_U_SURE, TXT_YES, TXT_NO ) {
+                new WndOptions(TXT_TRAPPED, TXT_R_U_SURE, TXT_YES, TXT_NO) {
                     @Override
-                    protected void onSelect( int index ) {
+                    protected void onSelect(int index) {
                         if (index == 0) {
                             stepConfirmed = true;
                             hero.resume();
@@ -82,68 +82,68 @@ public abstract class Trap {
     }
 
 
-    public static void trigger( int cell ) {
+    public static void trigger(int cell) {
 
-        Char ch = Actor.findChar( cell  );
+        Char ch = Actor.findChar(cell);
 
         if (ch == Dungeon.hero) {
             Dungeon.hero.interrupt();
         }
 
-        if( Dungeon.visible[cell] ) {
+        if (Dungeon.visible[cell]) {
 
-            if( ( Terrain.flags[ Dungeon.level.map[ cell ] ] & Terrain.TRAPPED ) != 0 ) {
+            if ((Terrain.flags[Dungeon.level.map[cell]] & Terrain.TRAPPED) != 0) {
                 GLog.i(TXT_HIDDEN_PLATE_CLICKS);
             }
 
-            Sample.INSTANCE.play( Assets.SND_TRAP);
+            Sample.INSTANCE.play(Assets.SND_TRAP);
         }
 
 
         int trap = Dungeon.level.map[cell];
-        Level.set( cell, Terrain.INACTIVE_TRAP);
-        GameScene.updateMap( cell );
+        Level.set(cell, Terrain.INACTIVE_TRAP);
+        GameScene.updateMap(cell);
 
-        switch ( trap ) {
+        switch (trap) {
 
             case Terrain.SECRET_TOXIC_TRAP:
             case Terrain.TOXIC_TRAP:
-                ToxicTrap.trigger( cell, ch );
+                ToxicTrap.trigger(cell, ch);
                 break;
 
             case Terrain.SECRET_FIRE_TRAP:
             case Terrain.FIRE_TRAP:
-                FireTrap.trigger( cell, ch );
+                FireTrap.trigger(cell, ch);
                 break;
 
             case Terrain.SECRET_BOULDER_TRAP:
             case Terrain.BOULDER_TRAP:
-                BoulderTrap.trigger( cell, ch );
+                BoulderTrap.trigger(cell, ch);
                 break;
 
             case Terrain.SECRET_POISON_TRAP:
             case Terrain.POISON_TRAP:
-                ConfusionTrap.trigger( cell, ch );
+                ConfusionTrap.trigger(cell, ch);
                 break;
 
             case Terrain.SECRET_ALARM_TRAP:
             case Terrain.ALARM_TRAP:
-                AlarmTrap.trigger( cell, ch );
+                AlarmTrap.trigger(cell, ch);
                 break;
 
             case Terrain.SECRET_LIGHTNING_TRAP:
             case Terrain.LIGHTNING_TRAP:
-                LightningTrap.trigger( cell, ch );
+                LightningTrap.trigger(cell, ch);
                 break;
 
             case Terrain.SECRET_BLADE_TRAP:
             case Terrain.BLADE_TRAP:
-                BladeTrap.trigger( cell, ch );
+                BladeTrap.trigger(cell, ch);
                 break;
 
             case Terrain.SECRET_SUMMONING_TRAP:
             case Terrain.SUMMONING_TRAP:
-                SummoningTrap.trigger( cell, ch );
+                SummoningTrap.trigger(cell, ch);
                 break;
         }
 

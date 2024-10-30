@@ -27,10 +27,10 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndMessage;
 
 public class Sign {
 
-	private static final String TXT_DEAD_END = 
-		"What are you doing here?!";
-	
-	private static final String[] TIPS = {
+    private static final String TXT_DEAD_END =
+            "What are you doing here?!";
+
+    private static final String[] TIPS = {
 
             "By the orders of the King, the city's sewers are temporarily closed for the general public due to the recent reports. Enter at your own risk!",
             "The sewer personnel are recommended to keep their lantern alight at all times. Otherwise, some passages may be difficult to find.",
@@ -40,8 +40,8 @@ public class Sign {
             "Caution! Further floors are locked by the King's decree. Security systems have been installed to prevent unauthorized access.",
 
             "hello there! feel free to visit me anytime.",
-			"don't you think spiders are cute? and giant spiders are even cuter!",
-			"sorry for all the gnolls here, they asked REALLY nicely to let them pass",
+            "don't you think spiders are cute? and giant spiders are even cuter!",
+            "sorry for all the gnolls here, they asked REALLY nicely to let them pass",
             "you may meet some of my friends here. don't be afraid, they just want to play!",
             "you're almost there! just a little further... hahaha!",
             "welcome to my playground! ready to have some fun?",
@@ -78,36 +78,36 @@ public class Sign {
 //                "\n\nthen again, maybe not",
 //            "you have played this game for too long, mortal" +
 //                "\n\ni think i shall remove you from the board"
-	};
-	
-	private static final String TXT_NOMESSAGE =
-		"Whatever was written here is incomprehensible.";
-	
-//	public static void read( int pos ) {
-	public static void read() {
+    };
 
-		if (Dungeon.level instanceof DeadEndLevel) {
-			
-			GameScene.show( new WndMessage( TXT_DEAD_END ) );
-			
-		} else {
-			
-			int index = Dungeon.depth - 1;
-			
-			if (index < TIPS.length && TIPS[index] != "" ) {
-				GameScene.show( new WndMessage( TIPS[index] ) );
-			} else {
-                GameScene.show( new WndMessage( TXT_NOMESSAGE ) );
+    private static final String TXT_NOMESSAGE =
+            "Whatever was written here is incomprehensible.";
+
+    //	public static void read( int pos ) {
+    public static void read() {
+
+        if (Dungeon.level instanceof DeadEndLevel) {
+
+            GameScene.show(new WndMessage(TXT_DEAD_END));
+
+        } else {
+
+            int index = Dungeon.depth - 1;
+
+            if (index < TIPS.length && TIPS[index] != "") {
+                GameScene.show(new WndMessage(TIPS[index]));
+            } else {
+                GameScene.show(new WndMessage(TXT_NOMESSAGE));
 //				Level.set( pos, Terrain.EMBERS );
 //				GameScene.updateMap( pos );
 //				GameScene.discoverTile( pos, Terrain.SIGN );
-				
+
 //				CellEmitter.get( pos ).burst( ElmoParticle.FACTORY, 6 );
 //				Sample.INSTANCE.play( Assets.SND_BURNING );
-				
+
 //				GLog.w( TXT_BURN );
-				
-			}
-		}
-	}
+
+            }
+        }
+    }
 }

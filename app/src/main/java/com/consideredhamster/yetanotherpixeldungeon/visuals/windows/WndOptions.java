@@ -20,70 +20,76 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.windows;
 
-import com.watabou.noosa.BitmapTextMultiline;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.RedButton;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Window;
+import com.watabou.noosa.BitmapTextMultiline;
 
 import java.util.ArrayList;
 
 public class WndOptions extends Window {
 
-    private static final int DISABLED_COLOR	= 0xCACFC2;
+    private static final int DISABLED_COLOR = 0xCACFC2;
 
-	private static final int WIDTH			= 120;
-	private static final int MARGIN 		= 2;
-	private static final int BUTTON_HEIGHT	= 20;
+    private static final int WIDTH = 120;
+    private static final int MARGIN = 2;
+    private static final int BUTTON_HEIGHT = 20;
 
     public ArrayList<Integer> disabled = new ArrayList<>();
 
-	public WndOptions( String title, String message, String... options ) {
-		super();
+    public WndOptions(String title, String message, String... options) {
+        super();
 
         this.disabled = disabled();
 
-		BitmapTextMultiline tfTitle = PixelScene.createMultiline( title, 9 );
-		tfTitle.hardlight( TITLE_COLOR );
-		tfTitle.x = tfTitle.y = MARGIN;
-		tfTitle.maxWidth = WIDTH - MARGIN * 2;
-		tfTitle.measure();
-		add( tfTitle );
-		
-		BitmapTextMultiline tfMessage = PixelScene.createMultiline( message, 7 );
-		tfMessage.maxWidth = WIDTH - MARGIN * 2;
-		tfMessage.measure();
-		tfMessage.x = MARGIN;
-		tfMessage.y = tfTitle.y + tfTitle.height() + MARGIN;
-		add( tfMessage );
-		
-		float pos = tfMessage.y + tfMessage.height() + MARGIN;
-		
-		for (int i=0; i < options.length; i++) {
-			final int index = i;
-			RedButton btn = new RedButton( options[i] ) {
-				@Override
-				protected void onClick() {
-					hide();
-					onSelect( index );
-				}
-			};
+        BitmapTextMultiline tfTitle = PixelScene.createMultiline(title, 9);
+        tfTitle.hardlight(TITLE_COLOR);
+        tfTitle.x = tfTitle.y = MARGIN;
+        tfTitle.maxWidth = WIDTH - MARGIN * 2;
+        tfTitle.measure();
+        add(tfTitle);
 
-            if( disabled != null && disabled.contains( index ) ) {
-                btn.textColor( DISABLED_COLOR );
+        BitmapTextMultiline tfMessage = PixelScene.createMultiline(message, 7);
+        tfMessage.maxWidth = WIDTH - MARGIN * 2;
+        tfMessage.measure();
+        tfMessage.x = MARGIN;
+        tfMessage.y = tfTitle.y + tfTitle.height() + MARGIN;
+        add(tfMessage);
+
+        float pos = tfMessage.y + tfMessage.height() + MARGIN;
+
+        for (int i = 0; i < options.length; i++) {
+            final int index = i;
+            RedButton btn = new RedButton(options[i]) {
+                @Override
+                protected void onClick() {
+                    hide();
+                    onSelect(index);
+                }
+            };
+
+            if (disabled != null && disabled.contains(index)) {
+                btn.textColor(DISABLED_COLOR);
             }
 
-			btn.setRect( MARGIN, pos, WIDTH - MARGIN * 2, BUTTON_HEIGHT );
+            btn.setRect(MARGIN, pos, WIDTH - MARGIN * 2, BUTTON_HEIGHT);
 
-			add( btn );
-			
-			pos += BUTTON_HEIGHT + MARGIN;
-		}
-		
-		resize( WIDTH, (int)pos );
-	}
-	
-	protected void onSelect( int index ) {};
-	protected ArrayList<Integer> disabled() {
+            add(btn);
+
+            pos += BUTTON_HEIGHT + MARGIN;
+        }
+
+        resize(WIDTH, (int) pos);
+    }
+
+    protected void onSelect(int index) {
+    }
+
+    ;
+
+    protected ArrayList<Integer> disabled() {
         return null;
-    };
+    }
+
+    ;
 }

@@ -20,73 +20,73 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.scenes;
 
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.NinePatch;
-import com.watabou.noosa.audio.Music;
+import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Chrome;
-import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Archs;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BadgesList;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.ExitButton;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.ScrollPane;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Window;
+import com.watabou.noosa.BitmapText;
+import com.watabou.noosa.Camera;
+import com.watabou.noosa.NinePatch;
+import com.watabou.noosa.audio.Music;
 
 public class BadgesScene extends PixelScene {
-	
-	private static final String TXT_TITLE = "Your Badges";
-	
-	private static final int MAX_PANE_WIDTH	= 160;
-	
-	@Override
-	public void create() {
-		
-		super.create();
-		
-		Music.INSTANCE.play( Assets.TRACK_MAIN_THEME, true );
-		Music.INSTANCE.volume( 1f );
-		
-		uiCamera.visible = false;
-		
-		int w = Camera.main.width;
-		int h = Camera.main.height;
-		
-		Archs archs = new Archs();
-		archs.setSize( w, h );
-		add( archs );
-		
-		int pw = Math.min( MAX_PANE_WIDTH, w - 6 );
-		int ph = h - 30;
-		
-		NinePatch panel = Chrome.get( Chrome.Type.WINDOW );
-		panel.size( pw, ph );
-		panel.x = (w - pw) / 2;
-		panel.y = (h - ph) / 2;
-		add( panel );
-		
-		BitmapText title = PixelScene.createText( TXT_TITLE, 9 );
-		title.hardlight( Window.TITLE_COLOR );
-		title.measure();
-		title.x = align( (w - title.width()) / 2 );
-		title.y = align( (panel.y - title.baseLine()) / 2 );
-		add( title );
 
-		ScrollPane list = new BadgesList( true );
-		add( list );
+    private static final String TXT_TITLE = "Your Badges";
 
-		list.setRect( 
-			panel.x + panel.marginLeft(), 
-			panel.y + panel.marginTop(), 
-			panel.innerWidth(), 
-			panel.innerHeight() );
-		
-		ExitButton btnExit = new ExitButton();
-		btnExit.setPos( Camera.main.width - btnExit.width(), 0 );
-		add( btnExit );
-		
-		fadeIn();
-		
+    private static final int MAX_PANE_WIDTH = 160;
+
+    @Override
+    public void create() {
+
+        super.create();
+
+        Music.INSTANCE.play(Assets.TRACK_MAIN_THEME, true);
+        Music.INSTANCE.volume(1f);
+
+        uiCamera.visible = false;
+
+        int w = Camera.main.width;
+        int h = Camera.main.height;
+
+        Archs archs = new Archs();
+        archs.setSize(w, h);
+        add(archs);
+
+        int pw = Math.min(MAX_PANE_WIDTH, w - 6);
+        int ph = h - 30;
+
+        NinePatch panel = Chrome.get(Chrome.Type.WINDOW);
+        panel.size(pw, ph);
+        panel.x = (w - pw) / 2;
+        panel.y = (h - ph) / 2;
+        add(panel);
+
+        BitmapText title = PixelScene.createText(TXT_TITLE, 9);
+        title.hardlight(Window.TITLE_COLOR);
+        title.measure();
+        title.x = align((w - title.width()) / 2);
+        title.y = align((panel.y - title.baseLine()) / 2);
+        add(title);
+
+        ScrollPane list = new BadgesList(true);
+        add(list);
+
+        list.setRect(
+                panel.x + panel.marginLeft(),
+                panel.y + panel.marginTop(),
+                panel.innerWidth(),
+                panel.innerHeight());
+
+        ExitButton btnExit = new ExitButton();
+        btnExit.setPos(Camera.main.width - btnExit.width(), 0);
+        add(btnExit);
+
+        fadeIn();
+
 //		Badges.loadingListener = new Callback() {
 //			@Override
 //			public void call() {
@@ -95,8 +95,8 @@ public class BadgesScene extends PixelScene {
 //				}
 //			}
 //		};
-	}
-	
+    }
+
 //	@Override
 //	public void destroy() {
 //
@@ -105,9 +105,9 @@ public class BadgesScene extends PixelScene {
 //
 //		super.destroy();
 //	}
-	
-	@Override
-	protected void onBackPressed() {
-		YetAnotherPixelDungeon.switchNoFade(TitleScene.class);
-	}
+
+    @Override
+    protected void onBackPressed() {
+        YetAnotherPixelDungeon.switchNoFade(TitleScene.class);
+    }
 }

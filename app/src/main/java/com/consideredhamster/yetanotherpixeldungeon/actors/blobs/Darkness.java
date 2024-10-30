@@ -23,26 +23,24 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.blobs;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Blinded;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 
 public class Darkness extends Blob {
-	
-	@Override
-	protected void evolve() {
-		super.evolve();
 
-        Blob blob = Dungeon.level.blobs.get( Sunlight.class );
+    @Override
+    protected void evolve() {
+        super.evolve();
+
+        Blob blob = Dungeon.level.blobs.get(Sunlight.class);
 
         if (blob != null) {
 
             int par[] = blob.cur;
 
-            for (int i=0; i < LENGTH; i++) {
+            for (int i = 0; i < LENGTH; i++) {
 
                 if (cur[i] > 0) {
                     blob.volume -= par[i];
@@ -51,25 +49,25 @@ public class Darkness extends Blob {
             }
         }
 
-		Char ch;
-		for (int i=0; i < LENGTH; i++) {
+        Char ch;
+        for (int i = 0; i < LENGTH; i++) {
             if (cur[i] > 0 && (ch = Actor.findChar(i)) != null) {
                 if (cur[i] > 0) {
-                    BuffActive.add( ch, Blinded.class, TICK );
+                    BuffActive.add(ch, Blinded.class, TICK);
                 }
             }
         }
-	}
-	
-	@Override
-	public void use( BlobEmitter emitter ) {
-		super.use( emitter );
-		
-		emitter.pour( Speck.factory( Speck.DARKNESS ), 0.2f );
-	}
-	
-	@Override
-	public String tileDesc() {
-		return "A cloud of impenetrable darkness is swirling here, obstructing your vision.";
-	}
+    }
+
+    @Override
+    public void use(BlobEmitter emitter) {
+        super.use(emitter);
+
+        emitter.pour(Speck.factory(Speck.DARKNESS), 0.2f);
+    }
+
+    @Override
+    public String tileDesc() {
+        return "A cloud of impenetrable darkness is swirling here, obstructing your vision.";
+    }
 }

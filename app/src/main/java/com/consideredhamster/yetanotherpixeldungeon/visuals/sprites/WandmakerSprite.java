@@ -20,55 +20,54 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Shield;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.watabou.noosa.TextureFilm;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Shield;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ElmoParticle;
 
 public class WandmakerSprite extends MobSprite {
-	
-	private Shield shield;
-	
-	public WandmakerSprite() {
-		super();
-		
-		texture( Assets.MAKER );
-		
-		TextureFilm frames = new TextureFilm( texture, 12, 14 );
-		
-		idle = new Animation( 10, true );
-		idle.frames( frames, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 2, 1 );
-		
-		run = new Animation( 20, true );
-		run.frames( frames, 0 );
-		
-		die = new Animation( 20, false );
-		die.frames( frames, 0 );
-		
-		play( idle );
-	}
-	
-	@Override
-	public void link( Char ch ) {
-		super.link( ch );
-		
-		if (shield == null) {
-			parent.add( shield = new Shield( this ) );
-		}
-	}
-	
-	@Override
-	public void die() {
-		super.die();
-		
-		if (shield != null) {
-			shield.putOut();
-		}
 
-		emitter().start( Speck.factory( Speck.LIGHT ), 0.03f, 60 );
-	}
-	
+    private Shield shield;
+
+    public WandmakerSprite() {
+        super();
+
+        texture(Assets.MAKER);
+
+        TextureFilm frames = new TextureFilm(texture, 12, 14);
+
+        idle = new Animation(10, true);
+        idle.frames(frames, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 2, 1);
+
+        run = new Animation(20, true);
+        run.frames(frames, 0);
+
+        die = new Animation(20, false);
+        die.frames(frames, 0);
+
+        play(idle);
+    }
+
+    @Override
+    public void link(Char ch) {
+        super.link(ch);
+
+        if (shield == null) {
+            parent.add(shield = new Shield(this));
+        }
+    }
+
+    @Override
+    public void die() {
+        super.die();
+
+        if (shield != null) {
+            shield.putOut();
+        }
+
+        emitter().start(Speck.factory(Speck.LIGHT), 0.03f, 60);
+    }
+
 
 }

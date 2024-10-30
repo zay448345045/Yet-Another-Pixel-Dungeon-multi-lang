@@ -20,46 +20,46 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.particles.PixelParticle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 
 public class ShopkeeperGhostSprite extends MobSprite {
 
-	private PixelParticle coin;
+    private PixelParticle coin;
 
-	public ShopkeeperGhostSprite() {
-		super();
-		
-		texture( Assets.KEEPER2);
-		TextureFilm film = new TextureFilm( texture, 14, 14 );
-		
-		idle = new Animation( 10, true );
-		idle.frames( film, 1, 1, 1, 1, 1, 0, 0, 0, 0 );
-		
-		run = idle.clone();
-		die = idle.clone();
-		attack = idle.clone();
-		
-		idle();
-	}
-	
-	@Override
-	public void onComplete( Animation anim ) {
-		super.onComplete( anim );
+    public ShopkeeperGhostSprite() {
+        super();
 
-        if ( visible && anim == idle ) {
+        texture(Assets.KEEPER2);
+        TextureFilm film = new TextureFilm(texture, 14, 14);
+
+        idle = new Animation(10, true);
+        idle.frames(film, 1, 1, 1, 1, 1, 0, 0, 0, 0);
+
+        run = idle.clone();
+        die = idle.clone();
+        attack = idle.clone();
+
+        idle();
+    }
+
+    @Override
+    public void onComplete(Animation anim) {
+        super.onComplete(anim);
+
+        if (visible && anim == idle) {
 
             if (coin != null) {
                 coin.remove();
             }
 
             coin = new PixelParticle();
-            parent.add( coin );
+            parent.add(coin);
 
-            coin.reset( x + (flipHorizontal ? 1 : 12 ), y + 7, 0xFFFF00, 1, 0.5f );
+            coin.reset(x + (flipHorizontal ? 1 : 12), y + 7, 0xFFFF00, 1, 0.5f);
             coin.speed.y = -40;
             coin.acc.y = +160;
         }
-	}
+    }
 }

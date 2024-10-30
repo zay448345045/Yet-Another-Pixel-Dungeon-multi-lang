@@ -36,7 +36,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class DreamfoilHerb extends Herb {
 
-    private static final ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0xAA00AA );
+    private static final ItemSprite.Glowing PURPLE = new ItemSprite.Glowing(0xAA00AA);
 
     {
         name = "Dreamfoil herb";
@@ -47,24 +47,24 @@ public class DreamfoilHerb extends Herb {
 
         mainPotion = PotionOfMindVision.class;
 
-        subPotions.add( PotionOfConfusionGas.class );
-        subPotions.add( PotionOfRage.class );
+        subPotions.add(PotionOfConfusionGas.class);
+        subPotions.add(PotionOfRage.class);
     }
 
-    public static void onConsume( Hero hero, float duration ) {
+    public static void onConsume(Hero hero, float duration) {
 
-        BuffActive.add( hero, MindResistance.class, duration );
+        BuffActive.add(hero, MindResistance.class, duration);
 
-        Debuff.remove( hero, Vertigo.class );
-        Debuff.remove( hero, Charmed.class );
-        Debuff.remove( hero, Tormented.class );
+        Debuff.remove(hero, Vertigo.class);
+        Debuff.remove(hero, Charmed.class);
+        Debuff.remove(hero, Tormented.class);
 
     }
 
     @Override
-    public void onConsume( Hero hero ) {
-        super.onConsume( hero );
-        onConsume( hero, DURATION_HERB );
+    public void onConsume(Hero hero) {
+        super.onConsume(hero);
+        onConsume(hero, DURATION_HERB);
     }
 
     @Override
@@ -92,15 +92,15 @@ public class DreamfoilHerb extends Herb {
         }
 
         @Override
-        public void onConsume( Hero hero ) {
-            super.onConsume( hero );
-            DreamfoilHerb.onConsume( hero, DURATION_MEAT );
+        public void onConsume(Hero hero) {
+            super.onConsume(hero);
+            DreamfoilHerb.onConsume(hero, DURATION_MEAT);
         }
 
         @Override
         public String desc() {
             return "This meat was stewed in a pot with a _Dreamfoil_ herb. It smells pretty sweet. " +
-                "Consuming it will remove _mind debuffs_ and grant a long buff to your _mind_ resistance.";
+                    "Consuming it will remove _mind debuffs_ and grant a long buff to your _mind_ resistance.";
         }
 
         @Override

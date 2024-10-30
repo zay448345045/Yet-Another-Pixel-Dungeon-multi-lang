@@ -26,11 +26,10 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Crippled;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Poisoned;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfVitality;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
+import com.watabou.utils.Random;
 
 public class Mending extends Bonus {
 
@@ -40,7 +39,9 @@ public class Mending extends Bonus {
     }
 
     @Override
-    public String statusMessage() { return "mending"; }
+    public String statusMessage() {
+        return "mending";
+    }
 
     @Override
     public int icon() {
@@ -48,13 +49,13 @@ public class Mending extends Bonus {
     }
 
     @Override
-    public void applyVisual(){
-        target.sprite.add( CharSprite.State.MENDING );
+    public void applyVisual() {
+        target.sprite.add(CharSprite.State.MENDING);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.MENDING );
+        target.sprite.remove(CharSprite.State.MENDING);
     }
 
     @Override
@@ -64,11 +65,11 @@ public class Mending extends Bonus {
     }
 
     @Override
-    public boolean attachTo( Char target ) {
-        if (super.attachTo( target )) {
-            Buff.detach( target, Poisoned.class );
-            Buff.detach( target, Crippled.class );
-            Buff.detach( target, Withered.class );
+    public boolean attachTo(Char target) {
+        if (super.attachTo(target)) {
+            Buff.detach(target, Poisoned.class);
+            Buff.detach(target, Crippled.class);
+            Buff.detach(target, Withered.class);
             return true;
         } else {
             return false;
@@ -80,7 +81,7 @@ public class Mending extends Bonus {
 
         int effect = 10;
 
-        if( target instanceof Hero ) {
+        if (target instanceof Hero) {
 
             Hero hero = ((Hero) target);
 
@@ -88,9 +89,9 @@ public class Mending extends Bonus {
 
         }
 
-        int healthRestored = ( effect / 10 + ( effect % 10 > Random.Int(10) ? 1 : 0 ) );
+        int healthRestored = (effect / 10 + (effect % 10 > Random.Int(10) ? 1 : 0));
 
-        target.heal( healthRestored > 0 ? healthRestored : 1 );
+        target.heal(healthRestored > 0 ? healthRestored : 1);
 
         return super.act();
     }

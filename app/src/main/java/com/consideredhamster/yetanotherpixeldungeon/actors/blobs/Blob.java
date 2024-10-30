@@ -20,134 +20,134 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.blobs;
 
-import java.util.Arrays;
-
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.BArray;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.Random;
+
+import java.util.Arrays;
 
 public class Blob extends Actor {
-	
-	public static final int WIDTH	= Level.WIDTH;
-	public static final int HEIGHT	= Level.HEIGHT;
-	public static final int LENGTH	= Level.LENGTH;
-	
-	public int volume = 0;
-	public String name = "unspecified blob";
 
-	public boolean[] bln;
-	public int[] cur;
-	protected int[] off;
-	
-	public BlobEmitter emitter;
-	
-	protected Blob() {
-		
-		cur = new int[LENGTH];
-		off = new int[LENGTH];
-		bln = new boolean[LENGTH];
+    public static final int WIDTH = Level.WIDTH;
+    public static final int HEIGHT = Level.HEIGHT;
+    public static final int LENGTH = Level.LENGTH;
 
-		volume = 0;
-	}
-	
-	private static final String CUR		= "cur";
-	private static final String START	= "start";
-	
-	@Override
-	public void storeInBundle( Bundle bundle ) {
-		super.storeInBundle(bundle);
-		
-		if (volume > 0) {
-		
-			int start;
-			for (start=0; start < LENGTH; start++) {
-				if (cur[start] > 0) {
-					break;
-				}
-			}
-			int end;
-			for (end=LENGTH-1; end > start; end--) {
-				if (cur[end] > 0) {
-					break;
-				}
-			}
-			
-			bundle.put( START, start );
-			bundle.put( CUR, trim( start, end + 1 ) );
-			
-		}
-	}
-	
-	private int[] trim( int start, int end ) {
-		int len = end - start;
-		int[] copy = new int[len];
-		System.arraycopy(cur, start, copy, 0, len);
-		return copy;
-	}
-	
-	@Override
-	public void restoreFromBundle( Bundle bundle ) {
-		
-		super.restoreFromBundle(bundle);
-		
-		int[] data = bundle.getIntArray( CUR );
-		if (data != null) {
-			int start = bundle.getInt( START );	
-			for (int i=0; i < data.length; i++) {
-				cur[i + start] = data[i];
-				volume += data[i];
-			}
-		}
-		
-		if (Level.resizingNeeded) {
-			int[] cur = new int[Level.LENGTH];
-			Arrays.fill(cur, 0);
-			
-			int loadedMapSize = Level.loadedMapSize;
-			for (int i=0; i < loadedMapSize; i++) {
-				System.arraycopy( this.cur, i * loadedMapSize, cur, i * Level.WIDTH, loadedMapSize );
-			}
-			
-			this.cur = cur;
-		}
-	}
-	
-	@Override
-	public boolean act() {
-		
-		spend(TICK);
-		
-		if (volume > 0) {
+    public int volume = 0;
+    public String name = "unspecified blob";
 
-			volume = 0;
-			evolve();
-			
-			int[] tmp = off;
-			off = cur;
-			cur = tmp;
-			
-		}
-		
-		return true;
-	}
+    public boolean[] bln;
+    public int[] cur;
+    protected int[] off;
+
+    public BlobEmitter emitter;
+
+    protected Blob() {
+
+        cur = new int[LENGTH];
+        off = new int[LENGTH];
+        bln = new boolean[LENGTH];
+
+        volume = 0;
+    }
+
+    private static final String CUR = "cur";
+    private static final String START = "start";
 
     @Override
-    public int actingPriority(){
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+
+        if (volume > 0) {
+
+            int start;
+            for (start = 0; start < LENGTH; start++) {
+                if (cur[start] > 0) {
+                    break;
+                }
+            }
+            int end;
+            for (end = LENGTH - 1; end > start; end--) {
+                if (cur[end] > 0) {
+                    break;
+                }
+            }
+
+            bundle.put(START, start);
+            bundle.put(CUR, trim(start, end + 1));
+
+        }
+    }
+
+    private int[] trim(int start, int end) {
+        int len = end - start;
+        int[] copy = new int[len];
+        System.arraycopy(cur, start, copy, 0, len);
+        return copy;
+    }
+
+    @Override
+    public void restoreFromBundle(Bundle bundle) {
+
+        super.restoreFromBundle(bundle);
+
+        int[] data = bundle.getIntArray(CUR);
+        if (data != null) {
+            int start = bundle.getInt(START);
+            for (int i = 0; i < data.length; i++) {
+                cur[i + start] = data[i];
+                volume += data[i];
+            }
+        }
+
+        if (Level.resizingNeeded) {
+            int[] cur = new int[Level.LENGTH];
+            Arrays.fill(cur, 0);
+
+            int loadedMapSize = Level.loadedMapSize;
+            for (int i = 0; i < loadedMapSize; i++) {
+                System.arraycopy(this.cur, i * loadedMapSize, cur, i * Level.WIDTH, loadedMapSize);
+            }
+
+            this.cur = cur;
+        }
+    }
+
+    @Override
+    public boolean act() {
+
+        spend(TICK);
+
+        if (volume > 0) {
+
+            volume = 0;
+            evolve();
+
+            int[] tmp = off;
+            off = cur;
+            cur = tmp;
+
+        }
+
+        return true;
+    }
+
+    @Override
+    public int actingPriority() {
         return 2;
     }
-	
-	public void use( BlobEmitter emitter ) {
-		this.emitter = emitter;
-	}
-	
-	protected void evolve() {
-		
-		boolean[] notBlocking = BArray.not( Level.solid, null );
+
+    public void use(BlobEmitter emitter) {
+        this.emitter = emitter;
+    }
+
+    protected void evolve() {
+
+        boolean[] notBlocking = BArray.not(Level.solid, null);
 //
 //        for (int i=0; i < Level.NEIGHBOURS8.length; i++) {
 //            int p = i.pos + Level.NEIGHBOURS8[i];
@@ -156,78 +156,78 @@ public class Blob extends Actor {
 //            }
 //        }
 
-		for (int i=1; i < HEIGHT-1; i++) {
+        for (int i = 1; i < HEIGHT - 1; i++) {
 
-			int from = i * WIDTH + 1;
-			int to = from + WIDTH - 2;
+            int from = i * WIDTH + 1;
+            int to = from + WIDTH - 2;
 
-			for (int pos=from; pos < to; pos++) {
-				if (notBlocking[pos]) {
+            for (int pos = from; pos < to; pos++) {
+                if (notBlocking[pos]) {
 
-					int count = 1;
-					int sum = cur[pos];
+                    int count = 1;
+                    int sum = cur[pos];
 
                     for (int n : Level.NEIGHBOURS8) {
-                        if ( notBlocking[pos + n] && Random.Float() < 0.75 ) {
+                        if (notBlocking[pos + n] && Random.Float() < 0.75) {
                             sum += cur[pos + n];
                             count++;
                         }
                     }
-					
-					int value = sum >= count ? (sum / count) - 1 : 0;
-					off[pos] = value;
-					
-					volume += value;
-				} else {
-					off[pos] = 0;
-				}
 
-                bln[pos] = off[pos] > 0 ;
-			}
-		}
-	}
-	
-	public void seed( int cell, int amount ) {
-		cur[cell] += amount;
-		volume += amount;
-	}
-	
-	public void clear( int cell ) {
-		volume -= cur[cell];
-		cur[cell] = 0;
-	}
+                    int value = sum >= count ? (sum / count) - 1 : 0;
+                    off[pos] = value;
+
+                    volume += value;
+                } else {
+                    off[pos] = 0;
+                }
+
+                bln[pos] = off[pos] > 0;
+            }
+        }
+    }
+
+    public void seed(int cell, int amount) {
+        cur[cell] += amount;
+        volume += amount;
+    }
+
+    public void clear(int cell) {
+        volume -= cur[cell];
+        cur[cell] = 0;
+    }
 
     public void remove() {
 
-        for (int i=0; i < LENGTH; i++) {
-            if( cur[i] > 0 ) {
-                clear( i );
+        for (int i = 0; i < LENGTH; i++) {
+            if (cur[i] > 0) {
+                clear(i);
             }
         }
 
     }
-	
-	public String tileDesc() {
-		return null;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public static<T extends Blob> T seed( int cell, int amount, Class<T> type ) {
-		try {
-			
-			T gas = (T)Dungeon.level.blobs.get( type );
-			if (gas == null) {
-				gas = type.newInstance();
-				Dungeon.level.blobs.put( type, gas );
-			}
-			
-			gas.seed( cell, amount );
-			
-			return gas;
-			
-		} catch (Exception e) {
-			YetAnotherPixelDungeon.reportException(e);
-			return null;
-		}
-	}
+
+    public String tileDesc() {
+        return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T extends Blob> T seed(int cell, int amount, Class<T> type) {
+        try {
+
+            T gas = (T) Dungeon.level.blobs.get(type);
+            if (gas == null) {
+                gas = type.newInstance();
+                Dungeon.level.blobs.put(type, gas);
+            }
+
+            gas.seed(cell, amount);
+
+            return gas;
+
+        } catch (Exception e) {
+            YetAnotherPixelDungeon.reportException(e);
+            return null;
+        }
+    }
 }

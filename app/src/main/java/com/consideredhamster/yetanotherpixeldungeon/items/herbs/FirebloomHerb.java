@@ -34,7 +34,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class FirebloomHerb extends Herb {
 
-    private static final ItemSprite.Glowing ORANGE = new ItemSprite.Glowing( 0xFF5511 );
+    private static final ItemSprite.Glowing ORANGE = new ItemSprite.Glowing(0xFF5511);
 
     {
         name = "Firebloom herb";
@@ -45,21 +45,21 @@ public class FirebloomHerb extends Herb {
 
         mainPotion = PotionOfLiquidFlame.class;
 
-        subPotions.add( PotionOfBlessing.class );
-        subPotions.add( PotionOfRage.class );
+        subPotions.add(PotionOfBlessing.class);
+        subPotions.add(PotionOfRage.class);
     }
 
-    private static void onConsume( Hero hero, float duration ) {
+    private static void onConsume(Hero hero, float duration) {
 
-        BuffActive.add( hero, FireResistance.class, duration );
-        Debuff.remove( hero, Burning.class );
+        BuffActive.add(hero, FireResistance.class, duration);
+        Debuff.remove(hero, Burning.class);
 
     }
 
     @Override
-    public void onConsume( Hero hero ) {
-        super.onConsume( hero );
-        onConsume( hero, DURATION_HERB );
+    public void onConsume(Hero hero) {
+        super.onConsume(hero);
+        onConsume(hero, DURATION_HERB);
     }
 
     @Override
@@ -85,9 +85,9 @@ public class FirebloomHerb extends Herb {
         }
 
         @Override
-        public void onConsume( Hero hero ) {
-            super.onConsume( hero );
-            FirebloomHerb.onConsume( hero, DURATION_MEAT );
+        public void onConsume(Hero hero) {
+            super.onConsume(hero);
+            FirebloomHerb.onConsume(hero, DURATION_MEAT);
         }
 
         @Override

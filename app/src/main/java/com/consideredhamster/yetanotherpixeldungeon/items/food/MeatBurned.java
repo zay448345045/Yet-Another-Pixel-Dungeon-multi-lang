@@ -25,23 +25,23 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class MeatBurned extends Food {
 
-	{
-		name = "burned meat";
-		image = ItemSpriteSheet.BURNED_MEAT;
+    {
+        name = "burned meat";
+        image = ItemSpriteSheet.BURNED_MEAT;
 
-		energy = Satiety.MAXIMUM * 0.15f;
+        energy = Satiety.MAXIMUM * 0.15f;
         message = "That meat tasted... bad.";
-	}
-	
-	@Override
-	public String desc() {
-		return "This piece of meat is covered in soot and grime. It is still edible, " +
+    }
+
+    @Override
+    public String desc() {
+        return "This piece of meat is covered in soot and grime. It is still edible, " +
                 "but it won't be as tasty or good for you as properly stewed meat.";
-	}
-	
-	@Override
-	public int price() {
-		return 5 * quantity;
-	}
+    }
+
+    @Override
+    public int price() {
+        return 5 * quantity;
+    }
 
 }

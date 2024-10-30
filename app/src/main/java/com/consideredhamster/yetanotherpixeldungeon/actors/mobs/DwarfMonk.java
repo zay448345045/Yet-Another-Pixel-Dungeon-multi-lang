@@ -32,7 +32,7 @@ public class DwarfMonk extends MobEvasive {
 
     public DwarfMonk() {
 
-        super( 13 );
+        super(13);
 
         /*
 
@@ -54,43 +54,43 @@ public class DwarfMonk extends MobEvasive {
 
         spriteClass = MonkSprite.class;
 
-		loot = new RationSmall();
-		lootChance = 0.1f;
+        loot = new RationSmall();
+        lootChance = 0.1f;
 
 //        resistances.put(Element.Mind.class, Element.Resist.PARTIAL);
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-	}
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+    }
 
     @Override
     public float attackSpeed() {
         return super.attackSpeed() * 2.0f;
     }
-	
-	@Override
-	public void die( Object cause, Element dmg ) {
 
-		AmbitiousImp.Quest.process( this );
-		
-		super.die( cause, dmg );
+    @Override
+    public void die(Object cause, Element dmg) {
 
-	}
-	
-	@Override
-	public int attackProc( Char enemy, int damage, boolean blocked ) {
+        AmbitiousImp.Quest.process(this);
 
-        Buff.affect(this, Combo.class).hit( attackDelay() );
-		
-		return damage;
-	}
+        super.die(cause, dmg);
+
+    }
+
+    @Override
+    public int attackProc(Char enemy, int damage, boolean blocked) {
+
+        Buff.affect(this, Combo.class).hit(attackDelay());
+
+        return damage;
+    }
 
     @Override
     public int damageRoll() {
 
         int dmg = super.damageRoll();
 
-        Combo buff = buff( Combo.class );
+        Combo buff = buff(Combo.class);
 
-        if( buff != null ) {
+        if (buff != null) {
 
             dmg += (int) (dmg * buff.modifier());
 
@@ -98,11 +98,11 @@ public class DwarfMonk extends MobEvasive {
 
         return dmg;
     }
-	
-	@Override
-	public String description() {
-		return
-			"These monks are fanatics, who devoted themselves to protecting their city's secrets from all intruders. " +
-			"They don't use any armor or weapons, relying solely on the art of hand-to-hand combat.";
-	}
+
+    @Override
+    public String description() {
+        return
+                "These monks are fanatics, who devoted themselves to protecting their city's secrets from all intruders. " +
+                        "They don't use any armor or weapons, relying solely on the art of hand-to-hand combat.";
+    }
 }

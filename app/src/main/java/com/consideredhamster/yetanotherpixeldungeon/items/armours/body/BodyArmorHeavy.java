@@ -27,14 +27,14 @@ import com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs.Durabil
 public abstract class BodyArmorHeavy extends BodyArmor {
 
     public BodyArmorHeavy(int tier) {
-        super( tier );
+        super(tier);
     }
 
     @Override
-    public int dr( int bonus ) {
+    public int dr(int bonus) {
         return super.dr(bonus) + state - 1
-                + ( glyph instanceof Durability || bonus >= 0 ? bonus : 0 )
-                + ( glyph instanceof Durability && bonus >= 0 ? 1 : 0 ) ;
+                + (glyph instanceof Durability || bonus >= 0 ? bonus : 0)
+                + (glyph instanceof Durability && bonus >= 0 ? 1 : 0);
     }
 
     @Override

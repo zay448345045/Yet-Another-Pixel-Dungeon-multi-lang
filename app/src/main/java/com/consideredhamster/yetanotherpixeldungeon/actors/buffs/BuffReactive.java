@@ -29,21 +29,21 @@ public abstract class BuffReactive extends Buff {
 
     protected int duration;
 
-    public void reset( float value ) {
+    public void reset(float value) {
 //        duration = value;
-        spend( value );
+        spend(value);
     }
 
-    public void check(){
-        if( duration > 0 ) {
+    public void check() {
+        if (duration > 0) {
             duration--;
         } else {
             detach();
         }
     }
 
-    public static void check( Char ch ){
-        for( BuffReactive buff : (HashSet<BuffReactive>)ch.buffs( BuffReactive.class ).clone() ) {
+    public static void check(Char ch) {
+        for (BuffReactive buff : (HashSet<BuffReactive>) ch.buffs(BuffReactive.class).clone()) {
             buff.check();
         }
     }
@@ -56,17 +56,17 @@ public abstract class BuffReactive extends Buff {
         return true;
     }
 
-    private static final String DURATION	= "duration";
+    private static final String DURATION = "duration";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
-        super.storeInBundle( bundle );
-        bundle.put( DURATION, duration );
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+        bundle.put(DURATION, duration);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        duration = bundle.getInt( DURATION );
+        duration = bundle.getInt(DURATION);
     }
 }

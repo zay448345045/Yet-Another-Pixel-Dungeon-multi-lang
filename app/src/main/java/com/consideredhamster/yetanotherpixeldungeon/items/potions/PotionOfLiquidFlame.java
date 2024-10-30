@@ -20,46 +20,43 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Fire;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.watabou.utils.Random;
 
 public class PotionOfLiquidFlame extends Potion {
 
-    public static final float BASE_VAL	= 0.5f;
+    public static final float BASE_VAL = 0.5f;
 
-	{
-		name = "Potion of Liquid Flame";
+    {
+        name = "Potion of Liquid Flame";
         shortName = "Li";
         harmful = true;
-	}
-	
-	@Override
-	public void shatter( int cell ) {
+    }
 
-		GameScene.add( Blob.seed( cell, 3, Fire.class ) );
+    @Override
+    public void shatter(int cell) {
+
+        GameScene.add(Blob.seed(cell, 3, Fire.class));
 
         for (int n : Level.NEIGHBOURS8) {
-            if( Level.flammable[ cell + n ] || !Level.water[ cell + n ] &&
-                    Level.passable[ cell + n ] && BASE_VAL > Random.Float() ) {
-                GameScene.add( Blob.seed( cell + n, 2, Fire.class ) );
+            if (Level.flammable[cell + n] || !Level.water[cell + n] &&
+                    Level.passable[cell + n] && BASE_VAL > Random.Float()) {
+                GameScene.add(Blob.seed(cell + n, 2, Fire.class));
             }
         }
 
-        super.shatter( cell );
-	}
-	
-	@Override
-	public String desc() {
-		return
-			"This flask contains an unstable compound which will burst " +
-			"violently into flame upon exposure to open air.";
-	}
+        super.shatter(cell);
+    }
+
+    @Override
+    public String desc() {
+        return
+                "This flask contains an unstable compound which will burst " +
+                        "violently into flame upon exposure to open air.";
+    }
 
     @Override
     public int price() {

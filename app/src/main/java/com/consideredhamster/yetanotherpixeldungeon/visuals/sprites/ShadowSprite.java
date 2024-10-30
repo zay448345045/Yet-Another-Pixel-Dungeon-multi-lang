@@ -20,37 +20,35 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.TextureFilm;
 
 public class ShadowSprite extends MobSprite {
 
-	public ShadowSprite() {
-		super();
-		
-		texture( Assets.TSHADOW );
-		
-		TextureFilm frames = new TextureFilm( texture, 14, 16 );
-		
-		idle = new Animation( 2, true );
-		idle.frames( frames, 0, 0, 0, 1 );
-		
-		run = new Animation( 15, false );
-		run.frames( frames, 0 );
-		
-		attack = new Animation( 15, false );
-		attack.frames( frames, 2, 3, 3, 0 );
-		
-		die = new Animation( 10, false );
-		die.frames( frames, 4, 5, 6, 7, 8 );
-		
-		play( run.clone() );
-	}
+    public ShadowSprite() {
+        super();
 
-	@Override
-	public int blood() {
-		return 0x88000000;
-	}
+        texture(Assets.TSHADOW);
+
+        TextureFilm frames = new TextureFilm(texture, 14, 16);
+
+        idle = new Animation(2, true);
+        idle.frames(frames, 0, 0, 0, 1);
+
+        run = new Animation(15, false);
+        run.frames(frames, 0);
+
+        attack = new Animation(15, false);
+        attack.frames(frames, 2, 3, 3, 0);
+
+        die = new Animation(10, false);
+        die.frames(frames, 4, 5, 6, 7, 8);
+
+        play(run.clone());
+    }
+
+    @Override
+    public int blood() {
+        return 0x88000000;
+    }
 }

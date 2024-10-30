@@ -24,7 +24,6 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffPassive;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
-import com.watabou.utils.Bundle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 import java.util.HashSet;
@@ -62,11 +61,13 @@ public class UnholyArmor extends BuffPassive {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.UNHOLYARMOR );
+        target.sprite.add(CharSprite.State.UNHOLYARMOR);
     }
 
     @Override
-    public void removeVisual() { target.sprite.remove( CharSprite.State.UNHOLYARMOR ); }
+    public void removeVisual() {
+        target.sprite.remove(CharSprite.State.UNHOLYARMOR);
+    }
 
 //    private int consumed;
 //

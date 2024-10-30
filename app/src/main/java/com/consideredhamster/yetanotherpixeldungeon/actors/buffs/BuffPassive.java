@@ -21,10 +21,10 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs;
 
 public abstract class BuffPassive extends Buff {
-	
-	@Override
-	public boolean act() {
-		detach();
-		return true;
-	}
+
+    @Override
+    public boolean act() {
+        detach();
+        return true;
+    }
 }

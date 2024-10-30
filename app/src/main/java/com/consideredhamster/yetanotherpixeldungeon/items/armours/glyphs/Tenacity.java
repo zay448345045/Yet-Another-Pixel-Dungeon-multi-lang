@@ -27,10 +27,10 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.G
 
 public class Tenacity extends Armour.Glyph {
 
-	@Override
-	public Glowing glowing() {
-		return MUSTARD;
-	}
+    @Override
+    public Glowing glowing() {
+        return MUSTARD;
+    }
 
     @Override
     public Class<? extends Element> resistance() {
@@ -58,12 +58,12 @@ public class Tenacity extends Armour.Glyph {
     }
 
     @Override
-    public boolean proc_p( Char attacker, Char defender, int damage ) {
+    public boolean proc_p(Char attacker, Char defender, int damage) {
         return false;
     }
 
     @Override
-    public boolean proc_n( Char attacker, Char defender, int damage ) {
+    public boolean proc_n(Char attacker, Char defender, int damage) {
         return false;
     }
 }

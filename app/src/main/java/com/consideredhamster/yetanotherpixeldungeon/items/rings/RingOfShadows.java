@@ -24,34 +24,34 @@ import java.util.Locale;
 
 public class RingOfShadows extends Ring {
 
-	{
-		name = "Ring of Shadows";
+    {
+        name = "Ring of Shadows";
         shortName = "Sh";
-	}
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Shadows();
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    @Override
+    protected RingBuff buff() {
+        return new Shadows();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
         String sideEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 3 );
-            sideEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 3);
+            sideEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
         }
 
         StringBuilder desc = new StringBuilder(
-            "The curious enchantment on this ring controls the shadows around its wearer, helping " +
-            "him or her to blend with their surroundings. Such rings are indispensable for those " +
-            "whose job revolves around espionage or assassinations."
+                "The curious enchantment on this ring controls the shadows around its wearer, helping " +
+                        "him or her to blend with their surroundings. Such rings are indispensable for those " +
+                        "whose job revolves around espionage or assassinations."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -66,14 +66,15 @@ public class RingOfShadows extends Ring {
         }
 
         return desc.toString();
-	}
-	public class Shadows extends RingBuff {
+    }
+
+    public class Shadows extends RingBuff {
 
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "Suddenly, shadows thicken around you, obfuscating your presence." :
-                "Suddenly, shadows bend around you, highlighting your presence." ;
+                    "Suddenly, shadows thicken around you, obfuscating your presence." :
+                    "Suddenly, shadows bend around you, highlighting your presence.";
         }
-	}
+    }
 }

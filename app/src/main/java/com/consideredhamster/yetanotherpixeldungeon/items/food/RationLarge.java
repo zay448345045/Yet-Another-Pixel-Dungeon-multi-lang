@@ -25,22 +25,22 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class RationLarge extends Food {
 
-	{
-		name = "dwarven pasty";
-		image = ItemSpriteSheet.PASTY;
+    {
+        name = "dwarven pasty";
+        image = ItemSpriteSheet.PASTY;
 
         energy = Satiety.MAXIMUM;
         message = "That food tasted delicious!";
     }
-	
-	@Override
-	public String desc() {
-		return "This is an authentic dwarven pasty with traditional filling of beer and sand. " +
-               "Food like these can last for years without spoiling.";
-	}
-	
-	@Override
-	public int price() {
-		return 40 * quantity;
-	}
+
+    @Override
+    public String desc() {
+        return "This is an authentic dwarven pasty with traditional filling of beer and sand. " +
+                "Food like these can last for years without spoiling.";
+    }
+
+    @Override
+    public int price() {
+        return 40 * quantity;
+    }
 }

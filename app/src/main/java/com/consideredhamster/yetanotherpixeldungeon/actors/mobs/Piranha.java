@@ -20,32 +20,26 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Enraged;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Invisibility;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Banished;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Crippled;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Tormented;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.TagAttack;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.PiranhaSprite;
+import com.watabou.utils.Callback;
+import com.watabou.utils.Random;
 
 public class Piranha extends MobEvasive {
-	
-	public Piranha() {
 
-		super( Dungeon.depth + 1 );
+    public Piranha() {
+
+        super(Dungeon.depth + 1);
 
         name = "giant piranha";
         info = "Crippling attack, Invisibility, Aquatic";
@@ -62,115 +56,115 @@ public class Piranha extends MobEvasive {
         loot = new MeatRaw();
         lootChance = 0.5f;
 
-        resistances.put( Element.Flame.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Knockback.class, Element.Resist.VULNERABLE );
+        resistances.put(Element.Flame.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Knockback.class, Element.Resist.VULNERABLE);
 
-	}
-	
-	@Override
-	protected boolean act() {
-
-		if (!Level.water[pos]) {
-
-			die( null );
-			return true;
-
-		} else if( ( state == HUNTING || state == FLEEING ) && enemy != null && !Level.adjacent( pos, enemy.pos ) && invisible == 0 ) {
-
-			sprite.cast(enemy.pos, new Callback() {
-				@Override
-				public void call() {
-				submerge();
-				sprite.idle();
-				}
-			});
-
-			spend( TICK );
-			return true;
-		}
-
-		return super.act();
-	}
-
-	public void submerge() {
-		BuffActive.add(this, Invisibility.class, Random.Float( 15.0f, 20.0f ) );
-		if (Dungeon.visible[pos]) {
-			GLog.i( name + " dives deeper into the water!");
-		}
-	}
-	
-	@Override
-	public boolean reset() {
-        state = SLEEPING;
-        return true;
-	}
-
-	@Override
-	protected boolean getCloser( int target ) {
-		
-		if (rooted) {
-			return false;
-		}
-		
-		int step = Dungeon.findPath(this, pos, target,
-                Level.water,
-                Level.fieldOfView);
-
-		if (step != -1) {
-			move( step );
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	@Override
-	protected boolean getFurther( int target ) {
-		int step = Dungeon.flee(this, pos, target,
-                Level.water,
-                Level.fieldOfView);
-		if (step != -1) {
-			move( step );
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	@Override
-	public boolean add( Buff buff ) {
-
-		if ( buff instanceof Burning ) {
-			return false;
-		}
-
-		return super.add(buff);
-	}
-
-    @Override
-    protected int nextStepTo( Char enemy ) {
-        return Dungeon.findPath( this, pos, enemy.pos,
-                Level.water,
-                Level.fieldOfView );
     }
 
-	@Override
-	public int attackProc( Char enemy, int damage, boolean blocked ) {
+    @Override
+    protected boolean act() {
 
-		if( !blocked && Random.Int( 10 ) < tier ) {
-			BuffActive.addFromDamage( enemy, Crippled.class, damage * 2 );
-		}
+        if (!Level.water[pos]) {
 
-		return damage;
-	}
+            die(null);
+            return true;
 
-	@Override
-	public String description() {
-		return
-			"These carnivorous fish are sometimes born in these underground pools. " +
-			"Other times, they are bred specifically to protect flooded treasure vaults. " +
-            "Regardless of origin, they all share the same ferocity and thirst for blood.";
-	}
+        } else if ((state == HUNTING || state == FLEEING) && enemy != null && !Level.adjacent(pos, enemy.pos) && invisible == 0) {
+
+            sprite.cast(enemy.pos, new Callback() {
+                @Override
+                public void call() {
+                    submerge();
+                    sprite.idle();
+                }
+            });
+
+            spend(TICK);
+            return true;
+        }
+
+        return super.act();
+    }
+
+    public void submerge() {
+        BuffActive.add(this, Invisibility.class, Random.Float(15.0f, 20.0f));
+        if (Dungeon.visible[pos]) {
+            GLog.i(name + " dives deeper into the water!");
+        }
+    }
+
+    @Override
+    public boolean reset() {
+        state = SLEEPING;
+        return true;
+    }
+
+    @Override
+    protected boolean getCloser(int target) {
+
+        if (rooted) {
+            return false;
+        }
+
+        int step = Dungeon.findPath(this, pos, target,
+                Level.water,
+                Level.fieldOfView);
+
+        if (step != -1) {
+            move(step);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    protected boolean getFurther(int target) {
+        int step = Dungeon.flee(this, pos, target,
+                Level.water,
+                Level.fieldOfView);
+        if (step != -1) {
+            move(step);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean add(Buff buff) {
+
+        if (buff instanceof Burning) {
+            return false;
+        }
+
+        return super.add(buff);
+    }
+
+    @Override
+    protected int nextStepTo(Char enemy) {
+        return Dungeon.findPath(this, pos, enemy.pos,
+                Level.water,
+                Level.fieldOfView);
+    }
+
+    @Override
+    public int attackProc(Char enemy, int damage, boolean blocked) {
+
+        if (!blocked && Random.Int(10) < tier) {
+            BuffActive.addFromDamage(enemy, Crippled.class, damage * 2);
+        }
+
+        return damage;
+    }
+
+    @Override
+    public String description() {
+        return
+                "These carnivorous fish are sometimes born in these underground pools. " +
+                        "Other times, they are bred specifically to protect flooded treasure vaults. " +
+                        "Regardless of origin, they all share the same ferocity and thirst for blood.";
+    }
 
 }

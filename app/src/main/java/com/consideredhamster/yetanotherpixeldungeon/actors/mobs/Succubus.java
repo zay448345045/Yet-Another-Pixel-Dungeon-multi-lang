@@ -20,34 +20,30 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfPhaseWarp;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Charmed;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfLifeDrain;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfPhaseWarp;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.SuccubusSprite;
-
-import java.util.ArrayList;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Callback;
 
 public class Succubus extends MobPrecise {
-	
-	private static final int BLINK_DELAY = 16;
 
-	private int delay = 0;
+    private static final int BLINK_DELAY = 16;
+
+    private int delay = 0;
 
     public Succubus() {
 
-        super( 18 );
+        super(18);
 
         /*
 
@@ -73,9 +69,9 @@ public class Succubus extends MobPrecise {
 
         resistances.put(Element.Mind.class, Element.Resist.PARTIAL);
         resistances.put(Element.Unholy.class, Element.Resist.PARTIAL);
-        resistances.put( Element.Dispel.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Dispel.class, Element.Resist.PARTIAL);
 
-	}
+    }
 
     @Override
     public boolean isMagical() {
@@ -83,14 +79,14 @@ public class Succubus extends MobPrecise {
     }
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return ( super.canAttack( enemy ) ||
-            enemy.buff( Charmed.class ) == null ) &&
-            Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
+    protected boolean canAttack(Char enemy) {
+        return (super.canAttack(enemy) ||
+                enemy.buff(Charmed.class) == null) &&
+                Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
+    protected void onRangedAttack(int cell) {
 
         MagicMissile.purpleLight(sprite.parent, pos, cell,
                 new Callback() {
@@ -104,19 +100,19 @@ public class Succubus extends MobPrecise {
 
 //        onCastComplete();
 
-        super.onRangedAttack( cell );
+        super.onRangedAttack(cell);
     }
 
     @Override
-    public boolean cast( Char enemy ) {
+    public boolean cast(Char enemy) {
 
-        if ( hit( this, enemy, true, true ) ) {
+        if (hit(this, enemy, true, true)) {
 
-            Charmed buff = BuffActive.addFromDamage( enemy, Charmed.class, damageRoll() );
+            Charmed buff = BuffActive.addFromDamage(enemy, Charmed.class, damageRoll());
 
-            if( buff != null ) {
+            if (buff != null) {
 //                buff.object = this.id();
-                enemy.sprite.centerEmitter().start( Speck.factory(Speck.HEART), 0.2f, 5 );
+                enemy.sprite.centerEmitter().start(Speck.factory(Speck.HEART), 0.2f, 5);
             }
 
         } else {
@@ -129,17 +125,17 @@ public class Succubus extends MobPrecise {
     }
 
     @Override
-    public int attackProc( Char enemy, int damage, boolean blocked ) {
+    public int attackProc(Char enemy, int damage, boolean blocked) {
 
-        if ( !blocked && isAlive() ) {
+        if (!blocked && isAlive()) {
 
-            int healed = Element.Resist.modifyValue( damage / 2, enemy, Element.BODY );
+            int healed = Element.Resist.modifyValue(damage / 2, enemy, Element.BODY);
 
-            if ( healed > 0 ) {
+            if (healed > 0) {
 
-                heal( healed );
+                heal(healed);
 
-                if( sprite.visible ) {
+                if (sprite.visible) {
                     sprite.emitter().burst(Speck.factory(Speck.HEALING), 1);
                 }
             }
@@ -147,44 +143,44 @@ public class Succubus extends MobPrecise {
 
         return damage;
     }
-	
-	@Override
-	protected boolean getCloser( int target ) {
-		if (delay <= 0 && enemySeen && enemy != null && Level.fieldOfView[target]
-            && Level.distance( pos, target ) > 1 && enemy.buff( Charmed.class ) != null
-            && Ballistica.cast( pos, enemy.pos, false, true ) == enemy.pos
-            && Level.mob_passable[ Ballistica.trace[ Ballistica.distance - 1 ] ]  ) {
 
-			blink( target );
-			spend( -1 / moveSpeed() );
-			return true;
+    @Override
+    protected boolean getCloser(int target) {
+        if (delay <= 0 && enemySeen && enemy != null && Level.fieldOfView[target]
+                && Level.distance(pos, target) > 1 && enemy.buff(Charmed.class) != null
+                && Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos
+                && Level.mob_passable[Ballistica.trace[Ballistica.distance - 1]]) {
 
-		} else {
+            blink(target);
+            spend(-1 / moveSpeed());
+            return true;
 
-			delay--;
-			return super.getCloser( target );
+        } else {
 
-		}
-	}
+            delay--;
+            return super.getCloser(target);
 
-	private void blink( int target ) {
+        }
+    }
 
-		int cell = Ballistica.cast( pos, target, false, true );
+    private void blink(int target) {
 
-		if (Actor.findChar( cell ) != null && Ballistica.distance > 1) {
-			cell = Ballistica.trace[Ballistica.distance - 1];
-		}
+        int cell = Ballistica.cast(pos, target, false, true);
 
-        ScrollOfPhaseWarp.appear( this, cell );
+        if (Actor.findChar(cell) != null && Ballistica.distance > 1) {
+            cell = Ballistica.trace[Ballistica.distance - 1];
+        }
 
-		delay = BLINK_DELAY;
-	}
-	
-	@Override
-	public String description() {
-		return
-			"The succubi are demons that look like seductive (in a slightly gothic way) girls. Demonic charms allow " +
-			"them to mesmerize mortals, making them unable to inflict any direct harm against their tormentor and " +
-            "leaving them vulnerable to succubus' life-draining touch.";
-	}
+        ScrollOfPhaseWarp.appear(this, cell);
+
+        delay = BLINK_DELAY;
+    }
+
+    @Override
+    public String description() {
+        return
+                "The succubi are demons that look like seductive (in a slightly gothic way) girls. Demonic charms allow " +
+                        "them to mesmerize mortals, making them unable to inflict any direct harm against their tormentor and " +
+                        "leaving them vulnerable to succubus' life-draining touch.";
+    }
 }

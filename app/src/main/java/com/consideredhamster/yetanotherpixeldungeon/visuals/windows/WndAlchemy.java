@@ -30,13 +30,13 @@ import com.watabou.noosa.particles.Emitter;
 
 import java.util.ArrayList;
 
-public class WndAlchemy extends Window{
+public class WndAlchemy extends Window {
 
-    public static final int MODE_BREW		= 1;
-    public static final int MODE_COOK       = 2;
+    public static final int MODE_BREW = 1;
+    public static final int MODE_COOK = 2;
 
-    private static final float GAP		    = 2;
-    private static final int WIDTH		    = 116;
+    private static final float GAP = 2;
+    private static final int WIDTH = 116;
 
     private ItemButton[] inputs;// = new WndBlacksmith.ItemButton[2];
 
@@ -52,18 +52,18 @@ public class WndAlchemy extends Window{
 
     private int mode;
 
-    private static final int BTN_SIZE	= 28;
+    private static final int BTN_SIZE = 28;
 
-    public WndAlchemy( int mode ){
+    public WndAlchemy(int mode) {
 
         super();
         this.mode = mode;
 
         IconTitle titlebar = new IconTitle();
-        titlebar.icon( DungeonTilemap.tile( Terrain.ALCHEMY ) );
-        titlebar.label( "Alchemy Pot" );
-        titlebar.setRect( 0, 0, WIDTH, 0 );
-        add( titlebar );
+        titlebar.icon(DungeonTilemap.tile(Terrain.ALCHEMY));
+        titlebar.label("Alchemy Pot");
+        titlebar.setRect(0, 0, WIDTH, 0);
+        add(titlebar);
 
         int h = 0;
 
@@ -73,34 +73,34 @@ public class WndAlchemy extends Window{
                 "Select two herbs to fill an empty bottle with potion." :
                 "You may select a herb to cook with your piece of raw meat.";
 
-        BitmapTextMultiline message = PixelScene.createMultiline( hint, 6 );
+        BitmapTextMultiline message = PixelScene.createMultiline(hint, 6);
 
         message.maxWidth = WIDTH;
         message.measure();
 
         message.y = h;
-        add( message );
+        add(message);
 
         h += message.height() + GAP;
 
         int w = WIDTH;
 
         inputs = this.mode == MODE_BREW ?
-            new ItemButton[2] :
-            new ItemButton[1] ;
+                new ItemButton[2] :
+                new ItemButton[1];
 
         int lastBtnIndex = inputs.length - 1;
 
         for (int i = 0; i < inputs.length; i++) {
-            inputs[i] = new ItemButton(){
+            inputs[i] = new ItemButton() {
                 @Override
                 protected void onClick() {
 
                     super.onClick();
 
-                    if( item != null ){
+                    if (item != null) {
 
-                        if (!item.collect()){
+                        if (!item.collect()) {
                             Dungeon.level.drop(item, Dungeon.hero.pos);
                         }
 
@@ -112,7 +112,7 @@ public class WndAlchemy extends Window{
                         //slot.item(new WndBag.Placeholder(ItemSpriteSheet.SOMETHING));
                     }
 
-                    GameScene.selectItem( itemSelector, WndBag.Mode.HERB, "select" );
+                    GameScene.selectItem(itemSelector, WndBag.Mode.HERB, "select");
                 }
             };
 
@@ -123,25 +123,26 @@ public class WndAlchemy extends Window{
 
         updateBaseItem();
 
-        baseItemSlot = new ItemSlot( baseItem ){
+        baseItemSlot = new ItemSlot(baseItem) {
             @Override
             protected void onClick() {
                 super.onClick();
-                if ( visible && item.name() != null ){
-                    GameScene.show( new WndInfoItem( item ) );
+                if (visible && item.name() != null) {
+                    GameScene.show(new WndInfoItem(item));
                 }
             }
+
             @Override
-            public void item( Item item ) {
-                super.item( item );
-                topLeft.text( Integer.toString( item.quantity ) );
+            public void item(Item item) {
+                super.item(item);
+                topLeft.text(Integer.toString(item.quantity));
                 topLeft.visible = true;
             }
         };
 
-        baseItemSlot.setRect( 15, inputs[ lastBtnIndex ].bottom() + 2, BTN_SIZE, BTN_SIZE );
+        baseItemSlot.setRect(15, inputs[lastBtnIndex].bottom() + 2, BTN_SIZE, BTN_SIZE);
 
-        ColorBlock baseItemBG = new ColorBlock( baseItemSlot.width(), baseItemSlot.height(), 0x9991938C );
+        ColorBlock baseItemBG = new ColorBlock(baseItemSlot.width(), baseItemSlot.height(), 0x9991938C);
 
         baseItemBG.x = baseItemSlot.left();
         baseItemBG.y = baseItemSlot.top();
@@ -152,18 +153,18 @@ public class WndAlchemy extends Window{
         h += BTN_SIZE + 2;
 
         Image arrow = Icons.get(Icons.RESUME);
-        arrow.hardlight( 20, 20, 20 );
-        arrow.x = (w - arrow.width)/2f;
-        arrow.y = baseItemSlot.top() + (baseItemSlot.height() - arrow.height)/2f;
+        arrow.hardlight(20, 20, 20);
+        arrow.x = (w - arrow.width) / 2f;
+        arrow.y = baseItemSlot.top() + (baseItemSlot.height() - arrow.height) / 2f;
         //PixelScene.align(arrow);
         add(arrow);
 
-        output = new ItemSlot(){
+        output = new ItemSlot() {
             @Override
             protected void onClick() {
                 super.onClick();
-                if ( visible && item.name() != null ){
-                    GameScene.show( new WndInfoItem( item ) );
+                if (visible && item.name() != null) {
+                    GameScene.show(new WndInfoItem(item));
                 }
             }
         };
@@ -182,13 +183,13 @@ public class WndAlchemy extends Window{
         smokeEmitter = new Emitter();
 
         bubbleEmitter.pos(
-            outputBG.x + ( BTN_SIZE - 16 ) / 2f,
-            outputBG.y + ( BTN_SIZE - 16 ) / 2f,
-        16, 16 );
+                outputBG.x + (BTN_SIZE - 16) / 2f,
+                outputBG.y + (BTN_SIZE - 16) / 2f,
+                16, 16);
 
         smokeEmitter.pos(
-            bubbleEmitter.x, bubbleEmitter.y,
-            bubbleEmitter.width, bubbleEmitter.height
+                bubbleEmitter.x, bubbleEmitter.y,
+                bubbleEmitter.width, bubbleEmitter.height
         );
 
         bubbleEmitter.autoKill = false;
@@ -198,9 +199,9 @@ public class WndAlchemy extends Window{
         add(smokeEmitter);
 
         h += 4;
-        float btnWidth = ( w - 14 ) / 2f;
+        float btnWidth = (w - 14) / 2f;
 
-        btnCombine = new RedButton( this.mode == MODE_BREW ? "Brew" : "Cook" ){
+        btnCombine = new RedButton(this.mode == MODE_BREW ? "Brew" : "Cook") {
             @Override
             protected void onClick() {
                 super.onClick();
@@ -213,7 +214,7 @@ public class WndAlchemy extends Window{
         btnCombine.enable(false);
         add(btnCombine);
 
-        RedButton btnCancel = new RedButton( "Cancel"){
+        RedButton btnCancel = new RedButton("Cancel") {
             @Override
             protected void onClick() {
                 super.onClick();
@@ -232,21 +233,21 @@ public class WndAlchemy extends Window{
 
     }
 
-    private void updateBaseItem(){
+    private void updateBaseItem() {
 
-        if( this.mode == MODE_BREW ){
+        if (this.mode == MODE_BREW) {
 
-            baseItem = Dungeon.hero.belongings.getItem( EmptyBottle.class );
+            baseItem = Dungeon.hero.belongings.getItem(EmptyBottle.class);
 
-            if( baseItem == null ) {
-                baseItem = new EmptyBottle().quantity( 0 );
+            if (baseItem == null) {
+                baseItem = new EmptyBottle().quantity(0);
             }
 
         } else {
 
-            baseItem = Dungeon.hero.belongings.getItem( MeatRaw.class );
-            if( baseItem == null ){
-                baseItem = new MeatRaw().quantity( 0 );
+            baseItem = Dungeon.hero.belongings.getItem(MeatRaw.class);
+            if (baseItem == null) {
+                baseItem = new MeatRaw().quantity(0);
             }
 
         }
@@ -254,12 +255,12 @@ public class WndAlchemy extends Window{
 
     protected WndBag.Listener itemSelector = new WndBag.Listener() {
         @Override
-        public void onSelect( Item item ) {
+        public void onSelect(Item item) {
 
             if (item != null) {
 
-                for ( ItemButton input : inputs ) {
-                    if (input.item == null){
+                for (ItemButton input : inputs) {
+                    if (input.item == null) {
                         input.item(item.detach(Dungeon.hero.belongings.backpack));
                         break;
                     }
@@ -269,22 +270,22 @@ public class WndAlchemy extends Window{
         }
     };
 
-    private void updateState(){
+    private void updateState() {
 
-        if( mode == MODE_BREW && baseItem.quantity() > 0 && filterInput( Herb.class).size() == 2 ){
+        if (mode == MODE_BREW && baseItem.quantity() > 0 && filterInput(Herb.class).size() == 2) {
 
             //potion creation requires two herbs, there are no alternatives (for now?)
 
             Potion potion = getBrewResult();
 
-            if( potion != null ){
+            if (potion != null) {
 
                 potion.dud = true;
 
-                output.item( potion );
+                output.item(potion);
                 output.visible = true;
 
-                btnCombine.enable( true );
+                btnCombine.enable(true);
 
             } else {
 
@@ -293,11 +294,11 @@ public class WndAlchemy extends Window{
 
             }
 
-        } else if( mode == MODE_COOK && baseItem.quantity() > 0 ){
+        } else if (mode == MODE_COOK && baseItem.quantity() > 0) {
 
             // we can cook meat without any herbs, getting a simple stewed meat in the process
 
-            output.item( getCookResult());
+            output.item(getCookResult());
             output.visible = true;
 
             btnCombine.enable(true);
@@ -310,64 +311,64 @@ public class WndAlchemy extends Window{
         }
     }
 
-    private void combine(){
+    private void combine() {
 
         ArrayList<Herb> herbs = filterInput(Herb.class);
 
         Item result = null;
 
-        if ( mode == MODE_BREW && baseItem.quantity() > 0 && herbs.size() == 2 ){
+        if (mode == MODE_BREW && baseItem.quantity() > 0 && herbs.size() == 2) {
 
             //potion creation
             result = getBrewResult();
 
             baseItem.detach(Dungeon.hero.belongings.backpack);
-            baseItem = Dungeon.hero.belongings.getItem( EmptyBottle.class );
+            baseItem = Dungeon.hero.belongings.getItem(EmptyBottle.class);
 
-            if( baseItem == null ){
-                baseItem = new EmptyBottle().quantity( 0 );
+            if (baseItem == null) {
+                baseItem = new EmptyBottle().quantity(0);
             }
 
             Statistics.potionsCooked++;
             Badges.validatePotionsCooked();
 
-        } else if( mode == MODE_COOK && baseItem.quantity() > 0 ) {
+        } else if (mode == MODE_COOK && baseItem.quantity() > 0) {
 
             //meat cooking
             result = getCookResult();
 
             baseItem.detach(Dungeon.hero.belongings.backpack);
-            baseItem = Dungeon.hero.belongings.getItem( MeatRaw.class );
+            baseItem = Dungeon.hero.belongings.getItem(MeatRaw.class);
 
-            if( baseItem == null ){
-                baseItem = new MeatRaw().quantity( 0 );
+            if (baseItem == null) {
+                baseItem = new MeatRaw().quantity(0);
             }
 
         }
 
-        if (result != null){
+        if (result != null) {
 
             result.identify();
-            output.item( result );
+            output.item(result);
 
-            if (!result.collect()){
+            if (!result.collect()) {
                 Dungeon.level.drop(result, Dungeon.hero.pos);
             }
 
-            for (int i = 0; i < inputs.length; i++){
+            for (int i = 0; i < inputs.length; i++) {
                 inputs[i].clear();
                 inputs[i].item = null;
             }
 
             baseItemSlot.item(baseItem);
 
-            if( mode == MODE_BREW || baseItem == null || baseItem.quantity == 0 ){
-                btnCombine.enable( false );
+            if (mode == MODE_BREW || baseItem == null || baseItem.quantity == 0) {
+                btnCombine.enable(false);
             }
 
-            bubbleEmitter.start(Speck.factory( Speck.BUBBLE ), 0.2f, 10 );
-            smokeEmitter.burst(Speck.factory( Speck.WOOL ), 10 );
-            Sample.INSTANCE.play( Assets.SND_PUFF );
+            bubbleEmitter.start(Speck.factory(Speck.BUBBLE), 0.2f, 10);
+            smokeEmitter.burst(Speck.factory(Speck.WOOL), 10);
+            Sample.INSTANCE.play(Assets.SND_PUFF);
 
         }
     }
@@ -375,8 +376,8 @@ public class WndAlchemy extends Window{
     @Override
     public void onBackPressed() {
         for (int i = 0; i < inputs.length; i++) {
-            if (inputs[i].item != null){
-                if (!inputs[i].item.collect()){
+            if (inputs[i].item != null) {
+                if (!inputs[i].item.collect()) {
                     Dungeon.level.drop(inputs[i].item, Dungeon.hero.pos);
                 }
             }
@@ -384,17 +385,17 @@ public class WndAlchemy extends Window{
         super.onBackPressed();
     }
 
-    private Food getCookResult(){
+    private Food getCookResult() {
 
         Item item = inputs[0].item;
 
-        try{
-            if (item instanceof Herb){
-                return ((Herb)item).cooking.newInstance();
+        try {
+            if (item instanceof Herb) {
+                return ((Herb) item).cooking.newInstance();
             }
-        } catch ( InstantiationException e ) {
+        } catch (InstantiationException e) {
             e.printStackTrace();
-        } catch ( IllegalAccessException e ) {
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
 
@@ -406,18 +407,18 @@ public class WndAlchemy extends Window{
         // this algorithm is much simpler =P
         // (except for the ugly try/catch)
 
-        Herb herb1 = (Herb)inputs[0].item;
-        Herb herb2 = (Herb)inputs[1].item;
+        Herb herb1 = (Herb) inputs[0].item;
+        Herb herb2 = (Herb) inputs[1].item;
 
-        try{
+        try {
 
-            if( herb1.getClass() == herb2.getClass() ) {
+            if (herb1.getClass() == herb2.getClass()) {
                 return herb1.mainPotion.newInstance();
             }
 
-            for( Class<? extends Potion> check : herb1.subPotions ){
-                for( Class<? extends Potion> with : herb2.subPotions ){
-                    if( check == with ){
+            for (Class<? extends Potion> check : herb1.subPotions) {
+                for (Class<? extends Potion> with : herb2.subPotions) {
+                    if (check == with) {
                         return check.newInstance();
                     }
                 }
@@ -425,21 +426,21 @@ public class WndAlchemy extends Window{
 
             return new UnstablePotion();
 
-        } catch ( InstantiationException e ) {
+        } catch (InstantiationException e) {
             e.printStackTrace();
-        } catch ( IllegalAccessException e ) {
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
 
         return null;
     }
 
-    private<T extends Item> ArrayList<T> filterInput(Class<? extends T> itemClass){
+    private <T extends Item> ArrayList<T> filterInput(Class<? extends T> itemClass) {
         ArrayList<T> filtered = new ArrayList<>();
-        for (int i = 0; i < inputs.length; i++){
+        for (int i = 0; i < inputs.length; i++) {
             Item item = inputs[i].item;
-            if (item != null && itemClass.isInstance(item)){
-                filtered.add((T)item);
+            if (item != null && itemClass.isInstance(item)) {
+                filtered.add((T) item);
             }
         }
         return filtered;

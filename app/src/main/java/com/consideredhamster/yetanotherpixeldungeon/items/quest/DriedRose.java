@@ -24,17 +24,17 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class DriedRose extends Item {
-	
-	{
-		name = "dried rose";
-		image = ItemSpriteSheet.ROSE;
-		
-		unique = true;
-	}
-	
-	@Override
-	public String info() {
-		return
-			"The rose has dried long ago, but it has kept all its petals somehow.";
-	}
+
+    {
+        name = "dried rose";
+        image = ItemSpriteSheet.ROSE;
+
+        unique = true;
+    }
+
+    @Override
+    public String info() {
+        return
+                "The rose has dried long ago, but it has kept all its petals somehow.";
+    }
 }

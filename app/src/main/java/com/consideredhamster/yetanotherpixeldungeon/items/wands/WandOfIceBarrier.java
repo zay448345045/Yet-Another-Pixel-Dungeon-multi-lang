@@ -20,95 +20,90 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.wands;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.NPC;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.IceBlockSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
-
-import java.util.ArrayList;
 
 public class WandOfIceBarrier extends WandUtility {
 
-	{
-		name = "Wand of Ice Barrier";
+    {
+        name = "Wand of Ice Barrier";
         image = ItemSpriteSheet.WAND_ICEBARRIER;
 
         hitChars = false;
         goThrough = false;
 
-	}
+    }
 
     @Override
-    public float effectiveness( int bonus ) {
-        return super.effectiveness( bonus ) * 0.80f;
+    public float effectiveness(int bonus) {
+        return super.effectiveness(bonus) * 0.80f;
     }
 
 //    protected static ArrayList<Integer> cells = new ArrayList<Integer>();
 
-	@Override
-	protected void onZap( int cell ) {
+    @Override
+    protected void onZap(int cell) {
 
-	    int distance = Level.distance( curUser.pos, cell );
+        int distance = Level.distance(curUser.pos, cell);
 
-        for ( int n : Level.NEIGHBOURS5 ) {
+        for (int n : Level.NEIGHBOURS5) {
 
             int c = cell + n;
 
-            if( distance == Level.distance( curUser.pos, c ) && ( Actor.findChar( c ) != null || Level.passable[ c ]  ) ) {
+            if (distance == Level.distance(curUser.pos, c) && (Actor.findChar(c) != null || Level.passable[c])) {
 
-                int power = ( Level.water[ c ] ? damageRoll() * 3 / 2 : damageRoll() );
+                int power = (Level.water[c] ? damageRoll() * 3 / 2 : damageRoll());
 
-                Char ch = Actor.findChar( c );
+                Char ch = Actor.findChar(c);
 
-                if( ch != null ){
+                if (ch != null) {
 
-                    if( ch instanceof IceBlock ) {
+                    if (ch instanceof IceBlock) {
 
                         ch.HT += power;
-                        ch.heal( power );
+                        ch.heal(power);
 
                     } else {
 
-                        ch.damage( Char.absorb( power, ch.armorClass(), false ), curUser, Element.PHYSICAL );
+                        ch.damage(Char.absorb(power, ch.armorClass(), false), curUser, Element.PHYSICAL);
 
-                        if( ch.isAlive() ){
-                            BuffActive.add( ch, Frozen.class, power );
+                        if (ch.isAlive()) {
+                            BuffActive.add(ch, Frozen.class, power);
                         }
                     }
 
-                } else if( power > 0 ) {
+                } else if (power > 0) {
 
-                    IceBlock.spawnAt( power, c );
+                    IceBlock.spawnAt(power, c);
 
                 }
 
-                CellEmitter.get( c ).burst( Speck.factory( Speck.ICESHARD ), 4 );
+                CellEmitter.get(c).burst(Speck.factory(Speck.ICESHARD), 4);
             }
         }
     }
 
     @Override
-	protected void fx( final int cell, final Callback callback ) {
+    protected void fx(final int cell, final Callback callback) {
 
-        MagicMissile.frost( curUser.sprite.parent, curUser.pos, cell, callback );
-        Sample.INSTANCE.play( Assets.SND_ZAP );
+        MagicMissile.frost(curUser.sprite.parent, curUser.pos, cell, callback);
+        Sample.INSTANCE.play(Assets.SND_ZAP);
 
 //        cells = new ArrayList<>();
 //        cells.add( cell );
@@ -121,15 +116,15 @@ public class WandOfIceBarrier extends WandUtility {
 //            }
 //        } );
 
-	}
-	
-	@Override
-	public String desc() {
-		return 
-			"A single zap from this rime-covered wand will attempt to create a short wall of ice " +
-            "on the targeted spot. If the targeted tiles are occupied by someone,  it will instead " +
-            "chill them to the bones. Effect of this wand is stronger when used on water tiles.";
-	}
+    }
+
+    @Override
+    public String desc() {
+        return
+                "A single zap from this rime-covered wand will attempt to create a short wall of ice " +
+                        "on the targeted spot. If the targeted tiles are occupied by someone,  it will instead " +
+                        "chill them to the bones. Effect of this wand is stronger when used on water tiles.";
+    }
 
 //    private static class SecondaryListener implements CellSelector.Listener {
 //
@@ -180,24 +175,24 @@ public class WandOfIceBarrier extends WandUtility {
 
     public static class IceBlock extends NPC {
 
-        public IceBlock(){
+        public IceBlock() {
 
             name = "ice block";
             spriteClass = IceBlockSprite.class;
 
-            resistances.put( Element.Flame.class, Element.Resist.VULNERABLE );
-            resistances.put( Element.Explosion.class, Element.Resist.VULNERABLE );
+            resistances.put(Element.Flame.class, Element.Resist.VULNERABLE);
+            resistances.put(Element.Explosion.class, Element.Resist.VULNERABLE);
 
-            resistances.put( Element.Shock.class, Element.Resist.PARTIAL);
-            resistances.put( Element.Acid.class, Element.Resist.PARTIAL);
+            resistances.put(Element.Shock.class, Element.Resist.PARTIAL);
+            resistances.put(Element.Acid.class, Element.Resist.PARTIAL);
 
-            resistances.put( Element.Frost.class, Element.Resist.IMMUNE );
-            resistances.put( Element.Body.class, Element.Resist.IMMUNE );
-            resistances.put( Element.Mind.class, Element.Resist.IMMUNE );
-            resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
+            resistances.put(Element.Frost.class, Element.Resist.IMMUNE);
+            resistances.put(Element.Body.class, Element.Resist.IMMUNE);
+            resistances.put(Element.Mind.class, Element.Resist.IMMUNE);
+            resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
 
-            resistances.put( Element.Ensnaring.class, Element.Resist.IMMUNE );
-            resistances.put( Element.Knockback.class, Element.Resist.IMMUNE );
+            resistances.put(Element.Ensnaring.class, Element.Resist.IMMUNE);
+            resistances.put(Element.Knockback.class, Element.Resist.IMMUNE);
 
             hostile = false;
             friendly = true;
@@ -221,13 +216,15 @@ public class WandOfIceBarrier extends WandUtility {
         @Override
         public int viewDistance() {
             return 0;
-        };
+        }
+
+        ;
 
         @Override
         protected boolean act() {
 
-            if( --HP <= 0 ){
-                die( null );
+            if (--HP <= 0) {
+                die(null);
                 return true;
             }
 
@@ -237,16 +234,16 @@ public class WandOfIceBarrier extends WandUtility {
         }
 
         @Override
-        public void interact(){
+        public void interact() {
 
-            GLog.i( "You dispel the ice block." );
-            Sample.INSTANCE.play( Assets.SND_MELD );
+            GLog.i("You dispel the ice block.");
+            Sample.INSTANCE.play(Assets.SND_MELD);
 
-            Dungeon.hero.sprite.pickup( pos );
-            Dungeon.hero.spend( TICK );
+            Dungeon.hero.sprite.pickup(pos);
+            Dungeon.hero.spend(TICK);
             Dungeon.hero.busy();
 
-            die( null );
+            die(null);
 
         }
 
@@ -255,7 +252,7 @@ public class WandOfIceBarrier extends WandUtility {
             return null;
         }
 
-        private void adjustStats( int level ) {
+        private void adjustStats(int level) {
             HT = level * 2;
             armorClass = 0;
 
@@ -266,22 +263,22 @@ public class WandOfIceBarrier extends WandUtility {
             dexterity = 0;
         }
 
-        public static IceBlock spawnAt( int level, int pos ){
+        public static IceBlock spawnAt(int level, int pos) {
 
             // cannot spawn on walls, chasms or already ocupied tiles
-            if ( !Level.solid[pos] && !Level.chasm[pos] && Actor.findChar( pos ) == null ){
+            if (!Level.solid[pos] && !Level.chasm[pos] && Actor.findChar(pos) == null) {
 
                 IceBlock block = new IceBlock();
 
-                block.adjustStats( level );
+                block.adjustStats(level);
                 block.HP = block.HT;
 
                 block.pos = pos;
                 block.enemySeen = true;
                 block.state = block.PASSIVE;
 
-                GameScene.add( block, TICK );
-                Dungeon.level.press( block.pos, block );
+                GameScene.add(block, TICK);
+                Dungeon.level.press(block.pos, block);
                 block.sprite.spawn();
 
                 return block;
@@ -294,11 +291,11 @@ public class WandOfIceBarrier extends WandUtility {
         }
 
         @Override
-        public void die( Object cause, Element dmg ) {
-            super.die( cause, dmg );
+        public void die(Object cause, Element dmg) {
+            super.die(cause, dmg);
 
-            if ( cause != null && Dungeon.visible[pos] ) {
-                CellEmitter.get( pos ).burst( Speck.factory( Speck.ICESHARD ), 8 );
+            if (cause != null && Dungeon.visible[pos]) {
+                CellEmitter.get(pos).burst(Speck.factory(Speck.ICESHARD), 8);
             }
         }
 

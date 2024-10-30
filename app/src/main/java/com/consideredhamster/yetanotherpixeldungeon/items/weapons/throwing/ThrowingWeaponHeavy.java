@@ -25,7 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 public abstract class ThrowingWeaponHeavy extends ThrowingWeapon {
 
     public ThrowingWeaponHeavy(int tier) {
-        super( tier );
+        super(tier);
     }
 
     @Override
@@ -34,17 +34,17 @@ public abstract class ThrowingWeaponHeavy extends ThrowingWeapon {
     }
 
     @Override
-    public int min( int bonus ) {
+    public int min(int bonus) {
         return tier + 3;
     }
 
     @Override
-    public int max( int bonus ) {
+    public int max(int bonus) {
         return 8 + tier * 3;
     }
 
     @Override
-    public int str( int bonus ) {
+    public int str(int bonus) {
         return 10 + tier * 2;
     }
 

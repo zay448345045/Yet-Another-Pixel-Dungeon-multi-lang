@@ -20,85 +20,85 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.windows;
 
-import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.Hazard;
-import com.watabou.noosa.BitmapTextMultiline;
-import com.watabou.noosa.Image;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
+import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.Hazard;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Window;
+import com.watabou.noosa.BitmapTextMultiline;
+import com.watabou.noosa.Image;
 
 public class WndInfoCell extends Window {
-	
-	private static final float GAP	= 2;
+
+    private static final float GAP = 2;
 
     private static final int WIDTH_P = 120;
     private static final int WIDTH_L = 240;
 
-	private static final String TXT_NOTHING	= "There is nothing here.";
-	
-	public WndInfoCell( int cell ) {
-		
-		super();
+    private static final String TXT_NOTHING = "There is nothing here.";
 
-        int width = YetAnotherPixelDungeon.landscape() ? WIDTH_L : WIDTH_P ;
-		
-		int tile = Dungeon.level.map[cell];
-		if (Level.water[cell]) {
-			tile = Terrain.WATER;
-		} else if (Level.chasm[cell]) {
-			tile = Terrain.CHASM;
-		}
-		
-		IconTitle titlebar = new IconTitle();
-		if (tile == Terrain.WATER) {
-			Image water = new Image( Dungeon.level.waterTex() );
-			water.frame( 0, 0, DungeonTilemap.SIZE, DungeonTilemap.SIZE );
-			titlebar.icon( water );
-		} else {
-			titlebar.icon( DungeonTilemap.tile( tile ) );
-		}
-		titlebar.label( Dungeon.level.tileName( tile ) );
-		titlebar.setRect( 0, 0, width, 0 );
-		add( titlebar );
-		
-		BitmapTextMultiline info = PixelScene.createMultiline( 6 );
-		add( info );
-		
-		StringBuilder desc = new StringBuilder( Dungeon.level.tileDesc( tile ) );
-		
-		final char newLine = '\n';
+    public WndInfoCell(int cell) {
 
-		for (Blob blob:Dungeon.level.blobs.values()) {
-			if (blob.cur[cell] > 0 && blob.tileDesc() != null) {
-				if (desc.length() > 0) {
-					desc.append( newLine );
-					desc.append( newLine );
-				}
-				desc.append( blob.tileDesc() );
-			}
-		}
+        super();
 
-		for (Hazard hazard : Hazard.findHazards( cell )) {
-			if ( hazard.desc() != null ) {
-				if (desc.length() > 0) {
-					desc.append( newLine );
-					desc.append( newLine );
-				}
-				desc.append( hazard.desc() );
-			}
-		}
-		
-		info.text( desc.length() > 0 ? desc.toString() : TXT_NOTHING );
-		info.maxWidth = width;
-		info.measure();
-		info.x = titlebar.left();
-		info.y = titlebar.bottom() + GAP;
-		
-		resize( width, (int)(info.y + info.height()) );
-	}
+        int width = YetAnotherPixelDungeon.landscape() ? WIDTH_L : WIDTH_P;
+
+        int tile = Dungeon.level.map[cell];
+        if (Level.water[cell]) {
+            tile = Terrain.WATER;
+        } else if (Level.chasm[cell]) {
+            tile = Terrain.CHASM;
+        }
+
+        IconTitle titlebar = new IconTitle();
+        if (tile == Terrain.WATER) {
+            Image water = new Image(Dungeon.level.waterTex());
+            water.frame(0, 0, DungeonTilemap.SIZE, DungeonTilemap.SIZE);
+            titlebar.icon(water);
+        } else {
+            titlebar.icon(DungeonTilemap.tile(tile));
+        }
+        titlebar.label(Dungeon.level.tileName(tile));
+        titlebar.setRect(0, 0, width, 0);
+        add(titlebar);
+
+        BitmapTextMultiline info = PixelScene.createMultiline(6);
+        add(info);
+
+        StringBuilder desc = new StringBuilder(Dungeon.level.tileDesc(tile));
+
+        final char newLine = '\n';
+
+        for (Blob blob : Dungeon.level.blobs.values()) {
+            if (blob.cur[cell] > 0 && blob.tileDesc() != null) {
+                if (desc.length() > 0) {
+                    desc.append(newLine);
+                    desc.append(newLine);
+                }
+                desc.append(blob.tileDesc());
+            }
+        }
+
+        for (Hazard hazard : Hazard.findHazards(cell)) {
+            if (hazard.desc() != null) {
+                if (desc.length() > 0) {
+                    desc.append(newLine);
+                    desc.append(newLine);
+                }
+                desc.append(hazard.desc());
+            }
+        }
+
+        info.text(desc.length() > 0 ? desc.toString() : TXT_NOTHING);
+        info.maxWidth = width;
+        info.measure();
+        info.x = titlebar.left();
+        info.y = titlebar.bottom() + GAP;
+
+        resize(width, (int) (info.y + info.height()));
+    }
 }

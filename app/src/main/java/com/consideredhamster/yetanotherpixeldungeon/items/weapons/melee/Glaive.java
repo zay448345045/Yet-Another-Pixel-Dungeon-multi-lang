@@ -24,22 +24,22 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Glaive extends MeleeWeaponLightTH {
 
-	{
-		name = "glaive";
-		image = ItemSpriteSheet.GLAIVE;
-	}
-	
-	public Glaive() {
-		super( 2 );
-	}
+    {
+        name = "glaive";
+        image = ItemSpriteSheet.GLAIVE;
+    }
 
-	@Override
-	public Type weaponType() {
-		return Type.M_POLEARM;
-	}
-	
-	@Override
-	public String desc() {
-		return "A polearm consisting of a sword blade on the end of a pole. Deadly and graceful.";
-	}
+    public Glaive() {
+        super(2);
+    }
+
+    @Override
+    public Type weaponType() {
+        return Type.M_POLEARM;
+    }
+
+    @Override
+    public String desc() {
+        return "A polearm consisting of a sword blade on the end of a pole. Deadly and graceful.";
+    }
 }

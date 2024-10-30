@@ -26,40 +26,41 @@ import java.util.HashSet;
 import java.util.Locale;
 
 public class RingOfVitality extends Ring {
-	
-	{
-		name = "Ring of Vitality";
+
+    {
+        name = "Ring of Vitality";
         shortName = "Vi";
-	}
+    }
 
     public static final HashSet<Class<? extends Element>> RESISTS = new HashSet<>();
+
     static {
         RESISTS.add(Element.Body.class);
     }
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Vitality();
-	}
-	
-	@Override
-	public String desc() {
+
+    @Override
+    protected RingBuff buff() {
+        return new Vitality();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
         String sideEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 2 );
-            sideEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
+            sideEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
         }
 
         StringBuilder desc = new StringBuilder(
-            "Donning this ring will increase regenerative properties of the wearer's body, " +
-            "strengthening effects of any sources of healing, and increasing his or her resistance " +
-            "to negative effects such as poison or withering."
+                "Donning this ring will increase regenerative properties of the wearer's body, " +
+                        "strengthening effects of any sources of healing, and increasing his or her resistance " +
+                        "to negative effects such as poison or withering."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -75,14 +76,14 @@ public class RingOfVitality extends Ring {
         }
 
         return desc.toString();
-	}
-	
-	public class Vitality extends RingBuff {
+    }
+
+    public class Vitality extends RingBuff {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "Warm feeling rushes down your veins, soothing the pain in your wounds." :
-                "Feeling of discomfort fills your body, making you feel sick." ;
+                    "Warm feeling rushes down your veins, soothing the pain in your wounds." :
+                    "Feeling of discomfort fills your body, making you feel sick.";
         }
-	}
+    }
 }

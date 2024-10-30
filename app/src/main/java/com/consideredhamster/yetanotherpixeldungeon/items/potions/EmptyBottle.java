@@ -21,22 +21,19 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Splash;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 public class EmptyBottle extends Potion {
 
-	{
-		name = "empty bottle";
+    {
+        name = "empty bottle";
         shortName = "";
         harmful = true;
-		image = ItemSpriteSheet.POTION_EMPTY;
-	}
+        image = ItemSpriteSheet.POTION_EMPTY;
+    }
 
     @Override
     public boolean isTypeKnown() {
@@ -49,28 +46,28 @@ public class EmptyBottle extends Potion {
     }
 
     @Override
-    protected void splash( int cell ) {
-        Splash.at( cell, 0xFFFFFF, 10 );
+    protected void splash(int cell) {
+        Splash.at(cell, 0xFFFFFF, 10);
     }
 
     @Override
-    public ArrayList<String> actions( Hero hero ) {
-        ArrayList<String> actions = super.actions(hero );
-        actions.remove( AC_DRINK );
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
+        actions.remove(AC_DRINK);
         return actions;
     }
 
-	@Override
-	public String info() {
-		return "Any alchemist knows that proper potion brewing requires having an airtight " +
-            "container at hand, as most resulting chemicals either quickly lose their potence " +
-            "when exposed to air or, even worse, react violently to it. These bottles can be " +
-            "used only once, however.";
-	}
+    @Override
+    public String info() {
+        return "Any alchemist knows that proper potion brewing requires having an airtight " +
+                "container at hand, as most resulting chemicals either quickly lose their potence " +
+                "when exposed to air or, even worse, react violently to it. These bottles can be " +
+                "used only once, however.";
+    }
 
-	@Override
-	public int price() {
-		return isTypeKnown() ? 20 * quantity : super.price();
-	}
+    @Override
+    public int price() {
+        return isTypeKnown() ? 20 * quantity : super.price();
+    }
 
 }

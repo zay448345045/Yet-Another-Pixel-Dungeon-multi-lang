@@ -26,33 +26,33 @@ import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 
 public class PotionOfConfusionGas extends Potion {
 
-    public static final int BASE_VAL	= 600;
+    public static final int BASE_VAL = 600;
 
-	{
-		name = "Potion of Confusion Gas";
+    {
+        name = "Potion of Confusion Gas";
         shortName = "CG";
         harmful = true;
-	}
-	
-	@Override
-	public void shatter( int cell ) {
+    }
 
-        GameScene.add( Blob.seed( cell, BASE_VAL, ConfusionGas.class ) );
-        super.shatter( cell );
+    @Override
+    public void shatter(int cell) {
 
-	}
-	
-	@Override
-	public String desc() {
-		return	"Upon exposure to open air, the liquid in this flask will vaporize " +
-            "into a confusing chromatic haze. Anyone who inhales the cloud will be disoriented " +
-            "instantly.";
-	}
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 55 * quantity : super.price();
-	}
+        GameScene.add(Blob.seed(cell, BASE_VAL, ConfusionGas.class));
+        super.shatter(cell);
+
+    }
+
+    @Override
+    public String desc() {
+        return "Upon exposure to open air, the liquid in this flask will vaporize " +
+                "into a confusing chromatic haze. Anyone who inhales the cloud will be disoriented " +
+                "instantly.";
+    }
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 55 * quantity : super.price();
+    }
 
     @Override
     public float brewingChance() {

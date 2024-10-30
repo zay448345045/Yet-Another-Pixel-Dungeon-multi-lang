@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
- 
+
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.body;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
@@ -26,11 +26,11 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 public abstract class BodyArmorLight extends BodyArmor {
 
     public BodyArmorLight(int tier) {
-        super( tier );
+        super(tier);
     }
 
     @Override
-    public int str( int bonus ) {
+    public int str(int bonus) {
         return super.str(bonus) - 2;
     }
 

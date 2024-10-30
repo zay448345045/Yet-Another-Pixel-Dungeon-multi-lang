@@ -24,33 +24,33 @@ import java.util.Locale;
 
 public class RingOfDurability extends Ring {
 
-	{
-		name = "Ring of Durability";
+    {
+        name = "Ring of Durability";
         shortName = "Du";
-	}
-	
-	@Override
-	protected RingBuff buff( ) {
-		return new Durability();
-	}
-	
-	@Override
-	public String desc() {
+    }
+
+    @Override
+    protected RingBuff buff() {
+        return new Durability();
+    }
+
+    @Override
+    public String desc() {
 
         String mainEffect = "??";
         String sideEffect = "??";
 
-        if( isIdentified() ){
-            mainEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) );
-            sideEffect = String.format( Locale.getDefault(), "%.0f", 100 * Ring.effect( bonus ) / 2 );
+        if (isIdentified()) {
+            mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus));
+            sideEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
         }
 
         StringBuilder desc = new StringBuilder(
-            "Rings of Durability are valued by men of crafts and warfare alike, due to their ability " +
-            "to make tools of their trade to serve longer and be repaired with greater ease."
+                "Rings of Durability are valued by men of crafts and warfare alike, due to their ability " +
+                        "to make tools of their trade to serve longer and be repaired with greater ease."
         );
 
-        if( !dud ) {
+        if (!dud) {
 
             desc.append("\n\n");
 
@@ -65,14 +65,14 @@ public class RingOfDurability extends Ring {
         }
 
         return desc.toString();
-	}
-	
-	public class Durability extends RingBuff {
+    }
+
+    public class Durability extends RingBuff {
         @Override
         public String desc() {
             return bonus >= 0 ?
-                "You feel how some kind of protective aura surrounds your equipment." :
-                "You feel how some kind of disruptive aura surrounds your equipment." ;
+                    "You feel how some kind of protective aura surrounds your equipment." :
+                    "You feel how some kind of disruptive aura surrounds your equipment.";
         }
-	}
+    }
 }

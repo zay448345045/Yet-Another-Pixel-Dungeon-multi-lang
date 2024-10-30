@@ -25,9 +25,9 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
+import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SnowParticle;
-import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 
 public class FrigidVapours extends Blob {
 
@@ -42,35 +42,35 @@ public class FrigidVapours extends Blob {
         super.evolve();
 
 
-        for (int i=0; i < LENGTH; i++) {
+        for (int i = 0; i < LENGTH; i++) {
             if (cur[i] > 0) {
 
-                Char ch = Actor.findChar( i );
+                Char ch = Actor.findChar(i);
 
-                if( ch != null ){
+                if (ch != null) {
 //                    if( ch.buff( Frozen.class ) == null ){
-                        BuffActive.add( ch, Frozen.class, TICK * 2 );
+                    BuffActive.add(ch, Frozen.class, TICK * 2);
 //                    } else {
 //                        BuffActive.add( ch, Frozen.class, TICK );
 //                    }
                 }
 
-                Heap heap = Dungeon.level.heaps.get( i );
+                Heap heap = Dungeon.level.heaps.get(i);
                 if (heap != null) {
-                    heap.freeze( TICK );
+                    heap.freeze(TICK);
                 }
             }
         }
 
-        Blob blob = Dungeon.level.blobs.get( Fire.class );
+        Blob blob = Dungeon.level.blobs.get(Fire.class);
 
         if (blob != null) {
 
-            for (int pos=0; pos < LENGTH; pos++) {
+            for (int pos = 0; pos < LENGTH; pos++) {
 
-                if ( cur[pos] > 0 && blob.cur[ pos ] < 2 ) {
+                if (cur[pos] > 0 && blob.cur[pos] < 2) {
 
-                    blob.clear( pos );
+                    blob.clear(pos);
 
                 }
             }
@@ -78,10 +78,10 @@ public class FrigidVapours extends Blob {
     }
 
     @Override
-    public void use( BlobEmitter emitter ) {
-        super.use( emitter );
+    public void use(BlobEmitter emitter) {
+        super.use(emitter);
 
-        emitter.pour( SnowParticle.FACTORY, 0.3f );
+        emitter.pour(SnowParticle.FACTORY, 0.3f);
     }
 
     @Override

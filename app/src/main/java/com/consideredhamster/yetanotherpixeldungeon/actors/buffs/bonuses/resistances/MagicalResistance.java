@@ -24,14 +24,16 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class MagicalResistance extends ElementResistance {
-	
-	@Override
-	public String toString() {
-		return "Magical resistance";
-	}
 
     @Override
-    public String statusMessage() { return "magical resistance"; }
+    public String toString() {
+        return "Magical resistance";
+    }
+
+    @Override
+    public String statusMessage() {
+        return "magical resistance";
+    }
 
     @Override
     public String playerMessage() {
@@ -44,7 +46,7 @@ public class MagicalResistance extends ElementResistance {
     }
 
     @Override
-    public Class<? extends Element> resistance(){
+    public Class<? extends Element> resistance() {
         return Element.Energy.class;
     }
 
@@ -56,6 +58,6 @@ public class MagicalResistance extends ElementResistance {
     @Override
     public String description() {
         return "You fell a kind of a faint protective aura around your body. " +
-            "Your resistance to magical damage such as magic missiles or disintegration is increased.";
+                "Your resistance to magical damage such as magic missiles or disintegration is increased.";
     }
 }

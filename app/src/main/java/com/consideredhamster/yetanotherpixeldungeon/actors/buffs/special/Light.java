@@ -32,16 +32,18 @@ public class Light extends BuffPassive {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.ILLUMINATED );
+        target.sprite.add(CharSprite.State.ILLUMINATED);
     }
 
     @Override
-    public void removeVisual() { target.sprite.remove( CharSprite.State.ILLUMINATED ); }
-	
-	@Override
-	public int icon() {
-		return BuffIndicator.LIGHT;
-	}
+    public void removeVisual() {
+        target.sprite.remove(CharSprite.State.ILLUMINATED);
+    }
+
+    @Override
+    public int icon() {
+        return BuffIndicator.LIGHT;
+    }
 
     @Override
     public String toString() {
@@ -51,22 +53,22 @@ public class Light extends BuffPassive {
     @Override
     public String description() {
         return "Your lantern shines brightly, increasing your field of view and your " +
-                "chance to find traps, but making it easier to notice you as well." ;
+                "chance to find traps, but making it easier to notice you as well.";
     }
 
     @Override
     public boolean act() {
 
-        OilLantern lantern = Dungeon.hero.belongings.getItem( OilLantern.class );
+        OilLantern lantern = Dungeon.hero.belongings.getItem(OilLantern.class);
 
-        if( lantern != null && lantern.isActivated() && lantern.getCharge() > 0 ){
+        if (lantern != null && lantern.isActivated() && lantern.getCharge() > 0) {
 
             lantern.spendCharge();
-            spend( DELAY );
+            spend(DELAY);
 
         } else {
 
-            lantern.deactivate( Dungeon.hero, false );
+            lantern.deactivate(Dungeon.hero, false);
             detach();
 
         }

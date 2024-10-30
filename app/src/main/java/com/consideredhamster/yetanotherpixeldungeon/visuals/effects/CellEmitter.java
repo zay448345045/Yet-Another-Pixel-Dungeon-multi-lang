@@ -20,57 +20,57 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.effects;
 
-import com.watabou.noosa.particles.Emitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
+import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.PointF;
 
 public class CellEmitter {
 
-	public static Emitter get( int cell ) {
-		
-		PointF p = DungeonTilemap.tileToWorld( cell );
-		
-		Emitter emitter = GameScene.emitter();
+    public static Emitter get(int cell) {
 
-        if( emitter != null)
-		    emitter.pos( p.x, p.y, DungeonTilemap.SIZE, DungeonTilemap.SIZE );
-		
-		return emitter;
-	}
-	
-	public static Emitter center( int cell ) {
-		
-		PointF p = DungeonTilemap.tileToWorld( cell );
-		
-		Emitter emitter = GameScene.emitter();
-
-        if( emitter != null)
-		    emitter.pos( p.x + DungeonTilemap.SIZE / 2, p.y + DungeonTilemap.SIZE / 2 );
-		
-		return emitter;
-	}
-
-    public static Emitter bottom( int cell ) {
-
-        PointF p = DungeonTilemap.tileToWorld( cell );
+        PointF p = DungeonTilemap.tileToWorld(cell);
 
         Emitter emitter = GameScene.emitter();
 
-        if( emitter != null)
-            emitter.pos( p.x, p.y + DungeonTilemap.SIZE / 2, DungeonTilemap.SIZE, DungeonTilemap.SIZE / 2 );
+        if (emitter != null)
+            emitter.pos(p.x, p.y, DungeonTilemap.SIZE, DungeonTilemap.SIZE);
 
         return emitter;
     }
 
-    public static Emitter top( int cell ) {
+    public static Emitter center(int cell) {
 
-        PointF p = DungeonTilemap.tileToWorld( cell );
+        PointF p = DungeonTilemap.tileToWorld(cell);
 
         Emitter emitter = GameScene.emitter();
 
-        if( emitter != null)
-            emitter.pos( p.x, p.y, DungeonTilemap.SIZE, DungeonTilemap.SIZE / 4 );
+        if (emitter != null)
+            emitter.pos(p.x + DungeonTilemap.SIZE / 2, p.y + DungeonTilemap.SIZE / 2);
+
+        return emitter;
+    }
+
+    public static Emitter bottom(int cell) {
+
+        PointF p = DungeonTilemap.tileToWorld(cell);
+
+        Emitter emitter = GameScene.emitter();
+
+        if (emitter != null)
+            emitter.pos(p.x, p.y + DungeonTilemap.SIZE / 2, DungeonTilemap.SIZE, DungeonTilemap.SIZE / 2);
+
+        return emitter;
+    }
+
+    public static Emitter top(int cell) {
+
+        PointF p = DungeonTilemap.tileToWorld(cell);
+
+        Emitter emitter = GameScene.emitter();
+
+        if (emitter != null)
+            emitter.pos(p.x, p.y, DungeonTilemap.SIZE, DungeonTilemap.SIZE / 4);
 
         return emitter;
     }

@@ -20,23 +20,23 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
+import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.npcs.Ghost;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.SkeletonSprite;
+import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
 public class Skeleton extends MobPrecise {
 
     public Skeleton() {
 
-        super( 6 );
+        super(6);
 
         /*
 
@@ -60,14 +60,14 @@ public class Skeleton extends MobPrecise {
         loot = Gold.class;
         lootChance = 0.25f;
 
-        resistances.put( Element.Frost.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Unholy.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Doom.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Frost.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Unholy.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Doom.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Body.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Mind.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Body.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Mind.class, Element.Resist.IMMUNE);
 
-	}
+    }
 
     @Override
     public boolean isMagical() {
@@ -75,37 +75,37 @@ public class Skeleton extends MobPrecise {
     }
 
     @Override
-    public int attackProc( Char enemy, int damage, boolean blocked ) {
+    public int attackProc(Char enemy, int damage, boolean blocked) {
 
-        if( !blocked && Random.Int( 10 ) < tier ) {
-            BuffActive.addFromDamage( enemy, Withered.class, damage * 2 );
+        if (!blocked && Random.Int(10) < tier) {
+            BuffActive.addFromDamage(enemy, Withered.class, damage * 2);
         }
 
         return damage;
     }
 
     @Override
-    public void die( Object cause, Element dmg ) {
-        Ghost.Quest.process( pos );
-        super.die( cause, dmg );
+    public void die(Object cause, Element dmg) {
+        Ghost.Quest.process(pos);
+        super.die(cause, dmg);
     }
 
     @Override
     public String description() {
         return
                 "Skeletons are composed of corpses bones from unlucky adventurers and inhabitants of the dungeon, " +
-                "animated by emanations of evil magic from the depths below. Their vile touch is infamous for " +
-                "its ability to sapping the lifeforce of the unlucky victim.";
+                        "animated by emanations of evil magic from the depths below. Their vile touch is infamous for " +
+                        "its ability to sapping the lifeforce of the unlucky victim.";
     }
 
-	@Override
-	public void die( Object cause ) {
+    @Override
+    public void die(Object cause) {
 
-		super.die( cause );
+        super.die(cause);
 
-		if (Dungeon.visible[pos]) {
-			Sample.INSTANCE.play( Assets.SND_BONES );
-		}
-	}
+        if (Dungeon.visible[pos]) {
+            Sample.INSTANCE.play(Assets.SND_BONES);
+        }
+    }
 
 }

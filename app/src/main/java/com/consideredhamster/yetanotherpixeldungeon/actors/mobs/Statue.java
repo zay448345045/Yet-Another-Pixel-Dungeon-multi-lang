@@ -20,20 +20,18 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.StatueSprite;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.StatueSprite;
+import com.watabou.utils.Random;
 
 public class Statue extends MobPrecise {
 
     public Statue() {
 
-        super( Dungeon.depth + 1 );
+        super(Dungeon.depth + 1);
 
         name = "animated statue";
         info = "Magical";
@@ -49,19 +47,19 @@ public class Statue extends MobPrecise {
 
         state = PASSIVE;
 
-        resistances.put( Element.Flame.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Acid.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Shock.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Flame.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Acid.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Shock.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Energy.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Unholy.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Frost.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Energy.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Unholy.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Frost.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Body.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Mind.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Body.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Mind.class, Element.Resist.IMMUNE);
 
-        resistances.put( Element.Knockback.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Doom.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Knockback.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Doom.class, Element.Resist.PARTIAL);
 
     }
 
@@ -69,28 +67,28 @@ public class Statue extends MobPrecise {
     public boolean isMagical() {
         return true;
     }
-	
-	@Override
-	public void damage( int dmg, Object src, Element type ) {
 
-		if (state == PASSIVE) {
+    @Override
+    public void damage(int dmg, Object src, Element type) {
+
+        if (state == PASSIVE) {
             notice();
-			state = HUNTING;
-		}
-		
-		super.damage( dmg, src, type );
-	}
-	
-	@Override
-	public void beckon( int cell ) {
+            state = HUNTING;
+        }
+
+        super.damage(dmg, src, type);
+    }
+
+    @Override
+    public void beckon(int cell) {
 //        if (state == PASSIVE) {
 //            state = HUNTING;
 //        }
         // do nothing
-	}
+    }
 
     @Override
-    public float awareness(){
+    public float awareness() {
         return super.awareness() * 0.5f;
     }
 
@@ -98,8 +96,8 @@ public class Statue extends MobPrecise {
     @Override
     protected boolean act() {
 
-        if( state == PASSIVE ) {
-            if ( enemy != null && Level.adjacent( pos, enemy.pos ) && enemy.invisible <= 0) {
+        if (state == PASSIVE) {
+            if (enemy != null && Level.adjacent(pos, enemy.pos) && enemy.invisible <= 0) {
                 activate();
                 return true;
             }
@@ -114,23 +112,23 @@ public class Statue extends MobPrecise {
         state = HUNTING;
         enemySeen = true;
 
-        GLog.w( "The statue activates!" );
+        GLog.w("The statue activates!");
 
-        spend( TICK );
+        spend(TICK);
     }
 
-	@Override
-	public boolean reset() {
-		state = PASSIVE;
-		return true;
-	}
+    @Override
+    public boolean reset() {
+        state = PASSIVE;
+        return true;
+    }
 
-	@Override
-	public String description() {
-		return
-			"You would think that it's just another ugly statue of this dungeon, but its red glowing eyes give itself away. " +
-            "Usually passive, these stony juggernauts are almost unstoppable once provoked, being very resistant to both " +
-            "physical and magical damage. Besides being extremely reliable guardians, these automatons also may serve as a " +
-            "pretty cool garden decorations.";
-	}
+    @Override
+    public String description() {
+        return
+                "You would think that it's just another ugly statue of this dungeon, but its red glowing eyes give itself away. " +
+                        "Usually passive, these stony juggernauts are almost unstoppable once provoked, being very resistant to both " +
+                        "physical and magical damage. Besides being extremely reliable guardians, these automatons also may serve as a " +
+                        "pretty cool garden decorations.";
+    }
 }

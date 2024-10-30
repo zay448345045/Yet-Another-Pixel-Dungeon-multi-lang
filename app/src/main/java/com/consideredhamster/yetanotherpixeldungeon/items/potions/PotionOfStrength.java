@@ -24,62 +24,62 @@ import com.consideredhamster.yetanotherpixeldungeon.Badges;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 public class PotionOfStrength extends Potion {
 
-	{
-		name = "Potion of Strength";
+    {
+        name = "Potion of Strength";
         shortName = "St";
-	}
-	
-	@Override
-	protected void apply( Hero hero ) {
+    }
+
+    @Override
+    protected void apply(Hero hero) {
 
         hero.STR++;
         hero.strBonus++;
         hero.magicPower++;
 
-		int hpBonus = 2 ;
+        int hpBonus = 2;
 
         int restore = hero.HT - hero.HP;
 
         hero.HP = hero.HT += hpBonus;
 
-        if( restore > 0 ) {
+        if (restore > 0) {
             hero.sprite.showStatus(CharSprite.POSITIVE, "%+dHP", restore);
         }
 
-        hero.sprite.showStatus( CharSprite.POSITIVE, "+1 str, +1 mag, +%d hp", hpBonus );
+        hero.sprite.showStatus(CharSprite.POSITIVE, "+1 str, +1 mag, +%d hp", hpBonus);
 
         hero.sprite.emitter().burst(Speck.factory(Speck.MASTERY), 12);
 
         Buff.detach(hero, Withered.class);
 
-        GLog.p("Newfound strength surges through your body and mind." );
+        GLog.p("Newfound strength surges through your body and mind.");
 
         QuickSlot.refresh();
 
-		Badges.validateStrengthAttained();
+        Badges.validateStrengthAttained();
 
         setKnown();
 
-	}
-	
-	@Override
-	public String desc() {
-		return
-			"This powerful liquid will course through your muscles, permanently increasing your " +
-            "physical and magical powers, as well as fully restoring your health.";
-	}
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 150 * quantity : super.price();
-	}
+    }
+
+    @Override
+    public String desc() {
+        return
+                "This powerful liquid will course through your muscles, permanently increasing your " +
+                        "physical and magical powers, as well as fully restoring your health.";
+    }
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 150 * quantity : super.price();
+    }
 
     @Override
     public float brewingChance() {

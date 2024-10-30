@@ -1,21 +1,21 @@
 package com.consideredhamster.yetanotherpixeldungeon.multilang;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Iterator;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 
 import com.watabou.noosa.Game;
 
-import java.io.InputStream;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import org.json.JSONObject;
 import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Ml {
@@ -36,6 +36,7 @@ public class Ml {
             initialize(appLanguageCode);
         }
     }
+
     public static void initialize(String languageCode) {
         translations.clear();
 
@@ -58,6 +59,7 @@ public class Ml {
             e.printStackTrace();
         }
     }
+
     private static void saveLanguageSetting(String languageCode) {
         Context context = Game.instance.getApplicationContext();
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
@@ -65,11 +67,13 @@ public class Ml {
         editor.putString(LANGUAGE_KEY, languageCode);
         editor.apply();
     }
+
     private static String loadLanguageSetting() {
         Context context = Game.instance.getApplicationContext();
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         return prefs.getString(LANGUAGE_KEY, null);
     }
+
     public static String g(String key, Object... args) {
         String template = translations.get(key);
         if (template == null) {
@@ -80,6 +84,7 @@ public class Ml {
         // Replace placeholders {0}, {1}, etc., with the provided arguments
         return formatString(template, args);
     }
+
     private static String formatString(String template, Object... args) {
         String result = template;
         for (int i = 0; i < args.length; i++) {
@@ -88,6 +93,7 @@ public class Ml {
         }
         return result;
     }
+
     private static String mapSystemLanguageToAppLanguage(String systemLanguageCode) {
         switch (systemLanguageCode) {
             case "es":
@@ -106,6 +112,7 @@ public class Ml {
                 return "en";
         }
     }
+
     private static String convertStreamToString(InputStream is) {
         Scanner s = new Scanner(is, StandardCharsets.UTF_8.name()).useDelimiter("\\A");
         return s.hasNext() ? s.next() : "";

@@ -20,12 +20,12 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.Hazard;
+import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.TextureFilm;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
-import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.Hazard;
 import com.watabou.utils.PointF;
 
 public abstract class HazardSprite extends Image {
@@ -33,49 +33,50 @@ public abstract class HazardSprite extends Image {
     private TextureFilm textures;
     public Hazard hazard;
 
-	public HazardSprite() {
+    public HazardSprite() {
         super();
 
-        if (textures == null){
-            texture( asset() );
-            textures = new TextureFilm( texture, 16, 16 );
+        if (textures == null) {
+            texture(asset());
+            textures = new TextureFilm(texture, 16, 16);
         }
     }
 
     protected abstract String asset();
+
     public abstract int spritePriority();
 
-    public void link( Hazard hazard ) {
+    public void link(Hazard hazard) {
 
         this.hazard = hazard;
         hazard.sprite = this;
 
-        frame( textures.get( hazard.var ) );
+        frame(textures.get(hazard.var));
 
-        place( hazard.pos );
+        place(hazard.pos);
     }
 
-    public void place( int cell ) {
+    public void place(int cell) {
 
         final int csize = DungeonTilemap.SIZE;
 
-        point( new PointF(
-            ((cell % Level.WIDTH) + 0.5f) * csize - width * 0.5f,
-            ((cell / Level.WIDTH) + 0.5f) * csize - height * 0.5f
-        ) );
+        point(new PointF(
+                ((cell % Level.WIDTH) + 0.5f) * csize - width * 0.5f,
+                ((cell / Level.WIDTH) + 0.5f) * csize - height * 0.5f
+        ));
 
-        origin.set( width / 2, height / 2 );
+        origin.set(width / 2, height / 2);
     }
 
-    public void changeFrame( int var ) {
-        frame( textures.get( var ) );
+    public void changeFrame(int var) {
+        frame(textures.get(var));
     }
-	
-	@Override
-	public void update() {
-		super.update();
-		
-		visible = Dungeon.visible[ hazard.pos ];
-	}
+
+    @Override
+    public void update() {
+        super.update();
+
+        visible = Dungeon.visible[hazard.pos];
+    }
 
 }

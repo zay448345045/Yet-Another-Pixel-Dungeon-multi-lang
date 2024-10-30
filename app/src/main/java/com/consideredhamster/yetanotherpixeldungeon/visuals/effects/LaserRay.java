@@ -22,62 +22,60 @@ package com.consideredhamster.yetanotherpixeldungeon.visuals.effects;
 
 import android.opengl.GLES20;
 
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PointF;
 
 import javax.microedition.khronos.opengles.GL10;
 
 public class LaserRay extends Image {
 
-	private static final double A = 180 / Math.PI;
+    private static final double A = 180 / Math.PI;
 
-	private static final float DURATION	= 0.5f;
+    private static final float DURATION = 0.5f;
 
-	private float timeLeft;
+    private float timeLeft;
 
-	public LaserRay( int source, int target ) {
+    public LaserRay(int source, int target) {
 
-		super( Effects.get( Effects.Type.LASER ) );
-		
-		origin.set( 0, height / 2 );
+        super(Effects.get(Effects.Type.LASER));
 
-        PointF s = DungeonTilemap.tileCenterToWorld( source );
-        PointF e = DungeonTilemap.tileCenterToWorld( target );
+        origin.set(0, height / 2);
+
+        PointF s = DungeonTilemap.tileCenterToWorld(source);
+        PointF e = DungeonTilemap.tileCenterToWorld(target);
 
         x = s.x - origin.x;
-		y = s.y - origin.y;
-		
-		float dx = e.x - s.x;
-		float dy = e.y - s.y;
-		angle = (float)(Math.atan2( dy, dx ) * A);
-		scale.x = (float)Math.sqrt( dx * dx + dy * dy ) / width;
-		
+        y = s.y - origin.y;
+
+        float dx = e.x - s.x;
+        float dy = e.y - s.y;
+        angle = (float) (Math.atan2(dy, dx) * A);
+        scale.x = (float) Math.sqrt(dx * dx + dy * dy) / width;
+
 //		Sample.INSTANCE.play( Assets.SND_RAY );
-		
-		timeLeft = DURATION;
-	}
-	
-	@Override
-	public void update() {
-		super.update();
-		
-		float p = timeLeft / DURATION;
-		alpha( p );
-		scale.set( scale.x, p );
-		
-		if ((timeLeft -= Game.elapsed) <= 0) {
-			killAndErase();
-		}
-	}
-	
-	@Override
-	public void draw() {
-		GLES20.glBlendFunc( GL10.GL_SRC_ALPHA, GL10.GL_ONE );
-		super.draw();
-		GLES20.glBlendFunc( GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA );
-	}
+
+        timeLeft = DURATION;
+    }
+
+    @Override
+    public void update() {
+        super.update();
+
+        float p = timeLeft / DURATION;
+        alpha(p);
+        scale.set(scale.x, p);
+
+        if ((timeLeft -= Game.elapsed) <= 0) {
+            killAndErase();
+        }
+    }
+
+    @Override
+    public void draw() {
+        GLES20.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE);
+        super.draw();
+        GLES20.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+    }
 }

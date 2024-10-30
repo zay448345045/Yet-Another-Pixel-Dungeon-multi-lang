@@ -20,32 +20,32 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
+import com.consideredhamster.yetanotherpixeldungeon.Badges;
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Invisibility;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Blinded;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.items.ItemStatusHandler;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Bundle;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Blinded;
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Badges;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Invisibility;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
-import com.consideredhamster.yetanotherpixeldungeon.items.ItemStatusHandler;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.watabou.utils.Bundle;
-
 public abstract class Scroll extends Item {
 
-	private static final String TXT_IDENTIFIED	= "You now know that rune \"%s\" signifies a %s!";
+    private static final String TXT_IDENTIFIED = "You now know that rune \"%s\" signifies a %s!";
 
-	public static final String AC_READ	= "READ";
-	
-	protected static final float TIME_TO_READ	= 1f;
+    public static final String AC_READ = "READ";
+
+    protected static final float TIME_TO_READ = 1f;
 
     private static final Class<?>[] scrolls = {
             ScrollOfDetectMagic.class,
@@ -65,95 +65,97 @@ public abstract class Scroll extends Item {
 //		ScrollOfLullaby.class,
 //		ScrollOfMirrorImage.class,
     };
-	private static final String[] runes = 
-		{"KAUNAN", "SOWILO", "LAGUZ", "YNGVI", "GYFU", "RAIDO", "ISAZ", "MANNAZ", "NAUDIZ", "BERKANAN", "ODAL", "TIWAZ"};
-	private static final Integer[] images = {
-		ItemSpriteSheet.SCROLL_KAUNAN, 
-		ItemSpriteSheet.SCROLL_SOWILO, 
-		ItemSpriteSheet.SCROLL_LAGUZ, 
-		ItemSpriteSheet.SCROLL_YNGVI, 
-		ItemSpriteSheet.SCROLL_GYFU, 
-		ItemSpriteSheet.SCROLL_RAIDO, 
-		ItemSpriteSheet.SCROLL_ISAZ, 
-		ItemSpriteSheet.SCROLL_MANNAZ, 
-		ItemSpriteSheet.SCROLL_NAUDIZ, 
-		ItemSpriteSheet.SCROLL_BERKANAN, 
-		ItemSpriteSheet.SCROLL_ODAL, 
-		ItemSpriteSheet.SCROLL_TIWAZ};
-	
-	private static ItemStatusHandler<Scroll> handler;
+    private static final String[] runes =
+            {"KAUNAN", "SOWILO", "LAGUZ", "YNGVI", "GYFU", "RAIDO", "ISAZ", "MANNAZ", "NAUDIZ", "BERKANAN", "ODAL", "TIWAZ"};
+    private static final Integer[] images = {
+            ItemSpriteSheet.SCROLL_KAUNAN,
+            ItemSpriteSheet.SCROLL_SOWILO,
+            ItemSpriteSheet.SCROLL_LAGUZ,
+            ItemSpriteSheet.SCROLL_YNGVI,
+            ItemSpriteSheet.SCROLL_GYFU,
+            ItemSpriteSheet.SCROLL_RAIDO,
+            ItemSpriteSheet.SCROLL_ISAZ,
+            ItemSpriteSheet.SCROLL_MANNAZ,
+            ItemSpriteSheet.SCROLL_NAUDIZ,
+            ItemSpriteSheet.SCROLL_BERKANAN,
+            ItemSpriteSheet.SCROLL_ODAL,
+            ItemSpriteSheet.SCROLL_TIWAZ};
 
-	private String rune;
+    private static ItemStatusHandler<Scroll> handler;
 
-	protected int spellSprite;
-	protected int spellColour;
+    private String rune;
 
-	{
-		stackable = true;		
+    protected int spellSprite;
+    protected int spellColour;
+
+    {
+        stackable = true;
 //		defaultAction = AC_READ;
         shortName = "??";
-	}
+    }
 
     @Override
     public String quickAction() {
         return AC_READ;
     }
-	
-	@SuppressWarnings("unchecked")
-	public static void initLabels() {
-		handler = new ItemStatusHandler<Scroll>( (Class<? extends Scroll>[])scrolls, runes, images );
-	}
-	
-	public static void save( Bundle bundle ) {
-		handler.save( bundle );
-	}
-	
-	@SuppressWarnings("unchecked")
-	public static void restore( Bundle bundle ) {
-		handler = new ItemStatusHandler<Scroll>( (Class<? extends Scroll>[])scrolls, runes, images, bundle );
-	}
-	
-	public Scroll() {
-		super();
-		image = handler.image( this );
-		rune = handler.label( this );
-	}
-	
-	@Override
-	public ArrayList<String> actions( Hero hero ) {
-		ArrayList<String> actions = super.actions( hero );
-		actions.add( AC_READ );
-		return actions;
-	}
-	
-	@Override
-	public void execute( Hero hero, String action ) {
-		if (action.equals( AC_READ )) {
 
-            if (hero.buff( Blinded.class ) != null) {
+    @SuppressWarnings("unchecked")
+    public static void initLabels() {
+        handler = new ItemStatusHandler<Scroll>((Class<? extends Scroll>[]) scrolls, runes, images);
+    }
 
-                GLog.w( Blinded.TXT_CANNOT_READ );
+    public static void save(Bundle bundle) {
+        handler.save(bundle);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static void restore(Bundle bundle) {
+        handler = new ItemStatusHandler<Scroll>((Class<? extends Scroll>[]) scrolls, runes, images, bundle);
+    }
+
+    public Scroll() {
+        super();
+        image = handler.image(this);
+        rune = handler.label(this);
+    }
+
+    @Override
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
+        actions.add(AC_READ);
+        return actions;
+    }
+
+    @Override
+    public void execute(Hero hero, String action) {
+        if (action.equals(AC_READ)) {
+
+            if (hero.buff(Blinded.class) != null) {
+
+                GLog.w(Blinded.TXT_CANNOT_READ);
 
             } else {
 
-				curUser = hero;
-				curItem = detach( hero.belongings.backpack );
-				doRead();
+                curUser = hero;
+                curItem = detach(hero.belongings.backpack);
+                doRead();
 
-			}
-			
-		} else {
-		
-			super.execute( hero, action );
-			
-		}
-	}
-	
-	protected void doRead() {
+            }
 
-        isUsed( curUser, (Scroll)curItem );
+        } else {
 
-    };
+            super.execute(hero, action);
+
+        }
+    }
+
+    protected void doRead() {
+
+        isUsed(curUser, (Scroll) curItem);
+
+    }
+
+    ;
 
     @Override
     public boolean isIdentified() {
@@ -161,54 +163,54 @@ public abstract class Scroll extends Item {
     }
 
     @Override
-	public boolean isTypeKnown() {
-		return handler.isKnown(this);
-	}
-	
-	public void setKnown() {
-		if (!isTypeKnown()) {
-			handler.know( this );
+    public boolean isTypeKnown() {
+        return handler.isKnown(this);
+    }
 
-            if( Dungeon.hero.isAlive() ){
-                GLog.i( TXT_IDENTIFIED, rune, name() );
+    public void setKnown() {
+        if (!isTypeKnown()) {
+            handler.know(this);
+
+            if (Dungeon.hero.isAlive()) {
+                GLog.i(TXT_IDENTIFIED, rune, name());
             }
-		}
-		
-		Badges.validateAllScrollsIdentified();
-	}
-	
-	@Override
-	public Item identify() {
-		setKnown();
-		return super.identify();
-	}
-	
-	@Override
-	public String name() {
-		return isTypeKnown() ? name : "scroll \"" + rune + "\"";
-	}
-	
-	@Override
-	public String info() {
-		return isTypeKnown() ?
-			desc() :
-			"This parchment is covered with indecipherable writing, and bears a title " +
-			"of rune " + rune + ". Who knows what it will do when read aloud?";
-	}
-	
-	public static HashSet<Class<? extends Scroll>> getKnown() {
-		return handler.known();
-	}
-	
-	public static HashSet<Class<? extends Scroll>> getUnknown() {
-		return handler.unknown();
-	}
-	
-	public static boolean allKnown() {
-		return handler.known().size() == scrolls.length;
-	}
+        }
 
-    protected static void isUsed( Hero user, Scroll scroll ) {
+        Badges.validateAllScrollsIdentified();
+    }
+
+    @Override
+    public Item identify() {
+        setKnown();
+        return super.identify();
+    }
+
+    @Override
+    public String name() {
+        return isTypeKnown() ? name : "scroll \"" + rune + "\"";
+    }
+
+    @Override
+    public String info() {
+        return isTypeKnown() ?
+                desc() :
+                "This parchment is covered with indecipherable writing, and bears a title " +
+                        "of rune " + rune + ". Who knows what it will do when read aloud?";
+    }
+
+    public static HashSet<Class<? extends Scroll>> getKnown() {
+        return handler.known();
+    }
+
+    public static HashSet<Class<? extends Scroll>> getUnknown() {
+        return handler.unknown();
+    }
+
+    public static boolean allKnown() {
+        return handler.known().size() == scrolls.length;
+    }
+
+    protected static void isUsed(Hero user, Scroll scroll) {
 
         scroll.setKnown();
         Invisibility.dispel(user);
@@ -217,12 +219,14 @@ public abstract class Scroll extends Item {
         QuickSlot.refresh();
 
         SpellSprite.show(user, scroll.spellSprite, scroll.spellColour);
-        new Flare( 6, 32 ).color(scroll.spellColour, true).show(curUser.sprite, 2f);
+        new Flare(6, 32).color(scroll.spellColour, true).show(curUser.sprite, 2f);
 
-    };
-	
-	@Override
-	public int price() {
-		return 50 * quantity;
-	}
+    }
+
+    ;
+
+    @Override
+    public int price() {
+        return 50 * quantity;
+    }
 }

@@ -43,11 +43,11 @@ public class Chakrams extends ThrowingWeaponLight {
     }
 
     public Chakrams() {
-        this( 1 );
+        this(1);
     }
 
     public Chakrams(int number) {
-        super( 3 );
+        super(3);
         quantity = number;
     }
 
@@ -62,13 +62,13 @@ public class Chakrams extends ThrowingWeaponLight {
     }
 
     @Override
-    public int str( int bonus ) {
-        return super.str( bonus ) + 2 ;
+    public int str(int bonus) {
+        return super.str(bonus) + 2;
     }
 
     @Override
-    public int max( int bonus ) {
-        return super.max(bonus) + 2 ;
+    public int max(int bonus) {
+        return super.max(bonus) + 2;
     }
 
     @Override
@@ -76,12 +76,12 @@ public class Chakrams extends ThrowingWeaponLight {
         return super.lootChapter() + 1;
     }
 
-    private boolean canBounceTo(Char enemy){
+    private boolean canBounceTo(Char enemy) {
         return (enemy != null && enemy != curUser && !(enemy instanceof NPC)
                 && Level.fieldOfView[enemy.pos]);
     }
 
-    protected boolean bounce(int cell){
+    protected boolean bounce(int cell) {
         HashSet<Char> ns = new HashSet<Char>();
 
         //check possible targets at one range
@@ -96,23 +96,24 @@ public class Chakrams extends ThrowingWeaponLight {
             try {
                 Char n = Actor.findChar(cell + i);
                 //has path to the enemy (no wall or other mob in between)
-                if (canBounceTo(n) && n.pos== Ballistica.cast(cell, n.pos, false, true))
+                if (canBounceTo(n) && n.pos == Ballistica.cast(cell, n.pos, false, true))
                     ns.add(n);
 
-            }catch (ArrayIndexOutOfBoundsException e){}//could be searching beyond the map limits
+            } catch (ArrayIndexOutOfBoundsException e) {
+            }//could be searching beyond the map limits
         }
 
         if (ns.size() > 0) {
             final Char newEnemy = Random.element(ns);
-            final Weapon weap=this;
-            final int enemyPos=newEnemy.pos;
+            final Weapon weap = this;
+            final int enemyPos = newEnemy.pos;
             ((MissileSprite) curUser.sprite.parent.recycle(MissileSprite.class)).
-                    reset(cell, newEnemy.pos, curItem.imageAlt(),0.75f, null,new Callback() {
+                    reset(cell, newEnemy.pos, curItem.imageAlt(), 0.75f, null, new Callback() {
                         @Override
                         public void call() {
                             curUser.shoot(newEnemy, weap);
 
-                            curUser.spendAndNext( 1/weap.speedFactor( curUser ) );
+                            curUser.spendAndNext(1 / weap.speedFactor(curUser));
                             QuickSlot.refresh();
 
                             ((MissileSprite) curUser.sprite.parent.recycle(MissileSprite.class)).

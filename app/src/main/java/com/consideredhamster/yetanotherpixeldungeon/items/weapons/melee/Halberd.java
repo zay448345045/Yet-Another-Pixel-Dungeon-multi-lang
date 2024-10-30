@@ -24,22 +24,22 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class Halberd extends MeleeWeaponLightTH {
 
-	{
-		name = "halberd";
-		image = ItemSpriteSheet.HALBERD;
-	}
+    {
+        name = "halberd";
+        image = ItemSpriteSheet.HALBERD;
+    }
 
-	public Halberd() {
-		super( 3 );
-	}
+    public Halberd() {
+        super(3);
+    }
 
-	@Override
-	public Type weaponType() {
-		return Type.M_POLEARM;
-	}
-	
-	@Override
-	public String desc() {
-		return "Some day, someone had a brilliant idea about combining reach of the spear with brutality of an axe.";
-	}
+    @Override
+    public Type weaponType() {
+        return Type.M_POLEARM;
+    }
+
+    @Override
+    public String desc() {
+        return "Some day, someone had a brilliant idea about combining reach of the spear with brutality of an axe.";
+    }
 }

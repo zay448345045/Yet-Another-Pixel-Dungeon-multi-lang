@@ -43,7 +43,7 @@ import java.util.ArrayList;
 
 public class GooSpawn extends MobEvasive {
 
-    private static final float SPLIT_DELAY	= 1f;
+    private static final float SPLIT_DELAY = 1f;
 
     private static final int SPAWN_HEALTH = 15;
 
@@ -53,7 +53,7 @@ public class GooSpawn extends MobEvasive {
 
     public GooSpawn() {
 
-        super( 2, 3, false );
+        super(2, 3, false);
 
         name = "spawn of Goo";
         info = "Magical, Splitting";
@@ -62,9 +62,9 @@ public class GooSpawn extends MobEvasive {
 
         HT = SPAWN_HEALTH;
 
-        if( Dungeon.difficulty == Difficulties.NORMAL ) {
-            HT = Random.NormalIntRange( HT, HT * 2 );
-        } else if( Dungeon.difficulty > Difficulties.NORMAL ) {
+        if (Dungeon.difficulty == Difficulties.NORMAL) {
+            HT = Random.NormalIntRange(HT, HT * 2);
+        } else if (Dungeon.difficulty > Difficulties.NORMAL) {
             HT = HT * 2;
         }
 
@@ -76,12 +76,12 @@ public class GooSpawn extends MobEvasive {
         armorClass = 0;
         EXP = 0;
 
-        resistances.put( Element.Acid.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Flame.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Acid.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Flame.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Mind.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Body.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Ensnaring.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Mind.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Body.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Ensnaring.class, Element.Resist.IMMUNE);
 
     }
 
@@ -92,84 +92,84 @@ public class GooSpawn extends MobEvasive {
 
     @Override
     public int dexterity() {
-        return !phase ? super.dexterity() : 0 ;
+        return !phase ? super.dexterity() : 0;
     }
 
     @Override
-    protected boolean getCloser( int target ) {
+    protected boolean getCloser(int target) {
         return phase && mother != null ?
-                super.getCloser( mother.pos ) :
-                super.getCloser( target );
+                super.getCloser(mother.pos) :
+                super.getCloser(target);
     }
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return !phase && super.canAttack( enemy );
+    protected boolean canAttack(Char enemy) {
+        return !phase && super.canAttack(enemy);
     }
 
-	@Override
-	public void damage( int dmg, Object src, Element type ) {
+    @Override
+    public void damage(int dmg, Object src, Element type) {
 
         if (HP <= 0) {
             return;
         }
 
-        if ( type == Element.PHYSICAL && dmg > 1 && dmg < HP && dmg > Random.Int( SPAWN_HEALTH ) ) {
+        if (type == Element.PHYSICAL && dmg > 1 && dmg < HP && dmg > Random.Int(SPAWN_HEALTH)) {
 
-            split( this, dmg );
+            split(this, dmg);
 
         }
 
-        super.damage( dmg, src, type );
-	}
+        super.damage(dmg, src, type);
+    }
 
     @Override
     public boolean act() {
 
-        if ( phase && mother != null && Level.adjacent( pos, mother.pos ) ){
+        if (phase && mother != null && Level.adjacent(pos, mother.pos)) {
 
-            Burning buff1 = buff( Burning.class );
+            Burning buff1 = buff(Burning.class);
 
-            if( buff1 != null ){
-                BuffActive.add( mother, Burning.class, (float)buff1.getDuration() );
+            if (buff1 != null) {
+                BuffActive.add(mother, Burning.class, (float) buff1.getDuration());
             }
 
-            mother.heal( Math.max( 1, HP / 2 ) );
-            die( this );
+            mother.heal(Math.max(1, HP / 2));
+            die(this);
 
-            Pushing.move( this, mother.pos, null );
-            sprite.parent.add( new AlphaTweener( sprite, 0.0f, 0.1f ) );
+            Pushing.move(this, mother.pos, null);
+            sprite.parent.add(new AlphaTweener(sprite, 0.0f, 0.1f));
 
-            if( Dungeon.visible[ pos ] ) {
-                mother.sprite.showStatus( CharSprite.NEGATIVE, "absorbed" );
-                GLog.n( "Goo absorbs entranced spawn, healing itself!" );
+            if (Dungeon.visible[pos]) {
+                mother.sprite.showStatus(CharSprite.NEGATIVE, "absorbed");
+                GLog.n("Goo absorbs entranced spawn, healing itself!");
             }
 
             return true;
 
         }
 
-        if ( Level.water[pos] && HP < HT ) {
+        if (Level.water[pos] && HP < HT) {
             HP++;
         }
 
-        if( !phase && mother != null && HP == HT ) {
+        if (!phase && mother != null && HP == HT) {
             phase = true;
             sprite.idle();
 
-            if( Dungeon.visible[ pos ] ){
-                sprite.showStatus( CharSprite.WARNING, "entranced" );
-                GLog.n( "A spawn of Goo became entranced - do not let them stand in the water!" );
+            if (Dungeon.visible[pos]) {
+                sprite.showStatus(CharSprite.WARNING, "entranced");
+                GLog.n("A spawn of Goo became entranced - do not let them stand in the water!");
             }
 
-            spend( TICK );
+            spend(TICK);
             return true;
         }
 
         return super.act();
     }
 
-    public static GooSpawn split( Mob spawner, int dmg ) {
+    public static GooSpawn split(Mob spawner, int dmg) {
 
         ArrayList<Integer> candidates = new ArrayList<Integer>();
         boolean[] passable = Level.passable;
@@ -185,33 +185,33 @@ public class GooSpawn extends MobEvasive {
             final GooSpawn clone = new GooSpawn();
 
             clone.pos = spawner.pos;
-            clone.HT = Math.min( dmg, spawner.HP );
+            clone.HT = Math.min(dmg, spawner.HP);
 
             clone.HP = 1;
             clone.EXP = 0;
 
             clone.state = clone.HUNTING;
 
-            GameScene.add( clone, SPLIT_DELAY );
+            GameScene.add(clone, SPLIT_DELAY);
 
-            Pushing.move( clone, Random.element( candidates ), new Callback() {
+            Pushing.move(clone, Random.element(candidates), new Callback() {
                 @Override
-                public void call(){
-                    Actor.occupyCell( clone );
+                public void call() {
+                    Actor.occupyCell(clone);
                     Dungeon.level.press(clone.pos, clone);
                 }
-            } );
+            });
 
-            Burning buff1 = spawner.buff( Burning.class );
+            Burning buff1 = spawner.buff(Burning.class);
 
-            if ( buff1 != null ) {
-                BuffActive.addFromDamage( clone, Burning.class, buff1.getDuration() );
+            if (buff1 != null) {
+                BuffActive.addFromDamage(clone, Burning.class, buff1.getDuration());
             }
 
-            Frozen buff2 = spawner.buff( Frozen.class );
+            Frozen buff2 = spawner.buff(Frozen.class);
 
-            if ( buff2 != null ) {
-                BuffActive.addFromDamage( clone, Frozen.class, buff2.getDuration() );
+            if (buff2 != null) {
+                BuffActive.addFromDamage(clone, Frozen.class, buff2.getDuration());
             }
 
             return clone;
@@ -222,22 +222,22 @@ public class GooSpawn extends MobEvasive {
 
     @Override
     public String description() {
-        return  "Little is known about The Goo. It's quite possible that it is not even a creature, but rather a " +
+        return "Little is known about The Goo. It's quite possible that it is not even a creature, but rather a " +
                 "conglomerate of substances from the sewers that gained some kind of rudimentary, but very evil " +
                 "sentience.";
     }
 
-    private static final String PHASE	= "phase";
+    private static final String PHASE = "phase";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
         super.storeInBundle(bundle);
-        bundle.put( PHASE, phase );
+        bundle.put(PHASE, phase);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        phase = bundle.getBoolean( PHASE );
+        phase = bundle.getBoolean(PHASE);
     }
 }

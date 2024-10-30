@@ -26,7 +26,6 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
 
 public class Controlled extends Debuff {
 
@@ -41,10 +40,14 @@ public class Controlled extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "controlled"; }
+    public String statusMessage() {
+        return "controlled";
+    }
 
     @Override
-    public String playerMessage() { return "You are controlled!"; }
+    public String playerMessage() {
+        return "You are controlled!";
+    }
 
     @Override
     public int icon() {
@@ -53,12 +56,12 @@ public class Controlled extends Debuff {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.CONTROLLED );
+        target.sprite.add(CharSprite.State.CONTROLLED);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.CONTROLLED );
+        target.sprite.remove(CharSprite.State.CONTROLLED);
     }
 
     @Override
@@ -68,12 +71,12 @@ public class Controlled extends Debuff {
     }
 
     @Override
-    public boolean attachOnLoad( Char target ) {
-        if (super.attachOnLoad( target )) {
+    public boolean attachOnLoad(Char target) {
+        if (super.attachOnLoad(target)) {
 
-            if( target instanceof Mob ) {
-                Mob mob =(Mob)target;
-                if( mob.hostile && !Bestiary.isBoss( mob ) ) {
+            if (target instanceof Mob) {
+                Mob mob = (Mob) target;
+                if (mob.hostile && !Bestiary.isBoss(mob)) {
                     mob.friendly = true;
                 }
             }
@@ -85,12 +88,12 @@ public class Controlled extends Debuff {
     }
 
     @Override
-    public boolean attachTo( Char target ) {
-        if (super.attachTo( target )) {
+    public boolean attachTo(Char target) {
+        if (super.attachTo(target)) {
 
-            if( target instanceof Mob ) {
-                Mob mob =(Mob)target;
-                if( mob.hostile && !Bestiary.isBoss( mob ) ) {
+            if (target instanceof Mob) {
+                Mob mob = (Mob) target;
+                if (mob.hostile && !Bestiary.isBoss(mob)) {
                     mob.friendly = true;
                     mob.resetEnemy();
                 }
@@ -105,9 +108,9 @@ public class Controlled extends Debuff {
     @Override
     public void detach() {
 
-        if( target instanceof Mob ) {
-            Mob mob =(Mob)target;
-            if( mob.hostile && !Bestiary.isBoss( mob ) ) {
+        if (target instanceof Mob) {
+            Mob mob = (Mob) target;
+            if (mob.hostile && !Bestiary.isBoss(mob)) {
                 mob.friendly = false;
                 mob.resetEnemy();
             }

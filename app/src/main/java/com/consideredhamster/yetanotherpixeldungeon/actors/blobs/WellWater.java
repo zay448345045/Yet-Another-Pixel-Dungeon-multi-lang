@@ -23,9 +23,6 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.blobs;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.Journal;
 import com.consideredhamster.yetanotherpixeldungeon.Journal.Feature;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Waterskin;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
@@ -36,7 +33,6 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
 
 public class WellWater extends Blob {
 
@@ -52,10 +48,10 @@ public class WellWater extends Blob {
     protected int pos;
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
-        super.restoreFromBundle( bundle );
+    public void restoreFromBundle(Bundle bundle) {
+        super.restoreFromBundle(bundle);
 
-        for (int i=0; i < LENGTH; i++) {
+        for (int i = 0; i < LENGTH; i++) {
             if (cur[i] > 0) {
                 pos = i;
                 break;
@@ -68,34 +64,34 @@ public class WellWater extends Blob {
         volume = off[pos] = cur[pos];
 
         if (Dungeon.visible[pos]) {
-            Journal.add( Feature.WELL );
+            Journal.add(Feature.WELL);
         }
     }
 
     @Override
-    public void seed( int cell, int amount ) {
+    public void seed(int cell, int amount) {
         pos = cell;
         volume = cur[pos] = amount;
     }
 
-    public static void affectCell( int cell ) {
+    public static void affectCell(int cell) {
 
-            WellWater water = (WellWater)Dungeon.level.blobs.get( WellWater.class );
-            if (water != null &&
-                    water.volume > 0 &&
-                    water.pos == cell &&
-                    water.affect()) {
+        WellWater water = (WellWater) Dungeon.level.blobs.get(WellWater.class);
+        if (water != null &&
+                water.volume > 0 &&
+                water.pos == cell &&
+                water.affect()) {
 
-                Level.set( cell, Terrain.EMPTY_WELL );
-                GameScene.updateMap( cell );
+            Level.set(cell, Terrain.EMPTY_WELL);
+            GameScene.updateMap(cell);
 
-                return;
-            }
+            return;
+        }
     }
 
     protected boolean affect() {
 
-        if (pos == Dungeon.hero.pos ) {
+        if (pos == Dungeon.hero.pos) {
 
             Dungeon.hero.interrupt();
 
@@ -103,18 +99,18 @@ public class WellWater extends Blob {
 
             int space = vial.space();
 
-            if ( space > 0 ) {
+            if (space > 0) {
 
-                int fill = Math.min( space, cur[ pos ] );
+                int fill = Math.min(space, cur[pos]);
 
-                vial.fill( fill );
+                vial.fill(fill);
                 volume = off[pos] = cur[pos] -= fill;
 
                 GLog.i(TXT_PROCCED);
 
-                Sample.INSTANCE.play( Assets.SND_DRINK);
+                Sample.INSTANCE.play(Assets.SND_DRINK);
 
-                if( cur[ pos ] <= 0 ) {
+                if (cur[pos] <= 0) {
 
                     GLog.i(TXT_NO_MORE_WATER);
                     Journal.remove(Feature.WELL);
@@ -133,9 +129,9 @@ public class WellWater extends Blob {
     }
 
     @Override
-    public void use( BlobEmitter emitter ) {
+    public void use(BlobEmitter emitter) {
         super.use(emitter);
-        emitter.start( Speck.factory( Speck.DISCOVER ), 0.5f, 0 );
+        emitter.start(Speck.factory(Speck.DISCOVER), 0.5f, 0);
     }
 
     @Override

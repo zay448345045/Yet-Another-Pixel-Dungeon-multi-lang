@@ -20,25 +20,19 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.traps;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.ConfusionGas;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Poisoned;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.PoisonParticle;
 
 public class ConfusionTrap extends Trap {
 
-	// 0xBB66EE
-	
-	public static void trigger( int pos, Char ch ) {
+    // 0xBB66EE
 
-        GameScene.add( Blob.seed( pos, 300 + 10 * Dungeon.depth, ConfusionGas.class ) );
-		
-	}
+    public static void trigger(int pos, Char ch) {
+
+        GameScene.add(Blob.seed(pos, 300 + 10 * Dungeon.depth, ConfusionGas.class));
+
+    }
 }

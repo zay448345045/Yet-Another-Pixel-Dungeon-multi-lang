@@ -20,10 +20,8 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.windows;
 
-import com.watabou.noosa.BitmapTextMultiline;
-import com.watabou.noosa.Game;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Rankings;
 import com.consideredhamster.yetanotherpixeldungeon.Statistics;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
@@ -33,80 +31,82 @@ import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.RedButton;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Window;
+import com.watabou.noosa.BitmapTextMultiline;
+import com.watabou.noosa.Game;
 
 public class WndResurrect extends Window {
-	
-	private static final String TXT_MESSAGE = "You died, but the ankh you were carrying can give you yet another chance to live. Will you accept it?";
-	private static final String TXT_YES		= "Yes, I will fight!";
-	private static final String TXT_NO		= "No, I give up";
-	
-	private static final int WIDTH		= 120;
-	private static final int BTN_HEIGHT	= 20;
-	private static final float GAP		= 2;
-	
-	public static WndResurrect instance;
-	public static Object killedBy;
-	public static Element killedWith;
 
-	public WndResurrect( final Ankh ankh, Object killedBy, Element killedWith ) {
-		
-		super();
-		
-		instance = this;
-		WndResurrect.killedBy = killedBy;
-		WndResurrect.killedWith = killedWith;
+    private static final String TXT_MESSAGE = "You died, but the ankh you were carrying can give you yet another chance to live. Will you accept it?";
+    private static final String TXT_YES = "Yes, I will fight!";
+    private static final String TXT_NO = "No, I give up";
 
-		IconTitle titlebar = new IconTitle();
-		titlebar.icon( new ItemSprite( ankh.image(), null ) );
-		titlebar.label( ankh.name() );
-		titlebar.setRect( 0, 0, WIDTH, 0 );
-		add( titlebar );
-		
-		BitmapTextMultiline message = PixelScene.createMultiline( TXT_MESSAGE, 6 );
-		message.maxWidth = WIDTH;
-		message.measure();
-		message.y = titlebar.bottom() + GAP;
-		add( message );
-		
-		RedButton btnYes = new RedButton( TXT_YES ) {
-			@Override
-			protected void onClick() {
-				hide();
-				
-				Statistics.ankhsUsed++;
+    private static final int WIDTH = 120;
+    private static final int BTN_HEIGHT = 20;
+    private static final float GAP = 2;
 
-				InterlevelScene.mode = InterlevelScene.Mode.RESURRECT ;
+    public static WndResurrect instance;
+    public static Object killedBy;
+    public static Element killedWith;
 
-                ankh.detach( Dungeon.hero.belongings.backpack );
+    public WndResurrect(final Ankh ankh, Object killedBy, Element killedWith) {
 
-				Game.switchScene( InterlevelScene.class );
-			}
-		};
-		btnYes.setRect( 0, message.y + message.height() + GAP, WIDTH, BTN_HEIGHT );
-		add( btnYes );
-		
-		RedButton btnNo = new RedButton( TXT_NO ) {
-			@Override
-			protected void onClick() {
-				hide();
-				
-				Rankings.INSTANCE.submit( false );
-				Hero.reallyDie( WndResurrect.killedBy, WndResurrect.killedWith );
-			}
-		};
-		btnNo.setRect( 0, btnYes.bottom() + GAP, WIDTH, BTN_HEIGHT );
-		add( btnNo );
-		
-		resize( WIDTH, (int)btnNo.bottom() );
-	}
-	
-	@Override
-	public void destroy() {
-		super.destroy();
-		instance = null;
-	}
-	
-	@Override
-	public void onBackPressed() {
-	}
+        super();
+
+        instance = this;
+        WndResurrect.killedBy = killedBy;
+        WndResurrect.killedWith = killedWith;
+
+        IconTitle titlebar = new IconTitle();
+        titlebar.icon(new ItemSprite(ankh.image(), null));
+        titlebar.label(ankh.name());
+        titlebar.setRect(0, 0, WIDTH, 0);
+        add(titlebar);
+
+        BitmapTextMultiline message = PixelScene.createMultiline(TXT_MESSAGE, 6);
+        message.maxWidth = WIDTH;
+        message.measure();
+        message.y = titlebar.bottom() + GAP;
+        add(message);
+
+        RedButton btnYes = new RedButton(TXT_YES) {
+            @Override
+            protected void onClick() {
+                hide();
+
+                Statistics.ankhsUsed++;
+
+                InterlevelScene.mode = InterlevelScene.Mode.RESURRECT;
+
+                ankh.detach(Dungeon.hero.belongings.backpack);
+
+                Game.switchScene(InterlevelScene.class);
+            }
+        };
+        btnYes.setRect(0, message.y + message.height() + GAP, WIDTH, BTN_HEIGHT);
+        add(btnYes);
+
+        RedButton btnNo = new RedButton(TXT_NO) {
+            @Override
+            protected void onClick() {
+                hide();
+
+                Rankings.INSTANCE.submit(false);
+                Hero.reallyDie(WndResurrect.killedBy, WndResurrect.killedWith);
+            }
+        };
+        btnNo.setRect(0, btnYes.bottom() + GAP, WIDTH, BTN_HEIGHT);
+        add(btnNo);
+
+        resize(WIDTH, (int) btnNo.bottom());
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        instance = null;
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

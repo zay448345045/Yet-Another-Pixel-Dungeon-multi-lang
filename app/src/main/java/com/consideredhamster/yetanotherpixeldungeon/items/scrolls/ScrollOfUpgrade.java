@@ -22,53 +22,53 @@ package com.consideredhamster.yetanotherpixeldungeon.items.scrolls;
 
 import com.consideredhamster.yetanotherpixeldungeon.Badges;
 import com.consideredhamster.yetanotherpixeldungeon.Statistics;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.SpellSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.ShadowParticle;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
 
 public class ScrollOfUpgrade extends InventoryScroll {
 
-    private static final String TXT_KNOWN_UPGRADED	=
+    private static final String TXT_KNOWN_UPGRADED =
             "your %s looks much better now!";
-    private static final String TXT_KNOWN_REPAIRED  =
+    private static final String TXT_KNOWN_REPAIRED =
             "your %s can't be upgraded any further, but it looks a bit better now.";
 
-	private static final String TXT_UNKNW_REPAIRED  =
+    private static final String TXT_UNKNW_REPAIRED =
             "your %s looks a bit better now. But maybe you should have identified it first?";
-	private static final String TXT_UNKNW_WHOKNOWS	=
+    private static final String TXT_UNKNW_WHOKNOWS =
             "your %s doesn't look different. Maybe you should have identified it first?";
 
     private static final String TXT_CURSE_WEAKENED =
             "your %s was cursed, but now the curse seems to be weaker.";
-    private static final String TXT_CURSE_DISPELLED	=
+    private static final String TXT_CURSE_DISPELLED =
             "your %s was cursed, but now the curse seems to be removed.";
 
-	{
-		name = "Scroll of Upgrade";
+    {
+        name = "Scroll of Upgrade";
         shortName = "Up";
 
-		inventoryTitle = "Select an item to upgrade";
-		mode = WndBag.Mode.UPGRADEABLE;
+        inventoryTitle = "Select an item to upgrade";
+        mode = WndBag.Mode.UPGRADEABLE;
 
         spellSprite = SpellSprite.SCROLL_UPGRADE;
         spellColour = SpellSprite.COLOUR_HOLY;
-	}
-	
-	@Override
-	protected void onItemSelected( Item item ) {
+    }
 
-        item.identify( CURSED_KNOWN );
+    @Override
+    protected void onItemSelected(Item item) {
 
-        if( item.bonus >= 0 ) {
+        item.identify(CURSED_KNOWN);
 
-            if( item.isIdentified() ) {
-                GLog.p( item.bonus < 3 ? TXT_KNOWN_UPGRADED : TXT_KNOWN_REPAIRED, item.name() );
+        if (item.bonus >= 0) {
+
+            if (item.isIdentified()) {
+                GLog.p(item.bonus < 3 ? TXT_KNOWN_UPGRADED : TXT_KNOWN_REPAIRED, item.name());
             } else {
-                GLog.p( item.state < 3 ? TXT_UNKNW_REPAIRED : TXT_UNKNW_WHOKNOWS, item.name() );
+                GLog.p(item.state < 3 ? TXT_UNKNW_REPAIRED : TXT_UNKNW_WHOKNOWS, item.name());
             }
 
             item.upgrade();
@@ -78,14 +78,14 @@ public class ScrollOfUpgrade extends InventoryScroll {
 
             item.upgrade();
 
-            if( item.bonus < 0 ) {
+            if (item.bonus < 0) {
 
-                GLog.w( TXT_CURSE_WEAKENED, item.name() );
+                GLog.w(TXT_CURSE_WEAKENED, item.name());
                 curUser.sprite.emitter().burst(ShadowParticle.CURSE, 4);
 
             } else {
 
-                GLog.p( TXT_CURSE_DISPELLED, item.name() );
+                GLog.p(TXT_CURSE_DISPELLED, item.name());
                 curUser.sprite.emitter().burst(ShadowParticle.CURSE, 6);
 
             }
@@ -97,20 +97,20 @@ public class ScrollOfUpgrade extends InventoryScroll {
         QuickSlot.refresh();
 
         Statistics.itemsUpgraded++;
-		
-		Badges.validateItemsUpgraded();
-	}
 
-	
-	@Override
-	public String desc() {
-		return
-			"This scroll will upgrade a single item, improving its quality. A wand will " +
-			"increase in power and in number of charges; a weapon will inflict more damage " +
-			"or find its mark more frequently; a suit of armor will deflect additional blows; " +
-			"the effect of a ring on its wearer will intensify. Weapons and armor will also " +
-			"require less strength to use.";
-	}
+        Badges.validateItemsUpgraded();
+    }
+
+
+    @Override
+    public String desc() {
+        return
+                "This scroll will upgrade a single item, improving its quality. A wand will " +
+                        "increase in power and in number of charges; a weapon will inflict more damage " +
+                        "or find its mark more frequently; a suit of armor will deflect additional blows; " +
+                        "the effect of a ring on its wearer will intensify. Weapons and armor will also " +
+                        "require less strength to use.";
+    }
 
     @Override
     public int price() {

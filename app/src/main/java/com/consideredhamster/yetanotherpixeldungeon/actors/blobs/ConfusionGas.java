@@ -22,35 +22,34 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.blobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BlobEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 
 public class ConfusionGas extends Blob {
-	
-	@Override
-	protected void evolve() {
-		super.evolve();
-		
-		Char ch;
-		for (int i=0; i < LENGTH; i++) {
-			if (cur[i] > 0 && (ch = Actor.findChar( i )) != null ) {
-                BuffActive.add( ch, Vertigo.class, TICK * 2 );
-			}
-		}
-	}
-	
-	@Override
-	public void use( BlobEmitter emitter ) {
-		super.use( emitter );
-		
-		emitter.pour( Speck.factory( Speck.CONFUSION, true ), 0.6f );
-	}
-	
-	@Override
-	public String tileDesc() {
-		return "A cloud of confusion gas is swirling here.";
-	}
+
+    @Override
+    protected void evolve() {
+        super.evolve();
+
+        Char ch;
+        for (int i = 0; i < LENGTH; i++) {
+            if (cur[i] > 0 && (ch = Actor.findChar(i)) != null) {
+                BuffActive.add(ch, Vertigo.class, TICK * 2);
+            }
+        }
+    }
+
+    @Override
+    public void use(BlobEmitter emitter) {
+        super.use(emitter);
+
+        emitter.pour(Speck.factory(Speck.CONFUSION, true), 0.6f);
+    }
+
+    @Override
+    public String tileDesc() {
+        return "A cloud of confusion gas is swirling here.";
+    }
 }

@@ -22,9 +22,6 @@ package com.consideredhamster.yetanotherpixeldungeon.items.herbs;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances.MagicalResistance;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.resistances.PhysicalResistance;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Debuff;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Ensnared;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfInvisibility;
@@ -36,7 +33,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class FeyleafHerb extends Herb {
 
-    private static final ItemSprite.Glowing CYAN = new ItemSprite.Glowing( 0xa1ffff );
+    private static final ItemSprite.Glowing CYAN = new ItemSprite.Glowing(0xa1ffff);
 
     {
         name = "Feyleaf herb";
@@ -48,21 +45,21 @@ public class FeyleafHerb extends Herb {
         //these herbs cannot be brewed with themselves
         mainPotion = UnstablePotion.class;
 
-        subPotions.add( PotionOfInvisibility.class );
-        subPotions.add( PotionOfLevitation.class );
-        subPotions.add( PotionOfWisdom.class );
+        subPotions.add(PotionOfInvisibility.class);
+        subPotions.add(PotionOfLevitation.class);
+        subPotions.add(PotionOfWisdom.class);
     }
 
-    private static void onConsume( Hero hero, float duration ) {
+    private static void onConsume(Hero hero, float duration) {
 
-        BuffActive.add( hero, MagicalResistance.class, duration );
+        BuffActive.add(hero, MagicalResistance.class, duration);
 
     }
 
     @Override
-    public void onConsume( Hero hero ) {
-        super.onConsume( hero );
-        onConsume( hero, DURATION_HERB );
+    public void onConsume(Hero hero) {
+        super.onConsume(hero);
+        onConsume(hero, DURATION_HERB);
     }
 
     @Override
@@ -90,15 +87,15 @@ public class FeyleafHerb extends Herb {
         }
 
         @Override
-        public void onConsume( Hero hero ) {
-            super.onConsume( hero );
-            FeyleafHerb.onConsume( hero, DURATION_MEAT );
+        public void onConsume(Hero hero) {
+            super.onConsume(hero);
+            FeyleafHerb.onConsume(hero, DURATION_MEAT);
         }
 
         @Override
         public String desc() {
             return "This meat was stewed in a pot with a _Feyleaf_ herb. It smells pretty good. " +
-                "Consuming it will grant a long buff to your _magical_ resistance.";
+                    "Consuming it will grant a long buff to your _magical_ resistance.";
         }
 
         @Override

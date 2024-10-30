@@ -20,47 +20,47 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Mending;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Mending;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfVitality;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.watabou.utils.Random;
 
 public class PotionOfMending extends Potion {
 
-    public static final float DURATION	= 20f;
+    public static final float DURATION = 20f;
 
-	{
-		name = "Potion of Mending";
+    {
+        name = "Potion of Mending";
         shortName = "Me";
-	}
-	
-	@Override
-	protected void apply( Hero hero ) {
+    }
 
-        int totalHP = (int)( hero.HT * hero.ringBuffsHalved(RingOfVitality.Vitality.class ) );
+    @Override
+    protected void apply(Hero hero) {
 
-        hero.heal( totalHP / 4 + ( totalHP % 4 > Random.Int(4) ? 1 : 0 ) );
+        int totalHP = (int) (hero.HT * hero.ringBuffsHalved(RingOfVitality.Vitality.class));
+
+        hero.heal(totalHP / 4 + (totalHP % 4 > Random.Int(4) ? 1 : 0));
 
         hero.sprite.emitter().burst(Speck.factory(Speck.HEALING), 5);
 
-        BuffActive.add( hero, Mending.class, DURATION );
+        BuffActive.add(hero, Mending.class, DURATION);
 
         setKnown();
     }
 
-	@Override
-	public String desc() {
-		return
-			"When imbibed, this elixir will vastly improve imbiber's natural regeneration and cure " +
-            "any physical ailments as well.";
-	}
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 30 * quantity : super.price();
-	}
+    @Override
+    public String desc() {
+        return
+                "When imbibed, this elixir will vastly improve imbiber's natural regeneration and cure " +
+                        "any physical ailments as well.";
+    }
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 30 * quantity : super.price();
+    }
 
     @Override
     public float brewingChance() {

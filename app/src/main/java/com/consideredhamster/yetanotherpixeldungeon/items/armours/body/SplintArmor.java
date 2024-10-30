@@ -25,19 +25,19 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class SplintArmor extends BodyArmorHeavy {
 
-	{
-		name = "splint armor";
-		image = ItemSpriteSheet.ARMOR_SPLINT;
+    {
+        name = "splint armor";
+        image = ItemSpriteSheet.ARMOR_SPLINT;
         appearance = 7;
-	}
-	
-	public SplintArmor() {
-		super( 2 );
-	}
-	
-	@Override
-	public String desc() {
-		return 
-			"The metal stripes sewn together to create a flexible, yet effective armor.";
-	}
+    }
+
+    public SplintArmor() {
+        super(2);
+    }
+
+    @Override
+    public String desc() {
+        return
+                "The metal stripes sewn together to create a flexible, yet effective armor.";
+    }
 }

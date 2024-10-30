@@ -29,15 +29,15 @@ public class HuntressArmor extends BodyArmorCloth {
 //
 //	private static final String AC_SPECIAL = "SPECTRAL BLADES";
 
-	{
-		name = "elven cloak";
-		image = ItemSpriteSheet.ARMOR_HUNTRESS;
+    {
+        name = "elven cloak";
+        image = ItemSpriteSheet.ARMOR_HUNTRESS;
 
         appearance = 3;
-	}
+    }
 
     public HuntressArmor() {
-        super( 1 );
+        super(1);
     }
 
     @Override

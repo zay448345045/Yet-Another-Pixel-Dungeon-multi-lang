@@ -20,41 +20,41 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.TextureFilm;
 
 public class MimicSprite extends MobSprite {
-	
-	public MimicSprite() {
-		super();
-		
-		texture( Assets.MIMIC );
-		
-		TextureFilm frames = new TextureFilm( texture, 16, 16 );
-		
-		idle = new Animation( 5, true );
-		idle.frames(frames, 0, 0, 0, 1, 1);
-		
-		run = new Animation( 10, true );
-		run.frames( frames, 0, 1, 2, 3, 3, 2, 1 );
-		
-		attack = new Animation( 10, false );
-		attack.frames( frames, 0, 4, 5, 6 );
+
+    public MimicSprite() {
+        super();
+
+        texture(Assets.MIMIC);
+
+        TextureFilm frames = new TextureFilm(texture, 16, 16);
+
+        idle = new Animation(5, true);
+        idle.frames(frames, 0, 0, 0, 1, 1);
+
+        run = new Animation(10, true);
+        run.frames(frames, 0, 1, 2, 3, 3, 2, 1);
+
+        attack = new Animation(10, false);
+        attack.frames(frames, 0, 4, 5, 6);
 
         cast = attack.clone();
-		
-		die = new Animation( 5, false );
-		die.frames( frames, 7, 8, 9 );
-		
-		play( idle );
-	}
+
+        die = new Animation(5, false);
+        die.frames(frames, 7, 8, 9);
+
+        play(idle);
+    }
 
     public void devour() {
         play(cast);
     }
-	
-	@Override
-	public int blood() {
-		return 0xFFcb9700;
-	}
+
+    @Override
+    public int blood() {
+        return 0xFFcb9700;
+    }
 }

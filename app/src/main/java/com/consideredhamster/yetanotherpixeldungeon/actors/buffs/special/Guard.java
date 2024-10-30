@@ -20,11 +20,11 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special;
 
+import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffReactive;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.noosa.Camera;
@@ -32,10 +32,10 @@ import com.watabou.noosa.audio.Sample;
 
 public class Guard extends BuffReactive {
 
-//    private static String TXT_PARRIED = "parried";
+    //    private static String TXT_PARRIED = "parried";
     private static String TXT_BLOCKED = "blocked";
 
-//    private static String TXT_PARRY_BROKEN = "parry failed!";
+    //    private static String TXT_PARRY_BROKEN = "parry failed!";
     private static String TXT_BLOCK_BROKEN = "block failed!";
 
     @Override
@@ -52,12 +52,12 @@ public class Guard extends BuffReactive {
 //    public String statusMessage() { return "guard"; }
 
     @Override
-    public boolean attachTo( Char target ) {
+    public boolean attachTo(Char target) {
 
-        Buff.detach( target, Combo.class);
-        Buff.detach( target, Focus.class );
+        Buff.detach(target, Combo.class);
+        Buff.detach(target, Focus.class);
 
-        return super.attachTo( target );
+        return super.attachTo(target);
     }
 
     @Override
@@ -66,18 +66,18 @@ public class Guard extends BuffReactive {
                 "successful block will possibly expose your attacker to a powerful counterattack.";
     }
 
-    public void reset( boolean withShield ) {
+    public void reset(boolean withShield) {
 
-        target.sprite.showStatus(CharSprite.WARNING, TXT_BLOCK_BROKEN );
+        target.sprite.showStatus(CharSprite.WARNING, TXT_BLOCK_BROKEN);
 //        target.sprite.showStatus(CharSprite.DEFAULT, withShield ? TXT_BLOCK_BROKEN : TXT_PARRY_BROKEN);
 
     }
 
-    public void proc( boolean withShield ) {
+    public void proc(boolean withShield) {
 
-        if( target.sprite.visible ) {
-            Sample.INSTANCE.play( Assets.SND_HIT, 1, 1, 0.5f );
-            target.sprite.showStatus(CharSprite.DEFAULT, TXT_BLOCKED );
+        if (target.sprite.visible) {
+            Sample.INSTANCE.play(Assets.SND_HIT, 1, 1, 0.5f);
+            target.sprite.showStatus(CharSprite.DEFAULT, TXT_BLOCKED);
 //            target.sprite.showStatus(CharSprite.DEFAULT, withShield ? TXT_BLOCKED : TXT_PARRIED);
 
             if (target == Dungeon.hero) {

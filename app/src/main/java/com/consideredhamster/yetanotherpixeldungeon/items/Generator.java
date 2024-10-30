@@ -20,19 +20,17 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items;
 
-import java.util.HashMap;
-
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.DiscArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.PlateArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.HuntressArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.StuddedArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.MageArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.MailArmor;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.ScaleArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.PlateArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.RogueArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.ScaleArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.SplintArmor;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.StuddedArmor;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.KiteShield;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.RoundShield;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.shields.TowerShield;
@@ -41,12 +39,12 @@ import com.consideredhamster.yetanotherpixeldungeon.items.food.RationSmall;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.DreamfoilHerb;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.EarthrootHerb;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.FeyleafHerb;
-import com.consideredhamster.yetanotherpixeldungeon.items.herbs.WhirlvineHerb;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.FirebloomHerb;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.Herb;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.IcecapHerb;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.SorrowmossHerb;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.SungrassHerb;
+import com.consideredhamster.yetanotherpixeldungeon.items.herbs.WhirlvineHerb;
 import com.consideredhamster.yetanotherpixeldungeon.items.herbs.WyrmflowerHerb;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Ankh;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.ArmorerKit;
@@ -56,72 +54,152 @@ import com.consideredhamster.yetanotherpixeldungeon.items.misc.Explosives;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Whetstone;
-import com.consideredhamster.yetanotherpixeldungeon.items.potions.*;
-import com.consideredhamster.yetanotherpixeldungeon.items.rings.*;
-import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.*;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.*;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.*;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.*;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.EmptyBottle;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfBlessing;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfCausticOoze;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfConfusionGas;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfFrigidVapours;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfInvisibility;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfLevitation;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfLiquidFlame;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfMending;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfMindVision;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfRage;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfShield;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfStrength;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfThunderstorm;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfToxicGas;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfWebbing;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.PotionOfWisdom;
+import com.consideredhamster.yetanotherpixeldungeon.items.potions.UnstablePotion;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfAccuracy;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfAwareness;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfDurability;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfEvasion;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfFortune;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfKnowledge;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfMysticism;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfProtection;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfSatiety;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfShadows;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfVitality;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfWillpower;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.Scroll;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfBanishment;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfChallenge;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfClairvoyance;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfDarkness;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfDetectMagic;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfEnchantment;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfPhaseWarp;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfRaiseDead;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfSunlight;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfTorment;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfTransmutation;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfUpgrade;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfAcidSpray;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfBlastWave;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfCharm;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfDamnation;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfDisintegration;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfFirebrand;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfIceBarrier;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfLifeDrain;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfLightning;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfMagicMissile;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfSmiting;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfThornvines;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Battleaxe;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Broadsword;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Dagger;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Glaive;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Greatsword;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Halberd;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Knuckles;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Mace;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Quarterstaff;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Shortsword;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Spear;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Warhammer;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Arbalest;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Arquebuse;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Bow;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Handcannon;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Pistole;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Sling;
-import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.*;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Arrows;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Bolas;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Boomerangs;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Bullets;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Chakrams;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Harpoons;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Javelins;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Knives;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.PoisonDarts;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Quarrels;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Shurikens;
+import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Tomahawks;
 import com.watabou.utils.Random;
+
+import java.util.HashMap;
 
 public class Generator {
 
-	public static enum Category {
+    public static enum Category {
 
-        WEAPON	( 60,	Weapon.class ),
-        ARMOR	( 35,	Armour.class ),
-        RING	( 3,	Ring.class ),
-        WAND	( 2,	Wand.class ),
+        WEAPON(60, Weapon.class),
+        ARMOR(35, Armour.class),
+        RING(3, Ring.class),
+        WAND(2, Wand.class),
 
-        POTION	( 40,	Potion.class ),
-        SCROLL	( 30,	Scroll.class ),
-        THROWING( 20,   Item.class ),
-        MISC	( 10,	Item.class ),
+        POTION(40, Potion.class),
+        SCROLL(30, Scroll.class),
+        THROWING(20, Item.class),
+        MISC(10, Item.class),
 
-        GOLD	( 0,	Gold.class ),
-        HERB    ( 0,	Herb.class ),
-        AMMO    ( 0,	Item.class ),
-        KITS	( 0,	Item.class ),
+        GOLD(0, Gold.class),
+        HERB(0, Herb.class),
+        AMMO(0, Item.class),
+        KITS(0, Item.class),
 
         ;
 
-		public Class<?>[] classes;
-		public float[] probs;
+        public Class<?>[] classes;
+        public float[] probs;
 
-		public float prob;
-		public Class<? extends Item> superClass;
-		
-		private Category( float prob, Class<? extends Item> superClass ) {
-			this.prob = prob;
-			this.superClass = superClass;
-		}
-		
-		public static int order( Item item ) {
-			for (int i=0; i < values().length; i++) {
-				if (values()[i].superClass.isInstance( item )) {
-					return i;
-				}
-			}
-			
-			return item instanceof Bag ? Integer.MAX_VALUE : Integer.MAX_VALUE - 1;
-		}
-	};
-	
-	private final static HashMap<Category,Float> categoryProbs = new HashMap<Generator.Category, Float>();
-	private final static HashMap<Category,Float> equipmentProbs = new HashMap<Generator.Category, Float>();
-	private final static HashMap<Category,Float> comestibleProbs = new HashMap<Generator.Category, Float>();
+        public float prob;
+        public Class<? extends Item> superClass;
 
-	static {
+        private Category(float prob, Class<? extends Item> superClass) {
+            this.prob = prob;
+            this.superClass = superClass;
+        }
+
+        public static int order(Item item) {
+            for (int i = 0; i < values().length; i++) {
+                if (values()[i].superClass.isInstance(item)) {
+                    return i;
+                }
+            }
+
+            return item instanceof Bag ? Integer.MAX_VALUE : Integer.MAX_VALUE - 1;
+        }
+    }
+
+    ;
+
+    private final static HashMap<Category, Float> categoryProbs = new HashMap<Generator.Category, Float>();
+    private final static HashMap<Category, Float> equipmentProbs = new HashMap<Generator.Category, Float>();
+    private final static HashMap<Category, Float> comestibleProbs = new HashMap<Generator.Category, Float>();
+
+    static {
 
         Category.WEAPON.probs = null;
-		Category.WEAPON.classes = new Class<?>[]{
+        Category.WEAPON.classes = new Class<?>[]{
                 Dagger.class,
                 Knuckles.class,
                 Quarterstaff.class,
@@ -142,13 +220,13 @@ public class Generator {
                 Bow.class,
                 Arbalest.class,
 
-				Pistole.class,
-				Arquebuse.class,
-				Handcannon.class,
+                Pistole.class,
+                Arquebuse.class,
+                Handcannon.class,
         };
 
         Category.ARMOR.probs = null;
-		Category.ARMOR.classes = new Class<?>[]{
+        Category.ARMOR.classes = new Class<?>[]{
                 MageArmor.class,
                 RogueArmor.class,
                 HuntressArmor.class,
@@ -198,7 +276,7 @@ public class Generator {
                 RingOfWillpower.class,
         };
 
-        Category.SCROLL.probs = new float[]{ 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 3, 2 };
+        Category.SCROLL.probs = new float[]{24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 3, 2};
         Category.SCROLL.classes = new Class<?>[]{
                 ScrollOfDetectMagic.class,         //55
                 ScrollOfTransmutation.class,    //60
@@ -274,95 +352,95 @@ public class Generator {
                 Harpoons.class,
         };
 
-        Category.MISC.probs = new float[]{ 5, 4, 4, 4, 4, 3, 3, 3, 3, 2 };
+        Category.MISC.probs = new float[]{5, 4, 4, 4, 4, 3, 3, 3, 3, 2};
         Category.MISC.classes = new Class<?>[]{
-            Gold.class,
+                Gold.class,
 
-            Explosives.Gunpowder.class,
-            Explosives.BombStick.class,
+                Explosives.Gunpowder.class,
+                Explosives.BombStick.class,
 
-            RationSmall.class,
-            OilLantern.OilFlask.class,
+                RationSmall.class,
+                OilLantern.OilFlask.class,
 
-            Whetstone.class,
-            ArmorerKit.class,
-            CraftingKit.class,
-            Battery.class,
+                Whetstone.class,
+                ArmorerKit.class,
+                CraftingKit.class,
+                Battery.class,
 
-            Ankh.class,
+                Ankh.class,
         };
 
-        Category.HERB.probs = new float[]{ 4, 4, 3, 3, 3, 3, 2, 2, 1 };
+        Category.HERB.probs = new float[]{4, 4, 3, 3, 3, 3, 2, 2, 1};
         Category.HERB.classes = new Class<?>[]{
-            FirebloomHerb.class,
-            IcecapHerb.class,
-            SorrowmossHerb.class,
-            DreamfoilHerb.class,
-            SungrassHerb.class,
-            WhirlvineHerb.class,
-            EarthrootHerb.class,
-            FeyleafHerb.class,
-            WyrmflowerHerb.class,
+                FirebloomHerb.class,
+                IcecapHerb.class,
+                SorrowmossHerb.class,
+                DreamfoilHerb.class,
+                SungrassHerb.class,
+                WhirlvineHerb.class,
+                EarthrootHerb.class,
+                FeyleafHerb.class,
+                WyrmflowerHerb.class,
         };
 
         Category.AMMO.probs = null;
         Category.AMMO.classes = new Class<?>[]{
-            Bullets.class,
-            Arrows.class,
-            Quarrels.class,
-            Explosives.Gunpowder.class,
-            Explosives.BombStick.class,
-            Explosives.BombBundle.class,
+                Bullets.class,
+                Arrows.class,
+                Quarrels.class,
+                Explosives.Gunpowder.class,
+                Explosives.BombStick.class,
+                Explosives.BombBundle.class,
         };
 
         Category.GOLD.probs = null;
         Category.GOLD.classes = new Class<?>[]{
-            Gold.class
+                Gold.class
         };
 
         Category.KITS.probs = null;
         Category.KITS.classes = new Class<?>[]{
-            Whetstone.class,
-            ArmorerKit.class,
-            CraftingKit.class,
-            Battery.class,
+                Whetstone.class,
+                ArmorerKit.class,
+                CraftingKit.class,
+                Battery.class,
         };
-	}
-	
-	public static void reset() {
-		for (Category cat : Category.values()) {
-			categoryProbs.put( cat, cat.prob );
+    }
 
-            if(
+    public static void reset() {
+        for (Category cat : Category.values()) {
+            categoryProbs.put(cat, cat.prob);
+
+            if (
                     cat.superClass == Weapon.class
-                    || cat.superClass == Armour.class
-                    || cat.superClass == Wand.class
-                    || cat.superClass == Ring.class
+                            || cat.superClass == Armour.class
+                            || cat.superClass == Wand.class
+                            || cat.superClass == Ring.class
             ) {
-                equipmentProbs.put( cat, cat.prob );
+                equipmentProbs.put(cat, cat.prob);
             } else {
-                comestibleProbs.put( cat, cat.prob );
+                comestibleProbs.put(cat, cat.prob);
             }
-		}
-	}
-	
-	public static Item random() {
-		return random( Random.chances( categoryProbs ) );
-	}
+        }
+    }
+
+    public static Item random() {
+        return random(Random.chances(categoryProbs));
+    }
 
     public static Item randomEquipment() {
-        return random( Random.chances( equipmentProbs ) );
+        return random(Random.chances(equipmentProbs));
     }
 
     public static Item randomComestible() {
-        return random( Random.chances( comestibleProbs ) );
+        return random(Random.chances(comestibleProbs));
     }
 
-    public static Item random( Category cat ) {
-            return random( cat, true );
+    public static Item random(Category cat) {
+        return random(cat, true);
     }
 
-    public static Item random( Category cat, Boolean weighted ) {
+    public static Item random(Category cat, Boolean weighted) {
         try {
 
             if (weighted) {
@@ -384,8 +462,8 @@ public class Generator {
                 }
             }
 
-            return ( cat.probs != null ? ((Item) cat.classes[Random.chances(cat.probs)].newInstance()).random()
-                    : ((Item) Random.element( cat.classes ).newInstance()).random() );
+            return (cat.probs != null ? ((Item) cat.classes[Random.chances(cat.probs)].newInstance()).random()
+                    : ((Item) Random.element(cat.classes).newInstance()).random());
 
         } catch (Exception e) {
 
@@ -393,152 +471,150 @@ public class Generator {
 
         }
     }
-	
-	public static Item random( Class<? extends Item> cl ) {
-		try {
-			
-			return ((Item)cl.newInstance()).random();
-			
-		} catch (Exception e) {
 
-			return null;
-			
-		}
-	}
-	
-	public static Armour randomArmor() throws Exception {
+    public static Item random(Class<? extends Item> cl) {
+        try {
+
+            return ((Item) cl.newInstance()).random();
+
+        } catch (Exception e) {
+
+            return null;
+
+        }
+    }
+
+    public static Armour randomArmor() throws Exception {
 
         Category cat = Category.ARMOR;
         int chapter = Dungeon.chapter();
 
-        Armour a = (Armour)Random.element( cat.classes ).newInstance();
+        Armour a = (Armour) Random.element(cat.classes).newInstance();
         a.random();
 
-        int r = Random.Int( 20 );
+        int r = Random.Int(20);
         int allowedDelta = (r < 1 ? 3 : r < 3 ? 2 : r < 6 ? 1 : 0);
 
-        if( chapter > 4 ) {
+        if (chapter > 4) {
             allowedDelta += chapter - 4;
         }
 
-        while ( ( chapter - a.lootChapter() > allowedDelta ) ||
-                ( a.lootChapter() - chapter > allowedDelta ) )
-        {
-            a = (Armour)Random.element( cat.classes ).newInstance();
+        while ((chapter - a.lootChapter() > allowedDelta) ||
+                (a.lootChapter() - chapter > allowedDelta)) {
+            a = (Armour) Random.element(cat.classes).newInstance();
             a.random();
         }
 
-        int relativeStrength = Math.max( -3, Math.min( 3, a.lootChapter() - chapter ) );
+        int relativeStrength = Math.max(-3, Math.min(3, a.lootChapter() - chapter));
 
-        a.randomize_state( Math.max( 0, 0 - relativeStrength ), Math.min( 3, 3 - relativeStrength )  );
+        a.randomize_state(Math.max(0, 0 - relativeStrength), Math.min(3, 3 - relativeStrength));
 
-        int chanceToUpgraded = relativeStrength <= 0 ? ( -relativeStrength + 2 ) * ( -relativeStrength + 1 ) / 2 : 0 ;
-        int chanceToBeCursed = relativeStrength >= 0 ? ( relativeStrength + 2 ) * ( relativeStrength + 1 ) / 2 : 0 ;
+        int chanceToUpgraded = relativeStrength <= 0 ? (-relativeStrength + 2) * (-relativeStrength + 1) / 2 : 0;
+        int chanceToBeCursed = relativeStrength >= 0 ? (relativeStrength + 2) * (relativeStrength + 1) / 2 : 0;
 
-        r = Random.Int( 10 );
+        r = Random.Int(10);
 
-        if( r > 9 - chanceToUpgraded ) {
+        if (r > 9 - chanceToUpgraded) {
 
-            int upgradeValue = Random.IntRange( 1, 1 - relativeStrength );
+            int upgradeValue = Random.IntRange(1, 1 - relativeStrength);
 
-            if( upgradeValue > Random.Int( 4 ) ) {
+            if (upgradeValue > Random.Int(4)) {
                 a.inscribe();
                 upgradeValue--;
             }
 
-            a.upgrade( upgradeValue );
+            a.upgrade(upgradeValue);
 
-        } else if( r < chanceToBeCursed  ) {
+        } else if (r < chanceToBeCursed) {
 
-            int degradeValue = Random.IntRange( 1, 1 + relativeStrength );
+            int degradeValue = Random.IntRange(1, 1 + relativeStrength);
 
-            if( degradeValue > Random.Int( 3 ) + 1 ) {
+            if (degradeValue > Random.Int(3) + 1) {
                 a.inscribe();
                 degradeValue--;
             }
 
-            a.curse( degradeValue );
+            a.curse(degradeValue);
 
         }
 
         return a;
 
-	}
-	
-	public static Weapon randomWeapon() throws Exception {
-		
-		Category cat = Category.WEAPON;
+    }
+
+    public static Weapon randomWeapon() throws Exception {
+
+        Category cat = Category.WEAPON;
         int chapter = Dungeon.chapter();
 
-        Weapon w = (Weapon)Random.element( cat.classes ).newInstance();
+        Weapon w = (Weapon) Random.element(cat.classes).newInstance();
         w.random();
-        int r = Random.Int( 20 );
+        int r = Random.Int(20);
         int allowedDelta = (r < 1 ? 3 : r < 3 ? 2 : r < 6 ? 1 : 0);
 
-        if( chapter > 4 ) {
+        if (chapter > 4) {
             allowedDelta += chapter - 4;
         }
 
-        while ( ( chapter - w.lootChapter() > allowedDelta ) ||
-                ( w.lootChapter() - chapter > allowedDelta ) )
-        {
-            w = (Weapon) Random.element( cat.classes ).newInstance();
+        while ((chapter - w.lootChapter() > allowedDelta) ||
+                (w.lootChapter() - chapter > allowedDelta)) {
+            w = (Weapon) Random.element(cat.classes).newInstance();
             w.random();
         }
 
-        int relativeStrength = Math.max( -3, Math.min( 3, w.lootChapter() - chapter ) );
+        int relativeStrength = Math.max(-3, Math.min(3, w.lootChapter() - chapter));
 
-        w.randomize_state( Math.max( 0, 0 - relativeStrength ), Math.min( 3, 3 - relativeStrength )  );
+        w.randomize_state(Math.max(0, 0 - relativeStrength), Math.min(3, 3 - relativeStrength));
 
-        int chanceToUpgraded = relativeStrength <= 0 ? ( -relativeStrength + 2 ) * ( -relativeStrength + 1 ) / 2 : 0 ;
-        int chanceToBeCursed = relativeStrength >= 0 ? ( relativeStrength + 2 ) * ( relativeStrength + 1 ) / 2 : 0 ;
+        int chanceToUpgraded = relativeStrength <= 0 ? (-relativeStrength + 2) * (-relativeStrength + 1) / 2 : 0;
+        int chanceToBeCursed = relativeStrength >= 0 ? (relativeStrength + 2) * (relativeStrength + 1) / 2 : 0;
 
-        r = Random.Int( 10 );
+        r = Random.Int(10);
 
-        if( r > 9 - chanceToUpgraded ) {
+        if (r > 9 - chanceToUpgraded) {
 
-            int upgradeValue = Random.IntRange( 1, 1 - relativeStrength );
+            int upgradeValue = Random.IntRange(1, 1 - relativeStrength);
 
-            if( upgradeValue > Random.Int( 4 ) ) {
+            if (upgradeValue > Random.Int(4)) {
                 w.enchant();
                 upgradeValue--;
             }
 
-            w.upgrade( upgradeValue );
+            w.upgrade(upgradeValue);
 
-        } else if( r < chanceToBeCursed  ) {
+        } else if (r < chanceToBeCursed) {
 
-            int degradeValue = Random.IntRange( 1, 1 + relativeStrength );
+            int degradeValue = Random.IntRange(1, 1 + relativeStrength);
 
-            if( degradeValue > Random.Int( 3 ) + 1 ) {
+            if (degradeValue > Random.Int(3) + 1) {
                 w.enchant();
                 degradeValue--;
             }
 
-            w.curse( degradeValue );
+            w.curse(degradeValue);
 
         }
 
         return w;
-	}
+    }
 
     public static Weapon randomThrowing() throws Exception {
 
         Category cat = Category.THROWING;
         int chapter = Dungeon.chapter();
 
-        Weapon w = (Weapon)Random.element( cat.classes ).newInstance();
+        Weapon w = (Weapon) Random.element(cat.classes).newInstance();
         w.random();
 
-        int r = Random.Int( 20 );
+        int r = Random.Int(20);
         int allowedDelta = (r < 1 ? 3 : r < 3 ? 2 : r < 6 ? 1 : 0);
 
-        if( chapter > 4 ) {
+        if (chapter > 4) {
             allowedDelta += chapter - 4;
         }
 
-        while ( ( chapter - w.lootChapter() > allowedDelta ) || ( w.lootChapter() - chapter > allowedDelta ) ) {
-            w = (Weapon)Random.element( cat.classes ).newInstance();
+        while ((chapter - w.lootChapter() > allowedDelta) || (w.lootChapter() - chapter > allowedDelta)) {
+            w = (Weapon) Random.element(cat.classes).newInstance();
             w.random();
         }
 
@@ -548,22 +624,22 @@ public class Generator {
     // upgrade level depends on the current chapter, first chapter 100% offers unpgraded ring/wand
     // really gotta fix that when I will get to implementing the Endless difficulty
     private final static float[][] chances = {
-            { 0, 0, 0, 1, 0, 0, 0 },
-            { 0, 0, 1, 3, 1, 0, 0 },
-            { 0, 1, 2, 6, 3, 1, 0 },
-            { 1, 2, 3, 10, 6, 3, 1 },
-            { 3, 6, 10, 15, 10, 6, 3 },
+            {0, 0, 0, 1, 0, 0, 0},
+            {0, 0, 1, 3, 1, 0, 0},
+            {0, 1, 2, 6, 3, 1, 0},
+            {1, 2, 3, 10, 6, 3, 1},
+            {3, 6, 10, 15, 10, 6, 3},
     };
 
     private static Wand randomWand() throws Exception {
         Category cat = Category.WAND;
         int chapter = Dungeon.chapter();
 
-        Wand w = (Wand)Random.element( cat.classes ).newInstance();
+        Wand w = (Wand) Random.element(cat.classes).newInstance();
 
         // durability state goes 0-1/0-2/1-2/1-3/2-3 depending on the chapter
-        w.state = Random.IntRange( ( chapter - 1 ) / 2, chapter / 2 + 1 );
-        w.bonus = Random.chances( chances[ chapter - 1 ] ) - 3;
+        w.state = Random.IntRange((chapter - 1) / 2, chapter / 2 + 1);
+        w.bonus = Random.chances(chances[chapter - 1]) - 3;
 
         w.fix();
         w.recharge();
@@ -576,8 +652,8 @@ public class Generator {
         Category cat = Category.RING;
         int chapter = Dungeon.chapter();
 
-        Ring r = (Ring)Random.element( cat.classes ).newInstance();
-        r.bonus = Random.chances( chances[ chapter - 1 ] ) - 3;
+        Ring r = (Ring) Random.element(cat.classes).newInstance();
+        r.bonus = Random.chances(chances[chapter - 1]) - 3;
 
         return r;
     }
@@ -595,9 +671,9 @@ public class Generator {
     // maybe should make a less... "layered" system someday, but it should work for now
 
     public static Class<?>[][] herbs = new Class<?>[][]{
-            { SungrassHerb.class, DreamfoilHerb.class },
-            { FirebloomHerb.class, IcecapHerb.class, SorrowmossHerb.class, WhirlvineHerb.class },
-            { EarthrootHerb.class, FeyleafHerb.class },
+            {SungrassHerb.class, DreamfoilHerb.class},
+            {FirebloomHerb.class, IcecapHerb.class, SorrowmossHerb.class, WhirlvineHerb.class},
+            {EarthrootHerb.class, FeyleafHerb.class},
     };
 
     private static Herb randomHerb() throws Exception {
@@ -605,10 +681,10 @@ public class Generator {
         Category cat = Category.HERB;
         int chapter = Dungeon.chapter();
 
-        if( chapter > 3 || Random.Int( 4 ) < chapter ) {
-            return (Herb)cat.classes[Random.chances( cat.probs ) ].newInstance();
+        if (chapter > 3 || Random.Int(4) < chapter) {
+            return (Herb) cat.classes[Random.chances(cat.probs)].newInstance();
         } else {
-            return (Herb)Random.element( herbs[ chapter - 1 ] ).newInstance();
+            return (Herb) Random.element(herbs[chapter - 1]).newInstance();
         }
     }
 }

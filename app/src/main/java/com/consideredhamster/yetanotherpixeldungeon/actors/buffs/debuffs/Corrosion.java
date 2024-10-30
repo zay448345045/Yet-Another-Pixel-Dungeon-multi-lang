@@ -20,16 +20,13 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.CausticOoze;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.Hazard;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.CausticOoze;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
+import com.watabou.utils.Random;
 
 public class Corrosion extends Debuff {
 
@@ -39,13 +36,19 @@ public class Corrosion extends Debuff {
     }
 
     @Override
-    public String toString() { return "Corrosion"; }
+    public String toString() {
+        return "Corrosion";
+    }
 
     @Override
-    public String statusMessage() { return "corrosion"; }
+    public String statusMessage() {
+        return "corrosion";
+    }
 
     @Override
-    public String playerMessage() { return "Caustic ooze is eating your flesh!"; }
+    public String playerMessage() {
+        return "Caustic ooze is eating your flesh!";
+    }
 
     @Override
     public int icon() {
@@ -54,12 +57,12 @@ public class Corrosion extends Debuff {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.BLIGHTED );
+        target.sprite.add(CharSprite.State.BLIGHTED);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.BLIGHTED );
+        target.sprite.remove(CharSprite.State.BLIGHTED);
     }
 
     @Override
@@ -73,19 +76,19 @@ public class Corrosion extends Debuff {
     public boolean act() {
 
         target.damage(
-            Random.Int( (int)Math.sqrt(
-                target.totalHealthValue() * 0.5f
-            ) ) + 1, this, Element.ACID_PERIODIC
+                Random.Int((int) Math.sqrt(
+                        target.totalHealthValue() * 0.5f
+                )) + 1, this, Element.ACID_PERIODIC
         );
 
-        if( target instanceof Hero ) {
-            Hero hero = (Hero)target;
-            if( hero.belongings.armor != null ) {
-                hero.belongings.armor.use( 1 );
+        if (target instanceof Hero) {
+            Hero hero = (Hero) target;
+            if (hero.belongings.armor != null) {
+                hero.belongings.armor.use(1);
             }
         }
 
-        if ( !target.isAlive() || Level.water[ target.pos ] && !target.flying ) {
+        if (!target.isAlive() || Level.water[target.pos] && !target.flying) {
             detach();
             return true;
         }
@@ -96,8 +99,8 @@ public class Corrosion extends Debuff {
     @Override
     public void detach() {
 
-        if( !target.isAlive() && duration > 0 ) {
-            CausticOoze.spawn( target.pos, duration );
+        if (!target.isAlive() && duration > 0) {
+            CausticOoze.spawn(target.pos, duration);
         }
 
         super.detach();

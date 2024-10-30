@@ -25,17 +25,19 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class MailArmor extends BodyArmorLight {
 
-	{
-		name = "mail armor";
-		image = ItemSpriteSheet.ARMOR_MAIL;
+    {
+        name = "mail armor";
+        image = ItemSpriteSheet.ARMOR_MAIL;
         appearance = 6;
-	}
-	
-	public MailArmor() { super( 2 ); }
+    }
 
-	@Override
-	public String desc() {
-		return 
-			"Interlocking metal links make for a tough but flexible suit of armor.";
-	}
+    public MailArmor() {
+        super(2);
+    }
+
+    @Override
+    public String desc() {
+        return
+                "Interlocking metal links make for a tough but flexible suit of armor.";
+    }
 }

@@ -20,10 +20,10 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
+import com.watabou.utils.Random;
 
 public class Poisoned extends Debuff {
 
@@ -40,10 +40,14 @@ public class Poisoned extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "poisoned"; }
+    public String statusMessage() {
+        return "poisoned";
+    }
 
     @Override
-    public String playerMessage() { return "You are poisoned!"; }
+    public String playerMessage() {
+        return "You are poisoned!";
+    }
 
     @Override
     public int icon() {
@@ -52,12 +56,12 @@ public class Poisoned extends Debuff {
 
     @Override
     public void applyVisual() {
-        target.sprite.add( CharSprite.State.POISONED );
+        target.sprite.add(CharSprite.State.POISONED);
     }
 
     @Override
     public void removeVisual() {
-        target.sprite.remove( CharSprite.State.POISONED );
+        target.sprite.remove(CharSprite.State.POISONED);
     }
 
     @Override
@@ -69,7 +73,7 @@ public class Poisoned extends Debuff {
     @Override
     public boolean act() {
 
-        target.damage( Random.Int( (int) Math.sqrt( target.totalHealthValue() ) ) + 1, this, Element.BODY );
+        target.damage(Random.Int((int) Math.sqrt(target.totalHealthValue())) + 1, this, Element.BODY);
 
         return super.act();
 

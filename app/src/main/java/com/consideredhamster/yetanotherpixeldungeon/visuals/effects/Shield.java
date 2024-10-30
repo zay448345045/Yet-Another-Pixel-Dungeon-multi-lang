@@ -22,9 +22,9 @@ package com.consideredhamster.yetanotherpixeldungeon.visuals.effects;
 
 import android.opengl.GLES20;
 
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.watabou.noosa.Game;
 import com.watabou.utils.PointF;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -34,9 +34,9 @@ public class Shield extends Halo {
 
     private CharSprite target;
 
-    public Shield( CharSprite sprite ) {
+    public Shield(CharSprite sprite) {
 
-        super( 18, 0xBBAACC, 1f );
+        super(18, 0xBBAACC, 1f);
 
         am = -1;
         aa = +1;
@@ -54,7 +54,7 @@ public class Shield extends Halo {
             if ((phase -= Game.elapsed) <= 0) {
                 killAndErase();
             } else {
-                scale.set( (2 - phase) * radius / RADIUS );
+                scale.set((2 - phase) * radius / RADIUS);
                 am = phase * (-1);
                 aa = phase * (+1);
             }
@@ -62,7 +62,7 @@ public class Shield extends Halo {
 
         if (visible = target.visible) {
             PointF p = target.center();
-            point(p.x, p.y );
+            point(p.x, p.y);
         }
     }
 
@@ -70,7 +70,7 @@ public class Shield extends Halo {
     public void draw() {
         GLES20.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE);
         super.draw();
-        GLES20.glBlendFunc( GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA );
+        GLES20.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
     }
 
     public void putOut() {

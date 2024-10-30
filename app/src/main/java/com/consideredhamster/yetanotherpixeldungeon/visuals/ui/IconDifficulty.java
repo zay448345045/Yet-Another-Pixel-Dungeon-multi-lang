@@ -25,24 +25,24 @@ import com.watabou.noosa.Image;
 
 public class IconDifficulty extends Image {
 
-	public IconDifficulty() {
-		super();
+    public IconDifficulty() {
+        super();
 
-        switch( Dungeon.difficulty ){
+        switch (Dungeon.difficulty) {
             case 3:
-                copy( Icons.DIFF3.get() );
+                copy(Icons.DIFF3.get());
                 break;
             case 2:
-                copy( Icons.DIFF2.get() );
+                copy(Icons.DIFF2.get());
                 break;
             case 1:
-                copy( Icons.DIFF1.get() );
+                copy(Icons.DIFF1.get());
                 break;
             default:
-                copy( Icons.DIFF0.get() );
+                copy(Icons.DIFF0.get());
                 break;
         }
-		
-		origin.set( width / 2, height / 2 );
-	}
+
+        origin.set(width / 2, height / 2);
+    }
 }

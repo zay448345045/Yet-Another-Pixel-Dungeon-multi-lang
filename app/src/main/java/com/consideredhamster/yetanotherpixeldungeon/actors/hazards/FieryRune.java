@@ -24,11 +24,8 @@ import com.watabou.noosa.particles.Emitter;
 import com.watabou.noosa.tweeners.AlphaTweener;
 import com.watabou.noosa.tweeners.ScaleTweener;
 import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
-
-import java.util.ArrayList;
 
 /*
  * Pixel Dungeon
@@ -56,11 +53,11 @@ public class FieryRune extends Hazard {
     private final static int MAX_LEVEL = 4;
 
     public static final int[][] RADIUS = {
-        { 0 },
-        { +1, -1, +W, -W },
-        { +1+W, +1-W, -1+W, -1-W },
-        { +2, -2, +W*2, -W*2, +W*2+2, -W*2+2, +W*2-2, -W*2-2 },
-        { +2+W, +2-W, -2+W, -2-W, +W*2+1, +W*2-1, -W*2+1, -W*2-1 },
+            {0},
+            {+1, -1, +W, -W},
+            {+1 + W, +1 - W, -1 + W, -1 - W},
+            {+2, -2, +W * 2, -W * 2, +W * 2 + 2, -W * 2 + 2, +W * 2 - 2, -W * 2 - 2},
+            {+2 + W, +2 - W, -2 + W, -2 - W, +W * 2 + 1, +W * 2 - 1, -W * 2 + 1, -W * 2 - 1},
     };
 
     private int strength;
@@ -82,9 +79,11 @@ public class FieryRune extends Hazard {
     @Override
     public String desc() {
         return "There is a Firebrand rune placed here.";
-    };
+    }
 
-    public void setValues( int pos, int strength, int duration ) {
+    ;
+
+    public void setValues(int pos, int strength, int duration) {
 
         this.pos = pos;
 
@@ -98,25 +97,25 @@ public class FieryRune extends Hazard {
 
         duration--;
 
-        if( duration > 0 ){
-            spend( TICK );
+        if (duration > 0) {
+            spend(TICK);
         } else {
-            ((FieryRune.RuneSprite)sprite).disappear();
+            ((FieryRune.RuneSprite) sprite).disappear();
             destroy();
         }
 
         return true;
     }
 
-    public void press( int cell, Char ch ) {
-        if( ch != Dungeon.hero ){
+    public void press(int cell, Char ch) {
+        if (ch != Dungeon.hero) {
             explode();
         }
     }
 
-    public void upgrade( int strength, int duration ) {
+    public void upgrade(int strength, int duration) {
 
-        if( var < MAX_LEVEL ) {
+        if (var < MAX_LEVEL) {
 
             var++;
 
@@ -126,52 +125,52 @@ public class FieryRune extends Hazard {
         } else {
 
             this.duration += duration;
-            GLog.w( "This rune seems to have to reached its limit already. Only duration is increased." );
+            GLog.w("This rune seems to have to reached its limit already. Only duration is increased.");
 
         }
 
-        ((RuneSprite)sprite).renew();
+        ((RuneSprite) sprite).renew();
 
     }
 
     public void explode() {
 
-        for( int r = 0 ; r <= var && r < RADIUS.length ; r++ ){
+        for (int r = 0; r <= var && r < RADIUS.length; r++) {
 
-            for( int n : RADIUS [ r ] ){
+            for (int n : RADIUS[r]) {
 
                 int cell = pos + n;
 
-                if( cell == pos || Ballistica.cast( pos, cell, false, true ) == cell ){
+                if (cell == pos || Ballistica.cast(pos, cell, false, true) == cell) {
 
-                    Char ch = Actor.findChar( cell );
-                    if( ch != null ){
-                        ch.damage( ch != Dungeon.hero ? strength : strength / 2, this, Element.FLAME );
+                    Char ch = Actor.findChar(cell);
+                    if (ch != null) {
+                        ch.damage(ch != Dungeon.hero ? strength : strength / 2, this, Element.FLAME);
                     }
 
-                    Heap heap = Dungeon.level.heaps.get( cell );
+                    Heap heap = Dungeon.level.heaps.get(cell);
                     if (heap != null) {
                         heap.burn();
                     }
 
-                    if( Level.flammable[ cell ] ){
-                        GameScene.add( Blob.seed( cell, 3, Fire.class ) );
+                    if (Level.flammable[cell]) {
+                        GameScene.add(Blob.seed(cell, 3, Fire.class));
                     }
 
-                    if( Dungeon.visible[ cell ] ){
-                        CellEmitter.get( cell ).burst( BlastParticle.FACTORY, 4 );
-                        CellEmitter.get( cell ).start( Speck.factory( Speck.BLAST_FIRE, true ), 0.05f, 6 );
+                    if (Dungeon.visible[cell]) {
+                        CellEmitter.get(cell).burst(BlastParticle.FACTORY, 4);
+                        CellEmitter.get(cell).start(Speck.factory(Speck.BLAST_FIRE, true), 0.05f, 6);
                     }
 
                 }
             }
         }
 
-        Sample.INSTANCE.play( Assets.SND_BLAST, 1.0f, 1.0f, Random.Float( 1.0f, 1.5f ) );
-        Sample.INSTANCE.play( Assets.SND_BLAST, 1.0f, 1.0f, Random.Float( 0.5f, 1.0f ) );
-        Camera.main.shake( 1 + var, 0.1f + var * 0.1f );
+        Sample.INSTANCE.play(Assets.SND_BLAST, 1.0f, 1.0f, Random.Float(1.0f, 1.5f));
+        Sample.INSTANCE.play(Assets.SND_BLAST, 1.0f, 1.0f, Random.Float(0.5f, 1.0f));
+        Camera.main.shake(1 + var, 0.1f + var * 0.1f);
 
-        ((FieryRune.RuneSprite)sprite).explode();
+        ((FieryRune.RuneSprite) sprite).explode();
         destroy();
     }
 
@@ -180,22 +179,22 @@ public class FieryRune extends Hazard {
     private static final String DURATION = "duration";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
 
-        super.storeInBundle( bundle );
+        super.storeInBundle(bundle);
 
-        bundle.put( STRENGTH, strength );
-        bundle.put( DURATION, duration );
+        bundle.put(STRENGTH, strength);
+        bundle.put(DURATION, duration);
 
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
 
-        super.restoreFromBundle( bundle );
+        super.restoreFromBundle(bundle);
 
-        strength = bundle.getInt( STRENGTH );
-        duration = bundle.getInt( DURATION );
+        strength = bundle.getInt(STRENGTH);
+        duration = bundle.getInt(DURATION);
 
     }
 
@@ -206,7 +205,7 @@ public class FieryRune extends Hazard {
         private float time;
         protected Emitter burning;
 
-        public RuneSprite(){
+        public RuneSprite() {
 
             super();
             time = 0.0f;
@@ -214,28 +213,28 @@ public class FieryRune extends Hazard {
         }
 
         @Override
-        protected String asset(){
+        protected String asset() {
             return Assets.HAZ_RUNE;
         }
 
         @Override
-        public int spritePriority(){
+        public int spritePriority() {
             return 3;
         }
 
         @Override
-        public void link( Hazard hazard ) {
+        public void link(Hazard hazard) {
 
-            super.link( hazard );
+            super.link(hazard);
 
             burning = GameScene.emitter();
 
-            if( burning != null ){
-                burning.pos( this );
-                burning.pour( FlameParticle.FACTORY, 0.6f );
+            if (burning != null) {
+                burning.pos(this);
+                burning.pour(FlameParticle.FACTORY, 0.6f);
             }
 
-            parent.add( burning );
+            parent.add(burning);
         }
 
         @Override
@@ -244,8 +243,8 @@ public class FieryRune extends Hazard {
 
             time += Game.elapsed * 3;
 
-            tint( 1.2f, 1.2f, 1.0f, 0.2f + (float)Math.sin( time ) * 0.1f );
-            speed.polar( time, 1.0f );
+            tint(1.2f, 1.2f, 1.0f, 0.2f + (float) Math.sin(time) * 0.1f);
+            speed.polar(time, 1.0f);
 
             if (burning != null) {
                 burning.visible = visible;
@@ -253,11 +252,11 @@ public class FieryRune extends Hazard {
 
         }
 
-        public void appear( ) {
+        public void appear() {
 
             am = 0.0f;
 
-            parent.add(new AlphaTweener( this, 1.0f, ANIM_TIME ) {
+            parent.add(new AlphaTweener(this, 1.0f, ANIM_TIME) {
                 @Override
                 protected void onComplete() {
                     parent.erase(this);
@@ -265,14 +264,14 @@ public class FieryRune extends Hazard {
             });
         }
 
-        public void disappear( ) {
+        public void disappear() {
 
             if (burning != null) {
                 burning.on = false;
                 burning = null;
             }
 
-            parent.add(new AlphaTweener( this, 0.0f, ANIM_TIME ) {
+            parent.add(new AlphaTweener(this, 0.0f, ANIM_TIME) {
                 @Override
                 protected void onComplete() {
                     parent.erase(this);
@@ -280,12 +279,12 @@ public class FieryRune extends Hazard {
             });
         }
 
-        public void renew( ) {
+        public void renew() {
 
-            parent.add(new AlphaTweener( this, 0.0f, ANIM_TIME ) {
+            parent.add(new AlphaTweener(this, 0.0f, ANIM_TIME) {
                 @Override
                 protected void onComplete() {
-                    changeFrame( hazard.var );
+                    changeFrame(hazard.var);
                     appear();
                 }
             });
@@ -298,12 +297,12 @@ public class FieryRune extends Hazard {
                 burning = null;
             }
 
-            parent.add(new ScaleTweener( this, new PointF(2, 2), ANIM_TIME ) {
+            parent.add(new ScaleTweener(this, new PointF(2, 2), ANIM_TIME) {
                 @Override
                 protected void onComplete() {
 
                     RuneSprite.this.killAndErase();
-                    parent.erase( this );
+                    parent.erase(this);
 
                 }
 

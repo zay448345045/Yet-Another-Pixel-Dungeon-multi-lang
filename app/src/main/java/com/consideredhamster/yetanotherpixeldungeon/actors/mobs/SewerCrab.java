@@ -21,8 +21,6 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroClass;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CrabSprite;
 
@@ -30,7 +28,7 @@ public class SewerCrab extends MobHealthy {
 
     public SewerCrab() {
 
-        super( 4 );
+        super(4);
 
         /*
 
@@ -51,28 +49,28 @@ public class SewerCrab extends MobHealthy {
         info = "Fast movement";
 
         spriteClass = CrabSprite.class;
-		
-		loot = new MeatRaw();
-		lootChance = 0.125f;
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Knockback.class, Element.Resist.PARTIAL );
+        loot = new MeatRaw();
+        lootChance = 0.125f;
 
-	}
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Knockback.class, Element.Resist.PARTIAL);
+
+    }
 
     @Override
     public float moveSpeed() {
-        return state == HUNTING || state == FLEEING ? super.moveSpeed() * 2.0f: super.moveSpeed() ;
+        return state == HUNTING || state == FLEEING ? super.moveSpeed() * 2.0f : super.moveSpeed();
     }
-	
+
 //	@Override
 //	public void die( Object cause, Element dmg ) {
 //		Ghost.Quest.process( pos );
 //		super.die( cause, dmg );
 //	}
-	
-	@Override
-	public String description() {
+
+    @Override
+    public String description() {
 //		return
 //			"These huge crabs are at the top of the food chain in the sewers. " +
 //			"They are extremely fast and their thick exoskeleton can withstand " +
@@ -80,5 +78,5 @@ public class SewerCrab extends MobHealthy {
 
         return "These huge crabs are at the top of the food chain in the sewers. Despite the " +
                 "thickness of their carapaces, they can move very fast if they want to.";
-	}
+    }
 }

@@ -20,13 +20,8 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Fire;
@@ -34,15 +29,15 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Ensnared;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ElementalSprite;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.MagicMissile;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ElementalSprite;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Callback;
 
 public class Elemental extends MobPrecise {
 
@@ -51,7 +46,7 @@ public class Elemental extends MobPrecise {
 
     public Elemental() {
 
-        super( 14 );
+        super(14);
 
         /*
 
@@ -74,14 +69,14 @@ public class Elemental extends MobPrecise {
         flying = true;
         armorClass = 0;
 
-        resistances.put( Element.Shock.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Acid.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Shock.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Acid.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Body.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Body.class, Element.Resist.IMMUNE);
 
-        resistances.put( Element.Frost.class, Element.Resist.VULNERABLE );
+        resistances.put(Element.Frost.class, Element.Resist.VULNERABLE);
 
-        resistances.put( Element.Knockback.class, Element.Resist.VULNERABLE );
+        resistances.put(Element.Knockback.class, Element.Resist.VULNERABLE);
 
     }
 
@@ -97,17 +92,17 @@ public class Elemental extends MobPrecise {
 
     @Override
     public int damageRoll() {
-        return super.damageRoll() / 2 ;
+        return super.damageRoll() / 2;
     }
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return super.canAttack( enemy ) || HP >= HT && Level.distance( pos, enemy.pos ) <= 2 &&
+    protected boolean canAttack(Char enemy) {
+        return super.canAttack(enemy) || HP >= HT && Level.distance(pos, enemy.pos) <= 2 &&
                 Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
+    protected void onRangedAttack(int cell) {
 
         MagicMissile.fire(sprite.parent, pos, cell,
                 new Callback() {
@@ -119,17 +114,16 @@ public class Elemental extends MobPrecise {
 
         Sample.INSTANCE.play(Assets.SND_ZAP);
 
-        super.onRangedAttack( cell );
+        super.onRangedAttack(cell);
     }
 
 
-
     @Override
-    public boolean cast( Char enemy ) {
+    public boolean cast(Char enemy) {
 
-        if (hit( this, enemy, true, true )) {
+        if (hit(this, enemy, true, true)) {
 
-            enemy.damage( absorb(damageRoll(), enemy.armorClass(), true), this, Element.FLAME );
+            enemy.damage(absorb(damageRoll(), enemy.armorClass(), true), this, Element.FLAME);
 
         } else {
 
@@ -140,11 +134,11 @@ public class Elemental extends MobPrecise {
     }
 
     @Override
-    public void damage( int dmg, Object src, Element type ) {
+    public void damage(int dmg, Object src, Element type) {
 
-        if ( type == Element.FLAME ) {
+        if (type == Element.FLAME) {
 
-            heal( dmg / 2 );
+            heal(dmg / 2);
 
         } else {
 
@@ -152,60 +146,60 @@ public class Elemental extends MobPrecise {
 
         }
     }
-	
-	@Override
-	public boolean add( Buff buff ) {
 
-		if ( buff instanceof Burning ) {
+    @Override
+    public boolean add(Buff buff) {
 
-            heal( ( (Burning) buff ).getDuration() );
+        if (buff instanceof Burning) {
+
+            heal(((Burning) buff).getDuration());
 
             return false;
 
-		} else if ( buff instanceof Frozen ) {
+        } else if (buff instanceof Frozen) {
 
-            int dmg = (int)Math.sqrt( totalHealthValue() / 2 ) * ( (Frozen) buff ).getDuration();
+            int dmg = (int) Math.sqrt(totalHealthValue() / 2) * ((Frozen) buff).getDuration();
 
-            damage( dmg, null, Element.FROST );
+            damage(dmg, null, Element.FROST);
 
-            if(Dungeon.visible[pos] ) {
-                GLog.w( TXT_FROZEN );
+            if (Dungeon.visible[pos]) {
+                GLog.w(TXT_FROZEN);
             }
 
             return false;
 
-        } else if ( buff instanceof Ensnared ) {
+        } else if (buff instanceof Ensnared) {
 
-            GameScene.add( Blob.seed( pos, 1, Fire.class ) );
+            GameScene.add(Blob.seed(pos, 1, Fire.class));
 
-            if(Dungeon.visible[pos] ) {
-                GLog.w( TXT_ENSNARED );
+            if (Dungeon.visible[pos]) {
+                GLog.w(TXT_ENSNARED);
             }
 
             return false;
 
         } else {
 
-            return super.add( buff );
+            return super.add(buff);
 
         }
-	}
+    }
 
     @Override
-    public void die( Object cause, Element dmg ) {
+    public void die(Object cause, Element dmg) {
 
         if (Level.flammable[pos]) {
             GameScene.add(Blob.seed(pos, 1, Fire.class));
         }
 
-        super.die( cause, dmg );
+        super.die(cause, dmg);
     }
-	
-	@Override
-	public String description() {
-		return
-			"Wandering fire elementals are a byproduct of summoning greater entities. " +
-			"They are too chaotic in their nature to be controlled by even the most powerful demonologist.";
-	}
+
+    @Override
+    public String description() {
+        return
+                "Wandering fire elementals are a byproduct of summoning greater entities. " +
+                        "They are too chaotic in their nature to be controlled by even the most powerful demonologist.";
+    }
 
 }

@@ -29,7 +29,7 @@ public abstract class MeleeWeaponLightTH extends MeleeWeapon {
 
     public MeleeWeaponLightTH(int tier) {
 
-        super( tier);
+        super(tier);
     }
 
     @Override
@@ -40,18 +40,18 @@ public abstract class MeleeWeaponLightTH extends MeleeWeapon {
     }
 
     @Override
-    public int min( int bonus ) {
-        return super.min(bonus) + ( enchantment instanceof Tempered ? 2 : 0 ) + 2;
+    public int min(int bonus) {
+        return super.min(bonus) + (enchantment instanceof Tempered ? 2 : 0) + 2;
     }
 
     @Override
-    public int max( int bonus ) {
-        return super.max(bonus) + ( enchantment instanceof Tempered ? 2 : 0 ) + 8 ;
+    public int max(int bonus) {
+        return super.max(bonus) + (enchantment instanceof Tempered ? 2 : 0) + 8;
     }
 
     @Override
     public int dmgMod() {
-        return super.dmgMod() + 2 ;
+        return super.dmgMod() + 2;
     }
 
     @Override
@@ -65,16 +65,18 @@ public abstract class MeleeWeaponLightTH extends MeleeWeapon {
     }
 
     @Override
-    public int strShown( boolean identified ) {
-        return super.strShown( identified ) + (
-                this == Dungeon.hero.belongings.weap1 && incompatibleWith( Dungeon.hero.belongings.weap2 ) ?
+    public int strShown(boolean identified) {
+        return super.strShown(identified) + (
+                this == Dungeon.hero.belongings.weap1 && incompatibleWith(Dungeon.hero.belongings.weap2) ?
                         Dungeon.hero.belongings.weap2.str(
                                 Dungeon.hero.belongings.weap2.isIdentified() ?
                                         Dungeon.hero.belongings.weap2.bonus : 0
-                        ) : 0 );
+                        ) : 0);
     }
 
     @Override
-    public boolean incompatibleWith( EquipableItem item ) { return item instanceof MeleeWeapon ; }
+    public boolean incompatibleWith(EquipableItem item) {
+        return item instanceof MeleeWeapon;
+    }
 
 }

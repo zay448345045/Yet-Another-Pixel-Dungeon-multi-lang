@@ -46,19 +46,19 @@ public class Wonders extends Armour.Glyph {
     }
 
     @Override
-    public boolean proc( Armour armor, Char attacker, Char defender, int damage ) {
-        return random().proc( armor, attacker, defender, damage );
+    public boolean proc(Armour armor, Char attacker, Char defender, int damage) {
+        return random().proc(armor, attacker, defender, damage);
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
 
         return true;
 
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
 
         return true;
 

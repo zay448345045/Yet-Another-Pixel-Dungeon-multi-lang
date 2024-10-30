@@ -24,22 +24,22 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class RatSkull extends Item {
-	
-	{
-		name = "giant rat skull";
-		image = ItemSpriteSheet.SKULL;
-		
-		unique = true;
-	}
-	
-	@Override
-	public String info() {
-		return
-			"It could be a nice hunting trophy, but it smells too bad to place it on a wall.";
-	}
-	
-	@Override
-	public int price() {
-		return 100;
-	}
+
+    {
+        name = "giant rat skull";
+        image = ItemSpriteSheet.SKULL;
+
+        unique = true;
+    }
+
+    @Override
+    public String info() {
+        return
+                "It could be a nice hunting trophy, but it smells too bad to place it on a wall.";
+    }
+
+    @Override
+    public int price() {
+        return 100;
+    }
 }

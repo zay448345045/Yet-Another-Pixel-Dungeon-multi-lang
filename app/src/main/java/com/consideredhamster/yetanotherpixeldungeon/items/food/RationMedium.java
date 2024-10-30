@@ -25,23 +25,23 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class RationMedium extends Food {
 
-	{
-		name = "ration of food";
-		image = ItemSpriteSheet.RATION;
+    {
+        name = "ration of food";
+        image = ItemSpriteSheet.RATION;
 
         energy = Satiety.MAXIMUM * 0.75f;
         message = "That food tasted very good!";
     }
-	
-	@Override
-	public String desc() {
-		return 
-			"Nothing fancy here: dried meat, some biscuits - things like that.";
-	}
-	
-	@Override
-	public int price() {
-		return 30 * quantity;
-	}
+
+    @Override
+    public String desc() {
+        return
+                "Nothing fancy here: dried meat, some biscuits - things like that.";
+    }
+
+    @Override
+    public int price() {
+        return 30 * quantity;
+    }
 
 }

@@ -20,19 +20,19 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs;
 
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
+import com.watabou.utils.Random;
 
 public class AcidWard extends Armour.Glyph {
 
-	@Override
-	public Glowing glowing() {
-		return GREEN;
-	}
+    @Override
+    public Glowing glowing() {
+        return GREEN;
+    }
 
     @Override
     public Class<? extends Element> resistance() {
@@ -60,7 +60,7 @@ public class AcidWard extends Armour.Glyph {
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
 
         if (Level.adjacent(attacker.pos, defender.pos)) {
             attacker.damage(Random.IntRange(damage / 4, damage / 3), this, Element.ACID);
@@ -72,7 +72,7 @@ public class AcidWard extends Armour.Glyph {
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
 
         defender.damage(Random.IntRange(damage / 4, damage / 3), this, Element.ACID);
         return true;

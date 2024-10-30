@@ -30,11 +30,11 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.G
 import com.watabou.utils.Random;
 
 public class Vampiric extends Weapon.Enchantment {
-	
-	@Override
-	public Glowing glowing() {
-		return RED;
-	}
+
+    @Override
+    public Glowing glowing() {
+        return RED;
+    }
 
     @Override
     public Class<? extends Wand> wandBonus() {
@@ -62,22 +62,22 @@ public class Vampiric extends Weapon.Enchantment {
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
 
-        if ( attacker.isAlive() && !defender.isMagical() ) {
+        if (attacker.isAlive() && !defender.isMagical()) {
 
-            int effValue = Element.Resist.modifyValue( damage / 2, defender, Element.BODY );
+            int effValue = Element.Resist.modifyValue(damage / 2, defender, Element.BODY);
 
-            if( effValue > defender.HP ) {
+            if (effValue > defender.HP) {
                 effValue = defender.HP;
             }
 
-            if ( effValue > 0 ) {
+            if (effValue > 0) {
 
-                attacker.heal( effValue );
+                attacker.heal(effValue);
 
-                if( attacker.sprite.visible ) {
-                    attacker.sprite.emitter().burst( Speck.factory(Speck.HEALING), 1);
+                if (attacker.sprite.visible) {
+                    attacker.sprite.emitter().burst(Speck.factory(Speck.HEALING), 1);
                 }
                 return true;
 
@@ -91,7 +91,7 @@ public class Vampiric extends Weapon.Enchantment {
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
         attacker.damage(Random.IntRange(damage / 3, damage / 2), this, Element.BODY);
         attacker.sprite.burst(0x660022, (int) Math.sqrt(damage / 2) + 1);
         return true;

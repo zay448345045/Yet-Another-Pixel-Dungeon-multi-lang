@@ -31,7 +31,7 @@ public abstract class MeleeWeaponHeavyTH extends MeleeWeapon {
 
     public MeleeWeaponHeavyTH(int tier) {
 
-        super( tier );
+        super(tier);
 
     }
 
@@ -43,37 +43,39 @@ public abstract class MeleeWeaponHeavyTH extends MeleeWeapon {
     }
 
     @Override
-    public int min( int bonus ) {
-        return super.min(bonus) + ( enchantment instanceof Tempered ? 3 : 0 ) + 3;
+    public int min(int bonus) {
+        return super.min(bonus) + (enchantment instanceof Tempered ? 3 : 0) + 3;
     }
 
     @Override
-    public int max( int bonus ) {
-        return super.max(bonus) + ( enchantment instanceof Tempered ? 3 : 0 ) + 12 ;
+    public int max(int bonus) {
+        return super.max(bonus) + (enchantment instanceof Tempered ? 3 : 0) + 12;
     }
 
     @Override
     public int dmgMod() {
-        return super.dmgMod() + 3 ;
+        return super.dmgMod() + 3;
     }
 
     @Override
     public int str(int bonus) {
-        return super.str(bonus) + 9 ;
+        return super.str(bonus) + 9;
     }
 
     @Override
-    public int strShown( boolean identified ) {
-        return super.strShown( identified ) + (
-                this == Dungeon.hero.belongings.weap1 && incompatibleWith( Dungeon.hero.belongings.weap2 ) ?
+    public int strShown(boolean identified) {
+        return super.strShown(identified) + (
+                this == Dungeon.hero.belongings.weap1 && incompatibleWith(Dungeon.hero.belongings.weap2) ?
                         Dungeon.hero.belongings.weap2.str(
                                 Dungeon.hero.belongings.weap2.isIdentified() ?
                                         Dungeon.hero.belongings.weap2.bonus : 0
-                        ) : 0 );
+                        ) : 0);
     }
 
     @Override
-    public boolean incompatibleWith( EquipableItem item ) { return item instanceof MeleeWeapon || item instanceof Shield ; }
+    public boolean incompatibleWith(EquipableItem item) {
+        return item instanceof MeleeWeapon || item instanceof Shield;
+    }
 
     @Override
     public int penaltyBase(Hero hero, int str) {

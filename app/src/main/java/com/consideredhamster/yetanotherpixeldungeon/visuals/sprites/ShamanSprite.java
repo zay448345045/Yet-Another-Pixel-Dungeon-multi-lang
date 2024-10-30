@@ -20,45 +20,45 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.TextureFilm;
 
 public class ShamanSprite extends MobSprite {
-	
-	private int[] points = new int[2];
-	
-	public ShamanSprite() {
-		super();
-		
-		texture( Assets.SHAMAN );
-		
-		TextureFilm frames = new TextureFilm( texture, 12, 15 );
-		
-		idle = new Animation( 2, true );
-		idle.frames( frames, 0, 0, 0, 1, 0, 0, 1, 1 );
-		
-		run = new Animation( 12, true );
-		run.frames( frames, 4, 5, 6, 7 );
-		
-		attack = new Animation( 12, false );
-		attack.frames( frames, 2, 3, 0 );
-		
+
+    private int[] points = new int[2];
+
+    public ShamanSprite() {
+        super();
+
+        texture(Assets.SHAMAN);
+
+        TextureFilm frames = new TextureFilm(texture, 12, 15);
+
+        idle = new Animation(2, true);
+        idle.frames(frames, 0, 0, 0, 1, 0, 0, 1, 1);
+
+        run = new Animation(12, true);
+        run.frames(frames, 4, 5, 6, 7);
+
+        attack = new Animation(12, false);
+        attack.frames(frames, 2, 3, 0);
+
 //		cast = attack.clone();
-		
-		die = new Animation( 12, false );
-		die.frames( frames, 8, 9, 10 );
-		
-		play( idle );
-	}
+
+        die = new Animation(12, false);
+        die.frames(frames, 8, 9, 10);
+
+        play(idle);
+    }
 
     public void cast(int cell) {
 
-        turnTo( ch.pos , cell );
+        turnTo(ch.pos, cell);
         play(cast);
 
 
     }
-	
+
 //	public void cast( int pos ) {
 //
 //		points[0] = ch.pos;

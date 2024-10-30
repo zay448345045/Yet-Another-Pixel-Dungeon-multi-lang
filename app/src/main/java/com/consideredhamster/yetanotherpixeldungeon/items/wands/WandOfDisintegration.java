@@ -20,124 +20,124 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.wands;
 
-import java.util.ArrayList;
-
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.DeathRay;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.PurpleParticle;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.DeathRay;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.PurpleParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 import com.watabou.utils.GameMath;
 import com.watabou.utils.Random;
 
+import java.util.ArrayList;
+
 public class WandOfDisintegration extends WandCombat {
 
-	{
-		name = "Wand of Disintegration";
+    {
+        name = "Wand of Disintegration";
         image = ItemSpriteSheet.WAND_DISINTEGRATION;
 
         hitChars = false;
     }
 
     @Override
-    public float effectiveness( int bonus ) {
-        return super.effectiveness( bonus ) * 1.15f;
+    public float effectiveness(int bonus) {
+        return super.effectiveness(bonus) * 1.15f;
     }
 
     private ArrayList<Integer> cells = new ArrayList<Integer>();
 
-	@Override
-	protected void onZap( int cell ) {
-		
-		boolean terrainAffected = false;
-		
-		for ( int c : cells ) {
-			
-			Char ch = Actor.findChar( c );
+    @Override
+    protected void onZap(int cell) {
 
-			if ( ch != null ) {
-                ch.damage( Char.absorb( damageRoll(), ch.armorClass(), true ), curUser, Element.ENERGY );
-                CellEmitter.center( c ).burst( PurpleParticle.BURST, 3 );
-			}
+        boolean terrainAffected = false;
 
-            if ( Dungeon.level.map[c] == Terrain.DOOR_CLOSED ) {
+        for (int c : cells) {
 
-                Level.set( c, Terrain.EMBERS );
-                GameScene.updateMap( c );
+            Char ch = Actor.findChar(c);
+
+            if (ch != null) {
+                ch.damage(Char.absorb(damageRoll(), ch.armorClass(), true), curUser, Element.ENERGY);
+                CellEmitter.center(c).burst(PurpleParticle.BURST, 3);
+            }
+
+            if (Dungeon.level.map[c] == Terrain.DOOR_CLOSED) {
+
+                Level.set(c, Terrain.EMBERS);
+                GameScene.updateMap(c);
                 terrainAffected = true;
 
-                if( Dungeon.visible[ c ] ){
-                    CellEmitter.center( c ).burst( PurpleParticle.BURST, 16 );
+                if (Dungeon.visible[c]) {
+                    CellEmitter.center(c).burst(PurpleParticle.BURST, 16);
                 }
 
-            } else if ( Dungeon.level.map[c] == Terrain.HIGH_GRASS ) {
+            } else if (Dungeon.level.map[c] == Terrain.HIGH_GRASS) {
 
-                Level.set( c, Terrain.GRASS );
-                GameScene.updateMap( c );
+                Level.set(c, Terrain.GRASS);
+                GameScene.updateMap(c);
                 terrainAffected = true;
 
-                if( Dungeon.visible[ c ] ){
-                    CellEmitter.center( c ).burst( PurpleParticle.BURST, 4 );
+                if (Dungeon.visible[c]) {
+                    CellEmitter.center(c).burst(PurpleParticle.BURST, 4);
                 }
 
             } else {
 
-                if( Dungeon.visible[ c ] ){
-                    CellEmitter.center( c ).burst( PurpleParticle.BURST, 3 );
+                if (Dungeon.visible[c]) {
+                    CellEmitter.center(c).burst(PurpleParticle.BURST, 3);
                 }
-
-            }
-		}
-		
-		if (terrainAffected) {
-			Dungeon.observe();
-		}
-	}
-
-	@Override
-	protected void fx( int cell, Callback callback ) {
-
-        cells = new ArrayList<>( );
-
-        int reflectFrom = Ballistica.trace[ Ballistica.distance ] ;
-
-        curUser.sprite.parent.add( new DeathRay( curUser.pos, reflectFrom ) );
-
-        cells = getCellsFromTrace( cells );
-
-        if( Level.solid[ reflectFrom ] ){
-
-            int reflectTo = getReflectTo( curUser.pos, reflectFrom );
-
-            if( reflectFrom != reflectTo ){
-
-                Ballistica.cast( reflectFrom, reflectTo, true, false );
-
-                reflectTo = Ballistica.trace[ Ballistica.distance ] ;
-
-                curUser.sprite.parent.add( new DeathRay( reflectFrom, reflectTo ) );
-
-                cells = getCellsFromTrace( cells );
 
             }
         }
 
-        Sample.INSTANCE.play( Assets.SND_RAY );
+        if (terrainAffected) {
+            Dungeon.observe();
+        }
+    }
 
-		callback.call();
-	}
+    @Override
+    protected void fx(int cell, Callback callback) {
 
-    public static int getReflectTo( int sourcePos, int targetPos ) {
+        cells = new ArrayList<>();
+
+        int reflectFrom = Ballistica.trace[Ballistica.distance];
+
+        curUser.sprite.parent.add(new DeathRay(curUser.pos, reflectFrom));
+
+        cells = getCellsFromTrace(cells);
+
+        if (Level.solid[reflectFrom]) {
+
+            int reflectTo = getReflectTo(curUser.pos, reflectFrom);
+
+            if (reflectFrom != reflectTo) {
+
+                Ballistica.cast(reflectFrom, reflectTo, true, false);
+
+                reflectTo = Ballistica.trace[Ballistica.distance];
+
+                curUser.sprite.parent.add(new DeathRay(reflectFrom, reflectTo));
+
+                cells = getCellsFromTrace(cells);
+
+            }
+        }
+
+        Sample.INSTANCE.play(Assets.SND_RAY);
+
+        callback.call();
+    }
+
+    public static int getReflectTo(int sourcePos, int targetPos) {
 
         int sourceX = sourcePos % Level.WIDTH;
         int sourceY = sourcePos / Level.WIDTH;
@@ -152,17 +152,17 @@ public class WandOfDisintegration extends WandCombat {
         int deltaY = targetY - sourceY;
 
         // right angles would reflect everything right back at ya so they are ignored
-        if( deltaX != 0 && deltaY != 0 ){
+        if (deltaX != 0 && deltaY != 0) {
 
-            boolean horizontWall = Level.solid[ targetPos - ( deltaX > 0 ? 1 : -1 ) ];
-            boolean verticalWall = Level.solid[ targetPos - ( deltaY > 0 ? Level.WIDTH : -Level.WIDTH ) ];
+            boolean horizontWall = Level.solid[targetPos - (deltaX > 0 ? 1 : -1)];
+            boolean verticalWall = Level.solid[targetPos - (deltaY > 0 ? Level.WIDTH : -Level.WIDTH)];
 
-            if( !horizontWall || !verticalWall ) {
+            if (!horizontWall || !verticalWall) {
 
                 // convex corners reflect in random direction
-                boolean reflectHorizontally = horizontWall || ( !verticalWall && Random.Int( 2 ) == 0 );
+                boolean reflectHorizontally = horizontWall || (!verticalWall && Random.Int(2) == 0);
 
-                if( reflectHorizontally ) {
+                if (reflectHorizontally) {
                     // perform horizontal reflection
                     reflectX += deltaX;
                     reflectY -= deltaY;
@@ -174,9 +174,9 @@ public class WandOfDisintegration extends WandCombat {
             } else {
 
                 // concave corners reflect everything by both axes, unless hit from 45 degrees angle
-                if( Math.abs( deltaX ) != Math.abs( deltaY ) ){
+                if (Math.abs(deltaX) != Math.abs(deltaY)) {
 
-                    if( deltaX > 0 == deltaY > 0 ){
+                    if (deltaX > 0 == deltaY > 0) {
                         reflectX -= deltaY;
                         reflectY -= deltaX;
                     } else {
@@ -187,22 +187,22 @@ public class WandOfDisintegration extends WandCombat {
             }
         }
 
-        reflectX = GameMath.gate( 0, reflectX, Level.WIDTH );
-        reflectY = GameMath.gate( 0, reflectY, Level.HEIGHT );
+        reflectX = GameMath.gate(0, reflectX, Level.WIDTH);
+        reflectY = GameMath.gate(0, reflectY, Level.HEIGHT);
 
         return reflectX + reflectY * Level.WIDTH;
 
     }
 
-	public static ArrayList<Integer> getCellsFromTrace( ArrayList<Integer> cells ){
+    public static ArrayList<Integer> getCellsFromTrace(ArrayList<Integer> cells) {
 
-        if( Ballistica.distance > 0 ){
+        if (Ballistica.distance > 0) {
 
-            for( int i = 1 ; i <= Ballistica.distance ; i++ ){
+            for (int i = 1; i <= Ballistica.distance; i++) {
 
-                int cell = Ballistica.trace[ i ];
+                int cell = Ballistica.trace[i];
 
-                if( !cells.contains( cell ) ) {
+                if (!cells.contains(cell)) {
 
                     cells.add(cell);
 
@@ -214,11 +214,11 @@ public class WandOfDisintegration extends WandCombat {
         return cells;
 
     }
-	
-	@Override
-	public String desc() {
-		return
-			"This wand emits a beam of destructive energy, which pierces all creatures in its way " +
-            "and bounce from solid obstacles, allowing its user to shoot them around the corners.";
-	}
+
+    @Override
+    public String desc() {
+        return
+                "This wand emits a beam of destructive energy, which pierces all creatures in its way " +
+                        "and bounce from solid obstacles, allowing its user to shoot them around the corners.";
+    }
 }

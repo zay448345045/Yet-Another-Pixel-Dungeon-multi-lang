@@ -21,16 +21,16 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Difficulties;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.watabou.utils.Random;
 
 public abstract class MobRanged extends Mob {
 
-    protected MobRanged( int exp ) {
-        this( Dungeon.chapter(), exp, false );
+    protected MobRanged(int exp) {
+        this(Dungeon.chapter(), exp, false);
     }
 
-    protected MobRanged( int t, int exp, boolean isBoss ) {
+    protected MobRanged(int t, int exp, boolean isBoss) {
 
         tier = t;
 
@@ -43,11 +43,11 @@ public abstract class MobRanged extends Mob {
         accuracy = 4 + tier * 4 + exp;
         dexterity = 1 + tier + exp;
 
-        if( !isBoss ) {
+        if (!isBoss) {
 
-            if( Dungeon.difficulty == Difficulties.NORMAL ) {
+            if (Dungeon.difficulty == Difficulties.NORMAL) {
                 HT = Random.NormalIntRange(HT, HT * 2);
-            } else if( Dungeon.difficulty > Difficulties.NORMAL ) {
+            } else if (Dungeon.difficulty > Difficulties.NORMAL) {
                 HT = HT * 2;
             }
 
@@ -56,7 +56,7 @@ public abstract class MobRanged extends Mob {
 
         } else {
 
-            if( Dungeon.difficulty > Difficulties.HARDCORE ) {
+            if (Dungeon.difficulty > Difficulties.HARDCORE) {
                 HT = HT * 15;
             } else {
                 HT = HT * 8 + HT * 2 * Dungeon.difficulty;
@@ -77,8 +77,8 @@ public abstract class MobRanged extends Mob {
     }
 
     @Override
-    public float awareness(){
-        return super.awareness() * ( 1.0f + tier * 0.1f );
+    public float awareness() {
+        return super.awareness() * (1.0f + tier * 0.1f);
     }
 
 }

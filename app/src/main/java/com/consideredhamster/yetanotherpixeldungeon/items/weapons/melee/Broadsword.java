@@ -23,23 +23,23 @@ package com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
 
 public class Broadsword extends MeleeWeaponHeavyOH {
-	
-	{
-		name = "broadsword";
-		image = ItemSpriteSheet.SWORD;
-	}
-	
-	public Broadsword() {
-		super( 3 );
-	}
-	
-	@Override
-	public String desc() {
-		return "The razor-sharp length of steel blade shines reassuringly.";
-	}
 
-	@Override
-	public Type weaponType() {
-		return Type.M_SWORD;
-	}
+    {
+        name = "broadsword";
+        image = ItemSpriteSheet.SWORD;
+    }
+
+    public Broadsword() {
+        super(3);
+    }
+
+    @Override
+    public String desc() {
+        return "The razor-sharp length of steel blade shines reassuringly.";
+    }
+
+    @Override
+    public Type weaponType() {
+        return Type.M_SWORD;
+    }
 }

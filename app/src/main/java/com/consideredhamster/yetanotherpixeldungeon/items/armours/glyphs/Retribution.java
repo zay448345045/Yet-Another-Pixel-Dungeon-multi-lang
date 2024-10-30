@@ -20,20 +20,20 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs;
 
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
+import com.watabou.utils.Random;
 
 public class Retribution extends Armour.Glyph {
-	
-	@Override
-	public Glowing glowing() {
-		return RED;
-	}
+
+    @Override
+    public Glowing glowing() {
+        return RED;
+    }
 
     @Override
     public Class<? extends Element> resistance() {
@@ -61,10 +61,10 @@ public class Retribution extends Armour.Glyph {
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
 
         if (Level.adjacent(attacker.pos, defender.pos)) {
-            attacker.damage( Char.absorb( damage, attacker.armorClass() ), this, null);
+            attacker.damage(Char.absorb(damage, attacker.armorClass()), this, null);
             attacker.sprite.burst(0x660022, (int) Math.sqrt(damage / 2) + 1);
             return true;
         }
@@ -73,17 +73,17 @@ public class Retribution extends Armour.Glyph {
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
 
-        if ( !attacker.isMagical() ) {
+        if (!attacker.isMagical()) {
 
-            int effValue = Math.min( Random.IntRange(damage / 4, damage / 3), attacker.HT - attacker.HP );
+            int effValue = Math.min(Random.IntRange(damage / 4, damage / 3), attacker.HT - attacker.HP);
 
-            if( effValue > defender.HP ) {
+            if (effValue > defender.HP) {
                 effValue = defender.HP;
             }
 
-            if ( effValue > 0 ) {
+            if (effValue > 0) {
 
                 attacker.HP += effValue;
                 attacker.sprite.showStatus(CharSprite.POSITIVE, Integer.toString(effValue));

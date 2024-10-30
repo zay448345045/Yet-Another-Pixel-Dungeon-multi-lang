@@ -20,21 +20,20 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments;
 
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfAcidSpray;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
-import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfBlastWave;
+import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfAcidSpray;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.Weapon;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite.Glowing;
+import com.watabou.utils.Random;
 
 public class Caustic extends Weapon.Enchantment {
 
-	@Override
-	public Glowing glowing() {
-		return GREEN;
-	}
+    @Override
+    public Glowing glowing() {
+        return GREEN;
+    }
 
     @Override
     public Class<? extends Wand> wandBonus() {
@@ -62,7 +61,7 @@ public class Caustic extends Weapon.Enchantment {
     }
 
     @Override
-    protected boolean proc_p( Char attacker, Char defender, int damage ) {
+    protected boolean proc_p(Char attacker, Char defender, int damage) {
 
         defender.damage(Random.IntRange(damage / 3, damage / 2), this, Element.ACID);
         return true;
@@ -70,9 +69,9 @@ public class Caustic extends Weapon.Enchantment {
     }
 
     @Override
-    protected boolean proc_n( Char attacker, Char defender, int damage ) {
+    protected boolean proc_n(Char attacker, Char defender, int damage) {
 
-        attacker.damage( Random.IntRange(damage / 3, damage / 2), this, Element.ACID );
+        attacker.damage(Random.IntRange(damage / 3, damage / 2), this, Element.ACID);
         return true;
 
     }

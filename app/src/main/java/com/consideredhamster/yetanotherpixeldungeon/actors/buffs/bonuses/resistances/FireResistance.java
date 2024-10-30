@@ -25,13 +25,15 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 
 public class FireResistance extends ElementResistance {
 
-	@Override
-	public String toString() {
-		return "Fire Resistance";
-	}
+    @Override
+    public String toString() {
+        return "Fire Resistance";
+    }
 
     @Override
-    public String statusMessage() { return "fire resistance"; }
+    public String statusMessage() {
+        return "fire resistance";
+    }
 
     @Override
     public String playerMessage() {
@@ -44,7 +46,7 @@ public class FireResistance extends ElementResistance {
     }
 
     @Override
-    public Class<? extends Element> resistance(){
+    public Class<? extends Element> resistance() {
         return Element.Flame.class;
     }
 

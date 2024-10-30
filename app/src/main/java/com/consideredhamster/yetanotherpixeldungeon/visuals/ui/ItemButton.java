@@ -3,7 +3,6 @@ package com.consideredhamster.yetanotherpixeldungeon.visuals.ui;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Chrome;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBlacksmith;
 import com.watabou.noosa.NinePatch;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.ui.Component;
@@ -39,28 +38,35 @@ public class ItemButton extends Component {
     protected void createChildren() {
         super.createChildren();
 
-        bg = Chrome.get( Chrome.Type.BUTTON );
-        add( bg );
+        bg = Chrome.get(Chrome.Type.BUTTON);
+        add(bg);
 
         slot = new ItemSlot() {
             @Override
             protected void onTouchDown() {
-                bg.brightness( 1.2f );
-                Sample.INSTANCE.play( Assets.SND_CLICK );
-            };
+                bg.brightness(1.2f);
+                Sample.INSTANCE.play(Assets.SND_CLICK);
+            }
+
+            ;
+
             @Override
             protected void onTouchUp() {
                 bg.resetColorAlpha();
             }
+
             @Override
             protected void onClick() {
                 ItemButton.this.onClick();
             }
         };
-        add( slot );
+        add(slot);
     }
 
-    protected void onClick() {};
+    protected void onClick() {
+    }
+
+    ;
 
     @Override
     protected void layout() {
@@ -68,13 +74,15 @@ public class ItemButton extends Component {
 
         bg.x = x;
         bg.y = y;
-        bg.size( width, height );
+        bg.size(width, height);
 
-        slot.setRect( x + 2, y + 2, width - 4, height - 4 );
-    };
+        slot.setRect(x + 2, y + 2, width - 4, height - 4);
+    }
 
-    public void item( Item item ) {
-        slot.item( this.item = item );
+    ;
+
+    public void item(Item item) {
+        slot.item(this.item = item);
     }
 
     public void clear() {

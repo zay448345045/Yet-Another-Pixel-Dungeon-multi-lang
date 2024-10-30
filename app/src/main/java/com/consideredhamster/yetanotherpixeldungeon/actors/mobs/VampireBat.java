@@ -20,21 +20,19 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
+import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatRaw;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.BatSprite;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 
 public class VampireBat extends MobEvasive {
 
     public VampireBat() {
 
-        super( 9 );
+        super(9);
 
         /*
 
@@ -62,49 +60,49 @@ public class VampireBat extends MobEvasive {
 
         baseSpeed = 2f;
 
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Knockback.class, Element.Resist.VULNERABLE );
-	}
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Knockback.class, Element.Resist.VULNERABLE);
+    }
 
     @Override
     protected boolean act() {
 
-        if( Dungeon.hero.isAlive() && state != SLEEPING && !enemySeen
-            && Level.distance( pos, Dungeon.hero.pos ) <= 2
-            && detected( Dungeon.hero ) && detected(Dungeon.hero)
+        if (Dungeon.hero.isAlive() && state != SLEEPING && !enemySeen
+                && Level.distance(pos, Dungeon.hero.pos) <= 2
+                && detected(Dungeon.hero) && detected(Dungeon.hero)
         ) {
 
-            beckon( Dungeon.hero.pos );
+            beckon(Dungeon.hero.pos);
 
         }
 
         return super.act();
     }
 
-	@Override
-	public int attackProc( Char enemy, int damage, boolean blocked ) {
+    @Override
+    public int attackProc(Char enemy, int damage, boolean blocked) {
 
-        if ( !blocked && isAlive() ) {
+        if (!blocked && isAlive()) {
 
-            int healed = Element.Resist.modifyValue( damage / 2, enemy, Element.BODY );
+            int healed = Element.Resist.modifyValue(damage / 2, enemy, Element.BODY);
 
             if (healed > 0) {
 
-                heal( healed );
+                heal(healed);
 
-                if( sprite.visible ) {
+                if (sprite.visible) {
                     sprite.emitter().burst(Speck.factory(Speck.HEALING), 1);
                 }
             }
         }
-		
-		return damage;
-	}
-	
-	@Override
-	public String description() {
-		return
-			"These brisk and tenacious inhabitants of cave domes may defeat much larger opponents by " +
-			"replenishing their health with each successful attack.";
-	}
+
+        return damage;
+    }
+
+    @Override
+    public String description() {
+        return
+                "These brisk and tenacious inhabitants of cave domes may defeat much larger opponents by " +
+                        "replenishing their health with each successful attack.";
+    }
 }

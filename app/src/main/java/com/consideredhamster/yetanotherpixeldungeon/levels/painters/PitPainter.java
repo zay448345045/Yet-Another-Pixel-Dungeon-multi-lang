@@ -21,8 +21,8 @@
 package com.consideredhamster.yetanotherpixeldungeon.levels.painters;
 
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
-import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.Heap.Type;
+import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.keys.IronKey;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Room;
@@ -32,59 +32,59 @@ import com.watabou.utils.Random;
 
 public class PitPainter extends Painter {
 
-	public static void paint( Level level, Room room ) {
+    public static void paint(Level level, Room room) {
 
-		fill( level, room, Terrain.WALL );
-		fill( level, room, 1, Terrain.EMPTY );
-		
-		Room.Door entrance = room.entrance();
-		entrance.set( Room.Door.Type.LOCKED );
-		
-		Point well = null;
-		if (entrance.x == room.left) {
-			well = new Point( room.right-1, Random.Int( 2 ) == 0 ? room.top + 1 : room.bottom - 1 );
-		} else if (entrance.x == room.right) {
-			well = new Point( room.left+1, Random.Int( 2 ) == 0 ? room.top + 1 : room.bottom - 1 );
-		} else if (entrance.y == room.top) {
-			well = new Point( Random.Int( 2 ) == 0 ? room.left + 1 : room.right - 1, room.bottom-1 );
-		} else if (entrance.y == room.bottom) {
-			well = new Point( Random.Int( 2 ) == 0 ? room.left + 1 : room.right - 1, room.top+1 );
-		}
-		set( level, well, Terrain.EMPTY_WELL );
-		
-		int remains = room.random();
-		while (level.map[remains] == Terrain.EMPTY_WELL) {
-			remains = room.random();
-		}
-		
-		level.drop( new IronKey(), remains, true ).type = Type.BONES;
-		
-		if (Random.Int( 5 ) == 0) {
-			level.drop( Generator.random( Generator.Category.RING ), remains, true );
-		} else {
-			level.drop( Generator.random( Random.oneOf( 
-				Generator.Category.WEAPON, 
-				Generator.Category.ARMOR
-			) ), remains, true );
-		}
-		
-		int n = Random.IntRange( 1, 2 );
-		for (int i=0; i < n; i++) {
-			level.drop( prize( level ), remains, true );
-		}
-	}
-	
-	private static Item prize( Level level ) {
-		
-		Item prize = level.itemToSpawnAsPrize();
-		if (prize != null) {
-			return prize;
-		}
-		
-		return Generator.random( Random.oneOf( 
-			Generator.Category.POTION, 
-			Generator.Category.SCROLL,
-			Generator.Category.GOLD
-		) );
-	}
+        fill(level, room, Terrain.WALL);
+        fill(level, room, 1, Terrain.EMPTY);
+
+        Room.Door entrance = room.entrance();
+        entrance.set(Room.Door.Type.LOCKED);
+
+        Point well = null;
+        if (entrance.x == room.left) {
+            well = new Point(room.right - 1, Random.Int(2) == 0 ? room.top + 1 : room.bottom - 1);
+        } else if (entrance.x == room.right) {
+            well = new Point(room.left + 1, Random.Int(2) == 0 ? room.top + 1 : room.bottom - 1);
+        } else if (entrance.y == room.top) {
+            well = new Point(Random.Int(2) == 0 ? room.left + 1 : room.right - 1, room.bottom - 1);
+        } else if (entrance.y == room.bottom) {
+            well = new Point(Random.Int(2) == 0 ? room.left + 1 : room.right - 1, room.top + 1);
+        }
+        set(level, well, Terrain.EMPTY_WELL);
+
+        int remains = room.random();
+        while (level.map[remains] == Terrain.EMPTY_WELL) {
+            remains = room.random();
+        }
+
+        level.drop(new IronKey(), remains, true).type = Type.BONES;
+
+        if (Random.Int(5) == 0) {
+            level.drop(Generator.random(Generator.Category.RING), remains, true);
+        } else {
+            level.drop(Generator.random(Random.oneOf(
+                    Generator.Category.WEAPON,
+                    Generator.Category.ARMOR
+            )), remains, true);
+        }
+
+        int n = Random.IntRange(1, 2);
+        for (int i = 0; i < n; i++) {
+            level.drop(prize(level), remains, true);
+        }
+    }
+
+    private static Item prize(Level level) {
+
+        Item prize = level.itemToSpawnAsPrize();
+        if (prize != null) {
+            return prize;
+        }
+
+        return Generator.random(Random.oneOf(
+                Generator.Category.POTION,
+                Generator.Category.SCROLL,
+                Generator.Category.GOLD
+        ));
+    }
 }

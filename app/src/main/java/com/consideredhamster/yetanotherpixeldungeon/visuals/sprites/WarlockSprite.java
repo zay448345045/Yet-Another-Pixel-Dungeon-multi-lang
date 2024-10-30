@@ -20,37 +20,37 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.sprites;
 
-import com.watabou.noosa.TextureFilm;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.TextureFilm;
 
 public class WarlockSprite extends MobSprite {
 
 //    private int[] points = new int[2];
 
-	public WarlockSprite() {
-		super();
-		
-		texture( Assets.WARLOCK );
-		
-		TextureFilm frames = new TextureFilm( texture, 12, 15 );
-		
-		idle = new Animation( 2, true );
-		idle.frames( frames, 0, 0, 0, 1, 0, 0, 1, 1 );
-		
-		run = new Animation( 15, true );
-		run.frames( frames, 0, 2, 3, 4 );
-		
-		attack = new Animation( 12, false );
-		attack.frames( frames, 0, 5, 6 );
-		
+    public WarlockSprite() {
+        super();
+
+        texture(Assets.WARLOCK);
+
+        TextureFilm frames = new TextureFilm(texture, 12, 15);
+
+        idle = new Animation(2, true);
+        idle.frames(frames, 0, 0, 0, 1, 0, 0, 1, 1);
+
+        run = new Animation(15, true);
+        run.frames(frames, 0, 2, 3, 4);
+
+        attack = new Animation(12, false);
+        attack.frames(frames, 0, 5, 6);
+
 //		cast = attack.clone();
-		
-		die = new Animation( 15, false );
-		die.frames( frames, 0, 7, 8, 8, 9, 10 );
-		
-		play( idle );
-	}
-	
+
+        die = new Animation(15, false);
+        die.frames(frames, 0, 7, 8, 8, 9, 10);
+
+        play(idle);
+    }
+
 //	public void cast( int cell ) {
 //
 //		turnTo( ch.pos , cell );

@@ -21,7 +21,6 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.herbs;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.Food;
 import com.consideredhamster.yetanotherpixeldungeon.items.food.MeatStewed;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
@@ -45,8 +44,8 @@ public abstract class Herb extends Food {
     @Override
     public String info() {
         return desc() + "\n\n" +
-            "Eating this herb will take only _" + (int)time + "_ turn and " +
-            "restore _" + (int)( energy / 10 ) + "%_ of your satiety.";
+                "Eating this herb will take only _" + (int) time + "_ turn and " +
+                "restore _" + (int) (energy / 10) + "%_ of your satiety.";
     }
 }
 

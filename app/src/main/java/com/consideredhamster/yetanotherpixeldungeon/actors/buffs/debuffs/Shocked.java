@@ -21,14 +21,9 @@
 package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.items.EquipableItem;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.SparkParticle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
-import com.watabou.noosa.Camera;
 import com.watabou.utils.Random;
 
 public class Shocked extends Debuff {
@@ -46,10 +41,14 @@ public class Shocked extends Debuff {
     }
 
     @Override
-    public String statusMessage() { return "electrified"; }
+    public String statusMessage() {
+        return "electrified";
+    }
 
     @Override
-    public String playerMessage() { return "You are electrified!"; }
+    public String playerMessage() {
+        return "You are electrified!";
+    }
 
     @Override
     public int icon() {
@@ -74,9 +73,9 @@ public class Shocked extends Debuff {
     }
 
     @Override
-    public boolean act(){
+    public boolean act() {
 
-        if( target.isAlive() && !target.flying && Level.water[ target.pos ] ){
+        if (target.isAlive() && !target.flying && Level.water[target.pos]) {
             discharge();
         }
 
@@ -86,7 +85,7 @@ public class Shocked extends Debuff {
     public void discharge() {
 
         target.damage(
-                Random.IntRange( duration, duration * (int)Math.sqrt( target.totalHealthValue() ) ),
+                Random.IntRange(duration, duration * (int) Math.sqrt(target.totalHealthValue())),
                 this, Element.SHOCK_PERIODIC
         );
 
@@ -113,10 +112,12 @@ public class Shocked extends Debuff {
 //        }
 
         if (target.sprite.visible) {
-            target.sprite.centerEmitter().burst( SparkParticle.FACTORY, (int)Math.ceil( duration ) + 1 );
+            target.sprite.centerEmitter().burst(SparkParticle.FACTORY, (int) Math.ceil(duration) + 1);
         }
 
         detach();
-    };
+    }
+
+    ;
 
 }

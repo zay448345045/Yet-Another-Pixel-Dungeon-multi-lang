@@ -20,42 +20,32 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import com.consideredhamster.yetanotherpixeldungeon.Difficulties;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.watabou.noosa.tweeners.AlphaTweener;
-import com.watabou.utils.Bundle;
 import com.consideredhamster.yetanotherpixeldungeon.Badges;
-import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Miasma;
+import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Blob;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
+import com.consideredhamster.yetanotherpixeldungeon.actors.blobs.Miasma;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Enraged;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Frozen;
-import com.consideredhamster.yetanotherpixeldungeon.actors.special.Pushing;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.levels.SewerBossLevel;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
 import com.consideredhamster.yetanotherpixeldungeon.levels.features.Door;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.GooSprite;
-import com.watabou.utils.Callback;
+import com.watabou.noosa.tweeners.AlphaTweener;
+import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 
 public class Goo extends MobEvasive {
 
-	private static final float PUMP_UP_DELAY	= 2f;
+    private static final float PUMP_UP_DELAY = 2f;
 
-    private static final float SPLIT_DELAY	= 1f;
+    private static final float SPLIT_DELAY = 1f;
 
     private static final int SPAWN_HEALTH = 15;
 
@@ -78,14 +68,14 @@ public class Goo extends MobEvasive {
         dexterity /= 2;
         armorClass = 0;
 
-        resistances.put( Element.Knockback.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Knockback.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Acid.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Flame.class, Element.Resist.PARTIAL );
+        resistances.put(Element.Acid.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Flame.class, Element.Resist.PARTIAL);
 
-        resistances.put( Element.Mind.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Body.class, Element.Resist.IMMUNE );
-        resistances.put( Element.Ensnaring.class, Element.Resist.IMMUNE );
+        resistances.put(Element.Mind.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Body.class, Element.Resist.IMMUNE);
+        resistances.put(Element.Ensnaring.class, Element.Resist.IMMUNE);
 
     }
 
@@ -95,70 +85,72 @@ public class Goo extends MobEvasive {
     }
 
     @Override
-    public float awareness(){
-        return state != SLEEPING ? super.awareness() : 0.0f ;
+    public float awareness() {
+        return state != SLEEPING ? super.awareness() : 0.0f;
     }
 
     @Override
-    protected float healthValueModifier() { return 0.25f; }
+    protected float healthValueModifier() {
+        return 0.25f;
+    }
 
-	@Override
-	public void damage( int dmg, Object src, Element type ) {
+    @Override
+    public void damage(int dmg, Object src, Element type) {
 
         if (HP <= 0) {
             return;
         }
 
-        if( buff( Enraged.class ) != null ) {
+        if (buff(Enraged.class) != null) {
 
             dmg /= 2;
 
-        } else if ( type == Element.PHYSICAL && dmg > 1 && dmg < HP && dmg > Random.Int( SPAWN_HEALTH ) ) {
+        } else if (type == Element.PHYSICAL && dmg > 1 && dmg < HP && dmg > Random.Int(SPAWN_HEALTH)) {
 
-            GooSpawn clone = GooSpawn.split( this, dmg );
+            GooSpawn clone = GooSpawn.split(this, dmg);
             clone.mother = this;
 
         }
 
-        super.damage( dmg, src, type );
-	}
+        super.damage(dmg, src, type);
+    }
 
     @Override
     public boolean act() {
 
-        if (( state == SLEEPING || Level.water[pos] ) && HP < HT && !phase ) {
+        if ((state == SLEEPING || Level.water[pos]) && HP < HT && !phase) {
 
-            sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 );
+            sprite.emitter().burst(Speck.factory(Speck.HEALING), 1);
             HP++;
 
-            if( HP >= HT ) {
-                beckon( Dungeon.hero.pos );
-                Dungeon.hero.interrupt( "You were awoken by a bad feeling." );
+            if (HP >= HT) {
+                beckon(Dungeon.hero.pos);
+                Dungeon.hero.interrupt("You were awoken by a bad feeling.");
                 GLog.i("Goo awakens!");
             }
         }
 
-        if( phase ) {
+        if (phase) {
 
-            GameScene.add( Blob.seed(pos, 150 + breaks * 50, Miasma.class) );
+            GameScene.add(Blob.seed(pos, 150 + breaks * 50, Miasma.class));
 
-            if( buff( Enraged.class ) == null ) {
+            if (buff(Enraged.class) == null) {
 
                 phase = false;
 
                 state = SLEEPING;
 
-                Blob blob = Dungeon.level.blobs.get( Miasma.class );
+                Blob blob = Dungeon.level.blobs.get(Miasma.class);
 
                 if (blob != null) {
                     blob.remove();
                 }
 
-                for (int i = Random.Int(2) ; i < breaks + 1 ; i++) {
+                for (int i = Random.Int(2); i < breaks + 1; i++) {
 
                     int pos = ((SewerBossLevel) Dungeon.level).getRandomSpawnPoint();
 
-                    if( pos > 0 ) {
+                    if (pos > 0) {
 
                         GooSpawn clone = new GooSpawn();
 
@@ -194,43 +186,43 @@ public class Goo extends MobEvasive {
                 }
 
                 sprite.idle();
-                spend( PUMP_UP_DELAY );
+                spend(PUMP_UP_DELAY);
 
             } else {
 
-                spend( TICK );
+                spend(TICK);
 
             }
 
             return true;
 
-        } else if( state != SLEEPING ) {
+        } else if (state != SLEEPING) {
 
-            if ( 3 - breaks > 4 * HP / HT ) {
+            if (3 - breaks > 4 * HP / HT) {
 
                 breaks++;
 
                 phase = true;
 
-                GameScene.add( Blob.seed( pos, 100, Miasma.class ) );
+                GameScene.add(Blob.seed(pos, 100, Miasma.class));
 
-                BuffActive.add( this, Enraged.class, breaks * Random.Float( 5.0f, 6.0f ) );
+                BuffActive.add(this, Enraged.class, breaks * Random.Float(5.0f, 6.0f));
 
-                for ( Mob mob : (Iterable<Mob>) Dungeon.level.mobs.clone() ) {
-                    if ( mob instanceof GooSpawn ) {
-                        ( (GooSpawn) mob ).phase = true;
+                for (Mob mob : (Iterable<Mob>) Dungeon.level.mobs.clone()) {
+                    if (mob instanceof GooSpawn) {
+                        ((GooSpawn) mob).phase = true;
                         mob.sprite.idle();
                     }
                 }
 
-                if ( Dungeon.visible[ pos ] ) {
+                if (Dungeon.visible[pos]) {
 //                    sprite.showStatus( CharSprite.NEGATIVE, "enraged!" );
-                    GLog.n( "Goo starts releasing deadly miasma!" );
+                    GLog.n("Goo starts releasing deadly miasma!");
                 }
 
                 sprite.idle();
 
-                spend( TICK );
+                spend(TICK);
                 return true;
 
             }
@@ -240,25 +232,25 @@ public class Goo extends MobEvasive {
     }
 
     @Override
-    public void die( Object cause, Element dmg ) {
+    public void die(Object cause, Element dmg) {
 
-        yell( "glurp... glurp..." );
+        yell("glurp... glurp...");
 
         super.die(cause, dmg);
 
-        ((SewerBossLevel)Dungeon.level).unseal();
+        ((SewerBossLevel) Dungeon.level).unseal();
 
         GameScene.bossSlain();
 
         Badges.validateBossSlain();
 
-        for (Mob mob : (Iterable<Mob>)Dungeon.level.mobs.clone()) {
+        for (Mob mob : (Iterable<Mob>) Dungeon.level.mobs.clone()) {
             if (mob instanceof GooSpawn) {
-                mob.die( cause, null );
+                mob.die(cause, null);
             }
         }
 
-        Blob blob = Dungeon.level.blobs.get( Miasma.class );
+        Blob blob = Dungeon.level.blobs.get(Miasma.class);
 
         if (blob != null) {
             blob.remove();
@@ -268,32 +260,32 @@ public class Goo extends MobEvasive {
     @Override
     public void notice() {
         super.notice();
-        if( enemySeen ) {
+        if (enemySeen) {
             yell("GLURP-GLURP!");
         }
     }
 
     @Override
     public String description() {
-        return  "Little is known about The Goo. It's quite possible that it is not even a creature, but rather a " +
+        return "Little is known about The Goo. It's quite possible that it is not even a creature, but rather a " +
                 "conglomerate of substances from the sewers that gained some kind of rudimentary, but very evil " +
                 "sentience.";
     }
 
-    private static final String PHASE	= "phase";
-    private static final String BREAKS	= "breaks";
+    private static final String PHASE = "phase";
+    private static final String BREAKS = "breaks";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
         super.storeInBundle(bundle);
-        bundle.put( PHASE, phase );
-        bundle.put( BREAKS, breaks );
+        bundle.put(PHASE, phase);
+        bundle.put(BREAKS, breaks);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        phase = bundle.getBoolean( PHASE );
-        breaks = bundle.getInt( BREAKS );
+        phase = bundle.getBoolean(PHASE);
+        breaks = bundle.getInt(BREAKS);
     }
 }

@@ -7,7 +7,6 @@ import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.WebParticle;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.HazardSprite;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.tweeners.AlphaTweener;
@@ -47,16 +46,18 @@ public class SpiderWeb extends Hazard {
         this.duration = 0;
 
         spriteClass = WebbingSprite.class;
-        var = Random.Int( 4 );
+        var = Random.Int(4);
 
     }
 
     @Override
     public String desc() {
         return "There is a bunch of webs covering this tile.";
-    };
+    }
 
-    public void setValues( int pos, int duration ) {
+    ;
+
+    public void setValues(int pos, int duration) {
 
         this.pos = pos;
         this.duration = duration;
@@ -64,48 +65,48 @@ public class SpiderWeb extends Hazard {
     }
 
     @Override
-    public void press( int cell, Char ch ){
+    public void press(int cell, Char ch) {
 
-        if( ch != null && !ch.flying ){
+        if (ch != null && !ch.flying) {
 
-            BuffActive.add( ch, Ensnared.class, duration );
+            BuffActive.add(ch, Ensnared.class, duration);
 
-            CellEmitter.center( cell ).burst(
-                    Speck.factory( Speck.COBWEB ), 4
+            CellEmitter.center(cell).burst(
+                    Speck.factory(Speck.COBWEB), 4
             );
 
-            ((SpiderWeb.WebbingSprite)sprite).trigger();
+            ((SpiderWeb.WebbingSprite) sprite).trigger();
             destroy();
 
         }
     }
 
     @Override
-    protected boolean act(){
+    protected boolean act() {
 
         duration--;
 
-        if( duration > 0 ){
-            spend( TICK );
+        if (duration > 0) {
+            spend(TICK);
         } else {
-            ((SpiderWeb.WebbingSprite)sprite).disappear();
+            ((SpiderWeb.WebbingSprite) sprite).disappear();
             destroy();
         }
 
         return true;
     }
 
-    public static void spawn( int cell, int duration ) {
+    public static void spawn(int cell, int duration) {
 
-        SpiderWeb web = Hazard.findHazard( cell, SpiderWeb.class );
+        SpiderWeb web = Hazard.findHazard(cell, SpiderWeb.class);
 
-        if( web == null ){
+        if (web == null) {
 
             web = new SpiderWeb();
-            web.setValues( cell, duration );
+            web.setValues(cell, duration);
 
-            GameScene.add( web );
-            ( (SpiderWeb.WebbingSprite) web.sprite ).appear();
+            GameScene.add(web);
+            ((SpiderWeb.WebbingSprite) web.sprite).appear();
 
         } else {
 
@@ -118,18 +119,18 @@ public class SpiderWeb extends Hazard {
     private static final String DURATION = "duration";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
+    public void storeInBundle(Bundle bundle) {
 
-        super.storeInBundle( bundle );
-        bundle.put( DURATION, duration );
+        super.storeInBundle(bundle);
+        bundle.put(DURATION, duration);
 
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
 
-        super.restoreFromBundle( bundle );
-        duration = bundle.getInt( DURATION );
+        super.restoreFromBundle(bundle);
+        duration = bundle.getInt(DURATION);
 
     }
 
@@ -139,7 +140,7 @@ public class SpiderWeb extends Hazard {
 
         private float time;
 
-        public WebbingSprite(){
+        public WebbingSprite() {
 
             super();
             time = 0.0f;
@@ -147,12 +148,12 @@ public class SpiderWeb extends Hazard {
         }
 
         @Override
-        protected String asset(){
+        protected String asset() {
             return Assets.HAZ_WEBS;
         }
 
         @Override
-        public int spritePriority(){
+        public int spritePriority() {
             return 2;
         }
 
@@ -161,15 +162,15 @@ public class SpiderWeb extends Hazard {
             super.update();
 
             time += Game.elapsed;
-            scale.set( 0.95f + (float)Math.sin( time ) * 0.05f );
+            scale.set(0.95f + (float) Math.sin(time) * 0.05f);
 
         }
 
-        public void appear( ) {
+        public void appear() {
 
             am = 0.0f;
 
-            parent.add(new AlphaTweener( this, 1.0f, ANIM_TIME ) {
+            parent.add(new AlphaTweener(this, 1.0f, ANIM_TIME) {
                 @Override
                 protected void onComplete() {
                     parent.erase(this);
@@ -177,9 +178,9 @@ public class SpiderWeb extends Hazard {
             });
         }
 
-        public void disappear( ) {
+        public void disappear() {
 
-            parent.add(new AlphaTweener( this, 0.0f, ANIM_TIME ) {
+            parent.add(new AlphaTweener(this, 0.0f, ANIM_TIME) {
                 @Override
                 protected void onComplete() {
                     parent.erase(this);
@@ -189,12 +190,12 @@ public class SpiderWeb extends Hazard {
 
         public void trigger() {
 
-            parent.add(new ScaleTweener( this, new PointF(2, 2), ANIM_TIME ) {
+            parent.add(new ScaleTweener(this, new PointF(2, 2), ANIM_TIME) {
                 @Override
                 protected void onComplete() {
 
                     WebbingSprite.this.killAndErase();
-                    parent.erase( this );
+                    parent.erase(this);
 
                 }
 

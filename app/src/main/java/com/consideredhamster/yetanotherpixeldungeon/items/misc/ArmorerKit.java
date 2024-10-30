@@ -20,23 +20,23 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.misc;
 
-import java.util.ArrayList;
-
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
+import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfDurability;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
-import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
-import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
+
+import java.util.ArrayList;
 
 public class ArmorerKit extends Item {
 
@@ -49,7 +49,7 @@ public class ArmorerKit extends Item {
 
     private static final String AC_APPLY = "APPLY";
 
-    private static final String TXT_STATUS	= "%d/%d";
+    private static final String TXT_STATUS = "%d/%d";
 
     {
         name = "armorer's kit";
@@ -67,13 +67,13 @@ public class ArmorerKit extends Item {
     }
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
-        super.storeInBundle( bundle );
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
         bundle.put(VALUE, value);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
         value = bundle.getInt(VALUE);
     }
@@ -83,28 +83,28 @@ public class ArmorerKit extends Item {
         value = Random.IntRange(1, 3);
         return this;
     }
-	
-	@Override
-	public ArrayList<String> actions( Hero hero ) {
-		ArrayList<String> actions = super.actions( hero );
-		actions.add( AC_APPLY );
-		return actions;
-	}
-	
-	@Override
-	public void execute( Hero hero, String action ) {
+
+    @Override
+    public ArrayList<String> actions(Hero hero) {
+        ArrayList<String> actions = super.actions(hero);
+        actions.add(AC_APPLY);
+        return actions;
+    }
+
+    @Override
+    public void execute(Hero hero, String action) {
         if (action == AC_APPLY) {
 
             curUser = hero;
             curItem = this;
-            GameScene.selectItem( itemSelector, WndBag.Mode.ARMORERS_KIT, TXT_SELECT_ARMOUR);
+            GameScene.selectItem(itemSelector, WndBag.Mode.ARMORERS_KIT, TXT_SELECT_ARMOUR);
 
         } else {
-			
-			super.execute( hero, action );
-			
-		}
-	}
+
+            super.execute(hero, action);
+
+        }
+    }
 
     @Override
     public int price() {
@@ -113,17 +113,17 @@ public class ArmorerKit extends Item {
 
     private void repair(Armour armor) {
 
-        float bonus = Dungeon.hero.ringBuffsBaseZero( RingOfDurability.Durability.class ) * 0.5f;
+        float bonus = Dungeon.hero.ringBuffsBaseZero(RingOfDurability.Durability.class) * 0.5f;
 
-        if( bonus > 0.0f && Random.Float() < bonus ) {
+        if (bonus > 0.0f && Random.Float() < bonus) {
             GLog.p(TXT_CHARGE_KEEPED);
         } else {
-            if( --value <= 0 ) {
+            if (--value <= 0) {
                 detach(curUser.belongings.backpack);
             }
         }
 
-        if( bonus < 0.0f && Random.Float() < -bonus ) {
+        if (bonus < 0.0f && Random.Float() < -bonus) {
             GLog.n(TXT_CHARGE_WASTED);
         } else {
             armor.repair(1);
@@ -134,18 +134,18 @@ public class ArmorerKit extends Item {
         Sample.INSTANCE.play(Assets.SND_EVOKE);
 
         curUser.sprite.centerEmitter().start(Speck.factory(Speck.KIT), 0.05f, 10);
-        curUser.spend( TIME_TO_APPLY );
+        curUser.spend(TIME_TO_APPLY);
         curUser.busy();
     }
 
-	@Override
-	public String info() {
-		return
-            "Using this kit of small tools and materials anybody can repair any armors (except cloth " +
-            "armors) or shields in a quite short amount of time.\n" +
-            "No skills in tailoring, leatherworking or blacksmithing are required, but it has enough materials for only " +
-            ( value > 2 ? "three usages" : value < 2 ? "one usage" : "two usages" ) + ".";
-	}
+    @Override
+    public String info() {
+        return
+                "Using this kit of small tools and materials anybody can repair any armors (except cloth " +
+                        "armors) or shields in a quite short amount of time.\n" +
+                        "No skills in tailoring, leatherworking or blacksmithing are required, but it has enough materials for only " +
+                        (value > 2 ? "three usages" : value < 2 ? "one usage" : "two usages") + ".";
+    }
 
     @Override
     public String status() {
@@ -154,12 +154,12 @@ public class ArmorerKit extends Item {
 
     @Override
     public String toString() {
-        return super.toString() + " (" + status() +  ")" ;
+        return super.toString() + " (" + status() + ")";
     }
 
     private final WndBag.Listener itemSelector = new WndBag.Listener() {
         @Override
-        public void onSelect( Item item ) {
+        public void onSelect(Item item) {
             if (item != null) {
                 ArmorerKit.this.repair((Armour) item);
             }

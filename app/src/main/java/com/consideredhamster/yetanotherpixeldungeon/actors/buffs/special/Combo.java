@@ -23,15 +23,15 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffReactive;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 
 public class Combo extends BuffReactive {
-	
-	private static String TXT_COMBO = "combo %dx!";
-	
-	public int count = 0;
+
+    private static String TXT_COMBO = "combo %dx!";
+
+    public int count = 0;
 
     @Override
     public int icon() {
@@ -50,30 +50,30 @@ public class Combo extends BuffReactive {
     }
 
     @Override
-    public boolean attachTo( Char target ) {
+    public boolean attachTo(Char target) {
 
-        Buff.detach( target, Guard.class);
-        Buff.detach( target, Focus.class );
+        Buff.detach(target, Guard.class);
+        Buff.detach(target, Focus.class);
 
-        return super.attachTo( target );
+        return super.attachTo(target);
     }
 
-	public void hit( float delay ) {
+    public void hit(float delay) {
 
-		count++;
+        count++;
 
-        reset( delay );
+        reset(delay);
 
-        if ( target.sprite.visible && count >= 3 ) {
-            target.sprite.showStatus( CharSprite.DEFAULT, TXT_COMBO, count );
+        if (target.sprite.visible && count >= 3) {
+            target.sprite.showStatus(CharSprite.DEFAULT, TXT_COMBO, count);
         }
-	}
+    }
 
     public float modifier() {
 
-        if ( count > 2 ) {
+        if (count > 2) {
 
-            return ( count - 2 ) * 0.125f;
+            return (count - 2) * 0.125f;
 
         } else {
 
@@ -88,17 +88,17 @@ public class Combo extends BuffReactive {
 //		return true;
 //	}
 
-    private static final String COUNT	= "count";
+    private static final String COUNT = "count";
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
-        super.storeInBundle( bundle );
-        bundle.put( COUNT, count );
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+        bundle.put(COUNT, count);
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        count = bundle.getInt( COUNT );
+        count = bundle.getInt(COUNT);
     }
 }

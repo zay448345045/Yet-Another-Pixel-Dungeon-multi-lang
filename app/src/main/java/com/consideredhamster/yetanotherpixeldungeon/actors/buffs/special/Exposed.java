@@ -27,22 +27,24 @@ public class Exposed extends BuffReactive {
 
     public int object = 0;
 
-    private static final String OBJECT	= "object";
+    private static final String OBJECT = "object";
 
     @Override
-    public String statusMessage() { return "exposed"; }
+    public String statusMessage() {
+        return "exposed";
+    }
 
     @Override
-    public void storeInBundle( Bundle bundle ) {
-        super.storeInBundle( bundle );
-        bundle.put( OBJECT, object );
+    public void storeInBundle(Bundle bundle) {
+        super.storeInBundle(bundle);
+        bundle.put(OBJECT, object);
 
     }
 
     @Override
-    public void restoreFromBundle( Bundle bundle ) {
+    public void restoreFromBundle(Bundle bundle) {
         super.restoreFromBundle(bundle);
-        object = bundle.getInt( OBJECT );
+        object = bundle.getInt(OBJECT);
     }
 
 }

@@ -21,11 +21,11 @@
 
 package com.consideredhamster.yetanotherpixeldungeon;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Crippled;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Burning;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Corrosion;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Crippled;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Withered;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.FlameParticle;
@@ -35,7 +35,7 @@ import java.util.Map;
 
 public abstract class Element {
 
-    public abstract int proc( Char target, int damage );
+    public abstract int proc(Char target, int damage);
 
     public static final Physical PHYSICAL = new Physical();
     public static final Physical.Falling FALLING = new Physical.Falling();
@@ -67,14 +67,14 @@ public abstract class Element {
     public static class Flame extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
 
             if (target.sprite.visible) {
-                target.sprite.emitter().burst(FlameParticle.FACTORY, (int) Math.sqrt( damage / 2 ) + 1);
+                target.sprite.emitter().burst(FlameParticle.FACTORY, (int) Math.sqrt(damage / 2) + 1);
             }
 
-            if( Random.Float() < 0.5f ){
-                BuffActive.addFromDamage( target, Burning.class, damage * 2 );
+            if (Random.Float() < 0.5f) {
+                BuffActive.addFromDamage(target, Burning.class, damage * 2);
             }
 
             return damage;
@@ -83,7 +83,7 @@ public abstract class Element {
         public static class Periodic extends Flame {
 
             @Override
-            public int proc( Char target, int damage ) {
+            public int proc(Char target, int damage) {
                 return damage;
             }
 
@@ -93,10 +93,10 @@ public abstract class Element {
     public static class Shock extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
 
-            if( !target.flying && Level.water[ target.pos ] ){
-                damage += ( damage / 2 + Random.Int( damage % 2 + 1 ) );
+            if (!target.flying && Level.water[target.pos]) {
+                damage += (damage / 2 + Random.Int(damage % 2 + 1));
             }
 
             return damage;
@@ -105,7 +105,7 @@ public abstract class Element {
         public static class Periodic extends Shock {
 
             @Override
-            public int proc( Char target, int damage ) {
+            public int proc(Char target, int damage) {
                 return damage;
             }
 
@@ -115,14 +115,14 @@ public abstract class Element {
     public static class Acid extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
 
             if (target.sprite.visible) {
                 target.sprite.burst(0x006600, (int) Math.sqrt(damage / 2) + 1);
             }
 
-            if( Random.Float() < 0.75f ){
-                BuffActive.addFromDamage( target, Corrosion.class, damage * 2 );
+            if (Random.Float() < 0.75f) {
+                BuffActive.addFromDamage(target, Corrosion.class, damage * 2);
             }
 
             return damage;
@@ -131,7 +131,7 @@ public abstract class Element {
         public static class Periodic extends Acid {
 
             @Override
-            public int proc( Char target, int damage ) {
+            public int proc(Char target, int damage) {
                 return damage;
             }
 
@@ -141,7 +141,7 @@ public abstract class Element {
     public static class Frost extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
 
 //            if (target.sprite.visible) {
 //                CellEmitter.get(target.pos).start(SnowParticle.FACTORY, 0.2f, 6);
@@ -159,7 +159,7 @@ public abstract class Element {
     public static class Energy extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
             return damage;
         }
     }
@@ -167,7 +167,7 @@ public abstract class Element {
     public static class Body extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
             return damage;
         }
     }
@@ -175,7 +175,7 @@ public abstract class Element {
     public static class Mind extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
             return damage;
         }
     }
@@ -183,10 +183,10 @@ public abstract class Element {
     public static class Unholy extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
 
 //            if ( Random.Int( target.HT ) < damage * damage / 2 ) {
-                BuffActive.addFromDamage(target, Withered.class, damage * 2 );
+            BuffActive.addFromDamage(target, Withered.class, damage * 2);
 
 //                if( damage < target.HP && buff != null ) {
 //
@@ -203,7 +203,7 @@ public abstract class Element {
     public static class Dispel extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
 
             return damage;
 
@@ -213,7 +213,7 @@ public abstract class Element {
     public static class Doom extends Element {
 
         @Override
-        public int proc( Char target, int damage ) {
+        public int proc(Char target, int damage) {
 
             return damage;
 
@@ -224,14 +224,14 @@ public abstract class Element {
     public static class Physical extends Element {
 
         @Override
-        public int proc( Char target, int damage ){
+        public int proc(Char target, int damage) {
             return damage;
         }
 
         public static class Falling extends Physical {
             @Override
-            public int proc( Char target, int damage ){
-                BuffActive.addFromDamage( target, Crippled.class, damage );
+            public int proc(Char target, int damage) {
+                BuffActive.addFromDamage(target, Crippled.class, damage);
                 return damage;
             }
         }
@@ -241,7 +241,7 @@ public abstract class Element {
     public static class Explosion extends Element {
 
         @Override
-        public int proc( Char target, int damage ){
+        public int proc(Char target, int damage) {
             return damage;
         }
     }
@@ -249,7 +249,7 @@ public abstract class Element {
     public static class Knockback extends Element {
 
         @Override
-        public int proc( Char target, int damage ){
+        public int proc(Char target, int damage) {
             // not actually needed, because knockback deals physical damage
             // maybe make some separate class from Element for such effects?
             return damage;
@@ -259,7 +259,7 @@ public abstract class Element {
     public static class Ensnaring extends Element {
 
         @Override
-        public int proc( Char target, int damage ){
+        public int proc(Char target, int damage) {
             // yeah, I guess I really should add a separate class for cases like these
             return damage;
         }
@@ -272,23 +272,23 @@ public abstract class Element {
         public static final float PARTIAL = 0.5f;
         public static final float IMMUNE = 1.0f;
 
-        public static int modifyValue( int value, Char target, Element type ) {
+        public static int modifyValue(int value, Char target, Element type) {
 
-            float resist = Element.Resist.getResistance( target, type );
+            float resist = Element.Resist.getResistance(target, type);
 
-            if( !Element.Resist.checkIfDefault( resist ) ) {
+            if (!Element.Resist.checkIfDefault(resist)) {
 
-                if ( Element.Resist.checkIfNegated( resist ) ) {
+                if (Element.Resist.checkIfNegated(resist)) {
 
                     value = 0;
 
-                } else if ( Element.Resist.checkIfPartial( resist ) ) {
+                } else if (Element.Resist.checkIfPartial(resist)) {
 
-                    value = value / 2 + Random.Int( value % 2 + 1 );
+                    value = value / 2 + Random.Int(value % 2 + 1);
 
-                } else if ( Element.Resist.checkIfAmplified( resist ) ) {
+                } else if (Element.Resist.checkIfAmplified(resist)) {
 
-                    value = value * 3 / 2 + Random.Int( value % 2 + 1 );
+                    value = value * 3 / 2 + Random.Int(value % 2 + 1);
 
                 }
 
@@ -297,12 +297,12 @@ public abstract class Element {
             return value;
         }
 
-        public static float getResistance( Char target, Element type ) {
+        public static float getResistance(Char target, Element type) {
 
             Float resistance = DEFAULT;
 
-            for( Map.Entry<Class<? extends Element>, Float> entry : target.resistances().entrySet() ) {
-                if( entry.getKey().isInstance( type ) ) {
+            for (Map.Entry<Class<? extends Element>, Float> entry : target.resistances().entrySet()) {
+                if (entry.getKey().isInstance(type)) {
                     resistance = entry.getValue();
                     break;
                 }
@@ -312,20 +312,20 @@ public abstract class Element {
 
         }
 
-        public static boolean checkIfDefault( float resistance ) {
+        public static boolean checkIfDefault(float resistance) {
             return resistance == DEFAULT;
         }
 
-        public static boolean checkIfNegated( float resistance ) {
-            return resistance > IMMUNE || resistance > Random.Float( PARTIAL, IMMUNE );
+        public static boolean checkIfNegated(float resistance) {
+            return resistance > IMMUNE || resistance > Random.Float(PARTIAL, IMMUNE);
         }
 
-        public static boolean checkIfPartial( float resistance ) {
-            return resistance > PARTIAL || resistance > Random.Float( DEFAULT, PARTIAL );
+        public static boolean checkIfPartial(float resistance) {
+            return resistance > PARTIAL || resistance > Random.Float(DEFAULT, PARTIAL);
         }
 
-        public static boolean checkIfAmplified( float resistance ) {
-            return resistance < VULNERABLE || resistance < Random.Float( VULNERABLE, DEFAULT );
+        public static boolean checkIfAmplified(float resistance) {
+            return resistance < VULNERABLE || resistance < Random.Float(VULNERABLE, DEFAULT);
         }
     }
 }

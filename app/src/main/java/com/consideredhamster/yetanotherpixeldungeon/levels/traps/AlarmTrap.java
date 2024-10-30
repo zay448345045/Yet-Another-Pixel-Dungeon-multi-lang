@@ -20,33 +20,32 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.levels.traps;
 
-import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
-import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.watabou.noosa.audio.Sample;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
+import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.watabou.noosa.audio.Sample;
 
 public class AlarmTrap extends Trap {
 
-	// 0xDD3333
-	
-	public static void trigger( int pos, Char ch ) {
+    // 0xDD3333
 
-		for (Mob mob : Dungeon.level.mobs) {
-			if (mob.pos != pos) {
-				mob.beckon( pos );
-			}
-		}
-		
-		if (Dungeon.visible[pos]) {
-			GLog.w( "The trap emits a piercing sound that echoes throughout the dungeon!" );
-			CellEmitter.center( pos ).start( Speck.factory( Speck.SCREAM ), 0.3f, 3 );
-		}
-		
-		Sample.INSTANCE.play( Assets.SND_ALERT );
-	}
+    public static void trigger(int pos, Char ch) {
+
+        for (Mob mob : Dungeon.level.mobs) {
+            if (mob.pos != pos) {
+                mob.beckon(pos);
+            }
+        }
+
+        if (Dungeon.visible[pos]) {
+            GLog.w("The trap emits a piercing sound that echoes throughout the dungeon!");
+            CellEmitter.center(pos).start(Speck.factory(Speck.SCREAM), 0.3f, 3);
+        }
+
+        Sample.INSTANCE.play(Assets.SND_ALERT);
+    }
 }

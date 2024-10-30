@@ -30,33 +30,33 @@ import com.watabou.utils.Random;
 
 public class WellPainter extends Painter {
 
-	public static void paint( Level level, Room room ) {
+    public static void paint(Level level, Room room) {
 
-		fill( level, room, Terrain.WALL );
-		fill( level, room, 1, Terrain.EMPTY );
-		
-		Point c = room.center();
-		set( level, c.x, c.y, Terrain.WELL );
+        fill(level, room, Terrain.WALL);
+        fill(level, room, 1, Terrain.EMPTY);
 
-		WellWater water = (WellWater)level.blobs.get( WellWater.class );
-		if (water == null) {
-			try {
-				water = new WellWater();
-			} catch (Exception e) {
-				water = null;
-			}
-		}
+        Point c = room.center();
+        set(level, c.x, c.y, Terrain.WELL);
 
-        int amount = 3 + Dungeon.chapter() + Random.IntRange( 0, 4 );
+        WellWater water = (WellWater) level.blobs.get(WellWater.class);
+        if (water == null) {
+            try {
+                water = new WellWater();
+            } catch (Exception e) {
+                water = null;
+            }
+        }
+
+        int amount = 3 + Dungeon.chapter() + Random.IntRange(0, 4);
 
         // same as in NNYPD, we decrease amount of water in the non-guaranteed well rooms
-        if( Dungeon.depth % 6 != 4 ) {
+        if (Dungeon.depth % 6 != 4) {
             amount /= 2;
         }
 
-		water.seed( c.x + Level.WIDTH * c.y, amount );
-		level.blobs.put( WellWater.class, water );
-		
-		room.entrance().set( Room.Door.Type.REGULAR );
-	}
+        water.seed(c.x + Level.WIDTH * c.y, amount);
+        level.blobs.put(WellWater.class, water);
+
+        room.entrance().set(Room.Door.Type.REGULAR);
+    }
 }

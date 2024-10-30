@@ -28,25 +28,25 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
 public class WandHolster extends Bag {
 
-	{
-		name = "wand holster";
-		image = ItemSpriteSheet.HOLSTER;
-		
-		size = 19;
+    {
+        name = "wand holster";
+        image = ItemSpriteSheet.HOLSTER;
+
+        size = 19;
         visible = false;
         unique = true;
-	}
-	
-	@Override
-	public boolean grab( Item item ) {
-		return item instanceof Wand;
-	}
+    }
+
+    @Override
+    public boolean grab(Item item) {
+        return item instanceof Wand;
+    }
 
     @Override
     public Icons icon() {
         return Icons.WAND_HOLSTER;
     }
-	
+
 //	@Override
 //	public boolean collect( Bag container ) {
 //		if (super.collect( container )) {
@@ -67,23 +67,23 @@ public class WandHolster extends Bag {
 //			((Wand)item).stopCharging();
 //		}
 //	}
-	
-	@Override
-	public int price() {
-		return 50;
-	}
-	
-	@Override
-	public String info() {
-		return
-			"This slim holder is made of leather of some exotic animal. " +
-			"It allows to compactly carry up to " + size + " wands.";
-	}
 
     @Override
-    public boolean doPickUp( Hero hero ) {
+    public int price() {
+        return 50;
+    }
 
-        return hero.belongings.getItem( WandHolster.class ) == null && super.doPickUp( hero ) ;
+    @Override
+    public String info() {
+        return
+                "This slim holder is made of leather of some exotic animal. " +
+                        "It allows to compactly carry up to " + size + " wands.";
+    }
+
+    @Override
+    public boolean doPickUp(Hero hero) {
+
+        return hero.belongings.getItem(WandHolster.class) == null && super.doPickUp(hero);
 
     }
 }

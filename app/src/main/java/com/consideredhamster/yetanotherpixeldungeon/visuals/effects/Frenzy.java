@@ -20,49 +20,49 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.effects;
 
+import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Gizmo;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 
 public class Frenzy extends Gizmo {
 
-	private float phase;
+    private float phase;
 
-	private CharSprite target;
+    private CharSprite target;
 
-	public Frenzy(CharSprite target) {
-		super();
+    public Frenzy(CharSprite target) {
+        super();
 
-		this.target = target;
-		phase = 0;
-	}
-	
-	@Override
-	public void update() {
-		super.update();
+        this.target = target;
+        phase = 0;
+    }
 
-		if ( ( phase += Game.elapsed ) < 1.0f ) {
-			target.tint( 1.0f, 0.0f, 0.0f, phase * 0.2f );
-		} else {
-			target.tint( 1.0f, 0.0f, 0.0f, ( 2.0f - phase ) * 0.2f );
-		}
+    @Override
+    public void update() {
+        super.update();
 
-        if( phase > 2.0f )
+        if ((phase += Game.elapsed) < 1.0f) {
+            target.tint(1.0f, 0.0f, 0.0f, phase * 0.2f);
+        } else {
+            target.tint(1.0f, 0.0f, 0.0f, (2.0f - phase) * 0.2f);
+        }
+
+        if (phase > 2.0f)
             phase -= 2.0f;
-	}
+    }
 
-	public void calm() {
+    public void calm() {
 
-		target.resetColorAlpha();
-		killAndErase();
+        target.resetColorAlpha();
+        killAndErase();
 
-	}
-	
-	public static Frenzy fury( CharSprite sprite ) {
-		
-		Frenzy frenzy = new Frenzy( sprite );
-		sprite.parent.add( frenzy );
-		
-		return frenzy;
-	}
+    }
+
+    public static Frenzy fury(CharSprite sprite) {
+
+        Frenzy frenzy = new Frenzy(sprite);
+        sprite.parent.add(frenzy);
+
+        return frenzy;
+    }
 }

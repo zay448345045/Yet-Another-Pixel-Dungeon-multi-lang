@@ -27,12 +27,12 @@ public class IcePuddle extends Hazard {
     // feeling cool idk may delete it later
 
     @Override
-    public void press( int cell, Char ch ){
+    public void press(int cell, Char ch) {
 
     }
 
     @Override
-    protected boolean act(){
+    protected boolean act() {
         return false;
     }
 }

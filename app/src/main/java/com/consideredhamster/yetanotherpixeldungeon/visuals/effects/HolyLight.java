@@ -30,48 +30,48 @@ import com.watabou.noosa.Image;
 
 public class HolyLight extends Image {
 
-	private static final float TIME_TO_FADE = 0.8f;
+    private static final float TIME_TO_FADE = 0.8f;
 
-	private float time;
+    private float time;
 
-	public HolyLight() {
-		super( Effects.get( Effects.Type.CROSS ) );
-		origin.set( width / 2, height / 2 );
-        hardlight( SpellSprite.COLOUR_HOLY );
-	}
-	
-	public void reset( int p ) {
-		revive();
-		
-		x = (p % Level.WIDTH) * DungeonTilemap.SIZE + (DungeonTilemap.SIZE - width) / 2;
-		y = (p / Level.WIDTH) * DungeonTilemap.SIZE + (DungeonTilemap.SIZE - height) / 2;
-		
-		time = TIME_TO_FADE;
-	}
-	
-	@Override
-	public void update() {
-		super.update();
-		
-		if ((time -= Game.elapsed) <= 0) {
-			kill();
-		} else {
-			float p = time / TIME_TO_FADE;
-			alpha( p );
-            scale.set( 2 - p );
-		}
-	}
-	
-	public static void createAtChar( Char ch ) {
-		HolyLight w = (HolyLight)ch.sprite.parent.recycle( HolyLight.class );
-		ch.sprite.parent.bringToFront( w );
-		w.reset( ch.pos );
-	}
-	
-	public static void createAtPos( int pos ) {
-		Group parent = Dungeon.hero.sprite.parent;
-		HolyLight w = (HolyLight)parent.recycle( HolyLight.class );
-		parent.bringToFront( w );
-		w.reset( pos );
-	}
+    public HolyLight() {
+        super(Effects.get(Effects.Type.CROSS));
+        origin.set(width / 2, height / 2);
+        hardlight(SpellSprite.COLOUR_HOLY);
+    }
+
+    public void reset(int p) {
+        revive();
+
+        x = (p % Level.WIDTH) * DungeonTilemap.SIZE + (DungeonTilemap.SIZE - width) / 2;
+        y = (p / Level.WIDTH) * DungeonTilemap.SIZE + (DungeonTilemap.SIZE - height) / 2;
+
+        time = TIME_TO_FADE;
+    }
+
+    @Override
+    public void update() {
+        super.update();
+
+        if ((time -= Game.elapsed) <= 0) {
+            kill();
+        } else {
+            float p = time / TIME_TO_FADE;
+            alpha(p);
+            scale.set(2 - p);
+        }
+    }
+
+    public static void createAtChar(Char ch) {
+        HolyLight w = (HolyLight) ch.sprite.parent.recycle(HolyLight.class);
+        ch.sprite.parent.bringToFront(w);
+        w.reset(ch.pos);
+    }
+
+    public static void createAtPos(int pos) {
+        Group parent = Dungeon.hero.sprite.parent;
+        HolyLight w = (HolyLight) parent.recycle(HolyLight.class);
+        parent.bringToFront(w);
+        w.reset(pos);
+    }
 }

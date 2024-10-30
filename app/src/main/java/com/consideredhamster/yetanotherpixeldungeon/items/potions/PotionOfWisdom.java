@@ -20,45 +20,45 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.potions;
 
-import com.watabou.utils.Random;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfKnowledge;
+import com.watabou.utils.Random;
 
 public class PotionOfWisdom extends Potion {
 
-	{
-		name = "Potion of Wisdom";
+    {
+        name = "Potion of Wisdom";
         shortName = "Wi";
-	}
-	
-	@Override
-	protected void apply( Hero hero ) {
+    }
+
+    @Override
+    protected void apply(Hero hero) {
 
         int exp = hero.maxExp();
 
         float bonus = Dungeon.hero.ringBuffs(RingOfKnowledge.Knowledge.class) * exp - exp;
 
-        exp += (int)bonus;
-        exp += Random.Float() < bonus % 1 ? 1 : 0 ;
+        exp += (int) bonus;
+        exp += Random.Float() < bonus % 1 ? 1 : 0;
 
-		hero.earnExp( exp );
+        hero.earnExp(exp);
         hero.lvlBonus++;
 
         setKnown();
-	}
-	
-	@Override
-	public String desc() {
-		return
-			"The stored experiences of multitudes of lifetimes reduced to liquid form, " +
-			"this draught will instantly raise your experience level.";
-	}
-	
-	@Override
-	public int price() {
-		return isTypeKnown() ? 200 * quantity : super.price();
-	}
+    }
+
+    @Override
+    public String desc() {
+        return
+                "The stored experiences of multitudes of lifetimes reduced to liquid form, " +
+                        "this draught will instantly raise your experience level.";
+    }
+
+    @Override
+    public int price() {
+        return isTypeKnown() ? 200 * quantity : super.price();
+    }
 
     @Override
     public float brewingChance() {

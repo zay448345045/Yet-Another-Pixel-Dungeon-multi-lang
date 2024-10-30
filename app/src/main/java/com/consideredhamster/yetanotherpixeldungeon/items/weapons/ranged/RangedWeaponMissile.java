@@ -21,64 +21,62 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Guard;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
-import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
-import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfDurability;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.TagAttack;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
 import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Invisibility;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.debuffs.Vertigo;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.special.Satiety;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
+import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfDurability;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Ethereal;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.enchantments.Tempered;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponAmmo;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.CellSelector;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.TagAttack;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Callback;
+import com.watabou.utils.Random;
 
 public abstract class RangedWeaponMissile extends RangedWeapon {
 
-	public RangedWeaponMissile(int tier) {
+    public RangedWeaponMissile(int tier) {
 
-		super( tier );
+        super(tier);
 
-	}
+    }
 
     @Override
     public int maxDurability() {
-        return 150 ;
+        return 150;
     }
 
     @Override
-    public int min( int bonus ) {
-        return Math.max( 0, tier + state + bonus + ( enchantment instanceof Tempered ? bonus : 0 ) - 1 );
+    public int min(int bonus) {
+        return Math.max(0, tier + state + bonus + (enchantment instanceof Tempered ? bonus : 0) - 1);
     }
 
     @Override
-    public int max( int bonus ) {
-        return Math.max( 0, tier * 6 + state * dmgMod() - 4
-                + ( enchantment instanceof Tempered || bonus >= 0 ? bonus * dmgMod() : 0 )
-                + ( enchantment instanceof Tempered && bonus >= 0 ? 1 + bonus : 0 ) );
+    public int max(int bonus) {
+        return Math.max(0, tier * 6 + state * dmgMod() - 4
+                + (enchantment instanceof Tempered || bonus >= 0 ? bonus * dmgMod() : 0)
+                + (enchantment instanceof Tempered && bonus >= 0 ? 1 + bonus : 0));
     }
 
     public int dmgMod() {
-        return tier + 1 ;
+        return tier + 1;
     }
 
     @Override
     public int str(int bonus) {
-        return 4 + tier * 4 - bonus * ( enchantment instanceof Ethereal ? 2 : 1 );
+        return 4 + tier * 4 - bonus * (enchantment instanceof Ethereal ? 2 : 1);
     }
 
     @Override
@@ -90,7 +88,7 @@ public abstract class RangedWeaponMissile extends RangedWeapon {
 
     @Override
     public float breakingRateWhenShot() {
-        return 0.1f / Dungeon.hero.ringBuffs( RingOfDurability.Durability.class );
+        return 0.1f / Dungeon.hero.ringBuffs(RingOfDurability.Durability.class);
     }
 
 //    @Override
@@ -99,17 +97,17 @@ public abstract class RangedWeaponMissile extends RangedWeapon {
 //    }
 
     @Override
-    public boolean checkAmmo( Hero hero, boolean showMessage ) {
+    public boolean checkAmmo(Hero hero, boolean showMessage) {
 
         if (!isEquipped(hero)) {
 
-            if( showMessage ) {
+            if (showMessage) {
                 GLog.n(TXT_NOTEQUIPPED);
             }
 
-        } else if (ammunition() == null || !ammunition().isInstance( hero.belongings.weap2 )) {
+        } else if (ammunition() == null || !ammunition().isInstance(hero.belongings.weap2)) {
 
-            if( showMessage ) {
+            if (showMessage) {
                 GLog.n(TXT_AMMO_NEEDED);
             }
 
@@ -124,13 +122,13 @@ public abstract class RangedWeaponMissile extends RangedWeapon {
 
 
     @Override
-    public void execute( Hero hero, String action ) {
+    public void execute(Hero hero, String action) {
         if (action == AC_SHOOT) {
 
             curUser = hero;
             curItem = this;
 
-            if ( checkAmmo( hero, true ) ) {
+            if (checkAmmo(hero, true)) {
 
                 GameScene.selectCell(shooter);
 
@@ -138,7 +136,7 @@ public abstract class RangedWeaponMissile extends RangedWeapon {
 
         } else {
 
-            super.execute( hero, action );
+            super.execute(hero, action);
 
         }
     }
@@ -151,26 +149,26 @@ public abstract class RangedWeaponMissile extends RangedWeapon {
     public static CellSelector.Listener shooter = new CellSelector.Listener() {
 
         @Override
-        public void onSelect( Integer target ) {
+        public void onSelect(Integer target) {
 
             if (target != null) {
 
                 if (target == curUser.pos) {
-                    GLog.i( TXT_SELF_TARGET );
+                    GLog.i(TXT_SELF_TARGET);
                     return;
                 }
 
-                final RangedWeapon curWeap = (RangedWeapon)RangedWeapon.curItem;
+                final RangedWeapon curWeap = (RangedWeapon) RangedWeapon.curItem;
 
-                if( curUser.buff( Vertigo.class ) != null ) {
-                    target += Level.NEIGHBOURS8[Random.Int( 8 )];
+                if (curUser.buff(Vertigo.class) != null) {
+                    target += Level.NEIGHBOURS8[Random.Int(8)];
                 }
 
                 final int cell = Ballistica.cast(curUser.pos, target, false, true);
 
-                Char ch = Actor.findChar( cell );
+                Char ch = Actor.findChar(cell);
 
-                if( ch != null && curUser != ch && Dungeon.visible[ cell ] ) {
+                if (ch != null && curUser != ch && Dungeon.visible[cell]) {
 
 //                    if ( curUser.isCharmedBy( ch ) ) {
 //                        GLog.i( TXT_TARGET_CHARMED );
@@ -178,7 +176,7 @@ public abstract class RangedWeaponMissile extends RangedWeapon {
 //                    }
 
                     QuickSlot.target(curItem, ch);
-                    TagAttack.target( (Mob)ch );
+                    TagAttack.target((Mob) ch);
                 }
 
                 curUser.sprite.cast(cell, new Callback() {
@@ -186,20 +184,19 @@ public abstract class RangedWeaponMissile extends RangedWeapon {
                     public void call() {
                         curUser.busy();
                         ((MissileSprite) curUser.sprite.parent.recycle(MissileSprite.class)).
-                            reset(curUser.pos, cell, curUser.belongings.weap2, 2.0f, new Callback() {
-                                @Override
-                                public void call() {
-                                    ((ThrowingWeaponAmmo) curUser.belongings.weap2).onShoot(cell, curWeap);
-                                }
-                            });
+                                reset(curUser.pos, cell, curUser.belongings.weap2, 2.0f, new Callback() {
+                                    @Override
+                                    public void call() {
+                                        ((ThrowingWeaponAmmo) curUser.belongings.weap2).onShoot(cell, curWeap);
+                                    }
+                                });
 
-                        if( curWeap != null ){
-                            curUser.buff( Satiety.class ).decrease( Satiety.POINT * curWeap.str() / curUser.STR() );
-                            curWeap.use( 2 );
+                        if (curWeap != null) {
+                            curUser.buff(Satiety.class).decrease(Satiety.POINT * curWeap.str() / curUser.STR());
+                            curWeap.use(2);
                         }
                     }
                 });
-
 
 
                 Sample.INSTANCE.play(Assets.SND_MISS, 0.6f, 0.6f, 1.5f);

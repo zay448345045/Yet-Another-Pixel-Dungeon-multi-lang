@@ -20,31 +20,28 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
-import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Enraged;
-import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
-import com.watabou.utils.Callback;
 import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.BuffActive;
+import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.bonuses.Enraged;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Tomahawks;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.Ballistica;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.BruteSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.MissileSprite;
+import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
 public class GnollBrute extends MobPrecise {
 
-	private static final String TXT_ENRAGED = "%s becomes enraged!";
+    private static final String TXT_ENRAGED = "%s becomes enraged!";
 
     public GnollBrute() {
 
-        super( 10 );
+        super(10);
 
         /*
 
@@ -61,18 +58,18 @@ public class GnollBrute extends MobPrecise {
 
          */
 
-		name = "gnoll brute";
-		info = "Enrage, Tomahawk throw";
+        name = "gnoll brute";
+        info = "Enrage, Tomahawk throw";
 
-		spriteClass = BruteSprite.class;
-		
-		loot = Gold.class;
-		lootChance = 0.25f;
+        spriteClass = BruteSprite.class;
 
-        resistances.put( Element.Body.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Mind.class, Element.Resist.PARTIAL );
-        resistances.put( Element.Dispel.class, Element.Resist.IMMUNE );
-	}
+        loot = Gold.class;
+        lootChance = 0.25f;
+
+        resistances.put(Element.Body.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Mind.class, Element.Resist.PARTIAL);
+        resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);
+    }
 
     @Override
     public int shieldAC() {
@@ -82,8 +79,8 @@ public class GnollBrute extends MobPrecise {
     }
 
     @Override
-    public float awareness(){
-        return buff( Enraged.class ) != null ? super.awareness() * 0.5f : super.awareness() ;
+    public float awareness() {
+        return buff(Enraged.class) != null ? super.awareness() * 0.5f : super.awareness();
     }
 
     @Override
@@ -97,14 +94,14 @@ public class GnollBrute extends MobPrecise {
     }
 
     @Override
-    protected boolean canAttack( Char enemy ) {
-        return super.canAttack( enemy ) || HP >= HT && Level.distance(pos, enemy.pos) <= 2
+    protected boolean canAttack(Char enemy) {
+        return super.canAttack(enemy) || HP >= HT && Level.distance(pos, enemy.pos) <= 2
                 && Ballistica.cast(pos, enemy.pos, false, true) == enemy.pos;
     }
 
     @Override
-    protected void onRangedAttack( int cell ) {
-        ((MissileSprite)sprite.parent.recycle( MissileSprite.class )).
+    protected void onRangedAttack(int cell) {
+        ((MissileSprite) sprite.parent.recycle(MissileSprite.class)).
                 reset(pos, cell, new Tomahawks(), new Callback() {
                     @Override
                     public void call() {
@@ -112,29 +109,29 @@ public class GnollBrute extends MobPrecise {
                     }
                 });
 
-        super.onRangedAttack( cell );
+        super.onRangedAttack(cell);
     }
-	
-	@Override
-	public void damage( int dmg, Object src, Element type ) {
 
-        super.damage( dmg, src, type );
+    @Override
+    public void damage(int dmg, Object src, Element type) {
 
-		if ( isAlive() && buff( Enraged.class ) == null && HP < HT / 2 ) {
+        super.damage(dmg, src, type);
 
-            BuffActive.add(this, Enraged.class, Random.Float( 5.0f, 10.0f ) );
-            spend( TICK );
+        if (isAlive() && buff(Enraged.class) == null && HP < HT / 2) {
+
+            BuffActive.add(this, Enraged.class, Random.Float(5.0f, 10.0f));
+            spend(TICK);
 
             if (Dungeon.visible[pos]) {
-                GLog.w( TXT_ENRAGED, name );
+                GLog.w(TXT_ENRAGED, name);
             }
         }
-	}
+    }
 
-	@Override
-	public String description() {
-		return
-			"Brutes are the largest, strongest and toughest of all gnolls. They are dumb, " +
-            "but very ferocious fighters. They can become temporarily enraged when injured enough.";
-	}
+    @Override
+    public String description() {
+        return
+                "Brutes are the largest, strongest and toughest of all gnolls. They are dumb, " +
+                        "but very ferocious fighters. They can become temporarily enraged when injured enough.";
+    }
 }

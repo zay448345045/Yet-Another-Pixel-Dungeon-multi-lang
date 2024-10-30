@@ -257,10 +257,7 @@ public class Imp extends MobEvasive {
 
     @Override
     public String description() {
-        return
-                "Imps are lesser demons. They are notable neither for their strength nor their magic talent, but for their cruelty " +
-                        "and greed. However, some of them are actually quite nice and sociable. Certainly not this one, though... " +
-                        (item != null ? Utils.format(TXT_CARRY, item.name()) : "");
+        return "Imps are lesser demons. They are notable neither for their strength nor their magic talent, but for their cruelty and greed. However, some of them are actually quite nice and sociable. Certainly not this one, though... " + (item != null ? Utils.format(TXT_CARRY, item.name()) : "");
     }
 
     @Override

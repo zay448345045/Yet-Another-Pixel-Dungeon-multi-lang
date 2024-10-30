@@ -60,8 +60,7 @@ public class Mending extends Bonus {
 
     @Override
     public String description() {
-        return "Warm, tingly sensation flows under your skin, and you can feel your wounds closing " +
-                "at an accelerated rate.";
+        return "Warm, tingly sensation flows under your skin, and you can feel your wounds closing at an accelerated rate.";
     }
 
     @Override

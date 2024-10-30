@@ -71,9 +71,7 @@ public class RingOfSatiety extends Ring {
     public class Satiety extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "You feel comfortable warmth in your stomach." :
-                    "You feel your hunger growing faster.";
+            return bonus >= 0 ? "You feel comfortable warmth in your stomach." : "You feel your hunger growing faster.";
         }
     }
 }

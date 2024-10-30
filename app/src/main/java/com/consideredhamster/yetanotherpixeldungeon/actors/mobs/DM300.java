@@ -391,10 +391,7 @@ public class DM300 extends MobHealthy {
 
     @Override
     public String description() {
-        return
-                "This machine was created by the Dwarves several centuries ago. Later, Dwarves started to replace machines with " +
-                        "golems, elementals and even demons. Eventually it led their civilization to the decline. The DM-300 and similar " +
-                        "machines were typically used for construction and mining, and in some cases, for city defense.";
+        return "This machine was created by the Dwarves several centuries ago. Later, Dwarves started to replace machines with golems, elementals and even demons. Eventually it led their civilization to the decline. The DM-300 and similar machines were typically used for construction and mining, and in some cases, for city defense.";
     }
 
     private static final String BREAKS = "breaks";

@@ -35,8 +35,7 @@ public class RationMedium extends Food {
 
     @Override
     public String desc() {
-        return
-                "Nothing fancy here: dried meat, some biscuits - things like that.";
+        return "Nothing fancy here: dried meat, some biscuits - things like that.";
     }
 
     @Override

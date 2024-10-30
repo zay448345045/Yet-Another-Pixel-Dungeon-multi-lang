@@ -52,7 +52,6 @@ public class MindResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You feel totally awake, nothing can interrupt your thought processes. " +
-                "Your resistance to negative conditions affecting your mind is increased.";
+        return "You feel totally awake, nothing can interrupt your thought processes. Your resistance to negative conditions affecting your mind is increased.";
     }
 }

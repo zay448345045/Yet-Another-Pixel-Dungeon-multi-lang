@@ -44,10 +44,7 @@ public class PotionOfToxicGas extends Potion {
 
     @Override
     public String desc() {
-        return
-                "Uncorking or shattering this pressurized glass will cause its contents to explode " +
-                        "into a deadly cloud of highly flammable toxic gas, which will poison whoever happen to inhale it. " +
-                        "You might choose to fling this potion at distant enemies instead of uncorking it by hand.";
+        return "Uncorking or shattering this pressurized glass will cause its contents to explode into a deadly cloud of highly flammable toxic gas, which will poison whoever happen to inhale it. You might choose to fling this potion at distant enemies instead of uncorking it by hand.";
     }
 
     @Override

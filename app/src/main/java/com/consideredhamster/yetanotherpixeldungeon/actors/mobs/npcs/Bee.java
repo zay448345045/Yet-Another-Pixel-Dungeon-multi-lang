@@ -118,9 +118,7 @@ public class Bee extends NPC {
 
     @Override
     public String description() {
-        return
-                "Despite their small size, golden bees tend " +
-                        "to protect their master fiercely. They don't live long though.";
+        return "Despite their small size, golden bees tend to protect their master fiercely. They don't live long though.";
     }
 
     @Override

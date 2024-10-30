@@ -35,8 +35,7 @@ public class MeatRaw extends Food {
 
     @Override
     public String desc() {
-        return "This is a piece of raw, uncooked meat. Definitely an option if you are starving, " +
-                "but it is better be stewed otherwise.";
+        return "This is a piece of raw, uncooked meat. Definitely an option if you are starving, but it is better be stewed otherwise.";
     }
 
     public int price() {

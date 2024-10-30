@@ -52,9 +52,7 @@ public class PotionOfMending extends Potion {
 
     @Override
     public String desc() {
-        return
-                "When imbibed, this elixir will vastly improve imbiber's natural regeneration and cure " +
-                        "any physical ailments as well.";
+        return "When imbibed, this elixir will vastly improve imbiber's natural regeneration and cure any physical ailments as well.";
     }
 
     @Override

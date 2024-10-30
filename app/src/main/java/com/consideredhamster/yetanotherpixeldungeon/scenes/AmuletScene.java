@@ -42,15 +42,9 @@ public class AmuletScene extends PixelScene {
     private static final float SMALL_GAP = 2;
     private static final float LARGE_GAP = 8;
 
-    private static final String TXT =
-            "The fabled Amulet of Yendor. After all of the hardships you've passed through, you finally hold it in your hands.\n\n" +
-                    "It makes you feel omnipotent. Using its power you can make any wish come true... However, it will work only once.\n\n" +
-                    "So, you can use it to bring yourself back to the surface, forever leaving this nightmarish dungeon in the past.\n\n" +
-                    "Or you can try to get out of the dungeon by yourself, and keep the miraculous powers of the Amulet for later.\n\n" +
-                    "What will be your decision?";
+    private static final String TXT = "The fabled Amulet of Yendor. After all of the hardships you've passed through, you finally hold it in your hands.\n\nIt makes you feel omnipotent. Using its power you can make any wish come true... However, it will work only once.\n\nSo, you can use it to bring yourself back to the surface, forever leaving this nightmarish dungeon in the past.\n\nOr you can try to get out of the dungeon by yourself, and keep the miraculous powers of the Amulet for later.\n\nWhat will be your decision?";
 
-    private static final String TXT_SHORT =
-            "So, what will be your decision?";
+    private static final String TXT_SHORT = "So, what will be your decision?";
 
     public static boolean noText = false;
 

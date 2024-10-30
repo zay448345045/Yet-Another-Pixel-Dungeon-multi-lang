@@ -41,11 +41,7 @@ public class PotionOfInvisibility extends Potion {
 
     @Override
     public String desc() {
-        return
-                "Drinking this potion will render you temporarily invisible. While invisible, " +
-                        "enemies will be unable to see you, but they can try to find you nevertheless. " +
-                        "Attacking an enemy, as well as using a wand or a scroll before enemy's eyes, " +
-                        "will dispel the effect.";
+        return "Drinking this potion will render you temporarily invisible. While invisible, enemies will be unable to see you, but they can try to find you nevertheless. Attacking an enemy, as well as using a wand or a scroll before enemy's eyes, will dispel the effect.";
     }
 
     @Override

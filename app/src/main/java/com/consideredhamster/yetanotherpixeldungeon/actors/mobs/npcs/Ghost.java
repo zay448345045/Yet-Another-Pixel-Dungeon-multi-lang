@@ -57,21 +57,13 @@ public class Ghost extends NPC {
         state = WANDERING;
     }
 
-    private static final String TXT_ROSE1 =
-            "Hello adventurer... Once I was like you - strong and confident... " +
-                    "And now I'm dead... But I can't leave this place... Not until I have my _dried rose_... " +
-                    "It's very important to me... Some monster stole it from my body...";
+    private static final String TXT_ROSE1 = "Hello adventurer... Once I was like you - strong and confident... And now I'm dead... But I can't leave this place... Not until I have my _dried rose_... It's very important to me... Some monster stole it from my body...";
 
-    private static final String TXT_ROSE2 =
-            "Please... Help me... Find the rose...";
+    private static final String TXT_ROSE2 = "Please... Help me... Find the rose...";
 
-    private static final String TXT_RAT1 =
-            "Hello adventurer... Once I was like you - strong and confident... " +
-                    "And now I'm dead... But I can't leave this place... Not until I have my revenge... " +
-                    "Slay the _fetid rat_, that has taken my life...";
+    private static final String TXT_RAT1 = "Hello adventurer... Once I was like you - strong and confident... And now I'm dead... But I can't leave this place... Not until I have my revenge... Slay the _fetid rat_, that has taken my life...";
 
-    private static final String TXT_RAT2 =
-            "Please... Help me... Slay the abomination...";
+    private static final String TXT_RAT2 = "Please... Help me... Slay the abomination...";
 
 
     public Ghost() {
@@ -169,9 +161,7 @@ public class Ghost extends NPC {
 
     @Override
     public String description() {
-        return
-                "The ghost is barely visible. It looks like a shapeless " +
-                        "spot of faint light with a sorrowful face.";
+        return "The ghost is barely visible. It looks like a shapeless spot of faint light with a sorrowful face.";
     }
 
 //	private static final HashSet<Class<?>> IMMUNITIES = new HashSet<Class<?>>();

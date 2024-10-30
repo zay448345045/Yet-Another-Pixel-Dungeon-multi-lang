@@ -70,9 +70,7 @@ public class RingOfDurability extends Ring {
     public class Durability extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "You feel how some kind of protective aura surrounds your equipment." :
-                    "You feel how some kind of disruptive aura surrounds your equipment.";
+            return bonus >= 0 ? "You feel how some kind of protective aura surrounds your equipment." : "You feel how some kind of disruptive aura surrounds your equipment.";
         }
     }
 }

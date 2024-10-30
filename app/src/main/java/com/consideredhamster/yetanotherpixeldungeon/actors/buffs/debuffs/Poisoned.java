@@ -66,8 +66,7 @@ public class Poisoned extends Debuff {
 
     @Override
     public String description() {
-        return "You are not feeling well... Seems like there is a poison in your veins. This will " +
-                "slowly damage you and make you weaker, decreasing your damage and attack speed.";
+        return "You are not feeling well... Seems like there is a poison in your veins. This will slowly damage you and make you weaker, decreasing your damage and attack speed.";
     }
 
     @Override

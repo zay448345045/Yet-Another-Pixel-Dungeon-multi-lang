@@ -52,7 +52,6 @@ public class BodyResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You feel unnaturally healthy as if your body started to work in overtime. " +
-                "Your resistance to negative conditions affecting your body is increased.";
+        return "You feel unnaturally healthy as if your body started to work in overtime. Your resistance to negative conditions affecting your body is increased.";
     }
 }

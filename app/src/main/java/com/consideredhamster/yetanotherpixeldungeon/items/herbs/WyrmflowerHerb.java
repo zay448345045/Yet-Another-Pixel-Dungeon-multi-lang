@@ -68,13 +68,7 @@ public class WyrmflowerHerb extends Herb {
 
     @Override
     public String desc() {
-        return "A very rare herb, it is often sought by alchemists for its powerful alchemical " +
-                "properties. Being a key ingredient for the most potent of potions, such valuable " +
-                "find cannot be underappreciated." +
-                "\n\n" +
-                "These herbs are used to brew potions of _Wisdom_ and _Strength_ " +
-                "when combined with other herbs, but cannot be brewed with another such herb. " +
-                "Consuming them will increase your maximum health by _2_ points.";
+        return "A very rare herb, it is often sought by alchemists for its powerful alchemical properties. Being a key ingredient for the most potent of potions, such valuable find cannot be underappreciated.\n\nThese herbs are used to brew potions of _Wisdom_ and _Strength_ when combined with other herbs, but cannot be brewed with another such herb. Consuming them will increase your maximum health by _2_ points.";
     }
 
     public static class PotentMeat extends MeatStewed {
@@ -93,8 +87,7 @@ public class WyrmflowerHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with a _Wyrmflower_ herb. It smells pretty potent. " +
-                    "Consuming it will increase your maximum health by _4_ points.";
+            return "This meat was stewed in a pot with a _Wyrmflower_ herb. It smells pretty potent. Consuming it will increase your maximum health by _4_ points.";
         }
 
         @Override

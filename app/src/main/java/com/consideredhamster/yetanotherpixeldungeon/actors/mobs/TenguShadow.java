@@ -85,9 +85,6 @@ public class TenguShadow extends MobRanged {
 
     @Override
     public String description() {
-        return
-                "Despite being made from shadows, this figure looks to be corporeal enough to be " +
-                        "harmed by mundane means. However, it doesn't seems to be capable of anything " +
-                        "beyond just standing there and throwing shurikens.";
+        return "Despite being made from shadows, this figure looks to be corporeal enough to be harmed by mundane means. However, it doesn't seems to be capable of anything beyond just standing there and throwing shurikens.";
     }
 }

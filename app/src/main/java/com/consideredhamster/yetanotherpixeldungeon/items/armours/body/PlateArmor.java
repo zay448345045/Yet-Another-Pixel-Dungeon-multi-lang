@@ -67,9 +67,7 @@ public class PlateArmor extends BodyArmorHeavy {
 //		return
 //			"While this armor looks heavy, it allows a warrior to perform heroic leap towards " +
 //			"a targeted location, slamming down to stun all neighbouring enemies.";
-        return
-                "Enormous plates of metal are joined together into a suit that provides " +
-                        "unmatched protection to any adventurer strong enough to bear its staggering weight.";
+        return "Enormous plates of metal are joined together into a suit that provides unmatched protection to any adventurer strong enough to bear its staggering weight.";
     }
 
 //	protected static CellSelector.Listener leaper = new  CellSelector.Listener() {

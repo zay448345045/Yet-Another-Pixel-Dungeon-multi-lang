@@ -187,8 +187,6 @@ public class EvilEye extends MobRanged {
 
     @Override
     public String description() {
-        return
-                "One of this creature's other names is \"orb of hatred\", because when it sees an enemy, " +
-                        "it uses its deathgaze recklessly, often ignoring its allies and wounding them.";
+        return "One of this creature's other names is \"orb of hatred\", because when it sees an enemy, it uses its deathgaze recklessly, often ignoring its allies and wounding them.";
     }
 }

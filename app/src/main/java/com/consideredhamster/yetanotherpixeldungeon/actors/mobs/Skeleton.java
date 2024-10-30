@@ -92,10 +92,7 @@ public class Skeleton extends MobPrecise {
 
     @Override
     public String description() {
-        return
-                "Skeletons are composed of corpses bones from unlucky adventurers and inhabitants of the dungeon, " +
-                        "animated by emanations of evil magic from the depths below. Their vile touch is infamous for " +
-                        "its ability to sapping the lifeforce of the unlucky victim.";
+        return "Skeletons are composed of corpses bones from unlucky adventurers and inhabitants of the dungeon, animated by emanations of evil magic from the depths below. Their vile touch is infamous for its ability to sapping the lifeforce of the unlucky victim.";
     }
 
     @Override

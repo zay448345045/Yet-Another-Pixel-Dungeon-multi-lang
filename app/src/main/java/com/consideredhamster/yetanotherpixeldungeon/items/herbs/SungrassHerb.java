@@ -75,11 +75,7 @@ public class SungrassHerb extends Herb {
 
     @Override
     public String desc() {
-        return "Wild animals often eat Sungrass herbs to purge their body of toxins. Sprouts of " +
-                "this herb are pretty common in places where sunlight is scarse, but still present." +
-                "\n\n" +
-                "These herbs are used to brew potions of _Mending_, _Blessing_ and _Shield_. " +
-                "Consuming them will remove _body debuffs_ and grant a short buff to your _body_ resistance.";
+        return "Wild animals often eat Sungrass herbs to purge their body of toxins. Sprouts of this herb are pretty common in places where sunlight is scarse, but still present.\n\nThese herbs are used to brew potions of _Mending_, _Blessing_ and _Shield_. Consuming them will remove _body debuffs_ and grant a short buff to your _body_ resistance.";
     }
 
     public static class SavoryMeat extends MeatStewed {
@@ -98,8 +94,7 @@ public class SungrassHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with a _Sungrass_ herb. It smells pretty tasty. " +
-                    "Consuming it will remove _body debuffs_ and grant a long buff to your _body_ resistance.";
+            return "This meat was stewed in a pot with a _Sungrass_ herb. It smells pretty tasty. Consuming it will remove _body debuffs_ and grant a long buff to your _body_ resistance.";
         }
 
         @Override

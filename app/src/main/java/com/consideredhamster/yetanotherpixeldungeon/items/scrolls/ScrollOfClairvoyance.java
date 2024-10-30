@@ -86,10 +86,7 @@ public class ScrollOfClairvoyance extends Scroll {
 
     @Override
     public String desc() {
-        return
-                "Once this scroll is read, an image of crystal clarity will be etched into your memory, " +
-                        "alerting you to the precise layout of the floor and revealing all of the treasures it keeps. " +
-                        "The locations of traps and creatures will remain unknown.";
+        return "Once this scroll is read, an image of crystal clarity will be etched into your memory, alerting you to the precise layout of the floor and revealing all of the treasures it keeps. The locations of traps and creatures will remain unknown.";
     }
 
     @Override

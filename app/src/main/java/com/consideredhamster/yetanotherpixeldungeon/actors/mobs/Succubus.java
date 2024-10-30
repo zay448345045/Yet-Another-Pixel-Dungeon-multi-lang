@@ -178,9 +178,6 @@ public class Succubus extends MobPrecise {
 
     @Override
     public String description() {
-        return
-                "The succubi are demons that look like seductive (in a slightly gothic way) girls. Demonic charms allow " +
-                        "them to mesmerize mortals, making them unable to inflict any direct harm against their tormentor and " +
-                        "leaving them vulnerable to succubus' life-draining touch.";
+        return "The succubi are demons that look like seductive (in a slightly gothic way) girls. Demonic charms allow them to mesmerize mortals, making them unable to inflict any direct harm against their tormentor and leaving them vulnerable to succubus' life-draining touch.";
     }
 }

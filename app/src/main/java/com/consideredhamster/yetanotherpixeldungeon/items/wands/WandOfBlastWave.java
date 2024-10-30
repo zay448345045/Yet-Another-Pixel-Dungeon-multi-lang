@@ -122,9 +122,6 @@ public class WandOfBlastWave extends WandUtility {
 
     @Override
     public String desc() {
-        return
-                "Wand will release a wave of force so strong that it may send your target flying back, " +
-                        "slamming into walls or someone else. If this wave hits a wall or other solid object, " +
-                        "it will cause an avalanche of stones, damaging and stunning everyone in the nearby area.";
+        return "Wand will release a wave of force so strong that it may send your target flying back, slamming into walls or someone else. If this wave hits a wall or other solid object, it will cause an avalanche of stones, damaging and stunning everyone in the nearby area.";
     }
 }

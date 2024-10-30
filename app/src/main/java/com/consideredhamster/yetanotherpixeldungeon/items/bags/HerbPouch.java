@@ -58,8 +58,7 @@ public class HerbPouch extends Bag {
 
     @Override
     public String info() {
-        return
-                "This small velvet pouch allows you to store any number of herbs in it. Very convenient.";
+        return "This small velvet pouch allows you to store any number of herbs in it. Very convenient.";
     }
 
     @Override

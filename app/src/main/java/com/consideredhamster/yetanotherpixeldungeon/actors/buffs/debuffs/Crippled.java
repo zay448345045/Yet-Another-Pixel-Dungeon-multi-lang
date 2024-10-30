@@ -64,8 +64,7 @@ public class Crippled extends Debuff {
 
     @Override
     public String description() {
-        return "Your legs are severely wounded, making it harder to dodge and significantly " +
-                "slowing your movement. Running around will prolong duration of this effect.";
+        return "Your legs are severely wounded, making it harder to dodge and significantly slowing your movement. Running around will prolong duration of this effect.";
     }
 
     @Override

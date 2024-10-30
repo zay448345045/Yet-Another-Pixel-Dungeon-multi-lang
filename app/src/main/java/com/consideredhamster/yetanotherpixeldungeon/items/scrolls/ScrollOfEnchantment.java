@@ -190,12 +190,7 @@ public class ScrollOfEnchantment extends InventoryScroll {
 
     @Override
     public String desc() {
-        return
-                "This scroll is able to imbue unenchanted weapon or armor with random enchantment, or " +
-                        "even upgrade already enchanted item. Wands and rings count as enchanted items by default. " +
-                        "If used on a cursed item, it will try to dispel the curse and will even turn its " +
-                        "enchantment into benevolent one in case of success. Using it on something which can't " +
-                        "be improved any further may have... unpredictable results.";
+        return "This scroll is able to imbue unenchanted weapon or armor with random enchantment, or even upgrade already enchanted item. Wands and rings count as enchanted items by default. If used on a cursed item, it will try to dispel the curse and will even turn its enchantment into benevolent one in case of success. Using it on something which can't be improved any further may have... unpredictable results.";
     }
 
     @Override

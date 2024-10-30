@@ -70,9 +70,7 @@ public class Waterskin extends Item {
 
     private static final String TXT_HEALTH_HALF = "Your health is not that low yet!";
 
-    private static final String TXT_R_U_SURE =
-            "Drinking from a waterskin only restores part of your missing health, so it is recommended " +
-                    "to use it only when you are significantly injured. Are you sure you want to drink it now?";
+    private static final String TXT_R_U_SURE = "Drinking from a waterskin only restores part of your missing health, so it is recommended to use it only when you are significantly injured. Are you sure you want to drink it now?";
 
     private static final String TXT_YES = "Yes, I know what I'm doing";
     private static final String TXT_NO = "No, I changed my mind";
@@ -279,10 +277,7 @@ public class Waterskin extends Item {
 
     @Override
     public String info() {
-        return
-                "These are a receptacles made for storing water. Quaffing from one recovers " +
-                        "part of the lost health. They can be refilled in wells. Any additional " +
-                        "waterskins obtained will increase the amount of water you can carry with you.";
+        return "These are a receptacles made for storing water. Quaffing from one recovers part of the lost health. They can be refilled in wells. Any additional waterskins obtained will increase the amount of water you can carry with you.";
     }
 
     @Override

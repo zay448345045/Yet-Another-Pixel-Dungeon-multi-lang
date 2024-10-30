@@ -50,9 +50,7 @@ public class PotionOfWisdom extends Potion {
 
     @Override
     public String desc() {
-        return
-                "The stored experiences of multitudes of lifetimes reduced to liquid form, " +
-                        "this draught will instantly raise your experience level.";
+        return "The stored experiences of multitudes of lifetimes reduced to liquid form, this draught will instantly raise your experience level.";
     }
 
     @Override

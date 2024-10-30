@@ -59,8 +59,7 @@ public class Enraged extends Bonus {
 
     @Override
     public String description() {
-        return "Murderous rage boils in your veins. Your damage is increased, and every kill will " +
-                "renew duration of this buff.";
+        return "Murderous rage boils in your veins. Your damage is increased, and every kill will renew duration of this buff.";
     }
 
     public void reset(int dur) {

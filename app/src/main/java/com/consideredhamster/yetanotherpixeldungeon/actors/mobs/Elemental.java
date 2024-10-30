@@ -197,9 +197,7 @@ public class Elemental extends MobPrecise {
 
     @Override
     public String description() {
-        return
-                "Wandering fire elementals are a byproduct of summoning greater entities. " +
-                        "They are too chaotic in their nature to be controlled by even the most powerful demonologist.";
+        return "Wandering fire elementals are a byproduct of summoning greater entities. They are too chaotic in their nature to be controlled by even the most powerful demonologist.";
     }
 
 }

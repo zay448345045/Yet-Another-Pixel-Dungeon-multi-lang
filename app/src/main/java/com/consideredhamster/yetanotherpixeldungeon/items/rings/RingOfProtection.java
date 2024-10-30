@@ -91,9 +91,7 @@ public class RingOfProtection extends Ring {
 
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "You feel more protected." :
-                    "You feel more vulnerable.";
+            return bonus >= 0 ? "You feel more protected." : "You feel more vulnerable.";
         }
     }
 }

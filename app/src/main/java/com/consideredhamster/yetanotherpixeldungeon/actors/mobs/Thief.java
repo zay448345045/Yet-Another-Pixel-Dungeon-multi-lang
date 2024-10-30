@@ -94,8 +94,6 @@ public class Thief extends MobPrecise {
     @Override
     public String description() {
 
-        return "The Sewers always been hiding place for all sorts of cutthroats and outlaws. " +
-                "Usually armed with different manners of daggers and knives, these ruffians " +
-                "prefer to rely on dirty tactics instead of skill and strength.";
+        return "The Sewers always been hiding place for all sorts of cutthroats and outlaws. Usually armed with different manners of daggers and knives, these ruffians prefer to rely on dirty tactics instead of skill and strength.";
     }
 }

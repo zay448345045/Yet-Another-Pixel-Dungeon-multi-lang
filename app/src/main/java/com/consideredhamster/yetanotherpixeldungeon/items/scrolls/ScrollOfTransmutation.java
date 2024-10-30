@@ -357,9 +357,7 @@ public class ScrollOfTransmutation extends InventoryScroll {
 
     @Override
     public String desc() {
-        return
-                "This scroll is able to transmute an item into a different one, but of a similar value. It " +
-                        "works on weapons, armors, wands and rings.";
+        return "This scroll is able to transmute an item into a different one, but of a similar value. It works on weapons, armors, wands and rings.";
     }
 
     @Override

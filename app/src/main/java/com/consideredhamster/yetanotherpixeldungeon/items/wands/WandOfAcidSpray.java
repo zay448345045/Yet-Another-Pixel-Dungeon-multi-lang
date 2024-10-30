@@ -161,9 +161,6 @@ public class WandOfAcidSpray extends WandCombat {
 
     @Override
     public String desc() {
-        return
-                "The vile power of this twisted bit of wood will release a torrent of a deadly blight. " +
-                        "Due to its unfocused nature, this wand is most effective when used at point blank range, " +
-                        "but can also be used to cover entire groups of enemies in this corrosive sludge.";
+        return "The vile power of this twisted bit of wood will release a torrent of a deadly blight. Due to its unfocused nature, this wand is most effective when used at point blank range, but can also be used to cover entire groups of enemies in this corrosive sludge.";
     }
 }

@@ -120,9 +120,6 @@ public class WandOfLifeDrain extends WandUtility {
 
     @Override
     public String desc() {
-        return
-                "This wand will allow you to steal life energy from living creatures to restore your " +
-                        "own health. Using it against non-living creatures will just harm them, but it is " +
-                        "especially effective against targets which are sleeping or otherwise unaware of danger.";
+        return "This wand will allow you to steal life energy from living creatures to restore your own health. Using it against non-living creatures will just harm them, but it is especially effective against targets which are sleeping or otherwise unaware of danger.";
     }
 }

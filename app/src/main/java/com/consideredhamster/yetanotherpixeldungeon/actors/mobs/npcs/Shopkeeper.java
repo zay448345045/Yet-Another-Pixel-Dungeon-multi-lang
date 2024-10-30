@@ -258,9 +258,7 @@ public class Shopkeeper extends NPC {
 
     @Override
     public String description() {
-        return
-                "This stout guy looks more appropriate for a trade district in some large city " +
-                        "than this little black market down here. Better for you, anyway.";
+        return "This stout guy looks more appropriate for a trade district in some large city than this little black market down here. Better for you, anyway.";
     }
 
     public float stealingChance(Item item) {

@@ -37,10 +37,7 @@ public abstract class Trap {
     private static final String TXT_HIDDEN_PLATE_CLICKS = "A hidden pressure plate clicks!";
     private static final String TXT_TRAPPED = "This tile is trapped!";
 
-    private static final String TXT_R_U_SURE =
-            "You are aware of a trap on this tile. Once you step on it, the trap would be " +
-                    "activated, which would most likely be quite a painful experience. Are you " +
-                    "REALLY sure you want to step here?";
+    private static final String TXT_R_U_SURE = "You are aware of a trap on this tile. Once you step on it, the trap would be activated, which would most likely be quite a painful experience. Are you REALLY sure you want to step here?";
 
     private static final String TXT_YES = "Yes, I know what I'm doing";
     private static final String TXT_NO = "No, I changed my mind";

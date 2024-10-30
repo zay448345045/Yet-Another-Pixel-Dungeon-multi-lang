@@ -47,7 +47,6 @@ public class Arbalest extends RangedWeaponMissile {
 
     @Override
     public String desc() {
-        return "This devious mechanism allows shooting quarrels with ridiculous force, but " +
-                "requires a trained body to reload it afterwards.";
+        return "This devious mechanism allows shooting quarrels with ridiculous force, but requires a trained body to reload it afterwards.";
     }
 }

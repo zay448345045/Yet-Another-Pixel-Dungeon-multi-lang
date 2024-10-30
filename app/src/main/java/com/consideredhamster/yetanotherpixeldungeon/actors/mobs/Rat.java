@@ -65,8 +65,6 @@ public class Rat extends MobEvasive {
 
     @Override
     public String description() {
-        return "This vermin inhabited the City for almost as long as these sewers had existed. " +
-                "But recently there appeared rumours about these rats attacking pets, toddlers and " +
-                "even adults sometimes.";
+        return "This vermin inhabited the City for almost as long as these sewers had existed. But recently there appeared rumours about these rats attacking pets, toddlers and even adults sometimes.";
     }
 }

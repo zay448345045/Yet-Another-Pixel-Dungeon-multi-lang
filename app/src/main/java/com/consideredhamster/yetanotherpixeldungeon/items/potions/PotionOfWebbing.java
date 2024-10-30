@@ -68,10 +68,7 @@ public class PotionOfWebbing extends Potion {
 
     @Override
     public String desc() {
-        return
-                "Upon exposure to open air, this wondrous concoction will splash its surroundings " +
-                        "with sticky filaments of thick web. Anyone caught in this web will be ensnared " +
-                        "for a short period of time.";
+        return "Upon exposure to open air, this wondrous concoction will splash its surroundings with sticky filaments of thick web. Anyone caught in this web will be ensnared for a short period of time.";
     }
 
     @Override

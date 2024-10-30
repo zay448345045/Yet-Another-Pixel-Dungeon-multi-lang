@@ -51,8 +51,7 @@ public class Focus extends BuffReactive {
 
     @Override
     public String description() {
-        return "You spent a turn to take aim at present enemies. Your next attack or wand zap will " +
-                "be twice more precise than usual.";
+        return "You spent a turn to take aim at present enemies. Your next attack or wand zap will be twice more precise than usual.";
     }
 
 

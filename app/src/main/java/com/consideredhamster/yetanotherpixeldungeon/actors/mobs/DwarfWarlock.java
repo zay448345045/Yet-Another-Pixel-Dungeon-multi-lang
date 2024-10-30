@@ -148,10 +148,7 @@ public class DwarfWarlock extends MobRanged {
 
     @Override
     public String description() {
-        return
-                "When dwarves' interests have shifted from engineering to arcane arts, " +
-                        "warlocks have come to power in the city. They started with elemental magic, " +
-                        "but soon switched to demonology and necromancy.";
+        return "When dwarves' interests have shifted from engineering to arcane arts, warlocks have come to power in the city. They started with elemental magic, but soon switched to demonology and necromancy.";
     }
 
     @Override

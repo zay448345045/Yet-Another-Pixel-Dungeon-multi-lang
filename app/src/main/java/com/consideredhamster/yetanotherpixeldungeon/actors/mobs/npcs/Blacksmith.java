@@ -46,26 +46,13 @@ import java.util.Collection;
 
 public class Blacksmith extends NPC {
 
-    private static final String TXT_GOLD_1 =
-            "Hey human! Wanna be useful, eh? Take dis pickaxe and mine me some _dark gold ore_, _5 pieces_ should be enough. " +
-                    "What do you mean, how am I gonna pay? You greedy...\n" +
-                    "Ok, ok, I don't have money to pay, but I can do some smithin' for you. Consider yourself lucky, " +
-                    "I'm the only blacksmith around.";
-    private static final String TXT_BLOOD_1 =
-            "Hey human! Wanna be useful, eh? Take dis pickaxe and _kill a bat_ wit' it, I need its blood on the head. " +
-                    "What do you mean, how am I gonna pay? You greedy...\n" +
-                    "Ok, ok, I don't have money to pay, but I can do some smithin' for you. Consider yourself lucky, " +
-                    "I'm the only blacksmith around.";
-    private static final String TXT2 =
-            "Are you kiddin' me? Where is my pickaxe?!";
-    private static final String TXT3 =
-            "Dark gold ore. 5 pieces. Seriously, is it dat hard?";
-    private static final String TXT4 =
-            "I said I need bat blood on the pickaxe. Chop-chop!";
-    private static final String TXT_COMPLETED =
-            "Oh, you have returned... Better late dan never.";
-    private static final String TXT_GET_LOST =
-            "I'm busy. Get lost!";
+    private static final String TXT_GOLD_1 = "Hey human! Wanna be useful, eh? Take dis pickaxe and mine me some _dark gold ore_, _5 pieces_ should be enough. What do you mean, how am I gonna pay? You greedy...\nOk, ok, I don't have money to pay, but I can do some smithin' for you. Consider yourself lucky, I'm the only blacksmith around.";
+    private static final String TXT_BLOOD_1 = "Hey human! Wanna be useful, eh? Take dis pickaxe and _kill a bat_ wit' it, I need its blood on the head. What do you mean, how am I gonna pay? You greedy...\nOk, ok, I don't have money to pay, but I can do some smithin' for you. Consider yourself lucky, I'm the only blacksmith around.";
+    private static final String TXT2 = "Are you kiddin' me? Where is my pickaxe?!";
+    private static final String TXT3 = "Dark gold ore. 5 pieces. Seriously, is it dat hard?";
+    private static final String TXT4 = "I said I need bat blood on the pickaxe. Chop-chop!";
+    private static final String TXT_COMPLETED = "Oh, you have returned... Better late dan never.";
+    private static final String TXT_GET_LOST = "I'm busy. Get lost!";
 
     private static final String TXT_LOOKS_BETTER = "your %s certainly looks better now";
 
@@ -249,9 +236,7 @@ public class Blacksmith extends NPC {
 
     @Override
     public String description() {
-        return
-                "This troll blacksmith looks like all trolls look: he is tall and lean, and his skin resembles stone " +
-                        "in both color and texture. The troll blacksmith is tinkering with unproportionally small tools.";
+        return "This troll blacksmith looks like all trolls look: he is tall and lean, and his skin resembles stone in both color and texture. The troll blacksmith is tinkering with unproportionally small tools.";
     }
 
     public static class Quest {

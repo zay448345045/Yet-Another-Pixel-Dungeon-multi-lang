@@ -56,12 +56,7 @@ public class ScrollOfSunlight extends Scroll {
 
     @Override
     public String desc() {
-        return
-                "Reading this scroll will light the area with a bright sunlight. Here deep in the " +
-                        "dungeon, sunlight can mean much more than simple illumination. Everything that lives " +
-                        "which is touched by this light, will be rejuvenated in mere moments. Everything " +
-                        "unnatural, on the contrary, will become disoriented and more susceptible to attacks." +
-                        "\n\nDuration of this effect of depends on magic skill of the reader.";
+        return "Reading this scroll will light the area with a bright sunlight. Here deep in the dungeon, sunlight can mean much more than simple illumination. Everything that lives which is touched by this light, will be rejuvenated in mere moments. Everything unnatural, on the contrary, will become disoriented and more susceptible to attacks.\n\nDuration of this effect of depends on magic skill of the reader.";
     }
 
     @Override

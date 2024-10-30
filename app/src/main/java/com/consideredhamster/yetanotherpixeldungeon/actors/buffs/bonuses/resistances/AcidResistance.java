@@ -52,7 +52,6 @@ public class AcidResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "Your skin became somewhat oily, and it feels like it should help against caustic " +
-                "blights of all kind. Your resistance to acid damage is increased.";
+        return "Your skin became somewhat oily, and it feels like it should help against caustic blights of all kind. Your resistance to acid damage is increased.";
     }
 }

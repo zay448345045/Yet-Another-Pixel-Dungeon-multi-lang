@@ -54,9 +54,7 @@ public class ScrollHolder extends Bag {
 
     @Override
     public String info() {
-        return
-                "You can place any number of scrolls into this tubular container. " +
-                        "It saves room in your backpack and protects scrolls from fire.";
+        return "You can place any number of scrolls into this tubular container. It saves room in your backpack and protects scrolls from fire.";
     }
 
     @Override

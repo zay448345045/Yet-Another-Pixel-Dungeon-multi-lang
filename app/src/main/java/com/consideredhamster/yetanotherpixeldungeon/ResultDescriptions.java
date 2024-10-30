@@ -53,15 +53,12 @@ public abstract class ResultDescriptions {
 
     public static String generateResult(Object killedBy, Element killedWith) {
 
-        return Utils.capitalize(killedBy == Dungeon.hero ? killedWith(killedBy, killedWith) +
-                (Dungeon.hero.heroClass == HeroClass.ACOLYTE ? " herself" : " himself") :
-                killedWith(killedBy, killedWith) + " by " + killedBy(killedBy));
+        return Utils.capitalize(killedBy == Dungeon.hero ? killedWith(killedBy, killedWith) + (Dungeon.hero.heroClass == HeroClass.ACOLYTE ? " herself" : " himself") : killedWith(killedBy, killedWith) + " by " + killedBy(killedBy));
     }
 
     public static String generateMessage(Object killedBy, Element killedWith) {
 
-        return (killedBy == Dungeon.hero ? "You " + killedWith(killedBy, killedWith) + " yourself" :
-                "You were " + killedWith(killedBy, killedWith) + " by " + killedBy(killedBy)) + "...";
+        return (killedBy == Dungeon.hero ? "You " + killedWith(killedBy, killedWith) + " yourself" : "You were " + killedWith(killedBy, killedWith) + " by " + killedBy(killedBy)) + "...";
     }
 
     private static String killedWith(Object killedBy, Element killedWith) {

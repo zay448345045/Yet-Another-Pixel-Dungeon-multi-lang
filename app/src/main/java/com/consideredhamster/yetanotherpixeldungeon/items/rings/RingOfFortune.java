@@ -69,9 +69,7 @@ public class RingOfFortune extends Ring {
     public class Fortune extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "You don't feel anything special on equipping this ring. Is that good?" :
-                    "You don't feel anything special on equipping this ring. Is that bad?";
+            return bonus >= 0 ? "You don't feel anything special on equipping this ring. Is that good?" : "You don't feel anything special on equipping this ring. Is that bad?";
         }
     }
 }

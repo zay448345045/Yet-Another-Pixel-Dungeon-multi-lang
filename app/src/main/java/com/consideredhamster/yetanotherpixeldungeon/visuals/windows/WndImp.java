@@ -35,10 +35,7 @@ import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndImp extends Window {
 
-    private static final String TXT_MESSAGE =
-            "Oh yes! You are my hero!\n" +
-                    "Regarding your reward, I don't have cash with me right now, but I have something better for you. " +
-                    "This is my family heirloom ring: my granddad took it off a dead %s's finger.";
+    private static final String TXT_MESSAGE = "Oh yes! You are my hero!\nRegarding your reward, I don't have cash with me right now, but I have something better for you. This is my family heirloom ring: my granddad took it off a dead %s's finger.";
     private static final String TXT_REWARD = "Take the ring";
 
     private static final int WIDTH = 120;

@@ -164,7 +164,6 @@ public class Pickaxe extends Item {
 
     @Override
     public String info() {
-        return
-                "This is a large and sturdy tool for breaking rocks.";
+        return "This is a large and sturdy tool for breaking rocks.";
     }
 }

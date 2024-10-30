@@ -101,8 +101,6 @@ public class VampireBat extends MobEvasive {
 
     @Override
     public String description() {
-        return
-                "These brisk and tenacious inhabitants of cave domes may defeat much larger opponents by " +
-                        "replenishing their health with each successful attack.";
+        return "These brisk and tenacious inhabitants of cave domes may defeat much larger opponents by replenishing their health with each successful attack.";
     }
 }

@@ -291,11 +291,7 @@ public class Magus extends MobRanged {
 
     @Override
     public String description() {
-        return
-                "Their eyes filled with spite and disdain, magi are technically the highest caste " +
-                        "of the demonic society. Being quite frail, they prefer to blast their enemies with " +
-                        "an assortment of elemental spells from afar while leaving the dirty work to " +
-                        "their subordinates.";
+        return "Their eyes filled with spite and disdain, magi are technically the highest caste of the demonic society. Being quite frail, they prefer to blast their enemies with an assortment of elemental spells from afar while leaving the dirty work to their subordinates.";
     }
 
     @Override

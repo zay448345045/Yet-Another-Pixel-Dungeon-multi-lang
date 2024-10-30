@@ -71,9 +71,7 @@ public class RingOfMysticism extends Ring {
     public class Mysticism extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "Suddenly, your perception of magical currents is improved." :
-                    "Suddenly, your perception of magical currents is dampened.";
+            return bonus >= 0 ? "Suddenly, your perception of magical currents is improved." : "Suddenly, your perception of magical currents is dampened.";
         }
     }
 }

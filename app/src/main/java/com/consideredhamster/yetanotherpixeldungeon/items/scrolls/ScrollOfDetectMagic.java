@@ -85,10 +85,7 @@ public class ScrollOfDetectMagic extends Scroll {
 
     @Override
     public String desc() {
-        return
-                "The incantation etched in this scroll can bestow the ability to perceive the weaves of magic " +
-                        "upon its reader, revealing the items' supernatural qualities. This will allow its user " +
-                        "to tell the enchanted and cursed equipment from the mundane but without further details.";
+        return "The incantation etched in this scroll can bestow the ability to perceive the weaves of magic upon its reader, revealing the items' supernatural qualities. This will allow its user to tell the enchanted and cursed equipment from the mundane but without further details.";
     }
 
     public static boolean identify(Item... items) {

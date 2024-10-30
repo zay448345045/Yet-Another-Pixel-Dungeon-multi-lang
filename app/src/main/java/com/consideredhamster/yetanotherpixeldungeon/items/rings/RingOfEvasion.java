@@ -70,9 +70,7 @@ public class RingOfEvasion extends Ring {
     public class Evasion extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "You feel that your reflexes are improved." :
-                    "You feel that your reflexes are dampened.";
+            return bonus >= 0 ? "You feel that your reflexes are improved." : "You feel that your reflexes are dampened.";
         }
     }
 }

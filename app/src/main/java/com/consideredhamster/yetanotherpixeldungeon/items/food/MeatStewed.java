@@ -39,9 +39,7 @@ public class MeatStewed extends Food {
 
     @Override
     public String desc() {
-        return
-                "This meat was stewed in a pot. It smells pretty good, compared to these bland rations. " +
-                        "Even though it has _no special effects_ when consumed, it is still better than just raw meat.";
+        return "This meat was stewed in a pot. It smells pretty good, compared to these bland rations. Even though it has _no special effects_ when consumed, it is still better than just raw meat.";
 
     }
 

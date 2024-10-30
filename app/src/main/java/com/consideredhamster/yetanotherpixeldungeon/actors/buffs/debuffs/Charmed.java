@@ -66,8 +66,7 @@ public class Charmed extends Debuff {
 
     @Override
     public String description() {
-        return "Someone's trying to control your mind. You cannot bring yourself to attack your " +
-                "enemies with full strength. Still, weaker minds would be completely enslaved by now.";
+        return "Someone's trying to control your mind. You cannot bring yourself to attack your enemies with full strength. Still, weaker minds would be completely enslaved by now.";
     }
 
     @Override

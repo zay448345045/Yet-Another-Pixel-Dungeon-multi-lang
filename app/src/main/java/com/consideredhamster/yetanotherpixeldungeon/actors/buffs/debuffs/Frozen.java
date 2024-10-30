@@ -71,9 +71,7 @@ public class Frozen extends Debuff {
 
     @Override
     public String description() {
-        return "Brrr, it is cold! All your actions are slowed, your lantern is not working, and on " +
-                "top of that you are less likely to hit and dodge. Oh, and being in water prolongs " +
-                "duration of this effect.";
+        return "Brrr, it is cold! All your actions are slowed, your lantern is not working, and on top of that you are less likely to hit and dodge. Oh, and being in water prolongs duration of this effect.";
     }
 
 

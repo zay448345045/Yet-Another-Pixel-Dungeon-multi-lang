@@ -114,9 +114,6 @@ public class WandOfLightning extends WandCombat {
 
     @Override
     public String desc() {
-        return
-                "This wand conjures forth deadly arcs of electricity, roasting its target with a high " +
-                        "voltage zap. Effects of this wand can chain to further targets or be transmitted by " +
-                        "water, so it is better to not stand in the same pool as your target!";
+        return "This wand conjures forth deadly arcs of electricity, roasting its target with a high voltage zap. Effects of this wand can chain to further targets or be transmitted by water, so it is better to not stand in the same pool as your target!";
     }
 }

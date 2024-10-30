@@ -52,7 +52,6 @@ public class ShockResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "Air around you seems to be filled with static electricity, making your hair stand " +
-                "on their own. Your resistance to electrical damage is increased.";
+        return "Air around you seems to be filled with static electricity, making your hair stand on their own. Your resistance to electrical damage is increased.";
     }
 }

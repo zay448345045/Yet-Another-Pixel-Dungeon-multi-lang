@@ -36,14 +36,11 @@ import com.watabou.utils.Bundle;
 
 public class WellWater extends Blob {
 
-    private static final String TXT_PROCCED =
-            "You refill your waterskins in the well.";
+    private static final String TXT_PROCCED = "You refill your waterskins in the well.";
 
-    private static final String TXT_VIAL_IS_FULL =
-            "Your waterskins are already filled.";
+    private static final String TXT_VIAL_IS_FULL = "Your waterskins are already filled.";
 
-    private static final String TXT_NO_MORE_WATER =
-            "The well is empty now.";
+    private static final String TXT_NO_MORE_WATER = "The well is empty now.";
 
     protected int pos;
 
@@ -136,8 +133,6 @@ public class WellWater extends Blob {
 
     @Override
     public String tileDesc() {
-        return
-                "The water in this well looks clean and fresh. " +
-                        "Looks like you can refill your water supplies here.";
+        return "The water in this well looks clean and fresh. Looks like you can refill your water supplies here.";
     }
 }

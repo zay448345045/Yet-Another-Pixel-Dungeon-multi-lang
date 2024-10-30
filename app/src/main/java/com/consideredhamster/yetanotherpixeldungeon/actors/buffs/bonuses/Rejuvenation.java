@@ -45,8 +45,7 @@ public class Rejuvenation extends Bonus {
 
     @Override
     public String description() {
-        return "Being bathed in holy light restores your health. The longer you are affected by " +
-                "this effect, the more health it restores.";
+        return "Being bathed in holy light restores your health. The longer you are affected by this effect, the more health it restores.";
     }
 
     @Override

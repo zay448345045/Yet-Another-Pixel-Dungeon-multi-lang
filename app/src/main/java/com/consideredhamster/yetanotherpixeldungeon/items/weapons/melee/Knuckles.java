@@ -80,8 +80,6 @@ public class Knuckles extends MeleeWeaponLightOH {
 
     @Override
     public String desc() {
-        return "A piece of iron shaped to fit around the knuckles. This simple design allows " +
-                "attacking with this weapon as fast as with fists, while being almost impossible " +
-                "to knock it out of them.";
+        return "A piece of iron shaped to fit around the knuckles. This simple design allows attacking with this weapon as fast as with fists, while being almost impossible to knock it out of them.";
     }
 }

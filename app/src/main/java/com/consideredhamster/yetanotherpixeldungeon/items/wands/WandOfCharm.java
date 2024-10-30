@@ -81,9 +81,6 @@ public class WandOfCharm extends WandUtility {
 
     @Override
     public String desc() {
-        return
-                "The purple light from this wand will hypnotize the target, forcing it to violently " +
-                        "protect you against other enemies for a while. It cannot charm magical enemies, but " +
-                        "will instead harm and disrupt their senses, causing them to be confused and vulnerable.";
+        return "The purple light from this wand will hypnotize the target, forcing it to violently protect you against other enemies for a while. It cannot charm magical enemies, but will instead harm and disrupt their senses, causing them to be confused and vulnerable.";
     }
 }

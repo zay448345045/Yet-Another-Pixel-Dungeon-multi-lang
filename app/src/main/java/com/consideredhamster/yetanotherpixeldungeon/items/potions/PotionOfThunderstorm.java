@@ -58,11 +58,7 @@ public class PotionOfThunderstorm extends Potion {
 
     @Override
     public String desc() {
-        return
-                "Upon exposure to open air, the liquid in this flask will start a localized rainfall, " +
-                        "complete with storm clouds and lightning. While the main use of this potion is to " +
-                        "water crops, nothing stops you from using it to fry your enemies with occasional " +
-                        "thunderbolts. Be careful to not get hit yourself!";
+        return "Upon exposure to open air, the liquid in this flask will start a localized rainfall, complete with storm clouds and lightning. While the main use of this potion is to water crops, nothing stops you from using it to fry your enemies with occasional thunderbolts. Be careful to not get hit yourself!";
     }
 
     @Override

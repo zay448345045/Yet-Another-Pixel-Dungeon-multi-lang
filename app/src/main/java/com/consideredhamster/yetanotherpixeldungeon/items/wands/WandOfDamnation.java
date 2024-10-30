@@ -88,10 +88,7 @@ public class WandOfDamnation extends WandUtility {
 
     @Override
     public String desc() {
-        return
-                "This wand is crafted from bones and obsidian, its shape reminding you of a sickle. " +
-                        "A creation of the dark arts, it can infuse its victims with unholy miasma, dooming " +
-                        "them to an inevitable death after a certain amount of time.";
+        return "This wand is crafted from bones and obsidian, its shape reminding you of a sickle. A creation of the dark arts, it can infuse its victims with unholy miasma, dooming them to an inevitable death after a certain amount of time.";
     }
 
 

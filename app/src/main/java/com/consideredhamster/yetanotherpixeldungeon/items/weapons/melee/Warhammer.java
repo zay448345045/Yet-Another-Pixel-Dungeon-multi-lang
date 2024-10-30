@@ -50,8 +50,6 @@ public class Warhammer extends MeleeWeaponHeavyTH {
 
     @Override
     public String desc() {
-        return
-                "Few creatures can withstand the crushing blow of this towering mass of lead and steel, " +
-                        "but only the strongest of adventurers can use it effectively.";
+        return "Few creatures can withstand the crushing blow of this towering mass of lead and steel, but only the strongest of adventurers can use it effectively.";
     }
 }

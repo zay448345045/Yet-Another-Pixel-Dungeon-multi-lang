@@ -146,10 +146,7 @@ public class GnollShaman extends MobRanged {
 
     @Override
     public String description() {
-        return
-                "The most intelligent gnolls can master shamanistic magic. Gnoll shamans prefer " +
-                        "battle spells to compensate for lack of might, not hesitating to use them " +
-                        "on those who question their status in a tribe.";
+        return "The most intelligent gnolls can master shamanistic magic. Gnoll shamans prefer battle spells to compensate for lack of might, not hesitating to use them on those who question their status in a tribe.";
     }
 
     @Override

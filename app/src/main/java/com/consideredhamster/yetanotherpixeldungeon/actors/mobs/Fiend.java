@@ -171,10 +171,7 @@ public class Fiend extends MobRanged {
 
     @Override
     public String description() {
-        return
-                "Some demons seem to transcend their flesh and wear pure darkness as their form. Shadowy " +
-                        "and menacing, these unholy abominations are born of malicious intent and are nothing " +
-                        "more than incarnations of distilled evil, revelling only in death and pain.";
+        return "Some demons seem to transcend their flesh and wear pure darkness as their form. Shadowy and menacing, these unholy abominations are born of malicious intent and are nothing more than incarnations of distilled evil, revelling only in death and pain.";
     }
 
     @Override

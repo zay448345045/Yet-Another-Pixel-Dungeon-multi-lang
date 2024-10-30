@@ -41,10 +41,7 @@ public class PotionOfLevitation extends Potion {
 
     @Override
     public String desc() {
-        return
-                "Drinking this curious liquid will cause you to hover in the air, moving faster and stealthier. " +
-                        "This state also allows drifting over traps or chasms and seeing over the high grass. Flames and gases " +
-                        "fill the air, however, and cannot be bypassed while airborne.";
+        return "Drinking this curious liquid will cause you to hover in the air, moving faster and stealthier. This state also allows drifting over traps or chasms and seeing over the high grass. Flames and gases fill the air, however, and cannot be bypassed while airborne.";
     }
 
     @Override

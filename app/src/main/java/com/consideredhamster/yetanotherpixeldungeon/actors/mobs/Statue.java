@@ -125,10 +125,6 @@ public class Statue extends MobPrecise {
 
     @Override
     public String description() {
-        return
-                "You would think that it's just another ugly statue of this dungeon, but its red glowing eyes give itself away. " +
-                        "Usually passive, these stony juggernauts are almost unstoppable once provoked, being very resistant to both " +
-                        "physical and magical damage. Besides being extremely reliable guardians, these automatons also may serve as a " +
-                        "pretty cool garden decorations.";
+        return "You would think that it's just another ugly statue of this dungeon, but its red glowing eyes give itself away. Usually passive, these stony juggernauts are almost unstoppable once provoked, being very resistant to both physical and magical damage. Besides being extremely reliable guardians, these automatons also may serve as a pretty cool garden decorations.";
     }
 }

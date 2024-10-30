@@ -72,9 +72,7 @@ public class RingOfShadows extends Ring {
 
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "Suddenly, shadows thicken around you, obfuscating your presence." :
-                    "Suddenly, shadows bend around you, highlighting your presence.";
+            return bonus >= 0 ? "Suddenly, shadows thicken around you, obfuscating your presence." : "Suddenly, shadows bend around you, highlighting your presence.";
         }
     }
 }

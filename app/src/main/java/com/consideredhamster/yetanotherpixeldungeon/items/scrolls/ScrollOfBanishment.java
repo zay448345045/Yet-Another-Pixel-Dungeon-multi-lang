@@ -40,10 +40,8 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.particles.Sh
 
 public class ScrollOfBanishment extends Scroll {
 
-    private static final String TXT_PROCCED =
-            "You are engulfed in a cleansing light, and all malevolent magic in your proximity is weakened.";
-    private static final String TXT_NOT_PROCCED =
-            "You are engulfed in a cleansing light, but nothing happens.";
+    private static final String TXT_PROCCED = "You are engulfed in a cleansing light, and all malevolent magic in your proximity is weakened.";
+    private static final String TXT_NOT_PROCCED = "You are engulfed in a cleansing light, but nothing happens.";
 
     {
         name = "Scroll of Banishment";
@@ -96,11 +94,7 @@ public class ScrollOfBanishment extends Scroll {
 
     @Override
     public String desc() {
-        return
-                "The incantation on this scroll will attempt to banish any evil magics that might " +
-                        "happen to exist near the reader, weakening curses on carried items, banishing " +
-                        "nearby creatures of magical origin and even dispelling some malicious effects." +
-                        "\n\nDuration of effect inflicted by this scroll depends on magic skill of the reader.";
+        return "The incantation on this scroll will attempt to banish any evil magics that might happen to exist near the reader, weakening curses on carried items, banishing nearby creatures of magical origin and even dispelling some malicious effects.\n\nDuration of effect inflicted by this scroll depends on magic skill of the reader.";
     }
 
     public static boolean uncurse(Hero hero, Item... items) {

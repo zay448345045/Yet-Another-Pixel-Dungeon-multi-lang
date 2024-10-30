@@ -129,10 +129,7 @@ public class FireDrake extends MobPrecise {
 
     @Override
     public String description() {
-        return
-                "Drakes of different kinds had roamed the deeper bowels of this world long before " +
-                        "dwarves domesticated them. Fire drakes are the most common variety, able to fly and " +
-                        "belch fire to protect their bearded masters.";
+        return "Drakes of different kinds had roamed the deeper bowels of this world long before dwarves domesticated them. Fire drakes are the most common variety, able to fly and belch fire to protect their bearded masters.";
     }
 
 }

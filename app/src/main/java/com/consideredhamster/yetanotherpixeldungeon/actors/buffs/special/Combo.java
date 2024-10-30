@@ -45,8 +45,7 @@ public class Combo extends BuffReactive {
 
     @Override
     public String description() {
-        return "Every consecutive attack increases your damage slightly. Performing any actions " +
-                "except attacking again will reset this counter, though.";
+        return "Every consecutive attack increases your damage slightly. Performing any actions except attacking again will reset this counter, though.";
     }
 
     @Override

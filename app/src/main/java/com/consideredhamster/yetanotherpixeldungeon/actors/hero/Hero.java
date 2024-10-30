@@ -149,8 +149,7 @@ public class Hero extends Char {
 
     private static final String TXT_EXP = "%+dEXP";
     private static final String TXT_LEVEL_UP = "level up!";
-    private static final String TXT_NEW_LEVEL =
-            "Welcome to level %d! You receive %s.";
+    private static final String TXT_NEW_LEVEL = "Welcome to level %d! You receive %s.";
 
     public static final String TXT_YOU_NOW_HAVE = "You pick up %s";
 

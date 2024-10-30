@@ -217,8 +217,6 @@ public class WandOfDisintegration extends WandCombat {
 
     @Override
     public String desc() {
-        return
-                "This wand emits a beam of destructive energy, which pierces all creatures in its way " +
-                        "and bounce from solid obstacles, allowing its user to shoot them around the corners.";
+        return "This wand emits a beam of destructive energy, which pierces all creatures in its way and bounce from solid obstacles, allowing its user to shoot them around the corners.";
     }
 }

@@ -35,9 +35,7 @@ import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndWandmaker extends Window {
 
-    private static final String TXT_MESSAGE =
-            "Oh, I see you have succeeded! I do hope it hasn't troubled you too much. " +
-                    "As I promised, you can choose one of my high quality wands.";
+    private static final String TXT_MESSAGE = "Oh, I see you have succeeded! I do hope it hasn't troubled you too much. As I promised, you can choose one of my high quality wands.";
 
     private static final String TXT_FAREWELL = "Good luck in your quest, %s!";
 

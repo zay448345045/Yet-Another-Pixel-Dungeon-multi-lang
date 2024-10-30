@@ -57,7 +57,6 @@ public class MagicalResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You fell a kind of a faint protective aura around your body. " +
-                "Your resistance to magical damage such as magic missiles or disintegration is increased.";
+        return "You fell a kind of a faint protective aura around your body. Your resistance to magical damage such as magic missiles or disintegration is increased.";
     }
 }

@@ -52,8 +52,7 @@ public class Light extends BuffPassive {
 
     @Override
     public String description() {
-        return "Your lantern shines brightly, increasing your field of view and your " +
-                "chance to find traps, but making it easier to notice you as well.";
+        return "Your lantern shines brightly, increasing your field of view and your chance to find traps, but making it easier to notice you as well.";
     }
 
     @Override

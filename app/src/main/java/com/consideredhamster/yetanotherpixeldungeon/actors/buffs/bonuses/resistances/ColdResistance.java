@@ -52,7 +52,6 @@ public class ColdResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You feel soft chill filling your entire body, numbing your body to the cold breeze " +
-                "of the dungeon. Your resistance to cold is increased.";
+        return "You feel soft chill filling your entire body, numbing your body to the cold breeze of the dungeon. Your resistance to cold is increased.";
     }
 }

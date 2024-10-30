@@ -47,7 +47,6 @@ public class Arquebuse extends RangedWeaponFlintlock {
 
     @Override
     public String desc() {
-        return "Once standard-issue weapon in some armies, these firearms are quite rare now. They " +
-                "were feared for their ability to pierce through any armor with their shots.";
+        return "Once standard-issue weapon in some armies, these firearms are quite rare now. They were feared for their ability to pierce through any armor with their shots.";
     }
 }

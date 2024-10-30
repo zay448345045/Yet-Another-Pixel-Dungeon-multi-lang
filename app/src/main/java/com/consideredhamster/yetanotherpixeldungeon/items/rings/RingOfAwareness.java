@@ -71,9 +71,7 @@ public class RingOfAwareness extends Ring {
     public class Awareness extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "You feel that your alertness is improved." :
-                    "You feel that your alertness is dimmed.";
+            return bonus >= 0 ? "You feel that your alertness is improved." : "You feel that your alertness is dimmed.";
         }
     }
 }

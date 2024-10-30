@@ -41,10 +41,7 @@ public class PotionOfRage extends Potion {
 
     @Override
     public String desc() {
-        return
-                "Drinking this potion will induce a berserker state, significantly " +
-                        "increasing strength of your blows for a limited time. " +
-                        "Killing an enemy in this state will extend this bloodthirsty state.";
+        return "Drinking this potion will induce a berserker state, significantly increasing strength of your blows for a limited time. Killing an enemy in this state will extend this bloodthirsty state.";
 
     }
 

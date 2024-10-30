@@ -144,9 +144,7 @@
 
       @Override
       public String description() {
-          return
-                  "These undead dwarves, risen by the will of the King of Dwarves, were members of his court. " +
-                          "They appear as stocky skeletons with unusually tiny skulls.";
+          return "These undead dwarves, risen by the will of the King of Dwarves, were members of his court. They appear as stocky skeletons with unusually tiny skulls.";
       }
 
   }

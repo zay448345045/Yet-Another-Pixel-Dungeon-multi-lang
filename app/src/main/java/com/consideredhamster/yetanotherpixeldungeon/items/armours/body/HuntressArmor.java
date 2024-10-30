@@ -42,10 +42,7 @@ public class HuntressArmor extends BodyArmorCloth {
 
     @Override
     public String desc() {
-        return "Elven cloaks are usually valued because elven fabric reacts negatively at everything " +
-                "touched by dark magicks or evil intentions. This effect is hardly noticeable for " +
-                "anyone except the wearer of the cloak, but in a dungeon like this it certainly " +
-                "comes in handy.";
+        return "Elven cloaks are usually valued because elven fabric reacts negatively at everything touched by dark magicks or evil intentions. This effect is hardly noticeable for anyone except the wearer of the cloak, but in a dungeon like this it certainly comes in handy.";
     }
 
 //    public HuntressArmor() {

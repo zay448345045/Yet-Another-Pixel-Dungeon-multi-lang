@@ -39,14 +39,11 @@ import java.util.ArrayList;
 
 public class ScrollOfPhaseWarp extends Scroll {
 
-    public static final String TXT_TELEPORTED_VISITED =
-            "In a blink of an eye you were teleported to somewhere else. You feel deja vu.";
+    public static final String TXT_TELEPORTED_VISITED = "In a blink of an eye you were teleported to somewhere else. You feel deja vu.";
 
-    public static final String TXT_TELEPORTED_UNKNOWN =
-            "In a blink of an eye you were teleported to somewhere else. You can't remember this place.";
+    public static final String TXT_TELEPORTED_UNKNOWN = "In a blink of an eye you were teleported to somewhere else. You can't remember this place.";
 
-    public static final String TXT_NO_TELEPORT =
-            "Teleportation fails!";
+    public static final String TXT_NO_TELEPORT = "Teleportation fails!";
 
     {
         name = "Scroll of Phase Warp";
@@ -116,11 +113,7 @@ public class ScrollOfPhaseWarp extends Scroll {
 
     @Override
     public String desc() {
-        return
-                "The spell on this parchment instantly transports the reader " +
-                        "to a random location on the dungeon level. It can be used " +
-                        "to escape a dangerous situation, but this method of transportation " +
-                        "can be harmful for the mind of its user.";
+        return "The spell on this parchment instantly transports the reader to a random location on the dungeon level. It can be used to escape a dangerous situation, but this method of transportation can be harmful for the mind of its user.";
     }
 
     @Override

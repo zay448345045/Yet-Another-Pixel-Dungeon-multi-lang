@@ -90,8 +90,7 @@ public class Burning extends Debuff {
 
     @Override
     public String description() {
-        return "It really burns! While burning, you constantly receive damage and can lose some of " +
-                "the flammable items in your inventory. Also enemies are more likely to notice you.";
+        return "It really burns! While burning, you constantly receive damage and can lose some of the flammable items in your inventory. Also enemies are more likely to notice you.";
     }
 
     @Override

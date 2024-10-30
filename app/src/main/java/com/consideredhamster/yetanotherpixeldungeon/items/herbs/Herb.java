@@ -43,9 +43,7 @@ public abstract class Herb extends Food {
 
     @Override
     public String info() {
-        return desc() + "\n\n" +
-                "Eating this herb will take only _" + (int) time + "_ turn and " +
-                "restore _" + (int) (energy / 10) + "%_ of your satiety.";
+        return desc() + "\n\nEating this herb will take only _" + (int) time + "_ turn and restore _" + (int) (energy / 10) + "%_ of your satiety.";
     }
 }
 

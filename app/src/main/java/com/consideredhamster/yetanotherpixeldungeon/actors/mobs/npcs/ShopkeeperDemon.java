@@ -39,8 +39,6 @@ public class ShopkeeperDemon extends Shopkeeper {
 
     @Override
     public String description() {
-        return
-                "Imps are lesser demons. They are notable for neither their strength nor their magic talent. " +
-                        "But they are quite smart and sociable, and many of imps prefer to live and do business among non-demons.";
+        return "Imps are lesser demons. They are notable for neither their strength nor their magic talent. But they are quite smart and sociable, and many of imps prefer to live and do business among non-demons.";
     }
 }

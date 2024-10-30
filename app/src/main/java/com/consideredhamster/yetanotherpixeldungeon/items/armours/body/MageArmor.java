@@ -41,8 +41,7 @@ public class MageArmor extends BodyArmorCloth {
 
     @Override
     public String desc() {
-        return "Combination of intricate magicks and rare materials sewn into fabric of this robe " +
-                "allow it to increasing your attunement with mystical energies.";
+        return "Combination of intricate magicks and rare materials sewn into fabric of this robe allow it to increasing your attunement with mystical energies.";
     }
 
 //    public MageArmor() {

@@ -72,8 +72,7 @@ public class WndBag extends WndTabbed {
 
     private static final String TXT_SELECT_TITLE = "Select quickslot";
     private static final String TXT_SELECT_CANCEL = "Nevermind";
-    private static final String TXT_SELECT_MESSAGE =
-            "Which quickslot do you want to set for this item?";
+    private static final String TXT_SELECT_MESSAGE = "Which quickslot do you want to set for this item?";
 
     public static enum Mode {
         ALL,

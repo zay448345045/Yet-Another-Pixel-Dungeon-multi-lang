@@ -39,8 +39,6 @@ public class ShopkeeperDwarf extends Shopkeeper {
 
     @Override
     public String description() {
-        return
-                "Looks like this dwarf owns a shop here. He looks surprised by your presence, but is " +
-                        "certainly not happy to see you.";
+        return "Looks like this dwarf owns a shop here. He looks surprised by your presence, but is certainly not happy to see you.";
     }
 }

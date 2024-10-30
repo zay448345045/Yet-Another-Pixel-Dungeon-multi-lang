@@ -42,9 +42,7 @@ public class RogueArmor extends BodyArmorCloth {
 
     @Override
     public String desc() {
-        return "This lightweight armor offers more protection from cold than from enemy blows. " +
-                "However, its dark coloration makes it much more difficult to notice its wearer " +
-                "in the darkness of the dungeon.";
+        return "This lightweight armor offers more protection from cold than from enemy blows. However, its dark coloration makes it much more difficult to notice its wearer in the darkness of the dungeon.";
     }
 
 //    public RogueArmor() {

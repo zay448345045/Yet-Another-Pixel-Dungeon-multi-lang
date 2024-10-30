@@ -35,8 +35,7 @@ public class RationLarge extends Food {
 
     @Override
     public String desc() {
-        return "This is an authentic dwarven pasty with traditional filling of beer and sand. " +
-                "Food like these can last for years without spoiling.";
+        return "This is an authentic dwarven pasty with traditional filling of beer and sand. Food like these can last for years without spoiling.";
     }
 
     @Override

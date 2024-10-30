@@ -275,9 +275,7 @@ public abstract class Explosives extends Item {
 
         @Override
         public String info() {
-            return "This is a container of black powder. Gunpowder can be used to reload flintlock " +
-                    "weapons or to make some makeshift explosives.\n\n" +
-                    "You need " + BombStick.powderMax + " portions of gunpowder to create a bomb.";
+            return "This is a container of black powder. Gunpowder can be used to reload flintlock weapons or to make some makeshift explosives.\n\nYou need " + BombStick.powderMax + " portions of gunpowder to create a bomb.";
         }
 
         @Override
@@ -310,11 +308,7 @@ public abstract class Explosives extends Item {
 
         @Override
         public String info() {
-            return
-                    "This is a makeshift pipe bomb, filled with black powder. Conveniently, its fuse is " +
-                            "lit automatically when the bomb is thrown.\n\n" +
-                            "You can get " + powderMin + "-" + powderMax + " portions of gunpowder by salvaging this. " +
-                            "You can get a bomb bundle by combining " + BombBundle.sticksMax + " " + name + "s.";
+            return "This is a makeshift pipe bomb, filled with black powder. Conveniently, its fuse is lit automatically when the bomb is thrown.\n\nYou can get " + powderMin + "-" + powderMax + " portions of gunpowder by salvaging this. You can get a bomb bundle by combining " + BombBundle.sticksMax + " " + name + "s.";
         }
 
         @Override
@@ -423,9 +417,7 @@ public abstract class Explosives extends Item {
 
         @Override
         public String info() {
-            return
-                    "This is a huge bomb made of several other bombs. It is a very powerful explosive.\n\n" +
-                            "You can get " + sticksMin + "-" + sticksMax + " bomb sticks by salvaging this.";
+            return "This is a huge bomb made of several other bombs. It is a very powerful explosive.\n\nYou can get " + sticksMin + "-" + sticksMax + " bomb sticks by salvaging this.";
         }
 
         @Override

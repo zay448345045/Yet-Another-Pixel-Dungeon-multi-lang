@@ -37,7 +37,6 @@ public class SplintArmor extends BodyArmorHeavy {
 
     @Override
     public String desc() {
-        return
-                "The metal stripes sewn together to create a flexible, yet effective armor.";
+        return "The metal stripes sewn together to create a flexible, yet effective armor.";
     }
 }

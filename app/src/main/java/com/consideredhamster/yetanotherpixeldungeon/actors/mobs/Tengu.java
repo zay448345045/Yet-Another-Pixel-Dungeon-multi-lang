@@ -468,9 +468,7 @@ public class Tengu extends MobRanged {
 
     @Override
     public String description() {
-        return
-                "Tengu are members of the ancient assassins clan, which is also called Tengu. " +
-                        "These assassins are noted for extensive use of martial arts and shadow magic.";
+        return "Tengu are members of the ancient assassins clan, which is also called Tengu. These assassins are noted for extensive use of martial arts and shadow magic.";
     }
 
     private static final String TIME_TO_JUMP = "timeToJump";

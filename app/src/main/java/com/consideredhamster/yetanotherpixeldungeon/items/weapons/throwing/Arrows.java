@@ -46,7 +46,6 @@ public class Arrows extends ThrowingWeaponAmmo {
 
     @Override
     public String desc() {
-        return
-                "A wooden shaft with metal tip and basic fletching. Flies fast, strikes true.";
+        return "A wooden shaft with metal tip and basic fletching. Flies fast, strikes true.";
     }
 }

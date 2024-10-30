@@ -83,10 +83,7 @@ public class Yog extends Mob {
     private final static int FIST_RESPAWN_MIN = 25;
     private final static int FIST_RESPAWN_MAX = 30;
 
-    private static final String TXT_DESC =
-            "Yog-Dzewa is an Old God, a powerful entity from the realms of chaos. A century ago, the ancient dwarves " +
-                    "barely won the war against its army of demons, but were unable to kill the god itself. Instead, they then " +
-                    "imprisoned it in the halls below their city, believing it to be too weak to rise ever again.";
+    private static final String TXT_DESC = "Yog-Dzewa is an Old God, a powerful entity from the realms of chaos. A century ago, the ancient dwarves barely won the war against its army of demons, but were unable to kill the god itself. Instead, they then imprisoned it in the halls below their city, believing it to be too weak to rise ever again.";
 
     @Override
     public float awareness() {

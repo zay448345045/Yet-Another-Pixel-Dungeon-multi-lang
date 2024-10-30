@@ -113,9 +113,6 @@ public class WandOfSmiting extends WandCombat {
 
     @Override
     public String desc() {
-        return
-                "This gilded piece of wood allows its user to channel and release bursts of hallowed " +
-                        "energy, harming and sometimes even blinding any wrongdoer caught in its area of " +
-                        "effect. Its effects are even stronger against undead or magical foes.";
+        return "This gilded piece of wood allows its user to channel and release bursts of hallowed energy, harming and sometimes even blinding any wrongdoer caught in its area of effect. Its effects are even stronger against undead or magical foes.";
     }
 }

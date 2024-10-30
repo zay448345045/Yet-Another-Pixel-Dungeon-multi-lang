@@ -55,10 +55,7 @@ public class PotionSash extends Bag {
 
     @Override
     public String info() {
-        return
-                "You can store a significant number of potions in the curiously made containers " +
-                        "which go around this wondrous sash. It would not only save room in your backpack, " +
-                        "but also protect these potions from breaking.";
+        return "You can store a significant number of potions in the curiously made containers which go around this wondrous sash. It would not only save room in your backpack, but also protect these potions from breaking.";
     }
 
     @Override

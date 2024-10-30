@@ -27,8 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndMessage;
 
 public class Sign {
 
-    private static final String TXT_DEAD_END =
-            "What are you doing here?!";
+    private static final String TXT_DEAD_END = "What are you doing here?!";
 
     private static final String[] TIPS = {
 
@@ -80,8 +79,7 @@ public class Sign {
 //                "\n\ni think i shall remove you from the board"
     };
 
-    private static final String TXT_NOMESSAGE =
-            "Whatever was written here is incomprehensible.";
+    private static final String TXT_NOMESSAGE = "Whatever was written here is incomprehensible.";
 
     //	public static void read( int pos ) {
     public static void read() {

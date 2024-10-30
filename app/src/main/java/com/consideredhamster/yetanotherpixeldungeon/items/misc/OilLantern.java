@@ -304,17 +304,7 @@ public class OilLantern extends Item {
 
     @Override
     public String info() {
-        return
-                "This lamp from a hardened glass is an indispensable item in the dungeon, which is " +
-                        "notorious for its poor ambient lighting. Even in the darkest of dungeons, this simple " +
-                        "device can illuminate your way, provided that you've got oil flasks to keep it " +
-                        "alight.\n\n" +
-                        (isActivated() ?
-                                "This small lantern shines vigorously, brighting your day. " :
-                                "This small lantern is snuffed out, waiting for its moment to shine. "
-                        ) +
-                        "You have " + (charge / 10.0) + " oz of oil left and " + flasks + " spare flask" +
-                        (flasks != 1 ? "s" : "") + " remaining.";
+        return "This lamp from a hardened glass is an indispensable item in the dungeon, which is notorious for its poor ambient lighting. Even in the darkest of dungeons, this simple device can illuminate your way, provided that you've got oil flasks to keep it alight.\n\n" + (isActivated() ? "This small lantern shines vigorously, brighting your day. " : "This small lantern is snuffed out, waiting for its moment to shine. ") + "You have " + (charge / 10.0) + " oz of oil left and " + flasks + " spare flask" + (flasks != 1 ? "s" : "") + " remaining.";
     }
 
     public static class OilFlask extends Item {
@@ -353,9 +343,7 @@ public class OilLantern extends Item {
 
         @Override
         public String info() {
-            return
-                    "This container holds 10 oz of lantern oil. You can use it to " +
-                            "refill your lantern or pour on something to burn it.";
+            return "This container holds 10 oz of lantern oil. You can use it to refill your lantern or pour on something to burn it.";
         }
     }
 

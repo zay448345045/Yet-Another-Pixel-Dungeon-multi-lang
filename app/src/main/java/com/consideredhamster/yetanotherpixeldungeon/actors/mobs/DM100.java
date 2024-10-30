@@ -126,9 +126,6 @@ public class DM100 extends MobHealthy {
 
     @Override
     public String description() {
-        return
-                "These machines were created by Dwarves several centuries ago. Later, Dwarves started to replace machines with " +
-                        "golems, elementals and even demons. Eventually it led their civilization to the decline. The DM-100 and larger " +
-                        "machines were typically used for construction and mining, and in some cases, for city defense.";
+        return "These machines were created by Dwarves several centuries ago. Later, Dwarves started to replace machines with golems, elementals and even demons. Eventually it led their civilization to the decline. The DM-100 and larger machines were typically used for construction and mining, and in some cases, for city defense.";
     }
 }

@@ -69,8 +69,7 @@ public class Doomed extends Debuff {
 
     @Override
     public String description() {
-        return "You're doomed. Simple as that. When the duration of this effect will end, you'll " +
-                "die on the spot. Have a fun death!";
+        return "You're doomed. Simple as that. When the duration of this effect will end, you'll die on the spot. Have a fun death!";
     }
 
     @Override

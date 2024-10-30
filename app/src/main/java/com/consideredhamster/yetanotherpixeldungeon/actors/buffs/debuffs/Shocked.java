@@ -67,9 +67,7 @@ public class Shocked extends Debuff {
 
     @Override
     public String description() {
-        return "Lightning coarses through your body, waiting for a moment to be released - being " +
-                "zapped again or stepping into water will discharge it, knocking your weapons out " +
-                "of your hands. Also, your wands are way less reliable because of the static charge.";
+        return "Lightning coarses through your body, waiting for a moment to be released - being zapped again or stepping into water will discharge it, knocking your weapons out of your hands. Also, your wands are way less reliable because of the static charge.";
     }
 
     @Override

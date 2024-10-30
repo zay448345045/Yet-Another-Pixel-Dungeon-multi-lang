@@ -192,10 +192,7 @@ public abstract class Scroll extends Item {
 
     @Override
     public String info() {
-        return isTypeKnown() ?
-                desc() :
-                "This parchment is covered with indecipherable writing, and bears a title " +
-                        "of rune " + rune + ". Who knows what it will do when read aloud?";
+        return isTypeKnown() ? desc() : "This parchment is covered with indecipherable writing, and bears a title " + "of rune " + rune + ". Who knows what it will do when read aloud?";
     }
 
     public static HashSet<Class<? extends Scroll>> getKnown() {

@@ -44,9 +44,7 @@ public class PotionOfConfusionGas extends Potion {
 
     @Override
     public String desc() {
-        return "Upon exposure to open air, the liquid in this flask will vaporize " +
-                "into a confusing chromatic haze. Anyone who inhales the cloud will be disoriented " +
-                "instantly.";
+        return "Upon exposure to open air, the liquid in this flask will vaporize into a confusing chromatic haze. Anyone who inhales the cloud will be disoriented instantly.";
     }
 
     @Override

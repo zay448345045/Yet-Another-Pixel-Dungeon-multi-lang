@@ -139,10 +139,7 @@ public class Wraith extends MobRanged {
 
     @Override
     public String description() {
-        return
-                "A wraith is a vengeful spirit of a sinner, whose grave or tomb was disturbed. Being " +
-                        "an ethereal entity it bypasses any armor with its attacks while being partially " +
-                        "immune to conventional weapons itself.";
+        return "A wraith is a vengeful spirit of a sinner, whose grave or tomb was disturbed. Being an ethereal entity it bypasses any armor with its attacks while being partially immune to conventional weapons itself.";
     }
 
 

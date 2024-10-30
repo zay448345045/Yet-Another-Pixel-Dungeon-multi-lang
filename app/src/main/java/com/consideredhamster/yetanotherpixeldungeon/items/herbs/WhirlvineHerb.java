@@ -67,11 +67,7 @@ public class WhirlvineHerb extends Herb {
 
     @Override
     public String desc() {
-        return "It is a pretty well-known fact that stalks of Whirlvines can be used to predict " +
-                "stormy weather, and they are often associated with winds and lightning." +
-                "\n\n" +
-                "These herbs are used to brew potions of _Thunderstorm_, _Levitation_ and _Toxic Gas_. " +
-                "Consuming them will grant a short buff to your _shock_ resistance.";
+        return "It is a pretty well-known fact that stalks of Whirlvines can be used to predict stormy weather, and they are often associated with winds and lightning.\n\nThese herbs are used to brew potions of _Thunderstorm_, _Levitation_ and _Toxic Gas_. Consuming them will grant a short buff to your _shock_ resistance.";
     }
 
     public static class SourMeat extends MeatStewed {
@@ -90,8 +86,7 @@ public class WhirlvineHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with a _Whirlvine_ herb. It smells pretty sour. " +
-                    "Consuming it will grant a long buff to your _shock_ resistance.";
+            return "This meat was stewed in a pot with a _Whirlvine_ herb. It smells pretty sour. Consuming it will grant a long buff to your _shock_ resistance.";
         }
 
         @Override

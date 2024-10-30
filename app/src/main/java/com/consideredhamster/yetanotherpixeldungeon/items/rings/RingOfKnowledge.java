@@ -68,9 +68,7 @@ public class RingOfKnowledge extends Ring {
     public class Knowledge extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "You feel that your mind starts working better, your memory improves." :
-                    "You start feeling stupid. It is like something prevents you from thinking clearly.";
+            return bonus >= 0 ? "You feel that your mind starts working better, your memory improves." : "You start feeling stupid. It is like something prevents you from thinking clearly.";
         }
     }
 }

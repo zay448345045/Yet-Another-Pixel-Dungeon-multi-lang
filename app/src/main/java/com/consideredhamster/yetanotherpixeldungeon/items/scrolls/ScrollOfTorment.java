@@ -93,13 +93,7 @@ public class ScrollOfTorment extends Scroll {
 
     @Override
     public String desc() {
-        return
-                "Upon reading this parchment, mind-tearing flash of pain will affect all the " +
-                        "present creatures in the field of view, harming them and making them flee. " +
-                        "The user of this scroll is only partially affected by this effect, and higher " +
-                        "magic skill allows to diminish this backlash even further." +
-                        "\n\nPower of these effects depend on magic skill of the reader and current " +
-                        "health of the target.";
+        return "Upon reading this parchment, mind-tearing flash of pain will affect all the present creatures in the field of view, harming them and making them flee. The user of this scroll is only partially affected by this effect, and higher magic skill allows to diminish this backlash even further.\n\nPower of these effects depend on magic skill of the reader and current health of the target.";
     }
 
     @Override

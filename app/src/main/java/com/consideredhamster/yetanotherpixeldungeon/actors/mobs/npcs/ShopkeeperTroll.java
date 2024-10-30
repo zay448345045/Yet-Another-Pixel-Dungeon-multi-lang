@@ -39,8 +39,6 @@ public class ShopkeeperTroll extends Shopkeeper {
 
     @Override
     public String description() {
-        return
-                "This troll looks like all trolls look: he is tall and lean, and his skin resembles stone " +
-                        "in both color and texture. You haven't seen many trolls owning a shop, though.";
+        return "This troll looks like all trolls look: he is tall and lean, and his skin resembles stone in both color and texture. You haven't seen many trolls owning a shop, though.";
     }
 }

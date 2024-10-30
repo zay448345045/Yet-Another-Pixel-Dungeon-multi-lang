@@ -65,8 +65,7 @@ public class Tormented extends Debuff {
 
     @Override
     public String description() {
-        return "Terrifying magic fills your mind with pain. Your ranged attacks become very " +
-                "unreliable, and attacking in melee is not even an option. RUN!";
+        return "Terrifying magic fills your mind with pain. Your ranged attacks become very unreliable, and attacking in melee is not even an option. RUN!";
     }
 
     @Override

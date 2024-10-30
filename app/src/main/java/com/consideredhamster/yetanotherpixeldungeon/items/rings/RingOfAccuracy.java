@@ -71,9 +71,7 @@ public class RingOfAccuracy extends Ring {
     public class Accuracy extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "You feel that your fighting prowess is enhanced." :
-                    "You feel that your fighting prowess is dulled.";
+            return bonus >= 0 ? "You feel that your fighting prowess is enhanced." : "You feel that your fighting prowess is dulled.";
         }
     }
 }

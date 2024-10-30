@@ -80,9 +80,7 @@ public class RingOfWillpower extends Ring {
     public class Willpower extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "Your arcane proficiency is improved." :
-                    "Your arcane proficiency is decreased.";
+            return bonus >= 0 ? "Your arcane proficiency is improved." : "Your arcane proficiency is decreased.";
         }
     }
 }

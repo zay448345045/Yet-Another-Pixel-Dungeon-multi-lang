@@ -58,7 +58,6 @@ public class Blinded extends Debuff {
 
     @Override
     public String description() {
-        return "Your eyes are unable to perceive anything further than a length of your hand. Your " +
-                "attack and perception is decreased, and you are unable to read scrolls.";
+        return "Your eyes are unable to perceive anything further than a length of your hand. Your attack and perception is decreased, and you are unable to read scrolls.";
     }
 }

@@ -81,9 +81,7 @@ public class RingOfVitality extends Ring {
     public class Vitality extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ?
-                    "Warm feeling rushes down your veins, soothing the pain in your wounds." :
-                    "Feeling of discomfort fills your body, making you feel sick.";
+            return bonus >= 0 ? "Warm feeling rushes down your veins, soothing the pain in your wounds." : "Feeling of discomfort fills your body, making you feel sick.";
         }
     }
 }

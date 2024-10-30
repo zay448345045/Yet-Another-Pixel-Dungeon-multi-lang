@@ -33,34 +33,11 @@ import com.watabou.utils.PointF;
 
 public class AboutScene extends PixelScene {
 
-    private static final String TITLE =
-            "Yet Another Pixel Dungeon";
+    private static final String TITLE = "Yet Another Pixel Dungeon";
 
-    private static final String TXT_PART1 =
-            "Mod author:\n" +
-                    "\u007F ConsideredHamster\n" +
-                    "\n" +
-                    "Additional code:\n" +
-                    "\u007F RavenWolf\n" +
-                    "\n" +
-                    "Additional music:\n" +
-                    "\u007F Jivvy\n" +
-                    "\n" +
-                    "Main editor:\n" +
-                    "\u007F Inevielle";
+    private static final String TXT_PART1 = "Mod author:\n\u007F ConsideredHamster\n\nAdditional code:\n\u007F RavenWolf\n\nAdditional music:\n\u007F Jivvy\n\nMain editor:\n\u007F Inevielle";
 
-    private static final String TXT_PART2 =
-
-            "Additional sprites:\n" +
-                    "\n" +
-                    "\u007F ConsideredHamster\n" +
-                    "\u007F Bgnu-Thun\n" +
-                    "\u007F PavelProvotorov\n" +
-                    "\u007F JleHuBbluKoT\n" +
-                    "\u007F RavenWolf\n" +
-                    "\n" +
-                    "Original game made by:\n" +
-                    "\u007F Watabou & Cube_Code";
+    private static final String TXT_PART2 = "Additional sprites:\n\n\u007F ConsideredHamster\n\u007F Bgnu-Thun\n\u007F PavelProvotorov\n\u007F JleHuBbluKoT\n\u007F RavenWolf\n\nOriginal game made by:\n\u007F Watabou & Cube_Code";
 
     @Override
     public void create() {

@@ -67,9 +67,7 @@ public class PotionOfCausticOoze extends Potion {
 
     @Override
     public String desc() {
-        return
-                "Uncorking or shattering this pressurized glass will cause its contents to explode " +
-                        "into a deadly vapours, which will cover everything around in a highly caustic ooze.";
+        return "Uncorking or shattering this pressurized glass will cause its contents to explode into a deadly vapours, which will cover everything around in a highly caustic ooze.";
     }
 
     @Override

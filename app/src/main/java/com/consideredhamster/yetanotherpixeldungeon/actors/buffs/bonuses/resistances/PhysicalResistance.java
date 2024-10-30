@@ -57,7 +57,6 @@ public class PhysicalResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "Somehow your entire skin becomes much tougher without affecting your mobility. " +
-                "Your resistance to physical damage is partially increased.";
+        return "Somehow your entire skin becomes much tougher without affecting your mobility. Your resistance to physical damage is partially increased.";
     }
 }

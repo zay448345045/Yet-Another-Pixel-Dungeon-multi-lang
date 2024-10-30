@@ -130,8 +130,6 @@ public class GnollBrute extends MobPrecise {
 
     @Override
     public String description() {
-        return
-                "Brutes are the largest, strongest and toughest of all gnolls. They are dumb, " +
-                        "but very ferocious fighters. They can become temporarily enraged when injured enough.";
+        return "Brutes are the largest, strongest and toughest of all gnolls. They are dumb, but very ferocious fighters. They can become temporarily enraged when injured enough.";
     }
 }

@@ -41,9 +41,7 @@ public class MindVision extends Bonus {
 
     @Override
     public String playerMessage() {
-        return Dungeon.level.mobs.size() > 0 ?
-                "You can somehow feel the presence of other creatures' minds!" :
-                "You can somehow tell that you are alone on this level at the moment.";
+        return Dungeon.level.mobs.size() > 0 ? "You can somehow feel the presence of other creatures' minds!" : "You can somehow tell that you are alone on this level at the moment.";
     }
 
     @Override
@@ -59,9 +57,7 @@ public class MindVision extends Bonus {
 
     @Override
     public String description() {
-        return "Woah, dude... Your mind feels completely open and connected to the minds of other " +
-                "creatures on the current floor. This makes it possible for you to see their positions, " +
-                "and increases your awareness.";
+        return "Woah, dude... Your mind feels completely open and connected to the minds of other creatures on the current floor. This makes it possible for you to see their positions, and increases your awareness.";
     }
 
     @Override

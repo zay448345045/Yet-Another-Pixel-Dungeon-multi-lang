@@ -447,11 +447,7 @@
 
       @Override
       public String description() {
-          return
-                  "The last king of dwarves was known for a deep understanding of the processes of life " +
-                          "and death. He had persuaded the members of his court to participate in a ritual that " +
-                          "should have granted them eternal youth. In the end, he was the only one who got it, " +
-                          "with an army of undead as a bonus.";
+          return "The last king of dwarves was known for a deep understanding of the processes of life and death. He had persuaded the members of his court to participate in a ritual that should have granted them eternal youth. In the end, he was the only one who got it, with an army of undead as a bonus.";
       }
 
       public void sacrificeMinion(Mob mob) {

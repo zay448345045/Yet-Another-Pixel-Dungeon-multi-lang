@@ -283,20 +283,15 @@ public class Satiety extends Buff {
     @Override
     public String description() {
         if (remaining <= STARVING_FULL) {
-            return "You desperately crave for food! Your health is drained even faster, and it will " +
-                    "eventually kill you if you don't eat something. Even herbs will do.";
+            return "You desperately crave for food! Your health is drained even faster, and it will eventually kill you if you don't eat something. Even herbs will do.";
         } else if (remaining <= STARVING_HALF) {
-            return "Starvation got worse! You slowly lose your health and if you will not find any " +
-                    "food soon, starvation will become unbearable.";
+            return "Starvation got worse! You slowly lose your health and if you will not find any food soon, starvation will become unbearable.";
         } else if (remaining <= STARVING) {
-            return "You are starving! Your health regeneration is stopped completely and soon it " +
-                    "will start to become painful if you will not find something to eat.";
+            return "You are starving! Your health regeneration is stopped completely and soon it will start to become painful if you will not find something to eat.";
         } else if (remaining <= PARTIAL) {
-            return "You are hungry, which decreases your health regeneration rate by half. Better " +
-                    "stop to have some quick snack if you have any.";
+            return "You are hungry, which decreases your health regeneration rate by half. Better stop to have some quick snack if you have any.";
         } else if (remaining > DEFAULT) {
-            return "Your stomach is full! This makes you feel good, and increases your health " +
-                    "regeneration rate by half.";
+            return "Your stomach is full! This makes you feel good, and increases your health regeneration rate by half.";
         } else {
             return "";
         }

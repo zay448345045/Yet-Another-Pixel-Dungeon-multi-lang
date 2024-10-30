@@ -51,9 +51,7 @@ public abstract class Ring extends EquipableItem {
     private static final String TXT_IDENTIFY_CURSED = "you are now familiar enough with your %s to identify it. It is %s -%d.";
 
     private static final String TXT_UNEQUIP_TITLE = "Unequip one ring";
-    private static final String TXT_UNEQUIP_MESSAGE =
-            "You can only wear two rings at a time. " +
-                    "Unequip one of your equipped rings.";
+    private static final String TXT_UNEQUIP_MESSAGE = "You can only wear two rings at a time. Unequip one of your equipped rings.";
 
     protected Buff buff;
 

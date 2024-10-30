@@ -63,8 +63,7 @@ public class Withered extends Debuff {
 
     @Override
     public String description() {
-        return "Touch of unholy magic corrupted your body, weakening your weapons and armor. " +
-                "Means of recovery such as healing and recharging are hindered as well.";
+        return "Touch of unholy magic corrupted your body, weakening your weapons and armor. Means of recovery such as healing and recharging are hindered as well.";
     }
 
 }

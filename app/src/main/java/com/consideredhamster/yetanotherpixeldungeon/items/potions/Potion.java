@@ -49,10 +49,8 @@ public abstract class Potion extends Item {
     private static final String TXT_BENEFICIAL = "Beneficial potion";
     private static final String TXT_YES = "Yes, I know what I'm doing";
     private static final String TXT_NO = "No, I changed my mind";
-    private static final String TXT_R_U_SURE_DRINK =
-            "Are you sure you want to drink it? In most cases you should throw such potions at your enemies.";
-    private static final String TXT_R_U_SURE_THROW =
-            "Are you sure you want to throw it? In most cases it makes sense to drink it.";
+    private static final String TXT_R_U_SURE_DRINK = "Are you sure you want to drink it? In most cases you should throw such potions at your enemies.";
+    private static final String TXT_R_U_SURE_THROW = "Are you sure you want to throw it? In most cases it makes sense to drink it.";
 
     private static final String TXT_IDENTIFIED = "You now know that %s color signifies a %s!";
 
@@ -307,10 +305,7 @@ public abstract class Potion extends Item {
 
     @Override
     public String info() {
-        return isTypeKnown() ?
-                desc() :
-                "This flask contains a swirling " + color + " liquid. " +
-                        "Who knows what it will do when drunk or thrown?";
+        return isTypeKnown() ? desc() : "This flask contains a swirling " + color + " liquid. Who knows what it will do when drunk or thrown?";
     }
 
 

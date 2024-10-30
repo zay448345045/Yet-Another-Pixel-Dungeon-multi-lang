@@ -144,10 +144,7 @@ public class Blackguard extends MobHealthy {
 
     @Override
     public String description() {
-        return
-                "These demonic juggernauts are a pure embodiment of unrelenting rage. Their skin harder " +
-                        "than any armor, they instead bind their bodies with heavy chains, which can also be " +
-                        "used to pull their victims closer before pounding them to death with their bare fists.";
+        return "These demonic juggernauts are a pure embodiment of unrelenting rage. Their skin harder than any armor, they instead bind their bodies with heavy chains, which can also be used to pull their victims closer before pounding them to death with their bare fists.";
     }
 
 }

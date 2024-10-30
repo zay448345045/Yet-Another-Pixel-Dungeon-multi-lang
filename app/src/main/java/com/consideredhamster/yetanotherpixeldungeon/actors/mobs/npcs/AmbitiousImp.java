@@ -62,28 +62,13 @@ public class AmbitiousImp extends NPC {
         spriteClass = AmbitiousImpSprite.class;
     }
 
-    private static final String TXT_GOLEMS1 =
-            "Are you an adventurer? I love adventurers! You can always rely on them " +
-                    "if something needs to be killed. Am I right? For a bounty, of course ;)\n" +
-                    "In my case this is _golems_ who need to be killed. You see, I'm going to start a " +
-                    "little business here, but these stupid golems are bad for business! " +
-                    "It's very hard to negotiate with wandering lumps of granite, damn them! " +
-                    "So please, kill... let's say _6 of them_ and a reward is yours.";
+    private static final String TXT_GOLEMS1 = "Are you an adventurer? I love adventurers! You can always rely on them if something needs to be killed. Am I right? For a bounty, of course ;)\nIn my case this is _golems_ who need to be killed. You see, I'm going to start a little business here, but these stupid golems are bad for business! It's very hard to negotiate with wandering lumps of granite, damn them! So please, kill... let's say _6 of them_ and a reward is yours.";
 
-    private static final String TXT_MONKS1 =
-            "Are you an adventurer? I love adventurers! You can always rely on them " +
-                    "if something needs to be killed. Am I right? For a bounty, of course ;)\n" +
-                    "In my case this is _monks_ who need to be killed. You see, I'm going to start a " +
-                    "little business here, but these lunatics don't buy anything themselves and " +
-                    "will scare away other customers. " +
-                    "So please, kill... let's say _8 of them_ and a reward is yours.";
+    private static final String TXT_MONKS1 = "Are you an adventurer? I love adventurers! You can always rely on them if something needs to be killed. Am I right? For a bounty, of course ;)\nIn my case this is _monks_ who need to be killed. You see, I'm going to start a little business here, but these lunatics don't buy anything themselves and will scare away other customers. So please, kill... let's say _8 of them_ and a reward is yours.";
 
-    private static final String TXT_GOLEMS2 =
-            "How is your golem safari going?";
+    private static final String TXT_GOLEMS2 = "How is your golem safari going?";
 
-    private static final String TXT_MONKS2 =
-            "Oh, you are still alive! I knew that your kung-fu is stronger ;) " +
-                    "Just don't forget to grab these monks' tokens.";
+    private static final String TXT_MONKS2 = "Oh, you are still alive! I knew that your kung-fu is stronger ;) Just don't forget to grab these monks' tokens.";
 
     private static final String TXT_CYA = "See you, %s!";
     private static final String TXT_HEY = "Psst, %s!";
@@ -172,9 +157,7 @@ public class AmbitiousImp extends NPC {
 
     @Override
     public String description() {
-        return
-                "Imps are lesser demons. They are notable neither for their strength nor their magic talent, but for their cruelty " +
-                        "and greed. However, some of them are actually quite smart and sociable. This one looks quite friendly, for example.";
+        return "Imps are lesser demons. They are notable neither for their strength nor their magic talent, but for their cruelty and greed. However, some of them are actually quite smart and sociable. This one looks quite friendly, for example.";
     }
 
     public static class Quest {

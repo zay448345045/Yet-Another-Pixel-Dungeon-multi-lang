@@ -106,10 +106,7 @@ public class GiantSpider extends MobHealthy {
 
     @Override
     public String description() {
-        return
-                "These overgrown subterranean spiders try to avoid direct combat, preferring to poison " +
-                        "their target and then run away. Their abdomens store large amounts of web, which is " +
-                        "usually used to wrap up their prey after it succumbs to their venom.";
+        return "These overgrown subterranean spiders try to avoid direct combat, preferring to poison their target and then run away. Their abdomens store large amounts of web, which is usually used to wrap up their prey after it succumbs to their venom.";
     }
 
     private class Fleeing extends Mob.Fleeing {

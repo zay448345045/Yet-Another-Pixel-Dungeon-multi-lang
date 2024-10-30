@@ -58,22 +58,15 @@ public abstract class EquipableItem extends Item {
 
     private static final String TXT_ITEM_IS_CURSED = "This item is cursed!";
 
-    private static final String TXT_R_U_SURE =
-            "You are aware that this item is cursed. Once equipped, it would be impossible to " +
-                    "remove until the curse is removed. Are you really sure you want to equip it?";
+    private static final String TXT_R_U_SURE = "You are aware that this item is cursed. Once equipped, it would be impossible to remove until the curse is removed. Are you really sure you want to equip it?";
 
     private static final String TXT_ITEM_IS_HEAVY = "This item is heavy!";
 
-    private static final String TXT_R_U_SURE_HEAVY =
-            "This item seems to be heavier than your current Strength. Once equipped, it may " +
-                    "severely decrease your combat proficiency. Are you really sure you want to equip it?";
+    private static final String TXT_R_U_SURE_HEAVY = "This item seems to be heavier than your current Strength. Once equipped, it may severely decrease your combat proficiency. Are you really sure you want to equip it?";
 
     protected static final String TXT_ITEM_IS_INCOMPATIBLE = "This item is incompatible!";
 
-    protected static final String TXT_R_U_SURE_INCOMPATIBLE =
-            "You are aware that this item is not compatible with your current gear, and will " +
-                    "require additional strength to be properly wielded. Once equipped, it may decrease " +
-                    "your combat proficiency. Are you really sure you want to equip it?";
+    protected static final String TXT_R_U_SURE_INCOMPATIBLE = "You are aware that this item is not compatible with your current gear, and will require additional strength to be properly wielded. Once equipped, it may decrease your combat proficiency. Are you really sure you want to equip it?";
 
     protected static final String TXT_YES = "Yes, I know what I'm doing";
     protected static final String TXT_NO = "No, I changed my mind";

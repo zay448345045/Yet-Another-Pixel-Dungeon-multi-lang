@@ -32,20 +32,14 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndBag;
 
 public class ScrollOfUpgrade extends InventoryScroll {
 
-    private static final String TXT_KNOWN_UPGRADED =
-            "your %s looks much better now!";
-    private static final String TXT_KNOWN_REPAIRED =
-            "your %s can't be upgraded any further, but it looks a bit better now.";
+    private static final String TXT_KNOWN_UPGRADED = "your %s looks much better now!";
+    private static final String TXT_KNOWN_REPAIRED = "your %s can't be upgraded any further, but it looks a bit better now.";
 
-    private static final String TXT_UNKNW_REPAIRED =
-            "your %s looks a bit better now. But maybe you should have identified it first?";
-    private static final String TXT_UNKNW_WHOKNOWS =
-            "your %s doesn't look different. Maybe you should have identified it first?";
+    private static final String TXT_UNKNW_REPAIRED = "your %s looks a bit better now. But maybe you should have identified it first?";
+    private static final String TXT_UNKNW_WHOKNOWS = "your %s doesn't look different. Maybe you should have identified it first?";
 
-    private static final String TXT_CURSE_WEAKENED =
-            "your %s was cursed, but now the curse seems to be weaker.";
-    private static final String TXT_CURSE_DISPELLED =
-            "your %s was cursed, but now the curse seems to be removed.";
+    private static final String TXT_CURSE_WEAKENED = "your %s was cursed, but now the curse seems to be weaker.";
+    private static final String TXT_CURSE_DISPELLED = "your %s was cursed, but now the curse seems to be removed.";
 
     {
         name = "Scroll of Upgrade";
@@ -104,12 +98,7 @@ public class ScrollOfUpgrade extends InventoryScroll {
 
     @Override
     public String desc() {
-        return
-                "This scroll will upgrade a single item, improving its quality. A wand will " +
-                        "increase in power and in number of charges; a weapon will inflict more damage " +
-                        "or find its mark more frequently; a suit of armor will deflect additional blows; " +
-                        "the effect of a ring on its wearer will intensify. Weapons and armor will also " +
-                        "require less strength to use.";
+        return "This scroll will upgrade a single item, improving its quality. A wand will increase in power and in number of charges; a weapon will inflict more damage or find its mark more frequently; a suit of armor will deflect additional blows; the effect of a ring on its wearer will intensify. Weapons and armor will also require less strength to use.";
     }
 
     @Override

@@ -61,23 +61,13 @@ public class Wandmaker extends NPC {
         spriteClass = WandmakerSprite.class;
     }
 
-    private static final String TXT_BERRY1 =
-            "Oh, what a pleasant surprise to meet a decent person in such place! I came here for a rare ingredient - " +
-                    "a _Rotberry seed_. Being a magic user, I'm quite able to defend myself against local monsters, " +
-                    "but I'm getting lost in no time, it's very embarrassing. Probably you could help me? I would be " +
-                    "happy to pay for your service with one of my best wands.";
+    private static final String TXT_BERRY1 = "Oh, what a pleasant surprise to meet a decent person in such place! I came here for a rare ingredient - a _Rotberry seed_. Being a magic user, I'm quite able to defend myself against local monsters, but I'm getting lost in no time, it's very embarrassing. Probably you could help me? I would be happy to pay for your service with one of my best wands.";
 
-    private static final String TXT_DUST1 =
-            "Oh, what a pleasant surprise to meet a decent person in such place! I came here for a rare ingredient - " +
-                    "_corpse dust_. It can be gathered from skeletal remains and there is an ample number of them in the dungeon. " +
-                    "Being a magic user, I'm quite able to defend myself against local monsters, but I'm getting lost in no time, " +
-                    "it's very embarrassing. Probably you could help me? I would be happy to pay for your service with one of my best wands.";
+    private static final String TXT_DUST1 = "Oh, what a pleasant surprise to meet a decent person in such place! I came here for a rare ingredient - _corpse dust_. It can be gathered from skeletal remains and there is an ample number of them in the dungeon. Being a magic user, I'm quite able to defend myself against local monsters, but I'm getting lost in no time, it's very embarrassing. Probably you could help me? I would be happy to pay for your service with one of my best wands.";
 
-    private static final String TXT_BERRY2 =
-            "Any luck with a Rotberry seed, %s? No? Don't worry, I'm not in a hurry.";
+    private static final String TXT_BERRY2 = "Any luck with a Rotberry seed, %s? No? Don't worry, I'm not in a hurry.";
 
-    private static final String TXT_DUST2 =
-            "Any luck with corpse dust, %s? Bone piles are the most obvious places to look.";
+    private static final String TXT_DUST2 = "Any luck with corpse dust, %s? Bone piles are the most obvious places to look.";
 
     @Override
     protected boolean act() {
@@ -128,9 +118,7 @@ public class Wandmaker extends NPC {
 
     @Override
     public String description() {
-        return
-                "This old but hale gentleman wears a slightly confused " +
-                        "expression. He is protected by a magic shield.";
+        return "This old but hale gentleman wears a slightly confused expression. He is protected by a magic shield.";
     }
 
     public static class Quest {

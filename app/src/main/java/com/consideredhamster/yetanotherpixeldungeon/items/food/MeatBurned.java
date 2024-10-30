@@ -35,8 +35,7 @@ public class MeatBurned extends Food {
 
     @Override
     public String desc() {
-        return "This piece of meat is covered in soot and grime. It is still edible, " +
-                "but it won't be as tasty or good for you as properly stewed meat.";
+        return "This piece of meat is covered in soot and grime. It is still edible, but it won't be as tasty or good for you as properly stewed meat.";
     }
 
     @Override

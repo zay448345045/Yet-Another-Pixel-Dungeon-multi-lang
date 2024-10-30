@@ -136,7 +136,6 @@ public class Honeypot extends Item {
 
     @Override
     public String info() {
-        return
-                "There is not much honey in this small honeypot, but there is a golden bee there and it doesn't want to leave it.";
+        return "There is not much honey in this small honeypot, but there is a golden bee there and it doesn't want to leave it.";
     }
 }

@@ -40,8 +40,6 @@ public class Quarterstaff extends MeleeWeaponHeavyOH {
 
     @Override
     public String desc() {
-        return "A staff of hardwood, its ends are shod with iron. Favourite weapon of spellcasters, " +
-                "as it allows easier channeling of magical energies, increasing effectiveness of " +
-                "any wands used by its wielder.";
+        return "A staff of hardwood, its ends are shod with iron. Favourite weapon of spellcasters, as it allows easier channeling of magical energies, increasing effectiveness of any wands used by its wielder.";
     }
 }

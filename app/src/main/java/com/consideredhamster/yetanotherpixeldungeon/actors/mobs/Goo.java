@@ -267,9 +267,7 @@ public class Goo extends MobEvasive {
 
     @Override
     public String description() {
-        return "Little is known about The Goo. It's quite possible that it is not even a creature, but rather a " +
-                "conglomerate of substances from the sewers that gained some kind of rudimentary, but very evil " +
-                "sentience.";
+        return "Little is known about The Goo. It's quite possible that it is not even a creature, but rather a conglomerate of substances from the sewers that gained some kind of rudimentary, but very evil sentience.";
     }
 
     private static final String PHASE = "phase";

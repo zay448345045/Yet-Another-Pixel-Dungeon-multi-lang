@@ -69,11 +69,7 @@ public class FirebloomHerb extends Herb {
 
     @Override
     public String desc() {
-        return "Charlatans sometimes used Firebloom herbs to impress crowds by being allegedly " +
-                "unaffected by lighted candles or hot coals. Now it is a pretty known trick." +
-                "\n\n" +
-                "These herbs are used to brew potions of _Liquid Flame_, _Blessing_ and _Rage_. " +
-                "Consuming them will remove _burning_ and grant a short buff to your _fire_ resistance.";
+        return "Charlatans sometimes used Firebloom herbs to impress crowds by being allegedly unaffected by lighted candles or hot coals. Now it is a pretty known trick.\n\nThese herbs are used to brew potions of _Liquid Flame_, _Blessing_ and _Rage_. Consuming them will remove _burning_ and grant a short buff to your _fire_ resistance.";
     }
 
     public static class SpicyMeat extends MeatStewed {
@@ -92,8 +88,7 @@ public class FirebloomHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with a _Firebloom_ herb. It smells pretty spicy. " +
-                    "Consuming it will remove _burning_ and grant a long buff to your _fire_ resistance.";
+            return "This meat was stewed in a pot with a _Firebloom_ herb. It smells pretty spicy. Consuming it will remove _burning_ and grant a long buff to your _fire_ resistance.";
         }
 
         @Override

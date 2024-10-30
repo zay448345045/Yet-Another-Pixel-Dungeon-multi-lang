@@ -83,9 +83,7 @@ public class CaveScorpion extends MobHealthy {
 
     @Override
     public String description() {
-        return
-                "These huge arachnid-like creatures pose a significant threat to any adventurer " +
-                        "due to a ability to inject acid with their tails.";
+        return "These huge arachnid-like creatures pose a significant threat to any adventurer due to a ability to inject acid with their tails.";
     }
 
 }

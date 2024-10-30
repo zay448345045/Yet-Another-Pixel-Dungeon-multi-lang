@@ -42,10 +42,7 @@ public class PotionOfShield extends Potion {
 
     @Override
     public String desc() {
-        return
-                "This potion is imbued with a powerful protective magic. Consuming it will temporarily " +
-                        "create a kind of force field around you, giving you both improved physical protection " +
-                        "and resistance to most sources of magical damage.";
+        return "This potion is imbued with a powerful protective magic. Consuming it will temporarily create a kind of force field around you, giving you both improved physical protection and resistance to most sources of magical damage.";
     }
 
 

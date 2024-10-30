@@ -66,10 +66,7 @@ public class WandOfMagicMissile extends WandCombat {
 
     @Override
     public String desc() {
-        return
-                "This wand's effect is quite simple, as it just launches bolts of pure magical energy. " +
-                        "These bolts may be affected by the target's armor or miss entirely, but they " +
-                        "partially compensate for this by being quite powerful.";
+        return "This wand's effect is quite simple, as it just launches bolts of pure magical energy. These bolts may be affected by the target's armor or miss entirely, but they partially compensate for this by being quite powerful.";
     }
 
 }

@@ -66,9 +66,7 @@ public class CarrionSwarm extends MobEvasive {
 
     @Override
     public String description() {
-        return
-                "The deadly swarm of flies buzzes angrily. These unclean foes " +
-                        "have uncanny sense of smell when it comes to anything edible.";
+        return "The deadly swarm of flies buzzes angrily. These unclean foes have uncanny sense of smell when it comes to anything edible.";
     }
 
     @Override

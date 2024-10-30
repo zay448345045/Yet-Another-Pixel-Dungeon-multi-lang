@@ -120,10 +120,7 @@ public class WandOfIceBarrier extends WandUtility {
 
     @Override
     public String desc() {
-        return
-                "A single zap from this rime-covered wand will attempt to create a short wall of ice " +
-                        "on the targeted spot. If the targeted tiles are occupied by someone,  it will instead " +
-                        "chill them to the bones. Effect of this wand is stronger when used on water tiles.";
+        return "A single zap from this rime-covered wand will attempt to create a short wall of ice on the targeted spot. If the targeted tiles are occupied by someone,  it will instead chill them to the bones. Effect of this wand is stronger when used on water tiles.";
     }
 
 //    private static class SecondaryListener implements CellSelector.Listener {
@@ -301,9 +298,7 @@ public class WandOfIceBarrier extends WandUtility {
 
         @Override
         public String description() {
-            return "This ice block was created by your wand of Ice Barrier. It slowly melts, " +
-                    "and can also be broken if damaged enough. You also can dispel the block " +
-                    "by interacting with it while holding your wand.";
+            return "This ice block was created by your wand of Ice Barrier. It slowly melts, and can also be broken if damaged enough. You also can dispel the block by interacting with it while holding your wand.";
         }
     }
 }

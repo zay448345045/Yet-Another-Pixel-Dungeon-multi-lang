@@ -54,8 +54,7 @@ public class Chasm {
     private static final String TXT_YES = "Yes, I know what I'm doing";
     private static final String TXT_NO = "No, I changed my mind";
     private static final String TXT_POTION = "Use potion of Levitation";
-    private static final String TXT_JUMP =
-            "Do you really want to jump into the chasm? You can probably die.";
+    private static final String TXT_JUMP = "Do you really want to jump into the chasm? You can probably die.";
 
     private static final String TXT_LANDS_SAFELY = "You safely land on the floor!";
     private static final String TXT_SHATTER_PACK = "Your %s has not survived the fall!";

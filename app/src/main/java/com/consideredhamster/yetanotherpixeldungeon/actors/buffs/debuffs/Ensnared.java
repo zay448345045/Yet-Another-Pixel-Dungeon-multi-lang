@@ -64,9 +64,7 @@ public class Ensnared extends Debuff {
 
     @Override
     public String description() {
-        return "You are ensnared and cannot move. Evading attacks is more difficult, and you are " +
-                "more likely to be noticed. You can try to break out, but this can attract unwanted " +
-                "attention.";
+        return "You are ensnared and cannot move. Evading attacks is more difficult, and you are more likely to be noticed. You can try to break out, but this can attract unwanted attention.";
     }
 
     @Override

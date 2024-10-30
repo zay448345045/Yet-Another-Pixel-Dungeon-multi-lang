@@ -47,7 +47,6 @@ public class Sling extends RangedWeaponMissile {
 
     @Override
     public String desc() {
-        return "A simple sling, made out of a several leather straps. With it, simple lead bullets " +
-                "can be turned into much deadlier projectiles.";
+        return "A simple sling, made out of a several leather straps. With it, simple lead bullets can be turned into much deadlier projectiles.";
     }
 }

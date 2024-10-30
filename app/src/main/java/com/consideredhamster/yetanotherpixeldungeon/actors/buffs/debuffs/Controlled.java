@@ -66,8 +66,7 @@ public class Controlled extends Debuff {
 
     @Override
     public String description() {
-        return "You are not supposed to be able to see description of this debuff, but if you " +
-                "somehow do, then it is just the same as Charmed, but for magical creatures.";
+        return "You are not supposed to be able to see description of this debuff, but if you somehow do, then it is just the same as Charmed, but for magical creatures.";
     }
 
     @Override

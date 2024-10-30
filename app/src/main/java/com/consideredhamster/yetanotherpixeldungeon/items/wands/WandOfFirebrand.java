@@ -121,9 +121,6 @@ public class WandOfFirebrand extends WandCombat {
 
     @Override
     public String desc() {
-        return
-                "Using this wand will release a single blast of flame. Using it on the ground, however, " +
-                        "creates a temporary fiery rune, which will explode when triggered by another object. " +
-                        "Repeated castings will enhance this rune, increasing its power, duration and area of effect.";
+        return "Using this wand will release a single blast of flame. Using it on the ground, however, creates a temporary fiery rune, which will explode when triggered by another object. Repeated castings will enhance this rune, increasing its power, duration and area of effect.";
     }
 }

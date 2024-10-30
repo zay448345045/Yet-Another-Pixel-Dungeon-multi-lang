@@ -37,8 +37,6 @@ public class ScaleArmor extends BodyArmorLight {
 
     @Override
     public String desc() {
-        return
-                "This armor miraculously combines protection of heavy armors and mobility of " +
-                        "light armors. Truly a work of a master.";
+        return "This armor miraculously combines protection of heavy armors and mobility of light armors. Truly a work of a master.";
     }
 }

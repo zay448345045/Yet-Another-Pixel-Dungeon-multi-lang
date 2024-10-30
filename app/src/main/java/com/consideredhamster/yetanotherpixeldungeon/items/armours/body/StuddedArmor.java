@@ -37,7 +37,6 @@ public class StuddedArmor extends BodyArmorLight {
 
     @Override
     public String desc() {
-        return "Armor made from tanned monster hide, reinforced with metal rivets. " +
-                "Not as light as cloth armor but provides better protection.";
+        return "Armor made from tanned monster hide, reinforced with metal rivets. Not as light as cloth armor but provides better protection.";
     }
 }

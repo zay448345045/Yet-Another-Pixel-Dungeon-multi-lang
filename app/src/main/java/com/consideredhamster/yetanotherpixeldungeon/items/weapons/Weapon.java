@@ -53,8 +53,7 @@ public abstract class Weapon extends EquipableItem {
 
     private static final int HITS_TO_KNOW = 10;
 
-    private static final String TXT_IDENTIFY =
-            "You are now familiar enough with your %s to identify it. It is %s.";
+    private static final String TXT_IDENTIFY = "You are now familiar enough with your %s to identify it. It is %s.";
     //	private static final String TXT_INCOMPATIBLE	=
 //		"Interaction of different types of magic has negated the enchantment on this weapon!";
     private static final String TXT_TO_STRING = "%s :%d";

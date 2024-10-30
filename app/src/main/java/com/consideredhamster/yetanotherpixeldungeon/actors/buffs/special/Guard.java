@@ -62,8 +62,7 @@ public class Guard extends BuffReactive {
 
     @Override
     public String description() {
-        return "You are standing in a defensive position, trying to block physical attacks. Every " +
-                "successful block will possibly expose your attacker to a powerful counterattack.";
+        return "You are standing in a defensive position, trying to block physical attacks. Every successful block will possibly expose your attacker to a powerful counterattack.";
     }
 
     public void reset(boolean withShield) {

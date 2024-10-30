@@ -69,13 +69,7 @@ public class FeyleafHerb extends Herb {
 
     @Override
     public String desc() {
-        return "Stories tell that the original Feyleaf was once a dryad, given a new form by the " +
-                "twin gods either as a reward or punishment. These herbs usually grow in secluded " +
-                "and secretive places and are essential for brewing some of the more curious potions." +
-                "\n\n" +
-                "These herbs are used to brew potions of _Invisibility_, _Levitation_ and _Wisdom_ " +
-                "when combined with other herbs, but cannot be brewed with another such herb. " +
-                "Consuming them will grant a short buff to your _magical_ resistance.";
+        return "Stories tell that the original Feyleaf was once a dryad, given a new form by the twin gods either as a reward or punishment. These herbs usually grow in secluded and secretive places and are essential for brewing some of the more curious potions.\n\nThese herbs are used to brew potions of _Invisibility_, _Levitation_ and _Wisdom_ when combined with other herbs, but cannot be brewed with another such herb. Consuming them will grant a short buff to your _magical_ resistance.";
     }
 
     public static class TenderMeat extends MeatStewed {
@@ -94,8 +88,7 @@ public class FeyleafHerb extends Herb {
 
         @Override
         public String desc() {
-            return "This meat was stewed in a pot with a _Feyleaf_ herb. It smells pretty good. " +
-                    "Consuming it will grant a long buff to your _magical_ resistance.";
+            return "This meat was stewed in a pot with a _Feyleaf_ herb. It smells pretty good. Consuming it will grant a long buff to your _magical_ resistance.";
         }
 
         @Override

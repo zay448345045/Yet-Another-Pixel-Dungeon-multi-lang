@@ -108,8 +108,7 @@ public class GnollHunter extends MobRanged {
     @Override
     public String description() {
 
-        return "Gnolls are hyena-like humanoids. Curiously, they are very rarely observed so " +
-                "close to a human settlements, preferring to dwell somewhere in wilderness.";
+        return "Gnolls are hyena-like humanoids. Curiously, they are very rarely observed so close to a human settlements, preferring to dwell somewhere in wilderness.";
     }
 
 }

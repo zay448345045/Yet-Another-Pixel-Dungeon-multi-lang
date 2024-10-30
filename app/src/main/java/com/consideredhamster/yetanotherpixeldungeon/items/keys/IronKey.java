@@ -60,8 +60,6 @@ public class IronKey extends Key {
 
     @Override
     public String info() {
-        return
-                "The notches on this ancient iron key are well worn; its leather lanyard " +
-                        "is battered by age. What door might it open?";
+        return "The notches on this ancient iron key are well worn; its leather lanyard is battered by age. What door might it open?";
     }
 }

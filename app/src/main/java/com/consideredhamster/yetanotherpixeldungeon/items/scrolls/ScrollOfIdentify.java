@@ -86,10 +86,7 @@ public class ScrollOfIdentify extends InventoryScroll {
 
     @Override
     public String desc() {
-        return
-                "Incantation etched on this scroll can bestow its reader with ability to perceive the " +
-                        "very nature of things, revealing their purposes and qualities. However, duration of " +
-                        "this spell is really short, so it is possible to assess only a single item with its help.";
+        return "Incantation etched on this scroll can bestow its reader with ability to perceive the very nature of things, revealing their purposes and qualities. However, duration of this spell is really short, so it is possible to assess only a single item with its help.";
     }
 
     public static boolean identify(Item... items) {

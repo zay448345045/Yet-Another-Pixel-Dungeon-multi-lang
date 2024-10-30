@@ -101,8 +101,6 @@ public class DwarfMonk extends MobEvasive {
 
     @Override
     public String description() {
-        return
-                "These monks are fanatics, who devoted themselves to protecting their city's secrets from all intruders. " +
-                        "They don't use any armor or weapons, relying solely on the art of hand-to-hand combat.";
+        return "These monks are fanatics, who devoted themselves to protecting their city's secrets from all intruders. They don't use any armor or weapons, relying solely on the art of hand-to-hand combat.";
     }
 }

@@ -95,10 +95,7 @@ public class ScrollOfChallenge extends Scroll {
 
     @Override
     public String desc() {
-        return
-                "When read aloud, this scroll will bless you with an unholy wrath, significantly " +
-                        "increasing strength of your blows for a limited time. However, it will also aggravate " +
-                        "all creatures on the level and reveal your position to them.";
+        return "When read aloud, this scroll will bless you with an unholy wrath, significantly increasing strength of your blows for a limited time. However, it will also aggravate all creatures on the level and reveal your position to them.";
     }
 
     @Override

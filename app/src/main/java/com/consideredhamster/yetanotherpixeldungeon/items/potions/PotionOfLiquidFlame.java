@@ -53,9 +53,7 @@ public class PotionOfLiquidFlame extends Potion {
 
     @Override
     public String desc() {
-        return
-                "This flask contains an unstable compound which will burst " +
-                        "violently into flame upon exposure to open air.";
+        return "This flask contains an unstable compound which will burst violently into flame upon exposure to open air.";
     }
 
     @Override

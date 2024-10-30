@@ -44,10 +44,8 @@ public class PotionOfBlessing extends Potion {
     public static final float DURATION = 25f;
     public static final float MODIFIER = 1.0f;
 
-    private static final String TXT_PROCCED =
-            "A cleansing light shines from above, and all malevolent magic nearby is weakened.";
-    private static final String TXT_NOT_PROCCED =
-            "A cleansing light shines from above, but nothing happens.";
+    private static final String TXT_PROCCED = "A cleansing light shines from above, and all malevolent magic nearby is weakened.";
+    private static final String TXT_NOT_PROCCED = "A cleansing light shines from above, but nothing happens.";
 
     {
         name = "Potion of Blessing";
@@ -114,10 +112,7 @@ public class PotionOfBlessing extends Potion {
 
     @Override
     public String desc() {
-        return
-                "This potion is imbued with great disruptive energy. Shattering it will bathe " +
-                        "everything near the point of impact in a cleansing light, removing curses and " +
-                        "harming creatures of purely magical origin.";
+        return "This potion is imbued with great disruptive energy. Shattering it will bathe everything near the point of impact in a cleansing light, removing curses and harming creatures of purely magical origin.";
     }
 
     public static boolean uncurse(int pos, Item... items) {

@@ -60,11 +60,7 @@ public class ScrollOfRaiseDead extends Scroll {
 
     @Override
     public String desc() {
-        return
-                "Malicious magics hidden within this scroll allow its reader to commune with unspeakable, " +
-                        "giving him or her an ability to summon a lost soul from the underworld. Be careful, " +
-                        "as it will eventually turn on its master!" +
-                        "\n\nDuration of controlling effect depends on magic skill of the reader.";
+        return "Malicious magics hidden within this scroll allow its reader to commune with unspeakable, giving him or her an ability to summon a lost soul from the underworld. Be careful, as it will eventually turn on its master!\n\nDuration of controlling effect depends on magic skill of the reader.";
     }
 
     @Override

@@ -52,7 +52,6 @@ public class FireResistance extends ElementResistance {
 
     @Override
     public String description() {
-        return "You feel an odd warmth inside, as if something was burning deep within you. " +
-                "Your resistance to fire damage is increased.";
+        return "You feel an odd warmth inside, as if something was burning deep within you. Your resistance to fire damage is increased.";
     }
 }

@@ -35,14 +35,8 @@ import com.watabou.noosa.BitmapTextMultiline;
 
 public class WndSadGhost extends Window {
 
-    private static final String TXT_ROSE =
-            "Yes! Yes!!! This is it! Please give it to me! " +
-                    "And you can take one of these items, maybe they " +
-                    "will be useful to you in your journey...";
-    private static final String TXT_RAT =
-            "Yes! The ugly creature is slain and I can finally rest... " +
-                    "Please take one of these items, maybe they " +
-                    "will be useful to you in your journey...";
+    private static final String TXT_ROSE = "Yes! Yes!!! This is it! Please give it to me! And you can take one of these items, maybe they will be useful to you in your journey...";
+    private static final String TXT_RAT = "Yes! The ugly creature is slain and I can finally rest... Please take one of these items, maybe they will be useful to you in your journey...";
     private static final String TXT_WEAPON = "Ghost's weapon";
     private static final String TXT_ARMOR = "Ghost's armor";
 

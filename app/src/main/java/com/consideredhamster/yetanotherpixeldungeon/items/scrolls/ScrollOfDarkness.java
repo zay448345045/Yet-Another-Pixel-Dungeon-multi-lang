@@ -56,11 +56,7 @@ public class ScrollOfDarkness extends Scroll {
 
     @Override
     public String desc() {
-        return
-                "Unnatural darkness from the deepest abysses is summoned by the call of this otherwise " +
-                        "unremarkable sheet of paper. This darkness is so thick that it nothing can see through it " +
-                        "without magical means." +
-                        "\n\nDuration of this effect depends on magic skill of the reader.";
+        return "Unnatural darkness from the deepest abysses is summoned by the call of this otherwise unremarkable sheet of paper. This darkness is so thick that it nothing can see through it without magical means.\n\nDuration of this effect depends on magic skill of the reader.";
     }
 
     @Override

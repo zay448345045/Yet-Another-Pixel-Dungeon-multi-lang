@@ -67,9 +67,7 @@ public class Corrosion extends Debuff {
 
     @Override
     public String description() {
-        return "Caustic ooze corrodes your armor and skin. This is not only painful, but also " +
-                "slowly damages your armor and makes it less effective for the duration of the " +
-                "effect. Use water to remove it as soon as possible!";
+        return "Caustic ooze corrodes your armor and skin. This is not only painful, but also slowly damages your armor and makes it less effective for the duration of the effect. Use water to remove it as soon as possible!";
     }
 
     @Override

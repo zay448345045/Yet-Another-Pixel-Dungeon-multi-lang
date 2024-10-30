@@ -129,7 +129,6 @@ public class Chakrams extends ThrowingWeaponLight {
 
     @Override
     public String desc() {
-        return "When used by a skilled user, this razor-edged disc can hit several targets at " +
-                "once and then return back to the hand from which it was thrown.";
+        return "When used by a skilled user, this razor-edged disc can hit several targets at once and then return back to the hand from which it was thrown.";
     }
 }

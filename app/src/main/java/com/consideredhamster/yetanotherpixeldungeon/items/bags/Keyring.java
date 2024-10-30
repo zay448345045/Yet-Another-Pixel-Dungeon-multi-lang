@@ -54,9 +54,7 @@ public class Keyring extends Bag {
 
     @Override
     public String info() {
-        return
-                "This is a copper keyring, that lets you keep all your keys " +
-                        "separately from the rest of your belongings.";
+        return "This is a copper keyring, that lets you keep all your keys separately from the rest of your belongings.";
     }
 
     @Override

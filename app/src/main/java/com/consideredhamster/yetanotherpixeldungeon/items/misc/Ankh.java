@@ -58,8 +58,7 @@ public class Ankh extends Item {
 
     @Override
     public String info() {
-        return
-                "The ancient symbol of immortality grants an ability to return to life after death. ";
+        return "The ancient symbol of immortality grants an ability to return to life after death. ";
     }
 
 

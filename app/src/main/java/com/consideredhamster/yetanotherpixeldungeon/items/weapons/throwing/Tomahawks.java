@@ -54,8 +54,6 @@ public class Tomahawks extends ThrowingWeaponHeavy {
 
     @Override
     public String desc() {
-        return
-                "These throwing axes are so heavy that on a successful throw they not only inflict " +
-                        "grievous wounds, but also push the target back for a short distance.";
+        return "These throwing axes are so heavy that on a successful throw they not only inflict grievous wounds, but also push the target back for a short distance.";
     }
 }

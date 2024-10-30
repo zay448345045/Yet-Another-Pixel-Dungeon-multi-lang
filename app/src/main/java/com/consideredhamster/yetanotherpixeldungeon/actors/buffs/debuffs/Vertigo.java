@@ -65,8 +65,7 @@ public class Vertigo extends Debuff {
 
     @Override
     public String description() {
-        return "Everything is spinning around you! Your movement can be erratic at times, you " +
-                "cannot concentrate, and your dexterity and perception are decreased.";
+        return "Everything is spinning around you! Your movement can be erratic at times, you cannot concentrate, and your dexterity and perception are decreased.";
     }
 
     @Override

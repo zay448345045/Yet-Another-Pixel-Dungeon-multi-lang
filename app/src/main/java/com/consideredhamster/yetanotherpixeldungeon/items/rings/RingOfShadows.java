@@ -20,8 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
-
 import java.util.Locale;
 
 public class RingOfShadows extends Ring {
@@ -39,8 +37,8 @@ public class RingOfShadows extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = Ml.g("items.rings.ringofshadows.maineffect");
-        String sideEffect = Ml.g("items.rings.ringofshadows.sideeffect");
+        String mainEffect = "??";
+        String sideEffect = "??";
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 3);
@@ -74,8 +72,7 @@ public class RingOfShadows extends Ring {
 
         @Override
         public String desc() {
-            return Ml.g("items.rings.ringofshadows.desc", (bonus >= 0 ? Suddenly, shadows thicken around you, obfuscating your presence. :
-            Suddenly, shadows bend around you, highlighting your presence.));
+            return bonus >= 0 ? "Suddenly, shadows thicken around you, obfuscating your presence." : "Suddenly, shadows bend around you, highlighting your presence.";
         }
     }
 }

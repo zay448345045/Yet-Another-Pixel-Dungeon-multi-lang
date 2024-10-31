@@ -20,8 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
-
 import java.util.Locale;
 
 public class RingOfAccuracy extends Ring {
@@ -39,8 +37,8 @@ public class RingOfAccuracy extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = Ml.g("items.rings.ringofaccuracy.maineffect");
-        String sideEffect = Ml.g("items.rings.ringofaccuracy.sideeffect");
+        String mainEffect = "??";
+        String sideEffect = "??";
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
@@ -73,8 +71,7 @@ public class RingOfAccuracy extends Ring {
     public class Accuracy extends RingBuff {
         @Override
         public String desc() {
-            return Ml.g("items.rings.ringofaccuracy.desc", (bonus >= 0 ? You feel that your fighting prowess is enhanced. :
-            You feel that your fighting prowess is dulled.));
+            return bonus >= 0 ? "You feel that your fighting prowess is enhanced." : "You feel that your fighting prowess is dulled.";
         }
     }
 }

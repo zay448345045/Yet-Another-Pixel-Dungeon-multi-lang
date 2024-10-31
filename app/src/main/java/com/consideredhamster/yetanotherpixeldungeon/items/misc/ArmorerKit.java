@@ -141,9 +141,7 @@ public class ArmorerKit extends Item {
 
     @Override
     public String info() {
-        return Ml.g("items.misc.armorerkit.info", (value > 2 ? three usages :{
-            0
-        }));
+        return "Using this kit of small tools and materials anybody can repair any armors (except cloth armors) or shields in a quite short amount of time.\nNo skills in tailoring, leatherworking or blacksmithing are required, but it has enough materials for only " + (value > 2 ? "three usages" : value < 2 ? "one usage" : "two usages") + ".";
     }
 
     @Override
@@ -153,7 +151,7 @@ public class ArmorerKit extends Item {
 
     @Override
     public String toString() {
-        return Ml.g("items.misc.armorerkit.tostring", UNKNOWN_EXPRESSION, status());
+        return super.toString() + " (" + status() + ")";
     }
 
     private final WndBag.Listener itemSelector = new WndBag.Listener() {

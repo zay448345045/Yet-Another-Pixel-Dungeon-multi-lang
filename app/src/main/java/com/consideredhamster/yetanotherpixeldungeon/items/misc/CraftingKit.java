@@ -140,9 +140,7 @@ public class CraftingKit extends Item {
 
     @Override
     public String info() {
-        return Ml.g("items.misc.craftingkit.info", (value > 2 ? three usages :{
-            0
-        }));
+        return Ml.g("items.misc.craftingkit.info", value);
     }
 
     @Override
@@ -152,7 +150,7 @@ public class CraftingKit extends Item {
 
     @Override
     public String toString() {
-        return Ml.g("items.misc.craftingkit.tostring", UNKNOWN_EXPRESSION, status());
+        return super.toString() + " (" + status() + ")";
     }
 
     private final WndBag.Listener itemSelector = new WndBag.Listener() {

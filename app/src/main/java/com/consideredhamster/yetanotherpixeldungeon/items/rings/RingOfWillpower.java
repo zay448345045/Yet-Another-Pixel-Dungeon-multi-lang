@@ -21,7 +21,6 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -47,8 +46,8 @@ public class RingOfWillpower extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = Ml.g("items.rings.ringofwillpower.maineffect");
-        String sideEffect = Ml.g("items.rings.ringofwillpower.sideeffect");
+        String mainEffect = "??";
+        String sideEffect = "??";
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
@@ -81,8 +80,7 @@ public class RingOfWillpower extends Ring {
     public class Willpower extends RingBuff {
         @Override
         public String desc() {
-            return Ml.g("items.rings.ringofwillpower.desc", (bonus >= 0 ? Your arcane proficiency is improved. :
-            Your arcane proficiency is decreased.));
+            return bonus >= 0 ? "Your arcane proficiency is improved." : "Your arcane proficiency is decreased.";
         }
     }
 }

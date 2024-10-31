@@ -20,8 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
-
 import java.util.Locale;
 
 public class RingOfEvasion extends Ring {
@@ -39,8 +37,8 @@ public class RingOfEvasion extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = Ml.g("items.rings.ringofevasion.maineffect");
-        String sideEffect = Ml.g("items.rings.ringofevasion.sideeffect");
+        String mainEffect = "??";
+        String sideEffect = "??";
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 2);
@@ -72,8 +70,7 @@ public class RingOfEvasion extends Ring {
     public class Evasion extends RingBuff {
         @Override
         public String desc() {
-            return Ml.g("items.rings.ringofevasion.desc", (bonus >= 0 ? You feel that your reflexes are improved. :
-            You feel that your reflexes are dampened.));
+            return bonus >= 0 ? "You feel that your reflexes are improved." : "You feel that your reflexes are dampened.";
         }
     }
 }

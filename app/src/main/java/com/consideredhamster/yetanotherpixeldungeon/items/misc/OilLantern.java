@@ -303,11 +303,10 @@ public class OilLantern extends Item {
         return Utils.format(TXT_STATUS, charge);
     }
 
+    //todo: when localizing strings, many languages simply does not have plurals or use completely different plural definitions, so all plural checks should be removed for simplicity sake
     @Override
     public String info() {
-        return Ml.g("items.misc.oillantern.info", (isActivated() ? This small lantern shines vigorously, brighting your day.  :
-        This small lantern is snuffed out, waiting for its moment to shine. ),
-        charge / 10.0, flasks, (flasks != 1 ? "s" : ""));
+        return Ml.g("items.misc.oillantern.info_1") + (isActivated() ? Ml.g("items.misc.oillantern.info_2") : Ml.g("items.misc.oillantern.info_3")) + Ml.g("items.misc.oillantern.info_4", charge / 10.0, flasks, "");
     }
 
     public static class OilFlask extends Item {

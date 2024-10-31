@@ -276,7 +276,7 @@ public abstract class Explosives extends Item {
 
         @Override
         public String info() {
-            return Ml.g("items.misc.explosives.info", powderMax);
+            return Ml.g("items.misc.explosives.info", BombStick.powderMax);
         }
 
         @Override
@@ -309,7 +309,7 @@ public abstract class Explosives extends Item {
 
         @Override
         public String info() {
-            return Ml.g("items.misc.explosives.info_2", powderMin, powderMax, sticksMax, " ", name);
+            return Ml.g("items.misc.explosives.info_2", powderMin, powderMax, BombBundle.sticksMax, name);
         }
 
         @Override

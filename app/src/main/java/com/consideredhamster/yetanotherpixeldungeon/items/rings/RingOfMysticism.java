@@ -20,8 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
-
 import java.util.Locale;
 
 public class RingOfMysticism extends Ring {
@@ -39,8 +37,8 @@ public class RingOfMysticism extends Ring {
     @Override
     public String desc() {
 
-        String mainEffect = Ml.g("items.rings.ringofmysticism.maineffect");
-        String sideEffect = Ml.g("items.rings.ringofmysticism.sideeffect");
+        String mainEffect = "??";
+        String sideEffect = "??";
 
         if (isIdentified()) {
             mainEffect = String.format(Locale.getDefault(), "%.0f", 100 * Ring.effect(bonus) / 3);
@@ -73,8 +71,7 @@ public class RingOfMysticism extends Ring {
     public class Mysticism extends RingBuff {
         @Override
         public String desc() {
-            return Ml.g("items.rings.ringofmysticism.desc", (bonus >= 0 ? Suddenly, your perception of magical currents is improved. :
-            Suddenly, your perception of magical currents is dampened.));
+            return bonus >= 0 ? "Suddenly, your perception of magical currents is improved." : "Suddenly, your perception of magical currents is dampened.";
         }
     }
 }

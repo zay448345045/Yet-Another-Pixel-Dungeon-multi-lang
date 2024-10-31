@@ -283,7 +283,7 @@ public class Waterskin extends Item {
 
     @Override
     public String toString() {
-        return Ml.g("items.misc.waterskin.tostring", UNKNOWN_EXPRESSION, status());
+        return super.toString() + " (" + status() + ")";
     }
 
 

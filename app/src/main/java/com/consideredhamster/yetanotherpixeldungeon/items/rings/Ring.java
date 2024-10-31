@@ -293,7 +293,7 @@ public abstract class Ring extends EquipableItem {
 
     @Override
     public String name() {
-        return Ml.g("items.rings.ring.name", (isTypeKnown() ? UNKNOWN_EXPRESSION : gem + " ring"));
+        return isTypeKnown() ? super.name() : gem + " ring";
     }
 
     @Override

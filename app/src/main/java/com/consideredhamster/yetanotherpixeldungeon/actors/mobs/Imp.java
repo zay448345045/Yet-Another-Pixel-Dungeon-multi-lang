@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
 import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ImpSprite;
@@ -257,7 +258,7 @@ public class Imp extends MobEvasive {
 
     @Override
     public String description() {
-        return Ml.g("actors.mobs.imp.description", (item != null ? format(TXT_CARRY, name()) : ""));
+        return Ml.g("actors.mobs.imp.description", (item != null ? Utils.format(TXT_CARRY, item.name()) : ""));
     }
 
     @Override

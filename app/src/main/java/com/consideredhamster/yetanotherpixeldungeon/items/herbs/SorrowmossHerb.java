@@ -42,7 +42,7 @@ public class SorrowmossHerb extends Herb {
         image = ItemSpriteSheet.HERB_SORROWMOSS;
 
         cooking = BitterMeat.class;
-message = Ml.g("items.herbs.sorrowmossherb.message");
+        message = Ml.g("items.herbs.sorrowmossherb.message");
 
         mainPotion = PotionOfCausticOoze.class;
 
@@ -76,7 +76,7 @@ message = Ml.g("items.herbs.sorrowmossherb.message");
         {
             name = Ml.g("items.herbs.sorrowmossherb.name_2");
             spiceGlow = GREEN;
-message = Ml.g("items.herbs.sorrowmossherb.message_2");
+            message = Ml.g("items.herbs.sorrowmossherb.message_2");
         }
 
         @Override

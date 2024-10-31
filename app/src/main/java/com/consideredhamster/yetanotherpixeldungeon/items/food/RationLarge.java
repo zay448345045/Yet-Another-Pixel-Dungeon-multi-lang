@@ -31,7 +31,7 @@ public class RationLarge extends Food {
         image = ItemSpriteSheet.PASTY;
 
         energy = Satiety.MAXIMUM;
-message = Ml.g("items.food.rationlarge.message");
+        message = Ml.g("items.food.rationlarge.message");
     }
 
     @Override

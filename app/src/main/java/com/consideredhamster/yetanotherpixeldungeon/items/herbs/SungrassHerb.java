@@ -45,7 +45,7 @@ public class SungrassHerb extends Herb {
         image = ItemSpriteSheet.HERB_SUNGRASS;
 
         cooking = SavoryMeat.class;
-message = Ml.g("items.herbs.sungrassherb.message");
+        message = Ml.g("items.herbs.sungrassherb.message");
 
         mainPotion = PotionOfMending.class;
 
@@ -84,7 +84,7 @@ message = Ml.g("items.herbs.sungrassherb.message");
         {
             name = Ml.g("items.herbs.sungrassherb.name_2");
             spiceGlow = YELLOW;
-message = Ml.g("items.herbs.sungrassherb.message_2");
+            message = Ml.g("items.herbs.sungrassherb.message_2");
         }
 
         @Override

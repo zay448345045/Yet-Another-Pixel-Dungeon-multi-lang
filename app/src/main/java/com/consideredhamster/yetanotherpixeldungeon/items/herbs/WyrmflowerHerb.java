@@ -42,7 +42,7 @@ public class WyrmflowerHerb extends Herb {
         image = ItemSpriteSheet.HERB_WYRMFLOWER;
 
         cooking = PotentMeat.class;
-message = Ml.g("items.herbs.wyrmflowerherb.message");
+        message = Ml.g("items.herbs.wyrmflowerherb.message");
 
         //these herbs cannot be brewed with themselves
         mainPotion = UnstablePotion.class;
@@ -77,7 +77,7 @@ message = Ml.g("items.herbs.wyrmflowerherb.message");
         {
             name = Ml.g("items.herbs.wyrmflowerherb.name_2");
             spiceGlow = RED;
-message = Ml.g("items.herbs.wyrmflowerherb.message_2");
+            message = Ml.g("items.herbs.wyrmflowerherb.message_2");
         }
 
         @Override

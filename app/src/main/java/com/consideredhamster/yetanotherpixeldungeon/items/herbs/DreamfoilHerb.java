@@ -44,7 +44,7 @@ public class DreamfoilHerb extends Herb {
         image = ItemSpriteSheet.HERB_DREAMFOIL;
 
         cooking = SweetMeat.class;
-message = Ml.g("items.herbs.dreamfoilherb.message");
+        message = Ml.g("items.herbs.dreamfoilherb.message");
 
         mainPotion = PotionOfMindVision.class;
 
@@ -83,7 +83,7 @@ message = Ml.g("items.herbs.dreamfoilherb.message");
         {
             name = Ml.g("items.herbs.dreamfoilherb.name_2");
             spiceGlow = PURPLE;
-message = Ml.g("items.herbs.dreamfoilherb.message_2");
+            message = Ml.g("items.herbs.dreamfoilherb.message_2");
         }
 
         @Override

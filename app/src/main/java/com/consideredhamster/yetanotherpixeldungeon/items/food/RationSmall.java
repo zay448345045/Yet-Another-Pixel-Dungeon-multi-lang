@@ -31,7 +31,7 @@ public class RationSmall extends Food {
         image = ItemSpriteSheet.OVERPRICED;
 
         energy = Satiety.MAXIMUM * 0.5f;
-message = Ml.g("items.food.rationsmall.message");
+        message = Ml.g("items.food.rationsmall.message");
     }
 
     @Override

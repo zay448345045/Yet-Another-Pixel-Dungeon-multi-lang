@@ -42,7 +42,7 @@ public class IcecapHerb extends Herb {
         image = ItemSpriteSheet.HERB_ICECAP;
 
         cooking = MintyMeat.class;
-message = Ml.g("items.herbs.icecapherb.message");
+        message = Ml.g("items.herbs.icecapherb.message");
 
         mainPotion = PotionOfFrigidVapours.class;
 
@@ -78,7 +78,7 @@ message = Ml.g("items.herbs.icecapherb.message");
         {
             name = Ml.g("items.herbs.icecapherb.name_2");
             spiceGlow = BLUE;
-message = Ml.g("items.herbs.icecapherb.message_2");
+            message = Ml.g("items.herbs.icecapherb.message_2");
         }
 
         @Override

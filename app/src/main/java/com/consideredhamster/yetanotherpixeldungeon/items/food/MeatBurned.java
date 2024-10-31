@@ -31,7 +31,7 @@ public class MeatBurned extends Food {
         image = ItemSpriteSheet.BURNED_MEAT;
 
         energy = Satiety.MAXIMUM * 0.15f;
-message = Ml.g("items.food.meatburned.message");
+        message = Ml.g("items.food.meatburned.message");
     }
 
     @Override

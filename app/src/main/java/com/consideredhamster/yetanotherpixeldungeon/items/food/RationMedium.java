@@ -31,7 +31,7 @@ public class RationMedium extends Food {
         image = ItemSpriteSheet.RATION;
 
         energy = Satiety.MAXIMUM * 0.75f;
-        message = "That food tasted very good!";
+message = Ml.g("items.food.rationmedium.message");
     }
 
     @Override

@@ -41,7 +41,7 @@ public class FeyleafHerb extends Herb {
         image = ItemSpriteSheet.HERB_FEYLEAF;
 
         cooking = TenderMeat.class;
-        message = "That herb had a very delicate taste.";
+message = Ml.g("items.herbs.feyleafherb.message");
 
         //these herbs cannot be brewed with themselves
         mainPotion = UnstablePotion.class;
@@ -78,7 +78,7 @@ public class FeyleafHerb extends Herb {
         {
             name = Ml.g("items.herbs.feyleafherb.name_2");
             spiceGlow = CYAN;
-            message = "That meat had a very delicate taste.";
+message = Ml.g("items.herbs.feyleafherb.message_2");
         }
 
         @Override

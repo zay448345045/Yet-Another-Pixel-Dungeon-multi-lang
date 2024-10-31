@@ -34,7 +34,7 @@ public class MeatStewed extends Food {
         image = ItemSpriteSheet.STEWED_MEAT;
 
         energy = Satiety.MAXIMUM * 0.25f;
-        message = "That meat tasted... ok.";
+message = Ml.g("items.food.meatstewed.message");
     }
 
 

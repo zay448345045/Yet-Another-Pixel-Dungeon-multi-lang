@@ -42,7 +42,7 @@ public class FirebloomHerb extends Herb {
         image = ItemSpriteSheet.HERB_FIREBLOOM;
 
         cooking = SpicyMeat.class;
-        message = "That herb tasted quite spicy.";
+message = Ml.g("items.herbs.firebloomherb.message");
 
         mainPotion = PotionOfLiquidFlame.class;
 
@@ -78,7 +78,7 @@ public class FirebloomHerb extends Herb {
         {
             name = Ml.g("items.herbs.firebloomherb.name_2");
             spiceGlow = ORANGE;
-            message = "That meat tasted quite spicy.";
+message = Ml.g("items.herbs.firebloomherb.message_2");
         }
 
         @Override

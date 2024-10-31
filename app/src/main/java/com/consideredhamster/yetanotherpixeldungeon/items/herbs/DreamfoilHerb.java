@@ -44,7 +44,7 @@ public class DreamfoilHerb extends Herb {
         image = ItemSpriteSheet.HERB_DREAMFOIL;
 
         cooking = SweetMeat.class;
-        message = "That herb tasted sweet like dreams.";
+message = Ml.g("items.herbs.dreamfoilherb.message");
 
         mainPotion = PotionOfMindVision.class;
 
@@ -83,7 +83,7 @@ public class DreamfoilHerb extends Herb {
         {
             name = Ml.g("items.herbs.dreamfoilherb.name_2");
             spiceGlow = PURPLE;
-            message = "That meat tasted sweet like dreams.";
+message = Ml.g("items.herbs.dreamfoilherb.message_2");
         }
 
         @Override

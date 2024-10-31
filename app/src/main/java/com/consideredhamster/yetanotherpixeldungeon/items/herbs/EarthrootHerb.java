@@ -41,7 +41,7 @@ public class EarthrootHerb extends Herb {
         image = ItemSpriteSheet.HERB_EARTHROOT;
 
         cooking = ChewyMeat.class;
-        message = "That herb was very hard to chew.";
+message = Ml.g("items.herbs.earthrootherb.message");
 
         //these herbs cannot be brewed with themselves
         mainPotion = UnstablePotion.class;
@@ -79,7 +79,7 @@ public class EarthrootHerb extends Herb {
         {
             name = Ml.g("items.herbs.earthrootherb.name_2");
             spiceGlow = BROWN;
-            message = "That meat was very hard to chew.";
+message = Ml.g("items.herbs.earthrootherb.message_2");
         }
 
         @Override

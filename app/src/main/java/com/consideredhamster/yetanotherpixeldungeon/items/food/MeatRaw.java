@@ -31,7 +31,7 @@ public class MeatRaw extends Food {
         image = ItemSpriteSheet.MEAT;
 
         energy = Satiety.MAXIMUM * 0.20f;
-        message = "That meat tasted... strange.";
+message = Ml.g("items.food.meatraw.message");
     }
 
     @Override

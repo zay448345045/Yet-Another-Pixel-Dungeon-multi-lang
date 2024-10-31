@@ -42,7 +42,7 @@ public class IcecapHerb extends Herb {
         image = ItemSpriteSheet.HERB_ICECAP;
 
         cooking = MintyMeat.class;
-        message = "That herb tasted fresh like mint.";
+message = Ml.g("items.herbs.icecapherb.message");
 
         mainPotion = PotionOfFrigidVapours.class;
 
@@ -78,7 +78,7 @@ public class IcecapHerb extends Herb {
         {
             name = Ml.g("items.herbs.icecapherb.name_2");
             spiceGlow = BLUE;
-            message = "That meat tasted fresh like mint.";
+message = Ml.g("items.herbs.icecapherb.message_2");
         }
 
         @Override

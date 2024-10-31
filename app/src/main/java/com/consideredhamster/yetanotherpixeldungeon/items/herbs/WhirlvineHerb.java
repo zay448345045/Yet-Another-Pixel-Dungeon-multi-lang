@@ -40,7 +40,7 @@ public class WhirlvineHerb extends Herb {
         image = ItemSpriteSheet.HERB_WHIRLVINE;
 
         cooking = SourMeat.class;
-        message = "That herb tasted sour, but edible.";
+message = Ml.g("items.herbs.whirlvineherb.message");
 
         mainPotion = PotionOfThunderstorm.class;
 
@@ -76,7 +76,7 @@ public class WhirlvineHerb extends Herb {
         {
             name = Ml.g("items.herbs.whirlvineherb.name_2");
             spiceGlow = WHITE;
-            message = "That meat tasted sour, but edible.";
+message = Ml.g("items.herbs.whirlvineherb.message_2");
         }
 
         @Override

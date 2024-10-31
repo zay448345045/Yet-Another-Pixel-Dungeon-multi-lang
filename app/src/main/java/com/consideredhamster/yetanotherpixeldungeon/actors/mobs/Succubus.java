@@ -61,8 +61,8 @@ public class Succubus extends MobPrecise {
 
          */
 
-        name = "succubus";
-        info = "Magical, Life drain, Charm, Teleport";
+        name = Ml.g("actors.mobs.succubus.name");
+        info = Ml.g("actors.mobs.succubus.info");
 
         spriteClass = SuccubusSprite.class;
 

@@ -38,7 +38,7 @@ import com.watabou.utils.Callback;
 public class WandOfCharm extends WandUtility {
 
     {
-        name = "Wand of Charm";
+        name = Ml.g("items.wands.wandofcharm.name");
         image = ItemSpriteSheet.WAND_DOMINATION;
     }
 

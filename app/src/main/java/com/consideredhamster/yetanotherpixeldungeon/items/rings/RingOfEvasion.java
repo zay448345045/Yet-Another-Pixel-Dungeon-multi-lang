@@ -20,12 +20,14 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfEvasion extends Ring {
 
     {
-        name = "Ring of Evasion";
+        name = Ml.g("items.rings.ringofevasion.name");
         shortName = "Ev";
     }
 

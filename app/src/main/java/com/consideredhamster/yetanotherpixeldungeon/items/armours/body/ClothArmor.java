@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class ClothArmor extends BodyArmorCloth {
 
     {
-        name = "cloth armor";
+        name = Ml.g("items.armours.body.clotharmor.name");
 
         image = ItemSpriteSheet.ARMOR_HUNTRESS;
 

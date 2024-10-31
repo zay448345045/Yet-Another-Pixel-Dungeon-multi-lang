@@ -40,7 +40,7 @@ public class Fire extends Blob {
     public Fire() {
         super();
 
-        name = "raging fire";
+        name = Ml.g("actors.blobs.fire.name");
     }
 
     @Override

@@ -31,7 +31,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 public class PotionSash extends Bag {
 
     {
-        name = "potion belt";
+        name = Ml.g("items.bags.potionsash.name");
         image = ItemSpriteSheet.BELT;
 
         size = 19;

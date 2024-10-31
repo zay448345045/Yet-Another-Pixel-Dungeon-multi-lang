@@ -77,7 +77,7 @@ public class Waterskin extends Item {
     private static final String TXT_NO = Ml.g("items.misc.waterskin.txt_no");
 
     {
-        name = "waterskins";
+        name = Ml.g("items.misc.waterskin.name");
         image = ItemSpriteSheet.WATERSKIN;
 
         visible = false;

@@ -30,7 +30,7 @@ public class PotionOfInvisibility extends Potion {
     public static final float DURATION = 15f;
 
     {
-        name = "Potion of Invisibility";
+        name = Ml.g("items.potions.potionofinvisibility.name");
         shortName = "In";
     }
 

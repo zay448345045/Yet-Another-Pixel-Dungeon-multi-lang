@@ -42,8 +42,8 @@ public class Piranha extends MobEvasive {
 
         super(Dungeon.depth + 1);
 
-        name = "giant piranha";
-        info = "Crippling attack, Invisibility, Aquatic";
+        name = Ml.g("actors.mobs.piranha.name");
+        info = Ml.g("actors.mobs.piranha.info");
 
         spriteClass = PiranhaSprite.class;
 

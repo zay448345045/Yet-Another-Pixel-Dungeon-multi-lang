@@ -20,12 +20,14 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfShadows extends Ring {
 
     {
-        name = "Ring of Shadows";
+        name = Ml.g("items.rings.ringofshadows.name");
         shortName = "Sh";
     }
 

@@ -60,8 +60,8 @@ public class EvilEye extends MobRanged {
 
          */
 
-        name = "evil eye";
-        info = "Flying, Disintegration ray";
+        name = Ml.g("actors.mobs.evileye.name");
+        info = Ml.g("actors.mobs.evileye.info");
         spriteClass = EyeSprite.class;
 
         flying = true;

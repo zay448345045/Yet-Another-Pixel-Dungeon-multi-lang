@@ -43,7 +43,7 @@ import com.watabou.utils.Random;
 public class WandOfBlastWave extends WandUtility {
 
     {
-        name = "Wand of Force Blast";
+        name = Ml.g("items.wands.wandofblastwave.name");
         image = ItemSpriteSheet.WAND_BLAST_WAVE;
         // I am really not sure how I managed to end up with exact the same name for a wand as in
         // ShPD despite intentionally trying to avoid that. Well, I guess I'll keep it for now.

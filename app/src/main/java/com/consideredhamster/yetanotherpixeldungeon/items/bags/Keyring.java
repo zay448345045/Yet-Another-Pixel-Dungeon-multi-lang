@@ -30,7 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 public class Keyring extends Bag {
 
     {
-        name = "keys";
+        name = Ml.g("items.bags.keyring.name");
         image = ItemSpriteSheet.KEYRING;
 
         size = 14;

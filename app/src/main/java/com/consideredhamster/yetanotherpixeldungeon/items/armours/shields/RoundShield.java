@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class RoundShield extends Shield {
 
     {
-        name = "round shield";
+        name = Ml.g("items.armours.shields.roundshield.name");
         image = ItemSpriteSheet.SHIELD_ROUND;
     }
 

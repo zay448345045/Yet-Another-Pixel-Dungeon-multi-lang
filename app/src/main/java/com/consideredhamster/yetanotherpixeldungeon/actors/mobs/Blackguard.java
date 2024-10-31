@@ -57,8 +57,8 @@ public class Blackguard extends MobHealthy {
 
          */
 
-        name = "blackguard";
-        info = "Magical, Harpoon throwing";
+        name = Ml.g("actors.mobs.blackguard.name");
+        info = Ml.g("actors.mobs.blackguard.info");
         spriteClass = BlackguardSprite.class;
 
         resistances.put(Element.Flame.class, Element.Resist.PARTIAL);

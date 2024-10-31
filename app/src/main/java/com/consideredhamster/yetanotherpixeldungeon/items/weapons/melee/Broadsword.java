@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Broadsword extends MeleeWeaponHeavyOH {
 
     {
-        name = "broadsword";
+        name = Ml.g("items.weapons.melee.broadsword.name");
         image = ItemSpriteSheet.SWORD;
     }
 

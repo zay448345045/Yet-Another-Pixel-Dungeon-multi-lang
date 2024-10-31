@@ -42,7 +42,7 @@ import com.watabou.utils.Callback;
 public class WandOfDamnation extends WandUtility {
 
     {
-        name = "Wand of Damnation";
+        name = Ml.g("items.wands.wandofdamnation.name");
         image = ItemSpriteSheet.WAND_DAMNATION;
     }
 

@@ -35,7 +35,7 @@ public class ScrollOfSunlight extends Scroll {
     private static final String TXT_MESSAGE = Ml.g("items.scrolls.scrollofsunlight.txt_message");
 
     {
-        name = "Scroll of Sunlight";
+        name = Ml.g("items.scrolls.scrollofsunlight.name");
         shortName = "Su";
 
         spellSprite = SpellSprite.SCROLL_SUNLIGHT;

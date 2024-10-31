@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Knives extends ThrowingWeaponLight {
 
     {
-        name = "throwing knives";
+        name = Ml.g("items.weapons.throwing.knives.name");
         image = ItemSpriteSheet.THROWING_KNIFE;
     }
 

@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class DarkGold extends Item {
 
     {
-        name = "dark gold ore";
+        name = Ml.g("items.quest.darkgold.name");
         image = ItemSpriteSheet.ORE;
 
         stackable = true;

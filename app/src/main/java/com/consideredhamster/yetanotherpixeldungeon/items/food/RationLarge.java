@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class RationLarge extends Food {
 
     {
-        name = "dwarven pasty";
+        name = Ml.g("items.food.rationlarge.name");
         image = ItemSpriteSheet.PASTY;
 
         energy = Satiety.MAXIMUM;

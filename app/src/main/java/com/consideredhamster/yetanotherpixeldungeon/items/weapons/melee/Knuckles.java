@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Knuckles extends MeleeWeaponLightOH {
 
     {
-        name = "knuckleduster";
+        name = Ml.g("items.weapons.melee.knuckles.name");
         image = ItemSpriteSheet.KNUCKLEDUSTER;
     }
 

@@ -33,7 +33,7 @@ public class IronKey extends Key {
     public static int curDepthQuantity = 0;
 
     {
-        name = "iron key";
+        name = Ml.g("items.keys.ironkey.name");
         image = ItemSpriteSheet.IRON_KEY;
 //        visible = false;
     }

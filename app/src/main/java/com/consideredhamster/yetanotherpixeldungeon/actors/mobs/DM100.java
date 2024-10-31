@@ -36,8 +36,8 @@ public class DM100 extends MobHealthy {
 
         super(4, 9, false);
 
-        name = "DM-100";
-        info = "Fast movement, Repair machine";
+        name = Ml.g("actors.mobs.dm100.name");
+        info = Ml.g("actors.mobs.dm100.info");
         spriteClass = DM100Sprite.class;
 
         maxDamage /= 2;

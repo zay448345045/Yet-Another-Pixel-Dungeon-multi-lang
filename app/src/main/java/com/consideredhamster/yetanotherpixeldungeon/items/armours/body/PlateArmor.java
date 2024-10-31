@@ -33,7 +33,7 @@ public class PlateArmor extends BodyArmorHeavy {
 //	private static final String TXT_NOT_WARRIOR	= "Only warriors can use this armor!";
 
     {
-        name = "plate armor";
+        name = Ml.g("items.armours.body.platearmor.name");
         image = ItemSpriteSheet.ARMOR_PLATE;
 
         appearance = 9;

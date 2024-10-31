@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class SkeletonKey extends Key {
 
     {
-        name = "skeleton key";
+        name = Ml.g("items.keys.skeletonkey.name");
         image = ItemSpriteSheet.SKELETON_KEY;
     }
 

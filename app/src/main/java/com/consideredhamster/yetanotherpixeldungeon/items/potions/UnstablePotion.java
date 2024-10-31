@@ -29,7 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class UnstablePotion extends Potion {
 
     {
-        name = "Unstable Potion";
+        name = Ml.g("items.potions.unstablepotion.name");
         shortName = "??";
 
         image = ItemSpriteSheet.POTION_UNSTABLE;

@@ -28,7 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Pistole extends RangedWeaponFlintlock {
 
     {
-        name = "pistole";
+        name = Ml.g("items.weapons.ranged.pistole.name");
         image = ItemSpriteSheet.PISTOLE;
     }
 

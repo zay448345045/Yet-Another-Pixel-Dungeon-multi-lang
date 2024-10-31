@@ -33,7 +33,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 public class HerbPouch extends Bag {
 
     {
-        name = "alchemist's pouch";
+        name = Ml.g("items.bags.herbpouch.name");
         image = ItemSpriteSheet.POUCH;
 
         size = 19;

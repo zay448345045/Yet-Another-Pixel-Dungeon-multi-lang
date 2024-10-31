@@ -30,7 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Bolas extends ThrowingWeaponSpecial {
 
     {
-        name = "bolas";
+        name = Ml.g("items.weapons.throwing.bolas.name");
         image = ItemSpriteSheet.HUNTING_BOLAS;
     }
 

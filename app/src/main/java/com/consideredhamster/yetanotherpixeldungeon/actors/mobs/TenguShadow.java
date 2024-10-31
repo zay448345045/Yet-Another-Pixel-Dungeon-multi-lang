@@ -35,8 +35,8 @@ public class TenguShadow extends MobRanged {
 
         super(3, 6, false);
 
-        name = "shadow clone";
-        info = "Shuriken throw, Stationary";
+        name = Ml.g("actors.mobs.tengushadow.name");
+        info = Ml.g("actors.mobs.tengushadow.info");
 
         HT = HP /= 2;
         accuracy /= 2;

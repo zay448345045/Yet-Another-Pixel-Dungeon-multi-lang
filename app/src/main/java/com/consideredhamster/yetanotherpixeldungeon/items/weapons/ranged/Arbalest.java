@@ -28,7 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Arbalest extends RangedWeaponMissile {
 
     {
-        name = "arbalest";
+        name = Ml.g("items.weapons.ranged.arbalest.name");
         image = ItemSpriteSheet.ARBALEST;
     }
 

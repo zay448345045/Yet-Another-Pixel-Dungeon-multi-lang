@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 
 public class Backpack extends Bag {
     {
-        name = "backpack";
+        name = Ml.g("items.bags.backpack.name");
         image = ItemSpriteSheet.BACKPACK;
 
         size = 19;

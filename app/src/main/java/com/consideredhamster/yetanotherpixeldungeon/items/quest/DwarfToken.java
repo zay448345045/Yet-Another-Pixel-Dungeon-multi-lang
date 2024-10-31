@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class DwarfToken extends Item {
 
     {
-        name = "dwarf token";
+        name = Ml.g("items.quest.dwarftoken.name");
         image = ItemSpriteSheet.TOKEN;
 
         stackable = true;

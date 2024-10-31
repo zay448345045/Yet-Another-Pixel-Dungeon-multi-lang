@@ -64,7 +64,7 @@ public class Fiend extends MobRanged {
 
          */
 
-        name = "fiend";
+        name = Ml.g("actors.mobs.fiend.name");
         spriteClass = FiendSprite.class;
 
 //        resistances.put( Element.Mind.class, Element.Resist.PARTIAL );

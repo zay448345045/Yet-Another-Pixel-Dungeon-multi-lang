@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class RationSmall extends Food {
 
     {
-        name = "small ration";
+        name = Ml.g("items.food.rationsmall.name");
         image = ItemSpriteSheet.OVERPRICED;
 
         energy = Satiety.MAXIMUM * 0.5f;

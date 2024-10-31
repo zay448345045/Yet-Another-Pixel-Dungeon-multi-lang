@@ -53,8 +53,8 @@ public class GiantSpider extends MobHealthy {
 
          */
 
-        name = "giant spider";
-        info = "Poison bite, Spiderwebs";
+        name = Ml.g("actors.mobs.giantspider.name");
+        info = Ml.g("actors.mobs.giantspider.info");
 
         spriteClass = SpiderSprite.class;
 

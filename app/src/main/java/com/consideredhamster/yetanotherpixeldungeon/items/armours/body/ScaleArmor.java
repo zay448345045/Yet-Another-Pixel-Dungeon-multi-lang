@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class ScaleArmor extends BodyArmorLight {
 
     {
-        name = "scale armor";
+        name = Ml.g("items.armours.body.scalearmor.name");
         image = ItemSpriteSheet.ARMOR_SCALE;
         appearance = 8;
     }

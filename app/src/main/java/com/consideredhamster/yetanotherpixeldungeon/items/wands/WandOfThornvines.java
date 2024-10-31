@@ -51,7 +51,7 @@ import java.util.HashSet;
 public class WandOfThornvines extends WandUtility {
 
     {
-        name = "Wand of Thornvines";
+        name = Ml.g("items.wands.wandofthornvines.name_2");
         image = ItemSpriteSheet.WAND_THORNVINE;
         goThrough = false;
     }
@@ -115,7 +115,7 @@ public class WandOfThornvines extends WandUtility {
 
         public Thornvine() {
 
-            name = "thornvine";
+            name = Ml.g("items.wands.wandofthornvines.name");
             spriteClass = ThornvineSprite.class;
 
             resistances.put(Element.Flame.class, Element.Resist.VULNERABLE);

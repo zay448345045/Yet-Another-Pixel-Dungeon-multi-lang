@@ -58,7 +58,7 @@ import java.util.ArrayList;
 public class Wandmaker extends NPC {
 
     {
-        name = "old wandmaker";
+        name = Ml.g("actors.mobs.npcs.wandmaker.name");
         spriteClass = WandmakerSprite.class;
     }
 

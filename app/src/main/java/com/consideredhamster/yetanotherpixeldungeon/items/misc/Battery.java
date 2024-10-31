@@ -53,7 +53,7 @@ public class Battery extends Item {
     private static final String TXT_STATUS = Ml.g("items.misc.battery.txt_status");
 
     {
-        name = "arcane battery";
+        name = Ml.g("items.misc.battery.name");
         image = ItemSpriteSheet.BATTERY;
     }
 

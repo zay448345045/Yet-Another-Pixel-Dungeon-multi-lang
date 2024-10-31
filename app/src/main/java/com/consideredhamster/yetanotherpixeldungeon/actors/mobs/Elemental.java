@@ -64,7 +64,7 @@ public class Elemental extends MobPrecise {
 
          */
 
-        name = "fire elemental";
+        name = Ml.g("actors.mobs.elemental.name");
         spriteClass = ElementalSprite.class;
 
         flying = true;

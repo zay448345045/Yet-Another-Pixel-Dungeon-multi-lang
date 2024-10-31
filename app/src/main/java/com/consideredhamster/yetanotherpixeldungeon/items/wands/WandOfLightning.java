@@ -39,7 +39,7 @@ import java.util.ArrayList;
 public class WandOfLightning extends WandCombat {
 
     {
-        name = "Wand of Lightning";
+        name = Ml.g("items.wands.wandoflightning.name");
         image = ItemSpriteSheet.WAND_LIGHTNING;
 
         goThrough = false;

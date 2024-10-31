@@ -58,7 +58,7 @@ public class Blacksmith extends NPC {
     private static final String TXT_LOOKS_BETTER = Ml.g("actors.mobs.npcs.blacksmith.txt_looks_better");
 
     {
-        name = "troll blacksmith";
+        name = Ml.g("actors.mobs.npcs.blacksmith.name");
         spriteClass = BlacksmithSprite.class;
     }
 

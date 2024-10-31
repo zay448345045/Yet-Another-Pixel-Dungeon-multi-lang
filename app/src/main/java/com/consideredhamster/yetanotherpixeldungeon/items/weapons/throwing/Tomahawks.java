@@ -29,7 +29,7 @@ import com.watabou.utils.Random;
 public class Tomahawks extends ThrowingWeaponHeavy {
 
     {
-        name = "tomahawks";
+        name = Ml.g("items.weapons.throwing.tomahawks.name");
         image = ItemSpriteSheet.TOMAHAWK;
     }
 

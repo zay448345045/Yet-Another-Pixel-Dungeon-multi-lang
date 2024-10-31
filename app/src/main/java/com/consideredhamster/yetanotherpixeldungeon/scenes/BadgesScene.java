@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.scenes;
 
 import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Chrome;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Archs;
@@ -35,7 +36,7 @@ import com.watabou.noosa.audio.Music;
 
 public class BadgesScene extends PixelScene {
 
-    private static final String TXT_TITLE = "Your Badges";
+    private static final String TXT_TITLE = Ml.g("scenes.badgesscene.txt_title");
 
     private static final int MAX_PANE_WIDTH = 160;
 

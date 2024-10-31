@@ -34,7 +34,7 @@ import com.watabou.utils.Callback;
 public class Harpoons extends ThrowingWeaponHeavy {
 
     {
-        name = "harpoons";
+        name = Ml.g("items.weapons.throwing.harpoons.name");
         image = ItemSpriteSheet.HARPOON;
     }
 

@@ -20,12 +20,14 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfFortune extends Ring {
 
     {
-        name = "Ring of Fortune";
+        name = Ml.g("items.rings.ringoffortune.name");
         shortName = "Fo";
     }
 

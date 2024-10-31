@@ -38,7 +38,7 @@ public class SorrowmossHerb extends Herb {
     private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x009900);
 
     {
-        name = "Sorrowmoss herb";
+        name = Ml.g("items.herbs.sorrowmossherb.name");
         image = ItemSpriteSheet.HERB_SORROWMOSS;
 
         cooking = BitterMeat.class;
@@ -74,7 +74,7 @@ public class SorrowmossHerb extends Herb {
     public static class BitterMeat extends MeatStewed {
 
         {
-            name = "bitter meat";
+            name = Ml.g("items.herbs.sorrowmossherb.name_2");
             spiceGlow = GREEN;
             message = "That meat tasted bitter like defeat.";
         }

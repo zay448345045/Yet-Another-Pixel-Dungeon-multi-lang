@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class MeatRaw extends Food {
 
     {
-        name = "raw meat";
+        name = Ml.g("items.food.meatraw.name");
         image = ItemSpriteSheet.MEAT;
 
         energy = Satiety.MAXIMUM * 0.20f;

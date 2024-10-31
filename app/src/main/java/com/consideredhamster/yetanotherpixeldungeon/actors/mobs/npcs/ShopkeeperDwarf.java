@@ -29,7 +29,7 @@ public class ShopkeeperDwarf extends Shopkeeper {
     private static final String TXT_GREETINGS = Ml.g("actors.mobs.npcs.shopkeeperdwarf.txt_greetings");
 
     {
-        name = "dwarf shopkeeper";
+        name = Ml.g("actors.mobs.npcs.shopkeeperdwarf.name");
         spriteClass = ShopkeeperDwarfSprite.class;
     }
 

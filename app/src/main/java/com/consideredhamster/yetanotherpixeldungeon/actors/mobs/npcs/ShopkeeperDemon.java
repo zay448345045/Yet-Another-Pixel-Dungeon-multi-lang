@@ -29,7 +29,7 @@ public class ShopkeeperDemon extends Shopkeeper {
     private static final String TXT_GREETINGS = Ml.g("actors.mobs.npcs.shopkeeperdemon.txt_greetings");
 
     {
-        name = "ambitious imp";
+        name = Ml.g("actors.mobs.npcs.shopkeeperdemon.name");
         spriteClass = AmbitiousImpSprite.class;
     }
 

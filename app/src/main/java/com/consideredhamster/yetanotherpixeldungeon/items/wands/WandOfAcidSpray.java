@@ -42,7 +42,7 @@ public class WandOfAcidSpray extends WandCombat {
     public static final int MAX_DISTANCE = 6;
 
     {
-        name = "Wand of Acid Spray";
+        name = Ml.g("items.wands.wandofacidspray.name");
         image = ItemSpriteSheet.WAND_ACIDSPRAY;
     }
 

@@ -20,12 +20,14 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfAccuracy extends Ring {
 
     {
-        name = "Ring of Accuracy";
+        name = Ml.g("items.rings.ringofaccuracy.name");
         shortName = "Ac";
     }
 

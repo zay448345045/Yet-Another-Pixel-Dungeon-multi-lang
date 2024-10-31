@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class MeatBurned extends Food {
 
     {
-        name = "burned meat";
+        name = Ml.g("items.food.meatburned.name");
         image = ItemSpriteSheet.BURNED_MEAT;
 
         energy = Satiety.MAXIMUM * 0.15f;

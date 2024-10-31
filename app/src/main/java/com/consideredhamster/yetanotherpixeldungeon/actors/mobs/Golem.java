@@ -49,8 +49,8 @@ public class Golem extends MobHealthy {
 
          */
 
-        name = "stone golem";
-        info = "Magical, Slow, Knockback";
+        name = Ml.g("actors.mobs.golem.name");
+        info = Ml.g("actors.mobs.golem.info");
 
         spriteClass = GolemSprite.class;
         dexterity /= 2;

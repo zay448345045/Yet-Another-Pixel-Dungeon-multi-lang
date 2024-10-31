@@ -46,8 +46,8 @@ public class SewerCrab extends MobHealthy {
 
          */
 
-        name = "sewer crab";
-        info = "Fast movement";
+        name = Ml.g("actors.mobs.sewercrab.name");
+        info = Ml.g("actors.mobs.sewercrab.info");
 
         spriteClass = CrabSprite.class;
 

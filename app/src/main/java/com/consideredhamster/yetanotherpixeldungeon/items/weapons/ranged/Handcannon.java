@@ -28,7 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Handcannon extends RangedWeaponFlintlock {
 
     {
-        name = "handcannon";
+        name = Ml.g("items.weapons.ranged.handcannon.name");
         image = ItemSpriteSheet.HANDCANNON;
     }
 

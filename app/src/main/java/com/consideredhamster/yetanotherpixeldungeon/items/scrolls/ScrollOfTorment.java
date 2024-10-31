@@ -38,7 +38,7 @@ import com.watabou.noosa.audio.Sample;
 public class ScrollOfTorment extends Scroll {
 
     {
-        name = "Scroll of Torment";
+        name = Ml.g("items.scrolls.scrolloftorment.name");
         shortName = "To";
 
         spellSprite = SpellSprite.SCROLL_MASSHARM;

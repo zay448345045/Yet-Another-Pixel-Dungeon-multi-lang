@@ -56,8 +56,8 @@ public class GooSpawn extends MobEvasive {
 
         super(2, 3, false);
 
-        name = "spawn of Goo";
-        info = "Magical, Splitting";
+        name = Ml.g("actors.mobs.goospawn.name");
+        info = Ml.g("actors.mobs.goospawn.info");
 
         spriteClass = GooSprite.SpawnSprite.class;
 

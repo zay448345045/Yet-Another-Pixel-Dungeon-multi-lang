@@ -20,12 +20,14 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfDurability extends Ring {
 
     {
-        name = "Ring of Durability";
+        name = Ml.g("items.rings.ringofdurability.name");
         shortName = "Du";
     }
 

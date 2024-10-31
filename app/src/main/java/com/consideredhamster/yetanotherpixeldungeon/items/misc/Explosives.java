@@ -226,7 +226,7 @@ public abstract class Explosives extends Item {
     public static class Gunpowder extends Explosives {
 
         {
-            name = "gunpowder";
+            name = Ml.g("items.misc.explosives.name");
             image = ItemSpriteSheet.GUNPOWDER;
             stackable = true;
         }
@@ -301,7 +301,7 @@ public abstract class Explosives extends Item {
         final protected static int powderMax = 100;
 
         {
-            name = "bomb stick";
+            name = Ml.g("items.misc.explosives.name_2");
             image = ItemSpriteSheet.BOMB_STICK;
             stackable = true;
         }
@@ -411,7 +411,7 @@ public abstract class Explosives extends Item {
         final protected static int sticksMax = 3;
 
         {
-            name = "bomb bundle";
+            name = Ml.g("items.misc.explosives.name_3");
             image = ItemSpriteSheet.BOMB_BUNDLE;
             stackable = true;
         }

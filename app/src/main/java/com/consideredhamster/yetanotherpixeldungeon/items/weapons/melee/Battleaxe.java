@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Battleaxe extends MeleeWeaponHeavyTH {
 
     {
-        name = "battle axe";
+        name = Ml.g("items.weapons.melee.battleaxe.name");
         image = ItemSpriteSheet.BATTLE_AXE;
     }
 

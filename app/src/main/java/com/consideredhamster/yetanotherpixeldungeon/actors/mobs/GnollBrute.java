@@ -59,8 +59,8 @@ public class GnollBrute extends MobPrecise {
 
          */
 
-        name = "gnoll brute";
-        info = "Enrage, Tomahawk throw";
+        name = Ml.g("actors.mobs.gnollbrute.name");
+        info = Ml.g("actors.mobs.gnollbrute.info");
 
         spriteClass = BruteSprite.class;
 

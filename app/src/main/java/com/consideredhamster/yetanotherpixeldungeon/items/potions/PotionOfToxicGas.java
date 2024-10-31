@@ -30,7 +30,7 @@ public class PotionOfToxicGas extends Potion {
     public static final int BASE_VAL = 450;
 
     {
-        name = "Potion of Toxic Gas";
+        name = Ml.g("items.potions.potionoftoxicgas.name");
         shortName = "TG";
         harmful = true;
     }

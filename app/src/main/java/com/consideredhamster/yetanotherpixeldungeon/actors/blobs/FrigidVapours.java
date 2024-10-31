@@ -35,7 +35,7 @@ public class FrigidVapours extends Blob {
     public FrigidVapours() {
         super();
 
-        name = "frigid vapours";
+        name = Ml.g("actors.blobs.frigidvapours.name");
     }
 
     @Override

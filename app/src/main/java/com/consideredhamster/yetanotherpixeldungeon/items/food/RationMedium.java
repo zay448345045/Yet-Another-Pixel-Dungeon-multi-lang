@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class RationMedium extends Food {
 
     {
-        name = "ration of food";
+        name = Ml.g("items.food.rationmedium.name");
         image = ItemSpriteSheet.RATION;
 
         energy = Satiety.MAXIMUM * 0.75f;

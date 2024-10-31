@@ -40,7 +40,7 @@ public class DreamfoilHerb extends Herb {
     private static final ItemSprite.Glowing PURPLE = new ItemSprite.Glowing(0xAA00AA);
 
     {
-        name = "Dreamfoil herb";
+        name = Ml.g("items.herbs.dreamfoilherb.name");
         image = ItemSpriteSheet.HERB_DREAMFOIL;
 
         cooking = SweetMeat.class;
@@ -81,7 +81,7 @@ public class DreamfoilHerb extends Herb {
     public static class SweetMeat extends MeatStewed {
 
         {
-            name = "sweet meat";
+            name = Ml.g("items.herbs.dreamfoilherb.name_2");
             spiceGlow = PURPLE;
             message = "That meat tasted sweet like dreams.";
         }

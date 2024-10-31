@@ -39,7 +39,7 @@ import java.util.HashSet;
 public class Chakrams extends ThrowingWeaponLight {
 
     {
-        name = "chakrams";
+        name = Ml.g("items.weapons.throwing.chakrams.name");
         image = ItemSpriteSheet.THROWING_ANUS;
     }
 

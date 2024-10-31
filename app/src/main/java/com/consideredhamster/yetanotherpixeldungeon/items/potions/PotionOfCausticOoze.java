@@ -36,7 +36,7 @@ public class PotionOfCausticOoze extends Potion {
     public static final int BASE_VAL = 10;
 
     {
-        name = "Potion of Caustic Ooze";
+        name = Ml.g("items.potions.potionofcausticooze.name");
         shortName = "CO";
         harmful = true;
     }

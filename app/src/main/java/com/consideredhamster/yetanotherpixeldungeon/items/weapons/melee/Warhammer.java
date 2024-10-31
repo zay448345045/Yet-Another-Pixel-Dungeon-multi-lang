@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Warhammer extends MeleeWeaponHeavyTH {
 
     {
-        name = "warhammer";
+        name = Ml.g("items.weapons.melee.warhammer.name");
         image = ItemSpriteSheet.WARHAMMER;
     }
 

@@ -45,7 +45,7 @@ public class ScrollOfBanishment extends Scroll {
     private static final String TXT_NOT_PROCCED = Ml.g("items.scrolls.scrollofbanishment.txt_not_procced");
 
     {
-        name = "Scroll of Banishment";
+        name = Ml.g("items.scrolls.scrollofbanishment.name");
         shortName = "Ba";
 
         spellSprite = SpellSprite.SCROLL_EXORCISM;

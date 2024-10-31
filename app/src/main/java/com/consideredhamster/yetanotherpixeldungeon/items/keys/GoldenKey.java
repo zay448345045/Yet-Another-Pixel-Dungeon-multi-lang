@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class GoldenKey extends Key {
 
     {
-        name = "golden key";
+        name = Ml.g("items.keys.goldenkey.name");
         image = ItemSpriteSheet.GOLDEN_KEY;
     }
 

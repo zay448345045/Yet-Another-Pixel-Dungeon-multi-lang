@@ -28,7 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Bow extends RangedWeaponMissile {
 
     {
-        name = "bow";
+        name = Ml.g("items.weapons.ranged.bow.name");
         image = ItemSpriteSheet.BOW;
     }
 

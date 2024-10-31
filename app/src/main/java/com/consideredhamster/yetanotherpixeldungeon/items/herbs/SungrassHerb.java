@@ -41,7 +41,7 @@ public class SungrassHerb extends Herb {
     private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 
     {
-        name = "Sungrass herb";
+        name = Ml.g("items.herbs.sungrassherb.name");
         image = ItemSpriteSheet.HERB_SUNGRASS;
 
         cooking = SavoryMeat.class;
@@ -82,7 +82,7 @@ public class SungrassHerb extends Herb {
     public static class SavoryMeat extends MeatStewed {
 
         {
-            name = "savory meat";
+            name = Ml.g("items.herbs.sungrassherb.name_2");
             spiceGlow = YELLOW;
             message = "That meat tasted quite savory.";
         }

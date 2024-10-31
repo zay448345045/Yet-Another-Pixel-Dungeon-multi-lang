@@ -30,7 +30,7 @@ public class PotionOfFrigidVapours extends Potion {
     public static final int BASE_VAL = 200;
 
     {
-        name = "Potion of Frigid Vapours";
+        name = Ml.g("items.potions.potionoffrigidvapours.name");
         shortName = "Fr";
         harmful = true;
     }

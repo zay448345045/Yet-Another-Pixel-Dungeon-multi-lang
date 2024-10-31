@@ -33,7 +33,7 @@ public class ScrollOfClairvoyance extends Scroll {
     private static final String TXT_LAYOUT = Ml.g("items.scrolls.scrollofclairvoyance.txt_layout");
 
     {
-        name = "Scroll of Clairvoyance";
+        name = Ml.g("items.scrolls.scrollofclairvoyance.name");
         shortName = "Cl";
 
         spellSprite = SpellSprite.SCROLL_FARSIGHT;

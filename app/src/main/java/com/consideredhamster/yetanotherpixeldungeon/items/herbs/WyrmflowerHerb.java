@@ -38,7 +38,7 @@ public class WyrmflowerHerb extends Herb {
     private static final int HPBONUS_MEAT = 4;
 
     {
-        name = "wyrmflower herb";
+        name = Ml.g("items.herbs.wyrmflowerherb.name");
         image = ItemSpriteSheet.HERB_WYRMFLOWER;
 
         cooking = PotentMeat.class;
@@ -75,7 +75,7 @@ public class WyrmflowerHerb extends Herb {
     public static class PotentMeat extends MeatStewed {
 
         {
-            name = "potent meat";
+            name = Ml.g("items.herbs.wyrmflowerherb.name_2");
             spiceGlow = RED;
             message = "That meat had a very potent taste.";
         }

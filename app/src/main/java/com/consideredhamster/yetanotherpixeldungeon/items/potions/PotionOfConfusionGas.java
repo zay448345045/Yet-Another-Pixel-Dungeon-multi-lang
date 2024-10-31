@@ -30,7 +30,7 @@ public class PotionOfConfusionGas extends Potion {
     public static final int BASE_VAL = 600;
 
     {
-        name = "Potion of Confusion Gas";
+        name = Ml.g("items.potions.potionofconfusiongas.name");
         shortName = "CG";
         harmful = true;
     }

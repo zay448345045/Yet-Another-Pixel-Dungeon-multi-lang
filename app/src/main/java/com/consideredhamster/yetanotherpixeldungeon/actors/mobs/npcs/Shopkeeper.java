@@ -129,7 +129,7 @@ public class Shopkeeper extends NPC {
     private boolean seenBefore = false;
 
     {
-        name = "shopkeeper";
+        name = Ml.g("actors.mobs.npcs.shopkeeper.name");
         spriteClass = ShopkeeperHumanSprite.class;
     }
 

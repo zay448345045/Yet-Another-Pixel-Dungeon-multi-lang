@@ -55,8 +55,8 @@ public class GnollHunter extends MobRanged {
 
          */
 
-        name = "gnoll hunter";
-        info = "Spear throw";
+        name = Ml.g("actors.mobs.gnollhunter.name");
+        info = Ml.g("actors.mobs.gnollhunter.info");
 
         spriteClass = GnollSprite.class;
 

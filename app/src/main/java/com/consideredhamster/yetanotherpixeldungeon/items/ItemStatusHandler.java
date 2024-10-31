@@ -20,7 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items;
 
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 

@@ -30,7 +30,7 @@ public class MeatStewed extends Food {
     protected ItemSprite.Glowing spiceGlow = null;
 
     {
-        name = "stewed meat";
+        name = Ml.g("items.food.meatstewed.name");
         image = ItemSpriteSheet.STEWED_MEAT;
 
         energy = Satiety.MAXIMUM * 0.25f;

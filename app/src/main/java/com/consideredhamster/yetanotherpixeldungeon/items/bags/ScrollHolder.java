@@ -30,7 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 public class ScrollHolder extends Bag {
 
     {
-        name = "scroll holder";
+        name = Ml.g("items.bags.scrollholder.name");
         image = ItemSpriteSheet.HOLDER;
 
         size = 19;

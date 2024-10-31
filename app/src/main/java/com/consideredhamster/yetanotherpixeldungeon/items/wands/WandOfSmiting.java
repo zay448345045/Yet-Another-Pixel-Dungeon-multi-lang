@@ -44,7 +44,7 @@ import com.watabou.utils.Random;
 public class WandOfSmiting extends WandCombat {
 
     {
-        name = "Wand of Smiting";
+        name = Ml.g("items.wands.wandofsmiting.name");
         image = ItemSpriteSheet.WAND_SMITING;
 
         goThrough = false;

@@ -46,7 +46,7 @@ public class Gold extends Item {
     private static final String TXT_VALUE = Ml.g("items.misc.gold.txt_value");
 
     {
-        name = "gold";
+        name = Ml.g("items.misc.gold.name");
         image = ItemSpriteSheet.GOLD;
         stackable = true;
         visible = false;

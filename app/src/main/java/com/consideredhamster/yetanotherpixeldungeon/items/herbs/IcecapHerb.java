@@ -38,7 +38,7 @@ public class IcecapHerb extends Herb {
     private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x2244FF);
 
     {
-        name = "Icecap herb";
+        name = Ml.g("items.herbs.icecapherb.name");
         image = ItemSpriteSheet.HERB_ICECAP;
 
         cooking = MintyMeat.class;
@@ -76,7 +76,7 @@ public class IcecapHerb extends Herb {
     public static class MintyMeat extends MeatStewed {
 
         {
-            name = "minty meat";
+            name = Ml.g("items.herbs.icecapherb.name_2");
             spiceGlow = BLUE;
             message = "That meat tasted fresh like mint.";
         }

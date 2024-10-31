@@ -36,7 +36,7 @@ public class WhirlvineHerb extends Herb {
     private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
 
     {
-        name = "Whirlvine herb";
+        name = Ml.g("items.herbs.whirlvineherb.name");
         image = ItemSpriteSheet.HERB_WHIRLVINE;
 
         cooking = SourMeat.class;
@@ -74,7 +74,7 @@ public class WhirlvineHerb extends Herb {
     public static class SourMeat extends MeatStewed {
 
         {
-            name = "sour meat";
+            name = Ml.g("items.herbs.whirlvineherb.name_2");
             spiceGlow = WHITE;
             message = "That meat tasted sour, but edible.";
         }

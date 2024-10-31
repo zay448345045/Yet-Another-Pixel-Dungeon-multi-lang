@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Arrows extends ThrowingWeaponAmmo {
 
     {
-        name = "arrows";
+        name = Ml.g("items.weapons.throwing.arrows.name");
         image = ItemSpriteSheet.ARROW;
     }
 

@@ -41,7 +41,7 @@ public class ScrollOfEnchantment extends InventoryScroll {
     private static final String TXT_ITEM_UNKNOWN = Ml.g("items.scrolls.scrollofenchantment.txt_item_unknown");
 
     {
-        name = "Scroll of Enchantment";
+        name = Ml.g("items.scrolls.scrollofenchantment.name");
         shortName = "En";
 
         inventoryTitle = "Select an enchantable item";

@@ -32,7 +32,7 @@ public class PotionOfThunderstorm extends Potion {
     public static final int BASE_VAL = 300;
 
     {
-        name = "Potion of Thunderstorm";
+        name = Ml.g("items.potions.potionofthunderstorm.name");
         shortName = "Th";
         harmful = true;
     }

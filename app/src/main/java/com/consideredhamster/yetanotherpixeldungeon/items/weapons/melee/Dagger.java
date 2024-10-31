@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Dagger extends MeleeWeaponLightOH {
 
     {
-        name = "dagger";
+        name = Ml.g("items.weapons.melee.dagger.name");
         image = ItemSpriteSheet.DAGGER;
     }
 

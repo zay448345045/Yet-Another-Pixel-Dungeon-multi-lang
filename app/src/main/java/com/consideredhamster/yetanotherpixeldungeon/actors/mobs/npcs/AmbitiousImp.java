@@ -59,7 +59,7 @@ import com.watabou.utils.Random;
 public class AmbitiousImp extends NPC {
 
     {
-        name = "ambitious imp";
+        name = Ml.g("actors.mobs.npcs.ambitiousimp.name");
         spriteClass = AmbitiousImpSprite.class;
     }
 

@@ -43,7 +43,7 @@ public class ScrollOfUpgrade extends InventoryScroll {
     private static final String TXT_CURSE_DISPELLED = Ml.g("items.scrolls.scrollofupgrade.txt_curse_dispelled");
 
     {
-        name = "Scroll of Upgrade";
+        name = Ml.g("items.scrolls.scrollofupgrade.name");
         shortName = "Up";
 
         inventoryTitle = "Select an item to upgrade";

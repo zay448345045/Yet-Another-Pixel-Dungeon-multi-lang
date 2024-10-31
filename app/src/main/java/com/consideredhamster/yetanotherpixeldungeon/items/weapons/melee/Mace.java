@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Mace extends MeleeWeaponHeavyOH {
 
     {
-        name = "mace";
+        name = Ml.g("items.weapons.melee.mace.name");
         image = ItemSpriteSheet.MACE;
     }
 

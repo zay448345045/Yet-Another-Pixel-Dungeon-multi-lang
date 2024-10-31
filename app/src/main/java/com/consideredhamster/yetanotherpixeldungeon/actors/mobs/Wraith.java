@@ -55,8 +55,8 @@ public class Wraith extends MobRanged {
 
         super(depth / 6 + 1, depth + 1, false);
 
-        name = "wraith";
-        info = "Magical, Flying, Teleport, Life drain, Unholy bolt";
+        name = Ml.g("actors.mobs.wraith.name");
+        info = Ml.g("actors.mobs.wraith.info");
         spriteClass = WraithSprite.class;
 
         minDamage += tier;

@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Glaive extends MeleeWeaponLightTH {
 
     {
-        name = "glaive";
+        name = Ml.g("items.weapons.melee.glaive.name");
         image = ItemSpriteSheet.GLAIVE;
     }
 

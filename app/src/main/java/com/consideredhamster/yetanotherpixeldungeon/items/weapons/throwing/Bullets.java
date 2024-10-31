@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Bullets extends ThrowingWeaponAmmo {
 
     {
-        name = "bullets";
+        name = Ml.g("items.weapons.throwing.bullets.name");
         image = ItemSpriteSheet.PELLET;
     }
 

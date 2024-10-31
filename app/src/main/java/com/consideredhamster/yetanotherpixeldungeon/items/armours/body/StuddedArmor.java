@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class StuddedArmor extends BodyArmorLight {
 
     {
-        name = "studded armor";
+        name = Ml.g("items.armours.body.studdedarmor.name");
         image = ItemSpriteSheet.ARMOR_STUDDED;
         appearance = 4;
     }

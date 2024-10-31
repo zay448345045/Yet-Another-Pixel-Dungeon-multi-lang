@@ -31,7 +31,7 @@ public class RogueArmor extends BodyArmorCloth {
 //	private static final String AC_SPECIAL = "SMOKE BOMB";
 
     {
-        name = "rogue garb";
+        name = Ml.g("items.armours.body.roguearmor.name");
         image = ItemSpriteSheet.ARMOR_ROGUE;
 
         appearance = 2;

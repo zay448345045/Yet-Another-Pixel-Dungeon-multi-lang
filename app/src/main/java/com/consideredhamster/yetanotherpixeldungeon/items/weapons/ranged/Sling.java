@@ -28,7 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Sling extends RangedWeaponMissile {
 
     {
-        name = "sling";
+        name = Ml.g("items.weapons.ranged.sling.name");
         image = ItemSpriteSheet.SLING;
     }
 

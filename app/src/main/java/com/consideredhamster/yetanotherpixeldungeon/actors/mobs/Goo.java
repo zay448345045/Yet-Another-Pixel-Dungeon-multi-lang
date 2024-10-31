@@ -58,8 +58,8 @@ public class Goo extends MobEvasive {
 
         super(2, 10, true);
 
-        name = "Goo";
-        info = "Boss enemy!";
+        name = Ml.g("actors.mobs.goo.name");
+        info = Ml.g("actors.mobs.goo.info");
 
         spriteClass = GooSprite.class;
 

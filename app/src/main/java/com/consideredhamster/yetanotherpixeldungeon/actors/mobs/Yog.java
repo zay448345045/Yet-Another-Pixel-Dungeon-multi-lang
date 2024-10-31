@@ -60,7 +60,7 @@ public class Yog extends Mob {
 
     {
         name = Dungeon.depth == Statistics.deepestFloor ? "Yog-Dzewa" : "echo of Yog-Dzewa";
-        info = "Boss enemy!";
+        info = Ml.g("actors.mobs.yog.info_3");
 
         spriteClass = YogSprite.class;
 
@@ -194,8 +194,8 @@ public class Yog extends Mob {
         public RottingFist() {
 
             super(5, 25, true);
-            name = "rotting fist";
-            info = "Corrosive attack, Acidic blood, Respawn";
+            name = Ml.g("actors.mobs.yog.name");
+            info = Ml.g("actors.mobs.yog.info");
             spriteClass = RottingFistSprite.class;
 
             EXP = 0;
@@ -293,8 +293,8 @@ public class Yog extends Mob {
         public BurningFist() {
 
             super(5, 25, true);
-            name = "burning fist";
-            info = "Fire bolt, Always burning, Respawn";
+            name = Ml.g("actors.mobs.yog.name_2");
+            info = Ml.g("actors.mobs.yog.info_2");
             spriteClass = BurningFistSprite.class;
 
             EXP = 0;

@@ -53,7 +53,7 @@ public class Whetstone extends Item {
     private static final String TXT_STATUS = Ml.g("items.misc.whetstone.txt_status");
 
     {
-        name = "whetstone";
+        name = Ml.g("items.misc.whetstone.name");
         image = ItemSpriteSheet.WHETSTONE;
     }
 

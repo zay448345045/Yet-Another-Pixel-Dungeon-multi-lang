@@ -39,7 +39,7 @@ import com.watabou.utils.Random;
 public class WandOfLifeDrain extends WandUtility {
 
     {
-        name = "Wand of Life Drain";
+        name = Ml.g("items.wands.wandoflifedrain.name");
         image = ItemSpriteSheet.WAND_LIFEDRAIN;
     }
 

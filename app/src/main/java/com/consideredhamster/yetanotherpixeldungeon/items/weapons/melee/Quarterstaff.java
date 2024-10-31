@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Quarterstaff extends MeleeWeaponHeavyOH {
 
     {
-        name = "quarterstaff";
+        name = Ml.g("items.weapons.melee.quarterstaff.name");
         image = ItemSpriteSheet.QUARTERSTAFF;
     }
 

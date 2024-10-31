@@ -30,7 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Boomerangs extends ThrowingWeaponSpecial {
 
     {
-        name = "boomerangs";
+        name = Ml.g("items.weapons.throwing.boomerangs.name");
         image = ItemSpriteSheet.BOOMERANG;
     }
 

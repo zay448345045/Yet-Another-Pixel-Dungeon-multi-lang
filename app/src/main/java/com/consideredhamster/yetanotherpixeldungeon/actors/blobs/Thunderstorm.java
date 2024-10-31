@@ -56,7 +56,7 @@ public class Thunderstorm extends Blob {
     public Thunderstorm() {
         super();
 
-        name = "thunderstorm";
+        name = Ml.g("actors.blobs.thunderstorm.name");
     }
 
     @Override

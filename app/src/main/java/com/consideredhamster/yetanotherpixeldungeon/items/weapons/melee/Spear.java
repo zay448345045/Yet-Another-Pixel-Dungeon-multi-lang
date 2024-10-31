@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Spear extends MeleeWeaponLightTH {
 
     {
-        name = "spear";
+        name = Ml.g("items.weapons.melee.spear.name");
         image = ItemSpriteSheet.SPEAR;
     }
 

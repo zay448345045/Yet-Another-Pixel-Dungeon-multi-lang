@@ -39,7 +39,7 @@ public class ScrollOfDetectMagic extends Scroll {
     private static final String TXT_NOTHING = Ml.g("items.scrolls.scrollofdetectmagic.txt_nothing");
 
     {
-        name = "Scroll of Detect Magic";
+        name = Ml.g("items.scrolls.scrollofdetectmagic.name");
         shortName = "DM";
 
 //		inventoryTitle = "Select an item to identify";

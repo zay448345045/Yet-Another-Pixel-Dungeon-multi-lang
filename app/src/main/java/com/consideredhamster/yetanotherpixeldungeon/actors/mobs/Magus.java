@@ -74,8 +74,8 @@ public class Magus extends MobRanged {
 
          */
 
-        name = "magus";
-        info = "Magical, Elemental bolt";
+        name = Ml.g("actors.mobs.magus.name");
+        info = Ml.g("actors.mobs.magus.info");
         spriteClass = MagusSprite.class;
 
         resistances.put(Element.Flame.class, Element.Resist.PARTIAL);

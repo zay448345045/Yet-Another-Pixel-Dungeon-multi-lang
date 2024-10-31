@@ -37,7 +37,7 @@ public class EarthrootHerb extends Herb {
     private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0x663300);
 
     {
-        name = "Earthroot herb";
+        name = Ml.g("items.herbs.earthrootherb.name");
         image = ItemSpriteSheet.HERB_EARTHROOT;
 
         cooking = ChewyMeat.class;
@@ -77,7 +77,7 @@ public class EarthrootHerb extends Herb {
     public static class ChewyMeat extends MeatStewed {
 
         {
-            name = "chewy meat";
+            name = Ml.g("items.herbs.earthrootherb.name_2");
             spiceGlow = BROWN;
             message = "That meat was very hard to chew.";
         }

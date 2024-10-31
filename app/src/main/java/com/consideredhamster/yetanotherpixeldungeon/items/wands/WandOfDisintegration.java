@@ -44,7 +44,7 @@ import java.util.ArrayList;
 public class WandOfDisintegration extends WandCombat {
 
     {
-        name = "Wand of Disintegration";
+        name = Ml.g("items.wands.wandofdisintegration.name");
         image = ItemSpriteSheet.WAND_DISINTEGRATION;
 
         hitChars = false;

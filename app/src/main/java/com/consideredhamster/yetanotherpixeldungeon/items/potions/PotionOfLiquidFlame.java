@@ -32,7 +32,7 @@ public class PotionOfLiquidFlame extends Potion {
     public static final float BASE_VAL = 0.5f;
 
     {
-        name = "Potion of Liquid Flame";
+        name = Ml.g("items.potions.potionofliquidflame.name");
         shortName = "Li";
         harmful = true;
     }

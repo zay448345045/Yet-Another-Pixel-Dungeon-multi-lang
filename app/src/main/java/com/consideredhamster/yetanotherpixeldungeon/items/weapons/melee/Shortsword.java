@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Shortsword extends MeleeWeaponLightOH {
 
     {
-        name = "shortsword";
+        name = Ml.g("items.weapons.melee.shortsword.name");
         image = ItemSpriteSheet.GLADIUS;
     }
 

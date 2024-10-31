@@ -35,7 +35,7 @@ public class PotionOfWebbing extends Potion {
     public static final int BASE_DURATION = 10;
 
     {
-        name = "Potion of Webbing";
+        name = Ml.g("items.potions.potionofwebbing.name");
         shortName = "We";
         harmful = true;
     }

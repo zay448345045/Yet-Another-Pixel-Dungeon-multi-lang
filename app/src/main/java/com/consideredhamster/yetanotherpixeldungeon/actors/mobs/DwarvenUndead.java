@@ -47,8 +47,8 @@
 
           super(5, 12, false);
 
-          name = "undead dwarf";
-          info = "Magical, Weakening attack";
+          name = Ml.g("actors.mobs.dwarvenundead.name");
+          info = Ml.g("actors.mobs.dwarvenundead.info");
           spriteClass = UndeadSprite.class;
 
           armorClass /= 2;

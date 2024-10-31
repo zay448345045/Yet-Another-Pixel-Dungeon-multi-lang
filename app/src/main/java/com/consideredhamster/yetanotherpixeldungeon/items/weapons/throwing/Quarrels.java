@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Quarrels extends ThrowingWeaponAmmo {
 
     {
-        name = "quarrels";
+        name = Ml.g("items.weapons.throwing.quarrels.name");
         image = ItemSpriteSheet.QUARREL;
     }
 

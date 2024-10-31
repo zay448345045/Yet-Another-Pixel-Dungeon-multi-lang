@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Shurikens extends ThrowingWeaponLight {
 
     {
-        name = "shurikens";
+        name = Ml.g("items.weapons.throwing.shurikens.name");
         image = ItemSpriteSheet.THROWING_STAR;
     }
 

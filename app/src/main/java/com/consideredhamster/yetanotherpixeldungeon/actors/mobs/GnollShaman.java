@@ -60,8 +60,8 @@ public class GnollShaman extends MobRanged {
 
          */
 
-        name = "gnoll shaman";
-        info = "Magic missile";
+        name = Ml.g("actors.mobs.gnollshaman.name");
+        info = Ml.g("actors.mobs.gnollshaman.info");
         spriteClass = ShamanSprite.class;
 
         resistances.put(Element.Dispel.class, Element.Resist.IMMUNE);

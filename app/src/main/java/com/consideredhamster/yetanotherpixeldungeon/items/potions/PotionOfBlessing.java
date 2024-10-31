@@ -49,7 +49,7 @@ public class PotionOfBlessing extends Potion {
     private static final String TXT_NOT_PROCCED = Ml.g("items.potions.potionofblessing.txt_not_procced");
 
     {
-        name = "Potion of Blessing";
+        name = Ml.g("items.potions.potionofblessing.name");
         shortName = "Bl";
         harmful = true;
     }

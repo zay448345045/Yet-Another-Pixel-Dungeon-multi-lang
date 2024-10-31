@@ -29,7 +29,7 @@ import com.watabou.utils.Random;
 public class PotionOfWisdom extends Potion {
 
     {
-        name = "Potion of Wisdom";
+        name = Ml.g("items.potions.potionofwisdom.name");
         shortName = "Wi";
     }
 

@@ -28,7 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Arquebuse extends RangedWeaponFlintlock {
 
     {
-        name = "arquebuse";
+        name = Ml.g("items.weapons.ranged.arquebuse.name");
         image = ItemSpriteSheet.ARQUEBUS;
     }
 

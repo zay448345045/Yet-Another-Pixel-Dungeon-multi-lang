@@ -34,7 +34,7 @@ import java.util.ArrayList;
 public class ScrollOfRaiseDead extends Scroll {
 
     {
-        name = "Scroll of Raise Dead";
+        name = Ml.g("items.scrolls.scrollofraisedead.name");
         shortName = "Ra";
 
         spellSprite = SpellSprite.SCROLL_RAISEDEAD;

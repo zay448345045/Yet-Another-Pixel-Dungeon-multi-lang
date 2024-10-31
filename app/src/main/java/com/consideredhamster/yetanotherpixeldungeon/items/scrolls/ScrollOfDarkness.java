@@ -35,7 +35,7 @@ public class ScrollOfDarkness extends Scroll {
     private static final String TXT_MESSAGE = Ml.g("items.scrolls.scrollofdarkness.txt_message");
 
     {
-        name = "Scroll of Darkness";
+        name = Ml.g("items.scrolls.scrollofdarkness.name");
         shortName = "Da";
 
         spellSprite = SpellSprite.SCROLL_DARKNESS;

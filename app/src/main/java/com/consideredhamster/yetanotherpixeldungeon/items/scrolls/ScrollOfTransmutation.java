@@ -54,7 +54,7 @@ public class ScrollOfTransmutation extends InventoryScroll {
     private static final String TXT_ITEM_UNKNOWN = Ml.g("items.scrolls.scrolloftransmutation.txt_item_unknown");
 
     {
-        name = "Scroll of Transmutation";
+        name = Ml.g("items.scrolls.scrolloftransmutation.name");
         shortName = "Tr";
 
         inventoryTitle = "Select an transmutable item";

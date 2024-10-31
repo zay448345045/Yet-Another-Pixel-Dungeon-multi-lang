@@ -45,8 +45,8 @@ public class Rat extends MobEvasive {
 
          */
 
-        name = "marsupial rat";
-        info = "Nothing";
+        name = Ml.g("actors.mobs.rat.name");
+        info = Ml.g("actors.mobs.rat.info");
 
         spriteClass = RatSprite.class;
 

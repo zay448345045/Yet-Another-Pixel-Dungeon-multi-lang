@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class DriedRose extends Item {
 
     {
-        name = "dried rose";
+        name = Ml.g("items.quest.driedrose.name");
         image = ItemSpriteSheet.ROSE;
 
         unique = true;

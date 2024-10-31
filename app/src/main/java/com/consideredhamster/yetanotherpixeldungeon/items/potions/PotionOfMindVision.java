@@ -31,7 +31,7 @@ public class PotionOfMindVision extends Potion {
     public static final float DURATION = 35f;
 
     {
-        name = "Potion of Mind Vision";
+        name = Ml.g("items.potions.potionofmindvision.name");
         shortName = "Mi";
     }
 

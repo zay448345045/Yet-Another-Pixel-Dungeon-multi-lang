@@ -29,7 +29,7 @@ public class ShopkeeperGhost extends Shopkeeper {
     private static final String TXT_GREETINGS = Ml.g("actors.mobs.npcs.shopkeeperghost.txt_greetings");
 
     {
-        name = "strange shopkeeper";
+        name = Ml.g("actors.mobs.npcs.shopkeeperghost.name");
         spriteClass = ShopkeeperGhostSprite.class;
     }
 

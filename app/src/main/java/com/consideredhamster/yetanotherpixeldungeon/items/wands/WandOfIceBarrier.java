@@ -43,7 +43,7 @@ import com.watabou.utils.Callback;
 public class WandOfIceBarrier extends WandUtility {
 
     {
-        name = "Wand of Ice Barrier";
+        name = Ml.g("items.wands.wandoficebarrier.name_2");
         image = ItemSpriteSheet.WAND_ICEBARRIER;
 
         hitChars = false;
@@ -175,7 +175,7 @@ public class WandOfIceBarrier extends WandUtility {
 
         public IceBlock() {
 
-            name = "ice block";
+            name = Ml.g("items.wands.wandoficebarrier.name");
             spriteClass = IceBlockSprite.class;
 
             resistances.put(Element.Flame.class, Element.Resist.VULNERABLE);

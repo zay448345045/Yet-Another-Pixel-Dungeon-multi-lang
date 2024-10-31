@@ -30,7 +30,7 @@ public class MageArmor extends BodyArmorCloth {
 //	private static final String TXT_NOT_MAGE	= "Only mages can use this armor!";
 
     {
-        name = "mystic robe";
+        name = Ml.g("items.armours.body.magearmor.name");
         image = ItemSpriteSheet.ARMOR_MAGE;
 
         appearance = 1;

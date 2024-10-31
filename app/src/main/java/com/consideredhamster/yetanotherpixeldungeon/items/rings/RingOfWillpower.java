@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
 import com.consideredhamster.yetanotherpixeldungeon.Element;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -28,7 +29,7 @@ import java.util.Locale;
 public class RingOfWillpower extends Ring {
 
     {
-        name = "Ring of Willpower";
+        name = Ml.g("items.rings.ringofwillpower.name");
         shortName = "Wi";
     }
 

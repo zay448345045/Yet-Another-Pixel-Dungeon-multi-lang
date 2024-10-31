@@ -30,7 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Icons;
 public class WandHolster extends Bag {
 
     {
-        name = "wand holster";
+        name = Ml.g("items.bags.wandholster.name");
         image = ItemSpriteSheet.HOLSTER;
 
         size = 19;

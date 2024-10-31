@@ -38,7 +38,7 @@ public class Amulet extends Item {
     private static final String AC_END = Ml.g("items.misc.amulet.ac_end");
 
     {
-        name = "Amulet of Yendor";
+        name = Ml.g("items.misc.amulet.name");
         image = ItemSpriteSheet.AMULET;
 
         unique = true;

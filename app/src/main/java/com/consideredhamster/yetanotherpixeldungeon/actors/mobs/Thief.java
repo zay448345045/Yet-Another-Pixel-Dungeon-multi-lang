@@ -52,8 +52,8 @@ public class Thief extends MobPrecise {
 
          */
 
-        name = "mugger";
-        info = "Knife throwing";
+        name = Ml.g("actors.mobs.thief.name");
+        info = Ml.g("actors.mobs.thief.info");
         spriteClass = ThiefSprite.class;
 
         loot = Gold.class;

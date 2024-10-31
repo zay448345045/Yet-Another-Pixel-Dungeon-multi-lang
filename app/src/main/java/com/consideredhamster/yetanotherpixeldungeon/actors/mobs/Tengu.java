@@ -135,7 +135,7 @@ public class Tengu extends MobRanged {
         super(3, 15, true);
 
         name = Dungeon.depth == Statistics.deepestFloor ? "Tengu" : "memory of Tengu";
-        info = "Boss enemy!";
+        info = Ml.g("actors.mobs.tengu.info");
 
         spriteClass = TenguSprite.class;
 

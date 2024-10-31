@@ -30,7 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class PoisonDarts extends ThrowingWeaponSpecial {
 
     {
-        name = "poison darts";
+        name = Ml.g("items.weapons.throwing.poisondarts.name");
         image = ItemSpriteSheet.THROWING_DART;
     }
 

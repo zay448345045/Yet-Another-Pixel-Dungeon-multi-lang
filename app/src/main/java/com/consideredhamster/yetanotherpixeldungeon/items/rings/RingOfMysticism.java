@@ -20,12 +20,14 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfMysticism extends Ring {
 
     {
-        name = "Ring of Mysticism";
+        name = Ml.g("items.rings.ringofmysticism.name");
         shortName = "My";
     }
 

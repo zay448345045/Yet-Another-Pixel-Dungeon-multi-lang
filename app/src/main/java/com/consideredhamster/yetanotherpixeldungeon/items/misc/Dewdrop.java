@@ -36,7 +36,7 @@ public class Dewdrop extends Item {
     private static final String TXT_VALUE = Ml.g("items.misc.dewdrop.txt_value");
 
     {
-        name = "dewdrop";
+        name = Ml.g("items.misc.dewdrop.name");
         image = ItemSpriteSheet.DEWDROP;
 
         stackable = true;

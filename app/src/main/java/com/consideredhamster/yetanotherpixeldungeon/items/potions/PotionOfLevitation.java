@@ -30,7 +30,7 @@ public class PotionOfLevitation extends Potion {
     public static final float DURATION = 25f;
 
     {
-        name = "Potion of Levitation";
+        name = Ml.g("items.potions.potionoflevitation.name");
         shortName = "Le";
     }
 

@@ -52,7 +52,7 @@ public class CraftingKit extends Item {
     private static final String TXT_STATUS = Ml.g("items.misc.craftingkit.txt_status");
 
     {
-        name = "crafting kit";
+        name = Ml.g("items.misc.craftingkit.name");
         image = ItemSpriteSheet.CRAFTING_KIT;
     }
 

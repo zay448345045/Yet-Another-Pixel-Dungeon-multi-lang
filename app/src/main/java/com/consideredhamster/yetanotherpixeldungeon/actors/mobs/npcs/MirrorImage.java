@@ -36,7 +36,7 @@ import java.util.HashSet;
 public class MirrorImage extends NPC {
 
     {
-        name = "mirror image";
+        name = Ml.g("actors.mobs.npcs.mirrorimage.name");
         spriteClass = MirrorSprite.class;
 
         state = HUNTING;

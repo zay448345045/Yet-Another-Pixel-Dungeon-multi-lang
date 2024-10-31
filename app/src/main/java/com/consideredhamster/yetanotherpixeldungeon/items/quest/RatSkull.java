@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class RatSkull extends Item {
 
     {
-        name = "giant rat skull";
+        name = Ml.g("items.quest.ratskull.name");
         image = ItemSpriteSheet.SKULL;
 
         unique = true;

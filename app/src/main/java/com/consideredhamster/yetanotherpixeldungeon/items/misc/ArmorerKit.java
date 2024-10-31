@@ -53,7 +53,7 @@ public class ArmorerKit extends Item {
     private static final String TXT_STATUS = Ml.g("items.misc.armorerkit.txt_status");
 
     {
-        name = "armorer's kit";
+        name = Ml.g("items.misc.armorerkit.name");
         image = ItemSpriteSheet.ARMORER_KIT;
     }
 

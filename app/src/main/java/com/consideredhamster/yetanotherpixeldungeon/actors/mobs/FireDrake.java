@@ -55,8 +55,8 @@ public class FireDrake extends MobPrecise {
 
          */
 
-        name = "fire drake";
-        info = "Flying, Fire breath, Fiery death";
+        name = Ml.g("actors.mobs.firedrake.name");
+        info = Ml.g("actors.mobs.firedrake.info");
 
         spriteClass = FireDrakeSprite.class;
 

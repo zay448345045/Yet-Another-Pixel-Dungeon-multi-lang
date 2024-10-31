@@ -33,7 +33,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
 public class PotionOfStrength extends Potion {
 
     {
-        name = "Potion of Strength";
+        name = Ml.g("items.potions.potionofstrength.name");
         shortName = "St";
     }
 

@@ -67,8 +67,8 @@ public class Imp extends MobEvasive {
 
          */
 
-        name = "malicious imp";
-        info = "Magical, Flying, Stealing, Invisibility";
+        name = Ml.g("actors.mobs.imp.name");
+        info = Ml.g("actors.mobs.imp.info");
         spriteClass = ImpSprite.class;
 
         flying = true;

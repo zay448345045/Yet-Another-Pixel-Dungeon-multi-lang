@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class CorpseDust extends Item {
 
     {
-        name = "corpse dust";
+        name = Ml.g("items.quest.corpsedust.name");
         image = ItemSpriteSheet.DUST;
 
 //		cursed = true;

@@ -20,12 +20,14 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.items.rings;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
+
 import java.util.Locale;
 
 public class RingOfAwareness extends Ring {
 
     {
-        name = "Ring of Awareness";
+        name = Ml.g("items.rings.ringofawareness.name");
         shortName = "Aw";
     }
 

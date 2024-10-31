@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 
 public class DiscArmor extends BodyArmorHeavy {
     {
-        name = "disc armor";
+        name = Ml.g("items.armours.body.discarmor.name");
         image = ItemSpriteSheet.ARMOR_DISC;
         appearance = 5;
     }

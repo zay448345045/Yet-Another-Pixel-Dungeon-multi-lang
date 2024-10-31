@@ -41,7 +41,7 @@ public class ScrollOfChallenge extends Scroll {
     private static final String TXT_MESSAGE = Ml.g("items.scrolls.scrollofchallenge.txt_message");
 
     {
-        name = "Scroll of Challenge";
+        name = Ml.g("items.scrolls.scrollofchallenge.name");
         shortName = "Ch";
 
         spellSprite = SpellSprite.SCROLL_CHALLENGE;

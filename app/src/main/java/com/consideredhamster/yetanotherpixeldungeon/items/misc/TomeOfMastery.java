@@ -46,7 +46,7 @@ public class TomeOfMastery extends Item {
 
     {
         stackable = false;
-        name = "Tome of Mastery";
+        name = Ml.g("items.misc.tomeofmastery.name");
 //		image = ItemSpriteSheet.MASTERY;
 
         unique = true;

@@ -81,7 +81,7 @@ public class DM300 extends MobHealthy {
         armorClass *= 2; // and yes, we multiply it back
 
         name = Dungeon.depth == Statistics.deepestFloor ? "DM-300" : "DM-400";
-        info = "Boss enemy!";
+        info = Ml.g("actors.mobs.dm300.info");
         spriteClass = DM300Sprite.class;
 
         loot = Gold.class;

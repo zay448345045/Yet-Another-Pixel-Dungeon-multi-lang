@@ -52,8 +52,8 @@ public class Mimic extends MobHealthy {
 
         super(Dungeon.depth + 1);
 
-        name = "mimic";
-        info = "Slow, Devour item";
+        name = Ml.g("actors.mobs.mimic.name");
+        info = Ml.g("actors.mobs.mimic.info");
 
         spriteClass = MimicSprite.class;
 

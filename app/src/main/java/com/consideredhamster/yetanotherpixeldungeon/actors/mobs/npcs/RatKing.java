@@ -30,7 +30,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.RatKingSprit
 public class RatKing extends NPC {
 
     {
-        name = "rat king";
+        name = Ml.g("actors.mobs.npcs.ratking.name");
         spriteClass = RatKingSprite.class;
 
         state = SLEEPING;

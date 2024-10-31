@@ -35,7 +35,7 @@ import java.util.HashSet;
 public class Bee extends NPC {
 
     {
-        name = "golden bee";
+        name = Ml.g("actors.mobs.npcs.bee.name");
         spriteClass = BeeSprite.class;
 
 //		viewDistance = 4;

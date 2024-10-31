@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class EmptyBottle extends Potion {
 
     {
-        name = "empty bottle";
+        name = Ml.g("items.potions.emptybottle.name");
         shortName = "";
         harmful = true;
         image = ItemSpriteSheet.POTION_EMPTY;

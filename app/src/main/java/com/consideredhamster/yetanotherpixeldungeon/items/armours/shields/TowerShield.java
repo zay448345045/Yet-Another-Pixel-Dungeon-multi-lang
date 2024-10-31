@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class TowerShield extends Shield {
 
     {
-        name = "tower shield";
+        name = Ml.g("items.armours.shields.towershield.name");
         image = ItemSpriteSheet.SHIELD_TOWER;
     }
 

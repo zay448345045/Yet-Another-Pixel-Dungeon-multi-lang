@@ -43,7 +43,7 @@ public class Honeypot extends Item {
     public static final String AC_SHATTER = Ml.g("items.misc.honeypot.ac_shatter");
 
     {
-        name = "honeypot";
+        name = Ml.g("items.misc.honeypot.name");
 //		image = ItemSpriteSheet.HONEYPOT;
 //		defaultAction = AC_THROW;
         stackable = true;

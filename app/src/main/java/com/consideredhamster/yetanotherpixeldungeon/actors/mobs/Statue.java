@@ -34,8 +34,8 @@ public class Statue extends MobPrecise {
 
         super(Dungeon.depth + 1);
 
-        name = "animated statue";
-        info = "Magical";
+        name = Ml.g("actors.mobs.statue.name");
+        info = Ml.g("actors.mobs.statue.info");
 
         spriteClass = StatueSprite.class;
 

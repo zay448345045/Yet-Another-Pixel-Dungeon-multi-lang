@@ -74,7 +74,7 @@ public class OilLantern extends Item {
     private static final String TXT_BURN_FAIL = Ml.g("items.misc.oillantern.txt_burn_fail");
 
     {
-        name = "oil lantern";
+        name = Ml.g("items.misc.oillantern.name");
         image = ItemSpriteSheet.LANTERN;
 
         active = false;
@@ -312,7 +312,7 @@ public class OilLantern extends Item {
     public static class OilFlask extends Item {
 
         {
-            name = "oil flask";
+            name = Ml.g("items.misc.oillantern.name_2");
             image = ItemSpriteSheet.OIL_FLASK;
 
             visible = false;

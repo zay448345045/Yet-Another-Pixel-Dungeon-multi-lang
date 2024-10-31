@@ -39,7 +39,7 @@ public class Miasma extends Blob {
     public Miasma() {
         super();
 
-        name = "cloud of miasma";
+        name = Ml.g("actors.blobs.miasma.name");
     }
 
     @Override

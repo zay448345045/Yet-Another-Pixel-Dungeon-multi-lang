@@ -48,8 +48,8 @@ public class CarrionSwarm extends MobEvasive {
 
          */
 
-        name = "carrion eater";
-        info = "Flying, Satiety drain, Food detection";
+        name = Ml.g("actors.mobs.carrionswarm.name");
+        info = Ml.g("actors.mobs.carrionswarm.info");
 
         spriteClass = SwarmSprite.class;
         flying = true;

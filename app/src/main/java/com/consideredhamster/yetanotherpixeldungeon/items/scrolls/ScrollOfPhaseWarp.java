@@ -47,7 +47,7 @@ public class ScrollOfPhaseWarp extends Scroll {
     public static final String TXT_NO_TELEPORT = Ml.g("items.scrolls.scrollofphasewarp.txt_no_teleport");
 
     {
-        name = "Scroll of Phase Warp";
+        name = Ml.g("items.scrolls.scrollofphasewarp.name");
         shortName = "Ph";
 
         spellSprite = SpellSprite.SCROLL_TELEPORT;

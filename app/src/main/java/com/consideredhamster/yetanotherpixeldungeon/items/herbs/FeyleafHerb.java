@@ -37,7 +37,7 @@ public class FeyleafHerb extends Herb {
     private static final ItemSprite.Glowing CYAN = new ItemSprite.Glowing(0xa1ffff);
 
     {
-        name = "Feyleaf herb";
+        name = Ml.g("items.herbs.feyleafherb.name");
         image = ItemSpriteSheet.HERB_FEYLEAF;
 
         cooking = TenderMeat.class;
@@ -76,7 +76,7 @@ public class FeyleafHerb extends Herb {
     public static class TenderMeat extends MeatStewed {
 
         {
-            name = "tender meat";
+            name = Ml.g("items.herbs.feyleafherb.name_2");
             spiceGlow = CYAN;
             message = "That meat had a very delicate taste.";
         }

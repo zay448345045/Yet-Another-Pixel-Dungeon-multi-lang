@@ -44,7 +44,7 @@ import com.watabou.utils.Random;
 public class WandOfFirebrand extends WandCombat {
 
     {
-        name = "Wand of Firebrand";
+        name = Ml.g("items.wands.wandoffirebrand.name");
         image = ItemSpriteSheet.WAND_FIREBRAND;
 
         goThrough = false;

@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class MailArmor extends BodyArmorLight {
 
     {
-        name = "mail armor";
+        name = Ml.g("items.armours.body.mailarmor.name");
         image = ItemSpriteSheet.ARMOR_MAIL;
         appearance = 6;
     }

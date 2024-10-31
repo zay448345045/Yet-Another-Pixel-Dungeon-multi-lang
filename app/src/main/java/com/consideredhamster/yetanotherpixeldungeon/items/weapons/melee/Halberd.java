@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Halberd extends MeleeWeaponLightTH {
 
     {
-        name = "halberd";
+        name = Ml.g("items.weapons.melee.halberd.name");
         image = ItemSpriteSheet.HALBERD;
     }
 

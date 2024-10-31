@@ -50,8 +50,8 @@ public class DwarfMonk extends MobEvasive {
 
          */
 
-        name = "dwarf monk";
-        info = "Fast attack, Combo attacks";
+        name = Ml.g("actors.mobs.dwarfmonk.name");
+        info = Ml.g("actors.mobs.dwarfmonk.info");
 
         spriteClass = MonkSprite.class;
 

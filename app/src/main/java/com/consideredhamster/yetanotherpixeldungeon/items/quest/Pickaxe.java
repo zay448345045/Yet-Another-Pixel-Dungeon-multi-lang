@@ -49,7 +49,7 @@ public class Pickaxe extends Item {
 //	private static final Glowing BLOODY = new Glowing( 0x550000 );
 
     {
-        name = "pickaxe";
+        name = Ml.g("items.quest.pickaxe.name");
         image = ItemSpriteSheet.PICKAXE;
 
         unique = true;

@@ -26,7 +26,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class Greatsword extends MeleeWeaponHeavyTH {
 
     {
-        name = "greatsword";
+        name = Ml.g("items.weapons.melee.greatsword.name");
         image = ItemSpriteSheet.GREATSWORD;
     }
 

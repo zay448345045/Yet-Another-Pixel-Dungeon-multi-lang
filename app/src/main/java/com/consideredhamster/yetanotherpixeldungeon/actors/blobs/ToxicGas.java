@@ -36,7 +36,7 @@ public class ToxicGas extends Blob {
     public ToxicGas() {
         super();
 
-        name = "cloud of gas";
+        name = Ml.g("actors.blobs.toxicgas.name");
     }
 
     @Override

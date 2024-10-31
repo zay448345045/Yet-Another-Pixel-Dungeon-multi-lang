@@ -50,8 +50,8 @@ public class CaveScorpion extends MobHealthy {
 
          */
 
-        name = "cave scorpion";
-        info = "Corrosive attack, Acidic blood";
+        name = Ml.g("actors.mobs.cavescorpion.name");
+        info = Ml.g("actors.mobs.cavescorpion.info");
 
         spriteClass = ScorpionSprite.class;
 

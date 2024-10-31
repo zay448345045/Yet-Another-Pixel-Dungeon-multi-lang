@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class SplintArmor extends BodyArmorHeavy {
 
     {
-        name = "splint armor";
+        name = Ml.g("items.armours.body.splintarmor.name");
         image = ItemSpriteSheet.ARMOR_SPLINT;
         appearance = 7;
     }

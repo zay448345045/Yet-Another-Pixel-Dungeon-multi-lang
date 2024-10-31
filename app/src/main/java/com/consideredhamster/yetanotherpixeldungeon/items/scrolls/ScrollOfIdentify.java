@@ -35,7 +35,7 @@ public class ScrollOfIdentify extends InventoryScroll {
 //    private static final String TXT_NOTHING 	= "Nothing happens.";
 
     {
-        name = "Scroll of Identify";
+        name = Ml.g("items.scrolls.scrollofidentify.name");
         shortName = "Id";
 
         inventoryTitle = "Select an item to identify";

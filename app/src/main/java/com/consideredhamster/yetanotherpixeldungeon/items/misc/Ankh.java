@@ -41,7 +41,7 @@ public class Ankh extends Item {
     {
         visible = false;
         stackable = true;
-        name = "ankh";
+        name = Ml.g("items.misc.ankh.name");
         image = ItemSpriteSheet.ANKH;
     }
 

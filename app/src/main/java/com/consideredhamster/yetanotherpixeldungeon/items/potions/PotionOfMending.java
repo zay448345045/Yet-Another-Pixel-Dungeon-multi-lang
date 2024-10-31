@@ -33,7 +33,7 @@ public class PotionOfMending extends Potion {
     public static final float DURATION = 20f;
 
     {
-        name = "Potion of Mending";
+        name = Ml.g("items.potions.potionofmending.name");
         shortName = "Me";
     }
 

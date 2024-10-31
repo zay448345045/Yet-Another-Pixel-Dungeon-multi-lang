@@ -59,7 +59,7 @@ public class LloydsBeacon extends Item {
     private int returnPos;
 
     {
-        name = "lloyd's beacon";
+        name = Ml.g("items.misc.lloydsbeacon.name");
 //		image = ItemSpriteSheet.BEACON;
 
         unique = true;

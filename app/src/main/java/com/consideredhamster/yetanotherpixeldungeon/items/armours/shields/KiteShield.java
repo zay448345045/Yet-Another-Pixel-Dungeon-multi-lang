@@ -27,7 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSh
 public class KiteShield extends Shield {
 
     {
-        name = "kite shield";
+        name = Ml.g("items.armours.shields.kiteshield.name");
         image = ItemSpriteSheet.SHIELD_KITE;
     }
 

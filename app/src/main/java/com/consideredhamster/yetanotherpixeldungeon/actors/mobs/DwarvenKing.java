@@ -137,7 +137,7 @@
           super(5, 25, true);
 
           name = Dungeon.depth == Statistics.deepestFloor ? "King of Dwarves" : "undead King of Dwarves";
-          info = "Boss enemy!";
+          info = Ml.g("actors.mobs.dwarvenking.info");
           spriteClass = KingSprite.class;
 
           loot = Gold.class;
@@ -552,7 +552,7 @@
           public Spawner() {
               super();
 
-              name = "bone pit";
+              name = Ml.g("actors.mobs.dwarvenking.name");
           }
 
           @Override

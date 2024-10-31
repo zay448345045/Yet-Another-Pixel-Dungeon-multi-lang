@@ -210,7 +210,7 @@ public class Hero extends Char {
 
     public Hero() {
         super();
-        name = "you";
+        name = Ml.g("actors.hero.hero.name");
 
         HP = HT = 25;
         STR = STARTING_STR;

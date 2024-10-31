@@ -21,9 +21,9 @@ import java.util.Scanner;
 public class Ml {
 
     private static Map<String, String> translations = new HashMap<>();
-    private static final String TRANSLATION_PATH = Ml.g("multilang.ml.translation_path");
-    private static final String PREFS_NAME = Ml.g("multilang.ml.prefs_name");
-    private static final String LANGUAGE_KEY = Ml.g("multilang.ml.language_key");
+    private static final String TRANSLATION_PATH = "multilang/";
+    private static final String PREFS_NAME = "LocalizationPrefs";
+    private static final String LANGUAGE_KEY = "language";
 
     public static void initialize() {
         String savedLanguageCode = loadLanguageSetting();
@@ -43,7 +43,7 @@ public class Ml {
         saveLanguageSetting(languageCode);
 
         AssetManager assetManager = Game.instance.getAssets();
-        String fileName = Ml.g("multilang.ml.filename", TRANSLATION_PATH, languageCode);
+        String fileName = TRANSLATION_PATH + languageCode + ".json";
 
         try (InputStream is = assetManager.open(fileName)) {
             String jsonStr = convertStreamToString(is);
@@ -88,7 +88,7 @@ public class Ml {
     private static String formatString(String template, Object... args) {
         String result = template;
         for (int i = 0; i < args.length; i++) {
-            String placeholder = Ml.g("multilang.ml.placeholder", i);
+            String placeholder = "{" + i + "}";
             result = result.replace(placeholder, args[i].toString());
         }
         return result;
@@ -97,19 +97,19 @@ public class Ml {
     private static String mapSystemLanguageToAppLanguage(String systemLanguageCode) {
         switch (systemLanguageCode) {
             case "es":
-                return Ml.g("multilang.ml.mapsystemlanguagetoapplanguage");
+                return "es";
             case "fr":
-                return Ml.g("multilang.ml.mapsystemlanguagetoapplanguage_2");
+                return "fr";
             case "pt":
-                return Ml.g("multilang.ml.mapsystemlanguagetoapplanguage_3");
+                return "pt";
             case "ru":
-                return Ml.g("multilang.ml.mapsystemlanguagetoapplanguage_4");
+                return "ru";
             case "ja":
-                return Ml.g("multilang.ml.mapsystemlanguagetoapplanguage_5");
+                return "ja";
             case "zh":
-                return Ml.g("multilang.ml.mapsystemlanguagetoapplanguage_6");
+                return "cn";
             default:
-                return Ml.g("multilang.ml.mapsystemlanguagetoapplanguage_7");
+                return "en";
         }
     }
 

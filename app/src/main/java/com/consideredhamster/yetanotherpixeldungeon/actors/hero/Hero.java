@@ -226,14 +226,14 @@ public class Hero extends Char {
 //		return Math.max( 1, STR - weakened );
     }
 
-    private static final String ATTACK = Ml.g("actors.hero.hero.attack");
-    private static final String DEFENSE = Ml.g("actors.hero.hero.defense");
-    private static final String MAGIC = Ml.g("actors.hero.hero.magic");
-    private static final String STRENGTH = Ml.g("actors.hero.hero.strength");
-    private static final String STR_BONUS = Ml.g("actors.hero.hero.str_bonus");
-    private static final String LVL_BONUS = Ml.g("actors.hero.hero.lvl_bonus");
-    private static final String LEVEL = Ml.g("actors.hero.hero.level");
-    private static final String EXPERIENCE = Ml.g("actors.hero.hero.experience");
+    private static final String ATTACK = "accuracy";
+    private static final String DEFENSE = "dexterity";
+    private static final String MAGIC = "magicSkill";
+    private static final String STRENGTH = "STR";
+    private static final String STR_BONUS = "strBonus";
+    private static final String LVL_BONUS = "lvlBonus";
+    private static final String LEVEL = "lvl";
+    private static final String EXPERIENCE = "exp";
 
     @Override
     public void storeInBundle(Bundle bundle) {

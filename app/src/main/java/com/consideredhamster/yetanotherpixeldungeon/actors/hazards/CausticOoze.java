@@ -215,7 +215,7 @@ public class CausticOoze extends Hazard {
     }
 
 
-    private static final String DURATION = Ml.g("actors.hazards.causticooze.duration");
+    private static final String DURATION = "duration";
 
     @Override
     public void storeInBundle(Bundle bundle) {

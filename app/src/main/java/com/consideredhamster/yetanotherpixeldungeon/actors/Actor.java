@@ -29,7 +29,6 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.buffs.Buff;
 import com.consideredhamster.yetanotherpixeldungeon.actors.hazards.Hazard;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 
@@ -74,8 +73,8 @@ public abstract class Actor implements Bundlable {
     protected void onRemove() {
     }
 
-    private static final String TIME = Ml.g("actors.actor.time");
-    private static final String ID = Ml.g("actors.actor.id");
+    private static final String TIME = "time";
+    private static final String ID = "id";
 
     @Override
     public void storeInBundle(Bundle bundle) {

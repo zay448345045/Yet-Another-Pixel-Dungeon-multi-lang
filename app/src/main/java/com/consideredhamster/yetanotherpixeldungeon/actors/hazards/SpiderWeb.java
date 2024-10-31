@@ -117,7 +117,7 @@ public class SpiderWeb extends Hazard {
     }
 
 
-    private static final String DURATION = Ml.g("actors.hazards.spiderweb.duration");
+    private static final String DURATION = "duration";
 
     @Override
     public void storeInBundle(Bundle bundle) {

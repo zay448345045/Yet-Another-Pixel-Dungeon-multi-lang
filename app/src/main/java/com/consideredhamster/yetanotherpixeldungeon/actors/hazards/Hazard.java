@@ -23,7 +23,6 @@ package com.consideredhamster.yetanotherpixeldungeon.actors.hazards;
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Char;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.HazardSprite;
 import com.watabou.utils.Bundle;
 
@@ -95,8 +94,8 @@ public abstract class Hazard extends Actor {
         return hazards;
     }
 
-    private static final String POS = Ml.g("actors.hazards.hazard.pos");
-    private static final String VAR = Ml.g("actors.hazards.hazard.var");
+    private static final String POS = "pos";
+    private static final String VAR = "var";
 
     @Override
     public void storeInBundle(Bundle bundle) {

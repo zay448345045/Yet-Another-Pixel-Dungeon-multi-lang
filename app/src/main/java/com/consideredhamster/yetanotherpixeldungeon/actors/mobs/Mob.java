@@ -115,10 +115,10 @@ public abstract class Mob extends Char {
 
     private boolean recentlyNoticed = false;
 
-    private static final String STATE = Ml.g("actors.mobs.mob.state");
-    private static final String TARGET = Ml.g("actors.mobs.mob.target");
-    private static final String ALERTED = Ml.g("actors.mobs.mob.alerted");
-    private static final String NOTICED = Ml.g("actors.mobs.mob.noticed");
+    private static final String STATE = "state";
+    private static final String TARGET = "target";
+    private static final String ALERTED = "alerted";
+    private static final String NOTICED = "noticed";
 
     @Override
     public int STR() {
@@ -845,7 +845,7 @@ public abstract class Mob extends Char {
 
     private class Sleeping implements AiState {
 
-        public static final String TAG = Ml.g("actors.mobs.mob.tag");
+        public static final String TAG = "SLEEPING";
 
         @Override
         public boolean act(boolean enemyInFOV, boolean justAlerted) {
@@ -884,7 +884,7 @@ public abstract class Mob extends Char {
 
     private class Wandering implements AiState {
 
-        public static final String TAG = Ml.g("actors.mobs.mob.tag_2");
+        public static final String TAG = "WANDERING";
 
         @Override
         public boolean act(boolean enemyInFOV, boolean justAlerted) {
@@ -930,7 +930,7 @@ public abstract class Mob extends Char {
 
     private class Hunting implements AiState {
 
-        public static final String TAG = Ml.g("actors.mobs.mob.tag_3");
+        public static final String TAG = "HUNTING";
 
         @Override
         public boolean act(boolean enemyInFOV, boolean justAlerted) {
@@ -989,13 +989,13 @@ public abstract class Mob extends Char {
 
         @Override
         public String status() {
-            return Ml.g("actors.mobs.mob.status_3", (enemySeen ? attacking : hunting));
+            return enemySeen ? Ml.g("actors.mobs.mob.status_3_1") : Ml.g("actors.mobs.mob.status_3_2");
         }
     }
 
     protected class Fleeing implements AiState {
 
-        public static final String TAG = Ml.g("actors.mobs.mob.tag_4");
+        public static final String TAG = "FLEEING";
 
         @Override
         public boolean act(boolean enemyInFOV, boolean justAlerted) {
@@ -1072,7 +1072,7 @@ public abstract class Mob extends Char {
 
     protected class Passive implements AiState {
 
-        public static final String TAG = Ml.g("actors.mobs.mob.tag_5");
+        public static final String TAG = "PASSIVE";
 
         @Override
         public boolean act(boolean enemyInFOV, boolean justAlerted) {

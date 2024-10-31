@@ -61,8 +61,8 @@ public class Satiety extends Buff {
     private float remaining = MAXIMUM;
     private float surplus = 0.0f;
 
-    private static final String LEVEL = Ml.g("actors.buffs.special.satiety.level");
-    private static final String SURPLUS = Ml.g("actors.buffs.special.satiety.surplus");
+    private static final String LEVEL = "remaining";
+    private static final String SURPLUS = "surplus";
 
     @Override
     public void storeInBundle(Bundle bundle) {

@@ -24,7 +24,6 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.Ring;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.noosa.Game;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
@@ -35,10 +34,10 @@ import java.io.OutputStream;
 
 public class Bones {
 
-    private static final String BONES_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.bones.bones_file");
+    private static final String BONES_FILE = "bones_%d.dat";
 
-    private static final String LEVEL = Ml.g("com.consideredhamster.yetanotherpixeldungeon.bones.level");
-    private static final String ITEM = Ml.g("com.consideredhamster.yetanotherpixeldungeon.bones.item");
+    private static final String LEVEL = "level";
+    private static final String ITEM = "item";
 
     private static int depth = -1;
     private static Item item;

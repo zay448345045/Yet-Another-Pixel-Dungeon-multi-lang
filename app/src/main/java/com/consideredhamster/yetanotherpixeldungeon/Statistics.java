@@ -20,7 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon;
 
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundle;
 
 public class Statistics {
@@ -62,17 +61,17 @@ public class Statistics {
 
     }
 
-    private static final String GOLD = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.gold");
-    private static final String UPGRADES = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.upgrades");
-    private static final String DEEPEST = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.deepest");
-    private static final String SLAIN = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.slain");
-    private static final String FOOD = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.food");
-    private static final String ALCHEMY = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.alchemy");
-    private static final String PIRANHAS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.piranhas");
-    private static final String NIGHT = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.night");
-    private static final String ANKHS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.ankhs");
-    private static final String DURATION = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.duration");
-    private static final String AMULET = Ml.g("com.consideredhamster.yetanotherpixeldungeon.statistics.amulet");
+    private static final String GOLD = "score";
+    private static final String UPGRADES = "itemsUpgraded";
+    private static final String DEEPEST = "maxDepth";
+    private static final String SLAIN = "enemiesSlain";
+    private static final String FOOD = "foodEaten";
+    private static final String ALCHEMY = "potionsCooked";
+    private static final String PIRANHAS = "piranhas";
+    private static final String NIGHT = "nightHunt";
+    private static final String ANKHS = "ankhsUsed";
+    private static final String DURATION = "duration";
+    private static final String AMULET = "amuletObtained";
 
     public static void storeInBundle(Bundle bundle) {
         bundle.put(GOLD, goldCollected);

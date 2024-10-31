@@ -60,7 +60,6 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.SewerLevel;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.ShopPainter;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.BArray;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.StartScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
@@ -422,42 +421,42 @@ public class Dungeon {
         return false;
     }
 
-    private static final String RG_GAME_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.rg_game_file");
-    private static final String RG_DEPTH_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.rg_depth_file");
+    private static final String RG_GAME_FILE = "game.dat";
+    private static final String RG_DEPTH_FILE = "depth%d.dat";
 
-    private static final String WR_GAME_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.wr_game_file");
-    private static final String WR_DEPTH_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.wr_depth_file");
+    private static final String WR_GAME_FILE = "warrior.dat";
+    private static final String WR_DEPTH_FILE = "warrior%d.dat";
 
-    private static final String MG_GAME_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.mg_game_file");
-    private static final String MG_DEPTH_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.mg_depth_file");
+    private static final String MG_GAME_FILE = "mage.dat";
+    private static final String MG_DEPTH_FILE = "mage%d.dat";
 
-    private static final String RN_GAME_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.rn_game_file");
-    private static final String RN_DEPTH_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.rn_depth_file");
+    private static final String RN_GAME_FILE = "ranger.dat";
+    private static final String RN_DEPTH_FILE = "ranger%d.dat";
 
-    private static final String VERSION = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.version");
-    private static final String DIFFICULTY = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.difficulty");
-    private static final String CHALLENGES = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.challenges");
-    private static final String HERO = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.hero");
-    private static final String GOLD = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.gold");
-    private static final String DEPTH = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.depth");
-    private static final String LEVEL = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.level");
-    private static final String DROPPED = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.dropped");
-    private static final String POS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.pos");
-    private static final String POE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.poe");
-    private static final String SOU = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.sou");
-    private static final String SOE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.soe");
-    private static final String ANKHS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.ankhs");
-    private static final String VIALS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.vials");
-    private static final String WANDS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.wands");
-    private static final String RINGS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.rings");
-    private static final String AMMOS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.ammos");
-    private static final String BOTTLES = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.bottles");
-    private static final String SCROLLS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.scrolls");
-    private static final String TORCHES = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.torches");
-    private static final String WT = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.wt");
-    private static final String CHAPTERS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.chapters");
-    private static final String QUESTS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.quests");
-    private static final String BADGES = Ml.g("com.consideredhamster.yetanotherpixeldungeon.dungeon.badges");
+    private static final String VERSION = "version";
+    private static final String DIFFICULTY = "difficulty";
+    private static final String CHALLENGES = "challenges";
+    private static final String HERO = "hero";
+    private static final String GOLD = "gold";
+    private static final String DEPTH = "depth";
+    private static final String LEVEL = "level";
+    private static final String DROPPED = "dropped%d";
+    private static final String POS = "potionsOfStrength";
+    private static final String POE = "potionsOfExperience";
+    private static final String SOU = "scrollsOfEnhancement";
+    private static final String SOE = "scrollsOfEnchantment";
+    private static final String ANKHS = "ankhs";
+    private static final String VIALS = "vials";
+    private static final String WANDS = "wands";
+    private static final String RINGS = "rings";
+    private static final String AMMOS = "ammos";
+    private static final String BOTTLES = "bottles";
+    private static final String SCROLLS = "scrolls";
+    private static final String TORCHES = "torches";
+    private static final String WT = "transmutation";
+    private static final String CHAPTERS = "chapters";
+    private static final String QUESTS = "quests";
+    private static final String BADGES = "badges";
 
     public static String gameFile(HeroClass cl) {
         switch (cl) {

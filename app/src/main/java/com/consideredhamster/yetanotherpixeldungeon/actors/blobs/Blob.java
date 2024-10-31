@@ -56,8 +56,8 @@ public class Blob extends Actor {
         volume = 0;
     }
 
-    private static final String CUR = Ml.g("actors.blobs.blob.cur");
-    private static final String START = Ml.g("actors.blobs.blob.start");
+    private static final String CUR = "cur";
+    private static final String START = "start";
 
     @Override
     public void storeInBundle(Bundle bundle) {

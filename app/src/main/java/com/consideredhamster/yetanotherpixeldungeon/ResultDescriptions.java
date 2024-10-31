@@ -50,7 +50,7 @@ import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 public abstract class ResultDescriptions {
 
     //    public static final String FAIL	= "%s";
-    public static final String WIN = Ml.g("com.consideredhamster.yetanotherpixeldungeon.resultdescriptions.win");
+    public static final String WIN = Ml.g("resultdescriptions.win");
 
     public static String generateResult(Object killedBy, Element killedWith) {
 
@@ -59,20 +59,12 @@ public abstract class ResultDescriptions {
 
     public static String generateMessage(Object killedBy, Element killedWith) {
 
-        return Ml.g("com.consideredhamster.yetanotherpixeldungeon.resultdescriptions.generatemessage", (killedBy == hero ? You
-        {
-            0
-        } yourself:
-        You were {
-            0
-        } by {
-            1
-        }));
+        return Ml.g("resultdescriptions.generatemessage");
     }
 
     private static String killedWith(Object killedBy, Element killedWith) {
 
-        String result = Ml.g("com.consideredhamster.yetanotherpixeldungeon.resultdescriptions.result");
+        String result = Ml.g("resultdescriptions.result");
 
         if (killedWith == null) {
 

@@ -45,7 +45,6 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Shortswo
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.Sling;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Bullets;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.Knives;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.utils.Bundle;
 
@@ -344,7 +343,7 @@ public enum HeroClass {
         return null;
     }
 
-    private static final String CLASS = Ml.g("actors.hero.unknownclass.class");
+    private static final String CLASS = "class";
 
     public void storeInBundle(Bundle bundle) {
         bundle.put(CLASS, toString());

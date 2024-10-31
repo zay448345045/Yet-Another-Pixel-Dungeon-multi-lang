@@ -42,8 +42,7 @@ public class MindVision extends Bonus {
 
     @Override
     public String playerMessage() {
-        return Ml.g("actors.buffs.bonuses.mindvision.playermessage", (size() > 0 ? You can somehow feel the presence of other creatures
-        ' minds! : You can somehow tell that you are alone on this level at the moment.));
+        return Dungeon.level.mobs.size() > 0 ? Ml.g("actors.buffs.bonuses.mindvision.playermessage1") : Ml.g("actors.buffs.bonuses.mindvision.playermessage2");
     }
 
     @Override

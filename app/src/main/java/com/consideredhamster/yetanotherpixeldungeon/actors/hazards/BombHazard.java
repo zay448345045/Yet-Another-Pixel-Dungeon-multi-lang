@@ -258,8 +258,8 @@ public class BombHazard extends Hazard {
         Camera.main.shake(3 + distance, 0.2f + distance * 0.1f);
     }
 
-    private static final String STRENGTH = Ml.g("actors.hazards.bombhazard.strength");
-    private static final String DISTANCE = Ml.g("actors.hazards.bombhazard.distance");
+    private static final String STRENGTH = "strength";
+    private static final String DISTANCE = "distance";
 
     @Override
     public void storeInBundle(Bundle bundle) {

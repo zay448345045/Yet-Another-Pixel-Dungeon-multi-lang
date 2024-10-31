@@ -176,8 +176,8 @@ public class FieryRune extends Hazard {
     }
 
 
-    private static final String STRENGTH = Ml.g("actors.hazards.fieryrune.strength");
-    private static final String DURATION = Ml.g("actors.hazards.fieryrune.duration");
+    private static final String STRENGTH = "strength";
+    private static final String DURATION = "duration";
 
     @Override
     public void storeInBundle(Bundle bundle) {

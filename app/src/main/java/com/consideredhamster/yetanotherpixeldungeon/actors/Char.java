@@ -86,8 +86,8 @@ public abstract class Char extends Actor {
 
     public CharSprite sprite;
 
-    public String name = Ml.g("actors.char.name");
-    public String info = Ml.g("actors.char.info");
+    public String name = "mob";
+    public String info = "nothing";
 
     public int HT;
     public int HP;
@@ -120,10 +120,10 @@ public abstract class Char extends Actor {
 
     ;
 
-    private static final String POS = Ml.g("actors.char.pos");
-    private static final String TAG_HP = Ml.g("actors.char.tag_hp");
-    private static final String TAG_HT = Ml.g("actors.char.tag_ht");
-    private static final String BUFFS = Ml.g("actors.char.buffs");
+    private static final String POS = "pos";
+    private static final String TAG_HP = "HP";
+    private static final String TAG_HT = "HT";
+    private static final String BUFFS = "buffs";
 
     @Override
     public int actingPriority() {

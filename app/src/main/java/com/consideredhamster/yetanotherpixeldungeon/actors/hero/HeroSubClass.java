@@ -20,7 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.actors.hero;
 
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundle;
 
 public enum HeroSubClass {
@@ -70,7 +69,7 @@ public enum HeroSubClass {
         return desc;
     }
 
-    private static final String SUBCLASS = Ml.g("actors.hero.unknownclass.subclass");
+    private static final String SUBCLASS = "subClass";
 
     public void storeInBundle(Bundle bundle) {
         bundle.put(SUBCLASS, toString());

@@ -63,37 +63,13 @@ public class AmbitiousImp extends NPC {
         spriteClass = AmbitiousImpSprite.class;
     }
 
-    private static final String TXT_GOLEMS1 = Ml.g("actors.mobs.npcs.ambitiousimp.txt_golems1");)\
-    nIn my case this
-    is _golems_
-    who need
-    to be
-    killed.You see, I'm going to start a little business here, but these stupid golems are bad for business! It'
-    s very
-    hard to
-    negotiate with
-    wandering lumps
-    of granite, damn
-    them!
-    So please, kill...let's say _6 of them_ and a reward is yours.";
+    private static final String TXT_GOLEMS1 = Ml.g("actors.mobs.npcs.ambitiousimp.txt_golems1");
 
-    private static final String TXT_MONKS1 = Ml.g("actors.mobs.npcs.ambitiousimp.txt_monks1");)\
-    nIn my case this
-    is _monks_
-    who need
-    to be
-    killed.You see, I'm going to start a little business here, but these lunatics don'
-    t buy
-    anything themselves
-    and will
-    scare away
-    other customers.
-    So please, kill...let's say _8 of them_ and a reward is yours.";
+    private static final String TXT_MONKS1 = Ml.g("actors.mobs.npcs.ambitiousimp.txt_monks1");
 
     private static final String TXT_GOLEMS2 = Ml.g("actors.mobs.npcs.ambitiousimp.txt_golems2");
 
-    private static final String TXT_MONKS2 = Ml.g("actors.mobs.npcs.ambitiousimp.txt_monks2");)
-    Just don't forget to grab these monks'tokens .";
+    private static final String TXT_MONKS2 = Ml.g("actors.mobs.npcs.ambitiousimp.txt_monks2");
 
     private static final String TXT_CYA = Ml.g("actors.mobs.npcs.ambitiousimp.txt_cya");
     private static final String TXT_HEY = Ml.g("actors.mobs.npcs.ambitiousimp.txt_hey");

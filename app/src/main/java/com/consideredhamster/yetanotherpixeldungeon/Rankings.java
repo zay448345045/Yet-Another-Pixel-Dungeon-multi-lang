@@ -22,7 +22,6 @@ package com.consideredhamster.yetanotherpixeldungeon;
 
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroClass;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.noosa.Game;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
@@ -41,8 +40,8 @@ public enum Rankings {
 
     public static final int TABLE_SIZE = 6;
 
-    public static final String RANKINGS_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.rankings_file");
-    public static final String DETAILS_FILE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.details_file");
+    public static final String RANKINGS_FILE = "rankings_%d.dat";
+    public static final String DETAILS_FILE = "game_%d.dat";
 
     public ArrayList<Record> records;
     //	public int loadedDiff;
@@ -111,10 +110,10 @@ public enum Rankings {
         return (Statistics.goldCollected + Statistics.enemiesSlain * 5 + Dungeon.hero.lvl * Statistics.deepestFloor * 100) * (win ? 2 : 1) * (Dungeon.difficulty + 1);
     }
 
-    private static final String RECORDS = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.records");
-    private static final String LATEST = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.latest");
-    private static final String TOTAL = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.total");
-    private static final String WON = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.won");
+    private static final String RECORDS = "records";
+    private static final String LATEST = "latest";
+    private static final String TOTAL = "total";
+    private static final String WON = "won";
 
     public void save(int difficulty) {
         Bundle bundle = new Bundle();
@@ -176,15 +175,15 @@ public enum Rankings {
 
     public static class Record implements Bundlable {
 
-        private static final String REASON = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.reason");
-        private static final String WIN = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.win");
-        private static final String SCORE = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.score");
-        private static final String TIER = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.tier");
-        private static final String GAME = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.game");
-        private static final String VERSION = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.version");
-        private static final String LEVEL = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.level");
-        private static final String DEPTH = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.depth");
-        private static final String DIFF = Ml.g("com.consideredhamster.yetanotherpixeldungeon.record.diff");
+        private static final String REASON = "reason";
+        private static final String WIN = "win";
+        private static final String SCORE = "score";
+        private static final String TIER = "tier";
+        private static final String GAME = "gameFile";
+        private static final String VERSION = "version";
+        private static final String LEVEL = "level";
+        private static final String DEPTH = "depth";
+        private static final String DIFF = "diff";
 
         public String info;
         public String version;

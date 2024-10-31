@@ -45,12 +45,11 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.features.Chasm;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.BoulderTrap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.Trap;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class ResultDescriptions {
 
     //    public static final String FAIL	= "%s";
-    public static final String WIN = Ml.g("resultdescriptions.win");
+    public static final String WIN = "Obtained the Amulet of Yendor";
 
     public static String generateResult(Object killedBy, Element killedWith) {
 
@@ -59,12 +58,12 @@ public abstract class ResultDescriptions {
 
     public static String generateMessage(Object killedBy, Element killedWith) {
 
-        return Ml.g("resultdescriptions.generatemessage");
+        return (killedBy == Dungeon.hero ? "You " + killedWith(killedBy, killedWith) + " yourself" : "You were " + killedWith(killedBy, killedWith) + " by " + killedBy(killedBy)) + "...";
     }
 
     private static String killedWith(Object killedBy, Element killedWith) {
 
-        String result = Ml.g("resultdescriptions.result");
+        String result = "killed";
 
         if (killedWith == null) {
 
@@ -134,7 +133,7 @@ public abstract class ResultDescriptions {
 
     private static String killedBy(Object killedBy) {
 
-        String result = Ml.g("com.consideredhamster.yetanotherpixeldungeon.resultdescriptions.result_2");
+        String result = "something";
 
         if (killedBy instanceof Mob) {
             Mob mob = ((Mob) killedBy);

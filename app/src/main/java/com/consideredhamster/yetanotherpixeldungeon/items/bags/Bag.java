@@ -124,7 +124,7 @@ public abstract class Bag extends Item implements Iterable<Item> {
         items.clear();
     }
 
-    private static final String ITEMS = Ml.g("items.bags.bag.items");
+    private static final String ITEMS = "items";
 
     @Override
     public void storeInBundle(Bundle bundle) {

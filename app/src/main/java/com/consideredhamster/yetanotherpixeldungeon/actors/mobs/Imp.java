@@ -42,7 +42,7 @@ public class Imp extends MobEvasive {
 
     public Item item;
 
-    private static final String ITEM = Ml.g("actors.mobs.imp.item");
+    private static final String ITEM = "item";
 
     protected static final String TXT_STOLE = Ml.g("actors.mobs.imp.txt_stole");
     protected static final String TXT_CARRY = Ml.g("actors.mobs.imp.txt_carry");

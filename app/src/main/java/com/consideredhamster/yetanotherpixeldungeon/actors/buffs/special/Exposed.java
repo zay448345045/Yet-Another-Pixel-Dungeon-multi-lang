@@ -28,7 +28,7 @@ public class Exposed extends BuffReactive {
 
     public int object = 0;
 
-    private static final String OBJECT = Ml.g("actors.buffs.special.exposed.object");
+    private static final String OBJECT = "object";
 
     @Override
     public String statusMessage() {

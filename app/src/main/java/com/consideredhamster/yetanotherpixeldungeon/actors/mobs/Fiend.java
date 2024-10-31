@@ -43,7 +43,7 @@ public class Fiend extends MobRanged {
 
     private boolean charged = false;
 
-    private static final String CHARGED = Ml.g("actors.mobs.fiend.charged");
+    private static final String CHARGED = "charged";
 
     public Fiend() {
 

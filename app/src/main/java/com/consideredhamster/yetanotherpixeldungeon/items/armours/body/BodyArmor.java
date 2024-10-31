@@ -25,7 +25,6 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs.Durability;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs.Featherfall;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.HeroSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
 import com.watabou.utils.GameMath;
@@ -117,7 +116,7 @@ public abstract class BodyArmor extends Armour {
     @Override
     public String info() {
 
-        final String p = Ml.g("items.armours.body.bodyarmor.p");
+        final String p = "\n\n";
         final String s = " ";
 
         int heroStr = Dungeon.hero.STR();

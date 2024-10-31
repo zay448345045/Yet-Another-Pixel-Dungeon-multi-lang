@@ -302,8 +302,8 @@ public class WandOfThornvines extends WandUtility {
             return Ml.g("items.wands.wandofthornvines.description");
         }
 
-        private static final String STATS = Ml.g("items.wands.wandofthornvines.stats");
-        private static final String CHARGES = Ml.g("items.wands.wandofthornvines.charges");
+        private static final String STATS = "stats";
+        private static final String CHARGES = "charges";
 
         @Override
         public void storeInBundle(Bundle bundle) {

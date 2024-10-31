@@ -732,11 +732,11 @@ public class Item implements Bundlable {
         }
     }
 
-    private static final String QUANTITY = Ml.g("items.item.quantity");
-    private static final String BONUS = Ml.g("items.item.bonus");
-    private static final String KNOWN = Ml.g("items.item.known");
-    private static final String DURABILITY = Ml.g("items.item.durability");
-    private static final String STATE = Ml.g("items.item.state");
+    private static final String QUANTITY = "quantity";
+    private static final String BONUS = "level";
+    private static final String KNOWN = "identified";
+    private static final String DURABILITY = "durability";
+    private static final String STATE = "condition";
 
     @Override
     public void storeInBundle(Bundle bundle) {

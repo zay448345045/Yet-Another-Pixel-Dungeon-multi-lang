@@ -394,7 +394,7 @@ public class Yog extends Mob {
 
         private boolean warned = false;
 
-        private static final String WARNED = Ml.g("actors.mobs.yog.warned");
+        private static final String WARNED = "warned";
 
         @Override
         public void storeInBundle(Bundle bundle) {
@@ -455,7 +455,7 @@ public class Yog extends Mob {
 
         private boolean warned = false;
 
-        private static final String WARNED = Ml.g("actors.mobs.yog.warned_2");
+        private static final String WARNED = "warned";
 
         @Override
         public void storeInBundle(Bundle bundle) {

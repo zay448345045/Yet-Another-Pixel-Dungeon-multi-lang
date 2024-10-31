@@ -73,9 +73,9 @@ public class ItemStatusHandler<T extends Item> {
         restore(bundle, labels, images);
     }
 
-    private static final String PFX_IMAGE = Ml.g("items.itemstatushandler.pfx_image");
-    private static final String PFX_LABEL = Ml.g("items.itemstatushandler.pfx_label");
-    private static final String PFX_KNOWN = Ml.g("items.itemstatushandler.pfx_known");
+    private static final String PFX_IMAGE = "_image";
+    private static final String PFX_LABEL = "_label";
+    private static final String PFX_KNOWN = "_known";
 
     public void save(Bundle bundle) {
         for (int i = 0; i < items.length; i++) {

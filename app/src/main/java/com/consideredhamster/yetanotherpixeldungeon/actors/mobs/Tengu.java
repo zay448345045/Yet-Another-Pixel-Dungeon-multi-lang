@@ -472,8 +472,8 @@ public class Tengu extends MobRanged {
         return Ml.g("actors.mobs.tengu.description");
     }
 
-    private static final String TIME_TO_JUMP = Ml.g("actors.mobs.tengu.time_to_jump");
-    private static final String BREAKS = Ml.g("actors.mobs.tengu.breaks");
+    private static final String TIME_TO_JUMP = "timeToJump";
+    private static final String BREAKS = "breaks";
 
     @Override
     public void storeInBundle(Bundle bundle) {

@@ -43,7 +43,7 @@ public class DwarfWarlock extends MobRanged {
 
     private boolean charged = false;
 
-    private static final String CHARGED = Ml.g("actors.mobs.dwarfwarlock.charged");
+    private static final String CHARGED = "charged";
 
     public DwarfWarlock() {
 

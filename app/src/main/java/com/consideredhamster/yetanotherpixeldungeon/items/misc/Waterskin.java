@@ -87,8 +87,8 @@ public class Waterskin extends Item {
     private int value = 1;
     private int limit = 1;
 
-    private static final String VALUE = Ml.g("items.misc.waterskin.value");
-    private static final String LIMIT = Ml.g("items.misc.waterskin.limit");
+    private static final String VALUE = "value";
+    private static final String LIMIT = "limit";
 
     @Override
     public String quickAction() {

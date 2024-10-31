@@ -23,7 +23,6 @@ package com.consideredhamster.yetanotherpixeldungeon.scenes;
 import android.opengl.GLES20;
 
 import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BannerSprites;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Fireball;
@@ -46,10 +45,10 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class TitleScene extends PixelScene {
 
-    private static final String TXT_PLAY = Ml.g("scenes.titlescene.txt_play");
-    private static final String TXT_HIGHSCORES = Ml.g("scenes.titlescene.txt_highscores");
-    private static final String TXT_BADGES = Ml.g("scenes.titlescene.txt_badges");
-    private static final String TXT_ABOUT = Ml.g("scenes.titlescene.txt_about");
+    private static final String TXT_PLAY = "Play";
+    private static final String TXT_HIGHSCORES = "Rankings";
+    private static final String TXT_BADGES = "Badges";
+    private static final String TXT_ABOUT = "About";
 
     private static final int COLOR_NORMAL = 0x444444;
     private static final int COLOR_BRIGHT = 0xCACFC2;

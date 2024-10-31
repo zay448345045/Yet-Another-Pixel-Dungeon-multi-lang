@@ -226,7 +226,7 @@ public class GooSpawn extends MobEvasive {
         return Ml.g("actors.mobs.goospawn.description");
     }
 
-    private static final String PHASE = Ml.g("actors.mobs.goospawn.phase");
+    private static final String PHASE = "phase";
 
     @Override
     public void storeInBundle(Bundle bundle) {

@@ -47,9 +47,9 @@ public class MirrorImage extends NPC {
     private int attack;
     private int damage;
 
-    private static final String GEAR = Ml.g("actors.mobs.npcs.mirrorimage.gear");
-    private static final String ATTACK = Ml.g("actors.mobs.npcs.mirrorimage.attack");
-    private static final String DAMAGE = Ml.g("actors.mobs.npcs.mirrorimage.damage");
+    private static final String GEAR = "gear";
+    private static final String ATTACK = "attack";
+    private static final String DAMAGE = "damage";
 
     @Override
     public void storeInBundle(Bundle bundle) {

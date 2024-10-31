@@ -76,7 +76,7 @@ public class Mimic extends MobHealthy {
     public ArrayList<Item> items;
 
     //	private static final String LEVEL	= "bonus";
-    private static final String ITEMS = Ml.g("actors.mobs.mimic.items");
+    private static final String ITEMS = "items";
 
     @Override
     public void storeInBundle(Bundle bundle) {

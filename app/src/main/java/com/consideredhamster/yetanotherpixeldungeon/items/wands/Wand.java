@@ -573,7 +573,7 @@ public abstract class Wand extends EquipableItem {
     @Override
     public String info() {
 
-        final String p = Ml.g("items.wands.wand.p");
+        final String p = "\n\n";
 
         StringBuilder info = new StringBuilder(desc());
         info.append(p);
@@ -606,8 +606,8 @@ public abstract class Wand extends EquipableItem {
         return info.toString();
     }
 
-    private static final String UNFAMILIRIARITY = Ml.g("items.wands.wand.unfamiliriarity");
-    private static final String CUR_CHARGES = Ml.g("items.wands.wand.cur_charges");
+    private static final String UNFAMILIRIARITY = "unfamiliarity";
+    private static final String CUR_CHARGES = "curCharges";
 
     @Override
     public void storeInBundle(Bundle bundle) {

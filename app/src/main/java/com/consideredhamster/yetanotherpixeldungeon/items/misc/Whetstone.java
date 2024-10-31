@@ -57,7 +57,7 @@ public class Whetstone extends Item {
         image = ItemSpriteSheet.WHETSTONE;
     }
 
-    private static final String VALUE = Ml.g("items.misc.whetstone.value");
+    private static final String VALUE = "value";
 
     private int value = 3;
     private final int limit = 3;

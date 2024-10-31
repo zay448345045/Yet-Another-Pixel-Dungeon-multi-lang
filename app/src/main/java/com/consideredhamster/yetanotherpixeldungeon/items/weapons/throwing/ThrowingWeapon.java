@@ -252,7 +252,7 @@ public abstract class ThrowingWeapon extends Weapon {
     @Override
     public String info() {
 
-        final String p = Ml.g("items.weapons.throwing.throwingweapon.p");
+        final String p = "\n\n";
 
         int heroStr = Dungeon.hero.STR();
         int itemStr = strShown(isIdentified());

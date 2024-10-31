@@ -141,14 +141,14 @@ public class Wandmaker extends NPC {
             wand2 = null;
         }
 
-        private static final String NODE = Ml.g("actors.mobs.npcs.wandmaker.node");
+        private static final String NODE = "wandmaker";
 
-        private static final String SPAWNED = Ml.g("actors.mobs.npcs.wandmaker.spawned");
-        private static final String ALTERNATIVE = Ml.g("actors.mobs.npcs.wandmaker.alternative");
-        private static final String COMPLETED = Ml.g("actors.mobs.npcs.wandmaker.completed");
-        private static final String GIVEN = Ml.g("actors.mobs.npcs.wandmaker.given");
-        private static final String WAND1 = Ml.g("actors.mobs.npcs.wandmaker.wand1");
-        private static final String WAND2 = Ml.g("actors.mobs.npcs.wandmaker.wand2");
+        private static final String SPAWNED = "spawned";
+        private static final String ALTERNATIVE = "alternative";
+        private static final String COMPLETED = "completed";
+        private static final String GIVEN = "given";
+        private static final String WAND1 = "wand1";
+        private static final String WAND2 = "wand2";
 
         public static void storeInBundle(Bundle bundle) {
 

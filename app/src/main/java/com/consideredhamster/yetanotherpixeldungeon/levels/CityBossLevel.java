@@ -30,7 +30,6 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.keys.SkeletonKey;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.Scene;
@@ -318,8 +317,8 @@ public class CityBossLevel extends Level {
         return progress == BOSS_APPEARED ? Assets.TRACK_BOSS_LOOP : super.currentTrack();
     }
 
-    private static final String DOOR = Ml.g("levels.citybosslevel.door");
-    private static final String PROGRESS = Ml.g("levels.citybosslevel.progress");
+    private static final String DOOR = "door";
+    private static final String PROGRESS = "progress";
 
     @Override
     public void storeInBundle(Bundle bundle) {

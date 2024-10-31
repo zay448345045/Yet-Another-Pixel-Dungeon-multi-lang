@@ -56,7 +56,7 @@ public class CraftingKit extends Item {
         image = ItemSpriteSheet.CRAFTING_KIT;
     }
 
-    private static final String VALUE = Ml.g("items.misc.craftingkit.value");
+    private static final String VALUE = "value";
 
     private int value = 3;
     private final int limit = 3;

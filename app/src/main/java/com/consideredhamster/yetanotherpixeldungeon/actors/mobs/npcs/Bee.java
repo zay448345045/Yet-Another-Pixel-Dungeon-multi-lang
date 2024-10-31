@@ -48,7 +48,7 @@ public class Bee extends NPC {
 
     private int level;
 
-    private static final String LEVEL = Ml.g("actors.mobs.npcs.bee.level");
+    private static final String LEVEL = "level";
 
     @Override
     public void storeInBundle(Bundle bundle) {

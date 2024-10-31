@@ -22,17 +22,16 @@ package com.consideredhamster.yetanotherpixeldungeon.misc.utils;
 
 import android.util.Log;
 
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Signal;
 
 public class GLog {
 
-    public static final String TAG = Ml.g("misc.utils.glog.tag");
+    public static final String TAG = "GAME";
 
-    public static final String POSITIVE = Ml.g("misc.utils.glog.positive");
-    public static final String NEGATIVE = Ml.g("misc.utils.glog.negative");
-    public static final String WARNING = Ml.g("misc.utils.glog.warning");
-    public static final String HIGHLIGHT = Ml.g("misc.utils.glog.highlight");
+    public static final String POSITIVE = "++ ";
+    public static final String NEGATIVE = "-- ";
+    public static final String WARNING = "** ";
+    public static final String HIGHLIGHT = "@@ ";
 
     public static Signal<String> update = new Signal<String>();
 

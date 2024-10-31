@@ -57,7 +57,7 @@ public class ArmorerKit extends Item {
         image = ItemSpriteSheet.ARMORER_KIT;
     }
 
-    private static final String VALUE = Ml.g("items.misc.armorerkit.value");
+    private static final String VALUE = "value";
 
     private int value = 3;
     private final int limit = 3;

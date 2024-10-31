@@ -202,17 +202,17 @@ public class Ghost extends NPC {
             armor = null;
         }
 
-        private static final String NODE = Ml.g("actors.mobs.npcs.ghost.node");
+        private static final String NODE = "sadGhost";
 
-        private static final String SPAWNED = Ml.g("actors.mobs.npcs.ghost.spawned");
-        private static final String ALTERNATIVE = Ml.g("actors.mobs.npcs.ghost.alternative");
-        private static final String LEFT2KILL = Ml.g("actors.mobs.npcs.ghost.left2kill");
-        private static final String GIVEN = Ml.g("actors.mobs.npcs.ghost.given");
-        private static final String PROCESSED = Ml.g("actors.mobs.npcs.ghost.processed");
-        private static final String COMPLETED = Ml.g("actors.mobs.npcs.ghost.completed");
-        private static final String DEPTH = Ml.g("actors.mobs.npcs.ghost.depth");
-        private static final String WEAPON = Ml.g("actors.mobs.npcs.ghost.weapon");
-        private static final String ARMOR = Ml.g("actors.mobs.npcs.ghost.armor");
+        private static final String SPAWNED = "spawned";
+        private static final String ALTERNATIVE = "alternative";
+        private static final String LEFT2KILL = "left2kill";
+        private static final String GIVEN = "given";
+        private static final String PROCESSED = "processed";
+        private static final String COMPLETED = "completed";
+        private static final String DEPTH = "depth";
+        private static final String WEAPON = "weapon";
+        private static final String ARMOR = "armor";
 
         public static void storeInBundle(Bundle bundle) {
 

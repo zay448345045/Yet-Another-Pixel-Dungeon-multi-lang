@@ -56,18 +56,18 @@ public class StartScene extends PixelScene {
     private static final String TXT_LOAD = Ml.g("welcome_message", "1");
     private static final String TXT_NEW = Ml.g("welcome_message", "2");
 
-    private static final String TXT_ERASE = Ml.g("scenes.startscene.txt_erase");
-    private static final String TXT_DPTH_LVL = Ml.g("scenes.startscene.txt_dpth_lvl");
+    private static final String TXT_ERASE = "Erase current game";
+    private static final String TXT_DPTH_LVL = "Depth: %d, level: %d";
 
-    private static final String TXT_REALLY = Ml.g("scenes.startscene.txt_really");
-    private static final String TXT_WARNING = Ml.g("scenes.startscene.txt_warning");
-    private static final String TXT_YES = Ml.g("scenes.startscene.txt_yes");
-    private static final String TXT_NO = Ml.g("scenes.startscene.txt_no");
+    private static final String TXT_REALLY = "Do you really want to start new game?";
+    private static final String TXT_WARNING = "Your current game progress will be erased.";
+    private static final String TXT_YES = "Yes, start new game";
+    private static final String TXT_NO = "No, I changed my mind";
 
-    private static final String TXT_DIFF_TITLE = Ml.g("scenes.startscene.txt_diff_title");
+    private static final String TXT_DIFF_TITLE = "Select difficulty";
     private static final String TXT_DIFF_ABOUT = "";
 
-    private static final String TXT_DIFFICULTY = Ml.g("scenes.startscene.txt_difficulty");
+    private static final String TXT_DIFFICULTY = "Start on %s difficulty?";
 //            "\u007F You can't earn badges while playing on Easy mode gives no badges\n" +
 //            "\u007F Hardcore";
 
@@ -75,7 +75,7 @@ public class StartScene extends PixelScene {
 //	private static final String TXT_UNLOCK_2	= "To unlock this character class, defeat the 2nd boss on %s difficulty or higher";
 //	private static final String TXT_UNLOCK_3	= "To unlock this character class, defeat the 3rd boss on %s difficulty or higher";
 
-    private static final String TXT_LOCKED = Ml.g("scenes.startscene.txt_locked");
+    private static final String TXT_LOCKED = "Got it!";
 
     private static final float WIDTH_P = 116;
     private static final float HEIGHT_P = 220;

@@ -67,8 +67,8 @@ public abstract class Armour extends EquipableItem {
 
     }
 
-    private static final String UNFAMILIRIARITY = Ml.g("items.armours.armour.unfamiliriarity");
-    private static final String GLYPH = Ml.g("items.armours.armour.glyph");
+    private static final String UNFAMILIRIARITY = "unfamiliarity";
+    private static final String GLYPH = "glyph";
 
     @Override
     public void storeInBundle(Bundle bundle) {

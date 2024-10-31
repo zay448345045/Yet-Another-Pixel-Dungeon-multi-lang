@@ -32,7 +32,6 @@ import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.RangedW
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.ranged.RangedWeaponFlintlock;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.throwing.ThrowingWeaponAmmo;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSpriteSheet;
@@ -56,10 +55,10 @@ public class ItemSlot extends Button {
 
     public Item item;
 
-    private static final String TXT_STRENGTH = Ml.g("visuals.ui.itemslot.txt_strength");
-    private static final String TXT_TYPICAL_STR = Ml.g("visuals.ui.itemslot.txt_typical_str");
+    private static final String TXT_STRENGTH = ":%d";
+    private static final String TXT_TYPICAL_STR = "%d?";
 
-    private static final String TXT_LEVEL = Ml.g("visuals.ui.itemslot.txt_level");
+    private static final String TXT_LEVEL = "%+d";
     private static final String TXT_NOTHING = "";//"-";
 
     // Special "virtual items"

@@ -57,7 +57,7 @@ public class Battery extends Item {
         image = ItemSpriteSheet.BATTERY;
     }
 
-    private static final String VALUE = Ml.g("items.misc.battery.value");
+    private static final String VALUE = "value";
 
     private int value = 3;
     private final int limit = 3;

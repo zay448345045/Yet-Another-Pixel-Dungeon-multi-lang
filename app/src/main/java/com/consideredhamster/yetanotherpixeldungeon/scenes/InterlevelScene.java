@@ -27,7 +27,6 @@ import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndError;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndStory;
@@ -48,16 +47,16 @@ public class InterlevelScene extends PixelScene {
 
     private static final float TIME_TO_FADE = 0.5f;
 
-    private static final String TXT_DESCENDING = Ml.g("scenes.interlevelscene.txt_descending");
-    private static final String TXT_ASCENDING = Ml.g("scenes.interlevelscene.txt_ascending");
-    private static final String TXT_LOADING = Ml.g("scenes.interlevelscene.txt_loading");
-    private static final String TXT_RESURRECTING = Ml.g("scenes.interlevelscene.txt_resurrecting");
-    private static final String TXT_RETURNING = Ml.g("scenes.interlevelscene.txt_returning");
-    private static final String TXT_FALLING = Ml.g("scenes.interlevelscene.txt_falling");
-    private static final String TXT_CONTINUE = Ml.g("scenes.interlevelscene.txt_continue");
+    private static final String TXT_DESCENDING = "Descending...";
+    private static final String TXT_ASCENDING = "Ascending...";
+    private static final String TXT_LOADING = "Loading...";
+    private static final String TXT_RESURRECTING = "Resurrecting...";
+    private static final String TXT_RETURNING = "Returning...";
+    private static final String TXT_FALLING = "Falling...";
+    private static final String TXT_CONTINUE = "Tap to continue!";
 
-    private static final String ERR_FILE_NOT_FOUND = Ml.g("scenes.interlevelscene.err_file_not_found");
-    private static final String ERR_GENERIC = Ml.g("scenes.interlevelscene.err_generic");
+    private static final String ERR_FILE_NOT_FOUND = "File not found. For some reason.";
+    private static final String ERR_GENERIC = "Something went wrong...";
 
     public static enum Mode {
         DESCEND, ASCEND, CONTINUE, RESURRECT, RETURN, FALL

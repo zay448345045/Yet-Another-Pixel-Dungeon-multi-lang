@@ -38,7 +38,6 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.features.Chasm;
 import com.consideredhamster.yetanotherpixeldungeon.levels.features.Door;
 import com.consideredhamster.yetanotherpixeldungeon.misc.mechanics.FogOfWar;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.DungeonTilemap;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BannerSprites;
@@ -84,17 +83,17 @@ import java.util.HashSet;
 
 public class GameScene extends PixelScene {
 
-    private static final String TXT_WELCOME = Ml.g("scenes.gamescene.txt_welcome");
-    private static final String TXT_WELCOME_BACK = Ml.g("scenes.gamescene.txt_welcome_back");
+    private static final String TXT_WELCOME = "Welcome to level %d of Pixel Dungeon!";
+    private static final String TXT_WELCOME_BACK = "Welcome back to level %d of Pixel Dungeon!";
 
-    private static final String TXT_WATER = Ml.g("scenes.gamescene.txt_water");
-    private static final String TXT_GRASS = Ml.g("scenes.gamescene.txt_grass");
-    private static final String TXT_TRAPS = Ml.g("scenes.gamescene.txt_traps");
-    private static final String TXT_ASHES = Ml.g("scenes.gamescene.txt_ashes");
-    private static final String TXT_SWARM = Ml.g("scenes.gamescene.txt_swarm");
-    private static final String TXT_BOOKS = Ml.g("scenes.gamescene.txt_books");
+    private static final String TXT_WATER = "You hear the water splashing around you.";
+    private static final String TXT_GRASS = "The smell of vegetation is thick in the air.";
+    private static final String TXT_TRAPS = "The atmosphere hints that this floor hides many secrets.";
+    private static final String TXT_ASHES = "A smell of ashes fills your mouth. Not a good smell.";
+    private static final String TXT_SWARM = "By the sound of it, this floor is heavily guarded. Better be careful.";
+    private static final String TXT_BOOKS = "Dust is floating in the air. This floor seems to be a warehouse.";
 
-    private static final String TXT_BAMBOOZLE = Ml.g("scenes.gamescene.txt_bamboozle");
+    private static final String TXT_BAMBOOZLE = "It looks like you somehow ended up on the same floor!";
 
 
     static GameScene scene;

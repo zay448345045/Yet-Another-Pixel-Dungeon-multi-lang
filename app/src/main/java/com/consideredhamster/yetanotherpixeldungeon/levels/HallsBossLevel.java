@@ -29,7 +29,6 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Heap;
 import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.keys.SkeletonKey;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.CellEmitter;
@@ -277,8 +276,8 @@ public class HallsBossLevel extends Level {
         return progress == BOSS_APPEARED ? Assets.TRACK_FINAL_LOOP : super.currentTrack();
     }
 
-    private static final String STAIRS = Ml.g("levels.hallsbosslevel.stairs");
-    private static final String PROGRESS = Ml.g("levels.hallsbosslevel.progress");
+    private static final String STAIRS = "stairs";
+    private static final String PROGRESS = "progress";
 
     @Override
     public void storeInBundle(Bundle bundle) {

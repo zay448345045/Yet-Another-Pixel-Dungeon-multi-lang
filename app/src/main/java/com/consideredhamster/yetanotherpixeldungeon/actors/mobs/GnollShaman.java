@@ -39,7 +39,7 @@ public class GnollShaman extends MobRanged {
 
     private boolean charged = false;
 
-    private static final String CHARGED = Ml.g("actors.mobs.gnollshaman.charged");
+    private static final String CHARGED = "charged";
 
     public GnollShaman() {
 

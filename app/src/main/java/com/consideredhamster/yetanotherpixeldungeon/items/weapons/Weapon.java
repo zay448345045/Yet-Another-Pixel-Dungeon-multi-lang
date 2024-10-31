@@ -213,9 +213,9 @@ public abstract class Weapon extends EquipableItem {
         }
     }
 
-    private static final String UNFAMILIRIARITY = Ml.g("items.weapons.weapon.unfamiliriarity");
-    private static final String ENCHANTMENT = Ml.g("items.weapons.weapon.enchantment");
-    private static final String IMBUE = Ml.g("items.weapons.weapon.imbue");
+    private static final String UNFAMILIRIARITY = "unfamiliarity";
+    private static final String ENCHANTMENT = "enchantment";
+    private static final String IMBUE = "imbue";
 
     @Override
     public void storeInBundle(Bundle bundle) {

@@ -289,8 +289,8 @@ public class Shopkeeper extends NPC {
         sell();
     }
 
-    private static final String SEENBEFORE = Ml.g("actors.mobs.npcs.shopkeeper.seenbefore");
-    private static final String THREATENED = Ml.g("actors.mobs.npcs.shopkeeper.threatened");
+    private static final String SEENBEFORE = "seenbefore";
+    private static final String THREATENED = "threatened";
 
     public void storeInBundle(Bundle bundle) {
         super.storeInBundle(bundle);

@@ -22,7 +22,6 @@ package com.consideredhamster.yetanotherpixeldungeon.scenes;
 
 import com.consideredhamster.yetanotherpixeldungeon.Dungeon;
 import com.consideredhamster.yetanotherpixeldungeon.ResultDescriptions;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Speck;
@@ -35,17 +34,17 @@ import com.watabou.utils.Random;
 
 public class AmuletScene extends PixelScene {
 
-    private static final String TXT_EXIT = Ml.g("scenes.amuletscene.txt_exit");
-    private static final String TXT_STAY = Ml.g("scenes.amuletscene.txt_stay");
+    private static final String TXT_EXIT = "Take me back home!";
+    private static final String TXT_STAY = "I am not done yet";
 
     private static final int WIDTH = 120;
     private static final int BTN_HEIGHT = 18;
     private static final float SMALL_GAP = 2;
     private static final float LARGE_GAP = 8;
 
-    private static final String TXT = Ml.g("scenes.amuletscene.txt");
+    private static final String TXT = "The fabled Amulet of Yendor. After all of the hardships you've passed through, you finally hold it in your hands.\n\nIt makes you feel omnipotent. Using its power you can make any wish come true... However, it will work only once.\n\nSo, you can use it to bring yourself back to the surface, forever leaving this nightmarish dungeon in the past.\n\nOr you can try to get out of the dungeon by yourself, and keep the miraculous powers of the Amulet for later.\n\nWhat will be your decision?";
 
-    private static final String TXT_SHORT = Ml.g("scenes.amuletscene.txt_short");
+    private static final String TXT_SHORT = "So, what will be your decision?";
 
     public static boolean noText = false;
 

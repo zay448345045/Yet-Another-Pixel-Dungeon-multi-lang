@@ -310,7 +310,7 @@ public abstract class Ring extends EquipableItem {
     @Override
     public String info() {
 
-        final String p = Ml.g("items.rings.ring.p");
+        final String p = "\n\n";
 
         StringBuilder info = new StringBuilder(isTypeKnown() ? desc() :
                 "This metal band is adorned with a large " + gem + " gem " +
@@ -387,7 +387,7 @@ public abstract class Ring extends EquipableItem {
         return level >= 0 ? 0.2f + 0.1f * level : 0.1f * level - 0.1f;
     }
 
-    private static final String UNFAMILIRIARITY = Ml.g("items.rings.ring.unfamiliriarity");
+    private static final String UNFAMILIRIARITY = "unfamiliarity";
 
     @Override
     public void storeInBundle(Bundle bundle) {

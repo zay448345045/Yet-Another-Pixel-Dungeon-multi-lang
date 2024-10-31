@@ -256,13 +256,13 @@ public class Blacksmith extends NPC {
             reforged = false;
         }
 
-        private static final String NODE = Ml.g("actors.mobs.npcs.blacksmith.node");
+        private static final String NODE = "blacksmith";
 
-        private static final String SPAWNED = Ml.g("actors.mobs.npcs.blacksmith.spawned");
-        private static final String ALTERNATIVE = Ml.g("actors.mobs.npcs.blacksmith.alternative");
-        private static final String GIVEN = Ml.g("actors.mobs.npcs.blacksmith.given");
-        private static final String COMPLETED = Ml.g("actors.mobs.npcs.blacksmith.completed");
-        private static final String REFORGED = Ml.g("actors.mobs.npcs.blacksmith.reforged");
+        private static final String SPAWNED = "spawned";
+        private static final String ALTERNATIVE = "alternative";
+        private static final String GIVEN = "given";
+        private static final String COMPLETED = "completed";
+        private static final String REFORGED = "reforged";
 
         public static void storeInBundle(Bundle bundle) {
 

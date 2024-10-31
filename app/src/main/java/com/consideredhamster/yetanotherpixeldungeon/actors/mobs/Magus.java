@@ -53,7 +53,7 @@ public class Magus extends MobRanged {
     private static final int ENERGY = 6;
 
 
-    private static final String PREPARED = Ml.g("actors.mobs.magus.prepared");
+    private static final String PREPARED = "prepared";
 
     public Magus() {
 

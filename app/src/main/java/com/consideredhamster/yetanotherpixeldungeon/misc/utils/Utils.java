@@ -20,8 +20,6 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.misc.utils;
 
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
-
 import java.util.Locale;
 
 public class Utils {
@@ -34,13 +32,13 @@ public class Utils {
         return String.format(Locale.ENGLISH, format, args);
     }
 
-    public static String VOWELS = Ml.g("misc.utils.utils.vowels");
+    public static String VOWELS = "aoeiu";
 
     public static String indefinite(String noun) {
         if (noun.length() == 0) {
-            return Ml.g("misc.utils.utils.indefinite");
+            return "a";
         } else {
-            return Ml.g("misc.utils.utils.indefinite_2", (indexOf(toLowerCase(charAt(0))) != 1 ? an : a), noun);
+            return (VOWELS.indexOf(Character.toLowerCase(noun.charAt(0))) != -1 ? "an " : "a ") + noun;
         }
     }
 }

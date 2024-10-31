@@ -271,8 +271,8 @@ public class Goo extends MobEvasive {
         return Ml.g("actors.mobs.goo.description");
     }
 
-    private static final String PHASE = Ml.g("actors.mobs.goo.phase");
-    private static final String BREAKS = Ml.g("actors.mobs.goo.breaks");
+    private static final String PHASE = "phase";
+    private static final String BREAKS = "breaks";
 
     @Override
     public void storeInBundle(Bundle bundle) {

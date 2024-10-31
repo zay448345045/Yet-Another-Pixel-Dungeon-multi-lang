@@ -215,7 +215,7 @@ public abstract class Shield extends Armour {
     @Override
     public String info() {
 
-        final String p = Ml.g("items.armours.shields.shield.p");
+        final String p = "\n\n";
         final String s = " ";
 
         int heroStr = Dungeon.hero.STR();

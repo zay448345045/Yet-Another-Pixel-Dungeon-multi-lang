@@ -577,10 +577,10 @@ public class Heap implements Bundlable {
         return this;
     }
 
-    private static final String HP = Ml.g("items.heap.hp");
-    private static final String POS = Ml.g("items.heap.pos");
-    private static final String TYPE = Ml.g("items.heap.type");
-    private static final String ITEMS = Ml.g("items.heap.items");
+    private static final String HP = "hp";
+    private static final String POS = "pos";
+    private static final String TYPE = "type";
+    private static final String ITEMS = "items";
 
     @SuppressWarnings("unchecked")
     @Override

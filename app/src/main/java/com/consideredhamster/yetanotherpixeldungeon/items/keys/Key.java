@@ -40,7 +40,7 @@ public class Key extends Item {
         depth = Dungeon.depth;
     }
 
-    private static final String DEPTH = Ml.g("items.keys.key.depth");
+    private static final String DEPTH = "depth";
 
     @Override
     public void storeInBundle(Bundle bundle) {

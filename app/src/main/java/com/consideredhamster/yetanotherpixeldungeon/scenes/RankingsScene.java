@@ -24,7 +24,6 @@ import com.consideredhamster.yetanotherpixeldungeon.Difficulties;
 import com.consideredhamster.yetanotherpixeldungeon.Rankings;
 import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Flare;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.ItemSprite;
@@ -47,11 +46,11 @@ public class RankingsScene extends PixelScene {
 
     private static final int DEFAULT_COLOR = 0xCCCCCC;
 
-    private static final String TXT_TITLE = Ml.g("scenes.rankingsscene.txt_title");
-    private static final String TXT_TOTAL = Ml.g("scenes.rankingsscene.txt_total");
-    private static final String TXT_HAS_NO_GAEMS = Ml.g("scenes.rankingsscene.txt_has_no_gaems");
+    private static final String TXT_TITLE = "Top Rankings (%s)";
+    private static final String TXT_TOTAL = "Games played: %s/%s";
+    private static final String TXT_HAS_NO_GAEMS = "No games were played\n on %s difficulty yet";
 
-    private static final String TXT_NO_INFO = Ml.g("scenes.rankingsscene.txt_no_info");
+    private static final String TXT_NO_INFO = "No additional information";
 
     private static final float ROW_HEIGHT_L = 22;
     private static final float ROW_HEIGHT_P = 28;

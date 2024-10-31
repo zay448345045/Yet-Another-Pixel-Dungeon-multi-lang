@@ -175,16 +175,16 @@ public abstract class Level implements Bundlable {
     protected static boolean pitRoomNeeded = false;
     protected static boolean weakFloorCreated = false;
 
-    private static final String MAP = Ml.g("levels.level.map");
-    private static final String VISITED = Ml.g("levels.level.visited");
-    private static final String MAPPED = Ml.g("levels.level.mapped");
-    private static final String MOBS_SPAWNED = Ml.g("levels.level.mobs_spawned");
-    private static final String ENTRANCE = Ml.g("levels.level.entrance");
-    private static final String EXIT = Ml.g("levels.level.exit");
-    private static final String HEAPS = Ml.g("levels.level.heaps");
-    private static final String HAZARDS = Ml.g("levels.level.hazards");
-    private static final String MOBS = Ml.g("levels.level.mobs");
-    private static final String BLOBS = Ml.g("levels.level.blobs");
+    private static final String MAP = "map";
+    private static final String VISITED = "visited";
+    private static final String MAPPED = "mapped";
+    private static final String MOBS_SPAWNED = "mobs_killed";
+    private static final String ENTRANCE = "entrance";
+    private static final String EXIT = "exit";
+    private static final String HEAPS = "heaps";
+    private static final String HAZARDS = "hazards";
+    private static final String MOBS = "mobs";
+    private static final String BLOBS = "blobs";
 
     public void create() {
 

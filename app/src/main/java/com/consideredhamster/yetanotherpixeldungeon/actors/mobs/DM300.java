@@ -395,8 +395,8 @@ public class DM300 extends MobHealthy {
         return Ml.g("actors.mobs.dm300.description");
     }
 
-    private static final String BREAKS = Ml.g("actors.mobs.dm300.breaks");
-    private static final String LAST_MARK = Ml.g("actors.mobs.dm300.last_mark");
+    private static final String BREAKS = "breaks";
+    private static final String LAST_MARK = "mark";
 
     @Override
     public void storeInBundle(Bundle bundle) {

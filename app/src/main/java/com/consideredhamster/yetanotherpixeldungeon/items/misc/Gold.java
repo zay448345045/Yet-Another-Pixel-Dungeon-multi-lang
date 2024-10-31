@@ -106,7 +106,7 @@ public class Gold extends Item {
         return Integer.toString(quantity);
     }
 
-    private static final String VALUE = Ml.g("items.misc.gold.value");
+    private static final String VALUE = "value";
 
     @Override
     public void storeInBundle(Bundle bundle) {

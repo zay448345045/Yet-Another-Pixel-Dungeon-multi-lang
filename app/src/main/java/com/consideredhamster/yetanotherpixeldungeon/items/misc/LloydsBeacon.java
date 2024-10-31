@@ -65,8 +65,8 @@ public class LloydsBeacon extends Item {
         unique = true;
     }
 
-    private static final String DEPTH = Ml.g("items.misc.lloydsbeacon.depth");
-    private static final String POS = Ml.g("items.misc.lloydsbeacon.pos");
+    private static final String DEPTH = "depth";
+    private static final String POS = "pos";
 
     @Override
     public void storeInBundle(Bundle bundle) {

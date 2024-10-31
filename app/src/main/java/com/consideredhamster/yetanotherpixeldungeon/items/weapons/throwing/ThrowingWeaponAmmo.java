@@ -70,7 +70,7 @@ public abstract class ThrowingWeaponAmmo extends ThrowingWeapon {
     @Override
     public String info() {
 
-        final String p = Ml.g("items.weapons.throwing.throwingweaponammo.p");
+        final String p = "\n\n";
 
         StringBuilder info = new StringBuilder(desc());
 

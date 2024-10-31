@@ -80,8 +80,8 @@
       private static final float BASE_ENRAGE = 5f;
 
       //    private static final String PHASE	= "phase";
-      private static final String BREAKS = Ml.g("actors.mobs.dwarvenking.breaks");
-      private static final String CONSUMED = Ml.g("actors.mobs.dwarvenking.consumed");
+      private static final String BREAKS = "breaks";
+      private static final String CONSUMED = "consumed";
 
       private static String[][] LINES = {
 

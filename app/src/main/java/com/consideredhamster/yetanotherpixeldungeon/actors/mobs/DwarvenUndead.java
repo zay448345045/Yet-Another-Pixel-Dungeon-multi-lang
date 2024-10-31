@@ -40,7 +40,7 @@
   public class DwarvenUndead extends MobPrecise {
 
       public DwarvenKing king = null;
-      private static final String WELL = Ml.g("actors.mobs.dwarvenundead.well");
+      private static final String WELL = "well";
       public int well = 0;
 
       public DwarvenUndead() {

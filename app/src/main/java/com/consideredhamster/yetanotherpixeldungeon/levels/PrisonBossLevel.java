@@ -31,7 +31,6 @@ import com.consideredhamster.yetanotherpixeldungeon.items.Item;
 import com.consideredhamster.yetanotherpixeldungeon.items.keys.IronKey;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Gold;
 import com.consideredhamster.yetanotherpixeldungeon.levels.painters.Painter;
-import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.Scene;
@@ -352,7 +351,7 @@ public class PrisonBossLevel extends Level {
         PrisonLevel.addVisuals(this, scene);
     }
 
-    private static final String PROGRESS = Ml.g("levels.prisonbosslevel.progress");
+    private static final String PROGRESS = "progress";
 
     @Override
     public void storeInBundle(Bundle bundle) {

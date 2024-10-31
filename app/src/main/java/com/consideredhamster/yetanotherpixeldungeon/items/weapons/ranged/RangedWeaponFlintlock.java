@@ -325,7 +325,7 @@ public abstract class RangedWeaponFlintlock extends RangedWeapon {
         }
     };
 
-    private static final String LOADED = Ml.g("items.weapons.ranged.rangedweaponflintlock.loaded");
+    private static final String LOADED = "loaded";
 
     @Override
     public void storeInBundle(Bundle bundle) {

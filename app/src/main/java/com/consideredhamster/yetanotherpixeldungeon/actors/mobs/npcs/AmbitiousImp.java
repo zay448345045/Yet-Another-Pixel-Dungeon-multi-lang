@@ -177,13 +177,13 @@ public class AmbitiousImp extends NPC {
             reward = null;
         }
 
-        private static final String NODE = Ml.g("actors.mobs.npcs.ambitiousimp.node");
+        private static final String NODE = "demon";
 
-        private static final String ALTERNATIVE = Ml.g("actors.mobs.npcs.ambitiousimp.alternative");
-        private static final String SPAWNED = Ml.g("actors.mobs.npcs.ambitiousimp.spawned");
-        private static final String GIVEN = Ml.g("actors.mobs.npcs.ambitiousimp.given");
-        private static final String COMPLETED = Ml.g("actors.mobs.npcs.ambitiousimp.completed");
-        private static final String REWARD = Ml.g("actors.mobs.npcs.ambitiousimp.reward");
+        private static final String ALTERNATIVE = "alternative";
+        private static final String SPAWNED = "spawned";
+        private static final String GIVEN = "given";
+        private static final String COMPLETED = "completed";
+        private static final String REWARD = "reward";
 
         public static void storeInBundle(Bundle bundle) {
 

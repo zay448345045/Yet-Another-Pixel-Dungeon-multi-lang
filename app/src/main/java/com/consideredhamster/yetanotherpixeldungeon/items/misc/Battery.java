@@ -141,7 +141,7 @@ public class Battery extends Item {
 
     @Override
     public String info() {
-        return "This is a narrow piece of some dark, very hard stone. Using it, you can partially recharge core of any magic wand, restoring its condition to a better level.\nThis battery can be used " + (value > 2 ? "three times" : value < 2 ? "only one time" : "two times") + " more.";
+        return Ml.g("items.misc.battery.info", value);
     }
 
     @Override

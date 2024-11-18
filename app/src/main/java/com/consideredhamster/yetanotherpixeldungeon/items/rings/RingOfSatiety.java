@@ -48,9 +48,7 @@ public class RingOfSatiety extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "Rings of satiety optimize digestive mechanisms of wearer's body, making it possible " +
-                        "to go without food longer and increasing nutriety of consumed meals, both helping in " +
-                        "the times of hunger and helping to prolong times of excess."
+                Ml.g("items.rings.ringofsatiety.desc_1")
         );
 
         if (!dud) {
@@ -62,18 +60,18 @@ public class RingOfSatiety extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will decrease the rate at which your _satiety drops by " + mainEffect +
-                            "%_ and increasing _effectiveness of eating by " + sideEffect + "%_."
+                    Ml.g("items.rings.ringofsatiety.desc_2", mainEffect, sideEffect)
             );
         }
-
         return desc.toString();
     }
 
     public class Satiety extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel comfortable warmth in your stomach." : "You feel your hunger growing faster.";
+            return bonus >= 0 ?
+                    Ml.g("items.rings.ringofsatiety.satiety.desc_1") :
+                    Ml.g("items.rings.ringofsatiety.satiety.desc_2");
         }
     }
 }

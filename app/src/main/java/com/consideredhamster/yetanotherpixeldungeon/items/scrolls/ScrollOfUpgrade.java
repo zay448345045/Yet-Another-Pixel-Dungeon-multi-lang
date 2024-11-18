@@ -46,7 +46,7 @@ public class ScrollOfUpgrade extends InventoryScroll {
         name = Ml.g("items.scrolls.scrollofupgrade.name");
         shortName = "Up";
 
-        inventoryTitle = "Select an item to upgrade";
+inventoryTitle = Ml.g("items.scrolls.scrollofupgrade.inventorytitle");
         mode = WndBag.Mode.UPGRADEABLE;
 
         spellSprite = SpellSprite.SCROLL_UPGRADE;

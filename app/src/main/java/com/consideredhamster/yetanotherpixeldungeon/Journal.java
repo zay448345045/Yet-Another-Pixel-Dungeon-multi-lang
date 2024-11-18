@@ -20,6 +20,7 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon;
 
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 
@@ -28,19 +29,18 @@ import java.util.ArrayList;
 public class Journal {
 
     public static enum Feature {
-        WELL("Well"),
-        WELL_OF_HEALTH("Well of Health"),
-        WELL_OF_AWARENESS("Well of Awareness"),
-        WELL_OF_TRANSMUTATION("Well of Transmutation"),
-        ALCHEMY("Alchemy pot"),
-        GARDEN("Garden"),
-        STATUE("Animated statue"),
-
-        GHOST("Sad ghost"),
-        WANDMAKER("Old wandmaker"),
-        TROLL("Troll blacksmith"),
-        IMP("Ambitious imp"),
-        SHOP("Shop keeper");
+        WELL(Ml.g("journal.feature.well")),
+        WELL_OF_HEALTH(Ml.g("journal.feature.well_of_health")),
+        WELL_OF_AWARENESS(Ml.g("journal.feature.well_of_awareness")),
+        WELL_OF_TRANSMUTATION(Ml.g("journal.feature.well_of_transmutation")),
+        ALCHEMY(Ml.g("journal.feature.alchemy")),
+        GARDEN(Ml.g("journal.feature.garden")),
+        STATUE(Ml.g("journal.feature.statue")),
+        GHOST(Ml.g("journal.feature.ghost")),
+        WANDMAKER(Ml.g("journal.feature.wandmaker")),
+        TROLL(Ml.g("journal.feature.troll")),
+        IMP(Ml.g("journal.feature.imp")),
+        SHOP(Ml.g("journal.feature.shop"));
 
         public String desc;
 

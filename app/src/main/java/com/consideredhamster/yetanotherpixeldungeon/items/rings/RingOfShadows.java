@@ -48,9 +48,7 @@ public class RingOfShadows extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "The curious enchantment on this ring controls the shadows around its wearer, helping " +
-                        "him or her to blend with their surroundings. Such rings are indispensable for those " +
-                        "whose job revolves around espionage or assassinations."
+                Ml.g("items.rings.ringofshadows.desc_1")
         );
 
         if (!dud) {
@@ -62,8 +60,7 @@ public class RingOfShadows extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase your _stealth by " + mainEffect + "%_ and increasing " +
-                            "_sneak attack damage by " + sideEffect + "%_."
+                    Ml.g("items.rings.ringofshadows.desc_2", mainEffect, sideEffect)
             );
         }
 
@@ -74,7 +71,9 @@ public class RingOfShadows extends Ring {
 
         @Override
         public String desc() {
-            return bonus >= 0 ? "Suddenly, shadows thicken around you, obfuscating your presence." : "Suddenly, shadows bend around you, highlighting your presence.";
+            return bonus >= 0 ?
+                    Ml.g("items.rings.ringofshadows.shadows.desc_1") :
+                    Ml.g("items.rings.ringofshadows.shadows.desc_2");
         }
     }
 }

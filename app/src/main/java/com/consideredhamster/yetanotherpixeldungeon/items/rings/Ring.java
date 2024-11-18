@@ -72,8 +72,20 @@ public abstract class Ring extends EquipableItem {
             RingOfProtection.class,
             RingOfWillpower.class
     };
-    private static final String[] gems =
-            {"diamond", "opal", "garnet", "ruby", "amethyst", "topaz", "onyx", "tourmaline", "emerald", "sapphire", "quartz", "agate"};
+    private static final String[] gems = {
+            Ml.g("items.rings.ring.gems_1"),
+            Ml.g("items.rings.ring.gems_2"),
+            Ml.g("items.rings.ring.gems_3"),
+            Ml.g("items.rings.ring.gems_4"),
+            Ml.g("items.rings.ring.gems_5"),
+            Ml.g("items.rings.ring.gems_6"),
+            Ml.g("items.rings.ring.gems_7"),
+            Ml.g("items.rings.ring.gems_8"),
+            Ml.g("items.rings.ring.gems_9"),
+            Ml.g("items.rings.ring.gems_10"),
+            Ml.g("items.rings.ring.gems_11"),
+            Ml.g("items.rings.ring.gems_12")
+    };
     private static final Integer[] images = {
             ItemSpriteSheet.RING_DIAMOND,
             ItemSpriteSheet.RING_OPAL,
@@ -293,7 +305,7 @@ public abstract class Ring extends EquipableItem {
 
     @Override
     public String name() {
-        return isTypeKnown() ? super.name() : gem + " ring";
+        return isTypeKnown() ? super.name() : Ml.g("items.rings.ring.name_suffix");
     }
 
     @Override
@@ -313,8 +325,7 @@ public abstract class Ring extends EquipableItem {
         final String p = "\n\n";
 
         StringBuilder info = new StringBuilder(isTypeKnown() ? desc() :
-                "This metal band is adorned with a large " + gem + " gem " +
-                        "that glitters in the darkness. Who knows what effect it has when worn?"
+                Ml.g("items.rings.ring.info_1", gem)
         );
 
         if (!dud) {
@@ -322,11 +333,11 @@ public abstract class Ring extends EquipableItem {
             info.append(p);
 
             if (isEquipped(Dungeon.hero)) {
-                info.append("You wear this ring on your finger.");
+                info.append(Ml.g("items.rings.ring.info_2"));
             } else if (Dungeon.hero.belongings.backpack.contains(this)) {
-                info.append("This ring is in your backpack.");
+                info.append(Ml.g("items.rings.ring.info_3"));
             } else {
-                info.append("This ring lies on the dungeon's floor.");
+                info.append(Ml.g("items.rings.ring.info_4"));
             }
 
             if (bonus < 0 && isCursedKnown()) {
@@ -334,9 +345,9 @@ public abstract class Ring extends EquipableItem {
                 info.append(" ");
 
                 if (isEquipped(Dungeon.hero)) {
-                    info.append("Malevolent magic prevents you from removing it.");
+                    info.append(Ml.g("items.rings.ring.info_5"));
                 } else {
-                    info.append("You can feel a malevolent magic lurking within it.");
+                    info.append(Ml.g("items.rings.ring.info_6"));
                 }
             }
         }

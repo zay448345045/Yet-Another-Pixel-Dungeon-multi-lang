@@ -188,12 +188,12 @@ public abstract class Scroll extends Item {
 
     @Override
     public String name() {
-        return Ml.g("items.scrolls.scroll.name", (isTypeKnown() ? name : "scroll \"" + rune + "\""));
+        return isTypeKnown() ? name : Ml.g("items.scrolls.scroll.name_1", rune);
     }
 
     @Override
     public String info() {
-        return Ml.g("items.scrolls.scroll.info", (isTypeKnown() ? desc() : "This parchment is covered with indecipherable writing, and bears a title " + "of rune " + rune + ". Who knows what it will do when read aloud?"));
+        return isTypeKnown() ? desc() : Ml.g("items.scrolls.scroll.info_1", rune);
     }
 
     public static HashSet<Class<? extends Scroll>> getKnown() {

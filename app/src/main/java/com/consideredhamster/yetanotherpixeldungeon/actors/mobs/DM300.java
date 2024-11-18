@@ -142,9 +142,9 @@ public class DM300 extends MobHealthy {
 
         if (buff instanceof Enraged && isAlive()) {
 
-            yell("STATUS: REPAIR REQUIRED");
-            yell("REQUESTING ADDITIONAL SUPPORT");
-            GLog.i("DM-300 is not enraged anymore.");
+            yell(Ml.g("actors.mobs.dm300.status_repair_required"));
+            yell(Ml.g("actors.mobs.dm300.requesting_additional_support"));
+            GLog.i(Ml.g("actors.mobs.dm300.not_enraged_anymore"));
 
             summonAdds();
             clearMarks();
@@ -169,9 +169,9 @@ public class DM300 extends MobHealthy {
             BuffActive.add(this, Enraged.class, Random.Int(8, 12) * 2.0f);
 
             if (Dungeon.visible[pos]) {
-                yell("TARGET STATUS: STILL ALIVE");
-                yell("INITIATING DEMOLITION PROTOCOL");
-                GLog.n("DM-300 is enraged!");
+                yell(Ml.g("actors.mobs.dm300.target_status_still_alive"));
+                yell(Ml.g("actors.mobs.dm300.initiating_demolition_protocol"));
+                GLog.n(Ml.g("actors.mobs.dm300.enraged"));
             }
 
             sprite.idle();
@@ -305,8 +305,8 @@ public class DM300 extends MobHealthy {
                     lastMark = BossWarning.VAR_SHOCK;
                     Dungeon.hero.interrupt();
 
-                    yell("TARGET STATUS: CLOSE RANGE");
-                    yell("INITIATING DISCHARGE PROTOCOL");
+                    yell(Ml.g("actors.mobs.dm300.target_status_close_range"));
+                    yell(Ml.g("actors.mobs.dm300.initiating_discharge_protocol"));
 
                     spend(TICK);
                     return true;
@@ -321,8 +321,8 @@ public class DM300 extends MobHealthy {
                     lastMark = BossWarning.VAR_CHARGE;
                     Dungeon.hero.interrupt();
 
-                    yell("TARGET STATUS: MEDIUM RANGE");
-                    yell("INITIATING TRAMPLING PROTOCOL");
+                    yell(Ml.g("actors.mobs.dm300.target_status_close_range"));
+                    yell(Ml.g("actors.mobs.dm300.initiating_discharge_protocol"));
 
                     spend(TICK);
                     return true;
@@ -345,8 +345,8 @@ public class DM300 extends MobHealthy {
                     lastMark = BossWarning.VAR_LASER;
                     Dungeon.hero.interrupt();
 
-                    yell("TARGET STATUS: DISTANT RANGE");
-                    yell("INITIATING BEAMCUTTING PROTOCOL");
+                    yell(Ml.g("actors.mobs.dm300.initiating_defense_protocol"));
+                    yell(Ml.g("actors.mobs.dm300.initiating_defense_protocol"));
 
                     spend(TICK);
                     return true;
@@ -361,8 +361,8 @@ public class DM300 extends MobHealthy {
     @Override
     public void die(Object cause, Element dmg) {
 
-        yell("StATUs: CRiTIcAL");
-        yell("SHuTtiNg downnn...");
+        yell(Ml.g("actors.mobs.dm300.status_critical"));
+        yell(Ml.g("actors.mobs.dm300.shutting_down"));
 
         clearMarks();
 
@@ -385,8 +385,8 @@ public class DM300 extends MobHealthy {
     public void notice() {
         super.notice();
         if (enemySeen && HP == HT && breaks == 0) {
-            yell("UNAUTHORIZED PERSONNEL DETECTED");
-            yell("INITIATING DEFENSE PROTOCOL");
+            yell(Ml.g("actors.mobs.dm300.unauthorized_personnel_detected"));
+            yell(Ml.g("actors.mobs.dm300.initiating_defense_protocol"));
         }
     }
 

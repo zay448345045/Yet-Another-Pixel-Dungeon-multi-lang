@@ -141,7 +141,7 @@ public class Whetstone extends Item {
 
     @Override
     public String info() {
-        return "Using a whetstone, you can repair your melee weapons, bringing them back to their former glory.\nThis whetstone can be used " + (value > 2 ? "three times" : value < 2 ? "only one time" : "two times") + " more.";
+        return Ml.g("items.misc.whetstone.info", value);
     }
 
     @Override

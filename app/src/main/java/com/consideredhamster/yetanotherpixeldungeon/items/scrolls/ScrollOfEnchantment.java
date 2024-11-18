@@ -44,7 +44,7 @@ public class ScrollOfEnchantment extends InventoryScroll {
         name = Ml.g("items.scrolls.scrollofenchantment.name");
         shortName = "En";
 
-        inventoryTitle = "Select an enchantable item";
+inventoryTitle = Ml.g("items.scrolls.scrollofenchantment.inventorytitle");
         mode = WndBag.Mode.ENCHANTABLE;
 
         spellSprite = SpellSprite.SCROLL_ENCHANT;

@@ -49,79 +49,78 @@ public class Shopkeeper extends NPC {
     private static String[][] LINES_THREATENED = {
 
             {
-                    "Hey, cut it off.",
-                    "Don't do that.",
-                    "That's not allowed in my shop.",
-                    "Stop it, please.",
-                    "Ouch! Stop it!",
+                    Ml.g("items.misc.guard.lines_threatened_1"),
+                    Ml.g("items.misc.guard.lines_threatened_2"),
+                    Ml.g("items.misc.guard.lines_threatened_3"),
+                    Ml.g("items.misc.guard.lines_threatened_4"),
+                    Ml.g("items.misc.guard.lines_threatened_5"),
             },
             {
-                    "One more time and I'll call for help!",
-                    "Stop that! Or I will call someone!",
-                    "I advise you to leave me alone.",
+                    Ml.g("items.misc.guard.lines_caught_1"),
+                    Ml.g("items.misc.guard.lines_caught_2"),
+                    Ml.g("items.misc.guard.lines_caught_3"),
             },
             {
-                    "GUARDS! GUARDS!",
-                    "SOMEONE, HELP ME!",
-                    "I AM UNDER ASSAULT!",
+                    Ml.g("items.misc.guard.lines_threatened_6"),
+                    Ml.g("items.misc.guard.lines_threatened_7"),
+                    Ml.g("items.misc.guard.lines_threatened_8"),
             },
             {
-                    "Ah, screw it. I am leaving.",
-                    "That's it. I am outta here.",
-                    "Why don't you leave me alone!",
+                    Ml.g("items.misc.guard.lines_threatened_9"),
+                    Ml.g("items.misc.guard.lines_threatened_10"),
+                    Ml.g("items.misc.guard.lines_threatened_11"),
             },
     };
 
     private static String[][] LINES_CAUGHT = {
 
             {
-                    "No touching!",
-                    "Don't touch items on sell, please.",
-                    "Just look, don't touch.",
-                    "You can just ask me instead of touching.",
-                    "What was it that you put in your bag there?",
+                    Ml.g("items.misc.guard.lines_caught_4"),
+                    Ml.g("items.misc.guard.lines_caught_5"),
+                    Ml.g("items.misc.guard.lines_caught_6"),
+                    Ml.g("items.misc.guard.lines_caught_7"),
+                    Ml.g("items.misc.guard.lines_caught_8"),
             },
             {
-                    "Hey, put that back!",
-                    "Erm... Did you really try to steal from me?",
-                    "Did I see you take something?",
-                    "I saw you trying to steal this!",
+                    Ml.g("items.misc.guard.lines_caught_9"),
+                    Ml.g("items.misc.guard.lines_caught_10"),
+                    Ml.g("items.misc.guard.lines_caught_11"),
+                    Ml.g("items.misc.guard.lines_caught_12"),
             },
             {
-                    "Does your mother approves your stealing?",
-                    "Thief! Thief! I saw everything!",
-                    "Do you feel lucky, punk?",
-                    "Stop right there criminal scum!",
+                    Ml.g("items.misc.guard.lines_caught_13"),
+                    Ml.g("items.misc.guard.lines_caught_14"),
+                    Ml.g("items.misc.guard.lines_caught_15"),
+                    Ml.g("items.misc.guard.lines_caught_16"),
             },
             {
-                    "Nah, I am leaving now. I had enough.",
-                    "Thieves like you should be banned. Bye.",
-                    "What's up with these adventurers nowadays?...",
+                    Ml.g("items.misc.guard.lines_caught_17"),
+                    Ml.g("items.misc.guard.lines_caught_18"),
+                    Ml.g("items.misc.guard.lines_caught_19"),
             },
     };
-
 
     private static String[][] LINES_STOLEN = {
 
             {
-                    "Huh?",
-                    "Hmmm...",
-                    "Weird.",
+                    Ml.g("items.misc.guard.lines_stolen_1"),
+                    Ml.g("items.misc.guard.lines_stolen_2"),
+                    Ml.g("items.misc.guard.lines_stolen_3"),
             },
             {
-                    "Something's wrong...",
-                    "Hmm... Where did that thing go?",
-                    "That's strange.",
+                    Ml.g("items.misc.guard.lines_stolen_4"),
+                    Ml.g("items.misc.guard.lines_stolen_5"),
+                    Ml.g("items.misc.guard.lines_stolen_6"),
             },
             {
-                    "All of that is very suspicious.",
-                    "I can swear I had more items before.",
-                    "Snooping as usual, I see.",
+                    Ml.g("items.misc.guard.lines_stolen_7"),
+                    Ml.g("items.misc.guard.lines_stolen_8"),
+                    Ml.g("items.misc.guard.lines_stolen_9"),
             },
             {
-                    "Not gonna wait 'til you steal everything else.",
-                    "Feeling so smart, right? Huh, good luck then!",
-                    "I will not tolerate your stealing any more.",
+                    Ml.g("items.misc.guard.lines_stolen_10"),
+                    Ml.g("items.misc.guard.lines_stolen_11"),
+                    Ml.g("items.misc.guard.lines_stolen_12"),
             },
     };
 

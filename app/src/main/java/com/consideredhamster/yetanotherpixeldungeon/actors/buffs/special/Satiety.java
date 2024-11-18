@@ -131,8 +131,9 @@ public class Satiety extends Buff {
 
                         ((Hero) target).interrupt(
                                 Level.water[target.pos] ?
-                                        "You don't feel well. Better not sleep in the water next time." :
-                                        "You feel well rested.", !Level.water[target.pos]
+                                        Ml.g("actors.buffs.special.satiety.act_interrupt_1") :
+                                        Ml.g("actors.buffs.special.satiety.act_interrupt_2"),
+                                !Level.water[target.pos]
                         );
 
                     }
@@ -155,7 +156,7 @@ public class Satiety extends Buff {
                 if (hero.HP > 1 && (hero.HP + (int) surplus <= 1)) {
                     hero.HP = 1;
                     hero.interrupt();
-                    GLog.n("You're about to die from starvation!");
+                    GLog.n(Ml.g("actors.buffs.special.satiety.act_message_1"));
                 } else {
                     hero.HP = Math.max(0, hero.HP + (int) surplus);
                 }

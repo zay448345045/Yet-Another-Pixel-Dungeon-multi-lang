@@ -48,9 +48,7 @@ public class RingOfAccuracy extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "It is said that such rings were imbued with spirits of long-forgotten hunters and " +
-                        "warriors, which allows them to grant the wearer greater skill with all manners of " +
-                        "melee and ranged weapons."
+                Ml.g("items.rings.ring.desc_1")
         );
 
         if (!dud) {
@@ -62,8 +60,7 @@ public class RingOfAccuracy extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase your _accuracy by " + mainEffect + "%_ " +
-                            "and _bonus damage from combo attacks by " + sideEffect + "%_."
+                    Ml.g("items.rings.ring.desc_2", mainEffect, sideEffect)
             );
         }
 
@@ -73,7 +70,7 @@ public class RingOfAccuracy extends Ring {
     public class Accuracy extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel that your fighting prowess is enhanced." : "You feel that your fighting prowess is dulled.";
+            return bonus >= 0 ? Ml.g("items.rings.ring.accuracy.desc_1") : Ml.g("items.rings.ring.accuracy.desc_2");
         }
     }
 }

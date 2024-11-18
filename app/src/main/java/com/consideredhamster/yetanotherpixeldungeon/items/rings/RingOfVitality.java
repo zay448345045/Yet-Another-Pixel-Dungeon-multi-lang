@@ -56,9 +56,7 @@ public class RingOfVitality extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "Donning this ring will increase regenerative properties of the wearer's body, " +
-                        "strengthening effects of any sources of healing, and increasing his or her resistance " +
-                        "to negative effects such as poison or withering."
+                Ml.g("items.rings.ringofvitality.desc_1")
         );
 
         if (!dud) {
@@ -70,9 +68,7 @@ public class RingOfVitality extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase potence of all _healing effects by " + mainEffect + "%_ " +
-                            "(including natural regeneration rate) and increase your _resistance to body effects " +
-                            "by " + sideEffect + "%_."
+                    Ml.g("items.rings.ringofvitality.desc_2", mainEffect, sideEffect)
             );
         }
 
@@ -82,7 +78,9 @@ public class RingOfVitality extends Ring {
     public class Vitality extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "Warm feeling rushes down your veins, soothing the pain in your wounds." : "Feeling of discomfort fills your body, making you feel sick.";
+            return bonus >= 0 ?
+                    Ml.g("items.rings.ringofvitality.vitality.desc_1") :
+                    Ml.g("items.rings.ringofvitality.vitality.desc_2");
         }
     }
 }

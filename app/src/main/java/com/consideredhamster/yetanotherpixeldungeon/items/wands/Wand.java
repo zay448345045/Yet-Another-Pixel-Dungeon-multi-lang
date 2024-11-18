@@ -97,8 +97,20 @@ public abstract class Wand extends EquipableItem {
     };
 
     // not really needed after the wands update, but I guess can stay here until moving to the Evan's engine
-    private static final String[] woods =
-            {"holly", "yew", "ebony", "cherry", "teak", "rowan", "willow", "mahogany", "bamboo", "purpleheart", "oak", "birch"};
+    private static final String[] woods = {
+            Ml.g("items.wands.wand.woods_1"),
+            Ml.g("items.wands.wand.woods_2"),
+            Ml.g("items.wands.wand.woods_3"),
+            Ml.g("items.wands.wand.woods_4"),
+            Ml.g("items.wands.wand.woods_5"),
+            Ml.g("items.wands.wand.woods_6"),
+            Ml.g("items.wands.wand.woods_7"),
+            Ml.g("items.wands.wand.woods_8"),
+            Ml.g("items.wands.wand.woods_9"),
+            Ml.g("items.wands.wand.woods_10"),
+            Ml.g("items.wands.wand.woods_11"),
+            Ml.g("items.wands.wand.woods_12")
+    };
 
     private static final Integer[] images = {
             ItemSpriteSheet.WAND_MAGICMISSILE,
@@ -573,7 +585,7 @@ public abstract class Wand extends EquipableItem {
     @Override
     public String info() {
 
-        final String p = "\n\n";
+        final String p = Ml.g("items.wands.wand.info_1");
 
         StringBuilder info = new StringBuilder(desc());
         info.append(p);
@@ -584,21 +596,21 @@ public abstract class Wand extends EquipableItem {
             info.append(p);
 
             if (isEquipped(Dungeon.hero)) {
-                info.append("You hold this wand at the ready.");
+                info.append(Ml.g("items.wands.wand.info_3"));
             } else if (Dungeon.hero.belongings.backpack.contains(this)) {
-                info.append("This wand is in your backpack.");
+                info.append(Ml.g("items.wands.wand.info_4"));
             } else {
-                info.append("This wand lies on the dungeon's floor.");
+                info.append(Ml.g("items.wands.wand.info_5"));
             }
 
             if (bonus < 0 && isCursedKnown()) {
 
-                info.append(" ");
+                info.append(Ml.g("items.wands.wand.info_2"));
 
                 if (isEquipped(Dungeon.hero)) {
-                    info.append("Malevolent magic prevents you from releasing it.");
+                    info.append(Ml.g("items.wands.wand.info_6"));
                 } else {
-                    info.append("You can feel a malevolent magic lurking within it.");
+                    info.append(Ml.g("items.wands.wand.info_7"));
                 }
             }
         }

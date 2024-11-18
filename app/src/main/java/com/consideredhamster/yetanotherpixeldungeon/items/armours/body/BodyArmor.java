@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.actors.hero.Hero;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.Armour;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs.Durability;
 import com.consideredhamster.yetanotherpixeldungeon.items.armours.glyphs.Featherfall;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.HeroSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.QuickSlot;
 import com.watabou.utils.GameMath;
@@ -126,97 +127,84 @@ public abstract class BodyArmor extends Armour {
 
         StringBuilder info = new StringBuilder(desc());
 
-//        if( !descType().isEmpty() ) {
-//
-//            info.append( p );
-//
-//            info.append( descType() );
-//        }
+        // if( !descType().isEmpty() ) {
+        //
+        //     info.append( p );
+        //
+        //     info.append( descType() );
+        // }
 
         info.append(p);
 
         if (isIdentified()) {
-            info.append("This _tier-" + tier + " " + (!descType().isEmpty() ? descType() + " " : "") + "armor_ requires _" + itemStr + " points of strength_ to use effectively and" +
-                    (isRepairable() ? ", given its _" + stateToString(state) + " condition_, " : " ") +
-                    "will increase your _armor class by " + armor + " points_.");
+            info.append(Ml.g("items.armours.body.bodyarmor.info_3", tier, !descType().isEmpty() ? descType() : "", itemStr,
+                    isRepairable() ? Ml.g("items.armours.body.bodyarmor.info_repairable", stateToString(state)) : "",
+                    armor));
 
             info.append(p);
 
             if (itemStr > heroStr) {
-                info.append(
-                        "Because of your inadequate strength, your stealth and dexterity in this armor " +
-                                "will be _decreased by " + penalty + "%_ and your movement will be _" + (int) (100 - 10000 / (100 + penalty)) + "% slower_.");
+                info.append(Ml.g("items.armours.body.bodyarmor.info_4", penalty, (int) (100 - 10000 / (100 + penalty))));
             } else if (itemStr < heroStr) {
-                info.append(
-                        "Because of your excess strength, your stealth and dexterity while you are wearing this armor " +
-                                "will " + (penalty > 0 ? "be _decreased only by " + penalty + "%_" : "_not be decreased_") + " " +
-                                "and your armor class will be increased by _" + ((float) (heroStr - itemStr) / 2) + " bonus points_ on average.");
+                String decrease = penalty > 0 ? Ml.g("items.armours.body.bodyarmor.info_decrease_only", penalty) : Ml.g("items.armours.body.bodyarmor.info_not_decreased");
+                info.append(Ml.g("items.armours.body.bodyarmor.info_5", decrease, ((float) (heroStr - itemStr) / 2)));
             } else {
-                info.append(
-                        "While you are wearing this armor, your stealth and dexterity will " + (penalty > 0 ? "be _decreased by " + penalty + "%_, " +
-                                "but with additional strength this penalty can be reduced" : "_not be decreased_") + ".");
+                String decreased = penalty > 0 ? Ml.g("items.armours.body.bodyarmor.info_decreased_by", penalty) +
+                        " " + Ml.g("items.armours.body.bodyarmor.info_penalty_reduced") : Ml.g("items.armours.body.bodyarmor.info_not_decreased");
+                info.append(Ml.g("items.armours.body.bodyarmor.info_6", decreased));
             }
         } else {
-            info.append("Usually _tier-" + tier + " " + (!descType().isEmpty() ? descType() + " " : "") + "armors_ require _" + itemStr + " points of strength_ to be worn effectively and" +
-                    (isRepairable() ? ", when in _" + stateToString(state) + " condition_, " : " ") +
-                    "will increase your _armor class by " + armor + " points_.");
+            info.append(Ml.g("items.armours.body.bodyarmor.info_7", tier, !descType().isEmpty() ? descType() : "", itemStr,
+                    isRepairable() ? Ml.g("items.armours.body.bodyarmor.info_repairable", stateToString(state)) : "",
+                    armor));
 
             info.append(p);
 
             if (itemStr > heroStr) {
-                info.append(
-                        "Because of your inadequate strength, your stealth and dexterity in this armor " +
-                                "probably will be _decreased by " + penalty + "%_ and your movement will be _" + (int) (100 - 10000 / (100 + penalty)) + "% slower_.");
+                info.append(Ml.g("items.armours.body.bodyarmor.info_8", penalty, (int) (100 - 10000 / (100 + penalty))));
             } else if (itemStr < heroStr) {
-                info.append(
-                        "Because of your excess strength, your stealth and dexterity while you are wearing this armor " +
-                                "probably will " + (penalty > 0 ? "be _decreased only by " + penalty + "%_" : "_not be decreased_") + " " +
-                                "and your armor class will be increased by _" + ((float) (heroStr - itemStr) / 2) + " bonus points_ on average.");
+                String decrease = penalty > 0 ? Ml.g("items.armours.body.bodyarmor.info_decrease_only", penalty) : Ml.g("items.armours.body.bodyarmor.info_not_decreased");
+                info.append(Ml.g("items.armours.body.bodyarmor.info_9", decrease, ((float) (heroStr - itemStr) / 2)));
             } else {
-                info.append(
-                        "While you are wearing this armor, your stealth and dexterity probably will " +
-                                (penalty > 0 ? "be _decreased by " + penalty + "%_" : "_not be decreased_") +
-                                ", unless your strength will be different from this armor's actual strength requirement.");
+                String decreased = penalty > 0 ? Ml.g("items.armours.body.bodyarmor.info_decreased_by", penalty) : Ml.g("items.armours.body.bodyarmor.info_not_decreased");
+                info.append(Ml.g("items.armours.body.bodyarmor.info_10", decreased));
             }
         }
 
         info.append(p);
 
         if (isEquipped(Dungeon.hero)) {
-
-            info.append("You are wearing the " + name + ".");
-
+            info.append(Ml.g("items.armours.body.bodyarmor.info_11", name));
         } else if (Dungeon.hero.belongings.backpack.contains(this)) {
-
-            info.append("The " + name + " is in your backpack.");
-
+            info.append(Ml.g("items.armours.body.bodyarmor.info_12", name));
         } else {
-
-            info.append("The " + name + " lies on the dungeon's floor.");
-
+            info.append(Ml.g("items.armours.body.bodyarmor.info_13", name));
         }
 
         info.append(s);
 
         if (isIdentified() && bonus > 0) {
-            info.append("It appears to be _upgraded_.");
+            info.append(Ml.g("items.armours.body.bodyarmor.info_14"));
         } else if (isCursedKnown()) {
-            info.append(bonus >= 0 ? "It appears to be _non-cursed_." :
-                    "A malevolent _curse_ seems to be lurking within this " + name + ".");
+            if (bonus >= 0) {
+                info.append(Ml.g("items.armours.body.bodyarmor.info_15"));
+            } else {
+                info.append(Ml.g("items.armours.body.bodyarmor.info_16", name));
+            }
         } else {
-            info.append(" This " + name + " is _unidentified_.");
+            info.append(Ml.g("items.armours.body.bodyarmor.info_17", name));
         }
 
         info.append(s);
 
         if (isEnchantKnown() && glyph != null) {
-            info.append(" " + (isIdentified() && bonus != 0 ? "Also" : "However") + ", it seems to be _enchanted to " + glyph.desc(this) + "_.");
+            String prefix = (isIdentified() && bonus != 0) ? Ml.g("items.armours.body.bodyarmor.info_18_prefix_also") : Ml.g("items.armours.body.bodyarmor.info_18_prefix_however");
+            info.append(Ml.g("items.armours.body.bodyarmor.info_18", prefix, glyph.desc(this)));
         }
 
-        info.append(" This is a _" + lootChapterAsString() + "_ armor.");
+        info.append(Ml.g("items.armours.body.bodyarmor.info_19", lootChapterAsString()));
 
         return info.toString();
-
     }
 
     @Override

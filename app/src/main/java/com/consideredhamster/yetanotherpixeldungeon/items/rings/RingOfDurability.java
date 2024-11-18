@@ -48,8 +48,7 @@ public class RingOfDurability extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "Rings of Durability are valued by men of crafts and warfare alike, due to their ability " +
-                        "to make tools of their trade to serve longer and be repaired with greater ease."
+                Ml.g("items.rings.ringofdurability.desc_1")
         );
 
         if (!dud) {
@@ -61,8 +60,7 @@ public class RingOfDurability extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase overall _durability of your items by " + mainEffect + "%_ " +
-                            "and give _" + sideEffect + "% chance to repair your items for free_."
+                    Ml.g("items.rings.ringofdurability.desc_2", mainEffect, sideEffect)
             );
         }
 
@@ -72,7 +70,7 @@ public class RingOfDurability extends Ring {
     public class Durability extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel how some kind of protective aura surrounds your equipment." : "You feel how some kind of disruptive aura surrounds your equipment.";
+            return bonus >= 0 ? Ml.g("items.rings.ringofdurability.durability.desc_1") : Ml.g("items.rings.ringofdurability.durability.desc_2");
         }
     }
 }

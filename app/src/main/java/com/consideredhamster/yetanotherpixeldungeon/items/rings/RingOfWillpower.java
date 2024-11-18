@@ -56,9 +56,7 @@ public class RingOfWillpower extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "By increasing wearer's willpower, this ring indirectly increases their magical " +
-                        "abilities. Also, it offers additional benefit of making it easier to " +
-                        "shrug off all kinds of mental debuffs."
+                Ml.g("items.rings.ringofwillpower.desc_1")
         );
 
         if (!dud) {
@@ -70,8 +68,7 @@ public class RingOfWillpower extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase your _magic power by " + mainEffect + "%_ and " +
-                            "increase your _resistance to mind effects by " + sideEffect + "%_."
+                    Ml.g("items.rings.ringofwillpower.desc_2", mainEffect, sideEffect)
             );
         }
 
@@ -81,7 +78,9 @@ public class RingOfWillpower extends Ring {
     public class Willpower extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "Your arcane proficiency is improved." : "Your arcane proficiency is decreased.";
+            return bonus >= 0 ?
+                    Ml.g("items.rings.ringofwillpower.willpower.desc_1") :
+                    Ml.g("items.rings.ringofwillpower.willpower.desc_2");
         }
     }
 }

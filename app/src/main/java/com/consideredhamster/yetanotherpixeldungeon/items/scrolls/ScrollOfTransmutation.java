@@ -57,7 +57,7 @@ public class ScrollOfTransmutation extends InventoryScroll {
         name = Ml.g("items.scrolls.scrolloftransmutation.name");
         shortName = "Tr";
 
-        inventoryTitle = "Select an transmutable item";
+inventoryTitle = Ml.g("items.scrolls.scrolloftransmutation.inventorytitle");
         mode = WndBag.Mode.TRANSMUTABLE;
 
         spellSprite = SpellSprite.SCROLL_TRANSMUT;

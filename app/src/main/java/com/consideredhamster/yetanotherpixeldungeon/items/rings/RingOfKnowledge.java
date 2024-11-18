@@ -46,8 +46,7 @@ public class RingOfKnowledge extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "Both scholars and their pupils appreciate such rings, because they increase cognitive " +
-                        "capacity of their wearer, allowing to learn more things in a shorter amount of time."
+                Ml.g("items.rings.ringofknowledge.desc_1")
         );
 
         if (!dud) {
@@ -59,8 +58,7 @@ public class RingOfKnowledge extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase both the _amount of experience_ earned and " +
-                            "_identification rate_ of equipped items _by " + mainEffect + "%_."
+                    Ml.g("items.rings.ringofknowledge.desc_2", mainEffect)
             );
         }
 
@@ -70,7 +68,9 @@ public class RingOfKnowledge extends Ring {
     public class Knowledge extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel that your mind starts working better, your memory improves." : "You start feeling stupid. It is like something prevents you from thinking clearly.";
+            return bonus >= 0 ?
+                    Ml.g("items.rings.ringofknowledge.knowledge.desc_1") :
+                    Ml.g("items.rings.ringofknowledge.knowledge.desc_2");
         }
     }
 }

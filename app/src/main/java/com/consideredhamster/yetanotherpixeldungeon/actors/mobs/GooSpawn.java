@@ -142,8 +142,8 @@ public class GooSpawn extends MobEvasive {
             sprite.parent.add(new AlphaTweener(sprite, 0.0f, 0.1f));
 
             if (Dungeon.visible[pos]) {
-                mother.sprite.showStatus(CharSprite.NEGATIVE, "absorbed");
-                GLog.n("Goo absorbs entranced spawn, healing itself!");
+                mother.sprite.showStatus(CharSprite.NEGATIVE, Ml.g("actors.mobs.goospawn.absorbstatus"));
+                GLog.n(Ml.g("actors.mobs.goospawn.absorb"));
             }
 
             return true;
@@ -159,8 +159,8 @@ public class GooSpawn extends MobEvasive {
             sprite.idle();
 
             if (Dungeon.visible[pos]) {
-                sprite.showStatus(CharSprite.WARNING, "entranced");
-                GLog.n("A spawn of Goo became entranced - do not let them stand in the water!");
+                sprite.showStatus(CharSprite.WARNING, Ml.g("actors.mobs.goospawn.entrancestatus"));
+                GLog.n(Ml.g("actors.mobs.goospawn.entrance"));
             }
 
             spend(TICK);

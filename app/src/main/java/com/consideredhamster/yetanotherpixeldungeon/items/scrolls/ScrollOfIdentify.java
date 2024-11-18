@@ -38,7 +38,7 @@ public class ScrollOfIdentify extends InventoryScroll {
         name = Ml.g("items.scrolls.scrollofidentify.name");
         shortName = "Id";
 
-        inventoryTitle = "Select an item to identify";
+inventoryTitle = Ml.g("items.scrolls.scrollofidentify.inventorytitle");
         mode = WndBag.Mode.UNIDENTIFED;
 
         spellSprite = SpellSprite.SCROLL_IDENTIFY;

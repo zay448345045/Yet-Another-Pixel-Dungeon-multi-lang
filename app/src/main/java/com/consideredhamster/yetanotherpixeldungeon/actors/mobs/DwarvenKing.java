@@ -84,59 +84,57 @@
       private static final String CONSUMED = "consumed";
 
       private static String[][] LINES = {
-
               {
-                      "How dare you!",
-                      "Who dares to disturb my slumber?",
-                      "Human? In MY throne room?",
+                      Ml.g("actors.mobs.dwarvenking.LINES_1"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_2"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_3"),
               },
               {
-                      "Arise, slaves!",
-                      "I command you to fight!",
-                      "Servants! It is time to feast!",
+                      Ml.g("actors.mobs.dwarvenking.LINES_4"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_5"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_6"),
               },
               {
-                      "You'll pay for that, maggot!",
-                      "Your death will be VERY painful...",
-                      "Time to teach you a lesson, mortal.",
-                      "You are going to be a very powerful slave.",
+                      Ml.g("actors.mobs.dwarvenking.LINES_7"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_8"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_9"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_10"),
               },
               {
-                      "Come to me, my minions!",
-                      "Behold my true power!",
-                      "To me, my vassals!",
-                      "Your king commands you!",
-                      "Raise from your graves!",
+                      Ml.g("actors.mobs.dwarvenking.LINES_11"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_12"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_13"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_14"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_15"),
               },
               {
-                      "They are as useless in death as they were in life.",
-                      "These sycophants are worthless pile of trash.",
-                      "I always have to do everything by myself.",
+                      Ml.g("actors.mobs.dwarvenking.LINES_16"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_17"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_18"),
               },
               {
-                      "Time to remove you from the board, mortal.",
-                      "You played this game for too long, mortal.",
-                      "Do you not know your death when you see it? Die now!",
-                      "Your screams will be a symphony for my ears.",
-                      "You'll pay for everything you've done, human.",
+                      Ml.g("actors.mobs.dwarvenking.LINES_19"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_20"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_21"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_22"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_23"),
               },
               {
-                      "Move aside, worm!",
-                      "Don't make me angry, little pest.",
-                      "You will not stop me this way.",
+                      Ml.g("actors.mobs.dwarvenking.LINES_24"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_25"),
+                      Ml.g("actors.mobs.dwarvenking.LINES_26"),
               },
               {
-                      "You cannot kill me, " + Dungeon.hero.heroClass.title() + "... I am... immortal... ",
-                      "I will return, " + Dungeon.hero.heroClass.title() + "... I will... return...",
-                      "No. NO! How it can be? Killed... by... a mortal...",
+                      Ml.g("actors.mobs.dwarvenking.LINES_27", Dungeon.hero.heroClass.title()),
+                      Ml.g("actors.mobs.dwarvenking.LINES_28", Dungeon.hero.heroClass.title()),
+                      Ml.g("actors.mobs.dwarvenking.LINES_29"),
               },
       };
 
       public DwarvenKing() {
 
           super(5, 25, true);
-
-          name = Dungeon.depth == Statistics.deepestFloor ? "King of Dwarves" : "undead King of Dwarves";
+          name = Dungeon.depth == Statistics.deepestFloor ? Ml.g("actors.mobs.dwarvenking.name_1") : Ml.g("actors.mobs.dwarvenking.name_2");
           info = Ml.g("actors.mobs.dwarvenking.info");
           spriteClass = KingSprite.class;
 

@@ -77,229 +77,159 @@ public class InterlevelScene extends PixelScene {
 
             // GENERAL
 
-            "There is a shop on every fifth level of the dungeon; you can spend your gold there",
-            "There are only 3 ankhs in the dungeon but there is a low chance to find more",
-
-            "Special rooms like animated statue rooms are more likely to have a better equipment",
-            "Special rooms like tombs or flooded vaults will never have their prize cursed",
-
-            "Perception determines the time it takes to search for traps and secret doors",
-            "Perception affects your chances to notice a trap or a secret door by walking near it",
-            "Perception affects your chances to hear nearby enemies while exploring or sleeping",
-            "Your chance to expose your attacker depends on your Perception attribute",
-
-            "Stealth determines success chance and amount of attempts when stealing from shops",
-            "Stealth affects your chances to ambush an enemy to deal a sneak attack",
-
-            "Attunement affects the recharge rate of all of your wands",
-            "Your chance to prevent equipping a cursed item depends on your Attunement",
-
-//            "Magic power affects effectiveness of enchanted equipment",
-            "Your magic power determines damage/effect of your wands",
-            "High Strength increases your chances to break free when ensnared",
-
-            "Amount of loot and special rooms increases as you descend deeper into the dungeon",
-            "Try to keep your character level higher or equal to the current depth",
-
-            "Item upgrade levels are capped at +3 - don't worry, that's enough",
-            "Upgraded items are more durable, but cursed items break much faster",
-
-            "Remember that you always can turn these tooltips off in the game settings!",
-            "More tips will be added later!",
+            Ml.g("scenes.interlevelscene.tips_1"),
+            Ml.g("scenes.interlevelscene.tips_2"),
+            Ml.g("scenes.interlevelscene.tips_3"),
+            Ml.g("scenes.interlevelscene.tips_4"),
+            Ml.g("scenes.interlevelscene.tips_5"),
+            Ml.g("scenes.interlevelscene.tips_6"),
+            Ml.g("scenes.interlevelscene.tips_7"),
+            Ml.g("scenes.interlevelscene.tips_8"),
+            Ml.g("scenes.interlevelscene.tips_9"),
+            Ml.g("scenes.interlevelscene.tips_10"),
+            Ml.g("scenes.interlevelscene.tips_11"),
+            Ml.g("scenes.interlevelscene.tips_12"),
+            Ml.g("scenes.interlevelscene.tips_13"),
+            Ml.g("scenes.interlevelscene.tips_14"),
+            Ml.g("scenes.interlevelscene.tips_15"),
+            Ml.g("scenes.interlevelscene.tips_16"),
+            Ml.g("scenes.interlevelscene.tips_17"),
+            Ml.g("scenes.interlevelscene.tips_18"),
+            Ml.g("scenes.interlevelscene.tips_19"),
+            Ml.g("scenes.interlevelscene.tips_20"),
 
             // WEAPONS & ARMOURS
 
-            "Using a weapon which is too heavy for you decreases your attack speed",
-            "Stronger weapons usually decrease your accuracy and stealth",
-//            "Being electrified can force you to drop your current weapon on the ground",
-
-            "Using an armor or shield which is too heavy for you decreases your movement speed",
-            "Stronger shields and body armors usually decrease your dexterity and stealth",
-            "Upgraded cloth armor will increase its corresponding attribute even more",
-
-            "Your chance to block an attack depends on armor class of your shield or damage of your weapon",
-            "A successful block can expose your attacker, leaving it open to a counterattack",
-
-            "Excess strength decreases penalties from heavy equipment",
-            "You can identify weapons, armors, wands and rings by using them long enough",
-            "Stealth penalty from your equipment is not applied while you are asleep",
-
-//            "Stronger flintlock weapons require more gunpowder to reload",
-            "Flintlock weapons ignore distance penalties and the target's armor",
-
-//            "You can craft makeshift bombs from excess gunpowder",
-//            "You can combine bomb sticks into bomb bundles which pack some extra punch",
-            "You can dismantle bomb bundles or sticks to obtain some of their components",
+            Ml.g("scenes.interlevelscene.tips_21"),
+            Ml.g("scenes.interlevelscene.tips_22"),
+            Ml.g("scenes.interlevelscene.tips_23"),
+            Ml.g("scenes.interlevelscene.tips_24"),
+            Ml.g("scenes.interlevelscene.tips_25"),
+            Ml.g("scenes.interlevelscene.tips_26"),
+            Ml.g("scenes.interlevelscene.tips_27"),
+            Ml.g("scenes.interlevelscene.tips_28"),
+            Ml.g("scenes.interlevelscene.tips_29"),
+            Ml.g("scenes.interlevelscene.tips_30"),
+            Ml.g("scenes.interlevelscene.tips_31"),
+            Ml.g("scenes.interlevelscene.tips_32"),
 
             // WANDS & RINGS
 
-            "Chance to miscast depends on the wand's condition and is increased for cursed wands",
-            "Chance to squeeze additional charge depends on the wand's condition and upgrade level",
-
-            "Cursed and unidentified wands can miscast, but cannot squeeze additional charges",
-            "You can can squeeze additional charges from empty wands if they are identified",
-
-            "Some rings can be kept only to equip them for certain occasions",
-            "Bonuses from two equipped rings of a similar type stack additively",
-
-            "There is usually only 1 wand per chapter but there is a low chance to find more",
-            "There is usually only 1 ring per chapter but there is a low chance to find more",
-
-            "Sometimes, disintegration rays can be angled to hit the target twice",
-            "Wands of Smiting are especially useful against enemies of magical origin",
-
-            "Wands of Lightning do not conduct through the water if their target is flying",
-            "Wands of Acid Spray deal 150% damage in melee range, but only 50% against targets afar",
-            "Creating runes with wand of Firebrand is more effective than zapping with it directly",
-
-            "Avalanches created by wand of Force Blast deal more damage than direct zaps",
-            "Thornvines are stronger and tougher when created on grassy tiles",
-            "Walls created by wand of Ice Barrier are more durable when placed on water tiles",
-
-            "Wands of Charm can be used to harm and disorient enemies of magical origin",
-            "Wands of Life Drain are more powerful when used against sleeping or wandering enemies",
-            "Efficiency of wand of Damnation depends mostly on the target's current health",
+            Ml.g("scenes.interlevelscene.tips_33"),
+            Ml.g("scenes.interlevelscene.tips_34"),
+            Ml.g("scenes.interlevelscene.tips_35"),
+            Ml.g("scenes.interlevelscene.tips_36"),
+            Ml.g("scenes.interlevelscene.tips_37"),
+            Ml.g("scenes.interlevelscene.tips_38"),
+            Ml.g("scenes.interlevelscene.tips_39"),
+            Ml.g("scenes.interlevelscene.tips_40"),
+            Ml.g("scenes.interlevelscene.tips_41"),
+            Ml.g("scenes.interlevelscene.tips_42"),
+            Ml.g("scenes.interlevelscene.tips_43"),
+            Ml.g("scenes.interlevelscene.tips_44"),
+            Ml.g("scenes.interlevelscene.tips_45"),
+            Ml.g("scenes.interlevelscene.tips_46"),
+            Ml.g("scenes.interlevelscene.tips_47"),
+            Ml.g("scenes.interlevelscene.tips_48"),
+            Ml.g("scenes.interlevelscene.tips_49"),
+            Ml.g("scenes.interlevelscene.tips_50"),
+            Ml.g("scenes.interlevelscene.tips_51"),
 
             // POTIONS
 
-            "There is only 1 potion of Wisdom per chapter but there is a low chance to find more",
-            "Potions of Wisdom also increase your level cap, allowing you to reach higher levels",
-
-            "There are only 2 potions of Strength per chapter but there is a low chance to find more",
-            "Drinking a potion of Strength is the most effective way to heal yourself",
-
-            "There is always at least one potion of Mending in every shop",
-            "Potions of Mending also cure most physical debuffs such as poison or bleeding",
-
-            "Potions of Mind Vision allow you to ignore most of disadvantages of being blind",
-            "Potions of Mind Vision also increase your Perception for the duration of effect",
-
-            "Potions of Levitation give you a bonus to your movement speed and evasion",
-            "Potions of Levitation can be used to descend safely when jumping into a chasm",
-
-            "Being invisible also increases your stealth, making it easier to steal from shops",
-            "Enemies can dispel the effect of a potion of Invisibility by stumbling into you",
-
-            "Drinking a potion of Shield increases your physical resistance as well",
-            "Effects of a potion of Shield can be stacked with bonus resistances from equipment",
-
-            "Potions of Blessing will inflict heavy damage to the enemies of magical origin",
-            "Throw a potion of Blessing under yourself to weaken curses on items in your inventory",
-
-            "Potions of Liquid Flame never spread on nearby water tiles",
-            "Potions of Liquid Flame always affect nearby flammable tiles",
-
-            "You can quickly put out fire in a room with a help of a potion of Frigid Vapours",
-            "Potion of Frigid Vapours are more useful against targets standing in the water",
-
-            "Some gases are highly flammable - be careful when using potions of Toxic Gas",
-            "Potions of Toxic Gas are very effective against crowds of non-magical enemies",
-
-            "Using a potion of Thunderstorm can attract wandering monsters",
-            "Potions of Thunderstorm can be used to flood the dungeon floor or to extinguish fires",
-
-            "Potions of Webbing can be very helpful if you prefer to keep your enemies away from you",
-            "Potions of Confusion Gas are especially dangerous in combination with chasms",
-            "Potions of Rage have all of the benefits of scrolls of Challenge but without any drawbacks",
-            "Potions of Caustic Ooze leave temporary acid puddles when thrown on dry land tiles",
+            Ml.g("scenes.interlevelscene.tips_52"),
+            Ml.g("scenes.interlevelscene.tips_53"),
+            Ml.g("scenes.interlevelscene.tips_54"),
+            Ml.g("scenes.interlevelscene.tips_55"),
+            Ml.g("scenes.interlevelscene.tips_56"),
+            Ml.g("scenes.interlevelscene.tips_57"),
+            Ml.g("scenes.interlevelscene.tips_58"),
+            Ml.g("scenes.interlevelscene.tips_59"),
+            Ml.g("scenes.interlevelscene.tips_60"),
+            Ml.g("scenes.interlevelscene.tips_61"),
+            Ml.g("scenes.interlevelscene.tips_62"),
+            Ml.g("scenes.interlevelscene.tips_63"),
+            Ml.g("scenes.interlevelscene.tips_64"),
+            Ml.g("scenes.interlevelscene.tips_65"),
+            Ml.g("scenes.interlevelscene.tips_66"),
+            Ml.g("scenes.interlevelscene.tips_67"),
+            Ml.g("scenes.interlevelscene.tips_68"),
+            Ml.g("scenes.interlevelscene.tips_69"),
+            Ml.g("scenes.interlevelscene.tips_70"),
+            Ml.g("scenes.interlevelscene.tips_71"),
+            Ml.g("scenes.interlevelscene.tips_72"),
+            Ml.g("scenes.interlevelscene.tips_73"),
+            Ml.g("scenes.interlevelscene.tips_74"),
+            Ml.g("scenes.interlevelscene.tips_75"),
+            Ml.g("scenes.interlevelscene.tips_76"),
+            Ml.g("scenes.interlevelscene.tips_77"),
+            Ml.g("scenes.interlevelscene.tips_78"),
+            Ml.g("scenes.interlevelscene.tips_79"),
 
             // SCROLLS
 
-            "There is only 1 scroll of Enchantment per chapter but there is a low chance to find more",
-            "Using a scroll of Enchantment on a cursed item will significantly weaken its curse",
-
-            "There are only 2 scrolls of Upgrade per chapter but there is a low chance to find more",
-            "Uncursing an enchanted item with scroll of Upgrade allows you to keep the enchantment",
-
-            "Using your scrolls of Detect Magic wisely can save you a lot of time",
-            "There is always at least one scroll of Detect Magic in every shop",
-
-            "Scrolls of Transmutation will never change an item into the same item",
-            "Scrolls of Transmutation can be used to transmute ammunition and throwing weapons",
-
-            "Scrolls of Sunlight can be used to counteract effect of a potion of Thunderstorm",
-            "Never forget that scroll of Sunlight can heal some of your enemies, too",
-
-            "Scrolls of Clairvoyance will not reveal traps or secret doors, only rooms and items",
-            "Area revealed by a scroll of Clairvoyance cannot be erased by a scroll of Phase Warp",
-
-            "Scrolls of Banishment can be used to harm undead, elementals and golems",
-            "Scrolls of Banishment partially dispel curses from all of the items in your inventory",
-
-            "Enemies blinded by a scroll of Darkness can fall into a chasm or step into a trap",
-            "Scrolls of Darkness can be used to counteract effects of scrolls of Sunlight",
-
-            "Scrolls of Phase Warp can save your life as easily as they can end it",
-            "Using a scrolls of Phase Warp will confuse you for a short period",
-
-            "Scrolls of Raise Dead can be very deadly against a single creature - including you",
-            "Wraiths summoned by using a scroll of Raise Dead will stop being charmed after a while",
-
-            "Using scrolls of Challenge in boss fights is probably the best way to use them",
-            "Scroll of Challenge can be used to lure mimics out of their disguise",
-
-            "Scroll of Torment is more harmful to you if there are no more enemies in sight",
-            "Scroll of Torment is useless against creatures which have no mind to torture",
+            Ml.g("scenes.interlevelscene.tips_80"),
+            Ml.g("scenes.interlevelscene.tips_81"),
+            Ml.g("scenes.interlevelscene.tips_82"),
+            Ml.g("scenes.interlevelscene.tips_83"),
+            Ml.g("scenes.interlevelscene.tips_84"),
+            Ml.g("scenes.interlevelscene.tips_85"),
+            Ml.g("scenes.interlevelscene.tips_86"),
+            Ml.g("scenes.interlevelscene.tips_87"),
+            Ml.g("scenes.interlevelscene.tips_88"),
+            Ml.g("scenes.interlevelscene.tips_89"),
+            Ml.g("scenes.interlevelscene.tips_90"),
+            Ml.g("scenes.interlevelscene.tips_91"),
+            Ml.g("scenes.interlevelscene.tips_92"),
+            Ml.g("scenes.interlevelscene.tips_93"),
+            Ml.g("scenes.interlevelscene.tips_94"),
+            Ml.g("scenes.interlevelscene.tips_95"),
+            Ml.g("scenes.interlevelscene.tips_96"),
+            Ml.g("scenes.interlevelscene.tips_97"),
+            Ml.g("scenes.interlevelscene.tips_98"),
+            Ml.g("scenes.interlevelscene.tips_99"),
+            Ml.g("scenes.interlevelscene.tips_100"),
+            Ml.g("scenes.interlevelscene.tips_101"),
+            Ml.g("scenes.interlevelscene.tips_102"),
+            Ml.g("scenes.interlevelscene.tips_103"),
 
             // FOOD
 
-            "There is always at least 1 ration of food per depth, but look out for hidden rooms",
-            "Some kinds of monsters can drop a raw meat or even a small ration",
-
-            "A full stomach allows you to recover from wounds faster than normal",
-            "Fire can burn raw or cooked meat, making it way less useful and tasty",
-
-            "Burned meat is less nutritious and cannot be properly cooked anymore",
-            "Stewed meat removes debuffs just like herbs do, but takes longer to eat",
-
-            "Sometimes you can find additional rations, but they will be smaller",
-            "You can buy pastry in shops; more often than not it is well worth its cost",
-
-            "Starvation is not immediately harmful; initially it just prevents regeneration",
-            "If you ignore starvation for too long, it will become more dangerous",
-
-            "Satiety will be drained slightly slower if you have more strength than required by your equipment",
-            "Moving, attacking, casting and blocking decrease your satiety faster than standing still",
+            Ml.g("scenes.interlevelscene.tips_104"),
+            Ml.g("scenes.interlevelscene.tips_105"),
+            Ml.g("scenes.interlevelscene.tips_106"),
+            Ml.g("scenes.interlevelscene.tips_107"),
+            Ml.g("scenes.interlevelscene.tips_108"),
+            Ml.g("scenes.interlevelscene.tips_109"),
+            Ml.g("scenes.interlevelscene.tips_110"),
+            Ml.g("scenes.interlevelscene.tips_111"),
+            Ml.g("scenes.interlevelscene.tips_112"),
+            Ml.g("scenes.interlevelscene.tips_113"),
+            Ml.g("scenes.interlevelscene.tips_114"),
+            Ml.g("scenes.interlevelscene.tips_115"),
 
             // BOSSES
 
-            "Most bosses can become enraged, but only three times per fight",
-            "Bosses are quite vulnerable to explosives, potions and scrolls.",
-
-            "Mind that miasma released by Goo is highly flammable",
-            "Goo have several ways to heal itself, but all of them can be denied",
-
-            "Tengu teleports more often when receiving damage",
-            "Tengu cannot teleport when ensnared",
-
-            "DM-300 is neither organic nor magical creature.",
-            "DM-300 starts using it's special attacks more often after every enrage.",
-
-            "Dwarven King is completely invulnerable during the ritual",
-            "Dwarven King's ritual can be disrupted by a certain spell...",
+            Ml.g("scenes.interlevelscene.tips_116"),
+            Ml.g("scenes.interlevelscene.tips_117"),
+            Ml.g("scenes.interlevelscene.tips_118"),
+            Ml.g("scenes.interlevelscene.tips_119"),
+            Ml.g("scenes.interlevelscene.tips_120"),
+            Ml.g("scenes.interlevelscene.tips_121"),
+            Ml.g("scenes.interlevelscene.tips_122"),
+            Ml.g("scenes.interlevelscene.tips_123"),
+            Ml.g("scenes.interlevelscene.tips_124"),
+            Ml.g("scenes.interlevelscene.tips_125"),
 
             // TERRAIN
 
-            "Try to avoid moving in water if you are trying to sneak up on someone",
-            "Consider sticking to high grass if you are trying to sneak up on someone",
-
-            "Flying creatures can see over the high grass and are unaffected by terrain effects",
-            "Water amplifies shock and frost effects, but extinguishes fire and washes off acid",
-
-            "Traps only appear in standard rooms and never appear in corridors or special rooms",
-            "Monsters inhabiting this dungeon are aware of all of its traps and secret doors",
-
-            "Your health regeneration is tripled if you are sleeping on dry land",
-            "Sleeping in the water is much less efficient than sleeping anywhere else",
-            "Evasion chance is decreased for every adjacent tile which is occupied or impassable",
-
-            // MISC
-
-            "You can pour water from your waterskin to put out fires and wash away caustic ooze",
-            "You can grow herbs by watering adjacent high grass tiles with your waterskins",
-
-            "Your lantern makes it much easier to check for traps and secret doors",
-            "Oil lantern can be used to start fires on adjacent tiles if you have spare oil flasks",
+            Ml.g("scenes.interlevelscene.tips_126"),
+            Ml.g("scenes.interlevelscene.tips_127"),
+            Ml.g("scenes.interlevelscene.tips_128"),
+            Ml.g("scenes.interlevelscene.tips_129"),
+            Ml.g("scenes.interlevelscene.tips_130"),
+            Ml.g("scenes.interlevelscene.tips_131"),
+            Ml.g("scenes.interlevelscene.tips_132")
     };
 
     private enum Phase {

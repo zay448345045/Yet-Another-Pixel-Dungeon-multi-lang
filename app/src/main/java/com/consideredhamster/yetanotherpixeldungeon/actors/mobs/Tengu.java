@@ -67,63 +67,63 @@ public class Tengu extends MobRanged {
     private final static String[][] LINES = {
 
             {
-                    "Welcome to my humble abode! Haha!",
-                    "Welcome! Do you want to play?",
-                    "Oh, you're finally here! Let's play!",
+                    Ml.g("actors.mobs.tengu.LINES_1"),
+                    Ml.g("actors.mobs.tengu.LINES_2"),
+                    Ml.g("actors.mobs.tengu.LINES_3")
             },
             {
-                    "Let's get a bit closer...",
-                    "Hello there!",
-                    "Now you're it!",
-                    "Haha! Got you!",
-                    "BOO!.. Hahaha!",
+                    Ml.g("actors.mobs.tengu.LINES_4"),
+                    Ml.g("actors.mobs.tengu.LINES_5"),
+                    Ml.g("actors.mobs.tengu.LINES_6"),
+                    Ml.g("actors.mobs.tengu.LINES_7"),
+                    Ml.g("actors.mobs.tengu.LINES_8")
             },
             {
-                    "Let's put a little distance...",
-                    "Here is a little present for you!",
-                    "Don't stand there! Come here!",
-                    "Oops, didn't catch me! Haha!",
-                    "Here, catch! Hahaha!",
+                    Ml.g("actors.mobs.tengu.LINES_9"),
+                    Ml.g("actors.mobs.tengu.LINES_10"),
+                    Ml.g("actors.mobs.tengu.LINES_11"),
+                    Ml.g("actors.mobs.tengu.LINES_12"),
+                    Ml.g("actors.mobs.tengu.LINES_13")
             },
             {
-                    "Well, I need to rest a little. Have fun!",
-                    "I am afraid I'll have to leave you with these guys for now.",
-                    "Wow, you're tough! Here, play with these guys for a while.",
-                    "Here is your company for now! Enjoy!",
-                    "What fun! I just need to rest for a while.",
+                    Ml.g("actors.mobs.tengu.LINES_14"),
+                    Ml.g("actors.mobs.tengu.LINES_15"),
+                    Ml.g("actors.mobs.tengu.LINES_16"),
+                    Ml.g("actors.mobs.tengu.LINES_17"),
+                    Ml.g("actors.mobs.tengu.LINES_18")
             },
             {
-                    "Oh! You found me! How wonderful!",
-                    "Wow! Are you so eager to continue our little game?",
-                    "Hey! I haven't finished catching my breath!",
+                    Ml.g("actors.mobs.tengu.LINES_19"),
+                    Ml.g("actors.mobs.tengu.LINES_20"),
+                    Ml.g("actors.mobs.tengu.LINES_21")
             },
             {
-                    "Hey, guess what? I'm back!",
-                    "Hello again! Hope you weren't bored!",
-                    "Here and back again! Shall we continue?",
-                    "I'm here! What took you so long?",
-                    "Heeeeere's Tengu! Hahaha!",
+                    Ml.g("actors.mobs.tengu.LINES_22"),
+                    Ml.g("actors.mobs.tengu.LINES_23"),
+                    Ml.g("actors.mobs.tengu.LINES_24"),
+                    Ml.g("actors.mobs.tengu.LINES_25"),
+                    Ml.g("actors.mobs.tengu.LINES_26")
             },
             {
-                    "Well... That... Was fun...",
-                    "I think... Our game has ended...",
-                    "Well played, seeker... Well played.",
-                    "I think I am done... Thank you, seeker.",
-                    "Huh? It seems that I've lost... Oh well.",
+                    Ml.g("actors.mobs.tengu.LINES_27"),
+                    Ml.g("actors.mobs.tengu.LINES_28"),
+                    Ml.g("actors.mobs.tengu.LINES_29"),
+                    Ml.g("actors.mobs.tengu.LINES_30"),
+                    Ml.g("actors.mobs.tengu.LINES_31")
             },
             {
-                    "Where are you?",
-                    "Are you here? Or here?",
-                    "Why are you hiding from me?",
-                    "Hey, stop hiding! That's my thing!",
-                    "Show yourself! Stop ruining the fun!",
+                    Ml.g("actors.mobs.tengu.LINES_32"),
+                    Ml.g("actors.mobs.tengu.LINES_33"),
+                    Ml.g("actors.mobs.tengu.LINES_34"),
+                    Ml.g("actors.mobs.tengu.LINES_35"),
+                    Ml.g("actors.mobs.tengu.LINES_36")
             },
             {
-                    "Hey! Found you!",
-                    "A-ha! Here you are!",
-                    "That was a nice try!",
-                    "Can't hide forever from me!",
-                    "You are not really good at hiding.",
+                    Ml.g("actors.mobs.tengu.LINES_37"),
+                    Ml.g("actors.mobs.tengu.LINES_38"),
+                    Ml.g("actors.mobs.tengu.LINES_39"),
+                    Ml.g("actors.mobs.tengu.LINES_40"),
+                    Ml.g("actors.mobs.tengu.LINES_41")
             }
     };
 
@@ -133,8 +133,7 @@ public class Tengu extends MobRanged {
     public Tengu() {
 
         super(3, 15, true);
-
-        name = Dungeon.depth == Statistics.deepestFloor ? "Tengu" : "memory of Tengu";
+        name = Dungeon.depth == Statistics.deepestFloor ? Ml.g("actors.mobs.tengu.name_1") : Ml.g("actors.mobs.tengu.name_2");
         info = Ml.g("actors.mobs.tengu.info");
 
         spriteClass = TenguSprite.class;

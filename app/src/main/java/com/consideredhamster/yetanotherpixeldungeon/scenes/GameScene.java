@@ -344,12 +344,7 @@ public class GameScene extends PixelScene {
         ) {
 
             YetAnotherPixelDungeon.scene().add(
-                    new WndOptions("You're doing well!",
-                            "But did you know that YetAnotherPD has an in-game guide? It explains a lot of " +
-                                    "the game's mechanics and intricacies, so it can be really helpful for new players." +
-                                    "\n\nIf you don't want to read it now, then remember that it is always available " +
-                                    "via the Tutorial button in the game menu (top right corner of the screen)." +
-                                    "\n\nSo, what would you say?", "Yes, show me the tutorial", "No, I will be fine without it") {
+                    new WndOptions(Ml.g("scenes.gamescene.tutorialtitle"), Ml.g("scenes.gamescene.tutorialcontent"), Ml.g("scenes.gamescene.tutorialyes"), Ml.g("scenes.gamescene.tutorialno")) {
 
                         @Override
                         protected void onSelect(int index) {

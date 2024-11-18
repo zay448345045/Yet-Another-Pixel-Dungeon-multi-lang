@@ -141,7 +141,7 @@ public class ArmorerKit extends Item {
 
     @Override
     public String info() {
-        return "Using this kit of small tools and materials anybody can repair any armors (except cloth armors) or shields in a quite short amount of time.\nNo skills in tailoring, leatherworking or blacksmithing are required, but it has enough materials for only " + (value > 2 ? "three usages" : value < 2 ? "one usage" : "two usages") + ".";
+        return Ml.g("items.misc.armorerkit.info", value);
     }
 
     @Override

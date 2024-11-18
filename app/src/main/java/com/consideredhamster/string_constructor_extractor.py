@@ -115,7 +115,7 @@ def process_assignments_in_block(block, code_lines, package, class_name, file_pa
             if isinstance(expr, javalang.tree.Assignment):
                 # Check if the left-hand side is 'name' or 'info'
                 if isinstance(expr.expressionl, javalang.tree.MemberReference):
-                    if expr.expressionl.member in ('name', 'info', 'message'):
+                    if expr.expressionl.member in ('name', 'info', 'message', 'inventoryTitle'):
                         field_name = expr.expressionl.member
                         # Check if the right-hand side is a string literal
                         if is_string_expression(expr.value):

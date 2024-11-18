@@ -297,7 +297,7 @@ public class Thunderstorm extends Blob {
         }
 
         if (Dungeon.visible[cell]) {
-            GLog.i("Rain fills the well!");
+            GLog.i(Ml.g("actors.blobs.thunderstorm.fill_message_1"));
         }
     }
 
@@ -309,7 +309,7 @@ public class Thunderstorm extends Blob {
     }
 
     public static void listen() {
-        GLog.i("You hear thunder somewhere not far away.");
+        GLog.i(Ml.g("actors.blobs.thunderstorm.listen_message_1"));
         Sample.INSTANCE.play(Assets.SND_BLAST, 1, 1, Random.Float(1.8f, 2.25f));
         Camera.main.shake(2, 0.2f);
     }

@@ -522,86 +522,72 @@ public abstract class Weapon extends EquipableItem {
         info.append(p);
 
         if (isIdentified()) {
-            info.append("This _tier-" + tier + " " + (!descType().isEmpty() ? descType() + " " : "") + "weapon_ " +
-                    "requires _" + itemStr + " points of strength_ to use effectively and" +
-                    (isRepairable() ? ", given its _" + stateToString(state) + " condition_, " : " ") +
-                    "will deal _" + min() + "-" + max() + " points of damage_ per hit.");
+            info.append(Ml.g("items.weapons.weapon.info_identified_1", tier, !descType().isEmpty() ? descType() : "", itemStr,
+                    isRepairable() ? Ml.g("items.weapons.weapon.info_repairable", stateToString(state)) : "",
+                    min(), max()));
 
             info.append(p);
 
             if (itemStr > heroStr) {
-                info.append(
-                        "Because of your inadequate strength, your stealth and accuracy with it " +
-                                "will be _decreased by " + penalty + "%_ and attacking with it will be _" + (int) (100 - 10000 / (100 + penalty)) + "% slower_.");
+                info.append(Ml.g("items.weapons.weapon.info_identified_2", penalty, (int) (100 - 10000 / (100 + penalty))));
             } else if (itemStr < heroStr) {
-                info.append(
-                        "Because of your excess strength, your stealth and accuracy with it " +
-                                "will " + (penalty > 0 ? "be _decreased only by " + penalty + "%_" : "_not be decreased_") + " " +
-                                "and attacking with it will deal additional _0-" + (heroStr - itemStr) + " points of damage_.");
+                String decrease = penalty > 0 ? Ml.g("items.weapons.weapon.info_decrease_only", penalty) : Ml.g("items.weapons.weapon.info_not_decreased");
+                info.append(Ml.g("items.weapons.weapon.info_identified_3", decrease, (heroStr - itemStr)));
             } else {
-                info.append(
-                        "When wielding this weapon, your stealth and accuracy with it will " + (penalty > 0 ? "be _decreased by " + penalty + "%_, " +
-                                "but with additional strength this penalty can be reduced" : "_not be decreased_") + ".");
+                String decreased = penalty > 0 ? Ml.g("items.weapons.weapon.info_decreased_by", penalty) +
+                        " " + Ml.g("items.weapons.weapon.info_penalty_reduced") : Ml.g("items.weapons.weapon.info_not_decreased");
+                info.append(Ml.g("items.weapons.weapon.info_identified_4", decreased));
             }
         } else {
-            info.append("Usually _tier-" + tier + " " + (!descType().isEmpty() ? descType() + " " : "") + "weapons_ require _" + itemStr + " points of strength_ to use effectively and" +
-                    (isRepairable() ? ", when in _" + stateToString(state) + " condition_, " : " ") +
-                    "deal _" + min(0) + "-" + max(0) + " points of damage_ per hit.");
+            info.append(Ml.g("items.weapons.weapon.info_not_identified_1", tier, !descType().isEmpty() ? descType() : "", itemStr,
+                    isRepairable() ? Ml.g("items.weapons.weapon.info_repairable", stateToString(state)) : "",
+                    min(0), max(0)));
 
             info.append(p);
 
             if (itemStr > heroStr) {
-                info.append(
-                        "Because of your inadequate strength, your stealth and accuracy with it " +
-                                "probably will be _decreased by " + penalty + "%_ and attacking with it will be _" + (int) (100 - 10000 / (100 + penalty)) + "% slower_.");
+                info.append(Ml.g("items.weapons.weapon.info_not_identified_2", penalty, (int) (100 - 10000 / (100 + penalty))));
             } else if (itemStr < heroStr) {
-                info.append(
-                        "Because of your excess strength, your stealth and accuracy with it " +
-                                "probably will " + (penalty > 0 ? "be _decreased only by " + penalty + "%_" : "_not be decreased_") + " " +
-                                "and attacking with it will deal additional _0-" + (heroStr - itemStr) + " points of damage_.");
+                String decrease = penalty > 0 ? Ml.g("items.weapons.weapon.info_decrease_only", penalty) : Ml.g("items.weapons.weapon.info_not_decreased");
+                info.append(Ml.g("items.weapons.weapon.info_not_identified_3", decrease, (heroStr - itemStr)));
             } else {
-                info.append(
-                        "When wielding this weapon, your stealth and accuracy with it probably will " +
-                                (penalty > 0 ? "be _decreased by " + penalty + "%_" : "_not be decreased_") +
-                                ", unless your strength will be different from this weapon's actual strength requirement.");
+                String decreased = penalty > 0 ? Ml.g("items.weapons.weapon.info_decreased_by", penalty) : Ml.g("items.weapons.weapon.info_not_decreased");
+                info.append(Ml.g("items.weapons.weapon.info_not_identified_4", decreased));
             }
         }
 
         info.append(p);
 
         if (isEquipped(Dungeon.hero)) {
-
-            info.append("You hold the " + name + " at the ready.");
-
+            info.append(Ml.g("items.weapons.weapon.info_equipped", name));
         } else if (Dungeon.hero.belongings.backpack.contains(this)) {
-
-            info.append("The " + name + " is in your backpack.");
-
+            info.append(Ml.g("items.weapons.weapon.info_backpack", name));
         } else {
-
-            info.append("The " + name + " lies on the dungeon's floor.");
-
+            info.append(Ml.g("items.weapons.weapon.info_floor", name));
         }
 
         info.append(s);
 
         if (isIdentified() && bonus > 0) {
-            info.append("It appears to be _upgraded_.");
+            info.append(Ml.g("items.weapons.weapon.info_upgraded"));
         } else if (isCursedKnown()) {
-            info.append(bonus >= 0 ? "It appears to be _non-cursed_." :
-                    "A malevolent _curse_ seems to be lurking within this " + name + ".");
+            if (bonus >= 0) {
+                info.append(Ml.g("items.weapons.weapon.info_non_cursed"));
+            } else {
+                info.append(Ml.g("items.weapons.weapon.info_cursed", name));
+            }
         } else {
-            info.append(" This " + name + " is _unidentified_.");
+            info.append(Ml.g("items.weapons.weapon.info_unidentified", name));
         }
 
         info.append(s);
 
         if (isEnchantKnown() && enchantment != null) {
-            info.append(" " + (isIdentified() && bonus != 0 ? "Also" : "However") +
-                    ", it seems to be _enchanted to " + enchantment.desc(this) + "_.");
+            String prefix = (isIdentified() && bonus != 0) ? Ml.g("items.weapons.weapon.info_enchanted_prefix_also") : Ml.g("items.weapons.weapon.info_enchanted_prefix_however");
+            info.append(Ml.g("items.weapons.weapon.info_enchanted", prefix, enchantment.desc(this)));
         }
 
-        info.append(" This is a _" + lootChapterAsString() + "_ weapon.");
+        info.append(Ml.g("items.weapons.weapon.info_loot", lootChapterAsString()));
 
         return info.toString();
     }

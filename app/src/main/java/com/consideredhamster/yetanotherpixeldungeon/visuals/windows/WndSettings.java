@@ -47,8 +47,8 @@ public class WndSettings extends Window {
     private static final String TXT_BUTTONS = Ml.g("visuals.windows.wndsettings.txt_buttons");
 
     private static final String[] TXT_BUTTONS_VAR = {
-            "Right",
-            "Left",
+        Ml.g("visuals.windows.wndsettings.txt_buttons_var_0"),
+        Ml.g("visuals.windows.wndsettings.txt_buttons_var_1"),
     };
 
     private static final String TXT_BRIGHTNESS = Ml.g("visuals.windows.wndsettings.txt_brightness");
@@ -56,17 +56,17 @@ public class WndSettings extends Window {
     private static final String TXT_LOADING_TIPS = Ml.g("visuals.windows.wndsettings.txt_loading_tips");
 
     private static final String[] TXT_TIPS_DELAY = {
-            "Disabled",
-            "Normal delay",
-            "Doubled delay",
-            "Until tapped",
+        Ml.g("visuals.windows.wndsettings.txt_tips_delay_0"),
+        Ml.g("visuals.windows.wndsettings.txt_tips_delay_1"),
+        Ml.g("visuals.windows.wndsettings.txt_tips_delay_2"),
+        Ml.g("visuals.windows.wndsettings.txt_tips_delay_3"),
     };
 
     private static final String TXT_SEARCH_BTN = Ml.g("visuals.windows.wndsettings.txt_search_btn");
 
     private static final String[] TXT_SEARCH_VAR = {
-            "Default behv.",
-            "Reversed behv.",
+        Ml.g("visuals.windows.wndsettings.txt_search_var_0"),
+        Ml.g("visuals.windows.wndsettings.txt_search_var_1"),
     };
 
     private static final String TXT_SWITCH_PORT = Ml.g("visuals.windows.wndsettings.txt_switch_port");

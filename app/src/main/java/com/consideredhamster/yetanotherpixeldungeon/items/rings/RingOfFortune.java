@@ -46,9 +46,7 @@ public class RingOfFortune extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "First impression is that this ring affects nothing at all, but when using it for an " +
-                        "extended amount of time you may find your wealth to be increased substantially due to " +
-                        "being blessing with greater luck."
+                Ml.g("items.rings.ringoffortune.desc_1")
         );
 
         if (!dud) {
@@ -60,8 +58,7 @@ public class RingOfFortune extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase _amount of gold_ spawned and _amount of loot_ " +
-                            "dropped by defeated enemies _by " + mainEffect + "%_."
+                    Ml.g("items.rings.ringoffortune.desc_2", mainEffect)
             );
         }
 
@@ -71,7 +68,9 @@ public class RingOfFortune extends Ring {
     public class Fortune extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You don't feel anything special on equipping this ring. Is that good?" : "You don't feel anything special on equipping this ring. Is that bad?";
+            return bonus >= 0 ?
+                    Ml.g("items.rings.ringoffortune.fortune.desc_1") :
+                    Ml.g("items.rings.ringoffortune.fortune.desc_2");
         }
     }
 }

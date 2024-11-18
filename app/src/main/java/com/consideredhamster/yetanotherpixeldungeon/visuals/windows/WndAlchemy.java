@@ -12,6 +12,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.potions.EmptyBottle;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.Potion;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.UnstablePotion;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Terrain;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
@@ -61,7 +62,7 @@ public class WndAlchemy extends Window {
 
         IconTitle titlebar = new IconTitle();
         titlebar.icon(DungeonTilemap.tile(Terrain.ALCHEMY));
-        titlebar.label("Alchemy Pot");
+        titlebar.label(Ml.g("visuals.windows.wndalchemy.label"));
         titlebar.setRect(0, 0, WIDTH, 0);
         add(titlebar);
 
@@ -69,9 +70,7 @@ public class WndAlchemy extends Window {
 
         h += titlebar.height() + GAP;
 
-        String hint = this.mode == MODE_BREW ?
-                "Select two herbs to fill an empty bottle with potion." :
-                "You may select a herb to cook with your piece of raw meat.";
+        String hint = this.mode == MODE_BREW ? Ml.g("visuals.windows.wndalchemy.brewdesc") : Ml.g("visuals.windows.wndalchemy.cookdesc");
 
         BitmapTextMultiline message = PixelScene.createMultiline(hint, 6);
 
@@ -112,7 +111,7 @@ public class WndAlchemy extends Window {
                         //slot.item(new WndBag.Placeholder(ItemSpriteSheet.SOMETHING));
                     }
 
-                    GameScene.selectItem(itemSelector, WndBag.Mode.HERB, "select");
+                    GameScene.selectItem(itemSelector, WndBag.Mode.HERB, Ml.g("visuals.windows.wndalchemy.select"));
                 }
             };
 
@@ -201,7 +200,7 @@ public class WndAlchemy extends Window {
         h += 4;
         float btnWidth = (w - 14) / 2f;
 
-        btnCombine = new RedButton(this.mode == MODE_BREW ? "Brew" : "Cook") {
+        btnCombine = new RedButton(this.mode == MODE_BREW ? Ml.g("visuals.windows.wndalchemy.brew") : Ml.g("visuals.windows.wndalchemy.cook")) {
             @Override
             protected void onClick() {
                 super.onClick();
@@ -214,7 +213,7 @@ public class WndAlchemy extends Window {
         btnCombine.enable(false);
         add(btnCombine);
 
-        RedButton btnCancel = new RedButton("Cancel") {
+        RedButton btnCancel = new RedButton(Ml.g("visuals.windows.wndalchemy.cancel")) {
             @Override
             protected void onClick() {
                 super.onClick();

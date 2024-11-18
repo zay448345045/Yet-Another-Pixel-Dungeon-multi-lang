@@ -51,9 +51,7 @@ public class RingOfProtection extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "This ring makes the wearer's own body to become sturdier, effectively channeling his " +
-                        "or her physical strength into additional armor. It also greatly increases resistances " +
-                        "to various magical and elemental threats."
+                Ml.g("items.rings.ringofprotection.desc_1")
         );
 
         if (!dud) {
@@ -65,9 +63,7 @@ public class RingOfProtection extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase your _armor class by " + mainEffect + "_ and " +
-                            "increase your _resistance_ to fire, cold, shock, acid and energy by " +
-                            "_" + sideEffect + "%_."
+                    Ml.g("items.rings.ringofprotection.desc_2", mainEffect, sideEffect)
             );
         }
 
@@ -92,7 +88,9 @@ public class RingOfProtection extends Ring {
 
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel more protected." : "You feel more vulnerable.";
+            return bonus >= 0 ?
+                    Ml.g("items.rings.ringofprotection.protection.desc_1") :
+                    Ml.g("items.rings.ringofprotection.protection.desc_2");
         }
     }
 }

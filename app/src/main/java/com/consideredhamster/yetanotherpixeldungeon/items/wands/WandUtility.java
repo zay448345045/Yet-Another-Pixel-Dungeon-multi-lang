@@ -28,6 +28,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.armours.body.MageArmor
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfMysticism;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfWillpower;
 import com.consideredhamster.yetanotherpixeldungeon.items.weapons.melee.Quarterstaff;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.watabou.utils.Random;
 
 import java.util.Locale;
@@ -151,36 +152,38 @@ public abstract class WandUtility extends Wand {
 
         if (!isIdentified()) {
 
-            info.append(
-                    "This wand is _" + (isCursedKnown() && bonus < 0 ? "cursed" : "unidentified") +
-                            "_, but is in a _" + stateToString(state) + " condition_. Most likely, it " +
-                            "holds only _up to " + maxCharges(0) + " charges_ and will probably " +
-                            "have _" + chance + "% chance_ to miscast when used."
-            );
+            if (isCursedKnown() && bonus < 0) {
+                info.append(
+                    Ml.g("items.wands.wandutility.info_1", stateToString(state), maxCharges(0), chance)
+                );
+            } else {
+                info.append(
+                    Ml.g("items.wands.wandutility.info_2", stateToString(state), maxCharges(0), chance)
+                );
+            }
 
             info.append(p);
 
             info.append(
-                    "With your current magic power and attunement values, power of this wand will " +
-                            "(probably) be _" + min + "-" + max + " points_ when fully charged and it will " +
-                            "recover one charge _per " + recharge + " turns_."
+                Ml.g("items.wands.wandutility.info_3", min, max, recharge)
             );
 
         } else {
 
-            info.append(
-                    "This wand is _" + (bonus < 0 ? "cursed" : "not cursed") + "_ and is " +
-                            "in a _" + stateToString(state) + " condition_. It currently holds _" +
-                            getCharges() + "/" + maxCharges() + " charges_ and will have _" + chance + "% " +
-                            "chance_ to " + (bonus < 0 ? "miscast when used." : "squeeze an additional charge.")
-            );
+            if (bonus < 0) {
+                info.append(
+                    Ml.g("items.wands.wandutility.info_4", stateToString(state), getCharges(), maxCharges(), chance)
+                );
+            } else {
+                info.append(
+                    Ml.g("items.wands.wandutility.info_5", stateToString(state), getCharges(), maxCharges(), chance)
+                );
+            }
 
             info.append(p);
 
             info.append(
-                    "With your current magic power and attunement values, power of this wand will " +
-                            "be  _" + min + "-" + max + " points_ when fully charged and it will recover " +
-                            "one charge _per " + recharge + " turns_."
+                Ml.g("items.wands.wandutility.info_6", min, max, recharge)
             );
 
         }

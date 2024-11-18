@@ -48,9 +48,7 @@ public class RingOfMysticism extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "This ring was enchanted to increase magical sensitivity of it's wearer. Rings of " +
-                        "this kind are often used by spellcasters of all kinds, since having greater " +
-                        "attunement with magical currents really helps in their line of work."
+                Ml.g("items.rings.ringofmysticism.desc_1")
         );
 
         if (!dud) {
@@ -62,8 +60,7 @@ public class RingOfMysticism extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase your _attunement by " + mainEffect + "%_ and _chance " +
-                            "to proc_ of enchants on your weapons and armors by _" + sideEffect + "%_."
+                    Ml.g("items.rings.ringofmysticism.desc_2", mainEffect, sideEffect)
             );
         }
 
@@ -73,7 +70,9 @@ public class RingOfMysticism extends Ring {
     public class Mysticism extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "Suddenly, your perception of magical currents is improved." : "Suddenly, your perception of magical currents is dampened.";
+            return bonus >= 0 ?
+                    Ml.g("items.rings.ringofmysticism.mysticism.desc_1") :
+                    Ml.g("items.rings.ringofmysticism.mysticism.desc_2");
         }
     }
 }

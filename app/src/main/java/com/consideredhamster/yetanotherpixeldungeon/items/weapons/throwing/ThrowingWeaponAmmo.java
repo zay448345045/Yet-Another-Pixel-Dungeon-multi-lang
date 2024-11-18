@@ -77,17 +77,11 @@ public abstract class ThrowingWeaponAmmo extends ThrowingWeapon {
         info.append(p);
 
         if (isEquipped(Dungeon.hero)) {
-
-            info.append("You hold these " + name + " at the ready.");
-
+            info.append(Ml.g("items.weapons.throwing.throwingweaponammo.info_1", name));
         } else if (Dungeon.hero.belongings.backpack.contains(this)) {
-
-            info.append("These " + name + " are in your backpack. ");
-
+            info.append(Ml.g("items.weapons.throwing.throwingweaponammo.info_2", name));
         } else {
-
-            info.append("These " + name + " are on the dungeon's floor.");
-
+            info.append(Ml.g("items.weapons.throwing.throwingweaponammo.info_3", name));
         }
 
         return info.toString();

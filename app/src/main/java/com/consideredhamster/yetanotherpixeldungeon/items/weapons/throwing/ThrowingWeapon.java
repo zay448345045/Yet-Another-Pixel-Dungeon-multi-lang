@@ -262,44 +262,33 @@ public abstract class ThrowingWeapon extends Weapon {
 
         info.append(p);
 
-        info.append("This _tier-" + tier + " " + (!descType().isEmpty() ? descType() + " " : "") + "weapon_ requires _" + itemStr + " points of strength_ to use effectively and" +
-                (isRepairable() ? ", given its _" + stateToString(state) + " condition_, " : " ") +
-                "will deal _" + min() + "-" + max() + " points of damage_ per hit.");
+        info.append(Ml.g("items.weapons.throwing.throwingweapon.info_3", tier, !descType().isEmpty() ? descType() : "", itemStr,
+                isRepairable() ? Ml.g("items.weapons.throwing.throwingweapon.info_repairable", stateToString(state)) : "",
+                min(), max()));
 
         info.append(p);
 
         if (itemStr > heroStr) {
-            info.append(
-                    "Because of your inadequate strength, your stealth and accuracy with it " +
-                            "will be _decreased by " + penalty + "%_ and attacking with it will be _" + (int) (100 - 10000 / (100 + penalty)) + "% slower_.");
+            info.append(Ml.g("items.weapons.throwing.throwingweapon.info_4", penalty, (int) (100 - 10000 / (100 + penalty))));
         } else if (itemStr < heroStr) {
-            info.append(
-                    "Because of your excess strength, your stealth and accuracy with it " +
-                            "will " + (penalty > 0 ? "be _decreased only by " + penalty + "%_" : "_not be decreased_") + " " +
-                            "and attacking with it will deal additional _" + (float) (heroStr - itemStr) / 2 + " points of damage_.");
+            String decrease = penalty > 0 ? Ml.g("items.weapons.throwing.throwingweapon.info_decrease_only", penalty) : Ml.g("items.weapons.throwing.throwingweapon.info_not_decreased");
+            info.append(Ml.g("items.weapons.throwing.throwingweapon.info_5", decrease, ((float) (heroStr - itemStr) / 2)));
         } else {
-            info.append(
-                    "When wielding this weapon, your stealth and accuracy with it will " + (penalty > 0 ? "be _decreased by " + penalty + "%_, " +
-                            "but with additional strength this penalty can be reduced" : "_not be decreased_") + ".");
+            String decreased = penalty > 0 ? Ml.g("items.weapons.throwing.throwingweapon.info_decreased_by", penalty) : Ml.g("items.weapons.throwing.throwingweapon.info_not_decreased");
+            info.append(Ml.g("items.weapons.throwing.throwingweapon.info_6", decreased));
         }
 
         info.append(p);
 
         if (isEquipped(Dungeon.hero)) {
-
-            info.append("You hold these " + name + " at the ready.");
-
+            info.append(Ml.g("items.weapons.throwing.throwingweapon.info_7", name));
         } else if (Dungeon.hero.belongings.backpack.contains(this)) {
-
-            info.append("These " + name + " are in your backpack. ");
-
+            info.append(Ml.g("items.weapons.throwing.throwingweapon.info_8", name));
         } else {
-
-            info.append("These " + name + " are on the dungeon's floor.");
-
+            info.append(Ml.g("items.weapons.throwing.throwingweapon.info_9", name));
         }
 
-        info.append(" This is a _" + lootChapterAsString() + "_ weapon.");
+        info.append(Ml.g("items.weapons.throwing.throwingweapon.info_10", lootChapterAsString()));
 
         return info.toString();
     }

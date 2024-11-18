@@ -126,8 +126,8 @@ public class Goo extends MobEvasive {
 
             if (HP >= HT) {
                 beckon(Dungeon.hero.pos);
-                Dungeon.hero.interrupt("You were awoken by a bad feeling.");
-                GLog.i("Goo awakens!");
+                Dungeon.hero.interrupt(Ml.g("actors.mobs.goo.act_1"));
+                GLog.i(Ml.g("actors.mobs.goo.act_2"));
             }
         }
 
@@ -182,8 +182,8 @@ public class Goo extends MobEvasive {
                 }
 
                 if (Dungeon.visible[pos]) {
-                    sprite.showStatus(CharSprite.DEFAULT, "sleeping...");
-                    GLog.i("Goo is exhausted!");
+                    sprite.showStatus(CharSprite.DEFAULT, Ml.g("actors.mobs.goo.act_3"));
+                    GLog.i(Ml.g("actors.mobs.goo.act_4"));
                 }
 
                 sprite.idle();
@@ -217,8 +217,8 @@ public class Goo extends MobEvasive {
                 }
 
                 if (Dungeon.visible[pos]) {
-//                    sprite.showStatus( CharSprite.NEGATIVE, "enraged!" );
-                    GLog.n("Goo starts releasing deadly miasma!");
+                    //                sprite.showStatus( CharSprite.NEGATIVE, "enraged!" );
+                    GLog.n(Ml.g("actors.mobs.goo.notice_1"));
                 }
 
                 sprite.idle();
@@ -235,7 +235,7 @@ public class Goo extends MobEvasive {
     @Override
     public void die(Object cause, Element dmg) {
 
-        yell("glurp... glurp...");
+        yell(Ml.g("actors.mobs.goo.die_1"));
 
         super.die(cause, dmg);
 
@@ -262,7 +262,7 @@ public class Goo extends MobEvasive {
     public void notice() {
         super.notice();
         if (enemySeen) {
-            yell("GLURP-GLURP!");
+            yell(Ml.g("actors.mobs.goo.notice_1"));
         }
     }
 

@@ -25,6 +25,7 @@ import com.consideredhamster.yetanotherpixeldungeon.Element;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Bestiary;
 import com.consideredhamster.yetanotherpixeldungeon.actors.mobs.Mob;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.BuffIndicator;
@@ -48,7 +49,7 @@ public class WndInfoMob extends WndTitledMessage {
         StringBuilder builder = new StringBuilder((mob.friendly || mob.hostile ? "\n\n" + stats(mob) : ""));
 
         builder.append("\n" + mob.description());
-        builder.append("\n\n" + (Bestiary.isBoss(mob) ? "The " : "This ") + mob.name + " is " + mob.state.status() + ".");
+        builder.append("\n\n" + (Bestiary.isBoss(mob) ? Ml.g("visuals.windows.wndinfomob.desc_1", mob.name, mob.state.status()) : Ml.g("visuals.windows.wndinfomob.desc_2", mob.name, mob.state.status())));
 
         return builder.toString();
     }
@@ -63,21 +64,11 @@ public class WndInfoMob extends WndTitledMessage {
         int heroAccuracy = Dungeon.hero.accuracy() * 2;
         int dodgeChance = 100 - (heroAccuracy * 100 / (heroAccuracy + mob.dexterity()));
 
-        stats.append("Mob health: _" + mob.HP + "/" + mob.HT + " HP (" + mob.armorClass() + " AC)_\n");
-        stats.append("Base damage: _" + mob.minDamage() + "-" + mob.maxDamage() + " (" +
-                ((mob.minDamage() + mob.maxDamage()) / 2) + " on avg.)_\n");
+        stats.append(Ml.g("visuals.windows.wndinfomob.stats_1", mob.HP, mob.HT, mob.armorClass()) + "\n");
+        stats.append(Ml.g("visuals.windows.wndinfomob.stats_2", mob.minDamage(), mob.maxDamage(), ((mob.minDamage() + mob.maxDamage()) / 2)) + "\n");
 
-//        stats.append( "\n" );
-
-        stats.append("Accuracy: _" + mob.accuracy() + " (" + hitChance + "% to hit)_\n");
-        stats.append("Dexterity: _" + mob.dexterity() + " (" + dodgeChance + "% to dodge)_\n");
-
-//        stats.append( "\n" );
-
-//        stats.append( "Att speed: _" + (int)(attackSpeed() * 100) + "%_\n" );
-//        stats.append( "Mov speed: _" + (int)(attackSpeed() * 100) + "%_\n" );
-//
-//        stats.append( "\n" );
+        stats.append(Ml.g("visuals.windows.wndinfomob.stats_3", mob.accuracy(), hitChance) + "\n");
+        stats.append(Ml.g("visuals.windows.wndinfomob.stats_4", mob.dexterity(), dodgeChance) + "\n");
 
         ArrayList<String> immunity = new ArrayList<>();
         ArrayList<String> resistant = new ArrayList<>();
@@ -103,7 +94,7 @@ public class WndInfoMob extends WndTitledMessage {
                 imm.append(s);
             }
 
-            stats.append("Immune to: _" + imm.toString() + "_\n");
+            stats.append(Ml.g("visuals.windows.wndinfomob.stats_5", imm.toString()) + "\n");
         }
         if (!resistant.isEmpty()) {
 
@@ -115,7 +106,7 @@ public class WndInfoMob extends WndTitledMessage {
                 res.append(s);
             }
 
-            stats.append("Resistant to: _" + res.toString() + "_\n");
+            stats.append(Ml.g("visuals.windows.wndinfomob.stats_6", res.toString()) + "\n");
         }
 
         if (!vulnerable.isEmpty()) {
@@ -128,10 +119,10 @@ public class WndInfoMob extends WndTitledMessage {
                 vul.append(s);
             }
 
-            stats.append("Vulnerable to: _" + vul.toString() + "_\n");
+            stats.append(Ml.g("visuals.windows.wndinfomob.stats_7", vul.toString()) + "\n");
         }
 
-        stats.append("Special: _" + mob.info + "_\n");
+        stats.append(Ml.g("visuals.windows.wndinfomob.stats_8", mob.info) + "\n");
 
         return stats.toString();
     }

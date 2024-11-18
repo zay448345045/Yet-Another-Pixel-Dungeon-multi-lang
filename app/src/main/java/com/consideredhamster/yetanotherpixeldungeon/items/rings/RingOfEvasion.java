@@ -48,8 +48,7 @@ public class RingOfEvasion extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "Rings of this kind serve to improve reflexes and speed of their wearer, making them " +
-                        "harder to be hit - especially when they are on the move."
+                Ml.g("items.rings.ringofevasion.desc_1")
         );
 
         if (!dud) {
@@ -61,8 +60,7 @@ public class RingOfEvasion extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase your _evasion by " + mainEffect + "%_ when you " +
-                            "are standing still and by _" + sideEffect + "% when you are moving_."
+                    Ml.g("items.rings.ringofevasion.desc_2", mainEffect, sideEffect)
             );
         }
 
@@ -72,7 +70,7 @@ public class RingOfEvasion extends Ring {
     public class Evasion extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel that your reflexes are improved." : "You feel that your reflexes are dampened.";
+            return bonus >= 0 ? Ml.g("items.rings.ringofevasion.evasion_desc_1") : Ml.g("items.rings.ringofevasion.evasion_desc_2");
         }
     }
 }

@@ -45,25 +45,34 @@ import com.consideredhamster.yetanotherpixeldungeon.levels.features.Chasm;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.BoulderTrap;
 import com.consideredhamster.yetanotherpixeldungeon.levels.traps.Trap;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
+import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 
 public abstract class ResultDescriptions {
 
-    //    public static final String FAIL	= "%s";
-    public static final String WIN = "Obtained the Amulet of Yendor";
+    //    public static final String FAIL	= Ml.g("resultdescriptions.FAIL");
+    public static final String WIN = Ml.g("resultdescriptions.WIN");
 
     public static String generateResult(Object killedBy, Element killedWith) {
 
-        return Utils.capitalize(killedBy == Dungeon.hero ? killedWith(killedBy, killedWith) + (Dungeon.hero.heroClass == HeroClass.ACOLYTE ? " herself" : " himself") : killedWith(killedBy, killedWith) + " by " + killedBy(killedBy));
+        return Utils.capitalize(
+                killedBy == Dungeon.hero
+                        ? Ml.g("resultdescriptions.killedWith_killed") + (Dungeon.hero.heroClass == HeroClass.ACOLYTE ? Ml.g("resultdescriptions.generateResult_1") : Ml.g("resultdescriptions.generateResult_2"))
+                        : Ml.g("resultdescriptions.killedWith_" + killedWith(killedBy, killedWith)) + Ml.g("resultdescriptions.generateResult_3") + Ml.g("resultdescriptions.killedBy_" + killedBy(killedBy))
+        );
     }
 
     public static String generateMessage(Object killedBy, Element killedWith) {
 
-        return (killedBy == Dungeon.hero ? "You " + killedWith(killedBy, killedWith) + " yourself" : "You were " + killedWith(killedBy, killedWith) + " by " + killedBy(killedBy)) + "...";
+        return (
+                killedBy == Dungeon.hero
+                        ? Ml.g("resultdescriptions.generateMessage_1") + Ml.g("resultdescriptions.killedWith_" + killedWith(killedBy, killedWith)) + Ml.g("resultdescriptions.generateMessage_2")
+                        : Ml.g("resultdescriptions.generateMessage_3") + Ml.g("resultdescriptions.killedBy_" + killedBy(killedBy)) + Ml.g("resultdescriptions.killedWith_" + killedWith(killedBy, killedWith))
+        ) + Ml.g("resultdescriptions.generateMessage_5");
     }
 
     private static String killedWith(Object killedBy, Element killedWith) {
 
-        String result = "killed";
+        String result = Ml.g("resultdescriptions.killedWith_killed");
 
         if (killedWith == null) {
 
@@ -73,59 +82,54 @@ public abstract class ResultDescriptions {
 
                 if (Bestiary.isBoss(mob) || mob instanceof Rat) {
 
-                    result = "defeated";
+                    result = Ml.g("resultdescriptions.killedWith_defeated");
 
                 } else if (mob instanceof GnollBrute) {
 
-                    result = "murderized";
+                    result = Ml.g("resultdescriptions.killedWith_murderized");
 
                 } else if (mob instanceof DwarfMonk) {
 
-                    result = "facefisted";
+                    result = Ml.g("resultdescriptions.killedWith_facefisted");
 
                 } else if (mob instanceof Golem) {
 
-                    result = "squashed flat";
+                    result = Ml.g("resultdescriptions.killedWith_squashed_flat");
 
                 } else if (mob instanceof Piranha) {
 
-                    result = "eaten";
+                    result = Ml.g("resultdescriptions.killedWith_eaten");
 
                 } else if (mob instanceof Mimic) {
 
-                    result = "ambushed";
+                    result = Ml.g("resultdescriptions.killedWith_ambushed");
 
                 }
 
-            } else if (killedBy instanceof Pushing) {
+            } else if (killedBy instanceof Pushing || killedBy instanceof BoulderTrap) {
 
-                result = "crushed";
-
-            } else if (killedBy instanceof BoulderTrap) {
-
-                result = "crushed";
+                result = Ml.g("resultdescriptions.killedWith_crushed");
 
             }
 
-
-//        } else if( killedWith instanceof DamageType.Flame) {
-//            result = "burned to crisp";
-//        } else if( killedWith instanceof DamageType.Frost) {
-//            result = "chilled to death";
+            //        } else if( killedWith instanceof DamageType.Flame) {
+            //            result = Ml.g("resultdescriptions.killedWith_burned_to_crisp");
+            //        } else if( killedWith instanceof DamageType.Frost) {
+            //            result = Ml.g("resultdescriptions.killedWith_chilled_to_death");
         } else if (killedWith instanceof Element.Shock) {
-            result = "electrocuted";
+            result = Ml.g("resultdescriptions.killedWith_electrocuted");
         } else if (killedWith instanceof Element.Acid) {
-            result = "dissolved";
+            result = Ml.g("resultdescriptions.killedWith_dissolved");
         } else if (killedWith instanceof Element.Explosion) {
-            result = "blown up";
-//        } else if( killedWith instanceof DamageType.Mind) {
-//            result = "";
-//        } else if( killedWith instanceof DamageType.Body) {
-//            result = "drained";
-//        } else if( killedWith instanceof DamageType.Unholy) {
-//            result = "withered";
-//        } else if( killedWith instanceof DamageType.Energy) {
-//            result = "disintegrated";
+            result = Ml.g("resultdescriptions.killedWith_blown_up");
+            //        } else if( killedWith instanceof DamageType.Mind) {
+            //            result = Ml.g("resultdescriptions.killedWith_");
+            //        } else if( killedWith instanceof DamageType.Body) {
+            //            result = Ml.g("resultdescriptions.killedWith_drained");
+            //        } else if( killedWith instanceof DamageType.Unholy) {
+            //            result = Ml.g("resultdescriptions.killedWith_withered");
+            //        } else if( killedWith instanceof DamageType.Energy) {
+            //            result = Ml.g("resultdescriptions.killedWith_disintegrated");
         }
 
         return result;
@@ -133,40 +137,40 @@ public abstract class ResultDescriptions {
 
     private static String killedBy(Object killedBy) {
 
-        String result = "something";
+        String result = Ml.g("resultdescriptions.killedBy_something");
 
         if (killedBy instanceof Mob) {
             Mob mob = ((Mob) killedBy);
-            result = (!Bestiary.isBoss(mob) ? Utils.indefinite(mob.name) : mob.name);
+            result = Bestiary.isBoss(mob) ? mob.name : Ml.g("resultdescriptions.killedBy_" + Utils.indefinite(mob.name));
         } else if (killedBy instanceof Blob) {
             Blob blob = ((Blob) killedBy);
-            result = Utils.indefinite(blob.name);
+            result = Ml.g("resultdescriptions.killedBy_" + Utils.indefinite(blob.name));
         } else if (killedBy instanceof Weapon.Enchantment) {
-            result = "enchanted weapon";
+            result = Ml.g("resultdescriptions.killedBy_enchanted_weapon");
         } else if (killedBy instanceof Armour.Glyph) {
-            result = "enchanted armor";
+            result = Ml.g("resultdescriptions.killedBy_enchanted_armor");
         } else if (killedBy instanceof Buff) {
             if (killedBy instanceof Crippled) {
-                result = "excessive bleeding";
+                result = Ml.g("resultdescriptions.killedBy_excessive_bleeding");
             } else if (killedBy instanceof Poisoned) {
-                result = "poison";
+                result = Ml.g("resultdescriptions.killedBy_poison");
             } else if (killedBy instanceof Satiety) {
-                result = "starvation";
+                result = Ml.g("resultdescriptions.killedBy_starvation");
             } else if (killedBy instanceof Burning) {
-                result = "being burned alive";
+                result = Ml.g("resultdescriptions.killedBy_being_burned_alive");
             } else if (killedBy instanceof Corrosion) {
-                result = "caustic ooze";
+                result = Ml.g("resultdescriptions.killedBy_caustic_ooze");
             }
         } else if (killedBy instanceof Trap) {
-            result = "a trap";
+            result = Ml.g("resultdescriptions.killedBy_a_trap");
         } else if (killedBy instanceof Chasm) {
-            result = "gravity";
+            result = Ml.g("resultdescriptions.killedBy_gravity");
         } else if (killedBy instanceof Pushing) {
-            result = "knockback";
+            result = Ml.g("resultdescriptions.killedBy_knockback");
         } else if (killedBy instanceof Explosion) {
-            result = "explosion";
+            result = Ml.g("resultdescriptions.killedBy_explosion");
         } else if (killedBy instanceof FieryRune) {
-            result = "your own firebrand rune";
+            result = Ml.g("resultdescriptions.killedBy_your_own_firebrand_rune");
         }
 
         return result;

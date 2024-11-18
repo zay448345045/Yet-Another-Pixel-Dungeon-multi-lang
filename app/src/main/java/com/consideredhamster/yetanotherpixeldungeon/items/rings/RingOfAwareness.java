@@ -48,8 +48,7 @@ public class RingOfAwareness extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                "These rings improve wearer's perception, making him or her to be more aware " +
-                        "of different threats as well as allowing for a much deadlier counterattacks."
+                Ml.g("items.rings.ringofawareness.desc_1")
         );
 
         if (!dud) {
@@ -61,8 +60,7 @@ public class RingOfAwareness extends Ring {
             desc.append(" ");
 
             desc.append(
-                    "Wearing this ring will increase your _perception by " + mainEffect + "%_ " +
-                            "and _bonus damage from counter attacks by " + sideEffect + "%_."
+                    Ml.g("items.rings.ringofawareness.desc_2", mainEffect, sideEffect)
             );
         }
 
@@ -73,7 +71,9 @@ public class RingOfAwareness extends Ring {
     public class Awareness extends RingBuff {
         @Override
         public String desc() {
-            return bonus >= 0 ? "You feel that your alertness is improved." : "You feel that your alertness is dimmed.";
+            return bonus >= 0 ?
+                    Ml.g("items.rings.ringofawareness.awareness_desc_1") :
+                    Ml.g("items.rings.ringofawareness.awareness_desc_2");
         }
     }
 }

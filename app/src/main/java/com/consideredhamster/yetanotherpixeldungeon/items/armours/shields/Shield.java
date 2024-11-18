@@ -235,84 +235,72 @@ public abstract class Shield extends Armour {
         info.append(p);
 
         if (isIdentified()) {
-            info.append("This _tier-" + tier + " shield_ requires _" + itemStr + " points of strength_ to use effectively and" +
-                    (isRepairable() ? ", given its _" + stateToString(state) + " condition_, " : " ") +
-                    "will occasionally increase your _armor class by " + armor + " points_.");
+            info.append(Ml.g("items.armours.shields.shield.info_3", tier, !descType().isEmpty() ? descType() : "", itemStr,
+                    isRepairable() ? Ml.g("items.armours.shields.shield.info_repairable", stateToString(state)) : "",
+                    armor));
 
             info.append(p);
 
             if (itemStr > heroStr) {
-                info.append(
-                        "Because of your inadequate strength, your stealth and dexterity with this shield " +
-                                "will be _decreased by " + penalty + "%_ and your movement will be _" + (int) (100 - 10000 / (100 + penalty)) + "% slower_.");
+                info.append(Ml.g("items.armours.shields.shield.info_4", penalty, (int) (100 - 10000 / (100 + penalty))));
             } else if (itemStr < heroStr) {
-                info.append(
-                        "Because of your excess strength, your stealth and dexterity with this shield " +
-                                "will " + (penalty > 0 ? "be _decreased only by " + penalty + "%_" : "_not be decreased_") + " " +
-                                "and your armor class will be increased by _" + ((float) (heroStr - itemStr) / 2) + " bonus points_ on average.");
+                String decrease = penalty > 0 ? Ml.g("items.armours.shields.shield.info_decrease_only", penalty) : Ml.g("items.armours.shields.shield.info_not_decreased");
+                info.append(Ml.g("items.armours.shields.shield.info_5", decrease, ((float) (heroStr - itemStr) / 2)));
             } else {
-                info.append(
-                        "While you are using this shield, your stealth and dexterity will " + (penalty > 0 ? "be _decreased by " + penalty + "%_, " +
-                                "but with additional strength this penalty can be reduced" : "_not be decreased_") + ".");
+                String decreased = penalty > 0 ? Ml.g("items.armours.shields.shield.info_decreased_by", penalty) +
+                        " " + Ml.g("items.armours.shields.shield.info_penalty_reduced") : Ml.g("items.armours.shields.shield.info_not_decreased");
+                info.append(Ml.g("items.armours.shields.shield.info_6", decreased));
             }
         } else {
-            info.append("Usually _tier-" + tier + " shields_ require _" + itemStr + " points of strength_ to be used effectively and" +
-                    (isRepairable() ? ", when in _" + stateToString(state) + " condition_, " : " ") +
-                    "will occasionally increase your _armor class by " + armor + " points_.");
+            info.append(Ml.g("items.armours.shields.shield.info_7", tier, !descType().isEmpty() ? descType() : "", itemStr,
+                    isRepairable() ? Ml.g("items.armours.shields.shield.info_repairable", stateToString(state)) : "",
+                    armor));
 
             info.append(p);
 
             if (itemStr > heroStr) {
-                info.append(
-                        "Because of your inadequate strength, your stealth and dexterity with this shield " +
-                                "probably will be _decreased by " + penalty + "%_ and your movement will be _" + (int) (100 - 10000 / (100 + penalty)) + "% slower_.");
+                info.append(Ml.g("items.armours.shields.shield.info_8", penalty, (int) (100 - 10000 / (100 + penalty))));
             } else if (itemStr < heroStr) {
-                info.append(
-                        "Because of your excess strength, your stealth and dexterity with this shield " +
-                                "probably will " + (penalty > 0 ? "be _decreased only by " + penalty + "%_" : "_not be decreased_") + " " +
-                                "and your armor class will be increased by _" + ((float) (heroStr - itemStr) / 2) + " bonus points_ on average.");
+                String decrease = penalty > 0 ? Ml.g("items.armours.shields.shield.info_decrease_only", penalty) : Ml.g("items.armours.shields.shield.info_not_decreased");
+                info.append(Ml.g("items.armours.shields.shield.info_9", decrease, ((float) (heroStr - itemStr) / 2)));
             } else {
-                info.append(
-                        "While you are using this shield, your stealth and dexterity probably will " +
-                                (penalty > 0 ? "be _decreased by " + penalty + "%_" : "_not be decreased_") +
-                                ", unless your strength will be different from this shield's actual strength requirement.");
+                String decreased = penalty > 0 ? Ml.g("items.armours.shields.shield.info_decreased_by", penalty) : Ml.g("items.armours.shields.shield.info_not_decreased");
+                info.append(Ml.g("items.armours.shields.shield.info_10", decreased));
             }
         }
 
         info.append(p);
 
         if (isEquipped(Dungeon.hero)) {
-
-            info.append("You hold the " + name + " at the ready.");
-
+            info.append(Ml.g("items.armours.shields.shield.info_11", name));
         } else if (Dungeon.hero.belongings.backpack.contains(this)) {
-
-            info.append("The " + name + " is in your backpack.");
-
+            info.append(Ml.g("items.armours.shields.shield.info_12", name));
         } else {
-
-            info.append("The " + name + " lies on the dungeon's floor.");
-
+            info.append(Ml.g("items.armours.shields.shield.info_13", name));
         }
 
         info.append(s);
 
         if (isIdentified() && bonus > 0) {
-            info.append("It appears to be _upgraded_.");
+            info.append(Ml.g("items.armours.shields.shield.info_14"));
         } else if (isCursedKnown()) {
-            info.append(bonus >= 0 ? "It appears to be _non-cursed_." :
-                    "A malevolent _curse_ seems to be lurking within this " + name + ".");
+            if (bonus >= 0) {
+                info.append(Ml.g("items.armours.shields.shield.info_15"));
+            } else {
+                info.append(Ml.g("items.armours.shields.shield.info_16", name));
+            }
         } else {
-            info.append(" This " + name + " is _unidentified_.");
+            info.append(Ml.g("items.armours.shields.shield.info_17", name));
         }
 
         info.append(s);
 
         if (isEnchantKnown() && glyph != null) {
-            info.append(" " + (isIdentified() && bonus != 0 ? "Also" : "However") + ", it seems to be _enchanted to " + glyph.desc(this) + "_.");
+            String prefix = (isIdentified() && bonus != 0) ? Ml.g("items.armours.shields.shield.info_18_prefix_also") : Ml.g("items.armours.shields.shield.info_18_prefix_however");
+            info.append(Ml.g("items.armours.shields.shield.info_18", prefix, glyph.desc(this)));
         }
 
-        info.append(" This is a _" + lootChapterAsString() + "_ shield.");
+        info.append(Ml.g("items.armours.shields.shield.info_19", lootChapterAsString()));
 
         return info.toString();
 

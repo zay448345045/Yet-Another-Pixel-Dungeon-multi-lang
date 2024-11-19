@@ -28,13 +28,18 @@ public class Ml {
     public static void initialize() {
         String savedLanguageCode = loadLanguageSetting();
 
-        if (savedLanguageCode != null) {
-            initialize(savedLanguageCode);
-        } else {
-            String systemLanguageCode = Locale.getDefault().getLanguage();
-            String appLanguageCode = mapSystemLanguageToAppLanguage(systemLanguageCode);
-            initialize(appLanguageCode);
-        }
+
+        initialize("en");
+
+        //todo: remember to uncomment this after language window is completed
+
+//        if (savedLanguageCode != null) {
+//            initialize(savedLanguageCode);
+//        } else {
+//            String systemLanguageCode = Locale.getDefault().getLanguage();
+//            String appLanguageCode = mapSystemLanguageToAppLanguage(systemLanguageCode);
+//            initialize(appLanguageCode);
+//        }
     }
 
     public static void initialize(String languageCode) {

@@ -53,8 +53,8 @@ public class StartScene extends PixelScene {
     private static final float BUTTON_HEIGHT = 24;
     private static final float GAP = 2;
 
-    private static final String TXT_LOAD = Ml.g("welcome_message", "1");
-    private static final String TXT_NEW = Ml.g("welcome_message", "2");
+    private static final String TXT_LOAD = Ml.g("scenes.startscene.txt_load");
+    private static final String TXT_NEW = Ml.g("scenes.startscene.txt_new");
 
     private static final String TXT_ERASE = Ml.g("scenes.startscene.txt_erase");
     private static final String TXT_DPTH_LVL = Ml.g("scenes.startscene.txt_dpth_lvl");

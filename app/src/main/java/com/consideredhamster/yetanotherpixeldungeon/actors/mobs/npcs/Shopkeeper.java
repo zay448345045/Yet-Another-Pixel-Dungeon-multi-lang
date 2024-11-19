@@ -49,78 +49,78 @@ public class Shopkeeper extends NPC {
     private static String[][] LINES_THREATENED = {
 
             {
-                    Ml.g("items.misc.guard.lines_threatened_1"),
-                    Ml.g("items.misc.guard.lines_threatened_2"),
-                    Ml.g("items.misc.guard.lines_threatened_3"),
-                    Ml.g("items.misc.guard.lines_threatened_4"),
-                    Ml.g("items.misc.guard.lines_threatened_5"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_1"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_2"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_3"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_4"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_5"),
             },
             {
-                    Ml.g("items.misc.guard.lines_caught_1"),
-                    Ml.g("items.misc.guard.lines_caught_2"),
-                    Ml.g("items.misc.guard.lines_caught_3"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_6"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_7"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_8"),
             },
             {
-                    Ml.g("items.misc.guard.lines_threatened_6"),
-                    Ml.g("items.misc.guard.lines_threatened_7"),
-                    Ml.g("items.misc.guard.lines_threatened_8"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_9"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_10"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_11"),
             },
             {
-                    Ml.g("items.misc.guard.lines_threatened_9"),
-                    Ml.g("items.misc.guard.lines_threatened_10"),
-                    Ml.g("items.misc.guard.lines_threatened_11"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_12"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_13"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_threatened_14"),
             },
     };
 
     private static String[][] LINES_CAUGHT = {
 
             {
-                    Ml.g("items.misc.guard.lines_caught_4"),
-                    Ml.g("items.misc.guard.lines_caught_5"),
-                    Ml.g("items.misc.guard.lines_caught_6"),
-                    Ml.g("items.misc.guard.lines_caught_7"),
-                    Ml.g("items.misc.guard.lines_caught_8"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_1"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_2"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_3"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_4"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_5"),
             },
             {
-                    Ml.g("items.misc.guard.lines_caught_9"),
-                    Ml.g("items.misc.guard.lines_caught_10"),
-                    Ml.g("items.misc.guard.lines_caught_11"),
-                    Ml.g("items.misc.guard.lines_caught_12"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_6"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_7"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_8"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_9"),
             },
             {
-                    Ml.g("items.misc.guard.lines_caught_13"),
-                    Ml.g("items.misc.guard.lines_caught_14"),
-                    Ml.g("items.misc.guard.lines_caught_15"),
-                    Ml.g("items.misc.guard.lines_caught_16"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_10"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_11"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_12"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_13"),
             },
             {
-                    Ml.g("items.misc.guard.lines_caught_17"),
-                    Ml.g("items.misc.guard.lines_caught_18"),
-                    Ml.g("items.misc.guard.lines_caught_19"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_14"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_15"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_caught_16"),
             },
     };
 
     private static String[][] LINES_STOLEN = {
 
             {
-                    Ml.g("items.misc.guard.lines_stolen_1"),
-                    Ml.g("items.misc.guard.lines_stolen_2"),
-                    Ml.g("items.misc.guard.lines_stolen_3"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_1"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_2"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_3"),
             },
             {
-                    Ml.g("items.misc.guard.lines_stolen_4"),
-                    Ml.g("items.misc.guard.lines_stolen_5"),
-                    Ml.g("items.misc.guard.lines_stolen_6"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_4"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_5"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_6"),
             },
             {
-                    Ml.g("items.misc.guard.lines_stolen_7"),
-                    Ml.g("items.misc.guard.lines_stolen_8"),
-                    Ml.g("items.misc.guard.lines_stolen_9"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_7"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_8"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_9"),
             },
             {
-                    Ml.g("items.misc.guard.lines_stolen_10"),
-                    Ml.g("items.misc.guard.lines_stolen_11"),
-                    Ml.g("items.misc.guard.lines_stolen_12"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_10"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_11"),
+                    Ml.g("actor.mobs.npcs.shopkeeper.lines_stolen_12"),
             },
     };
 

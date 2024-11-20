@@ -501,7 +501,7 @@ public abstract class Weapon extends EquipableItem {
     @Override
     public String info() {
 
-        final String p = Ml.g("items.weapons.weapon.p");
+        final String p = "\n\n";
         final String s = " ";
 
         int heroStr = Dungeon.hero.STR();

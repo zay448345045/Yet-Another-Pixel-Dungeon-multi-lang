@@ -306,7 +306,9 @@ public class OilLantern extends Item {
     //todo: when localizing strings, many languages simply does not have plurals or use completely different plural definitions, so all plural checks should be removed for simplicity sake
     @Override
     public String info() {
-        return Ml.g("items.misc.oillantern.info_1") + (isActivated() ? Ml.g("items.misc.oillantern.info_2") : Ml.g("items.misc.oillantern.info_3")) + Ml.g("items.misc.oillantern.info_4", charge / 10.0, flasks, "");
+        return Ml.g("items.misc.oillantern.info",
+                isActivated() ? Ml.g("items.misc.oillantern.info_lit") : Ml.g("items.misc.oillantern.info_unlit"),
+                charge / 10.0, flasks);
     }
 
     public static class OilFlask extends Item {

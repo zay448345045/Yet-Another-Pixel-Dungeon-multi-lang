@@ -17,238 +17,294 @@
 
 package com.watabou.noosa;
 
-import java.nio.FloatBuffer;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import com.watabou.gltextures.SmartTexture;
 import com.watabou.gltextures.TextureCache;
 import com.watabou.glwrap.Matrix;
-import com.watabou.glwrap.Quad;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Typeface;
+
+import com.watabou.glwrap.Texture;
 import android.graphics.RectF;
 
-public class BitmapText extends Visual {
+public class BitmapText extends Image {
+	private static Canvas canvas = new Canvas();
+	private static Paint painter = new Paint();
 
-	protected String text;
-	protected Font font;
+	public static int font;
+	private static Typeface customFont;
 
-	protected float[] vertices = new float[16];
-	protected FloatBuffer quads;
-	
-	public int realLength;
-	
-	protected boolean dirty = true;
-	
-	public BitmapText() {
-		this( "", null );
+	private static Typeface bitmapFont;
+
+	//this is basically a LRU cache. capacity is determined by character count, not entry count.
+	private static LinkedHashMap<String, BitmapText.CachedText> textCache = new LinkedHashMap<>(700, 0.75f, true);
+
+	private static int cachedChars = 0;
+
+	private static final int GC_TRIGGER = 1250;
+	private static final int GC_TARGET = 1000;
+
+	private static void runGC(){
+		Iterator<Map.Entry<String, BitmapText.CachedText>> it = textCache.entrySet().iterator();
+		while (cachedChars > GC_TARGET && it.hasNext()){
+			BitmapText.CachedText cached = it.next().getValue();
+			if (cached.activeTexts.isEmpty()) {
+				cachedChars -= cached.length;
+				cached.texture.delete();
+				it.remove();
+			}
+		}
 	}
-	
-	public BitmapText( Font font ) {
-		this( "", font );
-	}
-	
-	public BitmapText( String text, Font font ) {
-		super( 0, 0, 0, 0 );
-		
+
+	private int size;
+	private String text;
+	private BitmapText.CachedText cache;
+
+	private boolean needsRender = false;
+
+	public BitmapText(Font font){
 		this.text = text;
-		this.font = font;
+		this.size = 16;
+		needsRender = true;
+		measure(this);
 	}
-	
-	@Override
-	public void destroy() {
+
+	public BitmapText(String text, Font font){
+		this.text = text;
+		this.size = 16;
+		needsRender = true;
+		measure(this);
+	}
+
+	public BitmapText( ){
 		text = null;
-		font = null;
-		vertices = null;
-		quads = null;
-		super.destroy();
 	}
-	
-	@Override
-	protected void updateMatrix() {
-		// "origin" field is ignored
-		Matrix.setIdentity( matrix );
-		Matrix.translate( matrix, x, y );
-		Matrix.scale( matrix, scale.x, scale.y );
-		Matrix.rotate( matrix, angle );
-	}
-	
-	@Override
-	public void draw() {
-		
-		super.draw();
-		
-		NoosaScript script = NoosaScript.get();
-		
-		font.texture.bind();
-		
-		if (dirty) {
-			updateVertices();
-		}
-		
-		script.camera( camera() );
-		
-		script.uModel.valueM4( matrix );
-		script.lighting( 
-			rm, gm, bm, am, 
-			ra, ga, ba, aa );
-		script.drawQuadSet( quads, realLength );
-		
-	}
-	
-	protected void updateVertices() {
-		
-		width = 0;
-		height = 0;
-		
-		if (text == null) {
-			text = "";
-		}
-		
-		quads = Quad.createSet( text.length() );
-		realLength = 0;
-		
-		int length = text.length();
-		for (int i=0; i < length; i++) {
-			RectF rect = font.get( text.charAt( i ) );
-	
-			if (rect == null) {
-				rect=null;
-			}
-			float w = font.width( rect );
-			float h = font.height( rect );
-			
-			vertices[0] 	= width;
-			vertices[1] 	= 0;
-			
-			vertices[2]		= rect.left;
-			vertices[3]		= rect.top;
-			
-			vertices[4] 	= width + w;
-			vertices[5] 	= 0;
-			
-			vertices[6]		= rect.right;
-			vertices[7]		= rect.top;
-			
-			vertices[8] 	= width + w;
-			vertices[9] 	= h;
-			
-			vertices[10]	= rect.right;
-			vertices[11]	= rect.bottom;
-			
-			vertices[12]	= width;
-			vertices[13]	= h;
-			
-			vertices[14]	= rect.left;
-			vertices[15]	= rect.bottom;
-			
-			quads.put( vertices );
-			realLength++;
-			
-			width += w + font.tracking;
-			if (h > height) {
-				height = h;
-			}
-		}
-		
-		if (length > 0) {
-			width -= font.tracking;
-		}
-		
-		dirty = false;
-		
-	}
-	
-	public void measure() {
-		
-		width = 0;
-		height = 0;
-		
-		if (text == null) {
-			text = "";
-		}
-		
-		int length = text.length();
-		for (int i=0; i < length; i++) {
-			RectF rect = font.get( text.charAt( i ) );
 
-			float w = font.width( rect );
-			float h = font.height( rect );
+	public BitmapText(int size ){
+		text = null;
+		this.size = size;
+	}
 
-			width += w + font.tracking;
-			if (h > height) {
-				height = h;
-			}
-		}
-		
-		if (length > 0) {
-			width -= font.tracking;
-		}
+	public BitmapText(String text, int size){
+		this.text = text;
+		this.size = size;
+
+		needsRender = true;
+		measure(this);
 	}
-	
-	public float baseLine() {
-		return font.baseLine * scale.y;
+
+	public void text( String text ){
+		this.text = text;
+
+		needsRender = true;
+		measure(this);
 	}
-	
-	public Font font() {
-		return font;
-	}
-	
-	public void font( Font value ) {
-		font = value;
-	}
-	
-	public String text() {
+
+	public String text(){
 		return text;
 	}
-	
-	public void text( String str ) {
-		text = str;
-		dirty = true;
+
+	public void size( int size ){
+		this.size = size;
+		needsRender = true;
+		measure(this);
 	}
-	
-	public static class Font extends TextureFilm {
-		
-		public static final String LATIN_UPPER = 
-			" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		
-		public static final String LATIN_FULL = 
-			" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007F";
-		
+
+	public float baseLine(){
+		return size * scale.y;
+	}
+
+	public static void measure(){
+
+	}
+	private static synchronized void measure(BitmapText r){
+
+		if ( r.text == null || r.text.equals("") ) {
+			r.text = "";
+			r.width=r.height=0;
+			r.visible = false;
+			return;
+		} else {
+			r.visible = true;
+		}
+
+		painter.setTextSize(r.size);
+		painter.setAntiAlias(r.size >= 12);
+
+		if (customFont != null && bitmapFont != null) {
+			painter.setTypeface(r.size >= 12 ? customFont : bitmapFont);
+		} else {
+			painter.setTypeface(Typeface.DEFAULT);
+		}
+
+		painter.setARGB(0xff, 0, 0, 0);
+		painter.setStyle(Paint.Style.STROKE);
+		painter.setStrokeWidth(r.size / 5f);
+
+		r.width = (painter.measureText(r.text)+ (r.size/5f));
+		r.height = (-painter.ascent() + painter.descent()+ (r.size/5f));
+	}
+
+	private static synchronized void render(BitmapText r){
+		r.needsRender = false;
+
+		if (r.cache != null)
+			r.cache.activeTexts.remove(r);
+
+		String key = "text:" + r.size + " " + r.text;
+		if (textCache.containsKey(key)){
+			r.cache = textCache.get(key);
+			r.texture = r.cache.texture;
+			r.frame(r.cache.rect);
+			r.cache.activeTexts.add(r);
+		} else {
+
+			measure(r);
+
+			if (r.width == 0 || r.height == 0)
+				return;
+
+			//bitmap has to be in a power of 2 for some devices (as we're using openGL methods to render to texture)
+			Bitmap bitmap = Bitmap.createBitmap(Integer.highestOneBit((int)r.width)*2, Integer.highestOneBit((int)r.height)*2, Bitmap.Config.ARGB_4444);
+			bitmap.eraseColor(0x00000000);
+
+			canvas.setBitmap(bitmap);
+			canvas.drawText(r.text, (r.size/10f), r.size, painter);
+
+			//paint inner text
+			painter.setARGB(0xff, 0xff, 0xff, 0xff);
+			painter.setStyle(Paint.Style.FILL);
+
+			canvas.drawText(r.text, (r.size/10f), r.size, painter);
+
+			r.texture = new SmartTexture(bitmap, Texture.NEAREST, Texture.CLAMP, true);
+
+			RectF rect = r.texture.uvRect(0, 0, (int)r.width, (int)r.height);
+			r.frame(rect);
+
+			r.cache = new BitmapText.CachedText();
+			r.cache.rect = rect;
+			r.cache.texture = r.texture;
+			r.cache.length = r.text.length();
+			r.cache.activeTexts = new HashSet<>();
+			r.cache.activeTexts.add(r);
+
+			cachedChars += r.cache.length;
+			textCache.put("text:" + r.size + " " + r.text, r.cache);
+
+			if (cachedChars >= GC_TRIGGER){
+				runGC();
+			}
+		}
+	}
+
+	@Override
+	protected void updateMatrix() {
+		super.updateMatrix();
+		//the y value is set at the top of the character, not at the top of accents.
+		Matrix.translate( matrix, 0, -Math.round((baseLine()*0.15f)/scale.y) );
+	}
+
+	@Override
+	public void draw() {
+		if (needsRender)
+			render(this);
+		if (texture != null)
+			super.draw();
+	}
+
+	@Override
+	public void destroy() {
+		if (cache != null)
+			cache.activeTexts.remove(this);
+		super.destroy();
+	}
+
+	public static void clearCache(){
+		for (BitmapText.CachedText cached : textCache.values()){
+			cached.texture.delete();
+		}
+		cachedChars = 0;
+		textCache.clear();
+	}
+
+	public static void reloadCache(){
+		for (BitmapText.CachedText txt : textCache.values()){
+			txt.texture.reload();
+		}
+	}
+
+	public static void setFont(){
+		customFont = Typeface.createFromAsset(Game.instance.getAssets(), "font/zpix_font.ttf");
+		bitmapFont = Typeface.createFromAsset(Game.instance.getAssets(), "font/04B_03__.ttf");
+		clearCache();
+	}
+
+	public static Typeface getCustomFont(){
+		return customFont;
+	}
+
+	public static Typeface getBitmapFont(){
+		return bitmapFont;
+	}
+
+	private static class CachedText{
 		public SmartTexture texture;
-		
+		public RectF rect;
+		public int length;
+		public HashSet<BitmapText> activeTexts;
+	}
+
+	public static class Font extends TextureFilm {
+
+		public static final String LATIN_UPPER =
+				" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+		public static final String LATIN_FULL =
+				" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007F";
+
+		public SmartTexture texture;
+
 		public float tracking = 0;
 		public float baseLine;
-		
+
 		public boolean autoUppercase = false;
-		
+
 		public float lineHeight;
-		
+
 		protected Font( SmartTexture tx ) {
 			super( tx );
-			
+
 			texture = tx;
 		}
-		
+
 		public Font( SmartTexture tx, int width, String chars ) {
 			this( tx, width, tx.height, chars );
 		}
-		
+
 		public Font( SmartTexture tx, int width, int height, String chars ) {
 			super( tx );
-			
+
 			texture = tx;
-			
+
 			autoUppercase = chars.equals( LATIN_UPPER );
-			
+
 			int length = chars.length();
-			
+
 			float uw = (float)width / tx.width;
 			float vh = (float)height / tx.height;
-			
+
 			float left = 0;
 			float top = 0;
 			float bottom = vh;
-			
+
 			for (int i=0; i < length; i++) {
 				RectF rect = new RectF( left, top, left += uw, bottom );
 				add( chars.charAt( i ), rect );
@@ -258,21 +314,21 @@ public class BitmapText extends Visual {
 					bottom += vh;
 				}
 			}
-			
+
 			lineHeight = baseLine = height;
 		}
-		
+
 		protected void splitBy( Bitmap bitmap, int height, int color, String chars ) {
-			
+
 			autoUppercase = chars.equals( LATIN_UPPER );
 			int length = chars.length();
-			
+
 			int width = bitmap.getWidth();
 			float vHeight = (float)height / bitmap.getHeight();
-			
+
 			int pos;
-			
-		spaceMeasuring:
+
+			spaceMeasuring:
 			for (pos=0; pos <  width; pos++) {
 				for (int j=0; j < height; j++) {
 					if (bitmap.getPixel( pos, j ) != color) {
@@ -281,17 +337,17 @@ public class BitmapText extends Visual {
 				}
 			}
 			add( ' ', new RectF( 0, 0, (float)pos / width, vHeight ) );
-			
+
 			for (int i=0; i < length; i++) {
-				
+
 				char ch = chars.charAt( i );
 				if (ch == ' ') {
 					continue;
 				} else {
-					
+
 					boolean found;
 					int separator = pos;
-					
+
 					do {
 						if (++separator >= width) {
 							break;
@@ -304,27 +360,27 @@ public class BitmapText extends Visual {
 							}
 						}
 					} while (!found);
-					
+
 					add( ch, new RectF( (float)pos / width, 0, (float)separator / width, vHeight ) );
 					pos = separator + 1;
 				}
 			}
-			
+
 			lineHeight = baseLine = height( frames.get( chars.charAt( 0 ) ) );
 		}
-		
+
 		public static Font colorMarked( Bitmap bmp, int color, String chars ) {
 			Font font = new Font( TextureCache.get( bmp ) );
 			font.splitBy( bmp, bmp.getHeight(), color, chars );
 			return font;
 		}
-		 
+
 		public static Font colorMarked( Bitmap bmp, int height, int color, String chars ) {
 			Font font = new Font( TextureCache.get( bmp ) );
 			font.splitBy( bmp, height, color, chars );
 			return font;
 		}
-		
+
 		public RectF get( char ch ) {
 			return super.get( autoUppercase ? Character.toUpperCase( ch ) : ch );
 		}

@@ -52,28 +52,28 @@ public class WndTitledMessage extends Window {
         titlebar.setRect(0, 0, width, 0);
         add(titlebar);
 
-        Highlighter hl = new Highlighter(message);
+//        Highlighter hl = new Highlighter(message);
 
-        normal = PixelScene.createMultiline(hl.text, 6);
+        normal = PixelScene.createMultiline(message, 6);
         normal.maxWidth = width;
         normal.measure();
         normal.x = titlebar.left();
         normal.y = titlebar.bottom() + GAP;
         add(normal);
 
-        if (hl.isHighlighted()) {
-            normal.mask = hl.inverted();
-
-            highlighted = PixelScene.createMultiline(hl.text, 6);
-            highlighted.maxWidth = normal.maxWidth;
-            highlighted.measure();
-            highlighted.x = normal.x;
-            highlighted.y = normal.y;
-            add(highlighted);
-
-            highlighted.mask = hl.mask;
-            highlighted.hardlight(TITLE_COLOR);
-        }
+//        if (hl.isHighlighted()) {
+//            normal.mask = hl.inverted();
+//
+//            highlighted = PixelScene.createMultiline(hl.text, 6);
+//            highlighted.maxWidth = normal.maxWidth;
+//            highlighted.measure();
+//            highlighted.x = normal.x;
+//            highlighted.y = normal.y;
+//            add(highlighted);
+//
+//            highlighted.mask = hl.mask;
+//            highlighted.hardlight(TITLE_COLOR);
+//        }
 
         resize(width, (int) (normal.y + normal.height()));
     }

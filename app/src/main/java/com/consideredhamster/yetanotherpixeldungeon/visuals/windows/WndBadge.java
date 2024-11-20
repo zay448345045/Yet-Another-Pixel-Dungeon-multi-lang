@@ -21,6 +21,7 @@
 package com.consideredhamster.yetanotherpixeldungeon.visuals.windows;
 
 import com.consideredhamster.yetanotherpixeldungeon.Badges;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BadgeBanner;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Window;
@@ -51,14 +52,16 @@ public class WndBadge extends Window {
         icon.y = MARGIN;
 
         float pos = icon.y + icon.height() + MARGIN;
-        for (BitmapText line : info.new LineSplitter().split()) {
-            line.measure();
-            line.x = PixelScene.align((w - line.width()) / 2);
-            line.y = PixelScene.align(pos);
-            add(line);
 
-            pos += line.height();
-        }
+        add(info);
+//        for (BitmapText line : info.new LineSplitter().split()) {
+//            line.measure();
+//            line.x = PixelScene.align((w - line.width()) / 2);
+//            line.y = PixelScene.align(pos);
+//            add(line);
+//
+//            pos += line.height();
+//        }
 
         resize((int) w, (int) (pos + MARGIN));
 

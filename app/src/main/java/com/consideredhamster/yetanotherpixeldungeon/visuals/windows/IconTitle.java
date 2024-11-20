@@ -85,7 +85,7 @@ public class IconTitle extends Component {
         tfLabel.measure();
         tfLabel.y = PixelScene.align(PixelScene.uiCamera,
                 imIcon.height > tfLabel.height() ?
-                        imIcon.y + (imIcon.height() - tfLabel.baseLine()) / 2 :
+                        imIcon.y + (imIcon.height() - tfLabel.bottom()) / 2 :
                         imIcon.y);
 
         if (health.visible) {

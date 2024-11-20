@@ -147,7 +147,7 @@ public class RankingsScene extends PixelScene {
 
         } else {
 
-            BitmapText noGaems = PixelScene.createMultiline(Utils.format(TXT_HAS_NO_GAEMS, Difficulties.NAMES[difficulty]), 8);
+            BitmapTextMultiline noGaems = PixelScene.createMultiline(Utils.format(TXT_HAS_NO_GAEMS, Difficulties.NAMES[difficulty]), 8);
             noGaems.hardlight(DEFAULT_COLOR);
             noGaems.measure();
             noGaems.x = align((w - noGaems.width()) / 2);
@@ -329,7 +329,7 @@ public class RankingsScene extends PixelScene {
             desc.x = shield.x + shield.width + GAP;
             desc.maxWidth = (int) (floorIcon.x - desc.x);
             desc.measure();
-            desc.y = position.y + position.baseLine() - desc.baseLine();
+            desc.y = position.y + position.baseLine() - desc.bottom();
         }
 
         @Override

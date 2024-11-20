@@ -103,6 +103,7 @@ public class GameLog extends Component implements Signal.Listener<String> {
             entry.x = x;
             entry.y = pos - entry.height();
             pos -= entry.height();
+            entry.layout();
         }
     }
 

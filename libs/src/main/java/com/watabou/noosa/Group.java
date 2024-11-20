@@ -18,6 +18,7 @@
 package com.watabou.noosa;
 
 import java.util.ArrayList;
+import java.util.IllegalFormatCodePointException;
 
 public class Group extends Gizmo {
 
@@ -93,7 +94,17 @@ public class Group extends Gizmo {
 		if (g.parent != null) {
 			g.parent.remove( g );
 		}
-		
+
+		// if g is multiline, cast it as bitmapTextMultiline and force layout
+		if (g instanceof BitmapTextMultiline) {
+			BitmapTextMultiline btm = (BitmapTextMultiline) g;
+			btm.layout();
+		}
+		if (g instanceof BitmapText) {
+			BitmapText btm = (BitmapText) g;
+			BitmapText.measure(btm);
+		}
+
 		// Trying to find an empty space for a new member
 		for (int i=0; i < length; i++) {
 			if (members.get( i ) == null) {

@@ -36,6 +36,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.misc.Waterskin;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Whetstone;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.EmptyBottle;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfShadows;
+import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfClairvoyance;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfRaiseDead;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.Wand;
 import com.consideredhamster.yetanotherpixeldungeon.items.wands.WandOfMagicMissile;
@@ -213,6 +214,11 @@ public enum HeroClass {
 
         hero.HP = (hero.HT += 5);
         hero.defenseSkill -= 5;
+
+//        hero.HP = (hero.HT += 50);
+//        hero.STR = 50;
+//
+//        new ScrollOfClairvoyance().quantity(30).identify().collect();
 
         (hero.belongings.weap1 = new Shortsword()).identify().repair().fix();
         (hero.belongings.weap2 = new RoundShield()).identify().repair().fix();

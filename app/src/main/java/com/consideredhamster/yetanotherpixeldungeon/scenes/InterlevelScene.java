@@ -27,6 +27,7 @@ import com.consideredhamster.yetanotherpixeldungeon.YetAnotherPixelDungeon;
 import com.consideredhamster.yetanotherpixeldungeon.actors.Actor;
 import com.consideredhamster.yetanotherpixeldungeon.items.Generator;
 import com.consideredhamster.yetanotherpixeldungeon.levels.Level;
+import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.multilang.Ml;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndError;
@@ -41,6 +42,7 @@ import com.watabou.noosa.audio.Music;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
+import java.io.Console;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -303,13 +305,9 @@ public class InterlevelScene extends PixelScene {
             tip.maxWidth = Camera.main.width * 9 / 10;
             tip.measure();
 
-            for (BitmapText line : tip.new LineSplitter().split()) {
-                line.measure();
-                line.x = PixelScene.align(Camera.main.width / 2 - line.width() / 2);
-                line.y = PixelScene.align(Camera.main.height * 3 / 4 - tip.height() * 3 / 4 + tipBox.size() * line.height());
-                tipBox.add(line);
-                add(line);
-            }
+            tip.x = PixelScene.align(Camera.main.width / 2 - tip.width() / 2);
+            tip.y = PixelScene.align(Camera.main.height * 3 / 4 - tip.height() * 3 / 4 + tipBox.size() * tip.height());
+            add(tip);
         }
 
 

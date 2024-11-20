@@ -29,6 +29,7 @@ import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.BannerSprite
 import com.consideredhamster.yetanotherpixeldungeon.visuals.effects.Fireball;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.Archs;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.ExitButton;
+import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.LangButton;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.ui.PrefsButton;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.windows.WndChangelog;
 import com.watabou.input.Touchscreen;
@@ -203,6 +204,10 @@ public class TitleScene extends PixelScene {
         PrefsButton btnPrefs = new PrefsButton();
         btnPrefs.setPos(0, 0);
         add(btnPrefs);
+
+        LangButton btnLang = new LangButton();
+        btnLang.setPos(btnPrefs.width() + 2, 0);
+        add(btnLang);
 
         ExitButton btnExit = new ExitButton();
         btnExit.setPos(w - btnExit.width(), 0);

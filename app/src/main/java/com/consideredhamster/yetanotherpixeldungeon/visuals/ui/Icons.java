@@ -20,11 +20,10 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.visuals.ui;
 
-import android.graphics.RectF;
-
 import com.consideredhamster.yetanotherpixeldungeon.actors.hero.HeroClass;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
 import com.watabou.noosa.Image;
+import android.graphics.RectF;
 
 public enum Icons {
 
@@ -61,6 +60,7 @@ public enum Icons {
     CLOSE,
     RESUME,
     PREFS,
+    LANG,
     EXIT,
     WATA,
 
@@ -193,13 +193,16 @@ public enum Icons {
                 icon.frame(rect(icon, 48, 54, 11, 11));
                 break;
             case PREFS:
-                icon.frame(rect(icon, 60, 54, 12, 12));
+                icon.frame(rect(icon, 60, 54, 14, 14));
+                break;
+            case LANG:
+                icon.frame(rect(icon, 75, 54, 14, 12));
                 break;
             case EXIT:
-                icon.frame(rect(icon, 72, 54, 14, 12));
+                icon.frame(rect(icon, 90, 54, 15, 12));
                 break;
             case WATA:
-                icon.frame(rect(icon, 86, 54, 15, 12));
+                icon.frame(rect(icon, 106, 54, 15, 12));
                 break;
 
             case BACKPACK:

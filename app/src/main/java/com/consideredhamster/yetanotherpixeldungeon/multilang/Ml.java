@@ -3,7 +3,9 @@ package com.consideredhamster.yetanotherpixeldungeon.multilang;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.util.Log;
 
+import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Game;
 
 import org.json.JSONException;
@@ -29,23 +31,23 @@ public class Ml {
         String savedLanguageCode = loadLanguageSetting();
 
 
-        initialize("en");
+//        initialize("cn");
 
-        //todo: remember to uncomment this after language window is completed
-
-//        if (savedLanguageCode != null) {
-//            initialize(savedLanguageCode);
-//        } else {
-//            String systemLanguageCode = Locale.getDefault().getLanguage();
-//            String appLanguageCode = mapSystemLanguageToAppLanguage(systemLanguageCode);
-//            initialize(appLanguageCode);
-//        }
+        if (savedLanguageCode != null) {
+            initialize(savedLanguageCode);
+        } else {
+            String systemLanguageCode = Locale.getDefault().getLanguage();
+            String appLanguageCode = mapSystemLanguageToAppLanguage(systemLanguageCode);
+            initialize(appLanguageCode);
+        }
     }
 
     public static void initialize(String languageCode) {
         translations.clear();
 
         saveLanguageSetting(languageCode);
+        BitmapText.currentLanguageCode = languageCode;
+        BitmapText.setFont();
 
         AssetManager assetManager = Game.instance.getAssets();
         String fileName = TRANSLATION_PATH + languageCode + ".json";
@@ -65,7 +67,7 @@ public class Ml {
         }
     }
 
-    private static void saveLanguageSetting(String languageCode) {
+    public static void saveLanguageSetting(String languageCode) {
         Context context = Game.instance.getApplicationContext();
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -96,6 +98,7 @@ public class Ml {
             String placeholder = "{" + i + "}";
             result = result.replace(placeholder, args[i].toString());
         }
+//        Log.i("multilang", "formatString: " + result);
         return result;
     }
 

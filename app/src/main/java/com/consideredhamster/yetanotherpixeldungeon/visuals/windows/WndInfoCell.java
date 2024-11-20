@@ -68,7 +68,6 @@ public class WndInfoCell extends Window {
         add(titlebar);
 
         BitmapTextMultiline info = PixelScene.createMultiline(6);
-        add(info);
 
         StringBuilder desc = new StringBuilder(Dungeon.level.tileDesc(tile));
 
@@ -99,6 +98,7 @@ public class WndInfoCell extends Window {
         info.measure();
         info.x = titlebar.left();
         info.y = titlebar.bottom() + GAP;
+        add(info);
 
         resize(width, (int) (info.y + info.height()));
     }

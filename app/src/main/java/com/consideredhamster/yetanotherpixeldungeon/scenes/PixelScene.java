@@ -35,6 +35,7 @@ import com.watabou.noosa.ColorBlock;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.Scene;
 import com.watabou.noosa.Visual;
+import com.watabou.noosa.ui.Component;
 import com.watabou.utils.BitmapCache;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -55,11 +56,11 @@ public class PixelScene extends Scene {
 
     public static Camera uiCamera;
 
-    public static BitmapText.Font font1x;
-    public static BitmapText.Font font15x;
-    public static BitmapText.Font font2x;
-    public static BitmapText.Font font25x;
-    public static BitmapText.Font font3x;
+    public static int font1x = 8;
+    public static int font15x = 9;
+    public static int font2x = 10;
+    public static int font25x = 11;
+    public static int font3x = 12;
 
     @Override
     public void create() {
@@ -103,38 +104,38 @@ public class PixelScene extends Scene {
         uiCamera = Camera.createFullscreen(uiZoom);
         Camera.add(uiCamera);
 
-        if (font1x == null) {
-
-            // 3x5 (6)
-            font1x = Font.colorMarked(
-                    BitmapCache.get(Assets.FONTS1X), 0x00000000, BitmapText.Font.LATIN_FULL);
-            font1x.baseLine = 6;
-            font1x.tracking = -1;
-
-            // 5x8 (10)
-            font15x = Font.colorMarked(
-                    BitmapCache.get(Assets.FONTS15X), 12, 0x00000000, BitmapText.Font.LATIN_FULL);
-            font15x.baseLine = 9;
-            font15x.tracking = -1;
-
-            // 6x10 (12)
-            font2x = Font.colorMarked(
-                    BitmapCache.get(Assets.FONTS2X), 14, 0x00000000, BitmapText.Font.LATIN_FULL);
-            font2x.baseLine = 11;
-            font2x.tracking = -1;
-
-            // 7x12 (15)
-            font25x = Font.colorMarked(
-                    BitmapCache.get(Assets.FONTS25X), 17, 0x00000000, BitmapText.Font.LATIN_FULL);
-            font25x.baseLine = 13;
-            font25x.tracking = -1;
-
-            // 9x15 (18)
-            font3x = Font.colorMarked(
-                    BitmapCache.get(Assets.FONTS3X), 22, 0x00000000, BitmapText.Font.LATIN_FULL);
-            font3x.baseLine = 17;
-            font3x.tracking = -2;
-        }
+//        if (font1x == null) {
+//
+//            // 3x5 (6)
+//            font1x = Font.colorMarked(
+//                    BitmapCache.get(Assets.FONTS1X), 0x00000000, BitmapText.Font.LATIN_FULL);
+//            font1x.baseLine = 6;
+//            font1x.tracking = -1;
+//
+//            // 5x8 (10)
+//            font15x = Font.colorMarked(
+//                    BitmapCache.get(Assets.FONTS15X), 12, 0x00000000, BitmapText.Font.LATIN_FULL);
+//            font15x.baseLine = 9;
+//            font15x.tracking = -1;
+//
+//            // 6x10 (12)
+//            font2x = Font.colorMarked(
+//                    BitmapCache.get(Assets.FONTS2X), 14, 0x00000000, BitmapText.Font.LATIN_FULL);
+//            font2x.baseLine = 11;
+//            font2x.tracking = -1;
+//
+//            // 7x12 (15)
+//            font25x = Font.colorMarked(
+//                    BitmapCache.get(Assets.FONTS25X), 17, 0x00000000, BitmapText.Font.LATIN_FULL);
+//            font25x.baseLine = 13;
+//            font25x.tracking = -1;
+//
+//            // 9x15 (18)
+//            font3x = Font.colorMarked(
+//                    BitmapCache.get(Assets.FONTS3X), 22, 0x00000000, BitmapText.Font.LATIN_FULL);
+//            font3x.baseLine = 17;
+//            font3x.tracking = -2;
+//        }
     }
 
     @Override
@@ -143,7 +144,7 @@ public class PixelScene extends Scene {
         Touchscreen.event.removeAll();
     }
 
-    public static BitmapText.Font font;
+    public static int font;
     public static float scale;
 
     public static void chooseFont(float size) {
@@ -214,10 +215,13 @@ public class PixelScene extends Scene {
 
     public static BitmapText createText(String text, float size) {
 
-        chooseFont(size);
+        BitmapText result = new BitmapText(text, (int) (size * defaultZoom));
+        result.scale.set(1 / (float) defaultZoom);
 
-        BitmapText result = new BitmapText(text, font);
-        result.scale.set(scale);
+//        chooseFont(size);
+//
+//        BitmapText result = new BitmapText(text, font);
+//        result.scale.set(scale);
 
         return result;
     }
@@ -228,27 +232,32 @@ public class PixelScene extends Scene {
 
     public static BitmapTextMultiline createMultiline(String text, float size) {
 
-        chooseFont(size);
-
-        BitmapTextMultiline result = new BitmapTextMultiline(text, font);
-        result.scale.set(scale);
+        BitmapTextMultiline result = new BitmapTextMultiline(text, (int) ((size - 1) * defaultZoom));
+        result.zoom(1 / (float) defaultZoom);
+//
+//        chooseFont(size);
+//
+//        BitmapTextMultiline result = new BitmapTextMultiline(text, font);
+//        result.scale.set(scale);
 
         return result;
     }
 
-    public static float align(Camera camera, float pos) {
-        return ((int) (pos * camera.zoom)) / camera.zoom;
+    public static float align(float pos) {
+        return Math.round(pos * defaultZoom) / (float) defaultZoom;
     }
 
-    // This one should be used for UI elements
-    public static float align(float pos) {
-        return ((int) (pos * defaultZoom)) / defaultZoom;
+    public static float align(Camera camera, float pos) {
+        return Math.round(pos * camera.zoom) / camera.zoom;
     }
 
     public static void align(Visual v) {
-        Camera c = v.camera();
-        v.x = align(c, v.x);
-        v.y = align(c, v.y);
+        v.x = align(v.x);
+        v.y = align(v.y);
+    }
+
+    public static void align(Component c) {
+        c.setPos(align(c.left()), align(c.top()));
     }
 
     public static boolean noFade = false;

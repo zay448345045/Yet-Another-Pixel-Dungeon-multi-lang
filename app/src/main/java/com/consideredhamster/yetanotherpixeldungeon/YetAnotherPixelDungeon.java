@@ -32,6 +32,7 @@ import com.consideredhamster.yetanotherpixeldungeon.scenes.GameScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.TitleScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.Assets;
+import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Music;
 import com.watabou.noosa.audio.Sample;
@@ -200,6 +201,7 @@ public class YetAnotherPixelDungeon extends Game {
                 Assets.SND_BEE,
                 Assets.SND_DEGRADE,
                 Assets.SND_MIMIC);
+        BitmapText.setFont();
     }
 
     @Override

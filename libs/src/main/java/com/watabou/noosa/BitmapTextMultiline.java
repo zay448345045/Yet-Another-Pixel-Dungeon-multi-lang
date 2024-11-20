@@ -17,6 +17,7 @@
 
 package com.watabou.noosa;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,6 +28,7 @@ import com.watabou.noosa.ui.Component;
 import com.watabou.utils.PointF;
 
 import android.graphics.RectF;
+import android.util.Log;
 
 public class BitmapTextMultiline extends Component {
 
@@ -111,29 +113,56 @@ public class BitmapTextMultiline extends Component {
 				words.add(null);
 			} else if (!str.equals(SPACE)) {
 				BitmapText word;
-				if (str.startsWith(UNDERSCORE) && str.endsWith(UNDERSCORE)) {
-					word = new BitmapText(str.substring(1, str.length() - 1), size);
+
+				int start = 0;
+				int end = str.length();
+
+				while (start < end && (str.charAt(start) == ',' || str.charAt(start) == '.')) {
+					start++;
+				}
+				while (end > start && (str.charAt(end - 1) == ',' || str.charAt(end - 1) == '.')) {
+					end--;
+				}
+
+				String coreStr = str.substring(start, end);
+
+				boolean startsWithUnderscore = coreStr.startsWith(UNDERSCORE);
+				boolean endsWithUnderscore = coreStr.endsWith(UNDERSCORE);
+
+				if (startsWithUnderscore) {
+					coreStr = coreStr.substring(1);
+				}
+				if (endsWithUnderscore) {
+					coreStr = coreStr.substring(0, coreStr.length() - 1);
+				}
+
+				String reconstructedStr = str.substring(0, start) + coreStr + str.substring(end);
+
+				if (startsWithUnderscore && endsWithUnderscore) {
+					word = new BitmapText(reconstructedStr, size);
 					word.hardlight(0xFFFF44);
 				} else {
-					if (str.startsWith(UNDERSCORE)) {
+					if (startsWithUnderscore) {
 						highlighting = !highlighting;
-						word = new BitmapText(str.substring(1, str.length()), size);
-					} else if (str.endsWith(UNDERSCORE)) {
-						word = new BitmapText(str.substring(0, str.length() - 1), size);
-					} else {
-						word = new BitmapText(str, size);
 					}
-					if (highlighting) word.hardlight(0xFFFF44);
-					else if (color != -1) word.hardlight(color);
-
-					if (str.endsWith(UNDERSCORE)) highlighting = !highlighting;
+					word = new BitmapText(reconstructedStr, size);
+					if (highlighting) {
+						word.hardlight(0xFFFF44);
+					} else if (color != -1) {
+						word.hardlight(color);
+					}
+					if (endsWithUnderscore) {
+						highlighting = !highlighting;
+					}
 				}
+
 				word.scale.set(zoom);
 				words.add(word);
 				add(word);
 
-				if (height < word.baseLine()) height = word.baseLine();
-
+				if (height < word.baseLine()) {
+					height = word.baseLine();
+				}
 			}
 		}
 		layout();
@@ -183,14 +212,14 @@ public class BitmapTextMultiline extends Component {
 		for (BitmapText word : words) {
 			if (word == null) {
 				//newline
-				y += height + 0.5f;
+				y += height + 0.4f;
 				x = this.x;
 				nLines++;
 			} else {
 				if (word.height() > height) height = word.baseLine();
 
 				if ((x - this.x) + word.width() > maxWidth) {
-					y += height + 0.5f;
+					y += height + 0.4f;
 					x = this.x;
 					nLines++;
 				}
@@ -206,6 +235,6 @@ public class BitmapTextMultiline extends Component {
 
 			}
 		}
-		this.height = (y - this.y) + height + 0.5f;
+		this.height = (y - this.y) + height + 0.4f;
 	}
 }

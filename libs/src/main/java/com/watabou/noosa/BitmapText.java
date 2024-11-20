@@ -33,6 +33,7 @@ import android.graphics.Typeface;
 
 import com.watabou.glwrap.Texture;
 import android.graphics.RectF;
+import android.net.wifi.MloLink;
 
 public class BitmapText extends Image {
 	private static Canvas canvas = new Canvas();
@@ -42,6 +43,17 @@ public class BitmapText extends Image {
 	private static Typeface customFont;
 
 	private static Typeface bitmapFont;
+	private static int DEFAULT_SIZE = 12;
+
+	private static final String fontPath = "font/";
+
+	private static final String latinPixelFont = "pixel_font.ttf";
+
+	private static final String cjkPixelFont = "Founder.ttf";
+
+	private static final String bitmapPixelFont = "04B_03__.ttf";
+
+	public static String currentLanguageCode = "en";
 
 	//this is basically a LRU cache. capacity is determined by character count, not entry count.
 	private static LinkedHashMap<String, BitmapText.CachedText> textCache = new LinkedHashMap<>(700, 0.75f, true);
@@ -71,14 +83,14 @@ public class BitmapText extends Image {
 
 	public BitmapText(Font font){
 		this.text = text;
-		this.size = 16;
+		this.size = DEFAULT_SIZE;
 		needsRender = true;
 		measure(this);
 	}
 
 	public BitmapText(String text, Font font){
 		this.text = text;
-		this.size = 16;
+		this.size = DEFAULT_SIZE;
 		needsRender = true;
 		measure(this);
 	}
@@ -124,7 +136,7 @@ public class BitmapText extends Image {
 	public static void measure(){
 
 	}
-	private static synchronized void measure(BitmapText r){
+	protected static synchronized void measure(BitmapText r){
 
 		if ( r.text == null || r.text.equals("") ) {
 			r.text = "";
@@ -136,7 +148,7 @@ public class BitmapText extends Image {
 		}
 
 		painter.setTextSize(r.size);
-		painter.setAntiAlias(r.size >= 12);
+		painter.setAntiAlias(true);
 
 		if (customFont != null && bitmapFont != null) {
 			painter.setTypeface(r.size >= 12 ? customFont : bitmapFont);
@@ -242,8 +254,14 @@ public class BitmapText extends Image {
 	}
 
 	public static void setFont(){
-		customFont = Typeface.createFromAsset(Game.instance.getAssets(), "font/zpix_font.ttf");
-		bitmapFont = Typeface.createFromAsset(Game.instance.getAssets(), "font/04B_03__.ttf");
+		String customPath = fontPath + latinPixelFont;
+		if (currentLanguageCode.equals("cn") || currentLanguageCode.equals("ja") || currentLanguageCode.equals("ko")){
+			customPath = fontPath + cjkPixelFont;
+		}
+		String bitmapPath = fontPath + bitmapPixelFont;
+
+		customFont = Typeface.createFromAsset(Game.instance.getAssets(), customPath);
+		bitmapFont = Typeface.createFromAsset(Game.instance.getAssets(), bitmapPath);
 		clearCache();
 	}
 

@@ -72,12 +72,12 @@ public class WndStory extends Window {
         tf = PixelScene.createMultiline(text, 7);
         tf.maxWidth = WIDTH - MARGIN * 2;
         tf.measure();
-        tf.ra = bgR;
-        tf.ga = bgG;
-        tf.ba = bgB;
-        tf.rm = -bgR;
-        tf.gm = -bgG;
-        tf.bm = -bgB;
+//        tf.ra = bgR;
+//        tf.ga = bgG;
+//        tf.ba = bgB;
+//        tf.rm = -bgR;
+//        tf.gm = -bgG;
+//        tf.bm = -bgB;
         tf.x = MARGIN;
         add(tf);
 

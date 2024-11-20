@@ -370,6 +370,7 @@ public class WndTutorial extends WndTabbed {
 
             label = PixelScene.createMultiline(6);
             add(label);
+            layout();
         }
 
         @Override
@@ -378,6 +379,7 @@ public class WndTutorial extends WndTabbed {
 
             label.x = icon.x + icon.width;
             label.y = PixelScene.align(y);
+            label.layout();
         }
     }
 }

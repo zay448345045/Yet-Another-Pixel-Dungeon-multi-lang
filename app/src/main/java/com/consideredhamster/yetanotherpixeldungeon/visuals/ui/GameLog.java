@@ -24,6 +24,7 @@ import com.consideredhamster.yetanotherpixeldungeon.misc.utils.GLog;
 import com.consideredhamster.yetanotherpixeldungeon.misc.utils.Utils;
 import com.consideredhamster.yetanotherpixeldungeon.scenes.PixelScene;
 import com.consideredhamster.yetanotherpixeldungeon.visuals.sprites.CharSprite;
+import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.BitmapTextMultiline;
 import com.watabou.noosa.ui.Component;
 import com.watabou.utils.Signal;
@@ -68,8 +69,8 @@ public class GameLog extends Component implements Signal.Listener<String> {
             color = CharSprite.NEUTRAL;
         }
 
-        text = Utils.capitalize(text) +
-                (PUNCTUATION.matcher(text).matches() ? "" : ".");
+        if (!BitmapText.currentLanguageCode.equals("cn"))
+            text = Utils.capitalize(text) + (PUNCTUATION.matcher(text).matches() ? "" : ".");
 
         if (lastEntry != null && color == lastColor) {
 

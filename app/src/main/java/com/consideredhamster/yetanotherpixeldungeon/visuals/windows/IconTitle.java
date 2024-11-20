@@ -87,6 +87,7 @@ public class IconTitle extends Component {
                 imIcon.height > tfLabel.height() ?
                         imIcon.y + (imIcon.height() - tfLabel.bottom()) / 2 :
                         imIcon.y);
+        tfLabel.layout();
 
         if (health.visible) {
             health.setRect(tfLabel.x, Math.max(tfLabel.y + tfLabel.height(), imIcon.y + imIcon.height() - health.height()), tfLabel.maxWidth, 0);

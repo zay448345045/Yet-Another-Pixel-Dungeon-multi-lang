@@ -117,10 +117,14 @@ public class BitmapTextMultiline extends Component {
 				int start = 0;
 				int end = str.length();
 
-				while (start < end && (str.charAt(start) == ',' || str.charAt(start) == '.')) {
+				// Characters to be ignored when checking for underscores
+				String ignoredChars = ",.，。";
+
+				while (start < end && ignoredChars.indexOf(str.charAt(start)) != -1) {
 					start++;
 				}
-				while (end > start && (str.charAt(end - 1) == ',' || str.charAt(end - 1) == '.')) {
+
+				while (end > start && ignoredChars.indexOf(str.charAt(end - 1)) != -1) {
 					end--;
 				}
 

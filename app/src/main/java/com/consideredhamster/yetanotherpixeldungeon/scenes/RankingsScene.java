@@ -330,6 +330,7 @@ public class RankingsScene extends PixelScene {
             desc.maxWidth = (int) (floorIcon.x - desc.x);
             desc.measure();
             desc.y = position.y + position.baseLine() - desc.bottom();
+            desc.layout();
         }
 
         @Override

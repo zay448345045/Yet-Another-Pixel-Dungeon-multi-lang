@@ -20,6 +20,8 @@
  */
 package com.consideredhamster.yetanotherpixeldungeon.misc.utils;
 
+import com.watabou.noosa.BitmapText;
+
 import java.util.Locale;
 
 public class Utils {
@@ -35,10 +37,13 @@ public class Utils {
     public static String VOWELS = "aoeiu";
 
     public static String indefinite(String noun) {
-        if (noun.length() == 0) {
-            return "a";
-        } else {
-            return (VOWELS.indexOf(Character.toLowerCase(noun.charAt(0))) != -1 ? "an " : "a ") + noun;
+        if (BitmapText.currentLanguageCode.equals("en")){
+            if (noun.length() == 0) {
+                return "a";
+            } else {
+                return (VOWELS.indexOf(Character.toLowerCase(noun.charAt(0))) != -1 ? "an " : "a ") + noun;
+            }
         }
+        return noun;
     }
 }

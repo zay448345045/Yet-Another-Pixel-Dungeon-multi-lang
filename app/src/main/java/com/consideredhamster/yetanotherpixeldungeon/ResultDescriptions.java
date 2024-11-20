@@ -57,7 +57,7 @@ public abstract class ResultDescriptions {
         return Utils.capitalize(
                 killedBy == Dungeon.hero
                         ? Ml.g("resultdescriptions.killedWith_killed") + (Dungeon.hero.heroClass == HeroClass.ACOLYTE ? Ml.g("resultdescriptions.generateResult_1") : Ml.g("resultdescriptions.generateResult_2"))
-                        : Ml.g("resultdescriptions.killedWith_" + killedWith(killedBy, killedWith)) + Ml.g("resultdescriptions.generateResult_3") + Ml.g("resultdescriptions.killedBy_" + killedBy(killedBy))
+                        : killedWith(killedBy, killedWith) + Ml.g("resultdescriptions.generateResult_3") + killedBy(killedBy)
         );
     }
 
@@ -65,8 +65,8 @@ public abstract class ResultDescriptions {
 
         return (
                 killedBy == Dungeon.hero
-                        ? Ml.g("resultdescriptions.generateMessage_1") + Ml.g("resultdescriptions.killedWith_" + killedWith(killedBy, killedWith)) + Ml.g("resultdescriptions.generateMessage_2")
-                        : Ml.g("resultdescriptions.generateMessage_3") + Ml.g("resultdescriptions.killedBy_" + killedBy(killedBy)) + Ml.g("resultdescriptions.killedWith_" + killedWith(killedBy, killedWith))
+                        ? Ml.g("resultdescriptions.generateMessage_1") + killedWith(killedBy, killedWith) + Ml.g("resultdescriptions.generateMessage_2")
+                        : Ml.g("resultdescriptions.generateMessage_3") + killedBy(killedBy) + killedWith(killedBy, killedWith)
         ) + Ml.g("resultdescriptions.generateMessage_5");
     }
 
@@ -141,7 +141,7 @@ public abstract class ResultDescriptions {
 
         if (killedBy instanceof Mob) {
             Mob mob = ((Mob) killedBy);
-            result = Bestiary.isBoss(mob) ? mob.name : Ml.g("resultdescriptions.killedBy_" + Utils.indefinite(mob.name));
+            result = Bestiary.isBoss(mob) ? mob.name : Utils.indefinite(mob.name);
         } else if (killedBy instanceof Blob) {
             Blob blob = ((Blob) killedBy);
             result = Ml.g("resultdescriptions.killedBy_" + Utils.indefinite(blob.name));

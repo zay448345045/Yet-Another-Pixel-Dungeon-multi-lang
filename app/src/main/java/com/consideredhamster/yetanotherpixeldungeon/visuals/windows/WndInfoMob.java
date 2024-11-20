@@ -87,11 +87,11 @@ public class WndInfoMob extends WndTitledMessage {
         if (!immunity.isEmpty()) {
 
             StringBuilder imm = new StringBuilder();
-            imm.append(immunity.remove(0));
+            imm.append(buffTranslation(immunity.remove(0)));
 
             for (String s : immunity) {
                 imm.append(", ");
-                imm.append(s);
+                imm.append(buffTranslation(s));
             }
 
             stats.append(Ml.g("visuals.windows.wndinfomob.stats_5", imm.toString()) + "\n");
@@ -99,11 +99,11 @@ public class WndInfoMob extends WndTitledMessage {
         if (!resistant.isEmpty()) {
 
             StringBuilder res = new StringBuilder();
-            res.append(resistant.remove(0));
+            res.append(buffTranslation(resistant.remove(0)));
 
             for (String s : resistant) {
                 res.append(", ");
-                res.append(s);
+                res.append(buffTranslation(s));
             }
 
             stats.append(Ml.g("visuals.windows.wndinfomob.stats_6", res.toString()) + "\n");
@@ -112,11 +112,11 @@ public class WndInfoMob extends WndTitledMessage {
         if (!vulnerable.isEmpty()) {
 
             StringBuilder vul = new StringBuilder();
-            vul.append(vulnerable.remove(0));
+            vul.append(buffTranslation(vulnerable.remove(0)));
 
             for (String s : vulnerable) {
                 vul.append(", ");
-                vul.append(s);
+                vul.append(buffTranslation(s));
             }
 
             stats.append(Ml.g("visuals.windows.wndinfomob.stats_7", vul.toString()) + "\n");
@@ -176,5 +176,41 @@ public class WndInfoMob extends WndTitledMessage {
 
             height = health.bottom();
         }
+    }
+
+    private static String buffTranslation(String className) {
+        String insensitiveString = className.toLowerCase();
+        insensitiveString = insensitiveString.replaceAll("\\s+", "");
+        switch (insensitiveString) {
+            case "physical":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation");
+            case "explosion":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_2");
+            case "knockback":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_3");
+            case "ensnaring":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_4");
+            case "flame":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_5");
+            case "acid":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_6");
+            case "shock":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_7");
+            case "mind":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_8");
+            case "body":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_9");
+            case "dispel":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_10");
+            case "frost":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_11");
+            case "energy":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_12");
+            case "unholy":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_13");
+            case "doom":
+                return Ml.g("visuals.windows.wndinfomob.bufftranslation_14");
+        }
+        return className;
     }
 }

@@ -76,9 +76,22 @@ public abstract class Potion extends Item {
             PotionOfCausticOoze.class
     };
     private static final String[] colors = {
-            "turquoise", "crimson", "azure", "emerald", "golden", "magenta",
-            "charcoal", "ivory", "amber", "bistre", "indigo", "silver",
-            "chartreuse", "lavender", "bordeaux", "jade",
+            Ml.g("items.potions.potion.color_turquoise"),
+            Ml.g("items.potions.potion.color_crimson"),
+            Ml.g("items.potions.potion.color_azure"),
+            Ml.g("items.potions.potion.color_emerald"),
+            Ml.g("items.potions.potion.color_golden"),
+            Ml.g("items.potions.potion.color_magenta"),
+            Ml.g("items.potions.potion.color_charcoal"),
+            Ml.g("items.potions.potion.color_ivory"),
+            Ml.g("items.potions.potion.color_amber"),
+            Ml.g("items.potions.potion.color_bistre"),
+            Ml.g("items.potions.potion.color_indigo"),
+            Ml.g("items.potions.potion.color_silver"),
+            Ml.g("items.potions.potion.color_chartreuse"),
+            Ml.g("items.potions.potion.color_lavender"),
+            Ml.g("items.potions.potion.color_bordeaux"),
+            Ml.g("items.potions.potion.color_jade")
     };
 
     private static final Integer[] images = {

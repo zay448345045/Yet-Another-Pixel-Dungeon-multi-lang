@@ -35,6 +35,7 @@ import com.consideredhamster.yetanotherpixeldungeon.items.misc.OilLantern;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Waterskin;
 import com.consideredhamster.yetanotherpixeldungeon.items.misc.Whetstone;
 import com.consideredhamster.yetanotherpixeldungeon.items.potions.EmptyBottle;
+import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfAccuracy;
 import com.consideredhamster.yetanotherpixeldungeon.items.rings.RingOfShadows;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfClairvoyance;
 import com.consideredhamster.yetanotherpixeldungeon.items.scrolls.ScrollOfRaiseDead;
@@ -52,7 +53,7 @@ import com.watabou.utils.Bundle;
 
 public enum HeroClass {
 
-    WARRIOR("warrior"), BRIGAND("brigand"), SCHOLAR("scholar"), ACOLYTE("acolyte");
+    WARRIOR(Ml.g("actors.hero.heroclass.warrior")), BRIGAND(Ml.g("actors.hero.heroclass.brigand")), SCHOLAR(Ml.g("actors.hero.heroclass.scholar")), ACOLYTE(Ml.g("actors.hero.heroclass.acolyte"));
 
     private String title;
 

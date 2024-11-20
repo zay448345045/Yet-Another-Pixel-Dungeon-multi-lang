@@ -484,7 +484,7 @@ public class StartScene extends PixelScene {
                 highlighted = BASIC_HIGHLIGHTED;
             }
 
-            name.text(cl.name());
+            name.text(Ml.g("actors.hero.heroclass." + cl.name().toLowerCase()));
             name.measure();
             name.hardlight(normal);
 

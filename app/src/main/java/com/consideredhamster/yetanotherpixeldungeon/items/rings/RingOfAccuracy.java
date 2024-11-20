@@ -48,7 +48,7 @@ public class RingOfAccuracy extends Ring {
         }
 
         StringBuilder desc = new StringBuilder(
-                Ml.g("items.rings.ring.desc_1")
+                Ml.g("items.rings.ringofaccuracy.desc_1")
         );
 
         if (!dud) {
@@ -60,7 +60,7 @@ public class RingOfAccuracy extends Ring {
             desc.append(" ");
 
             desc.append(
-                    Ml.g("items.rings.ring.desc_2", mainEffect, sideEffect)
+                    Ml.g("items.rings.ringofaccuracy.desc_2", mainEffect, sideEffect)
             );
         }
 

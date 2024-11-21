@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 android {
+    namespace '"com.consideredhamster.yetanotherpixeldungeon.github'
     compileSdkVersion 35
 //    buildToolsVersion '30.0.3'
 

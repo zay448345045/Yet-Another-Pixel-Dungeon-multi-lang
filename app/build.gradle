@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 33
-    buildToolsVersion '30.0.3'
+    compileSdkVersion 35
+//    buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "com.consideredhamster.yetanotherpixeldungeon.github"

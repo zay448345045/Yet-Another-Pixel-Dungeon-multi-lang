@@ -14,7 +14,7 @@ dependencies {
 apply plugin: 'java-library'
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-sourceCompatibility = targetCompatibility = appJavaCompatibility
+sourceCompatibility = targetCompatibility //= appJavaCompatibility
 
 dependencies {
     api project(':libs')
